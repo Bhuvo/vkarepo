@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "591329525692",
+    "project_id": "timesmed-new-patient",
+    "storage_bucket": "timesmed-new-patient.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591329525692:android:11a4c979841e2a36a875b9",
+        "android_client_info": {
+          "package_name": "com.finservtech.timesmedlite.doctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591329525692-ujasaql7u3tg6chsorlb1i1nqjeefm8t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr8JRq6imHrK1NGoJvfmydPBHn-t2Q-6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591329525692-ujasaql7u3tg6chsorlb1i1nqjeefm8t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "591329525692-gragufbnua1jajdm4oj1c6m9mbstd0la.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.finservtech.timesmedlite"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591329525692:android:fee11ededfd38b75a875b9",
+        "android_client_info": {
+          "package_name": "com.finservtech.timesmedlite.patient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591329525692-ujasaql7u3tg6chsorlb1i1nqjeefm8t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr8JRq6imHrK1NGoJvfmydPBHn-t2Q-6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591329525692-ujasaql7u3tg6chsorlb1i1nqjeefm8t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "591329525692-gragufbnua1jajdm4oj1c6m9mbstd0la.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.finservtech.timesmedlite"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

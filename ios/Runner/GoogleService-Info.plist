@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>591329525692-gragufbnua1jajdm4oj1c6m9mbstd0la.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.591329525692-gragufbnua1jajdm4oj1c6m9mbstd0la</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCmSnx93U7Trl_mECcaBGlMTVvidvzgfTU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>591329525692</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.finservtech.timesmedlite</string>
+	<key>PROJECT_ID</key>
+	<string>timesmed-new-patient</string>
+	<key>STORAGE_BUCKET</key>
+	<string>timesmed-new-patient.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:591329525692:ios:3d25b93943ffb6fda875b9</string>
+</dict>
+</plist>

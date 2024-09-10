@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="main_doctor.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+    <option name="buildFlavor" value="doctor" />
+    <option name="filePath" value="$PROJECT_DIR$/lib/main_doctor.dart" />
+    <method v="2" />
+  </configuration>
+</component>
