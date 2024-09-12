@@ -199,7 +199,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                   break;
               }
             },
-            child: UserTile(
+            child: UserTile(padding:EdgeInsets.all(4),
               avatarRadius: 28,
               caption: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

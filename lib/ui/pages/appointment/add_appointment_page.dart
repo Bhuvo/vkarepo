@@ -437,7 +437,7 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                     'User_id': p.userId.toString(),
                   });
                   final response1 = await http.get(uri);
-                  print(response1.body);
+                  print('Uri 1 ${response1.body}');
                   final uri2 = Uri.parse(
                           "https://api.timesmed.com/WebAPI2/getOnlineFeeData")
                       .replace(
@@ -445,7 +445,7 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                     'DoctorId': doctor!["Doctor_id"].toString(),
                   });
                   final response2 = await http.get(uri2);
-                  print(response2.body);
+                  print('Uri 2 ${response2.body}');
                   var jsonResponse = jsonDecode(response2.body);
                   print(jsonResponse[0]["eclinicVideo"].toString());
                   setState(() {

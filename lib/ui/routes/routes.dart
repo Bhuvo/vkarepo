@@ -88,5 +88,6 @@ abstract class Routes {
   static const String thankingPage = 'thankingPage';
   static const String BookAppointmentForClinicalTiming = 'BookAppointmentForClinicalTiming';
 
+  static const String pdfVka = 'pdfVka';
 
 }

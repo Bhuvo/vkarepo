@@ -229,7 +229,8 @@ class _AppointmentSelectUserDialogState
       if (res != null) {
         context.popDialog(true);
       }
-    } else {
+    }
+    else {
       print("api clicked");
       final call = Injector()
           .timesmedService

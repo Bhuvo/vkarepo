@@ -16,6 +16,8 @@ import 'package:timesmedlite/utils/date_utils.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
+import '../home/home_bottom_navigation.dart';
+
 class CurrentAppointmentPage extends StatefulWidget {
   const CurrentAppointmentPage({Key? key}) : super(key: key);
 
@@ -92,6 +94,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
     setState(() {});
     super.initState();
   }
+  bool isSearch = false;
 
   @override
   Widget build(BuildContext context) {
@@ -100,8 +103,13 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
     final f = MDateUtils.formatDateToDateTime(query['From']);
     final t = MDateUtils.formatDateToDateTime(query['To']);
 
-    return HomePageBase(
+    return HomeBottomNavigation(
       title: Consts.CURRENT_APPOINTMENT,
+      actions: [IconButton(onPressed: (){
+        setState(() {
+          isSearch = !isSearch;
+        });
+      }, icon:isSearch ? const Icon(Icons.close) : const Icon(Icons.search))],
       body: BlocProvider(
         create: (context) => bloc,
         child: ApiBuilder(
@@ -124,57 +132,59 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                     // const SizedBox(
                     //   height: 12,
                     // ),
-                    Row(
-                      children: [
-                        Expanded(
-                            child: MDateTimePicker(
-                          start: DateTime(2000),
-                          end: t,
-                          initial: f,
-                          onChanged: (d) {
-                            setState(() {
-                              query['From'] = MDateUtils.dateToQueryDate(
-                                  d?.toIso8601String());
-                            });
-                          },
-                          label: 'From Date',
-                        )),
-                        const SizedBox(
-                          width: 16,
-                        ),
-                        Expanded(
-                            child: MDateTimePicker(
-                          start: f,
-                          end: DateTime(2100),
-                          initial: t,
-                          onChanged: (d) {
-                            setState(() {
-                              query['To'] = MDateUtils.dateToQueryDate(
-                                  d?.toIso8601String());
-                            });
-                          },
-                          label: 'To Date',
-                        )),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    SizedBox(
-                      width: double.maxFinite,
-                      height: 50,
-                      child: OutlinedButton(
-                        child: Text('Go'),
-                        onPressed: () {
-                          bloc.add(UpdateQuery(query));
-                        },
+                    isSearch? Column(children: [
+                      Row(
+                        children: [
+                          Expanded(
+                              child: MDateTimePicker(
+                                start: DateTime(2000),
+                                end: t,
+                                initial: f,
+                                onChanged: (d) {
+                                  setState(() {
+                                    query['From'] = MDateUtils.dateToQueryDate(
+                                        d?.toIso8601String());
+                                  });
+                                },
+                                label: 'From Date',
+                              )),
+                          const SizedBox(
+                            width: 16,
+                          ),
+                          Expanded(
+                              child: MDateTimePicker(
+                                start: f,
+                                end: DateTime(2100),
+                                initial: t,
+                                onChanged: (d) {
+                                  setState(() {
+                                    query['To'] = MDateUtils.dateToQueryDate(
+                                        d?.toIso8601String());
+                                  });
+                                },
+                                label: 'To Date',
+                              )),
+                        ],
                       ),
-                    ),
-                    const Divider(
-                      height: 24,
-                      endIndent: 0,
-                      indent: 0,
-                    ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      SizedBox(
+                        width: double.maxFinite,
+                        height: 50,
+                        child: OutlinedButton(
+                          child: Text('Go'),
+                          onPressed: () {
+                            bloc.add(UpdateQuery(query));
+                          },
+                        ),
+                      ),
+                      const Divider(
+                        height: 24,
+                        endIndent: 0,
+                        indent: 0,
+                      ),
+                    ],): Container(),
                     Row(
                       children: [
                         DashboardCard(

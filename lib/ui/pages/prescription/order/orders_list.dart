@@ -13,6 +13,8 @@ import 'package:timesmedlite/utils/size_utils.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
+import '../../../components/patient_bottom_navigation.dart';
+
 class OrdersList extends StatelessWidget {
   OrdersList({Key? key}) : super(key: key);
 
@@ -92,6 +94,7 @@ class OrdersList extends StatelessWidget {
           );
         }),
       ),
+      bottom: const PatientBottomNavigation(),
     );
   }
 }

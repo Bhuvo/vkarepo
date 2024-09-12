@@ -9,6 +9,7 @@ import '../../components/api_builder/api_builder_bloc.dart';
 import '../../components/nothing_widget.dart';
 import '../../components/shimmer/drop_down_shimmer.dart';
 import '../../providers/patient_provider.dart';
+import '../home/home_bottom_navigation.dart';
 import '../patient_registration/patient_register_list_item.dart';
 import 'schedule_list_item.dart';
 import 'package:timesmedlite/ui/widgets/m_search_list_view.dart';
@@ -44,7 +45,7 @@ class ScheduleListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomePageBase(
+    return HomeBottomNavigation(
       title: title == ''
           ? isPendingList
               ? Consts.TOTAL_PENDING_CASES

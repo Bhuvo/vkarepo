@@ -29,8 +29,7 @@ class CallLogsPage extends StatelessWidget {
     return HomeBottomNavigation(
         appBarBottom: const DoctorHeader(),
         paddingTop: 140,
-        body:
-        Column(
+        body: Column(
           children: [
             const SizedBox(height: 16,),
             Padding(

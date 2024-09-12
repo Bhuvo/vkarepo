@@ -5,6 +5,8 @@ import 'package:timesmedlite/model/user.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/ui/widgets/m_drawer.dart';
 
+import '../utils/local_storage.dart';
+
 class Consts {
   Consts._();
 
@@ -189,6 +191,12 @@ class Consts {
   static const String ACCOUNT = 'ACCOUNT';
   static const String MY_ORDERS = 'MY ORDERS';
   static const String INR_DETAILS = 'INR DETAILS';
+  static const String INSTRUCTIONS = 'Instructions';
+
+
+  static const String doctor = 'Doctor';
+  static const String nurse = 'Nurse';
+  static const String frontOffice = 'FOffice';
 
   // static const freqs = [
   //   "1-1-0-1",
@@ -255,6 +263,30 @@ class Consts {
     // MDrawerItem('PATIENT MODULE', Routes.tempRoute, icon: FontAwesomeIcons.patreon),
   ];
 
+  static const List<MDrawerItem> NURSE_BOTTOM_NAVIGATION_ITEMS = [
+    MDrawerItem(CALENDAR, Routes.calendarPage,
+        icon: FontAwesomeIcons.solidCalendarDays),
+    // MDrawerItem(PATIENT_WAITING_LIST, Routes.patientWaitingList,
+    //     icon: FontAwesomeIcons.userClock),
+    // MDrawerItem(CALL_LOG, Routes.callLogs, icon: FontAwesomeIcons.squarePhone),
+    // MDrawerItem(MISSED_CALL, Routes.missedCalls,
+    //     icon: FontAwesomeIcons.phoneSlash),
+    MDrawerItem(DASHBOARD, Routes.currentAppointment,
+        icon: FontAwesomeIcons.chartPie),
+    // MDrawerItem(TELE_MEDICINE, Routes.dashboard,
+    //     icon: FontAwesomeIcons.houseMedicalCircleCheck),
+    MDrawerItem(BOOK_APPOINTMENT, Routes.bookingAppointment,
+        icon: FontAwesomeIcons.penClip),
+    MDrawerItem(PATIENT_REGISTRATION, Routes.patientRegistrationList,
+        icon: FontAwesomeIcons.userCheck),
+    // MDrawerItem(TODAY_INR_SCHEDULE, Routes.todayInrScheduleList, icon: FontAwesomeIcons.clipboardList),
+    // MDrawerItem(TOTAL_PENDING_CASES, Routes.totalPendingList,
+    //     icon: FontAwesomeIcons.userClock),
+    // MDrawerItem(TOTAL_INR_LINELIST, Routes.totalInrLineList, icon: FontAwesomeIcons.rectangleList),
+    MDrawerItem('PROFILE', Routes.doctorProfile,
+        icon: FontAwesomeIcons.userDoctor), //DOCTOR_PROFILE
+  ];
+
   static const List<MDrawerItem> BOTTOM_NAVIGATION_ITEMS = [
     MDrawerItem(CALENDAR, Routes.calendarPage,
         icon: FontAwesomeIcons.solidCalendarDays),
@@ -275,17 +307,18 @@ class Consts {
     MDrawerItem(TOTAL_PENDING_CASES, Routes.totalPendingList,
         icon: FontAwesomeIcons.userClock),
     // MDrawerItem(TOTAL_INR_LINELIST, Routes.totalInrLineList, icon: FontAwesomeIcons.rectangleList),
-    MDrawerItem(DOCTOR_PROFILE, Routes.doctorProfile,
+    MDrawerItem('PROFILE', Routes.doctorProfile,
         icon: FontAwesomeIcons.userDoctor),
   ];
 
   static const List<MDrawerItem> PATIENT_BOTTOM_NAVIGATION_ITEMS = [
     //MDrawerItem(ONLINE_WAITING_HALL, Routes.inQueuePage, icon: CupertinoIcons.clock_fill),
     MDrawerItem(HOME, Routes.bookAppointment, icon: CupertinoIcons.home),
+    MDrawerItem(MY_ORDERS, Routes.ordersList, icon: CupertinoIcons.cube_box),
+    MDrawerItem(INR_DETAILS, Routes.patientScreenINRDetails,
+        icon: CupertinoIcons.graph_circle_fill),
     MDrawerItem(ACCOUNT, Routes.patientAccountPage,
         icon: CupertinoIcons.person_fill),
-    MDrawerItem(MY_ORDERS, Routes.ordersList, icon: CupertinoIcons.cube_box),
-    // MDrawerItem(INR_DETAILS, Routes.patientScreenINRDetails,
-    //     icon: CupertinoIcons.graph_circle_fill),
+    MDrawerItem(INSTRUCTIONS, Routes.pdfVka, icon: FontAwesomeIcons.print),
   ];
 }

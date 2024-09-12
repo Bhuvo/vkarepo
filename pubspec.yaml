@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  pdfx: ^2.4.0
+  document_file_save_plus: ^2.0.0
   #networking
   connectivity_plus: ^2.3.0
   cross_connectivity: ^3.0.5

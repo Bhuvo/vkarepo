@@ -73,6 +73,7 @@ import '../pages/medical_record/medical_record_list_item_from_call_log.dart';
 import '../pages/onboard/add_family_edit_screen.dart';
 import '../pages/prescription/Prescription_Preview.dart';
 import '../pages/profile/edit_profile_page.dart';
+import '../pages/vka_patient/PDFpage.dart';
 import '../pages/vka_patient/patient_inr_details_screen.dart';
 import 'routes.dart';
 
@@ -97,6 +98,8 @@ abstract class RouteGenerator {
         return route(settings, CallLogsPage());
       case Routes.missedCalls:
         return route(settings, MissedCallsPage());
+      case Routes.pdfVka:
+        return route(settings, PDFVKA());
       case Routes.missedCallReschedule:
         args as Map;
         return route(

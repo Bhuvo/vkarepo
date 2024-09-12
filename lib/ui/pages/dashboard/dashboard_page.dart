@@ -24,7 +24,7 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
 
-    return HomePageBase(
+    return HomeBottomNavigation(
         title: Consts.DASHBOARD,
         // appBarBottom: const DoctorHeader(),
         // paddingTop: 140,

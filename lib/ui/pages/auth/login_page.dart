@@ -23,26 +23,47 @@ import 'package:timesmedlite/utils/navigator_utils.dart';
 import 'package:timesmedlite/utils/size_utils.dart';
 import 'package:chopper/chopper.dart';
 
+import '../../../const/consts.dart';
 import '../../widgets/m_password_text_field.dart';
 import 'confirm_mobile_dialog.dart';
 import 'forget_paasword_dialog.dart';
 import 'otp_dialog_new.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   String password = '', phone = '';
 
   void saveInfo(Response res, {required BuildContext context}) {
+    if(res.body.code == '1') {
+      print('doctor login ......................................');
+      LocalStorage.setString( LocalStorage.IsType, Consts.doctor);
+    }else if(res.body.code == '2') {
+      print('patient login ......................................');
+      LocalStorage.setString( LocalStorage.IsType, Consts.nurse);
+    }else if(res.body.code == '3') {
+      print('patient login ......................................');
+      LocalStorage.setString( LocalStorage.IsType, Consts.frontOffice);
+    } else{
+      print('error login ......................................');
+    }
     LocalStorage.setJson(LocalStorage.USER, res.body!.data!);
     MessagingMonitor.init(AppConfig.of(context)!.config);
     if (AppConfig.of(context)?.config == Config.doctor) {
-      context.replace(Routes.patientWaitingList);
+      context.replace(Routes.currentAppointment); //patientWaitingList
     } else {
       context.replace(Routes.selectPatient);
     }
   }
 
   final _formKey = GlobalKey<FormState>();
+
+  String selectedType = 'Select Type';
 
   @override
   Widget build(BuildContext context) {
@@ -297,10 +318,74 @@ class LoginPage extends StatelessWidget {
                 ),
                 onPressed: () {
                   if (AppConfig.of(context)?.config == Config.doctor) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DoctorSignUpPage()));
+                    showDialog(
+                      context: context,
+                      builder: (c) {
+                        String? tempSelectedType = selectedType; // Create a local variable to hold the state within the dialog
+                        return AlertDialog(
+                          title: Text('Select the Register Type'),
+                          content: StatefulBuilder(
+                            builder: (context, setState) => Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                DropdownButton<String>(
+                                  hint: Text(tempSelectedType ?? 'Select Type'),
+                                  items: [
+                                    DropdownMenuItem(child: Text('Doctor'), value: 'Doctor'),
+                                    DropdownMenuItem(child: Text('Nurse'), value: 'Nurse'),
+                                    DropdownMenuItem(child: Text('Front Office'), value: 'Front Office'),
+                                  ],
+                                  onChanged: (val) {
+                                    setState(() {
+                                      tempSelectedType = val; // Update local state within the dialog
+                                    });
+                                  },
+                                ),
+                                SizedBox(height: 10),
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: ElevatedButton(
+                                        child: Text('Confirm'),
+                                        onPressed: () {
+                                          if (tempSelectedType != null) {
+                                            setState(() {
+                                              selectedType = tempSelectedType!; // Update the original state
+                                            });
+                                            Navigator.pop(context); // Close the dialog
+
+                                            if (selectedType == 'Doctor') {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) => DoctorSignUpPage(),
+                                                ),
+                                              );
+                                            } else if (selectedType == 'Nurse') {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) => DoctorSignUpPage(), // Assuming you have a separate page for Nurse
+                                                ),
+                                              );
+                                            }
+                                          }
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    );
+
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => DoctorSignUpPage()));
                   } else {
                     Navigator.push(
                         context,

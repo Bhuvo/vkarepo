@@ -8,6 +8,7 @@ import 'package:timesmedlite/model/user.dart';
 class LocalStorage {
   static const String TOKEN = "TOKEN";
   static const String USER = "USER";
+  static const String IsType = "IsType";
   static const String ONLINE = "ONLINE";
   static const String CURSOR_USER = "CURSOR_USER";
 
@@ -66,19 +67,8 @@ class LocalStorage {
     return jsonDecode(str);
   }
 
-  static String getString(String key, {String? def}) {
-    String val = '';
-    if (_memoryPrefs.containsKey(key)) {
-      val = _memoryPrefs[key];
-    }
-    if (val.isEmpty) {
-      val = _prefs?.getString(key) ?? '';
-    }
-    if (val == null) {
-      val = def!;
-    }
-    _memoryPrefs[key] = val;
-    return val;
+  static String getString(String key, {String def = ''}) {
+    return _prefs?.getString(key) ?? def;
   }
 
   static int getInt(String key, {int? def}) {
@@ -112,18 +102,7 @@ class LocalStorage {
   }
 
   static bool getBool(String key, {bool def = false}) {
-    bool val = false;
-    if (_memoryPrefs.containsKey(key)) {
-      val = _memoryPrefs[key];
-    }
-    if (val == null) {
-      val = _prefs!.getBool(key)!;
-    }
-    if (val == null) {
-      val = def;
-    }
-    _memoryPrefs[key] = val;
-    return val;
+    return _prefs?.getBool(key) ?? def;
   }
 
   static Future<void> clear() {

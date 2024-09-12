@@ -20,6 +20,7 @@ import 'package:timesmedlite/utils/navigator_utils.dart';
 import '../../../const/consts.dart';
 import '../../../di/dependency_injection.dart';
 import '../../components/waiting_dialog.dart';
+import '../home/home_bottom_navigation.dart';
 
 class ProfilePage extends StatelessWidget {
   final User user;
@@ -33,7 +34,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomePageBase(
+    return HomeBottomNavigation( //HomePageBase
       title: title.toUpperCase(),
       body: BlocProvider(
         create: (context) => bloc..add(const Load()),

@@ -47,7 +47,7 @@ class _SplashPageState extends State<SplashPage> {
         if (mounted) {
           MessagingMonitor.init(AppConfig.of(context)!.config);
           if (AppConfig.of(context)?.config == Config.doctor) {
-            context.replace(Routes.patientWaitingList);
+            context.replace(Routes.currentAppointment);  //patientWaitingList
           } else {
             context.replace(Routes.selectPatient);
           }

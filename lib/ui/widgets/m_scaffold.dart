@@ -206,9 +206,9 @@ class CustomClipPath extends CustomClipper<Path> {
     final w = size.width;
     final h = size.height;
     if (type == CustomClipPathType.bottom) {
-      path.lineTo(0, h);
+      path.lineTo(0, h/2);
       path.quadraticBezierTo(
-          radius * 0.1, h - (radius * 0.9), radius, h - radius);
+          radius * 0.2, h - (radius * 1), radius, h - radius); //radius * 0.1, h - (radius * 0.9), radius, h - radius);
       path.lineTo(w - radius, h - radius);
       path.quadraticBezierTo(
           w - (radius * 0.1), h - (radius * 1.1), w, h - (radius * 2));
@@ -218,7 +218,7 @@ class CustomClipPath extends CustomClipper<Path> {
       path.lineTo(0, radius * 2);
       path.quadraticBezierTo(radius * 0.1, (radius * 1.1), radius, radius);
       path.lineTo(w - radius, radius);
-      path.quadraticBezierTo(w - (radius * 0.1), (radius * 1.1), w, 0);
+      path.quadraticBezierTo(w - (radius * 0.2), (radius * 1.1), w, radius *2);
       path.lineTo(w, h);
       path.lineTo(0, h);
     }

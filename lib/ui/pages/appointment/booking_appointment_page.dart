@@ -24,6 +24,8 @@ import 'package:timesmedlite/utils/date_utils.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:http/http.dart' as http;
 
+import '../home/home_bottom_navigation.dart';
+
 class BookingAppointmentPage extends StatefulWidget {
   const BookingAppointmentPage({Key? key}) : super(key: key);
 
@@ -91,7 +93,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
 
   @override
   Widget build(BuildContext context) {
-    return HomePageBase(
+    return HomeBottomNavigation(
       title: Consts.BOOKING_APPOINTMENT,
       body: RefreshIndicator(
         onRefresh: () async {

@@ -5,6 +5,8 @@ import 'package:timesmedlite/ui/widgets/widgets.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 import 'package:timesmedlite/utils/size_utils.dart';
 
+import 'm_bottom_navigation.dart';
+
 ScrollController scrollController = ScrollController(keepScrollOffset: true);
 
 class MBottomNavigation extends StatelessWidget {
@@ -21,7 +23,16 @@ class MBottomNavigation extends StatelessWidget {
     int index = -1;
     for (var item in items) {
       final isSelected = item.route == ModalRoute.of(context)?.settings.name;
-      if (isSelected) index = items.indexOf(item);
+      if (isSelected) {
+        index = items.indexOf(item);
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          scrollController.animateTo(
+            width * index,
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeInOutCubic,
+          );
+        });
+      };
     }
     if (index < 0) {
       return dummyBuilder(context);
