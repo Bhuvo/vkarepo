@@ -16,16 +16,18 @@ class ScheduledAppointmentList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     ///TODO: uncomment LocalStorage.getUID() and '$hospitalId' in production
-    final bloc =
-    ApiBuilderBloc(path: 'GetAppointmentList', api2: true, timesmedApi: true, query: {
-      'DoctorId': LocalStorage.getUID(),
-      'status_id': 'T',
-      'From': '01/01/1996',
-      'To': '01/01/2100',
-      'hos_id': '$hospitalId',
-    });
+    final bloc = ApiBuilderBloc(
+        path: 'GetAppointmentList',
+        api2: true,
+        timesmedApi: true,
+        query: {
+          'DoctorId': LocalStorage.getUID(),
+          'status_id': 'T',
+          'From': '01/01/1996',
+          'To': '01/01/2100',
+          'hos_id': '$hospitalId',
+        });
 
     return MScaffold(
       title: const Text(Consts.SCHEDULED_APPOINTMENT_LIST),

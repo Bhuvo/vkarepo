@@ -99,7 +99,7 @@ class MedicalRecordsList extends StatelessWidget {
                 return ListView.builder(
                   itemCount: list.length,
                   itemBuilder: (c, i) {
-                    print("LISSSSSSSSSS       ${list[i].Appointment_id}");
+                    print("LISSSSSSSSSS${list[i].Appointment_id}");
                     final item = list[i];
                     return Hero(
                       tag: 'MEDICAl::$i',

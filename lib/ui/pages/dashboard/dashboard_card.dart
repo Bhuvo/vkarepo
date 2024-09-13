@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
 
 class DashboardCard extends StatelessWidget {
@@ -14,7 +15,7 @@ class DashboardCard extends StatelessWidget {
       {Key? key,
       this.onTap,
       this.flex = 1,
-      this.margin =  const EdgeInsets.all(6),
+      this.margin = const EdgeInsets.all(6),
       required this.title,
       required this.subTitle,
       this.asset = 'assets/images/ic_1.png',
@@ -30,8 +31,7 @@ class DashboardCard extends StatelessWidget {
       decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(radius),
-        boxShadow: MTheme.SHADOW_LIGHT
-      ),
+          boxShadow: MTheme.SHADOW_LIGHT),
       child: Material(
         color: Colors.transparent,
         child: InkWell(
@@ -39,10 +39,14 @@ class DashboardCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(radius),
           child: Stack(
             children: [
-              if(asset != null)Positioned(
-                  left: 0,
-                  bottom: 0,
-                  child: Image.asset(asset!, width: 100,)),
+              if (asset != null)
+                Positioned(
+                    left: 0,
+                    bottom: 0,
+                    child: Image.asset(
+                      asset!,
+                      width: 100,
+                    )),
               Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
@@ -50,22 +54,41 @@ class DashboardCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(title, textAlign: TextAlign.end, style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white, fontSize: 30),),
-                      const SizedBox(height: 16,),
-                      Text(subTitle, textAlign: TextAlign.end, style: Theme.of(context).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600, color: Colors.white, fontSize: 11)),
+                      Text(
+                        title,
+                        textAlign: TextAlign.end,
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge
+                            ?.copyWith(color: Colors.white, fontSize: 30),
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      Text(subTitle,
+                          textAlign: TextAlign.end,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall
+                              ?.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                  fontSize: 11)),
                     ],
                   ),
                 ),
               ),
-
             ],
           ),
         ),
       ),
     );
-    if(flex == 0){
+    if (flex == 0) {
       return body;
     }
-    return Expanded(child: body, flex: flex,);
+    return Expanded(
+      child: body,
+      flex: flex,
+    );
   }
 }

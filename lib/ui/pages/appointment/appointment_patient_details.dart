@@ -7,14 +7,19 @@ import 'package:timesmedlite/model/user.dart';
 import 'package:timesmedlite/ui/components/action_tile.dart';
 import 'package:timesmedlite/ui/components/patient_tile.dart';
 import 'package:timesmedlite/ui/pages/appointment/widgets/scheduled_appointment_list_item.dart';
+import 'package:timesmedlite/ui/pages/call/call_actions.dart';
 import 'package:timesmedlite/ui/providers/user_provider.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
+import 'package:timesmedlite/utils/local_storage.dart';
 
 class AppointmentPatientDetails extends StatelessWidget {
   final BookingAppointmentPatient data;
+  final int? patID;
+  final String? apId;
 
-  const AppointmentPatientDetails({Key? key, required this.data})
+  const AppointmentPatientDetails(
+      {Key? key, required this.data, this.patID, this.apId})
       : super(key: key);
 
   @override
@@ -64,6 +69,12 @@ class AppointmentPatientDetails extends StatelessWidget {
             ),
           ),
         ),
+      ),
+      floatingActionButton: CallActions(
+        appointmentid: apId,
+        docID: LocalStorage.getUID(),
+        patID: patID ?? 0,
+        fab: GlobalKey<ExpandableFabState>(),
       ),
     );
   }

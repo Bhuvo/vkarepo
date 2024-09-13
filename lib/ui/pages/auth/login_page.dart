@@ -40,16 +40,16 @@ class _LoginPageState extends State<LoginPage> {
   String password = '', phone = '';
 
   void saveInfo(Response res, {required BuildContext context}) {
-    if(res.body.code == '1') {
+    if (res.body.code == '1') {
       print('doctor login ......................................');
-      LocalStorage.setString( LocalStorage.IsType, Consts.doctor);
-    }else if(res.body.code == '2') {
+      LocalStorage.setString(LocalStorage.IsType, Consts.doctor);
+    } else if (res.body.code == '2') {
       print('patient login ......................................');
-      LocalStorage.setString( LocalStorage.IsType, Consts.nurse);
-    }else if(res.body.code == '3') {
+      LocalStorage.setString(LocalStorage.IsType, Consts.nurse);
+    } else if (res.body.code == '3') {
       print('patient login ......................................');
-      LocalStorage.setString( LocalStorage.IsType, Consts.frontOffice);
-    } else{
+      LocalStorage.setString(LocalStorage.IsType, Consts.frontOffice);
+    } else {
       print('error login ......................................');
     }
     LocalStorage.setJson(LocalStorage.USER, res.body!.data!);
@@ -321,7 +321,8 @@ class _LoginPageState extends State<LoginPage> {
                     showDialog(
                       context: context,
                       builder: (c) {
-                        String? tempSelectedType = selectedType; // Create a local variable to hold the state within the dialog
+                        String? tempSelectedType =
+                            selectedType; // Create a local variable to hold the state within the dialog
                         return AlertDialog(
                           title: Text('Select the Register Type'),
                           content: StatefulBuilder(
@@ -331,13 +332,18 @@ class _LoginPageState extends State<LoginPage> {
                                 DropdownButton<String>(
                                   hint: Text(tempSelectedType ?? 'Select Type'),
                                   items: [
-                                    DropdownMenuItem(child: Text('Doctor'), value: 'Doctor'),
-                                    DropdownMenuItem(child: Text('Nurse'), value: 'Nurse'),
-                                    DropdownMenuItem(child: Text('Front Office'), value: 'Front Office'),
+                                    DropdownMenuItem(
+                                        child: Text('Doctor'), value: 'Doctor'),
+                                    DropdownMenuItem(
+                                        child: Text('Nurse'), value: 'Nurse'),
+                                    DropdownMenuItem(
+                                        child: Text('Front Office'),
+                                        value: 'Front Office'),
                                   ],
                                   onChanged: (val) {
                                     setState(() {
-                                      tempSelectedType = val; // Update local state within the dialog
+                                      tempSelectedType =
+                                          val; // Update local state within the dialog
                                     });
                                   },
                                 ),
@@ -350,22 +356,27 @@ class _LoginPageState extends State<LoginPage> {
                                         onPressed: () {
                                           if (tempSelectedType != null) {
                                             setState(() {
-                                              selectedType = tempSelectedType!; // Update the original state
+                                              selectedType =
+                                                  tempSelectedType!; // Update the original state
                                             });
-                                            Navigator.pop(context); // Close the dialog
+                                            Navigator.pop(
+                                                context); // Close the dialog
 
                                             if (selectedType == 'Doctor') {
                                               Navigator.push(
                                                 context,
                                                 MaterialPageRoute(
-                                                  builder: (context) => DoctorSignUpPage(),
+                                                  builder: (context) =>
+                                                      DoctorSignUpPage(),
                                                 ),
                                               );
-                                            } else if (selectedType == 'Nurse') {
+                                            } else if (selectedType ==
+                                                'Nurse') {
                                               Navigator.push(
                                                 context,
                                                 MaterialPageRoute(
-                                                  builder: (context) => DoctorSignUpPage(), // Assuming you have a separate page for Nurse
+                                                  builder: (context) =>
+                                                      DoctorSignUpPage(), // Assuming you have a separate page for Nurse
                                                 ),
                                               );
                                             }

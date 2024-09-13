@@ -14,7 +14,7 @@ import '../../theme/theme.dart';
 import '../../widgets/m_apibuilder_empty_widget.dart';
 
 class DocumentPreview extends StatefulWidget {
-  final String? appointmentid;
+  final int? appointmentid;
   final String? title;
   final docs;
 
@@ -239,16 +239,21 @@ class _DocumentPreviewState extends State<DocumentPreview> {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: List.generate(
-                                    widget.title != null ? data.length : widget.docs.length,
-                                        (i) {
+                                    widget.title != null
+                                        ? data.length
+                                        : widget.docs.length,
+                                    (i) {
                                       final sel = i == index;
                                       return Padding(
-                                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 4),
                                         child: Material(
                                           clipBehavior: Clip.antiAlias,
                                           shape: CircleBorder(
                                             side: BorderSide(
-                                              color: sel ? Colors.white : Colors.transparent,
+                                              color: sel
+                                                  ? Colors.white
+                                                  : Colors.transparent,
                                               width: 1,
                                             ),
                                           ),
@@ -257,17 +262,18 @@ class _DocumentPreviewState extends State<DocumentPreview> {
                                             onTap: sel
                                                 ? null
                                                 : () {
-                                              setState(() {
-                                                index = i;
-                                              });
-                                              updatePage();
-                                            },
+                                                    setState(() {
+                                                      index = i;
+                                                    });
+                                                    updatePage();
+                                                  },
                                             child: SizedBox(
                                               height: 25,
                                               width: 25,
                                               child: Center(
                                                 child: Text(
-                                                  (i + 1).toString(), // Display index number here
+                                                  (i + 1)
+                                                      .toString(), // Display index number here
                                                   style: TextStyle(
                                                     color: Colors.white,
                                                     fontWeight: FontWeight.bold,

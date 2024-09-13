@@ -41,45 +41,12 @@ class ScheduledAppointmentListItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             UserTile(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              patientId: data.User_id,
+              date: data.Appointment_Date,
+              time: data.Appointment_Time,
               avatarRadius: 16,
               caption: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.025,
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      'Patient ID: ',
-                      style: Theme.of(context).textTheme.caption,
-                    ),
-                    Text(
-                      '${user.userId}   ',
-                      style: Theme.of(context).textTheme.caption?.copyWith(
-                          color: MTheme.THEME_COLOR,
-                          fontWeight: FontWeight.w700),
-                    ),
-                    UserInfo(
-                      Info.custom,
-                      icon: Icons.date_range_rounded,
-                      lable: MDateUtils.dateToFormattedDateAlt(
-                          data.Appointment_Date),
-                      textColor: MTheme.THEME_COLOR,
-                      textSize: 12,
-                      iconSize: 14,
-                    ),
-                    UserInfo(
-                      Info.custom,
-                      icon: CupertinoIcons.clock,
-                      lable:
-                          MDateUtils.timeToHourMinute(data.Appointment_Time),
-                      textColor: MTheme.THEME_COLOR,
-                      textSize: 12,
-                      iconSize: 14,
-                    ),
-                  ],
-                ),
               ),
             ),
             const Divider(

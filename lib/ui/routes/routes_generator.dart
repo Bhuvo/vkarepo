@@ -20,6 +20,7 @@ import 'package:timesmedlite/ui/pages/call/update_call_status_page.dart';
 import 'package:timesmedlite/ui/pages/call_logs/call_logs_page.dart';
 import 'package:timesmedlite/ui/pages/call_logs/missed_call_reschedule.dart';
 import 'package:timesmedlite/ui/pages/call_logs/missed_calls_page.dart';
+import 'package:timesmedlite/ui/pages/case_sheet/case_sheet.dart';
 import 'package:timesmedlite/ui/pages/chat/chat_page.dart';
 import 'package:timesmedlite/ui/pages/clinical_notes/clinical_notes_editor.dart';
 import 'package:timesmedlite/ui/pages/clinical_notes/clinical_notes_list.dart';
@@ -59,6 +60,7 @@ import 'package:timesmedlite/ui/pages/schedule/schedule_appointment_page.dart';
 import 'package:timesmedlite/ui/pages/schedule/schedule_details_page.dart';
 import 'package:timesmedlite/ui/pages/schedule/schedule_list_page.dart';
 import 'package:timesmedlite/ui/pages/splash/spash_page.dart';
+import 'package:timesmedlite/ui/pages/vital_sign/add_vital_sign_page.dart';
 import 'package:timesmedlite/ui/pages/vka_patient/add_inr_details.dart';
 import 'package:timesmedlite/ui/pages/vka_patient/doctor_add_inr_details.dart';
 import 'package:timesmedlite/ui/pages/vka_patient/my_inr_details.dart';
@@ -215,6 +217,25 @@ abstract class RouteGenerator {
                 already_added_drugs_to_list:
                     args['already_added_drugs_to_list'],
                 issaveExisting: args['issaveExisting'] ?? false));
+      case Routes.caseSheet:
+        args as Map;
+        return route(
+            settings,
+            CaseSheet(
+              userId: args['patientID'],
+              doctorId: args['doctorId'],
+              appointmentId: args['appointmentId'],
+              /* doctorID: args['doctorID'],
+              userID: args['userID'],
+              appointmentID: args['appointmentID'],*/
+            ));
+      case Routes.vitalSignReport:
+        args as Map;
+        return route(
+            settings,
+            AddVitalSignReportPage(
+              userId: args['patientID'],
+            ));
       case Routes.clinicalNotesList:
         args as Map;
         return route(
@@ -304,6 +325,8 @@ abstract class RouteGenerator {
         return route(
             settings,
             AppointmentPatientDetails(
+              patID: args['patID'],
+              apId: args['apId'],
               data: args['data'],
             ));
 

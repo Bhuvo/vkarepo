@@ -19,11 +19,10 @@ import '../schedule/schedule_list_page.dart';
 class DashboardPage extends StatelessWidget {
   DashboardPage({Key? key}) : super(key: key);
 
-  final bloc = ApiBuilderBloc(path: 'DashboardCount', query: {'Doctor_id': LocalStorage.getUser().id});
+  final bloc = ApiBuilderBloc(
+      path: 'DashboardCount', query: {'Doctor_id': LocalStorage.getUser().id});
   @override
   Widget build(BuildContext context) {
-
-
     return HomeBottomNavigation(
         title: Consts.DASHBOARD,
         // appBarBottom: const DoctorHeader(),
@@ -52,7 +51,7 @@ class DashboardPage extends StatelessWidget {
                               color: const Color(0xff29abe2),
                               asset: 'assets/images/ic_1.png',
                               onTap: () {
-                               // context.push(Routes.patientRegistrationList);
+                                // context.push(Routes.patientRegistrationList);
                               },
                             ),
                             DashboardCard(
@@ -61,7 +60,7 @@ class DashboardPage extends StatelessWidget {
                               color: const Color(0xff0b9b92),
                               asset: 'assets/images/ic_2.png',
                               onTap: () {
-                              //  context.push(Routes.todayInrScheduleList);
+                                //  context.push(Routes.todayInrScheduleList);
                               },
                             ),
                           ],
@@ -77,9 +76,8 @@ class DashboardPage extends StatelessWidget {
                               asset: 'assets/images/ic_3.png',
                               onTap: () {
                                 //context.push(Routes.totalCompletedList);
-                             //   Navigator.push(context, MaterialPageRoute(builder: (context)=>ScheduleListPage(title: "Total Completed Cases",)));
+                                //   Navigator.push(context, MaterialPageRoute(builder: (context)=>ScheduleListPage(title: "Total Completed Cases",)));
                               },
-
                             ),
                             DashboardCard(
                               title: '${data.pending}',

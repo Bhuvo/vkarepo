@@ -11,8 +11,8 @@ class MSlider extends StatelessWidget {
       {Key? key,
       required this.onChanged,
       required this.value,
-        this.label,
-        this.valueBuilder,
+      this.label,
+      this.valueBuilder,
       this.max = 100,
       this.min = 0})
       : super(key: key);
@@ -22,23 +22,31 @@ class MSlider extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 6),
       decoration: BoxDecoration(
-        border: Border.all(color: Theme.of(context).dividerColor,),
-        borderRadius: BorderRadius.circular(MTheme.RADIUS),
-        color: Theme.of(context).cardColor
-      ),
+          border: Border.all(
+            color: Theme.of(context).dividerColor,
+          ),
+          borderRadius: BorderRadius.circular(MTheme.RADIUS),
+          color: Theme.of(context).cardColor),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(padding: EdgeInsets.fromLTRB(24, 8, 24, 0),
-            child:  Row(
+          Padding(
+            padding: EdgeInsets.fromLTRB(24, 8, 24, 0),
+            child: Row(
               children: [
-                if(label != null) Text(label!, style: Theme.of(context).textTheme.headline6?.copyWith(fontSize: 16),),
+                if (label != null)
+                  Text(
+                    label!,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline6
+                        ?.copyWith(fontSize: 16),
+                  ),
                 const Spacer(),
-                if(valueBuilder != null) valueBuilder!.call(value)
+                if (valueBuilder != null) valueBuilder!.call(value)
               ],
             ),
           ),
-
           SizedBox(
             height: 36,
             child: Slider(
@@ -46,6 +54,7 @@ class MSlider extends StatelessWidget {
               onChanged: onChanged,
               max: max,
               min: min,
+              divisions: 1000,
               activeColor: MTheme.THEME_COLOR,
               inactiveColor: Theme.of(context).dividerColor,
               thumbColor: Colors.white,

@@ -17,10 +17,13 @@ class PatientDetailsSelectPage extends StatelessWidget {
       title: Text(Consts.PATIENT_DETAILS),
       body: Column(
         children: [
-          const SizedBox(height: 24,),
+          const SizedBox(
+            height: 24,
+          ),
           UserProvider(
             data: data,
-            child: MListTile(child: Column(
+            child: MListTile(
+                child: Column(
               children: [
                 UserTile(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,15 +31,40 @@ class PatientDetailsSelectPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Age: ${data.age}'),
-                      const SizedBox(height: 24,),
-                      const UserInfo(Info.custom, textColor: MTheme.THEME_COLOR, icon: FontAwesomeIcons.userGroup, lable: ' Brother', iconSize: 15,),
-                      const SizedBox(height: 4,),
-                      const UserInfo(Info.email, textColor: MTheme.THEME_COLOR,),
-                      const SizedBox(height: 4,),
-                      const UserInfo(Info.phone, textColor: MTheme.THEME_COLOR,),
-                      const SizedBox(height: 4,),
-                      const UserInfo(Info.address, textColor: MTheme.THEME_COLOR,),
-                      const SizedBox(height: 16,),
+                      const SizedBox(
+                        height: 24,
+                      ),
+                      const UserInfo(
+                        Info.custom,
+                        textColor: MTheme.THEME_COLOR,
+                        icon: FontAwesomeIcons.userGroup,
+                        lable: ' Brother',
+                        iconSize: 15,
+                      ),
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      const UserInfo(
+                        Info.email,
+                        textColor: MTheme.THEME_COLOR,
+                      ),
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      const UserInfo(
+                        Info.phone,
+                        textColor: MTheme.THEME_COLOR,
+                      ),
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      const UserInfo(
+                        Info.address,
+                        textColor: MTheme.THEME_COLOR,
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
                     ],
                   ),
                 ),
@@ -47,9 +75,8 @@ class PatientDetailsSelectPage extends StatelessWidget {
           Container(
             width: double.maxFinite,
             padding: EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-            child: OutlinedButton(onPressed: (){}, child: Text('Select')),
+            child: OutlinedButton(onPressed: () {}, child: Text('Select')),
           )
-
         ],
       ),
     );

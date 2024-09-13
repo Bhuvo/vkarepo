@@ -24,9 +24,12 @@ abstract class Routes {
   static const String bookAppointmentPage = '/bookAppointmentPage';
   static const String bookAppointmentDialog = '/bookAppointmentDialog';
   static const String medicalRecordsList = '/medicalRecordsList';
-  static const String medicalRecordsListFromCallLog = '/medicalRecordsListFromCallLog';
+  static const String medicalRecordsListFromCallLog =
+      '/medicalRecordsListFromCallLog';
   static const String medicalRecordDetails = '/medicalRecordDetails';
   static const String homeWithBottomNavigation = 'homeWithBottomNavigation';
+  static const String caseSheet = '/caseSheet';
+  static const String vitalSignReport = '/vitalSignReport';
 
   static const String calendarPage = 'calendarPage';
   static const String patientWaitingList = 'patientWaitingList';
@@ -35,14 +38,17 @@ abstract class Routes {
   static const String missedCallReschedule = 'missedCallReschedule';
   static const String selectPatientDetails = 'selectPatientDetails';
   static const String inQueuePage = 'inQueuePage';
-  static const String inQueuePageFromUpcomingAppointment = 'inQueuePageFromUpcomingAppointment';
+  static const String inQueuePageFromUpcomingAppointment =
+      'inQueuePageFromUpcomingAppointment';
   static const String updateCallStatus = '/updateCallStatus';
   static const String feedbackPage = 'feedbackPage';
   static const String patientAccountPage = '/patientAccountPage';
   static const String editAccountProfilePage = 'editAccountProfilePage';
 
-  static const String scheduleAppointmentPatient = '/scheduleAppointmentPatient';
-  static const String instantAppointmentDoctorsList = '/instantAppointmentDoctorsList';
+  static const String scheduleAppointmentPatient =
+      '/scheduleAppointmentPatient';
+  static const String instantAppointmentDoctorsList =
+      '/instantAppointmentDoctorsList';
   static const String scheduleDoctorsList = '/scheduleDoctorsList';
 
   static const String inAppCallPage = 'inAppCallPage';
@@ -82,12 +88,14 @@ abstract class Routes {
 
   static const String tempRoute = 'tempRoute';
 
-  static const String BookAnAppointmentClinicalVisit = 'BookAnAppointmentClinicalVisit';
-  static const String DoctorsListForClinicalVisit = 'DoctorsListForClinicalVisit';
+  static const String BookAnAppointmentClinicalVisit =
+      'BookAnAppointmentClinicalVisit';
+  static const String DoctorsListForClinicalVisit =
+      'DoctorsListForClinicalVisit';
   static const String DoctorsClinicalListDetails = 'DoctorsClinicalListDetails';
   static const String thankingPage = 'thankingPage';
-  static const String BookAppointmentForClinicalTiming = 'BookAppointmentForClinicalTiming';
+  static const String BookAppointmentForClinicalTiming =
+      'BookAppointmentForClinicalTiming';
 
   static const String pdfVka = 'pdfVka';
-
 }

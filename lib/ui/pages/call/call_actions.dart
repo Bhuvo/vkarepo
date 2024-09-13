@@ -29,6 +29,40 @@ class CallActions extends StatelessWidget {
         children: [
           ActionButton(
               onPressed: () {
+                context.push(Routes.vitalSignReport, {
+                  'patientID': patID,
+                });
+                /*context.push(Routes.documentPreview, {
+                  'appointmentid': appointmentid,
+                  'title': Consts.MEDICAL_RECORDS.toUpperCase()
+                });*/
+              },
+              icon: const Icon(
+                FontAwesomeIcons.chartLine,
+                color: Colors.amber,
+                size: 20,
+              ),
+              label: 'Vital Signs Report'),
+          ActionButton(
+              onPressed: () {
+                context.push(Routes.caseSheet, {
+                  'doctorID': docID.toString(),
+                  'userID': patID.toString(),
+                  'appointmentID': appointmentid.toString()
+                });
+                /*context.push(Routes.documentPreview, {
+                  'appointmentid': appointmentid,
+                  'title': Consts.MEDICAL_RECORDS.toUpperCase()
+                });*/
+              },
+              icon: const Icon(
+                FontAwesomeIcons.notesMedical,
+                color: Colors.amber,
+                size: 20,
+              ),
+              label: 'Case Sheet'),
+          ActionButton(
+              onPressed: () {
                 context.push(Routes.documentPreview, {
                   'appointmentid': appointmentid,
                   'title': Consts.MEDICAL_RECORDS.toUpperCase()

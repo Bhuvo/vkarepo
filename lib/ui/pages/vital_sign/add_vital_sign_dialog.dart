@@ -323,21 +323,22 @@ class _AddVitalSignDialogState extends State<AddVitalSignDialog> {
                         child: OutlinedButton(
                           child: const Text('View Chart'),
                           onPressed: () {
-                            vSigns.length==0?
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  content: Text("Please add reading for the patients to to view charts"),
-                                );
-                              },
-                            ):
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ViewChart(
-                                          data: vSigns,
-                                        )));
+                            vSigns.length == 0
+                                ? showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        content: Text(
+                                            "Please add reading for the patients to to view charts"),
+                                      );
+                                    },
+                                  )
+                                : Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ViewChart(
+                                              data: vSigns,
+                                            )));
                             //context.popDialog();
                           },
                           style: OutlinedButton.styleFrom(
@@ -460,7 +461,7 @@ class _ViewChartState extends State<ViewChart> {
   @override
   void initState() {
     chartcontroller..text = "Saturation";
-   Data1 = List.generate(widget.data.length, (index) {
+    Data1 = List.generate(widget.data.length, (index) {
       return FlSpot(
         index + 1.toDouble(),
         double.parse(widget.data[index].pulseRate.toString()),
@@ -471,7 +472,6 @@ class _ViewChartState extends State<ViewChart> {
 
   @override
   Widget build(BuildContext context) {
-
     return MScaffold(
       title: Text("Chart"),
       body: Padding(
@@ -489,68 +489,84 @@ class _ViewChartState extends State<ViewChart> {
 
                   switch (v) {
                     case "Saturation":
-                      {Data1 = List.generate(widget.data.length, (index) {
-                        return FlSpot(
-                          index + 1.toDouble(),
-                          double.parse(widget.data[index].saturation.toString()),
-                        );
-                      });}
+                      {
+                        Data1 = List.generate(widget.data.length, (index) {
+                          return FlSpot(
+                            index + 1.toDouble(),
+                            double.parse(
+                                widget.data[index].saturation.toString()),
+                          );
+                        });
+                      }
 
                       break;
 
                     case "Diastolic":
-                      {Data1 = List.generate(widget.data.length, (index) {
-                        return FlSpot(
-                          index + 1.toDouble(),
-                          double.parse(widget.data[index].diastolic.toString()),
-                        );
-                      });}
+                      {
+                        Data1 = List.generate(widget.data.length, (index) {
+                          return FlSpot(
+                            index + 1.toDouble(),
+                            double.parse(
+                                widget.data[index].diastolic.toString()),
+                          );
+                        });
+                      }
 
                       break;
 
                     case "Systolic":
-                      {Data1 = List.generate(widget.data.length, (index) {
-                        return FlSpot(
-                          index + 1.toDouble(),
-                          double.parse(widget.data[index].systolic.toString()),
-                        );
-                      });}
+                      {
+                        Data1 = List.generate(widget.data.length, (index) {
+                          return FlSpot(
+                            index + 1.toDouble(),
+                            double.parse(
+                                widget.data[index].systolic.toString()),
+                          );
+                        });
+                      }
 
                       break;
 
                     case "Pulse rate":
-                      {Data1 = List.generate(widget.data.length, (index) {
-                        return FlSpot(
-                          index + 1.toDouble(),
-                          double.parse(widget.data[index].pulseRate.toString()),
-                        );
-                      });}
+                      {
+                        Data1 = List.generate(widget.data.length, (index) {
+                          return FlSpot(
+                            index + 1.toDouble(),
+                            double.parse(
+                                widget.data[index].pulseRate.toString()),
+                          );
+                        });
+                      }
 
                       break;
                     case "Temperature":
-                      {Data1 = List.generate(widget.data.length, (index) {
-                        return FlSpot(
-                          index + 1.toDouble(),
-                          double.parse(widget.data[index].temperature.toString()),
-                        );
-                      });}
+                      {
+                        Data1 = List.generate(widget.data.length, (index) {
+                          return FlSpot(
+                            index + 1.toDouble(),
+                            double.parse(
+                                widget.data[index].temperature.toString()),
+                          );
+                        });
+                      }
 
                       break;
                     case "Respiration":
-                      {Data1 = List.generate(widget.data.length, (index) {
-                        return FlSpot(
-                          index + 1.toDouble(),
-                          double.parse(widget.data[index].respiration.toString()),
-                        );
-                      });}
+                      {
+                        Data1 = List.generate(widget.data.length, (index) {
+                          return FlSpot(
+                            index + 1.toDouble(),
+                            double.parse(
+                                widget.data[index].respiration.toString()),
+                          );
+                        });
+                      }
 
                       break;
                     default:
                       print(' invalid entry');
                   }
-                  setState(() {
-
-                  });
+                  setState(() {});
                 },
               ),
             ),

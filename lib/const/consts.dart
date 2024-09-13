@@ -66,6 +66,8 @@ class Consts {
   static const String ACCEPT = 'Accept';
   static const String CONFIRM = 'Confirm';
   static const String DOCTOR_PRESCRIPTION = 'DOCTOR PRESCRIPTION';
+  static const String CASE_SHEET = 'CASE SHEET';
+  static const String VITAL_SIGNS_REPORT = 'VITAL SIGNS REPORT';
   static const String PRESCRIPTION_FORM = 'PRESCRIPTION FORM';
   static const String TEMPLATE = 'TEMPLATE';
   static const String SAVE_NEW_TEMPLATE = 'SAVE NEW TEMPLATE';
@@ -192,7 +194,6 @@ class Consts {
   static const String MY_ORDERS = 'MY ORDERS';
   static const String INR_DETAILS = 'INR DETAILS';
   static const String INSTRUCTIONS = 'Instructions';
-
 
   static const String doctor = 'Doctor';
   static const String nurse = 'Nurse';

@@ -5,11 +5,11 @@ import 'package:timesmedlite/ui/components/show_message.dart';
 import 'package:timesmedlite/ui/components/waiting_dialog.dart';
 
 class ApiFacade {
-  static Future<Response?> callApi({required BuildContext context, required Future<Response> call}) async {
+  static Future<Response?> callApi(
+      {required BuildContext context, required Future<Response> call}) async {
     try {
       final Response<dynamic>? res = await showWaitingDialog(
           context: context, message: 'Loading...', call: call);
-
 
       print('body: ${res?.body} ${res?.body.runtimeType}');
       print('error: ${res?.error}');
@@ -17,14 +17,12 @@ class ApiFacade {
       if (res?.isSuccessful == true) {
         if (res?.body is ApiResponse) {
           if ('${res?.body?.code}' == '1') {
-            showMessage(
+            /* showMessage(
                 context: context,
-                message: res?.body?.message ?? '');
+                message: res?.body?.message ?? '');*/
             return res;
           }
-          showMessage(
-              context: context,
-              message: res?.body?.message ?? '');
+          showMessage(context: context, message: res?.body?.message ?? '');
         } else if (res?.body is Map) {
           return res;
         } else if (res?.body is String) {
@@ -33,8 +31,7 @@ class ApiFacade {
       } else {
         showMessage(
             context: context,
-            message:
-            'Request failed, Please check your connection.');
+            message: 'Request failed, Please check your connection.');
       }
       return null;
     } catch (_) {

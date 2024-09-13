@@ -1,12 +1,20 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:timesmedlite/ui/components/patient_avatar.dart';
+import 'package:timesmedlite/ui/components/user_info.dart';
 import 'package:timesmedlite/ui/providers/patient_provider.dart';
+import 'package:timesmedlite/ui/theme/theme.dart';
+import 'package:timesmedlite/utils/date_utils.dart';
 import '../../model/vka_doctor_details.dart';
 import 'user_avatar.dart';
 import 'package:timesmedlite/ui/providers/user_provider.dart';
 
 class UserTile extends StatelessWidget {
   final VkaDoctorDetails? data;
+  final dynamic? patientId;
+  final dynamic? date;
+  final dynamic? time;
+
   final Widget? caption, trailing;
   final IconData? emptyAvatar;
   final double avatarRadius;
@@ -19,6 +27,9 @@ class UserTile extends StatelessWidget {
   const UserTile(
       {Key? key,
       this.data,
+      this.patientId,
+      this.date,
+      this.time,
       this.textStyle,
       this.mainAxisSize = MainAxisSize.max,
       this.emptyAvatar,
@@ -99,7 +110,39 @@ class UserTile extends StatelessWidget {
                       maxLines: 3,
                       child: caption!),
                 )
-              ]
+              ],
+              Row(
+                children: [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Patient ID: ',
+                    style: Theme.of(context).textTheme.caption,
+                  ),
+                  Text(
+                    '${patientId}   ',
+                    style: Theme.of(context).textTheme.caption?.copyWith(
+                        color: MTheme.THEME_COLOR, fontWeight: FontWeight.w700),
+                  ),
+                  UserInfo(
+                    Info.custom,
+                    icon: Icons.date_range_rounded,
+                    lable: MDateUtils.dateToFormattedDateAlt(date),
+                    textColor: MTheme.THEME_COLOR,
+                    textSize: 12,
+                    iconSize: 14,
+                  ),
+                  UserInfo(
+                    Info.custom,
+                    icon: CupertinoIcons.clock,
+                    lable: MDateUtils.timeToHourMinute(time),
+                    textColor: MTheme.THEME_COLOR,
+                    textSize: 12,
+                    iconSize: 14,
+                  ),
+                ],
+              ),
             ],
           ),
           if (trailing != null) ...[const Spacer(), trailing!]

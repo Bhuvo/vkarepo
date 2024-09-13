@@ -76,11 +76,11 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
             BlocProvider(
                 create: (c) => blocGetAllHospitalByDoctor..add(const Load()),
                 child: ApiBuilder<GetAllHospitalByDoctor>(
-                  empty:  NothingWidget(
-                  title: "No Hospital List",
-                  icon: Icons.local_hospital,
-                  message: "",
-                ),
+                    empty: NothingWidget(
+                      title: "No Hospital List",
+                      icon: Icons.local_hospital,
+                      message: "",
+                    ),
                     //shrinkWrap: true,
                     fromJson: GetAllHospitalByDoctor.fromJsonFactory,
                     customBuilder: (data, _) {
@@ -107,7 +107,9 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
                   onPressed: () {
                     showDialog(
                       context: context,
-                      builder: (c) => AddHospitalDialog(blocGetAllHospitalByDoctor: blocGetAllHospitalByDoctor,),
+                      builder: (c) => AddHospitalDialog(
+                        blocGetAllHospitalByDoctor: blocGetAllHospitalByDoctor,
+                      ),
                     );
                   },
                   child: const Text('Add')),
@@ -127,7 +129,7 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
                 create: (c) =>
                     blocGetHospitalTimingMasterByDoctor..add(const Load()),
                 child: ApiBuilder<GetHospitalTimingByDoctorHospital>(
-                    empty:  NothingWidget(
+                    empty: NothingWidget(
                       title: "No Hospital Schedule List",
                       icon: Icons.local_hospital,
                       message: "",
@@ -182,7 +184,7 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
             BlocProvider(
                 create: (c) => blocGetDoctorOnlineTiming..add(const Load()),
                 child: ApiBuilder<GetHospitalTimingByDoctorHospital>(
-                    empty:  NothingWidget(
+                    empty: NothingWidget(
                       title: "No Online Timing Added Yet",
                       icon: Icons.more_time,
                       message: "",
@@ -198,7 +200,7 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(vertical: 24),
                           itemBuilder: (c, i) => OnlineConsultListItem(
                                 getDoctorTime: data[0].listTiming![i],
-                                 //DocID: '38371',
+                                //DocID: '38371',
                                 DocID: LocalStorage.getUID().toString(),
                                 bloc: blocGetDoctorOnlineTiming,
                               ),
@@ -239,7 +241,10 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
                                   print(
                                       "Mode Name:::::::::::::::::::::::::::::${data[0]}");
                                   //CallMode=data[0]['Mode_Name'];
-                                  return AddOnlineConsultFeeDialog(data: data[0],bloc: blocgetOnlineFeeData,);
+                                  return AddOnlineConsultFeeDialog(
+                                    data: data[0],
+                                    bloc: blocgetOnlineFeeData,
+                                  );
                                 })));
                       },
                       child: const Text(

@@ -94,6 +94,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
     setState(() {});
     super.initState();
   }
+
   bool isSearch = false;
 
   @override
@@ -105,11 +106,15 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
 
     return HomeBottomNavigation(
       title: Consts.CURRENT_APPOINTMENT,
-      actions: [IconButton(onPressed: (){
-        setState(() {
-          isSearch = !isSearch;
-        });
-      }, icon:isSearch ? const Icon(Icons.close) : const Icon(Icons.search))],
+      actions: [
+        IconButton(
+            onPressed: () {
+              setState(() {
+                isSearch = !isSearch;
+              });
+            },
+            icon: isSearch ? const Icon(Icons.close) : const Icon(Icons.search))
+      ],
       body: BlocProvider(
         create: (context) => bloc,
         child: ApiBuilder(
@@ -132,59 +137,65 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                     // const SizedBox(
                     //   height: 12,
                     // ),
-                    isSearch? Column(children: [
-                      Row(
-                        children: [
-                          Expanded(
-                              child: MDateTimePicker(
-                                start: DateTime(2000),
-                                end: t,
-                                initial: f,
-                                onChanged: (d) {
-                                  setState(() {
-                                    query['From'] = MDateUtils.dateToQueryDate(
-                                        d?.toIso8601String());
-                                  });
-                                },
-                                label: 'From Date',
-                              )),
-                          const SizedBox(
-                            width: 16,
-                          ),
-                          Expanded(
-                              child: MDateTimePicker(
-                                start: f,
-                                end: DateTime(2100),
-                                initial: t,
-                                onChanged: (d) {
-                                  setState(() {
-                                    query['To'] = MDateUtils.dateToQueryDate(
-                                        d?.toIso8601String());
-                                  });
-                                },
-                                label: 'To Date',
-                              )),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      SizedBox(
-                        width: double.maxFinite,
-                        height: 50,
-                        child: OutlinedButton(
-                          child: Text('Go'),
-                          onPressed: () {
-                            bloc.add(UpdateQuery(query));
-                          },
-                        ),
-                      ),
-                      const Divider(
-                        height: 24,
-                        endIndent: 0,
-                        indent: 0,
-                      ),
-                    ],): Container(),
+                    isSearch
+                        ? Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Expanded(
+                                      child: MDateTimePicker(
+                                    start: DateTime(2000),
+                                    end: t,
+                                    initial: f,
+                                    onChanged: (d) {
+                                      setState(() {
+                                        query['From'] =
+                                            MDateUtils.dateToQueryDate(
+                                                d?.toIso8601String());
+                                      });
+                                    },
+                                    label: 'From Date',
+                                  )),
+                                  const SizedBox(
+                                    width: 16,
+                                  ),
+                                  Expanded(
+                                      child: MDateTimePicker(
+                                    start: f,
+                                    end: DateTime(2100),
+                                    initial: t,
+                                    onChanged: (d) {
+                                      setState(() {
+                                        query['To'] =
+                                            MDateUtils.dateToQueryDate(
+                                                d?.toIso8601String());
+                                      });
+                                    },
+                                    label: 'To Date',
+                                  )),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              SizedBox(
+                                width: double.maxFinite,
+                                height: 50,
+                                child: OutlinedButton(
+                                  child: Text('Go'),
+                                  onPressed: () {
+                                    bloc.add(UpdateQuery(query));
+                                  },
+                                ),
+                              ),
+                              const Divider(
+                                height: 24,
+                                endIndent: 0,
+                                indent: 0,
+                              ),
+                            ],
+                          )
+                        : Container(),
                     Row(
                       children: [
                         DashboardCard(
