@@ -488,7 +488,8 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                   // if (reqRes != null) {
                   //
                   // }
-                } else {
+                }
+                else {
                   final res =
                       await context.push(Routes.instantAppointmentDoctorsList, {
                     'lang': lang?['Language_Id'].toString(),
