@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -178,7 +180,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
       appBarBottom: PatientProvider(
         data: data,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16) ,
           child: PopupMenuButton(
             offset: const Offset(0, 60),
             itemBuilder: (BuildContext context) {
@@ -215,6 +217,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
               trailing: OutlinedButton(
                 child: SizedBox(
                   width: size.width * 0.3,
+                 // height: 40,
                   child: Row(
                     children: [
                       const FaIcon(FontAwesomeIcons.solidCalendarCheck),
@@ -222,7 +225,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                         width: size.width * 0.032,
                       ),
                       Flexible(
-                        child: Text(
+                        child: AutoSizeText(
                           Consts.BOOK_AN_APPOINTMENT,
                           style: TextStyle(fontSize: size.height * 0.016),
                         ),
