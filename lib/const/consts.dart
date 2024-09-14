@@ -318,6 +318,8 @@ class Consts {
     MDrawerItem(MY_ORDERS, Routes.ordersList, icon: CupertinoIcons.cube_box),
     MDrawerItem(INR_DETAILS, Routes.patientScreenINRDetails,
         icon: CupertinoIcons.graph_circle_fill),
+    MDrawerItem('Vital Sin', Routes.vital,
+        icon: CupertinoIcons.chart_bar),
     MDrawerItem(ACCOUNT, Routes.patientAccountPage,
         icon: CupertinoIcons.person_fill),
     MDrawerItem(INSTRUCTIONS, Routes.pdfVka, icon: FontAwesomeIcons.print),

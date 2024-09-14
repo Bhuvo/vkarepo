@@ -29,6 +29,7 @@ import 'package:timesmedlite/utils/navigator_utils.dart';
 import '../../../di/dependency_injection.dart';
 import '../../components/waiting_dialog.dart';
 import '../../widgets/widgets.dart';
+import '../call/call_actions.dart';
 import 'appointment_list_item.dart';
 import 'bookings_dialog.dart';
 
@@ -234,6 +235,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                   ),
                 ),
                 onPressed: () {
+                  print(LocalStorage.getUser().userId);
                   showDialog(
                     context: context,
                     builder: (c) => const BookingsDialog(),
@@ -365,6 +367,36 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                                   contextfromBookAppointmentPage: context,
                                   data: item,
                                 ));
+                          }),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 8),
+                          child: Text(
+                            'Clinical Appointments',
+                            style: Theme.of(context).textTheme.caption,
+                          ),
+                        ),
+                        ExpandableColumn(
+                          min: 3,
+                          children: List.generate(upcoming.length, (i) {
+                            final item = upcoming[i];
+                            print("XXXX$item");
+                            return UserProvider(
+                                data: User(
+                                    fullName: '${item.doctorName}',
+                                    image: '${item.doctorImage}'),
+                                child: AppointmentListItem(
+                                  contextfromBookAppointmentPage: context,
+                                  data: item,
+                                  upcoming: false,
+                                  child: Container(
+                                    padding: EdgeInsets.all(3),
+                                    decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
+                                    child: Text("Book Successfully", style: TextStyle(color: Colors.white),),
+                                  ),
+                                )
+                            );
                           }),
                         ),
                         Padding(
@@ -696,3 +728,28 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
     );
   }
 }
+
+class AppointmentDetails extends StatefulWidget {
+  final int? patID;
+  final int? docId;
+  final int? apId;
+  const AppointmentDetails({super.key, this.patID, this.docId, this.apId});
+
+  @override
+  State<AppointmentDetails> createState() => _AppointmentDetailsState();
+}
+
+class _AppointmentDetailsState extends State<AppointmentDetails> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      floatingActionButton:  CallActions(
+        appointmentid: widget.apId,
+        docID: widget.docId ?? 0,
+        patID: widget.patID ?? 0,
+        fab: GlobalKey<ExpandableFabState>(),
+      ),
+    );
+  }
+}
+

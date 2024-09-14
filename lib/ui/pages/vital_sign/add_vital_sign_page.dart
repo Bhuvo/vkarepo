@@ -10,13 +10,15 @@ import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
 import 'package:timesmedlite/ui/widgets/map/vital_textfield.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 
+import '../../components/patient_bottom_navigation.dart';
+
 class AddVitalSignReportPage extends StatefulWidget {
   final userId;
   /* final String doctorId;
   final String appointmentId;*/
   const AddVitalSignReportPage({
     super.key,
-    required this.userId,
+     this.userId,
   });
   @override
   _AddVitalSignReportPageState createState() => _AddVitalSignReportPageState();
