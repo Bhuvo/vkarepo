@@ -35,7 +35,8 @@ import '../../theme/theme.dart';
 import 'book_appointment_page.dart';
 
 class AddAppointmentPage extends StatefulWidget {
-  const AddAppointmentPage({Key? key}) : super(key: key);
+  final bool isClinical;
+  const AddAppointmentPage({Key? key, required this.isClinical}) : super(key: key);
 
   @override
   State<AddAppointmentPage> createState() => _AddAppointmentPageState();
@@ -407,7 +408,7 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
         child: OutlinedButton(
           child: Text(
             'Book Now',
-            style: TextStyle(
+            style: TextStyle(//297488
               fontSize: size.height * 0.022,
             ),
           ),
@@ -639,6 +640,28 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                     'TimeParam': MDateUtils.dateToHourMinuteTimezone(
                         reqRes1.toIso8601String())
                   });
+
+
+                  // final call = Injector()
+                  //     .apiService
+                  //     .rawGet(path: 'CVBookThisTime', query: {
+                  //   // 'User_id': LocalStorage.getUser().userId.toString(),
+                  //   'User_id': p.userId.toString(),
+                  //   'Doctor_id': doctor!["Doctor_id"].toString(),
+                  //   'type' : 'C',
+                  //   // 'DateParam': MDateUtils.dateToFormattedDate(
+                  //   //     reqRes1.toIso8601String(), true,
+                  //   //     generic: true),
+                  //   'DateParam':
+                  //   MDateUtils.getFormattedDate(reqRes1.toIso8601String()),
+                  //   'TimeParam': MDateUtils.dateToHourMinuteTimezone(
+                  //       reqRes1.toIso8601String())
+                  // });
+
+                  print( MDateUtils.getFormattedDate(reqRes1.toIso8601String()));
+                  print(MDateUtils.dateToHourMinuteTimezone(
+                      reqRes1.toIso8601String()));
+                  print('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh ${call.toString()}');
                   final reqRes2 =
                       await ApiFacade.callApi(context: context, call: call);
                   print(reqRes2);
@@ -655,10 +678,20 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                       'Description': symptoms,
                       'Appointment_id': apId
                     });
-                    print("im here at 6----over");
+                    // final call1 = Injector()
+                    //     .apiService
+                    //     .rawPost(path: 'ConfirmCVAppointment', query: {
+                    //   // 'User_id': LocalStorage.getUser().userId.toString(),
+                    //   'User_id': p.userId.toString(),
+                    //   'Doctor_id': doctor!["Doctor_id"].toString(),
+                    //   'Description': symptoms,
+                    //   'Appointment_id': apId
+                    // });
+
+                    print("im here at 6----over ${call1.then((value) =>print('value - ${value.body.toString()}'))}");
                     final reqRes3 =
                         await ApiFacade.callApi(context: context, call: call1);
-                    print("im here at 7-----");
+                    print("im here at 7-----${reqRes3?.body.toString()}");
                     final map = reqRes3!.body;
                     print(map);
                     final orderId = reqRes3!.body["Data"];
@@ -667,7 +700,8 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                     print("Razor payment gateway starts here");
                     openCheckout(amount, orderId);
                   }
-                } else {
+                }
+                else {
                   if (special == null) {
                     Fluttertoast.showToast(
                         msg:

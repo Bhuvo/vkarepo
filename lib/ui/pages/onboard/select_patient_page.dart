@@ -40,6 +40,7 @@ class SelectPatientPage extends StatelessWidget {
                   //return DropDownShimmer(label: 'Select Patient',);
                   return MDialogDown<Map<String, dynamic>>(
                       items: data.map((e) => e.toJson()).toList(), label: 'Select Patient', onChanged: (d){
+                        print(d);
                     LocalStorage.setJson(LocalStorage.CURSOR_USER, d!);
                     print(LocalStorage.getUser().userId.toString());
                     print(LocalStorage.getUser().patientImage);

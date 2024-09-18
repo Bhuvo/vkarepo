@@ -231,7 +231,7 @@ class _AppointmentSelectUserDialogState
       }
     }
     else {
-      print("api clicked");
+      print("api clicked2");
       final call = Injector()
           .timesmedService
           .get2(path: 'DoctorBookAppointment', query: {

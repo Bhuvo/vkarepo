@@ -14,13 +14,14 @@ import 'book_appointment_dialog.dart';
 class AppointmentListItem extends StatelessWidget {
   final contextfromBookAppointmentPage;
   final bool upcoming;
+  final Widget? child;
   final AppointmentData data;
 
   const AppointmentListItem(
       {Key? key,
       this.upcoming = false,
       required this.data,
-      required this.contextfromBookAppointmentPage})
+      required this.contextfromBookAppointmentPage, this.child})
       : super(key: key);
 
   String formatApiTime(String apiTime) {
@@ -123,7 +124,7 @@ class AppointmentListItem extends StatelessWidget {
                       {'appointmentData': data});
                 },
                 child: const Text('Connect with Doctor'))
-            : null,
+            : child,
       ),
     );
   }

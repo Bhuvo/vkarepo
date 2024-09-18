@@ -6,6 +6,10 @@ import 'package:timesmedlite/model/patient.dart';
 import 'package:timesmedlite/model/user.dart';
 
 class LocalStorage {
+
+  static const String patientSearchDoctorId = "patientSearchDoctorId";
+  static const String isFromPatient = "isFromPatient";
+
   static const String TOKEN = "TOKEN";
   static const String USER = "USER";
   static const String IsType = "IsType";
@@ -28,6 +32,14 @@ class LocalStorage {
   static User getUser(){
     //return Consts.DUMMY_USER.copyWith(id: 38371);
     return User.fromJson(getJson(USER));
+  }
+
+  static int getPatientSearchDoctorId(){
+    return _prefs?.getInt(patientSearchDoctorId) ?? 178936;
+  }
+
+  static bool getIsFromPatient(){
+    return _prefs?.getBool(isFromPatient) ?? true;
   }
 
   static dynamic getUID(){

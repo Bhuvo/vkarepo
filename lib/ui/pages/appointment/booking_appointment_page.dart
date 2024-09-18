@@ -6,11 +6,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:timesmedlite/const/consts.dart';
+import 'package:timesmedlite/facade/api_facade.dart';
 import 'package:timesmedlite/model/booking_hospital.dart';
 import 'package:timesmedlite/model/time_list_response.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder_bloc.dart';
 import 'package:timesmedlite/ui/components/badge_avatar.dart';
+import 'package:timesmedlite/ui/components/confirm_dialog.dart';
 import 'package:timesmedlite/ui/components/flexi_q_button.dart';
 import 'package:timesmedlite/ui/components/shimmer/shimmer_list.dart';
 import 'package:timesmedlite/ui/components/update_timing_widget.dart';
@@ -23,25 +25,29 @@ import 'package:timesmedlite/ui/widgets/widgets.dart';
 import 'package:timesmedlite/utils/date_utils.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:http/http.dart' as http;
+import 'package:timesmedlite/utils/navigator_utils.dart';
 
+import '../../../di/dependency_injection.dart';
 import '../home/home_bottom_navigation.dart';
 
 class BookingAppointmentPage extends StatefulWidget {
-  const BookingAppointmentPage({Key? key}) : super(key: key);
+  final bool? isFromPatient ;
+  const BookingAppointmentPage({Key? key, this.isFromPatient}) : super(key: key);
 
   @override
   State<BookingAppointmentPage> createState() => _BookingAppointmentPageState();
 }
 
 class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
+   bool isFromPatient = false;
   final ApiBuilderBloc hospitals = ApiBuilderBloc(
       path: 'HospitalList',
-      query: {'DoctorId': LocalStorage.getUID()},
+      query: {'DoctorId':LocalStorage.getIsFromPatient() ? LocalStorage.getPatientSearchDoctorId(): LocalStorage.getUID()},
       timesmedApi: true,
       api2: true);
   final ApiBuilderBloc profile = ApiBuilderBloc(
       path: 'ProfileList',
-      query: {'DoctorId': LocalStorage.getUID()},
+      query: {'DoctorId':LocalStorage.getIsFromPatient()  ? LocalStorage.getPatientSearchDoctorId(): LocalStorage.getUID()},
       timesmedApi: true,
       api2: true);
   final ApiBuilderBloc timings = ApiBuilderBloc(
@@ -52,7 +58,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
       raw: true);
 
   Map<String, dynamic> timingsQuery = {
-    'DoctorId': LocalStorage.getUID(),
+    'DoctorId':LocalStorage.getIsFromPatient()  ? LocalStorage.getPatientSearchDoctorId(): LocalStorage.getUID(),
     'hospital_id': '',
     'appdate': MDateUtils.dateToQueryDate(DateTime.now().toIso8601String())
     // 'appdate': MDateUtils.changeDateFormat(DateTime.now().toIso8601String())
@@ -65,7 +71,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
     final uri3 =
         Uri.parse("https://api.timesmed.com/WebAPI2/GetDoctorDetails").replace(
             queryParameters: queryParameters = {
-      'DoctorId': LocalStorage.getUID(),
+      'DoctorId':LocalStorage.getIsFromPatient()  ? LocalStorage.getPatientSearchDoctorId(): LocalStorage.getUID(),
     });
     final response3 = await http.get(uri3);
     print(response3.body);
@@ -80,6 +86,8 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
 
   @override
   void initState() {
+    isFromPatient = widget.isFromPatient ?? true;
+    print(' the doctor id  ${LocalStorage.getUID()}');
     // TODO: implement initState
     super.initState();
     print(DateFormat('MM/dd/yyyy').format(DateTime.now()));
@@ -93,7 +101,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
 
   @override
   Widget build(BuildContext context) {
-    return HomeBottomNavigation(
+    return HomePageBase(
       title: Consts.BOOKING_APPOINTMENT,
       body: RefreshIndicator(
         onRefresh: () async {
@@ -270,6 +278,43 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                               UpdateTimingWidget(
                                 timeList: data.timeList,
                                 onSelect: (date) async {
+                                  if(LocalStorage.getIsFromPatient()){
+                                    final response = await showConfirmDialog(context: context,title: 'Confirm Appointment',message: 'Are you sure you want to book an appointment?',
+                                    actions:{
+                                      'Yes': () async {
+                                        print('coming inside Yes');
+                                        final call = Injector()
+                                            .timesmedService
+                                            .get2(path: 'DoctorBookAppointment', query: {
+                                          'UserId': LocalStorage.getCursorPatient().userId, //  user?.userId,
+                                          'Type_Flag': 'H',
+                                          'Hospital_id': timingsQuery['hospital_id'],
+                                          // 'DoctorId': LocalStorage.getUID(),
+                                          'DoctorId': LocalStorage.getPatientSearchDoctorId(),
+                                          'desc': 'complaints',
+                                          'Time': MDateUtils.dateToHourMinuteQuery(date.toIso8601String()),
+                                          'Date': MDateUtils.dateToQueryDate(date.toIso8601String()),
+                                        });
+                                        final res = await ApiFacade.callApi(context: context, call: call);
+                                        print(res);
+                                        print(res?.error);
+                                        print(res?.body);
+                                        print(res?.statusCode);
+                                        if (res != null) {
+                                          context.popDialog(true);
+                                        }
+                                    },
+                                    }
+                                    );
+                                    if (response == true) {
+                                      print('response is true');
+                                    }else{
+                                      print('response is false');
+                                    }
+
+                                    return;
+                                  }
+
                                   final res = await showDialog(
                                       context: context,
                                       builder: (c) =>

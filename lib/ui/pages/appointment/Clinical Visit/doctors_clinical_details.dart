@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
+import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../../routes/routes.dart';
@@ -261,11 +262,14 @@ class _DoctorsClinicalListDetailsState
                 height: size.height * 0.075,
                 child: OutlinedButton(
                   onPressed: () {
-                    context.push(Routes.BookAppointmentForClinicalTiming, {
-                      'doctorsName': widget.doctorsName.toString(),
-                      'doctorsQualification':
-                          widget.doctorsQualification.toString(),
-                    });
+                    LocalStorage.setBool(LocalStorage.isFromPatient,true) ;
+                    LocalStorage.setInt(LocalStorage.patientSearchDoctorId,178936) ;
+                    context.push(Routes.bookingAppointment);
+                    // context.push(Routes.BookAppointmentForClinicalTiming, {
+                    //   'doctorsName': widget.doctorsName.toString(),
+                    //   'doctorsQualification':
+                    //       widget.doctorsQualification.toString(),
+                    // });
                   },
                   child: Text(
                     'Book Appointment',

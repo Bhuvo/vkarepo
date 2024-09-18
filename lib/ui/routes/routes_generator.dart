@@ -64,6 +64,7 @@ import 'package:timesmedlite/ui/pages/vital_sign/add_vital_sign_page.dart';
 import 'package:timesmedlite/ui/pages/vka_patient/add_inr_details.dart';
 import 'package:timesmedlite/ui/pages/vka_patient/doctor_add_inr_details.dart';
 import 'package:timesmedlite/ui/pages/vka_patient/my_inr_details.dart';
+import 'package:timesmedlite/ui/pages/vka_patient/vital.dart';
 import 'package:timesmedlite/ui/pages/waiting_list/waiting_list_page.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 import '../pages/appointment/Clinical Visit/book_appointment_clinical_timing.dart';
@@ -188,6 +189,8 @@ abstract class RouteGenerator {
             ));
       case Routes.inAppChatPage:
         return route(settings, const ChatPage());
+    case Routes.vital:
+        return route(settings, const Vital());
 
       case Routes.labTestRequest:
         args as Map;
@@ -234,7 +237,7 @@ abstract class RouteGenerator {
         return route(
             settings,
             AddVitalSignReportPage(
-              userId: args['patientID'],
+              userId: args['patientID'] ?? LocalStorage.getUser().userId,
             ));
       case Routes.clinicalNotesList:
         args as Map;
@@ -337,7 +340,8 @@ abstract class RouteGenerator {
       case Routes.bookAppointment:
         return route(settings, BookAppointmentPage());
       case Routes.bookAppointmentPage:
-        return route(settings, const AddAppointmentPage());
+        args as Map;
+        return route(settings, AddAppointmentPage(isClinical: args['isClinical'] ?? false,));
 
       case Routes.patientRegistrationList:
         return route(settings, PatientRegistrationListPage());

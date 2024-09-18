@@ -54,6 +54,7 @@ abstract class Routes {
   static const String inAppCallPage = 'inAppCallPage';
   static const String inAppCallPageDoctor = 'inAppCallPageDoctor';
   static const String inAppChatPage = '/inAppChatPage';
+  static const String vital = '/vital';
 
   static const String labTestRequest = '/labTestRequest';
   static const String prescriptionEditor = '/prescriptionEditor';
