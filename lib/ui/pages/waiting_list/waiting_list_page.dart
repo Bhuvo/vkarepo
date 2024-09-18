@@ -11,6 +11,7 @@ import 'package:timesmedlite/ui/components/nothing_widget.dart';
 import 'package:timesmedlite/ui/pages/home/home_bottom_navigation.dart';
 import 'package:timesmedlite/ui/pages/waiting_list/waiting_list_actions.dart';
 import 'package:timesmedlite/ui/pages/waiting_list/waiting_list_item.dart';
+import 'package:timesmedlite/ui/pages/waiting_list_clinical/waiting_list_clinical_item.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 
@@ -57,7 +58,7 @@ class WaitingListPage extends StatelessWidget {
                             ),
                             const Text.rich(
                               TextSpan(children: [
-                                TextSpan(text: '      Patients Available '),
+                                TextSpan(text: '      Clinical Patients in '),
                                 TextSpan(
                                     text: '● Online',
                                     style: TextStyle(
@@ -70,7 +71,7 @@ class WaitingListPage extends StatelessWidget {
                                   fontWeight: FontWeight.w600),
                             ),
                             ...data
-                                .map((e) => WaitingListItem(
+                                .map((e) => ClinicalWaitingListItem(
                                       data: e,
                                     ))
                                 .toList(),

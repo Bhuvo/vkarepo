@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:timesmedlite/const/consts.dart';
+import 'package:timesmedlite/generated/assets.dart';
 import 'package:timesmedlite/model/booking_hospital.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder_bloc.dart';
@@ -202,6 +203,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           title: '${data['total'] ?? '-'}',
                           subTitle: 'Scheduled',
                           color: Colors.lightBlue,
+                          asset: 'assets/images/scheduled.png',
                           onTap: () {
                             context.push(
                               Routes.scheduledAppointmentList,
@@ -215,6 +217,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           title: '${data['waiting'] ?? '-'}',
                           subTitle: 'Waiting',
                           color: Colors.teal,
+                          asset: 'assets/images/waiting.png',
                           onTap: () {
                             context.push(
                               Routes.scheduledAppointmentList,
@@ -232,6 +235,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           title: '${data['completed'] ?? '-'}',
                           subTitle: 'Checked Out',
                           color: Colors.green.shade400,
+                          asset: 'assets/images/scheduled.png',
                           onTap: () {
                             context.push(
                               Routes.scheduledAppointmentList,
@@ -245,6 +249,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           title: '0',
                           subTitle: 'Cancel',
                           color: Colors.red,
+                          asset: 'assets/images/cancel.png',
                           onTap: () {
                             context.push(
                               Routes.scheduledAppointmentList,
@@ -260,6 +265,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                       title: '0',
                       subTitle: 'Online Consultation',
                       color: Colors.grey.shade600,
+                      asset: 'assets/images/consultation_online.png',
                       flex: 0,
                       onTap: () {
                         context.push(
@@ -276,6 +282,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           title: '${data['OT_RequestCount'] ?? '-'}',
                           subTitle: 'OT Request Count',
                           color: Colors.lightBlue,
+                          asset: 'assets/images/waiting.png',
                           onTap: () {
                             context.push(
                               Routes.scheduledAppointmentList,
@@ -288,6 +295,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                         DashboardCard(
                           title: '${data['IP_app_count'] ?? '-'}',
                           subTitle: 'Follow Up Appointment',
+                          asset: 'assets/images/scheduled.png',
                           color: Colors.teal,
                           onTap: () {
                             context.push(
@@ -306,6 +314,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           title: '${data['Missed'] ?? '-'}',
                           subTitle: 'Missed',
                           color: Colors.red,
+                          asset: 'assets/images/appointment_missed.png',
                           onTap: () {
                             context.push(
                               Routes.scheduledAppointmentList,
@@ -319,6 +328,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           title: '${data['confirmed'] ?? ''}',
                           subTitle: 'For Confirmation',
                           color: Colors.green.shade400,
+                          asset: 'assets/images/confirm.png',
                           onTap: () {
                             context.push(
                               Routes.scheduledAppointmentList,

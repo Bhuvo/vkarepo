@@ -14,6 +14,7 @@ class UserTile extends StatelessWidget {
   final dynamic? patientId;
   final dynamic? date;
   final dynamic? time;
+  final bool? isAppointment;
 
   final Widget? caption, trailing;
   final IconData? emptyAvatar;
@@ -38,7 +39,7 @@ class UserTile extends StatelessWidget {
       this.trailing,
       this.avatarRadius = 22,
       this.padding = const EdgeInsets.all(8.0),
-      this.doctorName})
+      this.doctorName, this.isAppointment = false})
       : super(key: key);
 
   @override
@@ -111,7 +112,7 @@ class UserTile extends StatelessWidget {
                       child: caption!),
                 )
               ],
-              Row(
+              isAppointment ?? false ?Row(
                 children: [
                   SizedBox(
                     height: 20,
@@ -142,7 +143,7 @@ class UserTile extends StatelessWidget {
                     iconSize: 14,
                   ),
                 ],
-              ),
+              ) : Container(),
             ],
           ),
           if (trailing != null) ...[const Spacer(), trailing!]

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MTheme {
   static const Color TEXTFIELD_COLOR = Colors.white;
-  static const Color BUTTON_COLOR = Colors.yellow;
+  static const Color BUTTON_COLOR = Colors.amber;
   static const Color ICON_COLOR = Colors.amber;
   static const double RADIUS = 8;
   static const Color THEME_COLOR = Color(0xff35b8b0);

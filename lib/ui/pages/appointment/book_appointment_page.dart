@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -199,7 +200,8 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                   break;
               }
             },
-            child: UserTile(padding:EdgeInsets.all(4),
+            child: UserTile(
+              padding: EdgeInsets.all(4),
               avatarRadius: 28,
               caption: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -215,6 +217,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
               trailing: OutlinedButton(
                 child: SizedBox(
                   width: size.width * 0.3,
+                  // height: 40,
                   child: Row(
                     children: [
                       const FaIcon(FontAwesomeIcons.solidCalendarCheck),

@@ -7,10 +7,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:timesmedlite/const/consts.dart';
 import 'package:timesmedlite/ui/components/user_info.dart';
 import 'package:timesmedlite/ui/components/user_tile.dart';
+import 'package:timesmedlite/ui/pages/vital_sign/controller/vital_sign.dart';
+import 'package:timesmedlite/ui/pages/vital_sign/model/get_vial_sign.dart';
+import 'package:timesmedlite/ui/pages/vital_sign/vital_chart.dart';
 import 'package:timesmedlite/ui/pages/vital_sign/vital_sign_list_item.dart';
 import 'package:timesmedlite/ui/providers/user_provider.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
+import 'package:timesmedlite/ui/widgets/map/vital_textfield.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
@@ -66,6 +70,56 @@ class _AddVitalSignDialogState extends State<AddVitalSignDialog> {
     );
     super.initState();
   }
+////////////////////////New Vital Sign////////////////////////
+
+  VitalSignController _apiService = VitalSignController();
+  GetVitalSignsModel? getVitalSignsModel;
+
+  void getdata() async {
+    getVitalSignsModel =
+        await _apiService.getVitalSigns(widget.userId, LocalStorage.getUID());
+    if (getVitalSignsModel != null) {
+      dietAndExerciseController.text =
+          getVitalSignsModel!.data.dietAndExercise ?? "";
+      bpSystolicController.text = getVitalSignsModel!.data.bpSystolic ?? "";
+      bpDiastolicController.text = getVitalSignsModel!.data.bpDiastolic ?? "";
+      pulseController.text = getVitalSignsModel!.data.pulse ?? "";
+      heightController.text = getVitalSignsModel!.data.height ?? "";
+      weightController.text = getVitalSignsModel!.data.weight ?? "";
+      waistController.text = getVitalSignsModel!.data.waist ?? "";
+      hipController.text = getVitalSignsModel!.data.hip ?? "";
+      temperatureController.text = getVitalSignsModel!.data.temp ?? "";
+      spo2Controller.text = getVitalSignsModel!.data.spo2 ?? "";
+      bmiController.text = getVitalSignsModel!.data.bmi ?? "";
+      notesController.text = getVitalSignsModel!.data.notes ?? "";
+      diagnosisController.text = getVitalSignsModel!.data.diagnoses ?? "";
+    } else {
+      print("Error");
+    }
+  }
+
+  final VitalSignController _apiServiceC = VitalSignController();
+
+  // Controllers for text fields
+  final TextEditingController patientIdController = TextEditingController();
+  final TextEditingController doctorIdController = TextEditingController();
+  final TextEditingController appointmentIdController = TextEditingController();
+  final TextEditingController dietAndExerciseController =
+      TextEditingController();
+  final TextEditingController bpSystolicController = TextEditingController();
+  final TextEditingController bpDiastolicController = TextEditingController();
+  final TextEditingController pulseController = TextEditingController();
+  final TextEditingController heightController = TextEditingController();
+  final TextEditingController weightController = TextEditingController();
+  final TextEditingController waistController = TextEditingController();
+  final TextEditingController hipController = TextEditingController();
+  final TextEditingController temperatureController = TextEditingController();
+  final TextEditingController spo2Controller = TextEditingController();
+  final TextEditingController bmiController = TextEditingController();
+  final TextEditingController notesController = TextEditingController();
+  final TextEditingController diagnosisController = TextEditingController();
+
+  // Function to save vital signs
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +136,270 @@ class _AddVitalSignDialogState extends State<AddVitalSignDialog> {
         ],
       ),
       child: Expanded(
+        //////////////////New Vital Sign////////////////////////
         child: SingleChildScrollView(
+          padding: EdgeInsets.all(16.0),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                VitalTextField(
+                    controller: dietAndExerciseController,
+                    labelText: 'Diet And Exercise',
+                    maxLines: 4,
+                    height: 30),
+                SizedBox(height: 16.0),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: 47.0,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.grey.shade300),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 3.0, right: 3.0),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                    controller: bpSystolicController,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        enabledBorder: InputBorder.none)),
+                              ),
+                              Text(
+                                '/',
+                                style: TextStyle(
+                                  fontSize: 30.0,
+                                ),
+                              ),
+                              Expanded(
+                                child: TextField(
+                                    controller: bpDiastolicController,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        enabledBorder: InputBorder.none)),
+                              ),
+                              Text(
+                                'mmHg',
+                                style: TextStyle(
+                                    fontSize: 17.0, color: Colors.blue),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 16.0),
+                    Expanded(
+                        child: VitalTextField(
+                      controller: pulseController,
+                      labelText: 'Pulse',
+                      suffixText: 'Bpm',
+                      keyboardType: TextInputType.number,
+                    )),
+                  ],
+                ),
+                SizedBox(height: 16.0),
+                Row(
+                  children: [
+                    Expanded(
+                      child: VitalTextField(
+                        controller: heightController,
+                        labelText: 'Height',
+                        suffixText: 'CM',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    SizedBox(width: 16.0),
+                    Expanded(
+                      child: VitalTextField(
+                        controller: weightController,
+                        labelText: 'Weight',
+                        suffixText: 'KG',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 16.0),
+                Row(
+                  children: [
+                    Expanded(
+                      child: VitalTextField(
+                        controller: waistController,
+                        labelText: 'Waist',
+                        suffixText: 'CM',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    SizedBox(width: 16.0),
+                    Expanded(
+                      child: VitalTextField(
+                        controller: hipController,
+                        labelText: 'Hip',
+                        suffixText: 'CM',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 16.0),
+                Row(
+                  children: [
+                    Expanded(
+                      child: VitalTextField(
+                        controller: temperatureController,
+                        labelText: 'Temperature',
+                        suffixText: '°C',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    SizedBox(width: 16.0),
+                    Expanded(
+                      child: VitalTextField(
+                        controller: spo2Controller,
+                        labelText: 'SpO2',
+                        suffixText: '%',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 16.0),
+                VitalTextField(
+                  controller: bmiController,
+                  labelText: 'BMI',
+                  suffixText: 'kg/m2',
+                  keyboardType: TextInputType.number,
+                ),
+                SizedBox(height: 16.0),
+                VitalTextField(
+                    controller: notesController,
+                    labelText: 'Notes',
+                    maxLines: 4),
+                SizedBox(height: 16.0),
+                VitalTextField(
+                    controller: diagnosisController,
+                    labelText: 'Diagnosis',
+                    maxLines: 4),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ElevatedButton(
+                      child: const Text('View Chart'),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.green,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VitalSignChartPage(
+                                      patientId: widget.userId.toString())));
+                        });
+                      },
+                    ),
+                    ElevatedButton(
+                      child: const Text('Save Vital Signs'),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.green,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _apiServiceC
+                              .submitVitals(
+                                  context: context,
+                                  userId: widget.userId,
+                                  doctorId:
+                                      int.tryParse(LocalStorage.getUID() ?? '') ??
+                                          0,
+                                  appointmentId: 3,
+                                  bpSystolic: int.tryParse(
+                                          bpSystolicController.text ?? '0.0') ??
+                                      0,
+                                  bpDiastolic: int.tryParse(
+                                          bpDiastolicController.text ?? '0') ??
+                                      0,
+                                  pulse:
+                                      int.tryParse(pulseController.text ?? '0') ??
+                                          0,
+                                  height:
+                                      int.tryParse(heightController.text ?? '0') ??
+                                          0,
+                                  weight:
+                                      int.tryParse(weightController.text ?? '0') ??
+                                          0,
+                                  bmi: double.tryParse(bmiController.text ?? '0.0') ??
+                                      0.0,
+                                  waist:
+                                      int.tryParse(waistController.text ?? '0') ??
+                                          0,
+                                  hip: int.tryParse(hipController.text ?? '0') ?? 0,
+                                  temp: double.tryParse(temperatureController.text ?? '0.0') ?? 0.0,
+                                  spo2: int.tryParse(spo2Controller.text ?? '0') ?? 0,
+                                  dietAndExercise: bmiController.text ?? '0',
+                                  notes: notesController.text ?? '0',
+                                  diagnoses: diagnosisController.text ?? '0',
+                                  doctorFlag: 1,
+                                  nurseFlag: 0,
+                                  summaryId: 24330)
+                              .then((value) => {
+                                    dietAndExerciseController.clear(),
+                                    diagnosisController.clear(),
+                                    bpSystolicController.clear(),
+                                    bpDiastolicController.clear(),
+                                    pulseController.clear(),
+                                    heightController.clear(),
+                                    weightController.clear(),
+                                    waistController.clear(),
+                                    hipController.clear(),
+                                    temperatureController.clear(),
+                                    spo2Controller.clear(),
+                                    bmiController.clear(),
+                                    notesController.clear(),
+                                  });
+                          print('Welcome');
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                /* ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FloatNavigatorPage(
+                                  patientId: ,
+                            )));
+                  },
+                  child: Text('Float'))*/
+              ],
+            ),
+          ),
+        )
+///////////////////////////Old Vital Signs////////////////////////////////
+        /* SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(6),
             child: Column(
@@ -388,7 +705,8 @@ class _AddVitalSignDialogState extends State<AddVitalSignDialog> {
               ],
             ),
           ),
-        ),
+        )*/
+        ,
       ),
     );
   }

@@ -41,12 +41,11 @@ class DashboardCard extends StatelessWidget {
             children: [
               if (asset != null)
                 Positioned(
-                    left: 0,
-                    bottom: 0,
                     child: Image.asset(
-                      asset!,
-                      width: 100,
-                    )),
+                  asset!,
+                  width: 100,
+                  color: Colors.grey.shade50,
+                )),
               Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
