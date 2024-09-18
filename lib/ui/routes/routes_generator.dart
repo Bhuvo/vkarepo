@@ -340,7 +340,8 @@ abstract class RouteGenerator {
       case Routes.bookAppointment:
         return route(settings, BookAppointmentPage());
       case Routes.bookAppointmentPage:
-        return route(settings, const AddAppointmentPage());
+        args as Map;
+        return route(settings, AddAppointmentPage(isClinical: args['isClinical'] ?? false,));
 
       case Routes.patientRegistrationList:
         return route(settings, PatientRegistrationListPage());

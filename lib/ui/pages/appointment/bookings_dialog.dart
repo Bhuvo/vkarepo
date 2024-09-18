@@ -102,7 +102,7 @@ class _BookingsDialogState extends State<BookingsDialog> {
                               break;
                             case Consts.VIDEO_CONSULTATION:
                               context.popDialog();
-                              context.push(Routes.bookAppointmentPage);
+                              context.push(Routes.bookAppointmentPage,{'isClinical' : true});
                               // context.push(Routes.scheduleAppointmentPatient,
                               //     {'instantDoctor': widget.doctor});
                               break;

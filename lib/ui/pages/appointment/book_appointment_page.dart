@@ -147,11 +147,12 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
     print(LocalStorage.getUser().userId);
     print(LocalStorage.getUser().userId.toString());
     print(LocalStorage.getUID());
-    print("prints user id");
+    print("prints user id ${LocalStorage.getUser().userId}");
     apBloc = ApiBuilderBloc(path: 'Appointmentslist', query: {
-      'User_id': LocalStorage.getUser().userId,
+       'User_id': LocalStorage.getUser().userId,
       // 'User_id': context.watch<PatientBloc>().patient?.userId.toString()
       // 'User_id': patientData.userId,
+      // 'User_id': LocalStorage.getCursorPatient().userId.toString(),
     })
       ..add(const Load());
     familyBloc = ApiBuilderBloc(path: 'SavedPatientList', query: {

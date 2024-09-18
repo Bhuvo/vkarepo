@@ -36,6 +36,8 @@ class MTextField extends StatelessWidget {
   final TextEditingController? controller;
   final Widget? suffixIcon, prefixIcon, labelWidget;
   final Function(String)? onChanged;
+  final Function()? onTap;
+  final String Function(String?)? validator;
   final MInputType type;
   final String? label, hint, value;
   final int maxLines, minLines;
@@ -60,7 +62,7 @@ class MTextField extends StatelessWidget {
       this.suffixIcon,
       this.prefixIcon,
       this.required = true,
-      this.enabled = true})
+      this.enabled = true, this.validator, this.onTap})
       : super(key: key);
 
   @override
@@ -75,7 +77,8 @@ class MTextField extends StatelessWidget {
       focusNode: focusNode,
       keyboardType: type.keyboardType(),
       obscureText: type == MInputType.password,
-      validator: (s) {
+      onTap: onTap ?? (){},
+      validator:validator ?? (s) {
         if (required && s!.isEmpty) return '$label is required.';
         if (type == MInputType.phone && s!.length != 10)
           return 'Invalid $label';

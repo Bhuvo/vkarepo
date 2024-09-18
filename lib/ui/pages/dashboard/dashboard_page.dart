@@ -51,7 +51,7 @@ class DashboardPage extends StatelessWidget {
                               color: const Color(0xff29abe2),
                               asset: 'assets/images/ic_1.png',
                               onTap: () {
-                                // context.push(Routes.patientRegistrationList);
+                                 context.push(Routes.patientRegistrationList);
                               },
                             ),
                             DashboardCard(
@@ -60,7 +60,7 @@ class DashboardPage extends StatelessWidget {
                               color: const Color(0xff0b9b92),
                               asset: 'assets/images/ic_2.png',
                               onTap: () {
-                                //  context.push(Routes.todayInrScheduleList);
+                                 context.push(Routes.todayInrScheduleList);
                               },
                             ),
                           ],
@@ -76,7 +76,7 @@ class DashboardPage extends StatelessWidget {
                               asset: 'assets/images/ic_3.png',
                               onTap: () {
                                 //context.push(Routes.totalCompletedList);
-                                //   Navigator.push(context, MaterialPageRoute(builder: (context)=>ScheduleListPage(title: "Total Completed Cases",)));
+                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ScheduleListPage(title: "Total Completed Cases",)));
                               },
                             ),
                             DashboardCard(
@@ -85,9 +85,9 @@ class DashboardPage extends StatelessWidget {
                                   'Total Patient\nToday INR Testing Pending',
                               color: const Color(0xfffabd2f),
                               asset: 'assets/images/ic_4.png',
-                              // onTap: () {
-                              //   context.push(Routes.totalPendingList);
-                              // },
+                              onTap: () {
+                                context.push(Routes.totalPendingList);
+                              },
                             ),
                           ],
                         ),
@@ -97,6 +97,9 @@ class DashboardPage extends StatelessWidget {
                           color: const Color(0xffff4d4d),
                           asset: 'assets/images/ic_5.png',
                           flex: 0,
+                          onTap: (){
+                            context.push(Routes.totalPendingList);
+                          },
                         ),
                         SizedBox(
                           height: context.width,
