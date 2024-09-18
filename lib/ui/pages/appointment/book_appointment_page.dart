@@ -146,7 +146,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
     print(LocalStorage.getUID());
     print("prints user id ${LocalStorage.getUser().userId}");
     apBloc = ApiBuilderBloc(path: 'Appointmentslist', query: {
-       'User_id': LocalStorage.getUser().userId,
+      'User_id': LocalStorage.getUser().userId,
       // 'User_id': context.watch<PatientBloc>().patient?.userId.toString()
       // 'User_id': patientData.userId,
       // 'User_id': LocalStorage.getCursorPatient().userId.toString(),
@@ -179,7 +179,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
       appBarBottom: PatientProvider(
         data: data,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16) ,
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
           child: PopupMenuButton(
             offset: const Offset(0, 60),
             itemBuilder: (BuildContext context) {
@@ -390,11 +390,15 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                                   upcoming: false,
                                   child: Container(
                                     padding: EdgeInsets.all(3),
-                                    decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
-                                    child: Text("Book Successfully", style: TextStyle(color: Colors.white),),
+                                    decoration: BoxDecoration(
+                                        color: Colors.green,
+                                        borderRadius: BorderRadius.circular(8)),
+                                    child: Text(
+                                      "Book Successfully",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
                                   ),
-                                )
-                            );
+                                ));
                           }),
                         ),
                         Padding(
@@ -741,7 +745,7 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton:  CallActions(
+      floatingActionButton: CallActions(
         appointmentid: widget.apId,
         docID: widget.docId ?? 0,
         patID: widget.patID ?? 0,
@@ -750,4 +754,3 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
     );
   }
 }
-
