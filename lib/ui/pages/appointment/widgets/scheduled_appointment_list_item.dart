@@ -41,6 +41,7 @@ class ScheduledAppointmentListItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             UserTile(
+              isAppointment: true,
               patientId: data.User_id,
               date: data.Appointment_Date,
               time: data.Appointment_Time,

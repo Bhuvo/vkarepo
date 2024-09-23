@@ -23,6 +23,7 @@ class Assets {
       'assets/fonts/Metropolis-SemiBold.otf';
   static const String imagesAccount = 'assets/images/account.png';
   static const String imagesAppBarBg = 'assets/images/app_bar_bg.png';
+  static const String imagesCancel = 'assets/images/cancel.png';
   static const String imagesDoctor = 'assets/images/doctor.png';
   static const String imagesDoctorOnline = 'assets/images/doctor_online.jpg';
   static const String imagesFileIcon = 'assets/images/file_icon.png';
@@ -40,9 +41,12 @@ class Assets {
   static const String imagesNoImage = 'assets/images/no_image.jpg';
   static const String imagesPatient = 'assets/images/patient.png';
   static const String imagesPhotoCircle = 'assets/images/photo_circle.png';
+  static const String imagesScheduled = 'assets/images/scheduled.png';
   static const String imagesTimesmedlogo = 'assets/images/timesmedlogo.png';
+  static const String imagesWaiting = 'assets/images/waiting.png';
   static const String soundsCustomnotificationsound =
       'assets/sounds/customnotificationsound.mp3';
+  static const String CancelAlert = 'assets/svg/1_32. Cancel Alert.svg';
   static const String svgCancel = 'assets/svg/cancel.svg';
   static const String svgIcAfternoon = 'assets/svg/ic_afternoon.svg';
   static const String svgIcEvening = 'assets/svg/ic_evening.svg';
