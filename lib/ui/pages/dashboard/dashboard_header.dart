@@ -55,7 +55,7 @@ class DashboardHeader extends StatelessWidget {
             width: 10,
           ),
           Text(
-            '${user.fullName ?? 'Vicky'}',
+           LocalStorage.getIsFromPatient() ?? false? '${LocalStorage.getCursorPatient().patientName}':'${user.fullName ?? 'Vicky'}',
             style: const TextStyle(
                 fontWeight: FontWeight.w600, color: Colors.white),
           ),

@@ -207,6 +207,10 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
+                                'statusId': 'T',
+                                'fromDate': query['From'],
+                                'toDate': query['To'] ,
+
                               },
                             );
                           },
@@ -220,6 +224,9 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
+                                'statusId': 'W',
+                                'fromDate': query['From'],
+                                'toDate': query['To'] ,
                               },
                             );
                           },
@@ -237,6 +244,9 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
+                                'statusId': 'C',
+                                'fromDate': query['From'],
+                                'toDate': query['To'] ,
                               },
                             );
                           },
@@ -250,6 +260,9 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
+                                'statusId': 'R',
+                                'fromDate': query['From'],
+                                'toDate': query['To'] ,
                               },
                             );
                           },
@@ -311,6 +324,9 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
+                                'statusId': 'M',
+                                'fromDate': query['From'],
+                                'toDate': query['To'] ,
                               },
                             );
                           },
@@ -324,6 +340,9 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
+                                'statusId': 'W',
+                                'fromDate': query['From'],
+                                'toDate': query['To'] ,
                               },
                             );
                           },

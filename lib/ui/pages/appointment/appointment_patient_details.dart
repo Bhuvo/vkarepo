@@ -34,9 +34,9 @@ class AppointmentPatientDetails extends StatelessWidget {
     var phone = '';
     var userId = data.User_id;
 
-    print(user);
-    print(data);
-    print("printing user");
+    // print(user);
+    // print(data);
+    // print("printing user ${data.toJson()}");
 
     return MScaffold(
       title: const Text(Consts.PATIENT_DETAILS),
@@ -71,9 +71,9 @@ class AppointmentPatientDetails extends StatelessWidget {
         ),
       ),
       floatingActionButton: CallActions(
-        appointmentid: apId,
+        appointmentid: data.Appointment_id,
         docID: LocalStorage.getUID(),
-        patID: patID ?? 0,
+        patID: data.User_id ?? 0,
         fab: GlobalKey<ExpandableFabState>(),
       ),
     );

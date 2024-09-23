@@ -27,11 +27,13 @@ import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../../di/dependency_injection.dart';
+import '../../../model/appointment_data.dart';
 import '../../components/waiting_dialog.dart';
 import '../../widgets/widgets.dart';
 import '../call/call_actions.dart';
 import 'appointment_list_item.dart';
 import 'bookings_dialog.dart';
+import 'controller/controller.dart';
 
 class BookAppointmentPage extends StatefulWidget {
   BookAppointmentPage({Key? key}) : super(key: key);
@@ -50,6 +52,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
   //   ..add(const Load());
 
   late ApiBuilderBloc apBloc;
+  late ApiBuilderBloc clApBloc;
 
   /// Below code is for the user saved patient list api bloc
 
@@ -129,17 +132,28 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
     apBloc = ApiBuilderBloc(path: 'Appointmentslist', query: {
       'User_id': userId.toString(),
       // 'User_id': patientData.userId,
-    })
-      ..add(const Load());
+    })..add(const Load());
+    clApBloc = ApiBuilderBloc(path: 'GetPatientAppointments', query: {
+      'user_id': userId.toString(),
+      // 'User_id': patientData.userId,
+    })..add(const Load());
+
     setState(() {});
   }
 
   String? selectedOption;
 
+  void getData() async{
+    print('Get User Id ${LocalStorage.getCursorPatient().userId}'); //297488 //311214
+    await controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().userId);
+   setState(() {});
+  }
+
   @override
   void initState() {
     // TODO: implement initState
     print("init state print");
+    getData();
     super.initState();
     // WidgetsBinding.instance.addPostFrameCallback((_) async {
     //   patientData = context.watch<PatientBloc>().patient ?? const Patient();
@@ -153,8 +167,10 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
       // 'User_id': context.watch<PatientBloc>().patient?.userId.toString()
       // 'User_id': patientData.userId,
       // 'User_id': LocalStorage.getCursorPatient().userId.toString(),
-    })
-      ..add(const Load());
+    })..add(const Load());
+    clApBloc = ApiBuilderBloc(path: 'GetPatientAppointments',api2: true, query: {
+      'user_id': LocalStorage.getUser().userId,
+    });
     familyBloc = ApiBuilderBloc(path: 'SavedPatientList', query: {
       'User_id': LocalStorage.getUID(),
     })
@@ -165,6 +181,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
   }
+  PatientClinicalAppointmentController controller = PatientClinicalAppointmentController();
 
   @override
   Widget build(BuildContext context) {
@@ -203,7 +220,8 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                   break;
               }
             },
-            child: UserTile(padding:EdgeInsets.all(4),
+            child: UserTile(
+              padding:EdgeInsets.all(4),
               avatarRadius: 28,
               caption: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -325,11 +343,87 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
       body: RefreshIndicator(
         onRefresh: () async {
           apBloc.add(const Refresh());
+          clApBloc.add(const Refresh());
           familyBloc.add(const Refresh());
+          getData();
         },
         child: SingleChildScrollView(
           child: Column(
             children: [
+              Column(
+                crossAxisAlignment : CrossAxisAlignment.start,
+                children: [
+                const SizedBox(
+                  height: 32,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16, vertical: 8),
+                  child: Text(
+                    'Previous Clinical Appointments',
+                    style: Theme.of(context).textTheme.caption,
+                  ),
+                ),
+                ExpandableColumn(
+                  min: 3,
+                  children: List.generate(controller.previous.length ?? 0, (i) {
+                    final item = controller.previous[i];
+                    print("XXXX$item");
+                    return UserProvider(
+                        data: User(
+                            fullName: '${controller.previous[i].doctorName}',
+                            image: 'https://www.timesmed.com/images/doc-imgs/55bccd5aa6c01c74389ad3e3be60fed0afa2067a2aef6.jpg'),
+                        child: AppointmentListItem(
+                          contextfromBookAppointmentPage: context,
+                          data: AppointmentData(doctorName: item.doctorName),
+                          upcoming: false,
+                          child: Container(
+                            padding: EdgeInsets.all(3),
+                            decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
+                            child: Text("Booked Successfully", style: TextStyle(color: Colors.white),),
+                          ),
+                        )
+                    );
+                  }),
+                ),
+              ],),
+              Column(
+                crossAxisAlignment : CrossAxisAlignment.start,
+                children: [
+                const SizedBox(
+                  height: 32,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16, vertical: 8),
+                  child: Text(
+                    'Upcoming Clinical Appointments',
+                    style: Theme.of(context).textTheme.caption,
+                  ),
+                ),
+                ExpandableColumn(
+                  min: 3,
+                  children: List.generate(controller.upcoming.length ?? 0, (i) {
+                    final item = controller.upcoming[i];
+                    print("XXXX$item");
+                    return UserProvider(
+                        data: User(
+                            fullName: '${controller.upcoming[i].doctorName}',
+                            image: 'https://www.timesmed.com/images/doc-imgs/55bccd5aa6c01c74389ad3e3be60fed0afa2067a2aef6.jpg'),
+                        child: AppointmentListItem(
+                          contextfromBookAppointmentPage: context,
+                          data: AppointmentData(doctorName: item.doctorName),
+                          upcoming: false,
+                          child: Container(
+                            padding: EdgeInsets.all(3),
+                            decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
+                            child: Text("Booked Successfully", style: TextStyle(color: Colors.white),),
+                          ),
+                        )
+                    );
+                  }),
+                ),
+              ],),
               BlocProvider(
                 create: (_) => apBloc,
                 child: ApiBuilder<AppointmentResponse>(
@@ -368,36 +462,6 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                                   contextfromBookAppointmentPage: context,
                                   data: item,
                                 ));
-                          }),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 8),
-                          child: Text(
-                            'Clinical Appointments',
-                            style: Theme.of(context).textTheme.caption,
-                          ),
-                        ),
-                        ExpandableColumn(
-                          min: 3,
-                          children: List.generate(upcoming.length, (i) {
-                            final item = upcoming[i];
-                            print("XXXX$item");
-                            return UserProvider(
-                                data: User(
-                                    fullName: '${item.doctorName}',
-                                    image: '${item.doctorImage}'),
-                                child: AppointmentListItem(
-                                  contextfromBookAppointmentPage: context,
-                                  data: item,
-                                  upcoming: false,
-                                  child: Container(
-                                    padding: EdgeInsets.all(3),
-                                    decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
-                                    child: Text("Book Successfully", style: TextStyle(color: Colors.white),),
-                                  ),
-                                )
-                            );
                           }),
                         ),
                         Padding(
@@ -511,14 +575,22 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                                       apBloc.add(UpdateQuery({
                                         'User_id': data.userId,
                                       }));
+                                      clApBloc.add(UpdateQuery({
+                                        'user_id': data.userId,
+                                      }));
                                       await Future.delayed(
                                           const Duration(milliseconds: 100));
                                       apBloc.add(const Refresh());
+                                      clApBloc.add(const Refresh());
                                       await Future.delayed(
                                           const Duration(milliseconds: 100));
                                       familyBloc.add(const Refresh());
+                                      LocalStorage.setJson(LocalStorage.CURSOR_USER, data.toJson());
                                       await Future.delayed(
                                           const Duration(milliseconds: 100));
+                                      print('coming ontap ${data.userId}');
+                                     // await controller.getClinicalAppointmentData(data.userId);
+                                      getData();
                                       setState(() {});
                                     },
                                     margin: const EdgeInsets.symmetric(

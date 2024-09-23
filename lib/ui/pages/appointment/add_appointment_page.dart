@@ -438,7 +438,7 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                     'User_id': p.userId.toString(),
                   });
                   final response1 = await http.get(uri);
-                  print('Uri 1 ${response1.body}');
+                  print('Uri 1DoctorId${doctor!["Doctor_id"].toString()} ,User Id ${response1.body} ');
                   final uri2 = Uri.parse(
                           "https://api.timesmed.com/WebAPI2/getOnlineFeeData")
                       .replace(

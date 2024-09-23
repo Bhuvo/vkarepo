@@ -238,6 +238,7 @@ abstract class RouteGenerator {
             settings,
             AddVitalSignReportPage(
               userId: args['patientID'] ?? LocalStorage.getUser().userId,
+              appointmentID: args['appointmentID'],
             ));
       case Routes.clinicalNotesList:
         args as Map;
@@ -273,7 +274,8 @@ abstract class RouteGenerator {
       case Routes.BookAnAppointmentClinicalVisit:
         return route(settings, const BookAnAppointmentClinicalVisit());
       case Routes.DoctorsListForClinicalVisit:
-        return route(settings, const DoctorsListForClinicalVisit());
+        args as Map;
+        return route(settings,  DoctorsListForClinicalVisit(controller: args['controller'],));
       case Routes.DoctorsClinicalListDetails:
         args as Map;
         return route(
@@ -281,6 +283,8 @@ abstract class RouteGenerator {
             DoctorsClinicalListDetails(
               doctorsName: args['doctorsName'],
               doctorsQualification: args['doctorsQualification'],
+              doctorData: args['doctorData'],
+
             ));
       case Routes.thankingPage:
         args as Map;
@@ -309,7 +313,7 @@ abstract class RouteGenerator {
       case Routes.scheduledAppointmentList:
         args as Map;
         return route(
-            settings, ScheduledAppointmentList(hospitalId: args['hos_id']));
+            settings, ScheduledAppointmentList(hospitalId: args['hos_id'] , statusId: args['statusId'],fromDate: args['fromDate'],toDate: args['toDate'],));
       case Routes.currentAppointment:
         return route(settings, const CurrentAppointmentPage());
       case Routes.bookingAppointment:

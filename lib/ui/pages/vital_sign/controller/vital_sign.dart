@@ -12,10 +12,12 @@ class VitalSignController {
     userId,
     doctorId,
   ) async {
+    print('$userId $doctorId');
     final response = await http.get(Uri.parse(base_url +
         'VKAAPI2/Get_Vital_Signs_Report?Patient_Id=$userId&Appointment_Id=1&Doctor_Id=$doctorId'));
     try {
       if (response.statusCode == 200) {
+        print('json ${response.body}');
         return VitalSignsChartModel.fromJson(json.decode(response.body));
       } else {
         throw Exception('Failed to load album');
@@ -50,32 +52,32 @@ class VitalSignController {
 
   Future<void> submitVitals({
     context,
-    required int userId,
-    required int doctorId,
-    required int appointmentId,
-    int? nurseId,
-    required int bpSystolic,
-    required int bpDiastolic,
-    required int pulse,
-    required int height,
-    required int weight,
-    required double bmi,
-    required int waist,
-    required int hip,
-    required double temp,
-    required int spo2,
+    required String userId,
+    required String doctorId,
+    required String appointmentId,
+    String? nurseId,
+    required String bpSystolic, 
+    required String bpDiastolic,
+    required String pulse,
+    required String height,
+    required String weight,
+    required String bmi,
+    required String waist,
+    required String hip,
+    required String temp,
+    required String spo2,
     required String dietAndExercise,
     required String notes,
     required String diagnoses,
-    required int doctorFlag,
-    required int nurseFlag,
-    required int summaryId,
+    required String doctorFlag,
+    required String nurseFlag,
+     String? summaryId,
   }) async {
     final url = Uri.parse(
         'https://tmsnew.timesmed.com/WebAPIP/SaveAppointmentSummary?');
     final headers = {
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer <your_token>',
     };
 
     // Prepare the body by assigning values separately
@@ -99,13 +101,14 @@ class VitalSignController {
       "diagnoses": diagnoses,
       "doctor_flag": doctorFlag,
       "nurse_flag": nurseFlag,
-      "summary_id": summaryId,
     };
 
     try {
-      final response =
-          await http.post(url, headers: headers, body: json.encode(body));
+      // final response =
+      //     await http.post(url, headers: headers, body: json.encode(body));
 
+      var response = await http.post(url.replace(queryParameters: body), headers: headers,);
+      print(body);
       if (response.statusCode == 200) {
         print('Vitals submitted successfully');
         AddVitalSignModel addVitalSignModel =

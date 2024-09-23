@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import '../model/city_model.dart';
+import '../model/doctor_model.dart';
 import '../model/location_model.dart';
 import '../model/speciality_model.dart';
 import '../model/state_model.dart';
@@ -13,6 +14,7 @@ class ClinicalVisitController {
   List<CityModel> cityData = [];
   List<LocationModel> locationData = [];
   List<SpecialityModel> specialityData = [];
+  DoctorModel doctorData = DoctorModel();
 
   StateModel selectedState = StateModel();
   CityModel selectedCity = CityModel();
@@ -70,5 +72,16 @@ class ClinicalVisitController {
     }
   }
 
+  Future<void> getDoctorList(int specialityId ,int stateId , int cityId ,int offset) async {
+     print('$specialityId , $stateId , $cityId , $offset');
+    var response = await http.get(Uri.parse(
+        'https://api.timesmed.com/AMP/VkaDoctorsList?SubCategory_id=$specialityId&State_id=$stateId&Country_id=1&City_id=$cityId&pageIndex=$offset'));
+    if (response.statusCode == 200) {
+      doctorData = DoctorModel.fromJson(jsonDecode(response.body));
+      print(doctorData.toJson());
+    } else {
+      print('Request failed with status: ${response.statusCode}.');
+    }
+  }
 
 }

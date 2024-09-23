@@ -51,13 +51,13 @@ class _ImageOverviewInQueuePageState extends State<ImageOverviewInQueuePage> {
 
   Future<void> loadDocument() async {
     document = await PDFDocument.fromURL(
-        "https://api.timesmed.com/PatientUploadedFiles/${widget.name}");
+        "https://api.timesmed.com/PatientUploadedFiles/${widget.appointmentId}/${widget.name}");
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    print("https://api.timesmed.com/PatientUploadedFiles/${widget.name}");
+    print("https://api.timesmed.com/PatientUploadedFiles/${widget.appointmentId}/${widget.name}");
     return MScaffold(
       title: const Text("File Preview"),
       body: Stack(
@@ -70,7 +70,7 @@ class _ImageOverviewInQueuePageState extends State<ImageOverviewInQueuePage> {
                   ? FadeInImage.memoryNetwork(
                       placeholder: kTransparentImage,
                       image:
-                          'https://api.timesmed.com/PatientUploadedFiles/${widget.name}',
+                          'https://api.timesmed.com/PatientUploadedFiles/${widget.appointmentId}/${widget.name}',
                     )
                   : document != null
                       ? PDFViewer(

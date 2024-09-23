@@ -14,11 +14,11 @@ import '../../components/patient_bottom_navigation.dart';
 
 class AddVitalSignReportPage extends StatefulWidget {
   final userId;
-  /* final String doctorId;
-  final String appointmentId;*/
+   // final String doctorId;
+  final String appointmentID;
   const AddVitalSignReportPage({
     super.key,
-     this.userId,
+     this.userId, required this.appointmentID,
   });
   @override
   _AddVitalSignReportPageState createState() => _AddVitalSignReportPageState();
@@ -100,50 +100,72 @@ class _AddVitalSignReportPageState extends State<AddVitalSignReportPage> {
               Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      height: 47.0,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.grey.shade300),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 3.0, right: 3.0),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: TextField(
-                                  controller: bpSystolicController,
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      enabledBorder: InputBorder.none)),
-                            ),
-                            Text(
-                              '/',
-                              style: TextStyle(
-                                fontSize: 30.0,
-                              ),
-                            ),
-                            Expanded(
-                              child: TextField(
-                                  controller: bpDiastolicController,
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      enabledBorder: InputBorder.none)),
-                            ),
-                            Text(
-                              'mmHg',
-                              style:
-                                  TextStyle(fontSize: 17.0, color: Colors.blue),
-                            ),
-                          ],
-                        ),
-                      ),
+                    child: VitalTextField(
+                      controller: bpSystolicController,
+                      labelText: 'BP Systolic',
+                      suffixText: 'mmHg',
+                      keyboardType: TextInputType.number,
                     ),
                   ),
                   SizedBox(width: 16.0),
+                  Expanded(
+                    child: VitalTextField(
+                      controller: bpDiastolicController,
+                      labelText: 'Bp Diastolic',
+                      suffixText: 'mmHg',
+                      keyboardType: TextInputType.number,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 16.0),
+              Row(
+                children: [
+                  // Expanded(
+                  //   child: Container(
+                  //     height: 47.0,
+                  //     decoration: BoxDecoration(
+                  //       color: Colors.white,
+                  //       borderRadius: BorderRadius.circular(10),
+                  //       border: Border.all(color: Colors.grey.shade300),
+                  //     ),
+                  //     child: Padding(
+                  //       padding: const EdgeInsets.only(left: 3.0, right: 3.0),
+                  //       child: Row(
+                  //         children: [
+                  //           Expanded(
+                  //             child: TextField(
+                  //                 controller: bpSystolicController,
+                  //                 keyboardType: TextInputType.number,
+                  //                 decoration: InputDecoration(
+                  //                     border: InputBorder.none,
+                  //                     enabledBorder: InputBorder.none)),
+                  //           ),
+                  //           Text(
+                  //             '/',
+                  //             style: TextStyle(
+                  //               fontSize: 30.0,
+                  //             ),
+                  //           ),
+                  //           Expanded(
+                  //             child: TextField(
+                  //                 controller: bpDiastolicController,
+                  //                 keyboardType: TextInputType.number,
+                  //                 decoration: InputDecoration(
+                  //                     border: InputBorder.none,
+                  //                     enabledBorder: InputBorder.none)),
+                  //           ),
+                  //           Text(
+                  //             'mmHg',
+                  //             style:
+                  //                 TextStyle(fontSize: 17.0, color: Colors.blue),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  // SizedBox(width: 16.0),
                   Expanded(
                       child: VitalTextField(
                     controller: pulseController,
@@ -250,6 +272,7 @@ class _AddVitalSignReportPageState extends State<AddVitalSignReportPage> {
                       ),
                     ),
                     onPressed: () {
+                      print( widget.userId);
                       setState(() {
                         Navigator.push(
                             context,
@@ -275,40 +298,25 @@ class _AddVitalSignReportPageState extends State<AddVitalSignReportPage> {
                         _apiServiceC
                             .submitVitals(
                                 context: context,
-                                userId: widget.userId,
-                                doctorId:
-                                    int.tryParse(LocalStorage.getUID() ?? '') ??
-                                        0,
-                                appointmentId: 3,
-                                bpSystolic: int.tryParse(
-                                        bpSystolicController.text ?? '0.0') ??
-                                    0,
-                                bpDiastolic: int.tryParse(
-                                        bpDiastolicController.text ?? '0') ??
-                                    0,
-                                pulse:
-                                    int.tryParse(pulseController.text ?? '0') ??
-                                        0,
-                                height:
-                                    int.tryParse(heightController.text ?? '0') ??
-                                        0,
-                                weight:
-                                    int.tryParse(weightController.text ?? '0') ??
-                                        0,
-                                bmi: double.tryParse(bmiController.text ?? '0.0') ??
-                                    0.0,
-                                waist:
-                                    int.tryParse(waistController.text ?? '0') ??
-                                        0,
-                                hip: int.tryParse(hipController.text ?? '0') ?? 0,
-                                temp: double.tryParse(temperatureController.text ?? '0.0') ?? 0.0,
-                                spo2: int.tryParse(spo2Controller.text ?? '0') ?? 0,
-                                dietAndExercise: bmiController.text ?? '0',
-                                notes: notesController.text ?? '0',
-                                diagnoses: diagnosisController.text ?? '0',
-                                doctorFlag: 1,
-                                nurseFlag: 0,
-                                summaryId: 24330)
+                                userId: widget.userId.toString(),
+                                doctorId:LocalStorage.getUID(),
+                                 height: heightController.text,
+                                weight: weightController.text,
+                                waist: waistController.text,
+                                hip: hipController.text,
+                                temp: temperatureController.text,
+                                spo2: spo2Controller.text,
+                                bpSystolic: bpSystolicController.text,
+                                bpDiastolic: bpDiastolicController.text,
+                                pulse: pulseController.text,
+                                bmi: bmiController.text,
+                                appointmentId: widget.appointmentID,
+                                notes: notesController.text,
+                                diagnoses: diagnosisController.text,
+                                dietAndExercise: dietAndExerciseController.text,
+                                doctorFlag: '1',
+                                nurseFlag: '0',)
+                                // summaryId: 24330)
                             .then((value) => {
                                   dietAndExerciseController.clear(),
                                   diagnosisController.clear(),

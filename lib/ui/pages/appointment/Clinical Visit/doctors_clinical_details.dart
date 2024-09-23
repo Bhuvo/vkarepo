@@ -7,15 +7,16 @@ import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../../routes/routes.dart';
 import '../../../theme/theme.dart';
+import 'model/doctor_model.dart';
 
 class DoctorsClinicalListDetails extends StatefulWidget {
   final String doctorsName;
   final String doctorsQualification;
-
+  final DoctorData doctorData;
   const DoctorsClinicalListDetails({
     Key? key,
     required this.doctorsName,
-    required this.doctorsQualification,
+    required this.doctorsQualification, required this.doctorData,
   }) : super(key: key);
 
   @override
@@ -61,7 +62,7 @@ class _DoctorsClinicalListDetailsState
     Size size = MediaQuery.of(context).size;
     return MScaffold(
       title: Text(
-        "Dr. ${widget.doctorsName}",
+        "${widget.doctorData.doctorName}",
         style: TextStyle(
           fontSize: size.height * 0.0165,
         ),
@@ -76,7 +77,7 @@ class _DoctorsClinicalListDetailsState
               // Background color of the outer circle
               child: CircleAvatar(
                 radius: size.height * 0.035,
-                backgroundImage: AssetImage(
+                backgroundImage: NetworkImage( widget.doctorData.doctorImage ??
                     'assets/images/doctor.png'), // Replace this with the actual image asset path
               ),
             ),
@@ -86,10 +87,12 @@ class _DoctorsClinicalListDetailsState
             SizedBox(
               width: size.width * 0.65,
               child: Text(
-                widget.doctorsQualification,
+                widget.doctorData.doctorQualification ?? '',
                 style: TextStyle(
                   fontSize: size.height * 0.0165,
                 ),
+                maxLines: 5,
+                overflow: TextOverflow.ellipsis,
               ),
             )
           ],
@@ -125,28 +128,30 @@ class _DoctorsClinicalListDetailsState
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          buildTextWithBottomColor(0, 'INFO', size),
-                          buildTextWithBottomColor(1, 'FEEDBACK', size),
-                          buildTextWithBottomColor(2, 'PHOTOS', size),
-                          buildTextWithBottomColor(3, 'VIDEOS', size),
-                          buildTextWithBottomColor(4, 'SERVICES', size),
-                          buildTextWithBottomColor(5, 'MAP', size),
-                        ],
-                      ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      //   children: [
+                      //     buildTextWithBottomColor(0, 'INFO', size),
+                      //     buildTextWithBottomColor(1, 'FEEDBACK', size),
+                      //     buildTextWithBottomColor(2, 'PHOTOS', size),
+                      //     buildTextWithBottomColor(3, 'VIDEOS', size),
+                      //     buildTextWithBottomColor(4, 'SERVICES', size),
+                      //     buildTextWithBottomColor(5, 'MAP', size),
+                      //   ],
+                      // ),
                       Padding(
                         padding: EdgeInsets.only(
                           top: size.height * 0.0075,
                           bottom: size.height * 0.0075,
                         ),
                         child: Text(
-                          "Passion for Dentistry Especially Implants. You can get the phone number of Dr. A. Joseph Anand on Timesmed.com.",
+                         widget.doctorData.doctorDescription ?? "Passion for Dentistry Especially Implants. You can get the phone number of Dr. A. Joseph Anand on Timesmed.com.",
                           style: TextStyle(
                             color: Colors.grey.shade600,
                             fontSize: size.height * 0.0165,
                           ),
+                          maxLines:5,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       Padding(
@@ -155,7 +160,7 @@ class _DoctorsClinicalListDetailsState
                           bottom: size.height * 0.0075,
                         ),
                         child: Text(
-                          "Mogappair-East - Chennai",
+                          widget.doctorData.locationName ??'',
                           style: TextStyle(
                             color: Colors.grey.shade600,
                             fontWeight: FontWeight.bold,
@@ -169,91 +174,100 @@ class _DoctorsClinicalListDetailsState
                           bottom: size.height * 0.0075,
                         ),
                         child: Text(
-                          "No: 82,Justice Rathnavel Pandian Road, Golden George Nagar,(Near Reliance Fresh / HDFC BANK ATM) Mogappair East, Chennai- 600 107",
+                          widget.doctorData.clinicAddress ?? '',
+                          // "No: 82,Justice Rathnavel Pandian Road, Golden George Nagar,(Near Reliance Fresh / HDFC BANK ATM) Mogappair East, Chennai- 600 107",
                           style: TextStyle(
                             color: Colors.grey.shade600,
                             fontSize: size.height * 0.0165,
                           ),
+                          maxLines: 4,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       SizedBox(
                         height: size.height * 0.01,
                       ),
-                      Container(
-                        width: size.width * 0.35,
-                        height: size.height * 0.06,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                            size.width * 0.02,
+                      // Container(
+                      //   width: size.width * 0.35,
+                      //   height: size.height * 0.06,
+                      //   decoration: BoxDecoration(
+                      //     borderRadius: BorderRadius.circular(
+                      //       size.width * 0.02,
+                      //     ),
+                      //   ),
+                      //   child: OutlinedButton(
+                      //     onPressed: () {},
+                      //     child: Text(
+                      //       'View Map',
+                      //       style: TextStyle(
+                      //         color: Colors.black,
+                      //         fontSize: size.height * 0.0156,
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: size.height * 0.02),
+              Text('working Days & Time', style: TextStyle(fontSize: size.height * 0.018,fontWeight: FontWeight.bold),),
+              Column(
+                children:widget.doctorData.dayslot?.map((e) {
+                  return  Card(
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(size.width * 0.02),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(size.width * 0.035),
+                      child: Row(
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.calendarDays,
+                            size: size.height * 0.035,
+                            color: MTheme.BUTTON_COLOR,
                           ),
-                        ),
-                        child: OutlinedButton(
-                          onPressed: () {},
-                          child: Text(
-                            'View Map',
+                          SizedBox(width: 10.0),
+                          Text(
+                            '${getWeekDays(e.day ??[])} \n${e.fromTime} - ${e.toTime}',
                             style: TextStyle(
-                              color: Colors.black,
-                              fontSize: size.height * 0.0156,
-                            ),
+                                fontSize: size.height * 0.018,
+                                fontWeight: FontWeight.bold,
+                                color: MTheme.THEME_COLOR),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
+                    ),
+                  );
+                }).toList() ?? [],
               ),
-              Card(
-                elevation: 2.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(size.width * 0.02),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(size.width * 0.035),
-                  child: Row(
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.calendarDays,
-                        size: size.height * 0.035,
-                        color: MTheme.BUTTON_COLOR,
-                      ),
-                      SizedBox(width: 10.0),
-                      Text(
-                        'Mon - Sat - 5:00PM - 9:00PM',
-                        style: TextStyle(
-                            fontSize: size.height * 0.018,
-                            fontWeight: FontWeight.bold,
-                            color: MTheme.THEME_COLOR),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Card(
-                elevation: 2.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(size.width * 0.02),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(size.width * 0.035),
-                  child: Row(
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.calendarDays,
-                        size: size.height * 0.035,
-                        color: MTheme.BUTTON_COLOR,
-                      ),
-                      SizedBox(width: 10.0),
-                      Text(
-                        'Sun - 8:00PM - 9:00PM',
-                        style: TextStyle(
-                            fontSize: size.height * 0.018,
-                            fontWeight: FontWeight.bold,
-                            color: MTheme.THEME_COLOR),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              // Card(
+              //   elevation: 2.0,
+              //   shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(size.width * 0.02),
+              //   ),
+              //   child: Padding(
+              //     padding: EdgeInsets.all(size.width * 0.035),
+              //     child: Row(
+              //       children: [
+              //         Icon(
+              //           FontAwesomeIcons.calendarDays,
+              //           size: size.height * 0.035,
+              //           color: MTheme.BUTTON_COLOR,
+              //         ),
+              //         SizedBox(width: 10.0),
+              //         Text(
+              //           'Sun - 8:00PM - 9:00PM',
+              //           style: TextStyle(
+              //               fontSize: size.height * 0.018,
+              //               fontWeight: FontWeight.bold,
+              //               color: MTheme.THEME_COLOR),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
               SizedBox(
                 height: size.height * 0.05,
               ),
@@ -286,4 +300,20 @@ class _DoctorsClinicalListDetailsState
       ),
     );
   }
+}
+
+String getWeekDays(List<String> days) {
+  if(days.isEmpty){
+    return '';
+  }
+  Map<String, String> weekdayMap = {
+    "1": "Mon",
+    "2": "Tue",
+    "3": "Wed",
+    "4": "Thu",
+    "5": "Fri",
+    "6": "Sat",
+    "7": "Sun",
+  };
+  return "${weekdayMap[days.first]} - ${weekdayMap[days.last]}";
 }

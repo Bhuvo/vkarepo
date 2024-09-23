@@ -272,6 +272,9 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
                               description: data[index]["Description"] ?? "Null",
                               date: data[index]["Date"] ?? "Null",
                               recordsId: data[index]["id"],
+                              deleteVoidCallBack: (val){
+                                print('delet pop $val');
+                              },
                             ),
                           ),
                         );
@@ -364,6 +367,7 @@ class _FileViewListState extends State<FileViewList> {
             ),
             MIconButton(
               onTap: () {
+                print(widget.name);
                 if (AppConfig.of(context)?.config == Config.patient) {
                   Navigator.push(
                     context,
@@ -448,23 +452,23 @@ class _FileViewListState extends State<FileViewList> {
                   print(res?.statusCode);
                   print(res?.base);
 
-                  if (res?.body.message == "Deleted SuccessFully") {
-                    Future.delayed(const Duration(milliseconds: 100), () async {
-                      setState(() {
-                        viewRecordsDeleteBloc.add(const Refresh());
-                      });
-                    });
-                    await Fluttertoast.showToast(
-                        msg: "Deleted Successfully",
-                        toastLength: Toast.LENGTH_LONG,
-                        gravity: ToastGravity.BOTTOM,
-                        timeInSecForIosWeb: 1,
-                        backgroundColor: Colors.white,
-                        textColor: Colors.black,
-                        fontSize: 16.0);
-                    widget.deleteVoidCallBack!();
-                    print("Runs delete function");
-                  }
+                  // if (res?.body.message == "Deleted SuccessFully") {
+                  //   Future.delayed(const Duration(milliseconds: 100), () async {
+                  //     setState(() {
+                  //       viewRecordsDeleteBloc.add(const Refresh());
+                  //     });
+                  //   });
+                  //   await Fluttertoast.showToast(
+                  //       msg: "Deleted Successfully",
+                  //       toastLength: Toast.LENGTH_LONG,
+                  //       gravity: ToastGravity.BOTTOM,
+                  //       timeInSecForIosWeb: 1,
+                  //       backgroundColor: Colors.white,
+                  //       textColor: Colors.black,
+                  //       fontSize: 16.0);
+                  //   widget.deleteVoidCallBack!();
+                  //   print("Runs delete function");
+                  // }
                 }
               },
               color: MTheme.THEME_COLOR,

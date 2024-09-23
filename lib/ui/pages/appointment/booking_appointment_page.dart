@@ -15,7 +15,9 @@ import 'package:timesmedlite/ui/components/badge_avatar.dart';
 import 'package:timesmedlite/ui/components/confirm_dialog.dart';
 import 'package:timesmedlite/ui/components/flexi_q_button.dart';
 import 'package:timesmedlite/ui/components/shimmer/shimmer_list.dart';
+import 'package:timesmedlite/ui/components/show_message.dart';
 import 'package:timesmedlite/ui/components/update_timing_widget.dart';
+import 'package:timesmedlite/ui/components/user_tile.dart';
 import 'package:timesmedlite/ui/pages/appointment/appointment_select_user_dialog.dart';
 import 'package:timesmedlite/ui/pages/appointment/widgets/schedule_hospital_list_item.dart';
 import 'package:timesmedlite/ui/pages/call/update_call_status_page.dart';
@@ -28,6 +30,7 @@ import 'package:http/http.dart' as http;
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../../di/dependency_injection.dart';
+import '../../routes/routes.dart';
 import '../home/home_bottom_navigation.dart';
 
 class BookingAppointmentPage extends StatefulWidget {
@@ -87,6 +90,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
   @override
   void initState() {
     isFromPatient = widget.isFromPatient ?? true;
+    print(' the doctor id  ${LocalStorage.getUID()}');
     print(' the doctor id  ${LocalStorage.getUID()}');
     // TODO: implement initState
     super.initState();
@@ -268,7 +272,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                     ),
                     customBuilder: (list, load) {
                       print(timingsQuery['appdate']);
-                      print("prints timing query");
+                      print("prints timing query${list.first.timeList}");
                       final data = list.first;
                       return MListTile(
                           margin: const EdgeInsets.symmetric(
@@ -301,7 +305,9 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                                         print(res?.body);
                                         print(res?.statusCode);
                                         if (res != null) {
+                                          showMessage(context: context, message: 'Appointment booked successfully');
                                           context.popDialog(true);
+                                          context.pushAndRemoveUntil(Routes.bookAppointment, (p0) => false);
                                         }
                                     },
                                     }
@@ -314,7 +320,6 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
 
                                     return;
                                   }
-
                                   final res = await showDialog(
                                       context: context,
                                       builder: (c) =>

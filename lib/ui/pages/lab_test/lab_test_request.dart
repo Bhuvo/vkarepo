@@ -299,7 +299,7 @@ class _LabTestRequestState extends State<LabTestRequest> {
                           ]
                         },
                       );
-                      print("before res");
+                      print("before res${patientId} , ${call.then((value) => print(value.body))}");
                       final res =
                           await showWaitingDialog(context: context, call: call);
                       print("inside res");

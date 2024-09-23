@@ -84,7 +84,7 @@ class UserTile extends StatelessWidget {
                 Text(
                     doctor.fullName ??
                         patient?.patientName ??
-                        '${patient?.firstName ?? ''} ${patient?.lastName ?? ''}',
+                        '${patient?.firstName ?? 'dd'} ${patient?.lastName ?? 'ss'}',
                     style: textStyle ??
                         Theme.of(context).textTheme.bodyLarge?.copyWith(
                             fontSize: 16,
@@ -92,7 +92,7 @@ class UserTile extends StatelessWidget {
               if (patient != null)
                 Text(
                     patient.patientName ??
-                        '${patient.firstName ?? ''} ${patient.lastName ?? ''}',
+                        '${patient.firstName ?? 'ere'} ${patient.lastName ?? 'eee'}',
                     style: textStyle ??
                         Theme.of(context).textTheme.bodyLarge?.copyWith(
                             fontSize: 16,

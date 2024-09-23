@@ -31,6 +31,7 @@ class CallActions extends StatelessWidget {
               onPressed: () {
                 context.push(Routes.vitalSignReport, {
                   'patientID': patID,
+                  'appointmentID': appointmentid.toString()
                 });
                 /*context.push(Routes.documentPreview, {
                   'appointmentid': appointmentid,
@@ -127,6 +128,7 @@ class CallActions extends StatelessWidget {
               label: 'Prescription'),
           ActionButton(
               onPressed: () {
+                print('patient id$patID');
                 context.push(Routes.labTestRequest, {
                   'patientid': patID,
                   'doctorid': docID,

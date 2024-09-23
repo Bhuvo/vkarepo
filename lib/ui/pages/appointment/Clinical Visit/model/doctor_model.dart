@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class DoctorModel {
   List<DoctorData>? data;
   String? responseCode;
@@ -51,6 +53,8 @@ class DoctorData {
   String? locationNameTemp;
   String? days;
   List<Dayslot>? dayslot;
+  String? clinicAddress;
+  String? aboutClinic;
 
   DoctorData(
       {this.doctorId,
@@ -75,7 +79,9 @@ class DoctorData {
         this.locationName,
         this.locationNameTemp,
         this.days,
-        this.dayslot});
+        this.dayslot,
+        this.clinicAddress,
+        this.aboutClinic});
 
   DoctorData.fromJson(Map<String, dynamic> json) {
     doctorId = json['Doctor_id'];
@@ -106,6 +112,8 @@ class DoctorData {
         dayslot!.add(new Dayslot.fromJson(v));
       });
     }
+    clinicAddress = json['Clinic_Address'];
+    aboutClinic = json['AboutClinic'];
   }
 
   Map<String, dynamic> toJson() {
@@ -135,6 +143,8 @@ class DoctorData {
     if (this.dayslot != null) {
       data['Dayslot'] = this.dayslot!.map((v) => v.toJson()).toList();
     }
+    data['Clinic_Address'] = this.clinicAddress;
+    data['AboutClinic'] = this.aboutClinic;
     return data;
   }
 }

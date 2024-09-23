@@ -11,9 +11,10 @@ import 'package:timesmedlite/utils/local_storage.dart';
 
 class ScheduledAppointmentList extends StatelessWidget {
   final dynamic hospitalId;
-
-  const ScheduledAppointmentList({Key? key, this.hospitalId}) : super(key: key);
-
+  final String statusId;
+  final String? fromDate;
+  final String? toDate;
+   ScheduledAppointmentList({Key? key, this.hospitalId, this.fromDate, this.toDate, required this.statusId}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     ///TODO: uncomment LocalStorage.getUID() and '$hospitalId' in production
@@ -23,12 +24,11 @@ class ScheduledAppointmentList extends StatelessWidget {
         timesmedApi: true,
         query: {
           'DoctorId': LocalStorage.getUID(),
-          'status_id': 'T',
-          'From': '01/01/1996',
-          'To': '01/01/2100',
+          'status_id': statusId ?? 'T',
+          'From': fromDate ?? '09/18/2024',
+          'To':  toDate ?? '01/01/2100',
           'hos_id': '$hospitalId',
         });
-
     return MScaffold(
       title: const Text(Consts.SCHEDULED_APPOINTMENT_LIST),
       // title: const Text("hey bro"),
@@ -43,6 +43,8 @@ class ScheduledAppointmentList extends StatelessWidget {
             return MSearchListView(
                 itemCount: list.length,
                 label: 'Search by Name, Email, Mobile, Phone',
+                onChanged: (value){
+                },
                 itemBuilder: (c, i) {
                   final data = list[i];
                   return ScheduledAppointmentListItem(data: data);

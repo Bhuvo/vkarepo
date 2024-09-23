@@ -6,6 +6,7 @@ import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../../routes/routes.dart';
 import '../../../theme/theme.dart';
+import '../../../widgets/m_row_text_radio_widget.dart';
 import '../../../widgets/m_scaffold.dart';
 import '../../dashboard/dashboard_header.dart';
 import 'controller/controller.dart';
@@ -57,6 +58,8 @@ class _BookAnAppointmentClinicalVisitState
     super.initState();
   }
 
+  String choose = 'Chennai';
+
   void getData() async{
     await controller.getStateList();
     setState(() {
@@ -86,229 +89,264 @@ class _BookAnAppointmentClinicalVisitState
           ),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Column(
-                    children: [
-                      SizedBox(
-                        width: size.width * 0.65,
-                        child:  Autocomplete<StateModel>(
-                          // optionsViewBuilder: (BuildContext context, AutocompleteOnSelected<String> onSelected, Iterable<String> options) {
-                          //   return optionBuilder( options, onSelected);
-                          // },
-                          optionsBuilder: (TextEditingValue textEditingValue) {
-                            // return controller.stateData;
-                            if (textEditingValue.text.isEmpty) {
-                              return const Iterable<StateModel>.empty();
-                            }
-                            return controller.stateData.where((StateModel state) {
-                              return state.stateName?.toLowerCase().contains(textEditingValue.text.toLowerCase()) ?? false;
-                            });
-                          },
-                          fieldViewBuilder: (BuildContext context, TextEditingController textEditingController, FocusNode focusNode, VoidCallback onFieldSubmitted) {
-                            return MTextField(
-                              controller: textEditingController,
-                              focusNode: focusNode,
-                              label:'Select State',
-                              suffixIcon:Icon(
+              MRowTextRadioWidget(enabled: true,initialValue: 'Chennai',isneedDivider: false,onChanged: (val){
+                setState(() {
+                  choose = val;
+                });
+              },title: 'Select City',options: ['Chennai' ,'Other City'],),
+              if(choose == 'Other City')...{
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Column(
+                      children: [
+                        SizedBox(
+                          width: size.width * 0.65,
+                          child:  Autocomplete<StateModel>(
+                            // optionsViewBuilder: (BuildContext context, AutocompleteOnSelected<String> onSelected, Iterable<String> options) {
+                            //   return optionBuilder( options, onSelected);
+                            // },
+                            optionsBuilder: (TextEditingValue textEditingValue) {
+                              // return controller.stateData;
+                              if (textEditingValue.text.isEmpty) {
+                                return const Iterable<StateModel>.empty();
+                              }
+                              return controller.stateData.where((StateModel state) {
+                                return state.stateName?.toLowerCase().contains(textEditingValue.text.toLowerCase()) ?? false;
+                              });
+                            },
+                            fieldViewBuilder: (BuildContext context, TextEditingController textEditingController, FocusNode focusNode, VoidCallback onFieldSubmitted) {
+                              return MTextField(
+                                controller: textEditingController,
+                                focusNode: focusNode,
+                                label:'Select State',
+                                suffixIcon:Icon(
+                                  FontAwesomeIcons.angleDown,
+                                  color: Colors.grey.shade500,
+                                  size: size.height * 0.025,
+                                ) ,
+                                // decoration: InputDecoration(
+                                //   labelText: 'Select State',
+                                //   suffixIcon: Icon(
+                                //     FontAwesomeIcons.angleDown,
+                                //     color: Colors.grey.shade500,
+                                //     size: size.height * 0.025,
+                                //   ),
+                                // ),
+
+                              );
+                            },
+                            onSelected: (var selection) async {
+                              await controller.getCityList(selection.stateId ?? 31);
+                              setState(() {
+                                controller.selectedState = selection;
+                              });
+                              print('You selected: $selection');
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          height: size.height * 0.015,
+                        ),SizedBox(
+                          width: size.width * 0.65,
+                          child:  Autocomplete<CityModel>(
+                            // optionsViewBuilder: (BuildContext context, AutocompleteOnSelected<String> onSelected, Iterable<String> options) {
+                            //   return optionBuilder( options, onSelected);
+                            // },
+                            optionsBuilder: (TextEditingValue textEditingValue) {
+                              // return controller.cityData;
+                              if (textEditingValue.text.isEmpty) {
+                                return const Iterable<CityModel>.empty();
+                              }
+                              return controller.cityData.where((CityModel city) {
+                                return city.cityName?.toLowerCase().contains(textEditingValue.text.toLowerCase()) ?? false;
+                              });
+                            },
+                            fieldViewBuilder: (BuildContext context, TextEditingController textEditingController, FocusNode focusNode, VoidCallback onFieldSubmitted) {
+                              return Form(
+                                key: form1,
+                                child: MTextField(
+                                  controller: textEditingController,
+                                  focusNode: focusNode,
+                                  label:'Select City',
+                                  suffixIcon:Icon(
                                     FontAwesomeIcons.angleDown,
                                     color: Colors.grey.shade500,
                                     size: size.height * 0.025,
-                                  ) ,
-                              // decoration: InputDecoration(
-                              //   labelText: 'Select State',
-                              //   suffixIcon: Icon(
-                              //     FontAwesomeIcons.angleDown,
-                              //     color: Colors.grey.shade500,
-                              //     size: size.height * 0.025,
-                              //   ),
-                              // ),
-
-                            );
-                          },
-                          onSelected: (var selection) async {
-                            await controller.getCityList(selection.stateId ?? 31);
-                            setState(() {
-                              controller.selectedState = selection;
-                            });
-                            print('You selected: $selection');
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        height: size.height * 0.015,
-                      ),SizedBox(
-                        width: size.width * 0.65,
-                        child:  Autocomplete<CityModel>(
-                          // optionsViewBuilder: (BuildContext context, AutocompleteOnSelected<String> onSelected, Iterable<String> options) {
-                          //   return optionBuilder( options, onSelected);
-                          // },
-                          optionsBuilder: (TextEditingValue textEditingValue) {
-                            // return controller.cityData;
-                            if (textEditingValue.text.isEmpty) {
-                              return const Iterable<CityModel>.empty();
-                            }
-                            return controller.cityData.where((CityModel city) {
-                              return city.cityName?.toLowerCase().contains(textEditingValue.text.toLowerCase()) ?? false;
-                            });
-                          },
-                          fieldViewBuilder: (BuildContext context, TextEditingController textEditingController, FocusNode focusNode, VoidCallback onFieldSubmitted) {
-                            return Form(
-                              key: form1,
-                              child: MTextField(
-                                controller: textEditingController,
-                                focusNode: focusNode,
-                                label:'Select City',
-                                suffixIcon:Icon(
-                                  FontAwesomeIcons.angleDown,
-                                  color: Colors.grey.shade500,
-                                  size: size.height * 0.025,
-                                ),
-                                validator: (val){
-                                  if(controller.selectedState.stateId == null){
-                                    return 'Please select state';
-                                  }else{
-                                    return '';
-                                  }
-                                },
-                                onChanged: (val)async{
-                                  if(controller.selectedState.stateId == null){
-                                    if(form1.currentState!.validate()){
-                                      print('form validated');
+                                  ),
+                                  validator: (val){
+                                    if(controller.selectedState.stateId == null){
+                                      return 'Please select state';
                                     }else{
-                                      textEditingController.clear();
-                                      print('form not validated');
+                                      return '';
                                     }
-                                  }else{
-                                  }
+                                  },
+                                  onChanged: (val)async{
+                                    if(controller.selectedState.stateId == null){
+                                      if(form1.currentState!.validate()){
+                                        print('form validated');
+                                      }else{
+                                        textEditingController.clear();
+                                        print('form not validated');
+                                      }
+                                    }else{
+                                    }
 
-                                },
-                                // decoration: InputDecoration(
-                                //   labelText: 'Select City',
-                                //   suffixIcon: Icon(
-                                //     FontAwesomeIcons.angleDown,
-                                //     color: Colors.grey.shade500,
-                                //     size: size.height * 0.025,
-                                //   ),
-                                // ),
+                                  },
+                                  // decoration: InputDecoration(
+                                  //   labelText: 'Select City',
+                                  //   suffixIcon: Icon(
+                                  //     FontAwesomeIcons.angleDown,
+                                  //     color: Colors.grey.shade500,
+                                  //     size: size.height * 0.025,
+                                  //   ),
+                                  // ),
 
-                              ),
-                            );
-                          },
-                          onSelected: (var selection) async {
-                            await controller.getLocationList(controller.selectedState.stateId?? 31, selection.cityId?? 1);
-                            setState(() {
-                              controller.selectedCity = selection;
-                            });
-                            // controller.selectedCity = selection;
-                            print('You selected: $selection');
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        height: size.height * 0.015,
-                      ),
-                      SizedBox(
-                        width: size.width * 0.65,
-                        child: Autocomplete<LocationModel>(
-                          // optionsViewBuilder: (BuildContext context, AutocompleteOnSelected<String> onSelected, Iterable<String> options) {
-                          //   return optionBuilder( options, onSelected);
-                          // },
-                          optionsBuilder: (TextEditingValue textEditingValue) {
-                            //return cityList;
-                            if (textEditingValue.text.isEmpty) {
-                              return const Iterable<LocationModel>.empty();
-                            }
-                            return controller.locationData.where((LocationModel location) {
-                              return location.locationName?.toLowerCase().contains(textEditingValue.text.toLowerCase()) ?? false;
-                            });
-                          },
-                          fieldViewBuilder: (BuildContext context, TextEditingController textEditingController, FocusNode focusNode, VoidCallback onFieldSubmitted) {
-                            return Form(
-                              key: form2,
-                              child: MTextField(
-                                controller: textEditingController,
-                                focusNode: focusNode,
-                                // decoration: InputDecoration(
-                                //   labelText: 'Select Location',
-                                //   suffixIcon: Icon(
-                                //     FontAwesomeIcons.angleDown,
-                                //     color: Colors.grey.shade500,
-                                //     size: size.height * 0.025,
-                                //   ),
-                                // ),
-
-                                label:'Select Location',
-                                suffixIcon:Icon(
-                                  FontAwesomeIcons.angleDown,
-                                  color: Colors.grey.shade500,
-                                  size: size.height * 0.025,
                                 ),
-                                validator: (val){
-                                  if(controller.selectedCity.cityId == null){
-                                    return 'Please select city';
-                                  }else{
-                                    return '';
-                                  }
-                                },
-                                onChanged: (val)async{
-                                 if(controller.selectedCity.cityId == null){
-                                   if(form2.currentState!.validate()){
-                                     // await controller.getLocationList(controller.selectedState.stateId ?? 31, controller.selectedCity.cityId?? 1);
-                                     print('form validated');
-                                   }else{
-                                     textEditingController.clear();
-                                     print('form not validated');
-                                   }
-                                 }else{
-
-                                 }
-                                },
-                              ),
-                            );
-                          },
-                          onSelected: (var selection) {
-                            controller.selectedLocation = selection;
-                            print('You selected: $selection');
-                          },
+                              );
+                            },
+                            onSelected: (var selection) async {
+                              // await controller.getLocationList(controller.selectedState.stateId?? 31, selection.cityId?? 1);
+                              setState(() {
+                                controller.selectedCity = selection;
+                              });
+                              // controller.selectedCity = selection;
+                              print('You selected: $selection');
+                            },
+                          ),
                         ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    width: size.width * 0.05,
-                  ),
-                  Card(
-                    child: Padding(
-                      padding: EdgeInsets.all(size.width * 0.02),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: size.height * 0.022,
-                          ),
-                          const Icon(
-                            FontAwesomeIcons.locationDot,
-                            color: MTheme.BUTTON_COLOR,
-                          ),
-                          SizedBox(
-                            height: size.height * 0.015,
-                          ),
-                          const Text("Near Me"),
-                          SizedBox(
-                            height: size.height * 0.022,
-                          ),
-                        ],
-                      ),
+                        SizedBox(
+                          height: size.height * 0.015,
+                        ),
+                        // SizedBox(
+                        //   width: size.width * 0.65,
+                        //   child: Autocomplete<LocationModel>(
+                        //     // optionsViewBuilder: (BuildContext context, AutocompleteOnSelected<String> onSelected, Iterable<String> options) {
+                        //     //   return optionBuilder( options, onSelected);
+                        //     // },
+                        //     optionsBuilder: (TextEditingValue textEditingValue) {
+                        //       //return cityList;
+                        //       if (textEditingValue.text.isEmpty) {
+                        //         return const Iterable<LocationModel>.empty();
+                        //       }
+                        //       return controller.locationData.where((LocationModel location) {
+                        //         return location.locationName?.toLowerCase().contains(textEditingValue.text.toLowerCase()) ?? false;
+                        //       });
+                        //     },
+                        //     fieldViewBuilder: (BuildContext context, TextEditingController textEditingController, FocusNode focusNode, VoidCallback onFieldSubmitted) {
+                        //       return Form(
+                        //         key: form2,
+                        //         child: MTextField(
+                        //           controller: textEditingController,
+                        //           focusNode: focusNode,
+                        //           // decoration: InputDecoration(
+                        //           //   labelText: 'Select Location',
+                        //           //   suffixIcon: Icon(
+                        //           //     FontAwesomeIcons.angleDown,
+                        //           //     color: Colors.grey.shade500,
+                        //           //     size: size.height * 0.025,
+                        //           //   ),
+                        //           // ),
+                        //
+                        //           label:'Select Location',
+                        //           suffixIcon:Icon(
+                        //             FontAwesomeIcons.angleDown,
+                        //             color: Colors.grey.shade500,
+                        //             size: size.height * 0.025,
+                        //           ),
+                        //           validator: (val){
+                        //             if(controller.selectedCity.cityId == null){
+                        //               return 'Please select city';
+                        //             }else{
+                        //               return '';
+                        //             }
+                        //           },
+                        //           onChanged: (val)async{
+                        //            if(controller.selectedCity.cityId == null){
+                        //              if(form2.currentState!.validate()){
+                        //                // await controller.getLocationList(controller.selectedState.stateId ?? 31, controller.selectedCity.cityId?? 1);
+                        //                print('form validated');
+                        //              }else{
+                        //                textEditingController.clear();
+                        //                print('form not validated');
+                        //              }
+                        //            }else{
+                        //
+                        //            }
+                        //           },
+                        //         ),
+                        //       );
+                        //     },
+                        //     onSelected: (var selection) {
+                        //       controller.selectedLocation = selection;
+                        //       print('You selected: $selection');
+                        //     },
+                        //   ),
+                        // )
+                      ],
                     ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: size.height * 0.018,
-              ),
+                    // SizedBox(
+                    //   width: size.width * 0.05,
+                    // ),
+                    // Card(
+                    //   child: Padding(
+                    //     padding: EdgeInsets.all(size.width * 0.02),
+                    //     child: Column(
+                    //       crossAxisAlignment: CrossAxisAlignment.center,
+                    //       mainAxisAlignment: MainAxisAlignment.center,
+                    //       children: [
+                    //         SizedBox(
+                    //           height: size.height * 0.022,
+                    //         ),
+                    //         const Icon(
+                    //           FontAwesomeIcons.locationDot,
+                    //           color: MTheme.BUTTON_COLOR,
+                    //         ),
+                    //         SizedBox(
+                    //           height: size.height * 0.015,
+                    //         ),
+                    //         const Text("Near Me"),
+                    //         SizedBox(
+                    //           height: size.height * 0.022,
+                    //         ),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // )
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * 0.018,
+                ),
+              },
+              // SizedBox(
+              //   width: size.width,
+              //   child: TextField(
+              //     decoration: InputDecoration(
+              //       labelText: 'Search By Hospital Name ',
+              //       suffixIcon: Icon(
+              //         FontAwesomeIcons.magnifyingGlass,
+              //         size: size.height * 0.025,
+              //       ), // Replace this with the desired icon
+              //     ),
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: size.height * 0.018,
+              // ),
+              // SizedBox(
+              //   width: size.width,
+              //   child: TextField(
+              //     decoration: InputDecoration(
+              //       labelText: 'Select Speciality',
+              //       suffixIcon: Icon(
+              //         FontAwesomeIcons.angleDown,
+              //         color: Colors.grey.shade500,
+              //         size: size.height * 0.025,
+              //       ), // Replace this with the desired icon
+              //     ),
+              //   ),
+              // ),
               Autocomplete<SpecialityModel>(
                 // optionsViewBuilder: (BuildContext context, AutocompleteOnSelected<String> onSelected, Iterable<String> options) {
                 //   return optionBuilder( options, onSelected);
@@ -324,84 +362,49 @@ class _BookAnAppointmentClinicalVisitState
                 },
                 fieldViewBuilder: (BuildContext context, TextEditingController textEditingController, FocusNode focusNode, VoidCallback onFieldSubmitted) {
                   return MTextField(
-                    controller: textEditingController,
-                    focusNode: focusNode,
-                    // decoration: InputDecoration(
-                    //   labelText: 'Select Speciality',
-                    //   suffixIcon: Icon(
-                    //     FontAwesomeIcons.angleDown,
-                    //     color: Colors.grey.shade500,
-                    //     size: size.height * 0.025,
-                    //   ),
-                    // ),
+                      controller: textEditingController,
+                      focusNode: focusNode,
+                      // decoration: InputDecoration(
+                      //   labelText: 'Select Speciality',
+                      //   suffixIcon: Icon(
+                      //     FontAwesomeIcons.angleDown,
+                      //     color: Colors.grey.shade500,
+                      //     size: size.height * 0.025,
+                      //   ),
+                      // ),
 
-                    label:'Select Speciality',
-                    suffixIcon:Icon(
-                      FontAwesomeIcons.angleDown,
-                      color: Colors.grey.shade500,
-                      size: size.height * 0.025,
-                    ),
-                    validator: (val){
-                      if(controller.selectedCity.cityId == null){
-                        return 'Please select city';
-                      }else{
-                        return '';
-                      }
-                    },
-                    onChanged: (val)async{
-                      if(controller.selectedLocation.locationName == null){
-                        if(form2.currentState!.validate()){
-                          // await controller.getLocationList(controller.selectedState.stateId ?? 31, controller.selectedCity.cityId?? 1);
-                          print('form validated');
-                        }else{
-                          textEditingController.clear();
-                          print('form not validated');
+                      label:'Select Speciality',
+                      suffixIcon:Icon(
+                        FontAwesomeIcons.angleDown,
+                        color: Colors.grey.shade500,
+                        size: size.height * 0.025,
+                      ),
+                      validator: (val){
+                        if(choose  ==' Chennai'){
+                          return '';
                         }
-                      }else{
-                        controller.specialityData.clear();
-                        await controller.getSpecialityList(val);
-                        setState(() {
-
-                        });
-                    }
-                    }
+                        if(controller.selectedCity.cityId == null){
+                          return 'Please select city';
+                        }else{
+                          return '';
+                        }
+                      },
+                      onChanged: (val)async{
+                          controller.specialityData.clear();
+                          await controller.getSpecialityList(val);
+                          setState(() {
+                          });
+                      }
                   );
                 },
                 onSelected: (var selection) {
+                  controller.selectedSpeciality = selection;
                   print('You selected: $selection');
                 },
               ),
               SizedBox(
                 height: size.height * 0.018,
               ),
-              SizedBox(
-                width: size.width,
-                child: TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Search By Hospital Name ',
-                    suffixIcon: Icon(
-                      FontAwesomeIcons.magnifyingGlass,
-                      size: size.height * 0.025,
-                    ), // Replace this with the desired icon
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: size.height * 0.018,
-              ),
-              // SizedBox(
-              //   width: size.width,
-              //   child: TextField(
-              //     decoration: InputDecoration(
-              //       labelText: 'Select Speciality',
-              //       suffixIcon: Icon(
-              //         FontAwesomeIcons.angleDown,
-              //         color: Colors.grey.shade500,
-              //         size: size.height * 0.025,
-              //       ), // Replace this with the desired icon
-              //     ),
-              //   ),
-              // ),
               SizedBox(
                 height: size.height * 0.4,
               ),
@@ -414,10 +417,19 @@ class _BookAnAppointmentClinicalVisitState
                 height: MediaQuery.of(context).size.height * 0.07,
                 child: OutlinedButton(
                   onPressed: () {
-                    context.push(Routes.DoctorsListForClinicalVisit);
+                    if(choose == 'Chennai'){
+                      controller.selectedCity = CityModel( cityId: 1, cityName: 'Chennai');
+                      controller.selectedState = StateModel( stateId: 31, stateName: 'Tamil Nadu');
+                      context.push(Routes.DoctorsListForClinicalVisit, {
+                        'controller' : controller
+                      });
+                    }
+                    context.push(Routes.DoctorsListForClinicalVisit, {
+                      'controller' : controller
+                    });
                   },
                   child: Text(
-                    'Select Doctor for Clinical Appointment',
+                    'Select Doctor',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: size.height * 0.02,
