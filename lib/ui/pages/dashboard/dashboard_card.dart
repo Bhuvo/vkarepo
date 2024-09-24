@@ -38,14 +38,18 @@ class DashboardCard extends StatelessWidget {
           onTap: onTap,
           borderRadius: BorderRadius.circular(radius),
           child: Stack(
+            alignment:Alignment.centerLeft,
             children: [
               if (asset != null)
-                Positioned(
-                    child: Image.asset(
-                  asset!,
-                  width: 100,
-                  color: Colors.grey.shade50,
-                )),
+                Container(
+                  // margin: const EdgeInsets.all(16.0),
+                   padding: const EdgeInsets.only(left: 10, bottom: 10),
+                  child: Image.asset(
+                                    asset!,
+                                    width: 55,
+                                    color: Colors.white.withOpacity(0.5),
+                                  ),
+                ),
               Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
