@@ -28,7 +28,7 @@ class ImageOverviewInMedicalRecords extends StatelessWidget {
               child: FadeInImage.memoryNetwork(
                 placeholder: kTransparentImage,
                 // image: 'https://doctor.timesmed.com/Doc/$appointmentId/$name',
-                image: 'https://api.timesmed.com/PatientUploadedFiles/$name',
+                image: 'https://api.timesmed.com/PatientUploadedFiles/${appointmentId}/$name',
               ),
             ),
           ),

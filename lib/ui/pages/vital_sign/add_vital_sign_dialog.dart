@@ -329,40 +329,25 @@ class _AddVitalSignDialogState extends State<AddVitalSignDialog> {
                           _apiServiceC
                               .submitVitals(
                                   context: context,
-                                  userId: widget.userId,
-                                  doctorId:
-                                      int.tryParse(LocalStorage.getUID() ?? '') ??
-                                          0,
-                                  appointmentId: 3,
-                                  bpSystolic: int.tryParse(
-                                          bpSystolicController.text ?? '0.0') ??
-                                      0,
-                                  bpDiastolic: int.tryParse(
-                                          bpDiastolicController.text ?? '0') ??
-                                      0,
-                                  pulse:
-                                      int.tryParse(pulseController.text ?? '0') ??
-                                          0,
-                                  height:
-                                      int.tryParse(heightController.text ?? '0') ??
-                                          0,
-                                  weight:
-                                      int.tryParse(weightController.text ?? '0') ??
-                                          0,
-                                  bmi: double.tryParse(bmiController.text ?? '0.0') ??
-                                      0.0,
-                                  waist:
-                                      int.tryParse(waistController.text ?? '0') ??
-                                          0,
-                                  hip: int.tryParse(hipController.text ?? '0') ?? 0,
-                                  temp: double.tryParse(temperatureController.text ?? '0.0') ?? 0.0,
-                                  spo2: int.tryParse(spo2Controller.text ?? '0') ?? 0,
-                                  dietAndExercise: bmiController.text ?? '0',
-                                  notes: notesController.text ?? '0',
-                                  diagnoses: diagnosisController.text ?? '0',
-                                  doctorFlag: 1,
-                                  nurseFlag: 0,
-                                  summaryId: 24330)
+                                  userId: widget.userId.toString(),
+                                  doctorId: LocalStorage.getUID(),
+                            height: heightController.text,
+                            weight: weightController.text,
+                            appointmentId: '0',
+                            bpSystolic: bpSystolicController.text,
+                            bpDiastolic: bpDiastolicController.text,
+                            pulse: pulseController.text,
+                            waist: waistController.text,
+                            hip: hipController.text,
+                            temp: temperatureController.text,
+                            spo2: spo2Controller.text,
+                            bmi: bmiController.text,
+                            notes: notesController.text,
+                            diagnoses: diagnosisController.text,
+                            doctorFlag: '1',
+                            nurseFlag: '0',
+                            dietAndExercise:dietAndExerciseController.text
+                          )
                               .then((value) => {
                                     dietAndExerciseController.clear(),
                                     diagnosisController.clear(),

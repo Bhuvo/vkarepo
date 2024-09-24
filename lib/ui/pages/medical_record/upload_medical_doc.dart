@@ -396,8 +396,7 @@ class _FileViewListState extends State<FileViewList> {
                 Icons.remove_red_eye,
                 color: MTheme.THEME_COLOR,
                 size: 18,
-              ),
-            ),
+              ),            ),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.02,
             ),
