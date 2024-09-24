@@ -11,15 +11,21 @@ class VitalSignController {
   Future<VitalSignsChartModel> getVitalSignsReport(
     userId,
     doctorId,
+      bool isFromPatient
   ) async {
     print('$userId $doctorId');
-    final response = await http.get(Uri.parse(base_url +
-        'VKAAPI2/Get_Vital_Signs_Report?Patient_Id=$userId&Appointment_Id=1&Doctor_Id=$doctorId'));
+    // final response = await http.get(Uri.parse(base_url +
+    //     'VKAAPI2/Get_Vital_Signs_Report?Patient_Id=$userId&Appointment_Id=1&Doctor_Id=$doctorId'));
+    var url1 = Uri.parse('https://tmsnew.timesmed.com/WebAPIP/LoadSummary?User_id=$userId&DoctorId=$doctorId');
+    var url2 = Uri.parse('https://tmsnew.timesmed.com/WebAPIP/LoadPatientSummary?User_id=$userId');
+    print('https://tmsnew.timesmed.com/WebAPIP/LoadPatientSummary?User_id=$userId');
+    var response = await http.get(isFromPatient? url2: url1);
     try {
       if (response.statusCode == 200) {
         print('json ${response.body}');
         return VitalSignsChartModel.fromJson(json.decode(response.body));
       } else {
+        print('json ${response.body}');
         throw Exception('Failed to load album');
       }
     } catch (e) {
@@ -71,7 +77,6 @@ class VitalSignController {
     required String diagnoses,
     required String doctorFlag,
     required String nurseFlag,
-     String? summaryId,
   }) async {
     final url = Uri.parse(
         'https://tmsnew.timesmed.com/WebAPIP/SaveAppointmentSummary?');

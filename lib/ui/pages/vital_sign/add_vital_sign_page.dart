@@ -77,7 +77,7 @@ class _AddVitalSignReportPageState extends State<AddVitalSignReportPage> {
   @override
   void initState() {
     // TODO: implement initState
-    getdata();
+    // getdata();
     super.initState();
   }
 
@@ -278,7 +278,8 @@ class _AddVitalSignReportPageState extends State<AddVitalSignReportPage> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => VitalSignChartPage(
-                                    patientId: widget.userId.toString())));
+                                    patientId: widget.userId.toString(),
+                                isFromPatient: false,)));
                       });
                     },
                   ),

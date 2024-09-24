@@ -9,7 +9,8 @@ import 'package:timesmedlite/utils/local_storage.dart';
 
 class VitalSignChartPage extends StatefulWidget {
   String patientId;
-  VitalSignChartPage({super.key, required this.patientId});
+  final bool isFromPatient;
+  VitalSignChartPage({super.key, required this.patientId, required this.isFromPatient});
   @override
   _VitalSignChartPageState createState() => _VitalSignChartPageState();
 }
@@ -28,8 +29,9 @@ class _VitalSignChartPageState extends State<VitalSignChartPage> {
   Future<void> _fetchVitalSignsReport() async {
     try {
       _vitalSignsReport = await VitalSignController().getVitalSignsReport(
-widget.patientId,LocalStorage.getUID()
+            widget.patientId.toString(),LocalStorage.getUID().toString(),widget.isFromPatient
       ); // Fetch data
+
       setState(() {
         _isLoading = false; // Set loading to false when data is fetched
       });
@@ -49,7 +51,7 @@ widget.patientId,LocalStorage.getUID()
           ? const Center(child: CircularProgressIndicator())
           : _errorMessage != null
               ? Center(child: Text(_errorMessage!))
-              : _vitalSignsReport == null || _vitalSignsReport!.data.isEmpty
+              : _vitalSignsReport == null || _vitalSignsReport.data?.clincialList?.isEmpty == true
                   ? const Center(child: Text('No data available'))
                   : Column(
                       children: [

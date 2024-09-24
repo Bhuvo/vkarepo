@@ -309,7 +309,9 @@ class _AddVitalSignDialogState extends State<AddVitalSignDialog> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => VitalSignChartPage(
-                                      patientId: widget.userId.toString())));
+                                      patientId: widget.userId.toString(),
+                                  isFromPatient: false,
+                                  )));
                         });
                       },
                     ),

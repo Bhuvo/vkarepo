@@ -3,6 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:timesmedlite/ui/pages/vital_sign/model/vital_signs_chart_model.dart';
 
+String getFirstPartOfDate(String input) {
+  List<String> parts = input.split(' ');
+  return parts.isNotEmpty ? parts[0] : '';
+}
+
 class LineChartDesign extends StatelessWidget {
   final VitalSignsChartModel vitalSignsReportModel;
   final String chartType;
@@ -20,17 +25,18 @@ class LineChartDesign extends StatelessWidget {
     List<String> dates = [];
     List<double> values = [];
 
-    for (var datum in vitalSignsReportModel.data) {
+    for (ClincialList datum in vitalSignsReportModel.data?.clincialList ?? []) {
       // Get the value based on the valueKey and check for null
-      String? valueString = valueKey == 'weight'
+      // print('Lenth of list ${vitalSignsReportModel.data?.clincialList}');
+            String? valueString = valueKey == 'weight'
           ? datum.weight
           : valueKey == 'pulse'
               ? datum.pulse
               : valueKey == 'spo2'
-                  ? datum.spo2
+                  ? datum.sPO2
                   : valueKey == 'bp_systolic'
-                      ? datum.bpSystolic
-                      : datum.bpDiastolic;
+                      ? datum.bPSystolic
+                      : datum.bPDiastolic;
 
       if (valueString != null && valueString.isNotEmpty) {
         final double? value = double.tryParse(valueString);
@@ -40,8 +46,8 @@ class LineChartDesign extends StatelessWidget {
       }
 
       // Add date only if it's not null or empty
-      if (datum.appointmentDate != null && datum.appointmentDate.isNotEmpty) {
-        dates.add(datum.appointmentDate);
+      if (datum != null && datum.insertDate?.isNotEmpty == true) {
+        dates.add(getFirstPartOfDate(datum.insertDate!));
       }
     }
 
