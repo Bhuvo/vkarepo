@@ -14,7 +14,7 @@ import '../../theme/theme.dart';
 import '../../widgets/m_apibuilder_empty_widget.dart';
 
 class DocumentPreview extends StatefulWidget {
-  final int? appointmentid;
+  final dynamic appointmentid;
   final String? title;
   final docs;
 

@@ -41,7 +41,9 @@ class _MedicalRecordListItemState extends State<MedicalRecordListItem> {
     // Assign appointmentDateTime value from API or elsewhere
     appointmentDateTime = widget.data?.Appointment_Date;
     if (appointmentDateTime != null) {
-      _parseDateTime();
+      print('appointment time $appointmentDateTime');
+      formattedTime = '09/24/2024';
+      // _parseDateTime();
     }
   }
 

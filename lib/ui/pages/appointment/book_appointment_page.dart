@@ -50,7 +50,6 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
   //     path: 'Appointmentslist',
   //     query: {'User_id': LocalStorage.getUser().userId})
   //   ..add(const Load());
-
   late ApiBuilderBloc apBloc;
   late ApiBuilderBloc clApBloc;
 

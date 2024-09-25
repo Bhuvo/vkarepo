@@ -34,70 +34,70 @@ class WaitingListPage extends StatelessWidget {
           children: [
             ListView(
               children: [
-                BlocProvider(
-                  create: (c) => bloc..add(const Load()),
-                  child: ApiBuilder<WaitingPatient>(
-                    empty: NothingWidget(
-                      icon: Icons.people_alt_rounded,
-                      title: "No patients",
-                      message:
-                          "No patient is in the waiting room for a consultation at the moment.",
-                      onRefresh: () {
-                        bloc.add(const Refresh());
-                        print("refreshessss");
-                      },
-                    ),
-                    fromJson: WaitingPatient.fromJsonFactory,
-                    customBuilder: (data, load) {
-                      return SingleChildScrollView(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(
-                              height: 24,
-                            ),
-                            const Text.rich(
-                              TextSpan(children: [
-                                TextSpan(text: '      Clinical Patients in '),
-                                TextSpan(
-                                    text: '● Online',
-                                    style: TextStyle(
-                                        color: Colors.green,
-                                        fontWeight: FontWeight.w600)),
-                              ]),
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            ...data
-                                .map((e) => ClinicalWaitingListItem(
-                                      data: e,
-                                    ))
-                                .toList(),
-                            const SizedBox(
-                              height: 12,
-                            ),
-                            const Text.rich(
-                              TextSpan(children: [
-                                TextSpan(text: '      Patients in '),
-                                TextSpan(
-                                    text: '● Offline',
-                                    style: TextStyle(
-                                        color: Colors.red,
-                                        fontWeight: FontWeight.w600)),
-                              ]),
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                // BlocProvider(
+                //   create: (c) => bloc..add(const Load()),
+                //   child: ApiBuilder<WaitingPatient>(
+                //     empty: NothingWidget(
+                //       icon: Icons.people_alt_rounded,
+                //       title: "No patients",
+                //       message:
+                //           "No patient is in the waiting room for a consultation at the moment.",
+                //       onRefresh: () {
+                //         bloc.add(const Refresh());
+                //         print("refreshessss");
+                //       },
+                //     ),
+                //     fromJson: WaitingPatient.fromJsonFactory,
+                //     customBuilder: (data, load) {
+                //       return SingleChildScrollView(
+                //         child: Column(
+                //           crossAxisAlignment: CrossAxisAlignment.start,
+                //           children: [
+                //             const SizedBox(
+                //               height: 24,
+                //             ),
+                //             const Text.rich(
+                //               TextSpan(children: [
+                //                 TextSpan(text: '      Clinical Patients in '),
+                //                 TextSpan(
+                //                     text: '● Online',
+                //                     style: TextStyle(
+                //                         color: Colors.green,
+                //                         fontWeight: FontWeight.w600)),
+                //               ]),
+                //               style: TextStyle(
+                //                   fontSize: 12,
+                //                   color: Colors.black54,
+                //                   fontWeight: FontWeight.w600),
+                //             ),
+                //             ...data
+                //                 .map((e) => ClinicalWaitingListItem(
+                //                       data: e,
+                //                     ))
+                //                 .toList(),
+                //             const SizedBox(
+                //               height: 12,
+                //             ),
+                //             const Text.rich(
+                //               TextSpan(children: [
+                //                 TextSpan(text: '      Patients in '),
+                //                 TextSpan(
+                //                     text: '● Offline',
+                //                     style: TextStyle(
+                //                         color: Colors.red,
+                //                         fontWeight: FontWeight.w600)),
+                //               ]),
+                //               style: TextStyle(
+                //                   fontSize: 12,
+                //                   color: Colors.black54,
+                //                   fontWeight: FontWeight.w600),
+                //             ),
+                //           ],
+                //         ),
+                //       );
+                //     },
+                //   ),
+                // ),
                 BlocProvider(
                   create: (c) => bloc..add(const Load()),
                   child: ApiBuilder<WaitingPatient>(

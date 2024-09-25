@@ -13,6 +13,8 @@ import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 
+import '../../../di/dependency_injection.dart';
+
 class AppointmentPatientDetails extends StatelessWidget {
   final BookingAppointmentPatient data;
   final int? patID;
@@ -65,6 +67,21 @@ class AppointmentPatientDetails extends StatelessWidget {
                     route: Routes.uploadMedicalDocument,
                     data: data,
                     icon: FontAwesomeIcons.fileShield),
+                ActionTile(
+                    title: 'Complete Visit',
+                    onTap: (){
+                      final call = Injector()
+                          .apiService
+                          .rawGet(path: 'UpdateVideoCall_CallLog', query: {
+                        'Appointment_id': data.Appointment_id,
+                        'Status': 'C',
+                        'R_No': '0',
+                      });
+                     call.then((value) => print(value.body));
+                    },
+                    data: data,
+                    icon: FontAwesomeIcons.fileShield),
+
               ],
             ),
           ),
