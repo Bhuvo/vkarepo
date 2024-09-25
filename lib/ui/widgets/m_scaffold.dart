@@ -43,7 +43,7 @@ class MScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     MessagingMonitor.initContext(context);
     final head = ClipPath(
-        clipper: const CustomClipPath(radius: 40),
+        clipper: const  CustomClipPath(radius: 40),
         child: DefaultTextStyle(
           style: const TextStyle(color: Colors.white),
           child: Container(
@@ -242,9 +242,11 @@ class CustomClipPath extends CustomClipper<Path> {
     final w = size.width;
     final h = size.height;
     if (type == CustomClipPathType.bottom) {
-      path.lineTo(0, h / 2);
-      path.quadraticBezierTo(radius * 0.2, h - (radius * 1), radius,
-          h - radius); //radius * 0.1, h - (radius * 0.9), radius, h - radius);
+      path.lineTo(0, h - (radius * 2.1));
+      path.quadraticBezierTo(
+          radius * 0.1, h - (radius * 0.9), radius, h - radius);
+      // path.quadraticBezierTo(radius * 0.2, h - (radius * 1), radius,
+      //     h - radius); //radius * 0.1, h - (radius * 0.9), radius, h - radius);
       path.lineTo(w - radius, h - radius);
       path.quadraticBezierTo(
           w - (radius * 0.1), h - (radius * 1.1), w, h - (radius * 2));
