@@ -30,9 +30,11 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
 
   pdf.addPage(pw.Page(
       theme: pw.ThemeData.withFont(
-        base: await PdfGoogleFonts.varelaRoundRegular(),
-        bold: await PdfGoogleFonts.varelaRoundRegular(),
+        // base: await PdfGoogleFonts.varelaRoundRegular(),
+        // bold: await PdfGoogleFonts.varelaRoundRegular(),
         icons: await PdfGoogleFonts.materialIcons(),
+        // boldItalic: await PdfGoogleFonts.varelaRoundRegular(),
+        // italic: await PdfGoogleFonts.varelaRoundRegular(),
       ),
       pageFormat: PdfPageFormat.a4,
       build: (pw.Context context) {
@@ -143,7 +145,7 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
                       // TableRowItems(
                       //     '${data[i]['Morning'] ?? ''.toString()}${data[i]['Morning'] == null ? '' : '|'}${data[i]['Afternoon'] ?? ''.toString()}${data[i]['Morning'] == null ? '' : '|'}${data[i]['Night'] ?? ''.toString()}'),
                       TableRowItems(data[i]['instruction'].toString()),
-                      TableRowItems(data[i]['Doctor_Notes'] == ""
+                      TableRowItems(data[i]['Doctor_Notes'] == "" || data[i]['Doctor_Notes'] == null
                           ? "No specific\ninstructions given"
                           : data[i]['Doctor_Notes']),
                     ]),
@@ -198,8 +200,8 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
 
   pdf.addPage(pw.Page(
       theme: pw.ThemeData.withFont(
-        base: await PdfGoogleFonts.varelaRoundRegular(),
-        bold: await PdfGoogleFonts.varelaRoundRegular(),
+        // base: await PdfGoogleFonts.varelaRoundRegular(),
+        // bold: await PdfGoogleFonts.varelaRoundRegular(),
         icons: await PdfGoogleFonts.materialIcons(),
       ),
       pageFormat: PdfPageFormat.a4,
@@ -357,8 +359,8 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
 
   pdf.addPage(pw.Page(
       theme: pw.ThemeData.withFont(
-        base: await PdfGoogleFonts.varelaRoundRegular(),
-        bold: await PdfGoogleFonts.varelaRoundRegular(),
+        // base: await PdfGoogleFonts.varelaRoundRegular(),
+        // bold: await PdfGoogleFonts.varelaRoundRegular(),
         icons: await PdfGoogleFonts.materialIcons(),
       ),
       pageFormat: PdfPageFormat.a4,
@@ -518,6 +520,10 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
 }
 
 TableRowItems(child) {
+  return pw.Text(
+    child,
+    style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 8),
+  );
   return pw.Padding(
     padding: const pw.EdgeInsets.all(4),
     child: pw.Text(
