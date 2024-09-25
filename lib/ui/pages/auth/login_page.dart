@@ -42,6 +42,7 @@ class _LoginPageState extends State<LoginPage> {
   void saveInfo(Response res, {required BuildContext context}) {
     if (res.body.code == '1') {
       print('doctor login ......................................');
+
       LocalStorage.setString(LocalStorage.IsType, Consts.doctor);
     } else if (res.body.code == '2') {
       print('patient login ......................................');

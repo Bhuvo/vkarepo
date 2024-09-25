@@ -32,7 +32,7 @@ class AppointmentListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('dataaaaaaaaaaaaaaaaaaaaa               $data');
+    print('dataaaaaaaaaaaaaaaaaaaaa$data');
 
     return MListTile(
       actions: upcoming
