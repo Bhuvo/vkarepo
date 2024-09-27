@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:timesmedlite/ui/app/app_config.dart';
 import 'package:timesmedlite/ui/components/user_avatar.dart';
 import 'package:timesmedlite/ui/pages/auth/logout.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
@@ -55,7 +56,7 @@ class DashboardHeader extends StatelessWidget {
             width: 10,
           ),
           Text(
-           LocalStorage.getIsFromPatient() ?? false? '${LocalStorage.getCursorPatient().patientName}':'${user.fullName ?? 'Vicky'}',
+            AppConfig.of(context)?.config == Config.patient ? '${LocalStorage.getCursorPatient().patientName}':'${user.fullName ?? 'Vicky'}',
             style: const TextStyle(
                 fontWeight: FontWeight.w600, color: Colors.white),
           ),

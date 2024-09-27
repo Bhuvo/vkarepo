@@ -269,7 +269,7 @@ class Consts {
         icon: FontAwesomeIcons.solidCalendarDays),
     // MDrawerItem(PATIENT_WAITING_LIST, Routes.patientWaitingList,
     //     icon: FontAwesomeIcons.userClock),
-    // MDrawerItem(CALL_LOG, Routes.callLogs, icon: FontAwesomeIcons.squarePhone),
+     MDrawerItem(CALL_LOG, Routes.callLogs, icon: FontAwesomeIcons.squarePhone),
     // MDrawerItem(MISSED_CALL, Routes.missedCalls,
     //     icon: FontAwesomeIcons.phoneSlash),
     MDrawerItem(DASHBOARD, Routes.currentAppointment,

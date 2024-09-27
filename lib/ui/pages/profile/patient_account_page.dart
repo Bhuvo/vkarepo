@@ -46,7 +46,7 @@ class _PatientAccountPageState extends State<PatientAccountPage> {
   @override
   void initState() {
     super.initState();
-
+    print('id pass ${LocalStorage.getUID()}');
     /// Patient profile api bloc
     bloc = ApiBuilderBloc(
         path: 'VKAPatientProfile',

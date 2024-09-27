@@ -60,7 +60,7 @@ class MedicalRecordsList extends StatelessWidget {
       bloc = ApiBuilderBloc(
         path: 'getdetails',
         query: {
-          'user_id': LocalStorage.getUser().userId,
+          'user_id': LocalStorage.getCursorPatient().userId,
           //'user_id': 3158,
           'Doctor_id': appointment?.doctorId
           //'Doctor_id': 38371
@@ -74,6 +74,7 @@ class MedicalRecordsList extends StatelessWidget {
         body: NestedScrollView(
           floatHeaderSlivers: true,
           headerSliverBuilder: (__, _) {
+            print(' patient id$patID');
             return [
               SliverToBoxAdapter(
                 child: Padding(
@@ -99,7 +100,7 @@ class MedicalRecordsList extends StatelessWidget {
                 return ListView.builder(
                   itemCount: list.length,
                   itemBuilder: (c, i) {
-                    print("LISSSSSSSSSS${list[i].Appointment_id}");
+                    print("LISSSSSSSSSS${list[i]}");
                     final item = list[i];
                     return Hero(
                       tag: 'MEDICAl::$i',

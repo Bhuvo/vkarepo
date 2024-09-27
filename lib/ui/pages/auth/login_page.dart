@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,11 +25,12 @@ import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 import 'package:timesmedlite/utils/size_utils.dart';
 import 'package:chopper/chopper.dart';
-
+import 'package:http/http.dart' as http;
 import '../../../const/consts.dart';
 import '../../widgets/m_password_text_field.dart';
 import 'confirm_mobile_dialog.dart';
 import 'forget_paasword_dialog.dart';
+import 'nurse_front_office_sign_up_page.dart';
 import 'otp_dialog_new.dart';
 
 class LoginPage extends StatefulWidget {
@@ -40,18 +44,20 @@ class _LoginPageState extends State<LoginPage> {
   String password = '', phone = '';
 
   void saveInfo(Response res, {required BuildContext context}) {
-    if (res.body.code == '1') {
-      print('doctor login ......................................');
+    if(AppConfig.of(context)?.config == Config.doctor){
+      if (res.body.code == '1') {
+        print('doctor login ......................................${res.body}');
+        LocalStorage.setString(LocalStorage.IsType, Consts.doctor);
 
-      LocalStorage.setString(LocalStorage.IsType, Consts.doctor);
-    } else if (res.body.code == '2') {
-      print('patient login ......................................');
-      LocalStorage.setString(LocalStorage.IsType, Consts.nurse);
-    } else if (res.body.code == '3') {
-      print('patient login ......................................');
-      LocalStorage.setString(LocalStorage.IsType, Consts.frontOffice);
-    } else {
-      print('error login ......................................');
+      } else if (res.body.code == '2') {
+        print('nurse login ......................................');
+        LocalStorage.setString(LocalStorage.IsType, Consts.nurse);
+      } else if (res.body.code == '3') {
+        print('front office login ......................................');
+        LocalStorage.setString(LocalStorage.IsType, Consts.frontOffice);
+      } else {
+        print('error login ......................................');
+      }
     }
     LocalStorage.setJson(LocalStorage.USER, res.body!.data!);
     MessagingMonitor.init(AppConfig.of(context)!.config);
@@ -60,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
     } else {
       context.replace(Routes.selectPatient);
     }
-  }
+   }
 
   final _formKey = GlobalKey<FormState>();
 
@@ -282,15 +288,41 @@ class _LoginPageState extends State<LoginPage> {
                             saveInfo(res, context: context);
                           }
                         } else {
-                          final call = Injector().apiService.login(
-                              path: 'DoctorLogin',
-                              doctorPhone: phone,
-                              password: password);
-                          final Response? res = await ApiFacade.callApi(
-                              context: context, call: call);
-                          if (res != null) {
-                            saveInfo(res, context: context);
+                          var response = await http.get(Uri.parse('https://tmsnew.timesmed.com/VKAAPI1/DoctorLogin_New?DoctorPhone=${phone}&Password=${password}'));
+                          if(response.statusCode == 200){
+                            var result = jsonDecode(response.body);
+                             // log('Login response success ${response.body}');
+                            if(result['ResponseCode'] =='2' ){
+                              LocalStorage.setString(LocalStorage.IsType, Consts.nurse);
+                              print('Its a Nurse');
+                              result['Data']['Doctor_Name'] = result['Data']['Nurse_Name'];
+                              result['Data']['Doctor_id'] = result['Data']['Nurse_Id'];
+                              print('${result['Data']['Doctor_id']} ${result['Data']['Nurse_Id']}');
+                            }else if(result['ResponseCode'] =='3'){
+                              LocalStorage.setString(LocalStorage.IsType, Consts.frontOffice);
+                              print('Its a front office');
+                            result['Data']['Doctor_Name'] = result['Data']['FoMem_Name'];
+                            result['Data']['Doctor_id'] = result['Data']['FoMem_Id'];
+                            print('${result['Data']['Doctor_Name']} ${result['Data']['FoMem_Name']}');
+                            }else{
+                              LocalStorage.setString(LocalStorage.IsType, Consts.doctor);
+                            }
+                              LocalStorage.setJson(LocalStorage.USER, result['Data']);
+                            print('Usr id ${LocalStorage.getUID()} ${LocalStorage.getUser().id}');
+                              MessagingMonitor.init(AppConfig.of(context)!.config);
+                             context.replace(Routes.currentAppointment);
+                          }else{
+                            print('Login response failed ${response.body}');
                           }
+                          // final call = Injector().apiService.login(
+                          //     path: 'DoctorLogin',
+                          //     doctorPhone: phone,
+                          //     password: password);
+                          // final Response? res = await ApiFacade.callApi(
+                          //     context: context, call: call);
+                          // if (res != null) {
+                          //   saveInfo(res, context: context);
+                          // }
                         }
                       }
                     },
@@ -377,7 +409,15 @@ class _LoginPageState extends State<LoginPage> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      DoctorSignUpPage(), // Assuming you have a separate page for Nurse
+                                                      NurseFrontOfficeSignUpPage(isNurse: true,), // Assuming you have a separate page for Nurse
+                                                ),
+                                              );
+                                            } else{
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      NurseFrontOfficeSignUpPage(isNurse: false,), // Assuming you have a separate page for Nurse
                                                 ),
                                               );
                                             }

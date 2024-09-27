@@ -121,12 +121,8 @@ class _PrescriptionListState extends State<PrescriptionList> {
       context.pop();
       if(mounted) {
         final address = await context.push(Routes.addressForm);
-
         if(address != null){
-
-
           num total = 0;
-
           for(final e in cartRes){
             final q = e.Qty;
             final a = num.tryParse('${e.Product_Price}') ?? 0;
