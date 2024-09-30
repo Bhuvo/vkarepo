@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'call_log.dart';
 
@@ -12,7 +12,7 @@ part of 'call_log.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 CallLog _$CallLogFromJson(Map<String, dynamic> json) {
   return _CallLog.fromJson(json);
@@ -107,155 +107,155 @@ class _$CallLogCopyWithImpl<$Res, $Val extends CallLog>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? CallStatus_Flag = null,
-    Object? CompNow_Flag = null,
-    Object? reApp_Date = null,
-    Object? reApp_Time = null,
-    Object? Mins = null,
-    Object? ApproximateEnd_Time = null,
-    Object? Hospital_id = null,
-    Object? LabStatus = null,
-    Object? ClinicalStatus = null,
-    Object? PresStatus = null,
-    Object? VideoCall_Status = null,
-    Object? Doctor_SettlementFlag = null,
-    Object? Doctor_SettlementAmount = null,
-    Object? Doctor_SettlementDate = null,
-    Object? Appointment_id = null,
-    Object? Appointment_Date = null,
-    Object? Appointment_Time = null,
-    Object? Order_id = null,
-    Object? User_Name = null,
-    Object? MobileNumber = null,
-    Object? User_id = null,
-    Object? Emailid = null,
-    Object? Order_Amount = null,
-    Object? Type = null,
-    Object? VideoorTextFlag = null,
-    Object? Payment_Mode = null,
-    Object? Transaction_Status = null,
-    Object? Call_Status = null,
-    Object? Key_id = null,
-    Object? CallendedBy_Patient = null,
+    Object? CallStatus_Flag = freezed,
+    Object? CompNow_Flag = freezed,
+    Object? reApp_Date = freezed,
+    Object? reApp_Time = freezed,
+    Object? Mins = freezed,
+    Object? ApproximateEnd_Time = freezed,
+    Object? Hospital_id = freezed,
+    Object? LabStatus = freezed,
+    Object? ClinicalStatus = freezed,
+    Object? PresStatus = freezed,
+    Object? VideoCall_Status = freezed,
+    Object? Doctor_SettlementFlag = freezed,
+    Object? Doctor_SettlementAmount = freezed,
+    Object? Doctor_SettlementDate = freezed,
+    Object? Appointment_id = freezed,
+    Object? Appointment_Date = freezed,
+    Object? Appointment_Time = freezed,
+    Object? Order_id = freezed,
+    Object? User_Name = freezed,
+    Object? MobileNumber = freezed,
+    Object? User_id = freezed,
+    Object? Emailid = freezed,
+    Object? Order_Amount = freezed,
+    Object? Type = freezed,
+    Object? VideoorTextFlag = freezed,
+    Object? Payment_Mode = freezed,
+    Object? Transaction_Status = freezed,
+    Object? Call_Status = freezed,
+    Object? Key_id = freezed,
+    Object? CallendedBy_Patient = freezed,
   }) {
     return _then(_value.copyWith(
-      CallStatus_Flag: null == CallStatus_Flag
+      CallStatus_Flag: freezed == CallStatus_Flag
           ? _value.CallStatus_Flag
           : CallStatus_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      CompNow_Flag: null == CompNow_Flag
+      CompNow_Flag: freezed == CompNow_Flag
           ? _value.CompNow_Flag
           : CompNow_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      reApp_Date: null == reApp_Date
+      reApp_Date: freezed == reApp_Date
           ? _value.reApp_Date
           : reApp_Date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      reApp_Time: null == reApp_Time
+      reApp_Time: freezed == reApp_Time
           ? _value.reApp_Time
           : reApp_Time // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Mins: null == Mins
+      Mins: freezed == Mins
           ? _value.Mins
           : Mins // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ApproximateEnd_Time: null == ApproximateEnd_Time
+      ApproximateEnd_Time: freezed == ApproximateEnd_Time
           ? _value.ApproximateEnd_Time
           : ApproximateEnd_Time // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_id: null == Hospital_id
+      Hospital_id: freezed == Hospital_id
           ? _value.Hospital_id
           : Hospital_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      LabStatus: null == LabStatus
+      LabStatus: freezed == LabStatus
           ? _value.LabStatus
           : LabStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ClinicalStatus: null == ClinicalStatus
+      ClinicalStatus: freezed == ClinicalStatus
           ? _value.ClinicalStatus
           : ClinicalStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      PresStatus: null == PresStatus
+      PresStatus: freezed == PresStatus
           ? _value.PresStatus
           : PresStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      VideoCall_Status: null == VideoCall_Status
+      VideoCall_Status: freezed == VideoCall_Status
           ? _value.VideoCall_Status
           : VideoCall_Status // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_SettlementFlag: null == Doctor_SettlementFlag
+      Doctor_SettlementFlag: freezed == Doctor_SettlementFlag
           ? _value.Doctor_SettlementFlag
           : Doctor_SettlementFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_SettlementAmount: null == Doctor_SettlementAmount
+      Doctor_SettlementAmount: freezed == Doctor_SettlementAmount
           ? _value.Doctor_SettlementAmount
           : Doctor_SettlementAmount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_SettlementDate: null == Doctor_SettlementDate
+      Doctor_SettlementDate: freezed == Doctor_SettlementDate
           ? _value.Doctor_SettlementDate
           : Doctor_SettlementDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Appointment_id: null == Appointment_id
+      Appointment_id: freezed == Appointment_id
           ? _value.Appointment_id
           : Appointment_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Appointment_Date: null == Appointment_Date
+      Appointment_Date: freezed == Appointment_Date
           ? _value.Appointment_Date
           : Appointment_Date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Appointment_Time: null == Appointment_Time
+      Appointment_Time: freezed == Appointment_Time
           ? _value.Appointment_Time
           : Appointment_Time // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Order_id: null == Order_id
+      Order_id: freezed == Order_id
           ? _value.Order_id
           : Order_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_Name: null == User_Name
+      User_Name: freezed == User_Name
           ? _value.User_Name
           : User_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      MobileNumber: null == MobileNumber
+      MobileNumber: freezed == MobileNumber
           ? _value.MobileNumber
           : MobileNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_id: null == User_id
+      User_id: freezed == User_id
           ? _value.User_id
           : User_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Emailid: null == Emailid
+      Emailid: freezed == Emailid
           ? _value.Emailid
           : Emailid // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Order_Amount: null == Order_Amount
+      Order_Amount: freezed == Order_Amount
           ? _value.Order_Amount
           : Order_Amount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Type: null == Type
+      Type: freezed == Type
           ? _value.Type
           : Type // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      VideoorTextFlag: null == VideoorTextFlag
+      VideoorTextFlag: freezed == VideoorTextFlag
           ? _value.VideoorTextFlag
           : VideoorTextFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Payment_Mode: null == Payment_Mode
+      Payment_Mode: freezed == Payment_Mode
           ? _value.Payment_Mode
           : Payment_Mode // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Transaction_Status: null == Transaction_Status
+      Transaction_Status: freezed == Transaction_Status
           ? _value.Transaction_Status
           : Transaction_Status // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Call_Status: null == Call_Status
+      Call_Status: freezed == Call_Status
           ? _value.Call_Status
           : Call_Status // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Key_id: null == Key_id
+      Key_id: freezed == Key_id
           ? _value.Key_id
           : Key_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      CallendedBy_Patient: null == CallendedBy_Patient
+      CallendedBy_Patient: freezed == CallendedBy_Patient
           ? _value.CallendedBy_Patient
           : CallendedBy_Patient // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -264,10 +264,10 @@ class _$CallLogCopyWithImpl<$Res, $Val extends CallLog>
 }
 
 /// @nodoc
-abstract class _$$_CallLogCopyWith<$Res> implements $CallLogCopyWith<$Res> {
-  factory _$$_CallLogCopyWith(
-          _$_CallLog value, $Res Function(_$_CallLog) then) =
-      __$$_CallLogCopyWithImpl<$Res>;
+abstract class _$$CallLogImplCopyWith<$Res> implements $CallLogCopyWith<$Res> {
+  factory _$$CallLogImplCopyWith(
+          _$CallLogImpl value, $Res Function(_$CallLogImpl) then) =
+      __$$CallLogImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -304,164 +304,165 @@ abstract class _$$_CallLogCopyWith<$Res> implements $CallLogCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CallLogCopyWithImpl<$Res>
-    extends _$CallLogCopyWithImpl<$Res, _$_CallLog>
-    implements _$$_CallLogCopyWith<$Res> {
-  __$$_CallLogCopyWithImpl(_$_CallLog _value, $Res Function(_$_CallLog) _then)
+class __$$CallLogImplCopyWithImpl<$Res>
+    extends _$CallLogCopyWithImpl<$Res, _$CallLogImpl>
+    implements _$$CallLogImplCopyWith<$Res> {
+  __$$CallLogImplCopyWithImpl(
+      _$CallLogImpl _value, $Res Function(_$CallLogImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? CallStatus_Flag = null,
-    Object? CompNow_Flag = null,
-    Object? reApp_Date = null,
-    Object? reApp_Time = null,
-    Object? Mins = null,
-    Object? ApproximateEnd_Time = null,
-    Object? Hospital_id = null,
-    Object? LabStatus = null,
-    Object? ClinicalStatus = null,
-    Object? PresStatus = null,
-    Object? VideoCall_Status = null,
-    Object? Doctor_SettlementFlag = null,
-    Object? Doctor_SettlementAmount = null,
-    Object? Doctor_SettlementDate = null,
-    Object? Appointment_id = null,
-    Object? Appointment_Date = null,
-    Object? Appointment_Time = null,
-    Object? Order_id = null,
-    Object? User_Name = null,
-    Object? MobileNumber = null,
-    Object? User_id = null,
-    Object? Emailid = null,
-    Object? Order_Amount = null,
-    Object? Type = null,
-    Object? VideoorTextFlag = null,
-    Object? Payment_Mode = null,
-    Object? Transaction_Status = null,
-    Object? Call_Status = null,
-    Object? Key_id = null,
-    Object? CallendedBy_Patient = null,
+    Object? CallStatus_Flag = freezed,
+    Object? CompNow_Flag = freezed,
+    Object? reApp_Date = freezed,
+    Object? reApp_Time = freezed,
+    Object? Mins = freezed,
+    Object? ApproximateEnd_Time = freezed,
+    Object? Hospital_id = freezed,
+    Object? LabStatus = freezed,
+    Object? ClinicalStatus = freezed,
+    Object? PresStatus = freezed,
+    Object? VideoCall_Status = freezed,
+    Object? Doctor_SettlementFlag = freezed,
+    Object? Doctor_SettlementAmount = freezed,
+    Object? Doctor_SettlementDate = freezed,
+    Object? Appointment_id = freezed,
+    Object? Appointment_Date = freezed,
+    Object? Appointment_Time = freezed,
+    Object? Order_id = freezed,
+    Object? User_Name = freezed,
+    Object? MobileNumber = freezed,
+    Object? User_id = freezed,
+    Object? Emailid = freezed,
+    Object? Order_Amount = freezed,
+    Object? Type = freezed,
+    Object? VideoorTextFlag = freezed,
+    Object? Payment_Mode = freezed,
+    Object? Transaction_Status = freezed,
+    Object? Call_Status = freezed,
+    Object? Key_id = freezed,
+    Object? CallendedBy_Patient = freezed,
   }) {
-    return _then(_$_CallLog(
-      CallStatus_Flag: null == CallStatus_Flag
+    return _then(_$CallLogImpl(
+      CallStatus_Flag: freezed == CallStatus_Flag
           ? _value.CallStatus_Flag
           : CallStatus_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      CompNow_Flag: null == CompNow_Flag
+      CompNow_Flag: freezed == CompNow_Flag
           ? _value.CompNow_Flag
           : CompNow_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      reApp_Date: null == reApp_Date
+      reApp_Date: freezed == reApp_Date
           ? _value.reApp_Date
           : reApp_Date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      reApp_Time: null == reApp_Time
+      reApp_Time: freezed == reApp_Time
           ? _value.reApp_Time
           : reApp_Time // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Mins: null == Mins
+      Mins: freezed == Mins
           ? _value.Mins
           : Mins // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ApproximateEnd_Time: null == ApproximateEnd_Time
+      ApproximateEnd_Time: freezed == ApproximateEnd_Time
           ? _value.ApproximateEnd_Time
           : ApproximateEnd_Time // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_id: null == Hospital_id
+      Hospital_id: freezed == Hospital_id
           ? _value.Hospital_id
           : Hospital_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      LabStatus: null == LabStatus
+      LabStatus: freezed == LabStatus
           ? _value.LabStatus
           : LabStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ClinicalStatus: null == ClinicalStatus
+      ClinicalStatus: freezed == ClinicalStatus
           ? _value.ClinicalStatus
           : ClinicalStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      PresStatus: null == PresStatus
+      PresStatus: freezed == PresStatus
           ? _value.PresStatus
           : PresStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      VideoCall_Status: null == VideoCall_Status
+      VideoCall_Status: freezed == VideoCall_Status
           ? _value.VideoCall_Status
           : VideoCall_Status // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_SettlementFlag: null == Doctor_SettlementFlag
+      Doctor_SettlementFlag: freezed == Doctor_SettlementFlag
           ? _value.Doctor_SettlementFlag
           : Doctor_SettlementFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_SettlementAmount: null == Doctor_SettlementAmount
+      Doctor_SettlementAmount: freezed == Doctor_SettlementAmount
           ? _value.Doctor_SettlementAmount
           : Doctor_SettlementAmount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_SettlementDate: null == Doctor_SettlementDate
+      Doctor_SettlementDate: freezed == Doctor_SettlementDate
           ? _value.Doctor_SettlementDate
           : Doctor_SettlementDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Appointment_id: null == Appointment_id
+      Appointment_id: freezed == Appointment_id
           ? _value.Appointment_id
           : Appointment_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Appointment_Date: null == Appointment_Date
+      Appointment_Date: freezed == Appointment_Date
           ? _value.Appointment_Date
           : Appointment_Date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Appointment_Time: null == Appointment_Time
+      Appointment_Time: freezed == Appointment_Time
           ? _value.Appointment_Time
           : Appointment_Time // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Order_id: null == Order_id
+      Order_id: freezed == Order_id
           ? _value.Order_id
           : Order_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_Name: null == User_Name
+      User_Name: freezed == User_Name
           ? _value.User_Name
           : User_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      MobileNumber: null == MobileNumber
+      MobileNumber: freezed == MobileNumber
           ? _value.MobileNumber
           : MobileNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_id: null == User_id
+      User_id: freezed == User_id
           ? _value.User_id
           : User_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Emailid: null == Emailid
+      Emailid: freezed == Emailid
           ? _value.Emailid
           : Emailid // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Order_Amount: null == Order_Amount
+      Order_Amount: freezed == Order_Amount
           ? _value.Order_Amount
           : Order_Amount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Type: null == Type
+      Type: freezed == Type
           ? _value.Type
           : Type // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      VideoorTextFlag: null == VideoorTextFlag
+      VideoorTextFlag: freezed == VideoorTextFlag
           ? _value.VideoorTextFlag
           : VideoorTextFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Payment_Mode: null == Payment_Mode
+      Payment_Mode: freezed == Payment_Mode
           ? _value.Payment_Mode
           : Payment_Mode // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Transaction_Status: null == Transaction_Status
+      Transaction_Status: freezed == Transaction_Status
           ? _value.Transaction_Status
           : Transaction_Status // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Call_Status: null == Call_Status
+      Call_Status: freezed == Call_Status
           ? _value.Call_Status
           : Call_Status // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Key_id: null == Key_id
+      Key_id: freezed == Key_id
           ? _value.Key_id
           : Key_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      CallendedBy_Patient: null == CallendedBy_Patient
+      CallendedBy_Patient: freezed == CallendedBy_Patient
           ? _value.CallendedBy_Patient
           : CallendedBy_Patient // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -471,8 +472,8 @@ class __$$_CallLogCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CallLog implements _CallLog {
-  const _$_CallLog(
+class _$CallLogImpl implements _CallLog {
+  const _$CallLogImpl(
       {this.CallStatus_Flag = null,
       this.CompNow_Flag = null,
       this.reApp_Date = null,
@@ -504,8 +505,8 @@ class _$_CallLog implements _CallLog {
       this.Key_id = null,
       this.CallendedBy_Patient = null});
 
-  factory _$_CallLog.fromJson(Map<String, dynamic> json) =>
-      _$$_CallLogFromJson(json);
+  factory _$CallLogImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CallLogImplFromJson(json);
 
   @override
   @JsonKey()
@@ -604,10 +605,10 @@ class _$_CallLog implements _CallLog {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CallLog &&
+            other is _$CallLogImpl &&
             const DeepCollectionEquality()
                 .equals(other.CallStatus_Flag, CallStatus_Flag) &&
             const DeepCollectionEquality()
@@ -701,12 +702,12 @@ class _$_CallLog implements _CallLog {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CallLogCopyWith<_$_CallLog> get copyWith =>
-      __$$_CallLogCopyWithImpl<_$_CallLog>(this, _$identity);
+  _$$CallLogImplCopyWith<_$CallLogImpl> get copyWith =>
+      __$$CallLogImplCopyWithImpl<_$CallLogImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CallLogToJson(
+    return _$$CallLogImplToJson(
       this,
     );
   }
@@ -743,9 +744,9 @@ abstract class _CallLog implements CallLog {
       final dynamic Transaction_Status,
       final dynamic Call_Status,
       final dynamic Key_id,
-      final dynamic CallendedBy_Patient}) = _$_CallLog;
+      final dynamic CallendedBy_Patient}) = _$CallLogImpl;
 
-  factory _CallLog.fromJson(Map<String, dynamic> json) = _$_CallLog.fromJson;
+  factory _CallLog.fromJson(Map<String, dynamic> json) = _$CallLogImpl.fromJson;
 
   @override
   dynamic get CallStatus_Flag;
@@ -809,6 +810,6 @@ abstract class _CallLog implements CallLog {
   dynamic get CallendedBy_Patient;
   @override
   @JsonKey(ignore: true)
-  _$$_CallLogCopyWith<_$_CallLog> get copyWith =>
+  _$$CallLogImplCopyWith<_$CallLogImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

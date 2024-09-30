@@ -6,18 +6,18 @@ part of 'order_cart_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_OrderCartItem _$$_OrderCartItemFromJson(Map<String, dynamic> json) =>
-    _$_OrderCartItem(
+_$OrderCartItemImpl _$$OrderCartItemImplFromJson(Map<String, dynamic> json) =>
+    _$OrderCartItemImpl(
       Cart_id: json['Cart_id'] ?? null,
       Product_id: json['Product_id'] ?? null,
       Product_Name: json['Product_Name'] ?? null,
-      Qty: json['Qty'] as int? ?? 0,
+      Qty: (json['Qty'] as num?)?.toInt() ?? 0,
       Product_mrp: json['Product_mrp'] ?? null,
       Product_Price: json['Product_Price'] ?? null,
       User_id: json['User_id'] ?? null,
     );
 
-Map<String, dynamic> _$$_OrderCartItemToJson(_$_OrderCartItem instance) =>
+Map<String, dynamic> _$$OrderCartItemImplToJson(_$OrderCartItemImpl instance) =>
     <String, dynamic>{
       'Cart_id': instance.Cart_id,
       'Product_id': instance.Product_id,

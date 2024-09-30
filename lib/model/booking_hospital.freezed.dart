@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'booking_hospital.dart';
 
@@ -12,7 +12,7 @@ part of 'booking_hospital.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 BookingHospital _$BookingHospitalFromJson(Map<String, dynamic> json) {
   return _BookingHospital.fromJson(json);
@@ -93,115 +93,115 @@ class _$BookingHospitalCopyWithImpl<$Res, $Val extends BookingHospital>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hospital_id = null,
-    Object? hospital_name = null,
-    Object? app_count = null,
-    Object? location = null,
-    Object? Virtual_Flag = null,
-    Object? Image_Name = null,
-    Object? Hospital_Address = null,
-    Object? Hospital_PhoneNumber = null,
-    Object? Timing = null,
-    Object? Header_Height = null,
-    Object? Footer_Height = null,
-    Object? User_Name = null,
-    Object? User_MobileNumber = null,
-    Object? Gender = null,
-    Object? C_DateTime = null,
-    Object? Doctor_Name = null,
-    Object? Doctor_Signature = null,
-    Object? User_id = null,
-    Object? Age = null,
-    Object? City_Name = null,
-    Object? lat = null,
-    Object? lng = null,
+    Object? hospital_id = freezed,
+    Object? hospital_name = freezed,
+    Object? app_count = freezed,
+    Object? location = freezed,
+    Object? Virtual_Flag = freezed,
+    Object? Image_Name = freezed,
+    Object? Hospital_Address = freezed,
+    Object? Hospital_PhoneNumber = freezed,
+    Object? Timing = freezed,
+    Object? Header_Height = freezed,
+    Object? Footer_Height = freezed,
+    Object? User_Name = freezed,
+    Object? User_MobileNumber = freezed,
+    Object? Gender = freezed,
+    Object? C_DateTime = freezed,
+    Object? Doctor_Name = freezed,
+    Object? Doctor_Signature = freezed,
+    Object? User_id = freezed,
+    Object? Age = freezed,
+    Object? City_Name = freezed,
+    Object? lat = freezed,
+    Object? lng = freezed,
   }) {
     return _then(_value.copyWith(
-      hospital_id: null == hospital_id
+      hospital_id: freezed == hospital_id
           ? _value.hospital_id
           : hospital_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hospital_name: null == hospital_name
+      hospital_name: freezed == hospital_name
           ? _value.hospital_name
           : hospital_name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      app_count: null == app_count
+      app_count: freezed == app_count
           ? _value.app_count
           : app_count // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      location: null == location
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Virtual_Flag: null == Virtual_Flag
+      Virtual_Flag: freezed == Virtual_Flag
           ? _value.Virtual_Flag
           : Virtual_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Image_Name: null == Image_Name
+      Image_Name: freezed == Image_Name
           ? _value.Image_Name
           : Image_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Address: null == Hospital_Address
+      Hospital_Address: freezed == Hospital_Address
           ? _value.Hospital_Address
           : Hospital_Address // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_PhoneNumber: null == Hospital_PhoneNumber
+      Hospital_PhoneNumber: freezed == Hospital_PhoneNumber
           ? _value.Hospital_PhoneNumber
           : Hospital_PhoneNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Timing: null == Timing
+      Timing: freezed == Timing
           ? _value.Timing
           : Timing // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Header_Height: null == Header_Height
+      Header_Height: freezed == Header_Height
           ? _value.Header_Height
           : Header_Height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Footer_Height: null == Footer_Height
+      Footer_Height: freezed == Footer_Height
           ? _value.Footer_Height
           : Footer_Height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_Name: null == User_Name
+      User_Name: freezed == User_Name
           ? _value.User_Name
           : User_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_MobileNumber: null == User_MobileNumber
+      User_MobileNumber: freezed == User_MobileNumber
           ? _value.User_MobileNumber
           : User_MobileNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Gender: null == Gender
+      Gender: freezed == Gender
           ? _value.Gender
           : Gender // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      C_DateTime: null == C_DateTime
+      C_DateTime: freezed == C_DateTime
           ? _value.C_DateTime
           : C_DateTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_Name: null == Doctor_Name
+      Doctor_Name: freezed == Doctor_Name
           ? _value.Doctor_Name
           : Doctor_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_Signature: null == Doctor_Signature
+      Doctor_Signature: freezed == Doctor_Signature
           ? _value.Doctor_Signature
           : Doctor_Signature // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_id: null == User_id
+      User_id: freezed == User_id
           ? _value.User_id
           : User_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Age: null == Age
+      Age: freezed == Age
           ? _value.Age
           : Age // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      City_Name: null == City_Name
+      City_Name: freezed == City_Name
           ? _value.City_Name
           : City_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      lat: null == lat
+      lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      lng: null == lng
+      lng: freezed == lng
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -210,11 +210,11 @@ class _$BookingHospitalCopyWithImpl<$Res, $Val extends BookingHospital>
 }
 
 /// @nodoc
-abstract class _$$_BookingHospitalCopyWith<$Res>
+abstract class _$$BookingHospitalImplCopyWith<$Res>
     implements $BookingHospitalCopyWith<$Res> {
-  factory _$$_BookingHospitalCopyWith(
-          _$_BookingHospital value, $Res Function(_$_BookingHospital) then) =
-      __$$_BookingHospitalCopyWithImpl<$Res>;
+  factory _$$BookingHospitalImplCopyWith(_$BookingHospitalImpl value,
+          $Res Function(_$BookingHospitalImpl) then) =
+      __$$BookingHospitalImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -243,125 +243,125 @@ abstract class _$$_BookingHospitalCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_BookingHospitalCopyWithImpl<$Res>
-    extends _$BookingHospitalCopyWithImpl<$Res, _$_BookingHospital>
-    implements _$$_BookingHospitalCopyWith<$Res> {
-  __$$_BookingHospitalCopyWithImpl(
-      _$_BookingHospital _value, $Res Function(_$_BookingHospital) _then)
+class __$$BookingHospitalImplCopyWithImpl<$Res>
+    extends _$BookingHospitalCopyWithImpl<$Res, _$BookingHospitalImpl>
+    implements _$$BookingHospitalImplCopyWith<$Res> {
+  __$$BookingHospitalImplCopyWithImpl(
+      _$BookingHospitalImpl _value, $Res Function(_$BookingHospitalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hospital_id = null,
-    Object? hospital_name = null,
-    Object? app_count = null,
-    Object? location = null,
-    Object? Virtual_Flag = null,
-    Object? Image_Name = null,
-    Object? Hospital_Address = null,
-    Object? Hospital_PhoneNumber = null,
-    Object? Timing = null,
-    Object? Header_Height = null,
-    Object? Footer_Height = null,
-    Object? User_Name = null,
-    Object? User_MobileNumber = null,
-    Object? Gender = null,
-    Object? C_DateTime = null,
-    Object? Doctor_Name = null,
-    Object? Doctor_Signature = null,
-    Object? User_id = null,
-    Object? Age = null,
-    Object? City_Name = null,
-    Object? lat = null,
-    Object? lng = null,
+    Object? hospital_id = freezed,
+    Object? hospital_name = freezed,
+    Object? app_count = freezed,
+    Object? location = freezed,
+    Object? Virtual_Flag = freezed,
+    Object? Image_Name = freezed,
+    Object? Hospital_Address = freezed,
+    Object? Hospital_PhoneNumber = freezed,
+    Object? Timing = freezed,
+    Object? Header_Height = freezed,
+    Object? Footer_Height = freezed,
+    Object? User_Name = freezed,
+    Object? User_MobileNumber = freezed,
+    Object? Gender = freezed,
+    Object? C_DateTime = freezed,
+    Object? Doctor_Name = freezed,
+    Object? Doctor_Signature = freezed,
+    Object? User_id = freezed,
+    Object? Age = freezed,
+    Object? City_Name = freezed,
+    Object? lat = freezed,
+    Object? lng = freezed,
   }) {
-    return _then(_$_BookingHospital(
-      hospital_id: null == hospital_id
+    return _then(_$BookingHospitalImpl(
+      hospital_id: freezed == hospital_id
           ? _value.hospital_id
           : hospital_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hospital_name: null == hospital_name
+      hospital_name: freezed == hospital_name
           ? _value.hospital_name
           : hospital_name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      app_count: null == app_count
+      app_count: freezed == app_count
           ? _value.app_count
           : app_count // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      location: null == location
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Virtual_Flag: null == Virtual_Flag
+      Virtual_Flag: freezed == Virtual_Flag
           ? _value.Virtual_Flag
           : Virtual_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Image_Name: null == Image_Name
+      Image_Name: freezed == Image_Name
           ? _value.Image_Name
           : Image_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Address: null == Hospital_Address
+      Hospital_Address: freezed == Hospital_Address
           ? _value.Hospital_Address
           : Hospital_Address // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_PhoneNumber: null == Hospital_PhoneNumber
+      Hospital_PhoneNumber: freezed == Hospital_PhoneNumber
           ? _value.Hospital_PhoneNumber
           : Hospital_PhoneNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Timing: null == Timing
+      Timing: freezed == Timing
           ? _value.Timing
           : Timing // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Header_Height: null == Header_Height
+      Header_Height: freezed == Header_Height
           ? _value.Header_Height
           : Header_Height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Footer_Height: null == Footer_Height
+      Footer_Height: freezed == Footer_Height
           ? _value.Footer_Height
           : Footer_Height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_Name: null == User_Name
+      User_Name: freezed == User_Name
           ? _value.User_Name
           : User_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_MobileNumber: null == User_MobileNumber
+      User_MobileNumber: freezed == User_MobileNumber
           ? _value.User_MobileNumber
           : User_MobileNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Gender: null == Gender
+      Gender: freezed == Gender
           ? _value.Gender
           : Gender // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      C_DateTime: null == C_DateTime
+      C_DateTime: freezed == C_DateTime
           ? _value.C_DateTime
           : C_DateTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_Name: null == Doctor_Name
+      Doctor_Name: freezed == Doctor_Name
           ? _value.Doctor_Name
           : Doctor_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_Signature: null == Doctor_Signature
+      Doctor_Signature: freezed == Doctor_Signature
           ? _value.Doctor_Signature
           : Doctor_Signature // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_id: null == User_id
+      User_id: freezed == User_id
           ? _value.User_id
           : User_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Age: null == Age
+      Age: freezed == Age
           ? _value.Age
           : Age // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      City_Name: null == City_Name
+      City_Name: freezed == City_Name
           ? _value.City_Name
           : City_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      lat: null == lat
+      lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      lng: null == lng
+      lng: freezed == lng
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -371,8 +371,8 @@ class __$$_BookingHospitalCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BookingHospital implements _BookingHospital {
-  const _$_BookingHospital(
+class _$BookingHospitalImpl implements _BookingHospital {
+  const _$BookingHospitalImpl(
       {this.hospital_id = null,
       this.hospital_name = null,
       this.app_count = null,
@@ -396,8 +396,8 @@ class _$_BookingHospital implements _BookingHospital {
       this.lat = null,
       this.lng = null});
 
-  factory _$_BookingHospital.fromJson(Map<String, dynamic> json) =>
-      _$$_BookingHospitalFromJson(json);
+  factory _$BookingHospitalImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BookingHospitalImplFromJson(json);
 
   @override
   @JsonKey()
@@ -472,10 +472,10 @@ class _$_BookingHospital implements _BookingHospital {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BookingHospital &&
+            other is _$BookingHospitalImpl &&
             const DeepCollectionEquality()
                 .equals(other.hospital_id, hospital_id) &&
             const DeepCollectionEquality()
@@ -543,12 +543,13 @@ class _$_BookingHospital implements _BookingHospital {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BookingHospitalCopyWith<_$_BookingHospital> get copyWith =>
-      __$$_BookingHospitalCopyWithImpl<_$_BookingHospital>(this, _$identity);
+  _$$BookingHospitalImplCopyWith<_$BookingHospitalImpl> get copyWith =>
+      __$$BookingHospitalImplCopyWithImpl<_$BookingHospitalImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BookingHospitalToJson(
+    return _$$BookingHospitalImplToJson(
       this,
     );
   }
@@ -577,10 +578,10 @@ abstract class _BookingHospital implements BookingHospital {
       final dynamic Age,
       final dynamic City_Name,
       final dynamic lat,
-      final dynamic lng}) = _$_BookingHospital;
+      final dynamic lng}) = _$BookingHospitalImpl;
 
   factory _BookingHospital.fromJson(Map<String, dynamic> json) =
-      _$_BookingHospital.fromJson;
+      _$BookingHospitalImpl.fromJson;
 
   @override
   dynamic get hospital_id;
@@ -628,6 +629,6 @@ abstract class _BookingHospital implements BookingHospital {
   dynamic get lng;
   @override
   @JsonKey(ignore: true)
-  _$$_BookingHospitalCopyWith<_$_BookingHospital> get copyWith =>
+  _$$BookingHospitalImplCopyWith<_$BookingHospitalImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'instant_doctor.dart';
 
@@ -12,7 +12,7 @@ part of 'instant_doctor.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 InstantDoctor _$InstantDoctorFromJson(Map<String, dynamic> json) {
   return _InstantDoctor.fromJson(json);
@@ -133,215 +133,215 @@ class _$InstantDoctorCopyWithImpl<$Res, $Val extends InstantDoctor>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? RelationShipList = null,
-    Object? BookCheck = null,
-    Object? Registrations = null,
-    Object? Doctor_Qualification = null,
-    Object? Gender = null,
-    Object? Doctor_ExperienceYears = null,
-    Object? Wallet_Amount = null,
-    Object? Coupon_Amount = null,
-    Object? Consultation_Amount = null,
-    Object? Service_Charges = null,
-    Object? Discount_Name = null,
-    Object? Discount_Id = null,
-    Object? Discount_Amount = null,
-    Object? Timing = null,
-    Object? Favorite = null,
-    Object? PaymentGateway = null,
-    Object? Hospital_Name = null,
-    Object? Doctor_Name = null,
-    Object? eclinicVideo = null,
-    Object? Language_Name = null,
-    Object? city_name = null,
-    Object? Doctor_id = null,
-    Object? Minutes = null,
-    Object? CNT = null,
-    Object? Queue_id = null,
-    Object? QueueList = null,
-    Object? Image = null,
-    Object? DFSendList = null,
-    Object? Hospital_Banner_Image = null,
-    Object? Text_Color = null,
-    Object? Color_1 = null,
-    Object? Color_2 = null,
-    Object? ClinicFee = null,
-    Object? Eclinic_Flag = null,
-    Object? Eclinic_Charges = null,
-    Object? Fee = null,
-    Object? Eclinic_Booking_Charges = null,
-    Object? Doctor_Designation = null,
-    Object? Coupon_Flag = null,
-    Object? Second_Image = null,
-    Object? Token_Number = null,
-    Object? Waiting_Time = null,
+    Object? RelationShipList = freezed,
+    Object? BookCheck = freezed,
+    Object? Registrations = freezed,
+    Object? Doctor_Qualification = freezed,
+    Object? Gender = freezed,
+    Object? Doctor_ExperienceYears = freezed,
+    Object? Wallet_Amount = freezed,
+    Object? Coupon_Amount = freezed,
+    Object? Consultation_Amount = freezed,
+    Object? Service_Charges = freezed,
+    Object? Discount_Name = freezed,
+    Object? Discount_Id = freezed,
+    Object? Discount_Amount = freezed,
+    Object? Timing = freezed,
+    Object? Favorite = freezed,
+    Object? PaymentGateway = freezed,
+    Object? Hospital_Name = freezed,
+    Object? Doctor_Name = freezed,
+    Object? eclinicVideo = freezed,
+    Object? Language_Name = freezed,
+    Object? city_name = freezed,
+    Object? Doctor_id = freezed,
+    Object? Minutes = freezed,
+    Object? CNT = freezed,
+    Object? Queue_id = freezed,
+    Object? QueueList = freezed,
+    Object? Image = freezed,
+    Object? DFSendList = freezed,
+    Object? Hospital_Banner_Image = freezed,
+    Object? Text_Color = freezed,
+    Object? Color_1 = freezed,
+    Object? Color_2 = freezed,
+    Object? ClinicFee = freezed,
+    Object? Eclinic_Flag = freezed,
+    Object? Eclinic_Charges = freezed,
+    Object? Fee = freezed,
+    Object? Eclinic_Booking_Charges = freezed,
+    Object? Doctor_Designation = freezed,
+    Object? Coupon_Flag = freezed,
+    Object? Second_Image = freezed,
+    Object? Token_Number = freezed,
+    Object? Waiting_Time = freezed,
   }) {
     return _then(_value.copyWith(
-      RelationShipList: null == RelationShipList
+      RelationShipList: freezed == RelationShipList
           ? _value.RelationShipList
           : RelationShipList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      BookCheck: null == BookCheck
+      BookCheck: freezed == BookCheck
           ? _value.BookCheck
           : BookCheck // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Registrations: null == Registrations
+      Registrations: freezed == Registrations
           ? _value.Registrations
           : Registrations // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_Qualification: null == Doctor_Qualification
+      Doctor_Qualification: freezed == Doctor_Qualification
           ? _value.Doctor_Qualification
           : Doctor_Qualification // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Gender: null == Gender
+      Gender: freezed == Gender
           ? _value.Gender
           : Gender // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_ExperienceYears: null == Doctor_ExperienceYears
+      Doctor_ExperienceYears: freezed == Doctor_ExperienceYears
           ? _value.Doctor_ExperienceYears
           : Doctor_ExperienceYears // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Wallet_Amount: null == Wallet_Amount
+      Wallet_Amount: freezed == Wallet_Amount
           ? _value.Wallet_Amount
           : Wallet_Amount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Coupon_Amount: null == Coupon_Amount
+      Coupon_Amount: freezed == Coupon_Amount
           ? _value.Coupon_Amount
           : Coupon_Amount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Consultation_Amount: null == Consultation_Amount
+      Consultation_Amount: freezed == Consultation_Amount
           ? _value.Consultation_Amount
           : Consultation_Amount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Service_Charges: null == Service_Charges
+      Service_Charges: freezed == Service_Charges
           ? _value.Service_Charges
           : Service_Charges // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Discount_Name: null == Discount_Name
+      Discount_Name: freezed == Discount_Name
           ? _value.Discount_Name
           : Discount_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Discount_Id: null == Discount_Id
+      Discount_Id: freezed == Discount_Id
           ? _value.Discount_Id
           : Discount_Id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Discount_Amount: null == Discount_Amount
+      Discount_Amount: freezed == Discount_Amount
           ? _value.Discount_Amount
           : Discount_Amount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Timing: null == Timing
+      Timing: freezed == Timing
           ? _value.Timing
           : Timing // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Favorite: null == Favorite
+      Favorite: freezed == Favorite
           ? _value.Favorite
           : Favorite // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      PaymentGateway: null == PaymentGateway
+      PaymentGateway: freezed == PaymentGateway
           ? _value.PaymentGateway
           : PaymentGateway // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Name: null == Hospital_Name
+      Hospital_Name: freezed == Hospital_Name
           ? _value.Hospital_Name
           : Hospital_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_Name: null == Doctor_Name
+      Doctor_Name: freezed == Doctor_Name
           ? _value.Doctor_Name
           : Doctor_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      eclinicVideo: null == eclinicVideo
+      eclinicVideo: freezed == eclinicVideo
           ? _value.eclinicVideo
           : eclinicVideo // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Language_Name: null == Language_Name
+      Language_Name: freezed == Language_Name
           ? _value.Language_Name
           : Language_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      city_name: null == city_name
+      city_name: freezed == city_name
           ? _value.city_name
           : city_name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_id: null == Doctor_id
+      Doctor_id: freezed == Doctor_id
           ? _value.Doctor_id
           : Doctor_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Minutes: null == Minutes
+      Minutes: freezed == Minutes
           ? _value.Minutes
           : Minutes // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      CNT: null == CNT
+      CNT: freezed == CNT
           ? _value.CNT
           : CNT // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Queue_id: null == Queue_id
+      Queue_id: freezed == Queue_id
           ? _value.Queue_id
           : Queue_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      QueueList: null == QueueList
+      QueueList: freezed == QueueList
           ? _value.QueueList
           : QueueList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Image: null == Image
+      Image: freezed == Image
           ? _value.Image
           : Image // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      DFSendList: null == DFSendList
+      DFSendList: freezed == DFSendList
           ? _value.DFSendList
           : DFSendList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Banner_Image: null == Hospital_Banner_Image
+      Hospital_Banner_Image: freezed == Hospital_Banner_Image
           ? _value.Hospital_Banner_Image
           : Hospital_Banner_Image // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Text_Color: null == Text_Color
+      Text_Color: freezed == Text_Color
           ? _value.Text_Color
           : Text_Color // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Color_1: null == Color_1
+      Color_1: freezed == Color_1
           ? _value.Color_1
           : Color_1 // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Color_2: null == Color_2
+      Color_2: freezed == Color_2
           ? _value.Color_2
           : Color_2 // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ClinicFee: null == ClinicFee
+      ClinicFee: freezed == ClinicFee
           ? _value.ClinicFee
           : ClinicFee // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Eclinic_Flag: null == Eclinic_Flag
+      Eclinic_Flag: freezed == Eclinic_Flag
           ? _value.Eclinic_Flag
           : Eclinic_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Eclinic_Charges: null == Eclinic_Charges
+      Eclinic_Charges: freezed == Eclinic_Charges
           ? _value.Eclinic_Charges
           : Eclinic_Charges // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Fee: null == Fee
+      Fee: freezed == Fee
           ? _value.Fee
           : Fee // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Eclinic_Booking_Charges: null == Eclinic_Booking_Charges
+      Eclinic_Booking_Charges: freezed == Eclinic_Booking_Charges
           ? _value.Eclinic_Booking_Charges
           : Eclinic_Booking_Charges // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_Designation: null == Doctor_Designation
+      Doctor_Designation: freezed == Doctor_Designation
           ? _value.Doctor_Designation
           : Doctor_Designation // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Coupon_Flag: null == Coupon_Flag
+      Coupon_Flag: freezed == Coupon_Flag
           ? _value.Coupon_Flag
           : Coupon_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Second_Image: null == Second_Image
+      Second_Image: freezed == Second_Image
           ? _value.Second_Image
           : Second_Image // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Token_Number: null == Token_Number
+      Token_Number: freezed == Token_Number
           ? _value.Token_Number
           : Token_Number // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Waiting_Time: null == Waiting_Time
+      Waiting_Time: freezed == Waiting_Time
           ? _value.Waiting_Time
           : Waiting_Time // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -350,11 +350,11 @@ class _$InstantDoctorCopyWithImpl<$Res, $Val extends InstantDoctor>
 }
 
 /// @nodoc
-abstract class _$$_InstantDoctorCopyWith<$Res>
+abstract class _$$InstantDoctorImplCopyWith<$Res>
     implements $InstantDoctorCopyWith<$Res> {
-  factory _$$_InstantDoctorCopyWith(
-          _$_InstantDoctor value, $Res Function(_$_InstantDoctor) then) =
-      __$$_InstantDoctorCopyWithImpl<$Res>;
+  factory _$$InstantDoctorImplCopyWith(
+          _$InstantDoctorImpl value, $Res Function(_$InstantDoctorImpl) then) =
+      __$$InstantDoctorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -403,225 +403,225 @@ abstract class _$$_InstantDoctorCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InstantDoctorCopyWithImpl<$Res>
-    extends _$InstantDoctorCopyWithImpl<$Res, _$_InstantDoctor>
-    implements _$$_InstantDoctorCopyWith<$Res> {
-  __$$_InstantDoctorCopyWithImpl(
-      _$_InstantDoctor _value, $Res Function(_$_InstantDoctor) _then)
+class __$$InstantDoctorImplCopyWithImpl<$Res>
+    extends _$InstantDoctorCopyWithImpl<$Res, _$InstantDoctorImpl>
+    implements _$$InstantDoctorImplCopyWith<$Res> {
+  __$$InstantDoctorImplCopyWithImpl(
+      _$InstantDoctorImpl _value, $Res Function(_$InstantDoctorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? RelationShipList = null,
-    Object? BookCheck = null,
-    Object? Registrations = null,
-    Object? Doctor_Qualification = null,
-    Object? Gender = null,
-    Object? Doctor_ExperienceYears = null,
-    Object? Wallet_Amount = null,
-    Object? Coupon_Amount = null,
-    Object? Consultation_Amount = null,
-    Object? Service_Charges = null,
-    Object? Discount_Name = null,
-    Object? Discount_Id = null,
-    Object? Discount_Amount = null,
-    Object? Timing = null,
-    Object? Favorite = null,
-    Object? PaymentGateway = null,
-    Object? Hospital_Name = null,
-    Object? Doctor_Name = null,
-    Object? eclinicVideo = null,
-    Object? Language_Name = null,
-    Object? city_name = null,
-    Object? Doctor_id = null,
-    Object? Minutes = null,
-    Object? CNT = null,
-    Object? Queue_id = null,
-    Object? QueueList = null,
-    Object? Image = null,
-    Object? DFSendList = null,
-    Object? Hospital_Banner_Image = null,
-    Object? Text_Color = null,
-    Object? Color_1 = null,
-    Object? Color_2 = null,
-    Object? ClinicFee = null,
-    Object? Eclinic_Flag = null,
-    Object? Eclinic_Charges = null,
-    Object? Fee = null,
-    Object? Eclinic_Booking_Charges = null,
-    Object? Doctor_Designation = null,
-    Object? Coupon_Flag = null,
-    Object? Second_Image = null,
-    Object? Token_Number = null,
-    Object? Waiting_Time = null,
+    Object? RelationShipList = freezed,
+    Object? BookCheck = freezed,
+    Object? Registrations = freezed,
+    Object? Doctor_Qualification = freezed,
+    Object? Gender = freezed,
+    Object? Doctor_ExperienceYears = freezed,
+    Object? Wallet_Amount = freezed,
+    Object? Coupon_Amount = freezed,
+    Object? Consultation_Amount = freezed,
+    Object? Service_Charges = freezed,
+    Object? Discount_Name = freezed,
+    Object? Discount_Id = freezed,
+    Object? Discount_Amount = freezed,
+    Object? Timing = freezed,
+    Object? Favorite = freezed,
+    Object? PaymentGateway = freezed,
+    Object? Hospital_Name = freezed,
+    Object? Doctor_Name = freezed,
+    Object? eclinicVideo = freezed,
+    Object? Language_Name = freezed,
+    Object? city_name = freezed,
+    Object? Doctor_id = freezed,
+    Object? Minutes = freezed,
+    Object? CNT = freezed,
+    Object? Queue_id = freezed,
+    Object? QueueList = freezed,
+    Object? Image = freezed,
+    Object? DFSendList = freezed,
+    Object? Hospital_Banner_Image = freezed,
+    Object? Text_Color = freezed,
+    Object? Color_1 = freezed,
+    Object? Color_2 = freezed,
+    Object? ClinicFee = freezed,
+    Object? Eclinic_Flag = freezed,
+    Object? Eclinic_Charges = freezed,
+    Object? Fee = freezed,
+    Object? Eclinic_Booking_Charges = freezed,
+    Object? Doctor_Designation = freezed,
+    Object? Coupon_Flag = freezed,
+    Object? Second_Image = freezed,
+    Object? Token_Number = freezed,
+    Object? Waiting_Time = freezed,
   }) {
-    return _then(_$_InstantDoctor(
-      RelationShipList: null == RelationShipList
+    return _then(_$InstantDoctorImpl(
+      RelationShipList: freezed == RelationShipList
           ? _value.RelationShipList
           : RelationShipList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      BookCheck: null == BookCheck
+      BookCheck: freezed == BookCheck
           ? _value.BookCheck
           : BookCheck // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Registrations: null == Registrations
+      Registrations: freezed == Registrations
           ? _value.Registrations
           : Registrations // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_Qualification: null == Doctor_Qualification
+      Doctor_Qualification: freezed == Doctor_Qualification
           ? _value.Doctor_Qualification
           : Doctor_Qualification // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Gender: null == Gender
+      Gender: freezed == Gender
           ? _value.Gender
           : Gender // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_ExperienceYears: null == Doctor_ExperienceYears
+      Doctor_ExperienceYears: freezed == Doctor_ExperienceYears
           ? _value.Doctor_ExperienceYears
           : Doctor_ExperienceYears // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Wallet_Amount: null == Wallet_Amount
+      Wallet_Amount: freezed == Wallet_Amount
           ? _value.Wallet_Amount
           : Wallet_Amount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Coupon_Amount: null == Coupon_Amount
+      Coupon_Amount: freezed == Coupon_Amount
           ? _value.Coupon_Amount
           : Coupon_Amount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Consultation_Amount: null == Consultation_Amount
+      Consultation_Amount: freezed == Consultation_Amount
           ? _value.Consultation_Amount
           : Consultation_Amount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Service_Charges: null == Service_Charges
+      Service_Charges: freezed == Service_Charges
           ? _value.Service_Charges
           : Service_Charges // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Discount_Name: null == Discount_Name
+      Discount_Name: freezed == Discount_Name
           ? _value.Discount_Name
           : Discount_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Discount_Id: null == Discount_Id
+      Discount_Id: freezed == Discount_Id
           ? _value.Discount_Id
           : Discount_Id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Discount_Amount: null == Discount_Amount
+      Discount_Amount: freezed == Discount_Amount
           ? _value.Discount_Amount
           : Discount_Amount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Timing: null == Timing
+      Timing: freezed == Timing
           ? _value.Timing
           : Timing // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Favorite: null == Favorite
+      Favorite: freezed == Favorite
           ? _value.Favorite
           : Favorite // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      PaymentGateway: null == PaymentGateway
+      PaymentGateway: freezed == PaymentGateway
           ? _value.PaymentGateway
           : PaymentGateway // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Name: null == Hospital_Name
+      Hospital_Name: freezed == Hospital_Name
           ? _value.Hospital_Name
           : Hospital_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_Name: null == Doctor_Name
+      Doctor_Name: freezed == Doctor_Name
           ? _value.Doctor_Name
           : Doctor_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      eclinicVideo: null == eclinicVideo
+      eclinicVideo: freezed == eclinicVideo
           ? _value.eclinicVideo
           : eclinicVideo // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Language_Name: null == Language_Name
+      Language_Name: freezed == Language_Name
           ? _value.Language_Name
           : Language_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      city_name: null == city_name
+      city_name: freezed == city_name
           ? _value.city_name
           : city_name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_id: null == Doctor_id
+      Doctor_id: freezed == Doctor_id
           ? _value.Doctor_id
           : Doctor_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Minutes: null == Minutes
+      Minutes: freezed == Minutes
           ? _value.Minutes
           : Minutes // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      CNT: null == CNT
+      CNT: freezed == CNT
           ? _value.CNT
           : CNT // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Queue_id: null == Queue_id
+      Queue_id: freezed == Queue_id
           ? _value.Queue_id
           : Queue_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      QueueList: null == QueueList
+      QueueList: freezed == QueueList
           ? _value.QueueList
           : QueueList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Image: null == Image
+      Image: freezed == Image
           ? _value.Image
           : Image // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      DFSendList: null == DFSendList
+      DFSendList: freezed == DFSendList
           ? _value.DFSendList
           : DFSendList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Banner_Image: null == Hospital_Banner_Image
+      Hospital_Banner_Image: freezed == Hospital_Banner_Image
           ? _value.Hospital_Banner_Image
           : Hospital_Banner_Image // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Text_Color: null == Text_Color
+      Text_Color: freezed == Text_Color
           ? _value.Text_Color
           : Text_Color // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Color_1: null == Color_1
+      Color_1: freezed == Color_1
           ? _value.Color_1
           : Color_1 // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Color_2: null == Color_2
+      Color_2: freezed == Color_2
           ? _value.Color_2
           : Color_2 // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ClinicFee: null == ClinicFee
+      ClinicFee: freezed == ClinicFee
           ? _value.ClinicFee
           : ClinicFee // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Eclinic_Flag: null == Eclinic_Flag
+      Eclinic_Flag: freezed == Eclinic_Flag
           ? _value.Eclinic_Flag
           : Eclinic_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Eclinic_Charges: null == Eclinic_Charges
+      Eclinic_Charges: freezed == Eclinic_Charges
           ? _value.Eclinic_Charges
           : Eclinic_Charges // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Fee: null == Fee
+      Fee: freezed == Fee
           ? _value.Fee
           : Fee // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Eclinic_Booking_Charges: null == Eclinic_Booking_Charges
+      Eclinic_Booking_Charges: freezed == Eclinic_Booking_Charges
           ? _value.Eclinic_Booking_Charges
           : Eclinic_Booking_Charges // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_Designation: null == Doctor_Designation
+      Doctor_Designation: freezed == Doctor_Designation
           ? _value.Doctor_Designation
           : Doctor_Designation // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Coupon_Flag: null == Coupon_Flag
+      Coupon_Flag: freezed == Coupon_Flag
           ? _value.Coupon_Flag
           : Coupon_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Second_Image: null == Second_Image
+      Second_Image: freezed == Second_Image
           ? _value.Second_Image
           : Second_Image // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Token_Number: null == Token_Number
+      Token_Number: freezed == Token_Number
           ? _value.Token_Number
           : Token_Number // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Waiting_Time: null == Waiting_Time
+      Waiting_Time: freezed == Waiting_Time
           ? _value.Waiting_Time
           : Waiting_Time // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -631,8 +631,8 @@ class __$$_InstantDoctorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_InstantDoctor implements _InstantDoctor {
-  const _$_InstantDoctor(
+class _$InstantDoctorImpl implements _InstantDoctor {
+  const _$InstantDoctorImpl(
       {this.RelationShipList = '',
       this.BookCheck = '',
       this.Registrations = '',
@@ -676,8 +676,8 @@ class _$_InstantDoctor implements _InstantDoctor {
       this.Token_Number = '',
       this.Waiting_Time = ''});
 
-  factory _$_InstantDoctor.fromJson(Map<String, dynamic> json) =>
-      _$$_InstantDoctorFromJson(json);
+  factory _$InstantDoctorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InstantDoctorImplFromJson(json);
 
   @override
   @JsonKey()
@@ -812,10 +812,10 @@ class _$_InstantDoctor implements _InstantDoctor {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InstantDoctor &&
+            other is _$InstantDoctorImpl &&
             const DeepCollectionEquality()
                 .equals(other.RelationShipList, RelationShipList) &&
             const DeepCollectionEquality().equals(other.BookCheck, BookCheck) &&
@@ -938,12 +938,12 @@ class _$_InstantDoctor implements _InstantDoctor {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InstantDoctorCopyWith<_$_InstantDoctor> get copyWith =>
-      __$$_InstantDoctorCopyWithImpl<_$_InstantDoctor>(this, _$identity);
+  _$$InstantDoctorImplCopyWith<_$InstantDoctorImpl> get copyWith =>
+      __$$InstantDoctorImplCopyWithImpl<_$InstantDoctorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InstantDoctorToJson(
+    return _$$InstantDoctorImplToJson(
       this,
     );
   }
@@ -992,10 +992,10 @@ abstract class _InstantDoctor implements InstantDoctor {
       final dynamic Coupon_Flag,
       final dynamic Second_Image,
       final dynamic Token_Number,
-      final dynamic Waiting_Time}) = _$_InstantDoctor;
+      final dynamic Waiting_Time}) = _$InstantDoctorImpl;
 
   factory _InstantDoctor.fromJson(Map<String, dynamic> json) =
-      _$_InstantDoctor.fromJson;
+      _$InstantDoctorImpl.fromJson;
 
   @override
   dynamic get RelationShipList;
@@ -1083,6 +1083,6 @@ abstract class _InstantDoctor implements InstantDoctor {
   dynamic get Waiting_Time;
   @override
   @JsonKey(ignore: true)
-  _$$_InstantDoctorCopyWith<_$_InstantDoctor> get copyWith =>
+  _$$InstantDoctorImplCopyWith<_$InstantDoctorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

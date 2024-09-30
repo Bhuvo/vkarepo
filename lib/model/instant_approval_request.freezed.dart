@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'instant_approval_request.dart';
 
@@ -12,7 +12,7 @@ part of 'instant_approval_request.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 InstantApprovalRequest _$InstantApprovalRequestFromJson(
     Map<String, dynamic> json) {
@@ -75,7 +75,7 @@ class _$InstantApprovalRequestCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? appointmentId = null,
+    Object? appointmentId = freezed,
     Object? queueId = freezed,
     Object? doctorId = freezed,
     Object? userId = freezed,
@@ -89,7 +89,7 @@ class _$InstantApprovalRequestCopyWithImpl<$Res,
     Object? reqDate = freezed,
   }) {
     return _then(_value.copyWith(
-      appointmentId: null == appointmentId
+      appointmentId: freezed == appointmentId
           ? _value.appointmentId
           : appointmentId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -142,11 +142,12 @@ class _$InstantApprovalRequestCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InstantApprovalRequestCopyWith<$Res>
+abstract class _$$InstantApprovalRequestImplCopyWith<$Res>
     implements $InstantApprovalRequestCopyWith<$Res> {
-  factory _$$_InstantApprovalRequestCopyWith(_$_InstantApprovalRequest value,
-          $Res Function(_$_InstantApprovalRequest) then) =
-      __$$_InstantApprovalRequestCopyWithImpl<$Res>;
+  factory _$$InstantApprovalRequestImplCopyWith(
+          _$InstantApprovalRequestImpl value,
+          $Res Function(_$InstantApprovalRequestImpl) then) =
+      __$$InstantApprovalRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -165,18 +166,19 @@ abstract class _$$_InstantApprovalRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InstantApprovalRequestCopyWithImpl<$Res>
+class __$$InstantApprovalRequestImplCopyWithImpl<$Res>
     extends _$InstantApprovalRequestCopyWithImpl<$Res,
-        _$_InstantApprovalRequest>
-    implements _$$_InstantApprovalRequestCopyWith<$Res> {
-  __$$_InstantApprovalRequestCopyWithImpl(_$_InstantApprovalRequest _value,
-      $Res Function(_$_InstantApprovalRequest) _then)
+        _$InstantApprovalRequestImpl>
+    implements _$$InstantApprovalRequestImplCopyWith<$Res> {
+  __$$InstantApprovalRequestImplCopyWithImpl(
+      _$InstantApprovalRequestImpl _value,
+      $Res Function(_$InstantApprovalRequestImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? appointmentId = null,
+    Object? appointmentId = freezed,
     Object? queueId = freezed,
     Object? doctorId = freezed,
     Object? userId = freezed,
@@ -189,8 +191,8 @@ class __$$_InstantApprovalRequestCopyWithImpl<$Res>
     Object? userName = freezed,
     Object? reqDate = freezed,
   }) {
-    return _then(_$_InstantApprovalRequest(
-      appointmentId: null == appointmentId
+    return _then(_$InstantApprovalRequestImpl(
+      appointmentId: freezed == appointmentId
           ? _value.appointmentId
           : appointmentId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -244,8 +246,8 @@ class __$$_InstantApprovalRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_InstantApprovalRequest implements _InstantApprovalRequest {
-  const _$_InstantApprovalRequest(
+class _$InstantApprovalRequestImpl implements _InstantApprovalRequest {
+  const _$InstantApprovalRequestImpl(
       {this.appointmentId,
       this.queueId,
       this.doctorId,
@@ -259,8 +261,8 @@ class _$_InstantApprovalRequest implements _InstantApprovalRequest {
       this.userName,
       this.reqDate});
 
-  factory _$_InstantApprovalRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_InstantApprovalRequestFromJson(json);
+  factory _$InstantApprovalRequestImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InstantApprovalRequestImplFromJson(json);
 
   @override
   final dynamic appointmentId;
@@ -293,10 +295,10 @@ class _$_InstantApprovalRequest implements _InstantApprovalRequest {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InstantApprovalRequest &&
+            other is _$InstantApprovalRequestImpl &&
             const DeepCollectionEquality()
                 .equals(other.appointmentId, appointmentId) &&
             (identical(other.queueId, queueId) || other.queueId == queueId) &&
@@ -339,13 +341,13 @@ class _$_InstantApprovalRequest implements _InstantApprovalRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InstantApprovalRequestCopyWith<_$_InstantApprovalRequest> get copyWith =>
-      __$$_InstantApprovalRequestCopyWithImpl<_$_InstantApprovalRequest>(
-          this, _$identity);
+  _$$InstantApprovalRequestImplCopyWith<_$InstantApprovalRequestImpl>
+      get copyWith => __$$InstantApprovalRequestImplCopyWithImpl<
+          _$InstantApprovalRequestImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InstantApprovalRequestToJson(
+    return _$$InstantApprovalRequestImplToJson(
       this,
     );
   }
@@ -364,10 +366,10 @@ abstract class _InstantApprovalRequest implements InstantApprovalRequest {
       final String? orderDate,
       final String? mobileNumber,
       final String? userName,
-      final String? reqDate}) = _$_InstantApprovalRequest;
+      final String? reqDate}) = _$InstantApprovalRequestImpl;
 
   factory _InstantApprovalRequest.fromJson(Map<String, dynamic> json) =
-      _$_InstantApprovalRequest.fromJson;
+      _$InstantApprovalRequestImpl.fromJson;
 
   @override
   dynamic get appointmentId;
@@ -395,6 +397,6 @@ abstract class _InstantApprovalRequest implements InstantApprovalRequest {
   String? get reqDate;
   @override
   @JsonKey(ignore: true)
-  _$$_InstantApprovalRequestCopyWith<_$_InstantApprovalRequest> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$InstantApprovalRequestImplCopyWith<_$InstantApprovalRequestImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

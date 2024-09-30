@@ -6,13 +6,13 @@ part of 'instant_approval_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_InstantApprovalRequest _$$_InstantApprovalRequestFromJson(
+_$InstantApprovalRequestImpl _$$InstantApprovalRequestImplFromJson(
         Map<String, dynamic> json) =>
-    _$_InstantApprovalRequest(
+    _$InstantApprovalRequestImpl(
       appointmentId: json['appointmentId'],
-      queueId: json['queueId'] as int?,
-      doctorId: json['doctorId'] as int?,
-      userId: json['userId'] as int?,
+      queueId: (json['queueId'] as num?)?.toInt(),
+      doctorId: (json['doctorId'] as num?)?.toInt(),
+      userId: (json['userId'] as num?)?.toInt(),
       doctorApproval: json['doctorApproval'] as String?,
       doctorApprovalDateTime: json['doctorApprovalDateTime'] as String?,
       orderId: json['orderId'] as String?,
@@ -23,8 +23,8 @@ _$_InstantApprovalRequest _$$_InstantApprovalRequestFromJson(
       reqDate: json['reqDate'] as String?,
     );
 
-Map<String, dynamic> _$$_InstantApprovalRequestToJson(
-        _$_InstantApprovalRequest instance) =>
+Map<String, dynamic> _$$InstantApprovalRequestImplToJson(
+        _$InstantApprovalRequestImpl instance) =>
     <String, dynamic>{
       'appointmentId': instance.appointmentId,
       'queueId': instance.queueId,

@@ -6,8 +6,8 @@ part of 'api_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApiResponse _$$_ApiResponseFromJson(Map<String, dynamic> json) =>
-    _$_ApiResponse(
+_$ApiResponseImpl _$$ApiResponseImplFromJson(Map<String, dynamic> json) =>
+    _$ApiResponseImpl(
       message: json['ResponseMessage'] as String?,
       Rmessage: json['Message'],
       Rkey: json['Key'],
@@ -17,7 +17,7 @@ _$_ApiResponse _$$_ApiResponseFromJson(Map<String, dynamic> json) =>
       data: json['Data'] ?? null,
     );
 
-Map<String, dynamic> _$$_ApiResponseToJson(_$_ApiResponse instance) =>
+Map<String, dynamic> _$$ApiResponseImplToJson(_$ApiResponseImpl instance) =>
     <String, dynamic>{
       'ResponseMessage': instance.message,
       'Message': instance.Rmessage,

@@ -6,8 +6,8 @@ part of 'instant_doctor.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_InstantDoctor _$$_InstantDoctorFromJson(Map<String, dynamic> json) =>
-    _$_InstantDoctor(
+_$InstantDoctorImpl _$$InstantDoctorImplFromJson(Map<String, dynamic> json) =>
+    _$InstantDoctorImpl(
       RelationShipList: json['RelationShipList'] ?? '',
       BookCheck: json['BookCheck'] ?? '',
       Registrations: json['Registrations'] ?? '',
@@ -52,7 +52,7 @@ _$_InstantDoctor _$$_InstantDoctorFromJson(Map<String, dynamic> json) =>
       Waiting_Time: json['Waiting_Time'] ?? '',
     );
 
-Map<String, dynamic> _$$_InstantDoctorToJson(_$_InstantDoctor instance) =>
+Map<String, dynamic> _$$InstantDoctorImplToJson(_$InstantDoctorImpl instance) =>
     <String, dynamic>{
       'RelationShipList': instance.RelationShipList,
       'BookCheck': instance.BookCheck,

@@ -6,8 +6,8 @@ part of 'waiting_patient.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_WaitingPatient _$$_WaitingPatientFromJson(Map<String, dynamic> json) =>
-    _$_WaitingPatient(
+_$WaitingPatientImpl _$$WaitingPatientImplFromJson(Map<String, dynamic> json) =>
+    _$WaitingPatientImpl(
       Online_Flag: json['Online_Flag'] ?? null,
       Doctor_id: json['Doctor_id'] ?? null,
       User_id: json['User_id'] ?? null,
@@ -38,7 +38,8 @@ _$_WaitingPatient _$$_WaitingPatientFromJson(Map<String, dynamic> json) =>
       Email_Id: json['Email_Id'] ?? null,
     );
 
-Map<String, dynamic> _$$_WaitingPatientToJson(_$_WaitingPatient instance) =>
+Map<String, dynamic> _$$WaitingPatientImplToJson(
+        _$WaitingPatientImpl instance) =>
     <String, dynamic>{
       'Online_Flag': instance.Online_Flag,
       'Doctor_id': instance.Doctor_id,

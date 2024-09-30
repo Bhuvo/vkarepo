@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'stream_time_updation.dart';
 
@@ -12,7 +12,7 @@ part of 'stream_time_updation.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 StreamTimeUpdationModel _$StreamTimeUpdationModelFromJson(
     Map<String, dynamic> json) {
@@ -70,23 +70,25 @@ class _$StreamTimeUpdationModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_StreamTimeUpdationModelCopyWith<$Res>
+abstract class _$$StreamTimeUpdationModelImplCopyWith<$Res>
     implements $StreamTimeUpdationModelCopyWith<$Res> {
-  factory _$$_StreamTimeUpdationModelCopyWith(_$_StreamTimeUpdationModel value,
-          $Res Function(_$_StreamTimeUpdationModel) then) =
-      __$$_StreamTimeUpdationModelCopyWithImpl<$Res>;
+  factory _$$StreamTimeUpdationModelImplCopyWith(
+          _$StreamTimeUpdationModelImpl value,
+          $Res Function(_$StreamTimeUpdationModelImpl) then) =
+      __$$StreamTimeUpdationModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String responseCode, String responseMessage});
 }
 
 /// @nodoc
-class __$$_StreamTimeUpdationModelCopyWithImpl<$Res>
+class __$$StreamTimeUpdationModelImplCopyWithImpl<$Res>
     extends _$StreamTimeUpdationModelCopyWithImpl<$Res,
-        _$_StreamTimeUpdationModel>
-    implements _$$_StreamTimeUpdationModelCopyWith<$Res> {
-  __$$_StreamTimeUpdationModelCopyWithImpl(_$_StreamTimeUpdationModel _value,
-      $Res Function(_$_StreamTimeUpdationModel) _then)
+        _$StreamTimeUpdationModelImpl>
+    implements _$$StreamTimeUpdationModelImplCopyWith<$Res> {
+  __$$StreamTimeUpdationModelImplCopyWithImpl(
+      _$StreamTimeUpdationModelImpl _value,
+      $Res Function(_$StreamTimeUpdationModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +97,7 @@ class __$$_StreamTimeUpdationModelCopyWithImpl<$Res>
     Object? responseCode = null,
     Object? responseMessage = null,
   }) {
-    return _then(_$_StreamTimeUpdationModel(
+    return _then(_$StreamTimeUpdationModelImpl(
       responseCode: null == responseCode
           ? _value.responseCode
           : responseCode // ignore: cast_nullable_to_non_nullable
@@ -110,12 +112,12 @@ class __$$_StreamTimeUpdationModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_StreamTimeUpdationModel implements _StreamTimeUpdationModel {
-  const _$_StreamTimeUpdationModel(
+class _$StreamTimeUpdationModelImpl implements _StreamTimeUpdationModel {
+  const _$StreamTimeUpdationModelImpl(
       {required this.responseCode, required this.responseMessage});
 
-  factory _$_StreamTimeUpdationModel.fromJson(Map<String, dynamic> json) =>
-      _$$_StreamTimeUpdationModelFromJson(json);
+  factory _$StreamTimeUpdationModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$StreamTimeUpdationModelImplFromJson(json);
 
   @override
   final String responseCode;
@@ -128,10 +130,10 @@ class _$_StreamTimeUpdationModel implements _StreamTimeUpdationModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StreamTimeUpdationModel &&
+            other is _$StreamTimeUpdationModelImpl &&
             (identical(other.responseCode, responseCode) ||
                 other.responseCode == responseCode) &&
             (identical(other.responseMessage, responseMessage) ||
@@ -145,14 +147,13 @@ class _$_StreamTimeUpdationModel implements _StreamTimeUpdationModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StreamTimeUpdationModelCopyWith<_$_StreamTimeUpdationModel>
-      get copyWith =>
-          __$$_StreamTimeUpdationModelCopyWithImpl<_$_StreamTimeUpdationModel>(
-              this, _$identity);
+  _$$StreamTimeUpdationModelImplCopyWith<_$StreamTimeUpdationModelImpl>
+      get copyWith => __$$StreamTimeUpdationModelImplCopyWithImpl<
+          _$StreamTimeUpdationModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StreamTimeUpdationModelToJson(
+    return _$$StreamTimeUpdationModelImplToJson(
       this,
     );
   }
@@ -161,10 +162,10 @@ class _$_StreamTimeUpdationModel implements _StreamTimeUpdationModel {
 abstract class _StreamTimeUpdationModel implements StreamTimeUpdationModel {
   const factory _StreamTimeUpdationModel(
       {required final String responseCode,
-      required final String responseMessage}) = _$_StreamTimeUpdationModel;
+      required final String responseMessage}) = _$StreamTimeUpdationModelImpl;
 
   factory _StreamTimeUpdationModel.fromJson(Map<String, dynamic> json) =
-      _$_StreamTimeUpdationModel.fromJson;
+      _$StreamTimeUpdationModelImpl.fromJson;
 
   @override
   String get responseCode;
@@ -172,6 +173,6 @@ abstract class _StreamTimeUpdationModel implements StreamTimeUpdationModel {
   String get responseMessage;
   @override
   @JsonKey(ignore: true)
-  _$$_StreamTimeUpdationModelCopyWith<_$_StreamTimeUpdationModel>
+  _$$StreamTimeUpdationModelImplCopyWith<_$StreamTimeUpdationModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

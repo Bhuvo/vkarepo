@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'waiting_room_details.dart';
 
@@ -12,7 +12,7 @@ part of 'waiting_room_details.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 WaitingRoomDetails _$WaitingRoomDetailsFromJson(Map<String, dynamic> json) {
   return _WaitingRoomDetails.fromJson(json);
@@ -371,174 +371,174 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? deptName = null,
-    Object? doctorNotes = null,
+    Object? deptName = freezed,
+    Object? doctorNotes = freezed,
     Object? hospitalId = null,
-    Object? timing = null,
-    Object? hospitalPhoneNumber = null,
+    Object? timing = freezed,
+    Object? hospitalPhoneNumber = freezed,
     Object? allergieId = null,
-    Object? finding = null,
-    Object? countList = null,
-    Object? allergieName = null,
+    Object? finding = freezed,
+    Object? countList = freezed,
+    Object? allergieName = freezed,
     Object? doctorId = null,
     Object? testId = null,
     Object? testCost = null,
-    Object? doctorName = null,
-    Object? alterFlag = null,
-    Object? doctorImage = null,
-    Object? doctorQualification = null,
-    Object? subCategoryName = null,
-    Object? typeFlag = null,
-    Object? fileName = null,
-    Object? testName = null,
-    Object? userName = null,
-    Object? userImage = null,
-    Object? userAddress = null,
-    Object? userBloodgroup = null,
-    Object? userDob = null,
-    Object? emailid = null,
-    Object? mobileNumber = null,
-    Object? locationName = null,
-    Object? hospitalName = null,
-    Object? hospitalAddress = null,
+    Object? doctorName = freezed,
+    Object? alterFlag = freezed,
+    Object? doctorImage = freezed,
+    Object? doctorQualification = freezed,
+    Object? subCategoryName = freezed,
+    Object? typeFlag = freezed,
+    Object? fileName = freezed,
+    Object? testName = freezed,
+    Object? userName = freezed,
+    Object? userImage = freezed,
+    Object? userAddress = freezed,
+    Object? userBloodgroup = freezed,
+    Object? userDob = freezed,
+    Object? emailid = freezed,
+    Object? mobileNumber = freezed,
+    Object? locationName = freezed,
+    Object? hospitalName = freezed,
+    Object? hospitalAddress = freezed,
     Object? clinicId = null,
-    Object? clinicName = null,
-    Object? clinicAddress = null,
-    Object? cancelFlag = null,
+    Object? clinicName = freezed,
+    Object? clinicAddress = freezed,
+    Object? cancelFlag = freezed,
     Object? subCategoryId = null,
     Object? locationId = null,
     Object? clinicDoctorFee = null,
-    Object? fromTime = null,
+    Object? fromTime = freezed,
     Object? startSplit = null,
     Object? endSplit = null,
-    Object? toTime = null,
-    Object? day = null,
-    Object? aboutClinic = null,
-    Object? clinicImages = null,
-    Object? appointmentDate = null,
+    Object? toTime = freezed,
+    Object? day = freezed,
+    Object? aboutClinic = freezed,
+    Object? clinicImages = freezed,
+    Object? appointmentDate = freezed,
     Object? appointmentId = null,
-    Object? appointmentTime = null,
-    Object? confirmStatus = null,
-    Object? hospitalImages = null,
+    Object? appointmentTime = freezed,
+    Object? confirmStatus = freezed,
+    Object? hospitalImages = freezed,
     Object? userId = null,
-    Object? description = null,
-    Object? file = null,
-    Object? folderDate = null,
-    Object? disease = null,
-    Object? allergies = null,
-    Object? symptoms1 = null,
-    Object? symptoms2 = null,
-    Object? symptoms3 = null,
-    Object? height = null,
-    Object? weight = null,
-    Object? temp = null,
-    Object? diabetes = null,
-    Object? date = null,
-    Object? symptoms = null,
-    Object? viewStatus = null,
-    Object? files = null,
-    Object? prescription = null,
-    Object? lab = null,
-    Object? patList = null,
-    Object? summary = null,
-    Object? hosList = null,
-    Object? total = null,
-    Object? waiting = null,
-    Object? upcoming = null,
-    Object? completed = null,
+    Object? description = freezed,
+    Object? file = freezed,
+    Object? folderDate = freezed,
+    Object? disease = freezed,
+    Object? allergies = freezed,
+    Object? symptoms1 = freezed,
+    Object? symptoms2 = freezed,
+    Object? symptoms3 = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
+    Object? temp = freezed,
+    Object? diabetes = freezed,
+    Object? date = freezed,
+    Object? symptoms = freezed,
+    Object? viewStatus = freezed,
+    Object? files = freezed,
+    Object? prescription = freezed,
+    Object? lab = freezed,
+    Object? patList = freezed,
+    Object? summary = freezed,
+    Object? hosList = freezed,
+    Object? total = freezed,
+    Object? waiting = freezed,
+    Object? upcoming = freezed,
+    Object? completed = freezed,
     Object? dosage = null,
-    Object? drugName = null,
-    Object? frequency = null,
+    Object? drugName = freezed,
+    Object? frequency = freezed,
     Object? duration = null,
-    Object? instruction = null,
-    Object? notes = null,
-    Object? error = null,
-    Object? treatmentDate = null,
+    Object? instruction = freezed,
+    Object? notes = freezed,
+    Object? error = freezed,
+    Object? treatmentDate = freezed,
     Object? treatmentId = null,
-    Object? treatmentName = null,
-    Object? cost = null,
-    Object? days = null,
-    Object? discount = null,
-    Object? grantTotal = null,
-    Object? treatment = null,
-    Object? billDate = null,
+    Object? treatmentName = freezed,
+    Object? cost = freezed,
+    Object? days = freezed,
+    Object? discount = freezed,
+    Object? grantTotal = freezed,
+    Object? treatment = freezed,
+    Object? billDate = freezed,
     Object? billId = null,
-    Object? billName = null,
-    Object? fileType = null,
-    Object? uploadDate = null,
-    Object? billing = null,
-    Object? labtestDate = null,
+    Object? billName = freezed,
+    Object? fileType = freezed,
+    Object? uploadDate = freezed,
+    Object? billing = freezed,
+    Object? labtestDate = freezed,
     Object? labtestId = null,
-    Object? testCode = null,
-    Object? labtestName = null,
-    Object? labtest = null,
-    Object? labname = null,
-    Object? appAmount = null,
-    Object? eclinicAmount = null,
-    Object? serviceAmount = null,
-    Object? appCount = null,
-    Object? eclinicCount = null,
-    Object? serviceCount = null,
+    Object? testCode = freezed,
+    Object? labtestName = freezed,
+    Object? labtest = freezed,
+    Object? labname = freezed,
+    Object? appAmount = freezed,
+    Object? eclinicAmount = freezed,
+    Object? serviceAmount = freezed,
+    Object? appCount = freezed,
+    Object? eclinicCount = freezed,
+    Object? serviceCount = freezed,
     Object? labId = null,
-    Object? labName = null,
-    Object? jan = null,
-    Object? feb = null,
-    Object? mar = null,
-    Object? apr = null,
-    Object? may = null,
-    Object? jun = null,
-    Object? jul = null,
-    Object? aug = null,
-    Object? sep = null,
-    Object? oct = null,
-    Object? nov = null,
-    Object? dec = null,
-    Object? specialization = null,
-    Object? labResult = null,
-    Object? paymentFlag = null,
-    Object? eFlag = null,
-    Object? testStatusFlag = null,
-    Object? followUpDate = null,
-    Object? followUpTime = null,
-    Object? followUpFlag = null,
-    Object? sampleFlag = null,
-    Object? sampleDate = null,
-    Object? resultFlag = null,
-    Object? resultDate = null,
-    Object? resultTime = null,
-    Object? expectedDate = null,
+    Object? labName = freezed,
+    Object? jan = freezed,
+    Object? feb = freezed,
+    Object? mar = freezed,
+    Object? apr = freezed,
+    Object? may = freezed,
+    Object? jun = freezed,
+    Object? jul = freezed,
+    Object? aug = freezed,
+    Object? sep = freezed,
+    Object? oct = freezed,
+    Object? nov = freezed,
+    Object? dec = freezed,
+    Object? specialization = freezed,
+    Object? labResult = freezed,
+    Object? paymentFlag = freezed,
+    Object? eFlag = freezed,
+    Object? testStatusFlag = freezed,
+    Object? followUpDate = freezed,
+    Object? followUpTime = freezed,
+    Object? followUpFlag = freezed,
+    Object? sampleFlag = freezed,
+    Object? sampleDate = freezed,
+    Object? resultFlag = freezed,
+    Object? resultDate = freezed,
+    Object? resultTime = freezed,
+    Object? expectedDate = freezed,
     Object? cancelalertHour = null,
-    Object? cancelalertNotes = null,
-    Object? nightTime = null,
-    Object? afternoonTime = null,
-    Object? morningTime = null,
-    Object? foodInstr = null,
-    Object? presHalfId = null,
-    Object? testResultProperty = null,
-    Object? approvedStatus = null,
-    Object? releasedStatus = null,
-    Object? intakeObject = null,
-    Object? keyId = null,
-    Object? orderId = null,
-    Object? confirmMailFlag = null,
-    Object? vitalFlag = null,
-    Object? tokenNumber = null,
+    Object? cancelalertNotes = freezed,
+    Object? nightTime = freezed,
+    Object? afternoonTime = freezed,
+    Object? morningTime = freezed,
+    Object? foodInstr = freezed,
+    Object? presHalfId = freezed,
+    Object? testResultProperty = freezed,
+    Object? approvedStatus = freezed,
+    Object? releasedStatus = freezed,
+    Object? intakeObject = freezed,
+    Object? keyId = freezed,
+    Object? orderId = freezed,
+    Object? confirmMailFlag = freezed,
+    Object? vitalFlag = freezed,
+    Object? tokenNumber = freezed,
     Object? rApp = null,
     Object? cApp = null,
-    Object? oTRequestCount = null,
-    Object? iPAppCount = null,
-    Object? emergrncyAppCount = null,
-    Object? missed = null,
-    Object? confirmed = null,
-    Object? iPWaiting = null,
-    Object? oTCompleted = null,
+    Object? oTRequestCount = freezed,
+    Object? iPAppCount = freezed,
+    Object? emergrncyAppCount = freezed,
+    Object? missed = freezed,
+    Object? confirmed = freezed,
+    Object? iPWaiting = freezed,
+    Object? oTCompleted = freezed,
   }) {
     return _then(_value.copyWith(
-      deptName: null == deptName
+      deptName: freezed == deptName
           ? _value.deptName
           : deptName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorNotes: null == doctorNotes
+      doctorNotes: freezed == doctorNotes
           ? _value.doctorNotes
           : doctorNotes // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -546,11 +546,11 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.hospitalId
           : hospitalId // ignore: cast_nullable_to_non_nullable
               as int,
-      timing: null == timing
+      timing: freezed == timing
           ? _value.timing
           : timing // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hospitalPhoneNumber: null == hospitalPhoneNumber
+      hospitalPhoneNumber: freezed == hospitalPhoneNumber
           ? _value.hospitalPhoneNumber
           : hospitalPhoneNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -558,15 +558,15 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.allergieId
           : allergieId // ignore: cast_nullable_to_non_nullable
               as int,
-      finding: null == finding
+      finding: freezed == finding
           ? _value.finding
           : finding // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      countList: null == countList
+      countList: freezed == countList
           ? _value.countList
           : countList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      allergieName: null == allergieName
+      allergieName: freezed == allergieName
           ? _value.allergieName
           : allergieName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -582,75 +582,75 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.testCost
           : testCost // ignore: cast_nullable_to_non_nullable
               as int,
-      doctorName: null == doctorName
+      doctorName: freezed == doctorName
           ? _value.doctorName
           : doctorName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      alterFlag: null == alterFlag
+      alterFlag: freezed == alterFlag
           ? _value.alterFlag
           : alterFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorImage: null == doctorImage
+      doctorImage: freezed == doctorImage
           ? _value.doctorImage
           : doctorImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorQualification: null == doctorQualification
+      doctorQualification: freezed == doctorQualification
           ? _value.doctorQualification
           : doctorQualification // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      subCategoryName: null == subCategoryName
+      subCategoryName: freezed == subCategoryName
           ? _value.subCategoryName
           : subCategoryName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      typeFlag: null == typeFlag
+      typeFlag: freezed == typeFlag
           ? _value.typeFlag
           : typeFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      fileName: null == fileName
+      fileName: freezed == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      testName: null == testName
+      testName: freezed == testName
           ? _value.testName
           : testName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userName: null == userName
+      userName: freezed == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userImage: null == userImage
+      userImage: freezed == userImage
           ? _value.userImage
           : userImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userAddress: null == userAddress
+      userAddress: freezed == userAddress
           ? _value.userAddress
           : userAddress // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userBloodgroup: null == userBloodgroup
+      userBloodgroup: freezed == userBloodgroup
           ? _value.userBloodgroup
           : userBloodgroup // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userDob: null == userDob
+      userDob: freezed == userDob
           ? _value.userDob
           : userDob // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      emailid: null == emailid
+      emailid: freezed == emailid
           ? _value.emailid
           : emailid // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      mobileNumber: null == mobileNumber
+      mobileNumber: freezed == mobileNumber
           ? _value.mobileNumber
           : mobileNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      locationName: null == locationName
+      locationName: freezed == locationName
           ? _value.locationName
           : locationName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hospitalName: null == hospitalName
+      hospitalName: freezed == hospitalName
           ? _value.hospitalName
           : hospitalName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hospitalAddress: null == hospitalAddress
+      hospitalAddress: freezed == hospitalAddress
           ? _value.hospitalAddress
           : hospitalAddress // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -658,15 +658,15 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.clinicId
           : clinicId // ignore: cast_nullable_to_non_nullable
               as int,
-      clinicName: null == clinicName
+      clinicName: freezed == clinicName
           ? _value.clinicName
           : clinicName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      clinicAddress: null == clinicAddress
+      clinicAddress: freezed == clinicAddress
           ? _value.clinicAddress
           : clinicAddress // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      cancelFlag: null == cancelFlag
+      cancelFlag: freezed == cancelFlag
           ? _value.cancelFlag
           : cancelFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -682,7 +682,7 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.clinicDoctorFee
           : clinicDoctorFee // ignore: cast_nullable_to_non_nullable
               as int,
-      fromTime: null == fromTime
+      fromTime: freezed == fromTime
           ? _value.fromTime
           : fromTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -694,23 +694,23 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.endSplit
           : endSplit // ignore: cast_nullable_to_non_nullable
               as int,
-      toTime: null == toTime
+      toTime: freezed == toTime
           ? _value.toTime
           : toTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      day: null == day
+      day: freezed == day
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      aboutClinic: null == aboutClinic
+      aboutClinic: freezed == aboutClinic
           ? _value.aboutClinic
           : aboutClinic // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      clinicImages: null == clinicImages
+      clinicImages: freezed == clinicImages
           ? _value.clinicImages
           : clinicImages // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      appointmentDate: null == appointmentDate
+      appointmentDate: freezed == appointmentDate
           ? _value.appointmentDate
           : appointmentDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -718,15 +718,15 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.appointmentId
           : appointmentId // ignore: cast_nullable_to_non_nullable
               as int,
-      appointmentTime: null == appointmentTime
+      appointmentTime: freezed == appointmentTime
           ? _value.appointmentTime
           : appointmentTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      confirmStatus: null == confirmStatus
+      confirmStatus: freezed == confirmStatus
           ? _value.confirmStatus
           : confirmStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hospitalImages: null == hospitalImages
+      hospitalImages: freezed == hospitalImages
           ? _value.hospitalImages
           : hospitalImages // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -734,103 +734,103 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as int,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      file: null == file
+      file: freezed == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      folderDate: null == folderDate
+      folderDate: freezed == folderDate
           ? _value.folderDate
           : folderDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      disease: null == disease
+      disease: freezed == disease
           ? _value.disease
           : disease // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      allergies: null == allergies
+      allergies: freezed == allergies
           ? _value.allergies
           : allergies // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      symptoms1: null == symptoms1
+      symptoms1: freezed == symptoms1
           ? _value.symptoms1
           : symptoms1 // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      symptoms2: null == symptoms2
+      symptoms2: freezed == symptoms2
           ? _value.symptoms2
           : symptoms2 // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      symptoms3: null == symptoms3
+      symptoms3: freezed == symptoms3
           ? _value.symptoms3
           : symptoms3 // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      height: null == height
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      weight: null == weight
+      weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      temp: null == temp
+      temp: freezed == temp
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      diabetes: null == diabetes
+      diabetes: freezed == diabetes
           ? _value.diabetes
           : diabetes // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      symptoms: null == symptoms
+      symptoms: freezed == symptoms
           ? _value.symptoms
           : symptoms // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      viewStatus: null == viewStatus
+      viewStatus: freezed == viewStatus
           ? _value.viewStatus
           : viewStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      files: null == files
+      files: freezed == files
           ? _value.files
           : files // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      prescription: null == prescription
+      prescription: freezed == prescription
           ? _value.prescription
           : prescription // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      lab: null == lab
+      lab: freezed == lab
           ? _value.lab
           : lab // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patList: null == patList
+      patList: freezed == patList
           ? _value.patList
           : patList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      summary: null == summary
+      summary: freezed == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hosList: null == hosList
+      hosList: freezed == hosList
           ? _value.hosList
           : hosList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      total: null == total
+      total: freezed == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      waiting: null == waiting
+      waiting: freezed == waiting
           ? _value.waiting
           : waiting // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      upcoming: null == upcoming
+      upcoming: freezed == upcoming
           ? _value.upcoming
           : upcoming // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      completed: null == completed
+      completed: freezed == completed
           ? _value.completed
           : completed // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -838,11 +838,11 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.dosage
           : dosage // ignore: cast_nullable_to_non_nullable
               as int,
-      drugName: null == drugName
+      drugName: freezed == drugName
           ? _value.drugName
           : drugName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      frequency: null == frequency
+      frequency: freezed == frequency
           ? _value.frequency
           : frequency // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -850,19 +850,19 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as int,
-      instruction: null == instruction
+      instruction: freezed == instruction
           ? _value.instruction
           : instruction // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      notes: null == notes
+      notes: freezed == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      error: null == error
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      treatmentDate: null == treatmentDate
+      treatmentDate: freezed == treatmentDate
           ? _value.treatmentDate
           : treatmentDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -870,31 +870,31 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.treatmentId
           : treatmentId // ignore: cast_nullable_to_non_nullable
               as int,
-      treatmentName: null == treatmentName
+      treatmentName: freezed == treatmentName
           ? _value.treatmentName
           : treatmentName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      cost: null == cost
+      cost: freezed == cost
           ? _value.cost
           : cost // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      days: null == days
+      days: freezed == days
           ? _value.days
           : days // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      discount: null == discount
+      discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      grantTotal: null == grantTotal
+      grantTotal: freezed == grantTotal
           ? _value.grantTotal
           : grantTotal // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      treatment: null == treatment
+      treatment: freezed == treatment
           ? _value.treatment
           : treatment // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      billDate: null == billDate
+      billDate: freezed == billDate
           ? _value.billDate
           : billDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -902,23 +902,23 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.billId
           : billId // ignore: cast_nullable_to_non_nullable
               as int,
-      billName: null == billName
+      billName: freezed == billName
           ? _value.billName
           : billName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      fileType: null == fileType
+      fileType: freezed == fileType
           ? _value.fileType
           : fileType // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      uploadDate: null == uploadDate
+      uploadDate: freezed == uploadDate
           ? _value.uploadDate
           : uploadDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      billing: null == billing
+      billing: freezed == billing
           ? _value.billing
           : billing // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      labtestDate: null == labtestDate
+      labtestDate: freezed == labtestDate
           ? _value.labtestDate
           : labtestDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -926,43 +926,43 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.labtestId
           : labtestId // ignore: cast_nullable_to_non_nullable
               as int,
-      testCode: null == testCode
+      testCode: freezed == testCode
           ? _value.testCode
           : testCode // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      labtestName: null == labtestName
+      labtestName: freezed == labtestName
           ? _value.labtestName
           : labtestName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      labtest: null == labtest
+      labtest: freezed == labtest
           ? _value.labtest
           : labtest // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      labname: null == labname
+      labname: freezed == labname
           ? _value.labname
           : labname // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      appAmount: null == appAmount
+      appAmount: freezed == appAmount
           ? _value.appAmount
           : appAmount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      eclinicAmount: null == eclinicAmount
+      eclinicAmount: freezed == eclinicAmount
           ? _value.eclinicAmount
           : eclinicAmount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      serviceAmount: null == serviceAmount
+      serviceAmount: freezed == serviceAmount
           ? _value.serviceAmount
           : serviceAmount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      appCount: null == appCount
+      appCount: freezed == appCount
           ? _value.appCount
           : appCount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      eclinicCount: null == eclinicCount
+      eclinicCount: freezed == eclinicCount
           ? _value.eclinicCount
           : eclinicCount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      serviceCount: null == serviceCount
+      serviceCount: freezed == serviceCount
           ? _value.serviceCount
           : serviceCount // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -970,111 +970,111 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.labId
           : labId // ignore: cast_nullable_to_non_nullable
               as int,
-      labName: null == labName
+      labName: freezed == labName
           ? _value.labName
           : labName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      jan: null == jan
+      jan: freezed == jan
           ? _value.jan
           : jan // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      feb: null == feb
+      feb: freezed == feb
           ? _value.feb
           : feb // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      mar: null == mar
+      mar: freezed == mar
           ? _value.mar
           : mar // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      apr: null == apr
+      apr: freezed == apr
           ? _value.apr
           : apr // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      may: null == may
+      may: freezed == may
           ? _value.may
           : may // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      jun: null == jun
+      jun: freezed == jun
           ? _value.jun
           : jun // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      jul: null == jul
+      jul: freezed == jul
           ? _value.jul
           : jul // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      aug: null == aug
+      aug: freezed == aug
           ? _value.aug
           : aug // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      sep: null == sep
+      sep: freezed == sep
           ? _value.sep
           : sep // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      oct: null == oct
+      oct: freezed == oct
           ? _value.oct
           : oct // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      nov: null == nov
+      nov: freezed == nov
           ? _value.nov
           : nov // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      dec: null == dec
+      dec: freezed == dec
           ? _value.dec
           : dec // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      specialization: null == specialization
+      specialization: freezed == specialization
           ? _value.specialization
           : specialization // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      labResult: null == labResult
+      labResult: freezed == labResult
           ? _value.labResult
           : labResult // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      paymentFlag: null == paymentFlag
+      paymentFlag: freezed == paymentFlag
           ? _value.paymentFlag
           : paymentFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      eFlag: null == eFlag
+      eFlag: freezed == eFlag
           ? _value.eFlag
           : eFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      testStatusFlag: null == testStatusFlag
+      testStatusFlag: freezed == testStatusFlag
           ? _value.testStatusFlag
           : testStatusFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      followUpDate: null == followUpDate
+      followUpDate: freezed == followUpDate
           ? _value.followUpDate
           : followUpDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      followUpTime: null == followUpTime
+      followUpTime: freezed == followUpTime
           ? _value.followUpTime
           : followUpTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      followUpFlag: null == followUpFlag
+      followUpFlag: freezed == followUpFlag
           ? _value.followUpFlag
           : followUpFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      sampleFlag: null == sampleFlag
+      sampleFlag: freezed == sampleFlag
           ? _value.sampleFlag
           : sampleFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      sampleDate: null == sampleDate
+      sampleDate: freezed == sampleDate
           ? _value.sampleDate
           : sampleDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      resultFlag: null == resultFlag
+      resultFlag: freezed == resultFlag
           ? _value.resultFlag
           : resultFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      resultDate: null == resultDate
+      resultDate: freezed == resultDate
           ? _value.resultDate
           : resultDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      resultTime: null == resultTime
+      resultTime: freezed == resultTime
           ? _value.resultTime
           : resultTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      expectedDate: null == expectedDate
+      expectedDate: freezed == expectedDate
           ? _value.expectedDate
           : expectedDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1082,63 +1082,63 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.cancelalertHour
           : cancelalertHour // ignore: cast_nullable_to_non_nullable
               as int,
-      cancelalertNotes: null == cancelalertNotes
+      cancelalertNotes: freezed == cancelalertNotes
           ? _value.cancelalertNotes
           : cancelalertNotes // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      nightTime: null == nightTime
+      nightTime: freezed == nightTime
           ? _value.nightTime
           : nightTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      afternoonTime: null == afternoonTime
+      afternoonTime: freezed == afternoonTime
           ? _value.afternoonTime
           : afternoonTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      morningTime: null == morningTime
+      morningTime: freezed == morningTime
           ? _value.morningTime
           : morningTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      foodInstr: null == foodInstr
+      foodInstr: freezed == foodInstr
           ? _value.foodInstr
           : foodInstr // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      presHalfId: null == presHalfId
+      presHalfId: freezed == presHalfId
           ? _value.presHalfId
           : presHalfId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      testResultProperty: null == testResultProperty
+      testResultProperty: freezed == testResultProperty
           ? _value.testResultProperty
           : testResultProperty // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      approvedStatus: null == approvedStatus
+      approvedStatus: freezed == approvedStatus
           ? _value.approvedStatus
           : approvedStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      releasedStatus: null == releasedStatus
+      releasedStatus: freezed == releasedStatus
           ? _value.releasedStatus
           : releasedStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      intakeObject: null == intakeObject
+      intakeObject: freezed == intakeObject
           ? _value.intakeObject
           : intakeObject // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      keyId: null == keyId
+      keyId: freezed == keyId
           ? _value.keyId
           : keyId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      orderId: null == orderId
+      orderId: freezed == orderId
           ? _value.orderId
           : orderId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      confirmMailFlag: null == confirmMailFlag
+      confirmMailFlag: freezed == confirmMailFlag
           ? _value.confirmMailFlag
           : confirmMailFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      vitalFlag: null == vitalFlag
+      vitalFlag: freezed == vitalFlag
           ? _value.vitalFlag
           : vitalFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      tokenNumber: null == tokenNumber
+      tokenNumber: freezed == tokenNumber
           ? _value.tokenNumber
           : tokenNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1150,31 +1150,31 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
           ? _value.cApp
           : cApp // ignore: cast_nullable_to_non_nullable
               as int,
-      oTRequestCount: null == oTRequestCount
+      oTRequestCount: freezed == oTRequestCount
           ? _value.oTRequestCount
           : oTRequestCount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      iPAppCount: null == iPAppCount
+      iPAppCount: freezed == iPAppCount
           ? _value.iPAppCount
           : iPAppCount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      emergrncyAppCount: null == emergrncyAppCount
+      emergrncyAppCount: freezed == emergrncyAppCount
           ? _value.emergrncyAppCount
           : emergrncyAppCount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      missed: null == missed
+      missed: freezed == missed
           ? _value.missed
           : missed // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      confirmed: null == confirmed
+      confirmed: freezed == confirmed
           ? _value.confirmed
           : confirmed // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      iPWaiting: null == iPWaiting
+      iPWaiting: freezed == iPWaiting
           ? _value.iPWaiting
           : iPWaiting // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      oTCompleted: null == oTCompleted
+      oTCompleted: freezed == oTCompleted
           ? _value.oTCompleted
           : oTCompleted // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1183,11 +1183,11 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
 }
 
 /// @nodoc
-abstract class _$$_WaitingRoomDetailsCopyWith<$Res>
+abstract class _$$WaitingRoomDetailsImplCopyWith<$Res>
     implements $WaitingRoomDetailsCopyWith<$Res> {
-  factory _$$_WaitingRoomDetailsCopyWith(_$_WaitingRoomDetails value,
-          $Res Function(_$_WaitingRoomDetails) then) =
-      __$$_WaitingRoomDetailsCopyWithImpl<$Res>;
+  factory _$$WaitingRoomDetailsImplCopyWith(_$WaitingRoomDetailsImpl value,
+          $Res Function(_$WaitingRoomDetailsImpl) then) =
+      __$$WaitingRoomDetailsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1355,184 +1355,184 @@ abstract class _$$_WaitingRoomDetailsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
-    extends _$WaitingRoomDetailsCopyWithImpl<$Res, _$_WaitingRoomDetails>
-    implements _$$_WaitingRoomDetailsCopyWith<$Res> {
-  __$$_WaitingRoomDetailsCopyWithImpl(
-      _$_WaitingRoomDetails _value, $Res Function(_$_WaitingRoomDetails) _then)
+class __$$WaitingRoomDetailsImplCopyWithImpl<$Res>
+    extends _$WaitingRoomDetailsCopyWithImpl<$Res, _$WaitingRoomDetailsImpl>
+    implements _$$WaitingRoomDetailsImplCopyWith<$Res> {
+  __$$WaitingRoomDetailsImplCopyWithImpl(_$WaitingRoomDetailsImpl _value,
+      $Res Function(_$WaitingRoomDetailsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? deptName = null,
-    Object? doctorNotes = null,
+    Object? deptName = freezed,
+    Object? doctorNotes = freezed,
     Object? hospitalId = null,
-    Object? timing = null,
-    Object? hospitalPhoneNumber = null,
+    Object? timing = freezed,
+    Object? hospitalPhoneNumber = freezed,
     Object? allergieId = null,
-    Object? finding = null,
-    Object? countList = null,
-    Object? allergieName = null,
+    Object? finding = freezed,
+    Object? countList = freezed,
+    Object? allergieName = freezed,
     Object? doctorId = null,
     Object? testId = null,
     Object? testCost = null,
-    Object? doctorName = null,
-    Object? alterFlag = null,
-    Object? doctorImage = null,
-    Object? doctorQualification = null,
-    Object? subCategoryName = null,
-    Object? typeFlag = null,
-    Object? fileName = null,
-    Object? testName = null,
-    Object? userName = null,
-    Object? userImage = null,
-    Object? userAddress = null,
-    Object? userBloodgroup = null,
-    Object? userDob = null,
-    Object? emailid = null,
-    Object? mobileNumber = null,
-    Object? locationName = null,
-    Object? hospitalName = null,
-    Object? hospitalAddress = null,
+    Object? doctorName = freezed,
+    Object? alterFlag = freezed,
+    Object? doctorImage = freezed,
+    Object? doctorQualification = freezed,
+    Object? subCategoryName = freezed,
+    Object? typeFlag = freezed,
+    Object? fileName = freezed,
+    Object? testName = freezed,
+    Object? userName = freezed,
+    Object? userImage = freezed,
+    Object? userAddress = freezed,
+    Object? userBloodgroup = freezed,
+    Object? userDob = freezed,
+    Object? emailid = freezed,
+    Object? mobileNumber = freezed,
+    Object? locationName = freezed,
+    Object? hospitalName = freezed,
+    Object? hospitalAddress = freezed,
     Object? clinicId = null,
-    Object? clinicName = null,
-    Object? clinicAddress = null,
-    Object? cancelFlag = null,
+    Object? clinicName = freezed,
+    Object? clinicAddress = freezed,
+    Object? cancelFlag = freezed,
     Object? subCategoryId = null,
     Object? locationId = null,
     Object? clinicDoctorFee = null,
-    Object? fromTime = null,
+    Object? fromTime = freezed,
     Object? startSplit = null,
     Object? endSplit = null,
-    Object? toTime = null,
-    Object? day = null,
-    Object? aboutClinic = null,
-    Object? clinicImages = null,
-    Object? appointmentDate = null,
+    Object? toTime = freezed,
+    Object? day = freezed,
+    Object? aboutClinic = freezed,
+    Object? clinicImages = freezed,
+    Object? appointmentDate = freezed,
     Object? appointmentId = null,
-    Object? appointmentTime = null,
-    Object? confirmStatus = null,
-    Object? hospitalImages = null,
+    Object? appointmentTime = freezed,
+    Object? confirmStatus = freezed,
+    Object? hospitalImages = freezed,
     Object? userId = null,
-    Object? description = null,
-    Object? file = null,
-    Object? folderDate = null,
-    Object? disease = null,
-    Object? allergies = null,
-    Object? symptoms1 = null,
-    Object? symptoms2 = null,
-    Object? symptoms3 = null,
-    Object? height = null,
-    Object? weight = null,
-    Object? temp = null,
-    Object? diabetes = null,
-    Object? date = null,
-    Object? symptoms = null,
-    Object? viewStatus = null,
-    Object? files = null,
-    Object? prescription = null,
-    Object? lab = null,
-    Object? patList = null,
-    Object? summary = null,
-    Object? hosList = null,
-    Object? total = null,
-    Object? waiting = null,
-    Object? upcoming = null,
-    Object? completed = null,
+    Object? description = freezed,
+    Object? file = freezed,
+    Object? folderDate = freezed,
+    Object? disease = freezed,
+    Object? allergies = freezed,
+    Object? symptoms1 = freezed,
+    Object? symptoms2 = freezed,
+    Object? symptoms3 = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
+    Object? temp = freezed,
+    Object? diabetes = freezed,
+    Object? date = freezed,
+    Object? symptoms = freezed,
+    Object? viewStatus = freezed,
+    Object? files = freezed,
+    Object? prescription = freezed,
+    Object? lab = freezed,
+    Object? patList = freezed,
+    Object? summary = freezed,
+    Object? hosList = freezed,
+    Object? total = freezed,
+    Object? waiting = freezed,
+    Object? upcoming = freezed,
+    Object? completed = freezed,
     Object? dosage = null,
-    Object? drugName = null,
-    Object? frequency = null,
+    Object? drugName = freezed,
+    Object? frequency = freezed,
     Object? duration = null,
-    Object? instruction = null,
-    Object? notes = null,
-    Object? error = null,
-    Object? treatmentDate = null,
+    Object? instruction = freezed,
+    Object? notes = freezed,
+    Object? error = freezed,
+    Object? treatmentDate = freezed,
     Object? treatmentId = null,
-    Object? treatmentName = null,
-    Object? cost = null,
-    Object? days = null,
-    Object? discount = null,
-    Object? grantTotal = null,
-    Object? treatment = null,
-    Object? billDate = null,
+    Object? treatmentName = freezed,
+    Object? cost = freezed,
+    Object? days = freezed,
+    Object? discount = freezed,
+    Object? grantTotal = freezed,
+    Object? treatment = freezed,
+    Object? billDate = freezed,
     Object? billId = null,
-    Object? billName = null,
-    Object? fileType = null,
-    Object? uploadDate = null,
-    Object? billing = null,
-    Object? labtestDate = null,
+    Object? billName = freezed,
+    Object? fileType = freezed,
+    Object? uploadDate = freezed,
+    Object? billing = freezed,
+    Object? labtestDate = freezed,
     Object? labtestId = null,
-    Object? testCode = null,
-    Object? labtestName = null,
-    Object? labtest = null,
-    Object? labname = null,
-    Object? appAmount = null,
-    Object? eclinicAmount = null,
-    Object? serviceAmount = null,
-    Object? appCount = null,
-    Object? eclinicCount = null,
-    Object? serviceCount = null,
+    Object? testCode = freezed,
+    Object? labtestName = freezed,
+    Object? labtest = freezed,
+    Object? labname = freezed,
+    Object? appAmount = freezed,
+    Object? eclinicAmount = freezed,
+    Object? serviceAmount = freezed,
+    Object? appCount = freezed,
+    Object? eclinicCount = freezed,
+    Object? serviceCount = freezed,
     Object? labId = null,
-    Object? labName = null,
-    Object? jan = null,
-    Object? feb = null,
-    Object? mar = null,
-    Object? apr = null,
-    Object? may = null,
-    Object? jun = null,
-    Object? jul = null,
-    Object? aug = null,
-    Object? sep = null,
-    Object? oct = null,
-    Object? nov = null,
-    Object? dec = null,
-    Object? specialization = null,
-    Object? labResult = null,
-    Object? paymentFlag = null,
-    Object? eFlag = null,
-    Object? testStatusFlag = null,
-    Object? followUpDate = null,
-    Object? followUpTime = null,
-    Object? followUpFlag = null,
-    Object? sampleFlag = null,
-    Object? sampleDate = null,
-    Object? resultFlag = null,
-    Object? resultDate = null,
-    Object? resultTime = null,
-    Object? expectedDate = null,
+    Object? labName = freezed,
+    Object? jan = freezed,
+    Object? feb = freezed,
+    Object? mar = freezed,
+    Object? apr = freezed,
+    Object? may = freezed,
+    Object? jun = freezed,
+    Object? jul = freezed,
+    Object? aug = freezed,
+    Object? sep = freezed,
+    Object? oct = freezed,
+    Object? nov = freezed,
+    Object? dec = freezed,
+    Object? specialization = freezed,
+    Object? labResult = freezed,
+    Object? paymentFlag = freezed,
+    Object? eFlag = freezed,
+    Object? testStatusFlag = freezed,
+    Object? followUpDate = freezed,
+    Object? followUpTime = freezed,
+    Object? followUpFlag = freezed,
+    Object? sampleFlag = freezed,
+    Object? sampleDate = freezed,
+    Object? resultFlag = freezed,
+    Object? resultDate = freezed,
+    Object? resultTime = freezed,
+    Object? expectedDate = freezed,
     Object? cancelalertHour = null,
-    Object? cancelalertNotes = null,
-    Object? nightTime = null,
-    Object? afternoonTime = null,
-    Object? morningTime = null,
-    Object? foodInstr = null,
-    Object? presHalfId = null,
-    Object? testResultProperty = null,
-    Object? approvedStatus = null,
-    Object? releasedStatus = null,
-    Object? intakeObject = null,
-    Object? keyId = null,
-    Object? orderId = null,
-    Object? confirmMailFlag = null,
-    Object? vitalFlag = null,
-    Object? tokenNumber = null,
+    Object? cancelalertNotes = freezed,
+    Object? nightTime = freezed,
+    Object? afternoonTime = freezed,
+    Object? morningTime = freezed,
+    Object? foodInstr = freezed,
+    Object? presHalfId = freezed,
+    Object? testResultProperty = freezed,
+    Object? approvedStatus = freezed,
+    Object? releasedStatus = freezed,
+    Object? intakeObject = freezed,
+    Object? keyId = freezed,
+    Object? orderId = freezed,
+    Object? confirmMailFlag = freezed,
+    Object? vitalFlag = freezed,
+    Object? tokenNumber = freezed,
     Object? rApp = null,
     Object? cApp = null,
-    Object? oTRequestCount = null,
-    Object? iPAppCount = null,
-    Object? emergrncyAppCount = null,
-    Object? missed = null,
-    Object? confirmed = null,
-    Object? iPWaiting = null,
-    Object? oTCompleted = null,
+    Object? oTRequestCount = freezed,
+    Object? iPAppCount = freezed,
+    Object? emergrncyAppCount = freezed,
+    Object? missed = freezed,
+    Object? confirmed = freezed,
+    Object? iPWaiting = freezed,
+    Object? oTCompleted = freezed,
   }) {
-    return _then(_$_WaitingRoomDetails(
-      deptName: null == deptName
+    return _then(_$WaitingRoomDetailsImpl(
+      deptName: freezed == deptName
           ? _value.deptName
           : deptName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorNotes: null == doctorNotes
+      doctorNotes: freezed == doctorNotes
           ? _value.doctorNotes
           : doctorNotes // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1540,11 +1540,11 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.hospitalId
           : hospitalId // ignore: cast_nullable_to_non_nullable
               as int,
-      timing: null == timing
+      timing: freezed == timing
           ? _value.timing
           : timing // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hospitalPhoneNumber: null == hospitalPhoneNumber
+      hospitalPhoneNumber: freezed == hospitalPhoneNumber
           ? _value.hospitalPhoneNumber
           : hospitalPhoneNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1552,15 +1552,15 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.allergieId
           : allergieId // ignore: cast_nullable_to_non_nullable
               as int,
-      finding: null == finding
+      finding: freezed == finding
           ? _value.finding
           : finding // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      countList: null == countList
+      countList: freezed == countList
           ? _value.countList
           : countList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      allergieName: null == allergieName
+      allergieName: freezed == allergieName
           ? _value.allergieName
           : allergieName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1576,75 +1576,75 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.testCost
           : testCost // ignore: cast_nullable_to_non_nullable
               as int,
-      doctorName: null == doctorName
+      doctorName: freezed == doctorName
           ? _value.doctorName
           : doctorName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      alterFlag: null == alterFlag
+      alterFlag: freezed == alterFlag
           ? _value.alterFlag
           : alterFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorImage: null == doctorImage
+      doctorImage: freezed == doctorImage
           ? _value.doctorImage
           : doctorImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorQualification: null == doctorQualification
+      doctorQualification: freezed == doctorQualification
           ? _value.doctorQualification
           : doctorQualification // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      subCategoryName: null == subCategoryName
+      subCategoryName: freezed == subCategoryName
           ? _value.subCategoryName
           : subCategoryName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      typeFlag: null == typeFlag
+      typeFlag: freezed == typeFlag
           ? _value.typeFlag
           : typeFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      fileName: null == fileName
+      fileName: freezed == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      testName: null == testName
+      testName: freezed == testName
           ? _value.testName
           : testName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userName: null == userName
+      userName: freezed == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userImage: null == userImage
+      userImage: freezed == userImage
           ? _value.userImage
           : userImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userAddress: null == userAddress
+      userAddress: freezed == userAddress
           ? _value.userAddress
           : userAddress // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userBloodgroup: null == userBloodgroup
+      userBloodgroup: freezed == userBloodgroup
           ? _value.userBloodgroup
           : userBloodgroup // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userDob: null == userDob
+      userDob: freezed == userDob
           ? _value.userDob
           : userDob // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      emailid: null == emailid
+      emailid: freezed == emailid
           ? _value.emailid
           : emailid // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      mobileNumber: null == mobileNumber
+      mobileNumber: freezed == mobileNumber
           ? _value.mobileNumber
           : mobileNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      locationName: null == locationName
+      locationName: freezed == locationName
           ? _value.locationName
           : locationName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hospitalName: null == hospitalName
+      hospitalName: freezed == hospitalName
           ? _value.hospitalName
           : hospitalName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hospitalAddress: null == hospitalAddress
+      hospitalAddress: freezed == hospitalAddress
           ? _value.hospitalAddress
           : hospitalAddress // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1652,15 +1652,15 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.clinicId
           : clinicId // ignore: cast_nullable_to_non_nullable
               as int,
-      clinicName: null == clinicName
+      clinicName: freezed == clinicName
           ? _value.clinicName
           : clinicName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      clinicAddress: null == clinicAddress
+      clinicAddress: freezed == clinicAddress
           ? _value.clinicAddress
           : clinicAddress // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      cancelFlag: null == cancelFlag
+      cancelFlag: freezed == cancelFlag
           ? _value.cancelFlag
           : cancelFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1676,7 +1676,7 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.clinicDoctorFee
           : clinicDoctorFee // ignore: cast_nullable_to_non_nullable
               as int,
-      fromTime: null == fromTime
+      fromTime: freezed == fromTime
           ? _value.fromTime
           : fromTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1688,23 +1688,23 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.endSplit
           : endSplit // ignore: cast_nullable_to_non_nullable
               as int,
-      toTime: null == toTime
+      toTime: freezed == toTime
           ? _value.toTime
           : toTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      day: null == day
+      day: freezed == day
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      aboutClinic: null == aboutClinic
+      aboutClinic: freezed == aboutClinic
           ? _value.aboutClinic
           : aboutClinic // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      clinicImages: null == clinicImages
+      clinicImages: freezed == clinicImages
           ? _value.clinicImages
           : clinicImages // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      appointmentDate: null == appointmentDate
+      appointmentDate: freezed == appointmentDate
           ? _value.appointmentDate
           : appointmentDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1712,15 +1712,15 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.appointmentId
           : appointmentId // ignore: cast_nullable_to_non_nullable
               as int,
-      appointmentTime: null == appointmentTime
+      appointmentTime: freezed == appointmentTime
           ? _value.appointmentTime
           : appointmentTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      confirmStatus: null == confirmStatus
+      confirmStatus: freezed == confirmStatus
           ? _value.confirmStatus
           : confirmStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hospitalImages: null == hospitalImages
+      hospitalImages: freezed == hospitalImages
           ? _value.hospitalImages
           : hospitalImages // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1728,103 +1728,103 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as int,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      file: null == file
+      file: freezed == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      folderDate: null == folderDate
+      folderDate: freezed == folderDate
           ? _value.folderDate
           : folderDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      disease: null == disease
+      disease: freezed == disease
           ? _value.disease
           : disease // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      allergies: null == allergies
+      allergies: freezed == allergies
           ? _value.allergies
           : allergies // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      symptoms1: null == symptoms1
+      symptoms1: freezed == symptoms1
           ? _value.symptoms1
           : symptoms1 // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      symptoms2: null == symptoms2
+      symptoms2: freezed == symptoms2
           ? _value.symptoms2
           : symptoms2 // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      symptoms3: null == symptoms3
+      symptoms3: freezed == symptoms3
           ? _value.symptoms3
           : symptoms3 // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      height: null == height
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      weight: null == weight
+      weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      temp: null == temp
+      temp: freezed == temp
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      diabetes: null == diabetes
+      diabetes: freezed == diabetes
           ? _value.diabetes
           : diabetes // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      symptoms: null == symptoms
+      symptoms: freezed == symptoms
           ? _value.symptoms
           : symptoms // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      viewStatus: null == viewStatus
+      viewStatus: freezed == viewStatus
           ? _value.viewStatus
           : viewStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      files: null == files
+      files: freezed == files
           ? _value.files
           : files // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      prescription: null == prescription
+      prescription: freezed == prescription
           ? _value.prescription
           : prescription // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      lab: null == lab
+      lab: freezed == lab
           ? _value.lab
           : lab // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patList: null == patList
+      patList: freezed == patList
           ? _value.patList
           : patList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      summary: null == summary
+      summary: freezed == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hosList: null == hosList
+      hosList: freezed == hosList
           ? _value.hosList
           : hosList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      total: null == total
+      total: freezed == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      waiting: null == waiting
+      waiting: freezed == waiting
           ? _value.waiting
           : waiting // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      upcoming: null == upcoming
+      upcoming: freezed == upcoming
           ? _value.upcoming
           : upcoming // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      completed: null == completed
+      completed: freezed == completed
           ? _value.completed
           : completed // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1832,11 +1832,11 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.dosage
           : dosage // ignore: cast_nullable_to_non_nullable
               as int,
-      drugName: null == drugName
+      drugName: freezed == drugName
           ? _value.drugName
           : drugName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      frequency: null == frequency
+      frequency: freezed == frequency
           ? _value.frequency
           : frequency // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1844,19 +1844,19 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as int,
-      instruction: null == instruction
+      instruction: freezed == instruction
           ? _value.instruction
           : instruction // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      notes: null == notes
+      notes: freezed == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      error: null == error
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      treatmentDate: null == treatmentDate
+      treatmentDate: freezed == treatmentDate
           ? _value.treatmentDate
           : treatmentDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1864,31 +1864,31 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.treatmentId
           : treatmentId // ignore: cast_nullable_to_non_nullable
               as int,
-      treatmentName: null == treatmentName
+      treatmentName: freezed == treatmentName
           ? _value.treatmentName
           : treatmentName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      cost: null == cost
+      cost: freezed == cost
           ? _value.cost
           : cost // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      days: null == days
+      days: freezed == days
           ? _value.days
           : days // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      discount: null == discount
+      discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      grantTotal: null == grantTotal
+      grantTotal: freezed == grantTotal
           ? _value.grantTotal
           : grantTotal // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      treatment: null == treatment
+      treatment: freezed == treatment
           ? _value.treatment
           : treatment // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      billDate: null == billDate
+      billDate: freezed == billDate
           ? _value.billDate
           : billDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1896,23 +1896,23 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.billId
           : billId // ignore: cast_nullable_to_non_nullable
               as int,
-      billName: null == billName
+      billName: freezed == billName
           ? _value.billName
           : billName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      fileType: null == fileType
+      fileType: freezed == fileType
           ? _value.fileType
           : fileType // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      uploadDate: null == uploadDate
+      uploadDate: freezed == uploadDate
           ? _value.uploadDate
           : uploadDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      billing: null == billing
+      billing: freezed == billing
           ? _value.billing
           : billing // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      labtestDate: null == labtestDate
+      labtestDate: freezed == labtestDate
           ? _value.labtestDate
           : labtestDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1920,43 +1920,43 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.labtestId
           : labtestId // ignore: cast_nullable_to_non_nullable
               as int,
-      testCode: null == testCode
+      testCode: freezed == testCode
           ? _value.testCode
           : testCode // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      labtestName: null == labtestName
+      labtestName: freezed == labtestName
           ? _value.labtestName
           : labtestName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      labtest: null == labtest
+      labtest: freezed == labtest
           ? _value.labtest
           : labtest // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      labname: null == labname
+      labname: freezed == labname
           ? _value.labname
           : labname // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      appAmount: null == appAmount
+      appAmount: freezed == appAmount
           ? _value.appAmount
           : appAmount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      eclinicAmount: null == eclinicAmount
+      eclinicAmount: freezed == eclinicAmount
           ? _value.eclinicAmount
           : eclinicAmount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      serviceAmount: null == serviceAmount
+      serviceAmount: freezed == serviceAmount
           ? _value.serviceAmount
           : serviceAmount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      appCount: null == appCount
+      appCount: freezed == appCount
           ? _value.appCount
           : appCount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      eclinicCount: null == eclinicCount
+      eclinicCount: freezed == eclinicCount
           ? _value.eclinicCount
           : eclinicCount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      serviceCount: null == serviceCount
+      serviceCount: freezed == serviceCount
           ? _value.serviceCount
           : serviceCount // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1964,111 +1964,111 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.labId
           : labId // ignore: cast_nullable_to_non_nullable
               as int,
-      labName: null == labName
+      labName: freezed == labName
           ? _value.labName
           : labName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      jan: null == jan
+      jan: freezed == jan
           ? _value.jan
           : jan // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      feb: null == feb
+      feb: freezed == feb
           ? _value.feb
           : feb // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      mar: null == mar
+      mar: freezed == mar
           ? _value.mar
           : mar // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      apr: null == apr
+      apr: freezed == apr
           ? _value.apr
           : apr // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      may: null == may
+      may: freezed == may
           ? _value.may
           : may // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      jun: null == jun
+      jun: freezed == jun
           ? _value.jun
           : jun // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      jul: null == jul
+      jul: freezed == jul
           ? _value.jul
           : jul // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      aug: null == aug
+      aug: freezed == aug
           ? _value.aug
           : aug // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      sep: null == sep
+      sep: freezed == sep
           ? _value.sep
           : sep // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      oct: null == oct
+      oct: freezed == oct
           ? _value.oct
           : oct // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      nov: null == nov
+      nov: freezed == nov
           ? _value.nov
           : nov // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      dec: null == dec
+      dec: freezed == dec
           ? _value.dec
           : dec // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      specialization: null == specialization
+      specialization: freezed == specialization
           ? _value.specialization
           : specialization // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      labResult: null == labResult
+      labResult: freezed == labResult
           ? _value.labResult
           : labResult // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      paymentFlag: null == paymentFlag
+      paymentFlag: freezed == paymentFlag
           ? _value.paymentFlag
           : paymentFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      eFlag: null == eFlag
+      eFlag: freezed == eFlag
           ? _value.eFlag
           : eFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      testStatusFlag: null == testStatusFlag
+      testStatusFlag: freezed == testStatusFlag
           ? _value.testStatusFlag
           : testStatusFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      followUpDate: null == followUpDate
+      followUpDate: freezed == followUpDate
           ? _value.followUpDate
           : followUpDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      followUpTime: null == followUpTime
+      followUpTime: freezed == followUpTime
           ? _value.followUpTime
           : followUpTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      followUpFlag: null == followUpFlag
+      followUpFlag: freezed == followUpFlag
           ? _value.followUpFlag
           : followUpFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      sampleFlag: null == sampleFlag
+      sampleFlag: freezed == sampleFlag
           ? _value.sampleFlag
           : sampleFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      sampleDate: null == sampleDate
+      sampleDate: freezed == sampleDate
           ? _value.sampleDate
           : sampleDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      resultFlag: null == resultFlag
+      resultFlag: freezed == resultFlag
           ? _value.resultFlag
           : resultFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      resultDate: null == resultDate
+      resultDate: freezed == resultDate
           ? _value.resultDate
           : resultDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      resultTime: null == resultTime
+      resultTime: freezed == resultTime
           ? _value.resultTime
           : resultTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      expectedDate: null == expectedDate
+      expectedDate: freezed == expectedDate
           ? _value.expectedDate
           : expectedDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -2076,63 +2076,63 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.cancelalertHour
           : cancelalertHour // ignore: cast_nullable_to_non_nullable
               as int,
-      cancelalertNotes: null == cancelalertNotes
+      cancelalertNotes: freezed == cancelalertNotes
           ? _value.cancelalertNotes
           : cancelalertNotes // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      nightTime: null == nightTime
+      nightTime: freezed == nightTime
           ? _value.nightTime
           : nightTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      afternoonTime: null == afternoonTime
+      afternoonTime: freezed == afternoonTime
           ? _value.afternoonTime
           : afternoonTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      morningTime: null == morningTime
+      morningTime: freezed == morningTime
           ? _value.morningTime
           : morningTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      foodInstr: null == foodInstr
+      foodInstr: freezed == foodInstr
           ? _value.foodInstr
           : foodInstr // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      presHalfId: null == presHalfId
+      presHalfId: freezed == presHalfId
           ? _value.presHalfId
           : presHalfId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      testResultProperty: null == testResultProperty
+      testResultProperty: freezed == testResultProperty
           ? _value.testResultProperty
           : testResultProperty // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      approvedStatus: null == approvedStatus
+      approvedStatus: freezed == approvedStatus
           ? _value.approvedStatus
           : approvedStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      releasedStatus: null == releasedStatus
+      releasedStatus: freezed == releasedStatus
           ? _value.releasedStatus
           : releasedStatus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      intakeObject: null == intakeObject
+      intakeObject: freezed == intakeObject
           ? _value.intakeObject
           : intakeObject // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      keyId: null == keyId
+      keyId: freezed == keyId
           ? _value.keyId
           : keyId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      orderId: null == orderId
+      orderId: freezed == orderId
           ? _value.orderId
           : orderId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      confirmMailFlag: null == confirmMailFlag
+      confirmMailFlag: freezed == confirmMailFlag
           ? _value.confirmMailFlag
           : confirmMailFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      vitalFlag: null == vitalFlag
+      vitalFlag: freezed == vitalFlag
           ? _value.vitalFlag
           : vitalFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      tokenNumber: null == tokenNumber
+      tokenNumber: freezed == tokenNumber
           ? _value.tokenNumber
           : tokenNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -2144,31 +2144,31 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
           ? _value.cApp
           : cApp // ignore: cast_nullable_to_non_nullable
               as int,
-      oTRequestCount: null == oTRequestCount
+      oTRequestCount: freezed == oTRequestCount
           ? _value.oTRequestCount
           : oTRequestCount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      iPAppCount: null == iPAppCount
+      iPAppCount: freezed == iPAppCount
           ? _value.iPAppCount
           : iPAppCount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      emergrncyAppCount: null == emergrncyAppCount
+      emergrncyAppCount: freezed == emergrncyAppCount
           ? _value.emergrncyAppCount
           : emergrncyAppCount // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      missed: null == missed
+      missed: freezed == missed
           ? _value.missed
           : missed // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      confirmed: null == confirmed
+      confirmed: freezed == confirmed
           ? _value.confirmed
           : confirmed // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      iPWaiting: null == iPWaiting
+      iPWaiting: freezed == iPWaiting
           ? _value.iPWaiting
           : iPWaiting // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      oTCompleted: null == oTCompleted
+      oTCompleted: freezed == oTCompleted
           ? _value.oTCompleted
           : oTCompleted // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -2178,8 +2178,8 @@ class __$$_WaitingRoomDetailsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WaitingRoomDetails implements _WaitingRoomDetails {
-  const _$_WaitingRoomDetails(
+class _$WaitingRoomDetailsImpl implements _WaitingRoomDetails {
+  const _$WaitingRoomDetailsImpl(
       {required this.deptName,
       required this.doctorNotes,
       required this.hospitalId,
@@ -2342,8 +2342,8 @@ class _$_WaitingRoomDetails implements _WaitingRoomDetails {
       required this.iPWaiting,
       required this.oTCompleted});
 
-  factory _$_WaitingRoomDetails.fromJson(Map<String, dynamic> json) =>
-      _$$_WaitingRoomDetailsFromJson(json);
+  factory _$WaitingRoomDetailsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WaitingRoomDetailsImplFromJson(json);
 
   @override
   final dynamic deptName;
@@ -2674,10 +2674,10 @@ class _$_WaitingRoomDetails implements _WaitingRoomDetails {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WaitingRoomDetails &&
+            other is _$WaitingRoomDetailsImpl &&
             const DeepCollectionEquality().equals(other.deptName, deptName) &&
             const DeepCollectionEquality()
                 .equals(other.doctorNotes, doctorNotes) &&
@@ -3054,13 +3054,13 @@ class _$_WaitingRoomDetails implements _WaitingRoomDetails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WaitingRoomDetailsCopyWith<_$_WaitingRoomDetails> get copyWith =>
-      __$$_WaitingRoomDetailsCopyWithImpl<_$_WaitingRoomDetails>(
+  _$$WaitingRoomDetailsImplCopyWith<_$WaitingRoomDetailsImpl> get copyWith =>
+      __$$WaitingRoomDetailsImplCopyWithImpl<_$WaitingRoomDetailsImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WaitingRoomDetailsToJson(
+    return _$$WaitingRoomDetailsImplToJson(
       this,
     );
   }
@@ -3228,10 +3228,10 @@ abstract class _WaitingRoomDetails implements WaitingRoomDetails {
       required final dynamic missed,
       required final dynamic confirmed,
       required final dynamic iPWaiting,
-      required final dynamic oTCompleted}) = _$_WaitingRoomDetails;
+      required final dynamic oTCompleted}) = _$WaitingRoomDetailsImpl;
 
   factory _WaitingRoomDetails.fromJson(Map<String, dynamic> json) =
-      _$_WaitingRoomDetails.fromJson;
+      _$WaitingRoomDetailsImpl.fromJson;
 
   @override
   dynamic get deptName;
@@ -3557,6 +3557,6 @@ abstract class _WaitingRoomDetails implements WaitingRoomDetails {
   dynamic get oTCompleted;
   @override
   @JsonKey(ignore: true)
-  _$$_WaitingRoomDetailsCopyWith<_$_WaitingRoomDetails> get copyWith =>
+  _$$WaitingRoomDetailsImplCopyWith<_$WaitingRoomDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

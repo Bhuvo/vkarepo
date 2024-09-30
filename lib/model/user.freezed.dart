@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'user.dart';
 
@@ -12,7 +12,7 @@ part of 'user.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 User _$UserFromJson(Map<String, dynamic> json) {
   return _User.fromJson(json);
@@ -212,186 +212,98 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'Doctor_id')
-          dynamic id,
-      @JsonKey(name: 'User_id')
-          dynamic userId,
-      @JsonKey(name: 'BookCheck')
-          String? bookCheck,
-      @JsonKey(name: 'Gender')
-          int? gender,
-      @JsonKey(name: 'Registrations')
-          String? registration,
-      @JsonKey(name: 'PClaim_id')
-          num? pClainId,
-      @JsonKey(name: 'PDoctor_Name')
-          num? pDoctorName,
-      @JsonKey(name: 'PHospital_Name')
-          num? pHospitalName,
-      @JsonKey(name: 'PDoctor_Image')
-          num? pDoctorImage,
-      @JsonKey(name: 'PAppointment_Schedule')
-          num? pAppointmentSchedule,
-      @JsonKey(name: 'PConsultation_Fee')
-          num? pConsulationFee,
-      @JsonKey(name: 'PFlag')
-          String? pFlag,
-      @JsonKey(name: 'FeedBack')
-          num? feedback,
-      @JsonKey(name: 'SubList')
-          String? subList,
-      @JsonKey(name: 'eclinic_Flag')
-          String? eClinicFlag,
-      @JsonKey(name: 'CityListDisplay')
-          String? cityListDisplay,
-      @JsonKey(name: 'City_NameTmp')
-          String? cityNameTmp,
-      @JsonKey(name: 'City_Name')
-          String? cityName,
-      @JsonKey(name: 'City_id')
-          num? cityId,
-      @JsonKey(name: 'Location_Name_Temp')
-          String? locationNameTemp,
-      @JsonKey(name: 'URL_String')
-          String? urlString,
-      @JsonKey(name: 'Specialization')
-          String? specialization,
-      @JsonKey(name: 'Doctor_Name')
-          String? fullName,
-      @JsonKey(name: 'Name')
-          String? name,
-      @JsonKey(name: 'Doctor_Name_temp')
-          String? nameTemp,
-      @JsonKey(name: 'Doctor_Qualification')
-          String? doctorQualification,
-      @JsonKey(name: 'Qualification')
-          String? qualification,
-      @JsonKey(name: 'Location_id')
-          num? locationId,
-      @JsonKey(name: 'Location_name')
-          String? locationName,
-      @JsonKey(name: 'SubCategory_id')
-          num? subCategoryId,
-      @JsonKey(name: 'sscat_id')
-          num? sscatId,
-      @JsonKey(name: 'sscategory_Name')
-          String? sscategoryName,
-      @JsonKey(name: 'DoctorExperience_Years')
-          num? experience,
-      @JsonKey(name: 'Recommendations')
-          String? recommendations,
-      @JsonKey(name: 'Doctor_Description')
-          String? description,
-      @JsonKey(name: 'Doctor_Image')
-          String? image,
-      @JsonKey(name: 'Doctor_Age')
-          int? age,
-      @JsonKey(name: 'Doctor_PhoneNumber')
-          String? phone,
-      @JsonKey(name: 'SubCategory_Name')
-          String? subCategoryName,
-      @JsonKey(name: 'SubCategory_Name_temp')
-          String? subCategoryNameTemp,
-      @JsonKey(name: 'Doctor_Address')
-          String? address,
-      @JsonKey(name: 'type')
-          String? type,
-      @JsonKey(name: 'ClinicDoctorFee')
-          num? clinicDoctorFee,
-      @JsonKey(name: 'Type_Flag')
-          String? typeFlag,
-      @JsonKey(name: 'Days')
-          String? days,
-      @JsonKey(name: 'Dayslot')
-          String? daysTotal,
-      @JsonKey(name: 'Clinic_Images')
-          String? clinicImages,
-      @JsonKey(name: 'CImage')
-          String? cImage,
-      @JsonKey(name: 'FromTime')
-          String? fromTime,
-      @JsonKey(name: 'ToTime')
-          String? toTime,
-      @JsonKey(name: 'Doctor_Email')
-          String? email,
-      @JsonKey(name: 'EMail_Id')
-          String? emailId,
-      @JsonKey(name: 'Password')
-          String? password,
-      @JsonKey(name: 'Hospital_List')
-          String? hospitalList,
-      @JsonKey(name: 'subcatlist')
-          String? subCatList,
-      @JsonKey(name: 'LocationNewList')
-          String? locationNewList,
-      @JsonKey(name: 'Between_Distance')
-          num? betweenDistance,
-      @JsonKey(name: 'service_id')
-          num? serviceId,
-      @JsonKey(name: 'service_name')
-          String? serviceName,
-      @JsonKey(name: 'endorse_list')
-          String? endorseList,
-      @JsonKey(name: 'cancel_flag')
-          String? cancelFlag,
-      @JsonKey(name: 'clinicid')
-          num? clinicId,
-      @JsonKey(name: 'clinicname')
-          String? clinicName,
-      @JsonKey(name: 'clinicfee')
-          num? clinicFee,
-      @JsonKey(name: 'Latitude')
-          String? latitude,
-      @JsonKey(name: 'Longitude')
-          String? longitude,
-      @JsonKey(name: 'Hospital_Name')
-          String? hospitalName,
-      @JsonKey(name: 'Hospital_Number')
-          String? hospitalNumber,
-      @JsonKey(name: 'Country_Id')
-          num? countryId,
-      @JsonKey(name: 'Clinic_Model')
-          String? clinicModel,
-      @JsonKey(name: 'Doctor_Url_With_Name')
-          String? doctorUrlWithName,
-      @JsonKey(name: 'Doctor_URL_City')
-          String? doctorUrlCity,
-      @JsonKey(name: 'Doctor_Designation')
-          String? designation,
-      @JsonKey(name: 'Phone_Number')
-          String? phoneNumber,
-      @JsonKey(name: 'Language_Name')
-          String? languageName,
-      @JsonKey(name: 'Watsapp_Number')
-          String? whatsapp,
-      @JsonKey(name: 'Patient_Id')
-          dynamic patientid,
+      {@JsonKey(name: 'Doctor_id') dynamic id,
+      @JsonKey(name: 'User_id') dynamic userId,
+      @JsonKey(name: 'BookCheck') String? bookCheck,
+      @JsonKey(name: 'Gender') int? gender,
+      @JsonKey(name: 'Registrations') String? registration,
+      @JsonKey(name: 'PClaim_id') num? pClainId,
+      @JsonKey(name: 'PDoctor_Name') num? pDoctorName,
+      @JsonKey(name: 'PHospital_Name') num? pHospitalName,
+      @JsonKey(name: 'PDoctor_Image') num? pDoctorImage,
+      @JsonKey(name: 'PAppointment_Schedule') num? pAppointmentSchedule,
+      @JsonKey(name: 'PConsultation_Fee') num? pConsulationFee,
+      @JsonKey(name: 'PFlag') String? pFlag,
+      @JsonKey(name: 'FeedBack') num? feedback,
+      @JsonKey(name: 'SubList') String? subList,
+      @JsonKey(name: 'eclinic_Flag') String? eClinicFlag,
+      @JsonKey(name: 'CityListDisplay') String? cityListDisplay,
+      @JsonKey(name: 'City_NameTmp') String? cityNameTmp,
+      @JsonKey(name: 'City_Name') String? cityName,
+      @JsonKey(name: 'City_id') num? cityId,
+      @JsonKey(name: 'Location_Name_Temp') String? locationNameTemp,
+      @JsonKey(name: 'URL_String') String? urlString,
+      @JsonKey(name: 'Specialization') String? specialization,
+      @JsonKey(name: 'Doctor_Name') String? fullName,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Doctor_Name_temp') String? nameTemp,
+      @JsonKey(name: 'Doctor_Qualification') String? doctorQualification,
+      @JsonKey(name: 'Qualification') String? qualification,
+      @JsonKey(name: 'Location_id') num? locationId,
+      @JsonKey(name: 'Location_name') String? locationName,
+      @JsonKey(name: 'SubCategory_id') num? subCategoryId,
+      @JsonKey(name: 'sscat_id') num? sscatId,
+      @JsonKey(name: 'sscategory_Name') String? sscategoryName,
+      @JsonKey(name: 'DoctorExperience_Years') num? experience,
+      @JsonKey(name: 'Recommendations') String? recommendations,
+      @JsonKey(name: 'Doctor_Description') String? description,
+      @JsonKey(name: 'Doctor_Image') String? image,
+      @JsonKey(name: 'Doctor_Age') int? age,
+      @JsonKey(name: 'Doctor_PhoneNumber') String? phone,
+      @JsonKey(name: 'SubCategory_Name') String? subCategoryName,
+      @JsonKey(name: 'SubCategory_Name_temp') String? subCategoryNameTemp,
+      @JsonKey(name: 'Doctor_Address') String? address,
+      @JsonKey(name: 'type') String? type,
+      @JsonKey(name: 'ClinicDoctorFee') num? clinicDoctorFee,
+      @JsonKey(name: 'Type_Flag') String? typeFlag,
+      @JsonKey(name: 'Days') String? days,
+      @JsonKey(name: 'Dayslot') String? daysTotal,
+      @JsonKey(name: 'Clinic_Images') String? clinicImages,
+      @JsonKey(name: 'CImage') String? cImage,
+      @JsonKey(name: 'FromTime') String? fromTime,
+      @JsonKey(name: 'ToTime') String? toTime,
+      @JsonKey(name: 'Doctor_Email') String? email,
+      @JsonKey(name: 'EMail_Id') String? emailId,
+      @JsonKey(name: 'Password') String? password,
+      @JsonKey(name: 'Hospital_List') String? hospitalList,
+      @JsonKey(name: 'subcatlist') String? subCatList,
+      @JsonKey(name: 'LocationNewList') String? locationNewList,
+      @JsonKey(name: 'Between_Distance') num? betweenDistance,
+      @JsonKey(name: 'service_id') num? serviceId,
+      @JsonKey(name: 'service_name') String? serviceName,
+      @JsonKey(name: 'endorse_list') String? endorseList,
+      @JsonKey(name: 'cancel_flag') String? cancelFlag,
+      @JsonKey(name: 'clinicid') num? clinicId,
+      @JsonKey(name: 'clinicname') String? clinicName,
+      @JsonKey(name: 'clinicfee') num? clinicFee,
+      @JsonKey(name: 'Latitude') String? latitude,
+      @JsonKey(name: 'Longitude') String? longitude,
+      @JsonKey(name: 'Hospital_Name') String? hospitalName,
+      @JsonKey(name: 'Hospital_Number') String? hospitalNumber,
+      @JsonKey(name: 'Country_Id') num? countryId,
+      @JsonKey(name: 'Clinic_Model') String? clinicModel,
+      @JsonKey(name: 'Doctor_Url_With_Name') String? doctorUrlWithName,
+      @JsonKey(name: 'Doctor_URL_City') String? doctorUrlCity,
+      @JsonKey(name: 'Doctor_Designation') String? designation,
+      @JsonKey(name: 'Phone_Number') String? phoneNumber,
+      @JsonKey(name: 'Language_Name') String? languageName,
+      @JsonKey(name: 'Watsapp_Number') String? whatsapp,
+      @JsonKey(name: 'Patient_Id') dynamic patientid,
       @JsonKey(name: 'Patient_Registration_Number')
-          dynamic patientregistrationnumber,
-      @JsonKey(name: 'First_Name')
-          dynamic firstname,
-      @JsonKey(name: 'Last_Name')
-          dynamic lastname,
-      @JsonKey(name: 'DOB')
-          dynamic dob,
-      @JsonKey(name: 'Age')
-          dynamic patientage,
-      @JsonKey(name: 'Image')
-          dynamic patientImage,
-      @JsonKey(name: 'Time_in_Therapeutic_Ratio')
-          dynamic TTR,
-      @JsonKey(name: 'Traget_INR_From')
-          dynamic TTRfrom,
-      @JsonKey(name: 'Traget_INR_To')
-          dynamic TTRto,
-      @JsonKey(name: 'Date')
-          dynamic date,
-      @JsonKey(name: 'Doctor_ActiveFlag')
-          dynamic doctorActivationflag,
-      @JsonKey(name: 'Patient_ActiveFlag')
-          dynamic patientActivationflag,
+      dynamic patientregistrationnumber,
+      @JsonKey(name: 'First_Name') dynamic firstname,
+      @JsonKey(name: 'Last_Name') dynamic lastname,
+      @JsonKey(name: 'DOB') dynamic dob,
+      @JsonKey(name: 'Age') dynamic patientage,
+      @JsonKey(name: 'Image') dynamic patientImage,
+      @JsonKey(name: 'Time_in_Therapeutic_Ratio') dynamic TTR,
+      @JsonKey(name: 'Traget_INR_From') dynamic TTRfrom,
+      @JsonKey(name: 'Traget_INR_To') dynamic TTRto,
+      @JsonKey(name: 'Date') dynamic date,
+      @JsonKey(name: 'Doctor_ActiveFlag') dynamic doctorActivationflag,
+      @JsonKey(name: 'Patient_ActiveFlag') dynamic patientActivationflag,
       @JsonKey(name: 'PatientRegistration_list')
-          dynamic patientRegistrationlist});
+      dynamic patientRegistrationlist});
 }
 
 /// @nodoc
@@ -407,8 +319,8 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? userId = null,
+    Object? id = freezed,
+    Object? userId = freezed,
     Object? bookCheck = freezed,
     Object? gender = freezed,
     Object? registration = freezed,
@@ -483,27 +395,27 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? phoneNumber = freezed,
     Object? languageName = freezed,
     Object? whatsapp = freezed,
-    Object? patientid = null,
-    Object? patientregistrationnumber = null,
-    Object? firstname = null,
-    Object? lastname = null,
-    Object? dob = null,
-    Object? patientage = null,
-    Object? patientImage = null,
-    Object? TTR = null,
-    Object? TTRfrom = null,
-    Object? TTRto = null,
-    Object? date = null,
-    Object? doctorActivationflag = null,
-    Object? patientActivationflag = null,
-    Object? patientRegistrationlist = null,
+    Object? patientid = freezed,
+    Object? patientregistrationnumber = freezed,
+    Object? firstname = freezed,
+    Object? lastname = freezed,
+    Object? dob = freezed,
+    Object? patientage = freezed,
+    Object? patientImage = freezed,
+    Object? TTR = freezed,
+    Object? TTRfrom = freezed,
+    Object? TTRto = freezed,
+    Object? date = freezed,
+    Object? doctorActivationflag = freezed,
+    Object? patientActivationflag = freezed,
+    Object? patientRegistrationlist = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userId: null == userId
+      userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -803,59 +715,59 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.whatsapp
           : whatsapp // ignore: cast_nullable_to_non_nullable
               as String?,
-      patientid: null == patientid
+      patientid: freezed == patientid
           ? _value.patientid
           : patientid // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientregistrationnumber: null == patientregistrationnumber
+      patientregistrationnumber: freezed == patientregistrationnumber
           ? _value.patientregistrationnumber
           : patientregistrationnumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      firstname: null == firstname
+      firstname: freezed == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      lastname: null == lastname
+      lastname: freezed == lastname
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      dob: null == dob
+      dob: freezed == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientage: null == patientage
+      patientage: freezed == patientage
           ? _value.patientage
           : patientage // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientImage: null == patientImage
+      patientImage: freezed == patientImage
           ? _value.patientImage
           : patientImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      TTR: null == TTR
+      TTR: freezed == TTR
           ? _value.TTR
           : TTR // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      TTRfrom: null == TTRfrom
+      TTRfrom: freezed == TTRfrom
           ? _value.TTRfrom
           : TTRfrom // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      TTRto: null == TTRto
+      TTRto: freezed == TTRto
           ? _value.TTRto
           : TTRto // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorActivationflag: null == doctorActivationflag
+      doctorActivationflag: freezed == doctorActivationflag
           ? _value.doctorActivationflag
           : doctorActivationflag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientActivationflag: null == patientActivationflag
+      patientActivationflag: freezed == patientActivationflag
           ? _value.patientActivationflag
           : patientActivationflag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientRegistrationlist: null == patientRegistrationlist
+      patientRegistrationlist: freezed == patientRegistrationlist
           ? _value.patientRegistrationlist
           : patientRegistrationlist // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -864,205 +776,119 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
 }
 
 /// @nodoc
-abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
-      __$$_UserCopyWithImpl<$Res>;
+abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
+  factory _$$UserImplCopyWith(
+          _$UserImpl value, $Res Function(_$UserImpl) then) =
+      __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'Doctor_id')
-          dynamic id,
-      @JsonKey(name: 'User_id')
-          dynamic userId,
-      @JsonKey(name: 'BookCheck')
-          String? bookCheck,
-      @JsonKey(name: 'Gender')
-          int? gender,
-      @JsonKey(name: 'Registrations')
-          String? registration,
-      @JsonKey(name: 'PClaim_id')
-          num? pClainId,
-      @JsonKey(name: 'PDoctor_Name')
-          num? pDoctorName,
-      @JsonKey(name: 'PHospital_Name')
-          num? pHospitalName,
-      @JsonKey(name: 'PDoctor_Image')
-          num? pDoctorImage,
-      @JsonKey(name: 'PAppointment_Schedule')
-          num? pAppointmentSchedule,
-      @JsonKey(name: 'PConsultation_Fee')
-          num? pConsulationFee,
-      @JsonKey(name: 'PFlag')
-          String? pFlag,
-      @JsonKey(name: 'FeedBack')
-          num? feedback,
-      @JsonKey(name: 'SubList')
-          String? subList,
-      @JsonKey(name: 'eclinic_Flag')
-          String? eClinicFlag,
-      @JsonKey(name: 'CityListDisplay')
-          String? cityListDisplay,
-      @JsonKey(name: 'City_NameTmp')
-          String? cityNameTmp,
-      @JsonKey(name: 'City_Name')
-          String? cityName,
-      @JsonKey(name: 'City_id')
-          num? cityId,
-      @JsonKey(name: 'Location_Name_Temp')
-          String? locationNameTemp,
-      @JsonKey(name: 'URL_String')
-          String? urlString,
-      @JsonKey(name: 'Specialization')
-          String? specialization,
-      @JsonKey(name: 'Doctor_Name')
-          String? fullName,
-      @JsonKey(name: 'Name')
-          String? name,
-      @JsonKey(name: 'Doctor_Name_temp')
-          String? nameTemp,
-      @JsonKey(name: 'Doctor_Qualification')
-          String? doctorQualification,
-      @JsonKey(name: 'Qualification')
-          String? qualification,
-      @JsonKey(name: 'Location_id')
-          num? locationId,
-      @JsonKey(name: 'Location_name')
-          String? locationName,
-      @JsonKey(name: 'SubCategory_id')
-          num? subCategoryId,
-      @JsonKey(name: 'sscat_id')
-          num? sscatId,
-      @JsonKey(name: 'sscategory_Name')
-          String? sscategoryName,
-      @JsonKey(name: 'DoctorExperience_Years')
-          num? experience,
-      @JsonKey(name: 'Recommendations')
-          String? recommendations,
-      @JsonKey(name: 'Doctor_Description')
-          String? description,
-      @JsonKey(name: 'Doctor_Image')
-          String? image,
-      @JsonKey(name: 'Doctor_Age')
-          int? age,
-      @JsonKey(name: 'Doctor_PhoneNumber')
-          String? phone,
-      @JsonKey(name: 'SubCategory_Name')
-          String? subCategoryName,
-      @JsonKey(name: 'SubCategory_Name_temp')
-          String? subCategoryNameTemp,
-      @JsonKey(name: 'Doctor_Address')
-          String? address,
-      @JsonKey(name: 'type')
-          String? type,
-      @JsonKey(name: 'ClinicDoctorFee')
-          num? clinicDoctorFee,
-      @JsonKey(name: 'Type_Flag')
-          String? typeFlag,
-      @JsonKey(name: 'Days')
-          String? days,
-      @JsonKey(name: 'Dayslot')
-          String? daysTotal,
-      @JsonKey(name: 'Clinic_Images')
-          String? clinicImages,
-      @JsonKey(name: 'CImage')
-          String? cImage,
-      @JsonKey(name: 'FromTime')
-          String? fromTime,
-      @JsonKey(name: 'ToTime')
-          String? toTime,
-      @JsonKey(name: 'Doctor_Email')
-          String? email,
-      @JsonKey(name: 'EMail_Id')
-          String? emailId,
-      @JsonKey(name: 'Password')
-          String? password,
-      @JsonKey(name: 'Hospital_List')
-          String? hospitalList,
-      @JsonKey(name: 'subcatlist')
-          String? subCatList,
-      @JsonKey(name: 'LocationNewList')
-          String? locationNewList,
-      @JsonKey(name: 'Between_Distance')
-          num? betweenDistance,
-      @JsonKey(name: 'service_id')
-          num? serviceId,
-      @JsonKey(name: 'service_name')
-          String? serviceName,
-      @JsonKey(name: 'endorse_list')
-          String? endorseList,
-      @JsonKey(name: 'cancel_flag')
-          String? cancelFlag,
-      @JsonKey(name: 'clinicid')
-          num? clinicId,
-      @JsonKey(name: 'clinicname')
-          String? clinicName,
-      @JsonKey(name: 'clinicfee')
-          num? clinicFee,
-      @JsonKey(name: 'Latitude')
-          String? latitude,
-      @JsonKey(name: 'Longitude')
-          String? longitude,
-      @JsonKey(name: 'Hospital_Name')
-          String? hospitalName,
-      @JsonKey(name: 'Hospital_Number')
-          String? hospitalNumber,
-      @JsonKey(name: 'Country_Id')
-          num? countryId,
-      @JsonKey(name: 'Clinic_Model')
-          String? clinicModel,
-      @JsonKey(name: 'Doctor_Url_With_Name')
-          String? doctorUrlWithName,
-      @JsonKey(name: 'Doctor_URL_City')
-          String? doctorUrlCity,
-      @JsonKey(name: 'Doctor_Designation')
-          String? designation,
-      @JsonKey(name: 'Phone_Number')
-          String? phoneNumber,
-      @JsonKey(name: 'Language_Name')
-          String? languageName,
-      @JsonKey(name: 'Watsapp_Number')
-          String? whatsapp,
-      @JsonKey(name: 'Patient_Id')
-          dynamic patientid,
+      {@JsonKey(name: 'Doctor_id') dynamic id,
+      @JsonKey(name: 'User_id') dynamic userId,
+      @JsonKey(name: 'BookCheck') String? bookCheck,
+      @JsonKey(name: 'Gender') int? gender,
+      @JsonKey(name: 'Registrations') String? registration,
+      @JsonKey(name: 'PClaim_id') num? pClainId,
+      @JsonKey(name: 'PDoctor_Name') num? pDoctorName,
+      @JsonKey(name: 'PHospital_Name') num? pHospitalName,
+      @JsonKey(name: 'PDoctor_Image') num? pDoctorImage,
+      @JsonKey(name: 'PAppointment_Schedule') num? pAppointmentSchedule,
+      @JsonKey(name: 'PConsultation_Fee') num? pConsulationFee,
+      @JsonKey(name: 'PFlag') String? pFlag,
+      @JsonKey(name: 'FeedBack') num? feedback,
+      @JsonKey(name: 'SubList') String? subList,
+      @JsonKey(name: 'eclinic_Flag') String? eClinicFlag,
+      @JsonKey(name: 'CityListDisplay') String? cityListDisplay,
+      @JsonKey(name: 'City_NameTmp') String? cityNameTmp,
+      @JsonKey(name: 'City_Name') String? cityName,
+      @JsonKey(name: 'City_id') num? cityId,
+      @JsonKey(name: 'Location_Name_Temp') String? locationNameTemp,
+      @JsonKey(name: 'URL_String') String? urlString,
+      @JsonKey(name: 'Specialization') String? specialization,
+      @JsonKey(name: 'Doctor_Name') String? fullName,
+      @JsonKey(name: 'Name') String? name,
+      @JsonKey(name: 'Doctor_Name_temp') String? nameTemp,
+      @JsonKey(name: 'Doctor_Qualification') String? doctorQualification,
+      @JsonKey(name: 'Qualification') String? qualification,
+      @JsonKey(name: 'Location_id') num? locationId,
+      @JsonKey(name: 'Location_name') String? locationName,
+      @JsonKey(name: 'SubCategory_id') num? subCategoryId,
+      @JsonKey(name: 'sscat_id') num? sscatId,
+      @JsonKey(name: 'sscategory_Name') String? sscategoryName,
+      @JsonKey(name: 'DoctorExperience_Years') num? experience,
+      @JsonKey(name: 'Recommendations') String? recommendations,
+      @JsonKey(name: 'Doctor_Description') String? description,
+      @JsonKey(name: 'Doctor_Image') String? image,
+      @JsonKey(name: 'Doctor_Age') int? age,
+      @JsonKey(name: 'Doctor_PhoneNumber') String? phone,
+      @JsonKey(name: 'SubCategory_Name') String? subCategoryName,
+      @JsonKey(name: 'SubCategory_Name_temp') String? subCategoryNameTemp,
+      @JsonKey(name: 'Doctor_Address') String? address,
+      @JsonKey(name: 'type') String? type,
+      @JsonKey(name: 'ClinicDoctorFee') num? clinicDoctorFee,
+      @JsonKey(name: 'Type_Flag') String? typeFlag,
+      @JsonKey(name: 'Days') String? days,
+      @JsonKey(name: 'Dayslot') String? daysTotal,
+      @JsonKey(name: 'Clinic_Images') String? clinicImages,
+      @JsonKey(name: 'CImage') String? cImage,
+      @JsonKey(name: 'FromTime') String? fromTime,
+      @JsonKey(name: 'ToTime') String? toTime,
+      @JsonKey(name: 'Doctor_Email') String? email,
+      @JsonKey(name: 'EMail_Id') String? emailId,
+      @JsonKey(name: 'Password') String? password,
+      @JsonKey(name: 'Hospital_List') String? hospitalList,
+      @JsonKey(name: 'subcatlist') String? subCatList,
+      @JsonKey(name: 'LocationNewList') String? locationNewList,
+      @JsonKey(name: 'Between_Distance') num? betweenDistance,
+      @JsonKey(name: 'service_id') num? serviceId,
+      @JsonKey(name: 'service_name') String? serviceName,
+      @JsonKey(name: 'endorse_list') String? endorseList,
+      @JsonKey(name: 'cancel_flag') String? cancelFlag,
+      @JsonKey(name: 'clinicid') num? clinicId,
+      @JsonKey(name: 'clinicname') String? clinicName,
+      @JsonKey(name: 'clinicfee') num? clinicFee,
+      @JsonKey(name: 'Latitude') String? latitude,
+      @JsonKey(name: 'Longitude') String? longitude,
+      @JsonKey(name: 'Hospital_Name') String? hospitalName,
+      @JsonKey(name: 'Hospital_Number') String? hospitalNumber,
+      @JsonKey(name: 'Country_Id') num? countryId,
+      @JsonKey(name: 'Clinic_Model') String? clinicModel,
+      @JsonKey(name: 'Doctor_Url_With_Name') String? doctorUrlWithName,
+      @JsonKey(name: 'Doctor_URL_City') String? doctorUrlCity,
+      @JsonKey(name: 'Doctor_Designation') String? designation,
+      @JsonKey(name: 'Phone_Number') String? phoneNumber,
+      @JsonKey(name: 'Language_Name') String? languageName,
+      @JsonKey(name: 'Watsapp_Number') String? whatsapp,
+      @JsonKey(name: 'Patient_Id') dynamic patientid,
       @JsonKey(name: 'Patient_Registration_Number')
-          dynamic patientregistrationnumber,
-      @JsonKey(name: 'First_Name')
-          dynamic firstname,
-      @JsonKey(name: 'Last_Name')
-          dynamic lastname,
-      @JsonKey(name: 'DOB')
-          dynamic dob,
-      @JsonKey(name: 'Age')
-          dynamic patientage,
-      @JsonKey(name: 'Image')
-          dynamic patientImage,
-      @JsonKey(name: 'Time_in_Therapeutic_Ratio')
-          dynamic TTR,
-      @JsonKey(name: 'Traget_INR_From')
-          dynamic TTRfrom,
-      @JsonKey(name: 'Traget_INR_To')
-          dynamic TTRto,
-      @JsonKey(name: 'Date')
-          dynamic date,
-      @JsonKey(name: 'Doctor_ActiveFlag')
-          dynamic doctorActivationflag,
-      @JsonKey(name: 'Patient_ActiveFlag')
-          dynamic patientActivationflag,
+      dynamic patientregistrationnumber,
+      @JsonKey(name: 'First_Name') dynamic firstname,
+      @JsonKey(name: 'Last_Name') dynamic lastname,
+      @JsonKey(name: 'DOB') dynamic dob,
+      @JsonKey(name: 'Age') dynamic patientage,
+      @JsonKey(name: 'Image') dynamic patientImage,
+      @JsonKey(name: 'Time_in_Therapeutic_Ratio') dynamic TTR,
+      @JsonKey(name: 'Traget_INR_From') dynamic TTRfrom,
+      @JsonKey(name: 'Traget_INR_To') dynamic TTRto,
+      @JsonKey(name: 'Date') dynamic date,
+      @JsonKey(name: 'Doctor_ActiveFlag') dynamic doctorActivationflag,
+      @JsonKey(name: 'Patient_ActiveFlag') dynamic patientActivationflag,
       @JsonKey(name: 'PatientRegistration_list')
-          dynamic patientRegistrationlist});
+      dynamic patientRegistrationlist});
 }
 
 /// @nodoc
-class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
-    implements _$$_UserCopyWith<$Res> {
-  __$$_UserCopyWithImpl(_$_User _value, $Res Function(_$_User) _then)
+class __$$UserImplCopyWithImpl<$Res>
+    extends _$UserCopyWithImpl<$Res, _$UserImpl>
+    implements _$$UserImplCopyWith<$Res> {
+  __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? userId = null,
+    Object? id = freezed,
+    Object? userId = freezed,
     Object? bookCheck = freezed,
     Object? gender = freezed,
     Object? registration = freezed,
@@ -1137,27 +963,27 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? phoneNumber = freezed,
     Object? languageName = freezed,
     Object? whatsapp = freezed,
-    Object? patientid = null,
-    Object? patientregistrationnumber = null,
-    Object? firstname = null,
-    Object? lastname = null,
-    Object? dob = null,
-    Object? patientage = null,
-    Object? patientImage = null,
-    Object? TTR = null,
-    Object? TTRfrom = null,
-    Object? TTRto = null,
-    Object? date = null,
-    Object? doctorActivationflag = null,
-    Object? patientActivationflag = null,
-    Object? patientRegistrationlist = null,
+    Object? patientid = freezed,
+    Object? patientregistrationnumber = freezed,
+    Object? firstname = freezed,
+    Object? lastname = freezed,
+    Object? dob = freezed,
+    Object? patientage = freezed,
+    Object? patientImage = freezed,
+    Object? TTR = freezed,
+    Object? TTRfrom = freezed,
+    Object? TTRto = freezed,
+    Object? date = freezed,
+    Object? doctorActivationflag = freezed,
+    Object? patientActivationflag = freezed,
+    Object? patientRegistrationlist = freezed,
   }) {
-    return _then(_$_User(
-      id: null == id
+    return _then(_$UserImpl(
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userId: null == userId
+      userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1457,59 +1283,59 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.whatsapp
           : whatsapp // ignore: cast_nullable_to_non_nullable
               as String?,
-      patientid: null == patientid
+      patientid: freezed == patientid
           ? _value.patientid
           : patientid // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientregistrationnumber: null == patientregistrationnumber
+      patientregistrationnumber: freezed == patientregistrationnumber
           ? _value.patientregistrationnumber
           : patientregistrationnumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      firstname: null == firstname
+      firstname: freezed == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      lastname: null == lastname
+      lastname: freezed == lastname
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      dob: null == dob
+      dob: freezed == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientage: null == patientage
+      patientage: freezed == patientage
           ? _value.patientage
           : patientage // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientImage: null == patientImage
+      patientImage: freezed == patientImage
           ? _value.patientImage
           : patientImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      TTR: null == TTR
+      TTR: freezed == TTR
           ? _value.TTR
           : TTR // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      TTRfrom: null == TTRfrom
+      TTRfrom: freezed == TTRfrom
           ? _value.TTRfrom
           : TTRfrom // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      TTRto: null == TTRto
+      TTRto: freezed == TTRto
           ? _value.TTRto
           : TTRto // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorActivationflag: null == doctorActivationflag
+      doctorActivationflag: freezed == doctorActivationflag
           ? _value.doctorActivationflag
           : doctorActivationflag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientActivationflag: null == patientActivationflag
+      patientActivationflag: freezed == patientActivationflag
           ? _value.patientActivationflag
           : patientActivationflag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientRegistrationlist: null == patientRegistrationlist
+      patientRegistrationlist: freezed == patientRegistrationlist
           ? _value.patientRegistrationlist
           : patientRegistrationlist // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1519,190 +1345,103 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 
 /// @nodoc
 @JsonSerializable()
-class _$_User implements _User {
-  const _$_User(
-      {@JsonKey(name: 'Doctor_id')
-          this.id = null,
-      @JsonKey(name: 'User_id')
-          this.userId = null,
-      @JsonKey(name: 'BookCheck')
-          this.bookCheck,
-      @JsonKey(name: 'Gender')
-          this.gender,
-      @JsonKey(name: 'Registrations')
-          this.registration,
-      @JsonKey(name: 'PClaim_id')
-          this.pClainId,
-      @JsonKey(name: 'PDoctor_Name')
-          this.pDoctorName,
-      @JsonKey(name: 'PHospital_Name')
-          this.pHospitalName,
-      @JsonKey(name: 'PDoctor_Image')
-          this.pDoctorImage,
-      @JsonKey(name: 'PAppointment_Schedule')
-          this.pAppointmentSchedule,
-      @JsonKey(name: 'PConsultation_Fee')
-          this.pConsulationFee,
-      @JsonKey(name: 'PFlag')
-          this.pFlag,
-      @JsonKey(name: 'FeedBack')
-          this.feedback,
-      @JsonKey(name: 'SubList')
-          this.subList,
-      @JsonKey(name: 'eclinic_Flag')
-          this.eClinicFlag,
-      @JsonKey(name: 'CityListDisplay')
-          this.cityListDisplay,
-      @JsonKey(name: 'City_NameTmp')
-          this.cityNameTmp,
-      @JsonKey(name: 'City_Name')
-          this.cityName,
-      @JsonKey(name: 'City_id')
-          this.cityId,
-      @JsonKey(name: 'Location_Name_Temp')
-          this.locationNameTemp,
-      @JsonKey(name: 'URL_String')
-          this.urlString,
-      @JsonKey(name: 'Specialization')
-          this.specialization,
-      @JsonKey(name: 'Doctor_Name')
-          this.fullName,
-      @JsonKey(name: 'Name')
-          this.name,
-      @JsonKey(name: 'Doctor_Name_temp')
-          this.nameTemp,
-      @JsonKey(name: 'Doctor_Qualification')
-          this.doctorQualification,
-      @JsonKey(name: 'Qualification')
-          this.qualification,
-      @JsonKey(name: 'Location_id')
-          this.locationId,
-      @JsonKey(name: 'Location_name')
-          this.locationName,
-      @JsonKey(name: 'SubCategory_id')
-          this.subCategoryId,
-      @JsonKey(name: 'sscat_id')
-          this.sscatId,
-      @JsonKey(name: 'sscategory_Name')
-          this.sscategoryName,
-      @JsonKey(name: 'DoctorExperience_Years')
-          this.experience,
-      @JsonKey(name: 'Recommendations')
-          this.recommendations,
-      @JsonKey(name: 'Doctor_Description')
-          this.description,
-      @JsonKey(name: 'Doctor_Image')
-          this.image,
-      @JsonKey(name: 'Doctor_Age')
-          this.age,
-      @JsonKey(name: 'Doctor_PhoneNumber')
-          this.phone,
-      @JsonKey(name: 'SubCategory_Name')
-          this.subCategoryName,
-      @JsonKey(name: 'SubCategory_Name_temp')
-          this.subCategoryNameTemp,
-      @JsonKey(name: 'Doctor_Address')
-          this.address,
-      @JsonKey(name: 'type')
-          this.type,
-      @JsonKey(name: 'ClinicDoctorFee')
-          this.clinicDoctorFee,
-      @JsonKey(name: 'Type_Flag')
-          this.typeFlag,
-      @JsonKey(name: 'Days')
-          this.days,
-      @JsonKey(name: 'Dayslot')
-          this.daysTotal,
-      @JsonKey(name: 'Clinic_Images')
-          this.clinicImages,
-      @JsonKey(name: 'CImage')
-          this.cImage,
-      @JsonKey(name: 'FromTime')
-          this.fromTime,
-      @JsonKey(name: 'ToTime')
-          this.toTime,
-      @JsonKey(name: 'Doctor_Email')
-          this.email,
-      @JsonKey(name: 'EMail_Id')
-          this.emailId,
-      @JsonKey(name: 'Password')
-          this.password,
-      @JsonKey(name: 'Hospital_List')
-          this.hospitalList,
-      @JsonKey(name: 'subcatlist')
-          this.subCatList,
-      @JsonKey(name: 'LocationNewList')
-          this.locationNewList,
-      @JsonKey(name: 'Between_Distance')
-          this.betweenDistance,
-      @JsonKey(name: 'service_id')
-          this.serviceId,
-      @JsonKey(name: 'service_name')
-          this.serviceName,
-      @JsonKey(name: 'endorse_list')
-          this.endorseList,
-      @JsonKey(name: 'cancel_flag')
-          this.cancelFlag,
-      @JsonKey(name: 'clinicid')
-          this.clinicId,
-      @JsonKey(name: 'clinicname')
-          this.clinicName,
-      @JsonKey(name: 'clinicfee')
-          this.clinicFee,
-      @JsonKey(name: 'Latitude')
-          this.latitude,
-      @JsonKey(name: 'Longitude')
-          this.longitude,
-      @JsonKey(name: 'Hospital_Name')
-          this.hospitalName,
-      @JsonKey(name: 'Hospital_Number')
-          this.hospitalNumber,
-      @JsonKey(name: 'Country_Id')
-          this.countryId,
-      @JsonKey(name: 'Clinic_Model')
-          this.clinicModel,
-      @JsonKey(name: 'Doctor_Url_With_Name')
-          this.doctorUrlWithName,
-      @JsonKey(name: 'Doctor_URL_City')
-          this.doctorUrlCity,
-      @JsonKey(name: 'Doctor_Designation')
-          this.designation,
-      @JsonKey(name: 'Phone_Number')
-          this.phoneNumber,
-      @JsonKey(name: 'Language_Name')
-          this.languageName,
-      @JsonKey(name: 'Watsapp_Number')
-          this.whatsapp,
-      @JsonKey(name: 'Patient_Id')
-          this.patientid = null,
+class _$UserImpl implements _User {
+  const _$UserImpl(
+      {@JsonKey(name: 'Doctor_id') this.id = null,
+      @JsonKey(name: 'User_id') this.userId = null,
+      @JsonKey(name: 'BookCheck') this.bookCheck,
+      @JsonKey(name: 'Gender') this.gender,
+      @JsonKey(name: 'Registrations') this.registration,
+      @JsonKey(name: 'PClaim_id') this.pClainId,
+      @JsonKey(name: 'PDoctor_Name') this.pDoctorName,
+      @JsonKey(name: 'PHospital_Name') this.pHospitalName,
+      @JsonKey(name: 'PDoctor_Image') this.pDoctorImage,
+      @JsonKey(name: 'PAppointment_Schedule') this.pAppointmentSchedule,
+      @JsonKey(name: 'PConsultation_Fee') this.pConsulationFee,
+      @JsonKey(name: 'PFlag') this.pFlag,
+      @JsonKey(name: 'FeedBack') this.feedback,
+      @JsonKey(name: 'SubList') this.subList,
+      @JsonKey(name: 'eclinic_Flag') this.eClinicFlag,
+      @JsonKey(name: 'CityListDisplay') this.cityListDisplay,
+      @JsonKey(name: 'City_NameTmp') this.cityNameTmp,
+      @JsonKey(name: 'City_Name') this.cityName,
+      @JsonKey(name: 'City_id') this.cityId,
+      @JsonKey(name: 'Location_Name_Temp') this.locationNameTemp,
+      @JsonKey(name: 'URL_String') this.urlString,
+      @JsonKey(name: 'Specialization') this.specialization,
+      @JsonKey(name: 'Doctor_Name') this.fullName,
+      @JsonKey(name: 'Name') this.name,
+      @JsonKey(name: 'Doctor_Name_temp') this.nameTemp,
+      @JsonKey(name: 'Doctor_Qualification') this.doctorQualification,
+      @JsonKey(name: 'Qualification') this.qualification,
+      @JsonKey(name: 'Location_id') this.locationId,
+      @JsonKey(name: 'Location_name') this.locationName,
+      @JsonKey(name: 'SubCategory_id') this.subCategoryId,
+      @JsonKey(name: 'sscat_id') this.sscatId,
+      @JsonKey(name: 'sscategory_Name') this.sscategoryName,
+      @JsonKey(name: 'DoctorExperience_Years') this.experience,
+      @JsonKey(name: 'Recommendations') this.recommendations,
+      @JsonKey(name: 'Doctor_Description') this.description,
+      @JsonKey(name: 'Doctor_Image') this.image,
+      @JsonKey(name: 'Doctor_Age') this.age,
+      @JsonKey(name: 'Doctor_PhoneNumber') this.phone,
+      @JsonKey(name: 'SubCategory_Name') this.subCategoryName,
+      @JsonKey(name: 'SubCategory_Name_temp') this.subCategoryNameTemp,
+      @JsonKey(name: 'Doctor_Address') this.address,
+      @JsonKey(name: 'type') this.type,
+      @JsonKey(name: 'ClinicDoctorFee') this.clinicDoctorFee,
+      @JsonKey(name: 'Type_Flag') this.typeFlag,
+      @JsonKey(name: 'Days') this.days,
+      @JsonKey(name: 'Dayslot') this.daysTotal,
+      @JsonKey(name: 'Clinic_Images') this.clinicImages,
+      @JsonKey(name: 'CImage') this.cImage,
+      @JsonKey(name: 'FromTime') this.fromTime,
+      @JsonKey(name: 'ToTime') this.toTime,
+      @JsonKey(name: 'Doctor_Email') this.email,
+      @JsonKey(name: 'EMail_Id') this.emailId,
+      @JsonKey(name: 'Password') this.password,
+      @JsonKey(name: 'Hospital_List') this.hospitalList,
+      @JsonKey(name: 'subcatlist') this.subCatList,
+      @JsonKey(name: 'LocationNewList') this.locationNewList,
+      @JsonKey(name: 'Between_Distance') this.betweenDistance,
+      @JsonKey(name: 'service_id') this.serviceId,
+      @JsonKey(name: 'service_name') this.serviceName,
+      @JsonKey(name: 'endorse_list') this.endorseList,
+      @JsonKey(name: 'cancel_flag') this.cancelFlag,
+      @JsonKey(name: 'clinicid') this.clinicId,
+      @JsonKey(name: 'clinicname') this.clinicName,
+      @JsonKey(name: 'clinicfee') this.clinicFee,
+      @JsonKey(name: 'Latitude') this.latitude,
+      @JsonKey(name: 'Longitude') this.longitude,
+      @JsonKey(name: 'Hospital_Name') this.hospitalName,
+      @JsonKey(name: 'Hospital_Number') this.hospitalNumber,
+      @JsonKey(name: 'Country_Id') this.countryId,
+      @JsonKey(name: 'Clinic_Model') this.clinicModel,
+      @JsonKey(name: 'Doctor_Url_With_Name') this.doctorUrlWithName,
+      @JsonKey(name: 'Doctor_URL_City') this.doctorUrlCity,
+      @JsonKey(name: 'Doctor_Designation') this.designation,
+      @JsonKey(name: 'Phone_Number') this.phoneNumber,
+      @JsonKey(name: 'Language_Name') this.languageName,
+      @JsonKey(name: 'Watsapp_Number') this.whatsapp,
+      @JsonKey(name: 'Patient_Id') this.patientid = null,
       @JsonKey(name: 'Patient_Registration_Number')
-          this.patientregistrationnumber = null,
-      @JsonKey(name: 'First_Name')
-          this.firstname = null,
-      @JsonKey(name: 'Last_Name')
-          this.lastname = null,
-      @JsonKey(name: 'DOB')
-          this.dob = null,
-      @JsonKey(name: 'Age')
-          this.patientage = null,
-      @JsonKey(name: 'Image')
-          this.patientImage = null,
-      @JsonKey(name: 'Time_in_Therapeutic_Ratio')
-          this.TTR = null,
-      @JsonKey(name: 'Traget_INR_From')
-          this.TTRfrom = null,
-      @JsonKey(name: 'Traget_INR_To')
-          this.TTRto = null,
-      @JsonKey(name: 'Date')
-          this.date = null,
-      @JsonKey(name: 'Doctor_ActiveFlag')
-          this.doctorActivationflag = null,
-      @JsonKey(name: 'Patient_ActiveFlag')
-          this.patientActivationflag = null,
+      this.patientregistrationnumber = null,
+      @JsonKey(name: 'First_Name') this.firstname = null,
+      @JsonKey(name: 'Last_Name') this.lastname = null,
+      @JsonKey(name: 'DOB') this.dob = null,
+      @JsonKey(name: 'Age') this.patientage = null,
+      @JsonKey(name: 'Image') this.patientImage = null,
+      @JsonKey(name: 'Time_in_Therapeutic_Ratio') this.TTR = null,
+      @JsonKey(name: 'Traget_INR_From') this.TTRfrom = null,
+      @JsonKey(name: 'Traget_INR_To') this.TTRto = null,
+      @JsonKey(name: 'Date') this.date = null,
+      @JsonKey(name: 'Doctor_ActiveFlag') this.doctorActivationflag = null,
+      @JsonKey(name: 'Patient_ActiveFlag') this.patientActivationflag = null,
       @JsonKey(name: 'PatientRegistration_list')
-          this.patientRegistrationlist = null});
+      this.patientRegistrationlist = null});
 
-  factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
+  factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserImplFromJson(json);
 
   @override
   @JsonKey(name: 'Doctor_id')
@@ -1981,10 +1720,10 @@ class _$_User implements _User {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_User &&
+            other is _$UserImpl &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.userId, userId) &&
             (identical(other.bookCheck, bookCheck) ||
@@ -2219,12 +1958,12 @@ class _$_User implements _User {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserCopyWith<_$_User> get copyWith =>
-      __$$_UserCopyWithImpl<_$_User>(this, _$identity);
+  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
+      __$$UserImplCopyWithImpl<_$UserImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserToJson(
+    return _$$UserImplToJson(
       this,
     );
   }
@@ -2232,188 +1971,100 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {@JsonKey(name: 'Doctor_id')
-          final dynamic id,
-      @JsonKey(name: 'User_id')
-          final dynamic userId,
-      @JsonKey(name: 'BookCheck')
-          final String? bookCheck,
-      @JsonKey(name: 'Gender')
-          final int? gender,
-      @JsonKey(name: 'Registrations')
-          final String? registration,
-      @JsonKey(name: 'PClaim_id')
-          final num? pClainId,
-      @JsonKey(name: 'PDoctor_Name')
-          final num? pDoctorName,
-      @JsonKey(name: 'PHospital_Name')
-          final num? pHospitalName,
-      @JsonKey(name: 'PDoctor_Image')
-          final num? pDoctorImage,
-      @JsonKey(name: 'PAppointment_Schedule')
-          final num? pAppointmentSchedule,
-      @JsonKey(name: 'PConsultation_Fee')
-          final num? pConsulationFee,
-      @JsonKey(name: 'PFlag')
-          final String? pFlag,
-      @JsonKey(name: 'FeedBack')
-          final num? feedback,
-      @JsonKey(name: 'SubList')
-          final String? subList,
-      @JsonKey(name: 'eclinic_Flag')
-          final String? eClinicFlag,
-      @JsonKey(name: 'CityListDisplay')
-          final String? cityListDisplay,
-      @JsonKey(name: 'City_NameTmp')
-          final String? cityNameTmp,
-      @JsonKey(name: 'City_Name')
-          final String? cityName,
-      @JsonKey(name: 'City_id')
-          final num? cityId,
-      @JsonKey(name: 'Location_Name_Temp')
-          final String? locationNameTemp,
-      @JsonKey(name: 'URL_String')
-          final String? urlString,
-      @JsonKey(name: 'Specialization')
-          final String? specialization,
-      @JsonKey(name: 'Doctor_Name')
-          final String? fullName,
-      @JsonKey(name: 'Name')
-          final String? name,
-      @JsonKey(name: 'Doctor_Name_temp')
-          final String? nameTemp,
-      @JsonKey(name: 'Doctor_Qualification')
-          final String? doctorQualification,
-      @JsonKey(name: 'Qualification')
-          final String? qualification,
-      @JsonKey(name: 'Location_id')
-          final num? locationId,
-      @JsonKey(name: 'Location_name')
-          final String? locationName,
-      @JsonKey(name: 'SubCategory_id')
-          final num? subCategoryId,
-      @JsonKey(name: 'sscat_id')
-          final num? sscatId,
-      @JsonKey(name: 'sscategory_Name')
-          final String? sscategoryName,
-      @JsonKey(name: 'DoctorExperience_Years')
-          final num? experience,
-      @JsonKey(name: 'Recommendations')
-          final String? recommendations,
-      @JsonKey(name: 'Doctor_Description')
-          final String? description,
-      @JsonKey(name: 'Doctor_Image')
-          final String? image,
-      @JsonKey(name: 'Doctor_Age')
-          final int? age,
-      @JsonKey(name: 'Doctor_PhoneNumber')
-          final String? phone,
-      @JsonKey(name: 'SubCategory_Name')
-          final String? subCategoryName,
-      @JsonKey(name: 'SubCategory_Name_temp')
-          final String? subCategoryNameTemp,
-      @JsonKey(name: 'Doctor_Address')
-          final String? address,
-      @JsonKey(name: 'type')
-          final String? type,
-      @JsonKey(name: 'ClinicDoctorFee')
-          final num? clinicDoctorFee,
-      @JsonKey(name: 'Type_Flag')
-          final String? typeFlag,
-      @JsonKey(name: 'Days')
-          final String? days,
-      @JsonKey(name: 'Dayslot')
-          final String? daysTotal,
-      @JsonKey(name: 'Clinic_Images')
-          final String? clinicImages,
-      @JsonKey(name: 'CImage')
-          final String? cImage,
-      @JsonKey(name: 'FromTime')
-          final String? fromTime,
-      @JsonKey(name: 'ToTime')
-          final String? toTime,
-      @JsonKey(name: 'Doctor_Email')
-          final String? email,
-      @JsonKey(name: 'EMail_Id')
-          final String? emailId,
-      @JsonKey(name: 'Password')
-          final String? password,
-      @JsonKey(name: 'Hospital_List')
-          final String? hospitalList,
-      @JsonKey(name: 'subcatlist')
-          final String? subCatList,
-      @JsonKey(name: 'LocationNewList')
-          final String? locationNewList,
-      @JsonKey(name: 'Between_Distance')
-          final num? betweenDistance,
-      @JsonKey(name: 'service_id')
-          final num? serviceId,
-      @JsonKey(name: 'service_name')
-          final String? serviceName,
-      @JsonKey(name: 'endorse_list')
-          final String? endorseList,
-      @JsonKey(name: 'cancel_flag')
-          final String? cancelFlag,
-      @JsonKey(name: 'clinicid')
-          final num? clinicId,
-      @JsonKey(name: 'clinicname')
-          final String? clinicName,
-      @JsonKey(name: 'clinicfee')
-          final num? clinicFee,
-      @JsonKey(name: 'Latitude')
-          final String? latitude,
-      @JsonKey(name: 'Longitude')
-          final String? longitude,
-      @JsonKey(name: 'Hospital_Name')
-          final String? hospitalName,
-      @JsonKey(name: 'Hospital_Number')
-          final String? hospitalNumber,
-      @JsonKey(name: 'Country_Id')
-          final num? countryId,
-      @JsonKey(name: 'Clinic_Model')
-          final String? clinicModel,
-      @JsonKey(name: 'Doctor_Url_With_Name')
-          final String? doctorUrlWithName,
-      @JsonKey(name: 'Doctor_URL_City')
-          final String? doctorUrlCity,
-      @JsonKey(name: 'Doctor_Designation')
-          final String? designation,
-      @JsonKey(name: 'Phone_Number')
-          final String? phoneNumber,
-      @JsonKey(name: 'Language_Name')
-          final String? languageName,
-      @JsonKey(name: 'Watsapp_Number')
-          final String? whatsapp,
-      @JsonKey(name: 'Patient_Id')
-          final dynamic patientid,
+      {@JsonKey(name: 'Doctor_id') final dynamic id,
+      @JsonKey(name: 'User_id') final dynamic userId,
+      @JsonKey(name: 'BookCheck') final String? bookCheck,
+      @JsonKey(name: 'Gender') final int? gender,
+      @JsonKey(name: 'Registrations') final String? registration,
+      @JsonKey(name: 'PClaim_id') final num? pClainId,
+      @JsonKey(name: 'PDoctor_Name') final num? pDoctorName,
+      @JsonKey(name: 'PHospital_Name') final num? pHospitalName,
+      @JsonKey(name: 'PDoctor_Image') final num? pDoctorImage,
+      @JsonKey(name: 'PAppointment_Schedule') final num? pAppointmentSchedule,
+      @JsonKey(name: 'PConsultation_Fee') final num? pConsulationFee,
+      @JsonKey(name: 'PFlag') final String? pFlag,
+      @JsonKey(name: 'FeedBack') final num? feedback,
+      @JsonKey(name: 'SubList') final String? subList,
+      @JsonKey(name: 'eclinic_Flag') final String? eClinicFlag,
+      @JsonKey(name: 'CityListDisplay') final String? cityListDisplay,
+      @JsonKey(name: 'City_NameTmp') final String? cityNameTmp,
+      @JsonKey(name: 'City_Name') final String? cityName,
+      @JsonKey(name: 'City_id') final num? cityId,
+      @JsonKey(name: 'Location_Name_Temp') final String? locationNameTemp,
+      @JsonKey(name: 'URL_String') final String? urlString,
+      @JsonKey(name: 'Specialization') final String? specialization,
+      @JsonKey(name: 'Doctor_Name') final String? fullName,
+      @JsonKey(name: 'Name') final String? name,
+      @JsonKey(name: 'Doctor_Name_temp') final String? nameTemp,
+      @JsonKey(name: 'Doctor_Qualification') final String? doctorQualification,
+      @JsonKey(name: 'Qualification') final String? qualification,
+      @JsonKey(name: 'Location_id') final num? locationId,
+      @JsonKey(name: 'Location_name') final String? locationName,
+      @JsonKey(name: 'SubCategory_id') final num? subCategoryId,
+      @JsonKey(name: 'sscat_id') final num? sscatId,
+      @JsonKey(name: 'sscategory_Name') final String? sscategoryName,
+      @JsonKey(name: 'DoctorExperience_Years') final num? experience,
+      @JsonKey(name: 'Recommendations') final String? recommendations,
+      @JsonKey(name: 'Doctor_Description') final String? description,
+      @JsonKey(name: 'Doctor_Image') final String? image,
+      @JsonKey(name: 'Doctor_Age') final int? age,
+      @JsonKey(name: 'Doctor_PhoneNumber') final String? phone,
+      @JsonKey(name: 'SubCategory_Name') final String? subCategoryName,
+      @JsonKey(name: 'SubCategory_Name_temp') final String? subCategoryNameTemp,
+      @JsonKey(name: 'Doctor_Address') final String? address,
+      @JsonKey(name: 'type') final String? type,
+      @JsonKey(name: 'ClinicDoctorFee') final num? clinicDoctorFee,
+      @JsonKey(name: 'Type_Flag') final String? typeFlag,
+      @JsonKey(name: 'Days') final String? days,
+      @JsonKey(name: 'Dayslot') final String? daysTotal,
+      @JsonKey(name: 'Clinic_Images') final String? clinicImages,
+      @JsonKey(name: 'CImage') final String? cImage,
+      @JsonKey(name: 'FromTime') final String? fromTime,
+      @JsonKey(name: 'ToTime') final String? toTime,
+      @JsonKey(name: 'Doctor_Email') final String? email,
+      @JsonKey(name: 'EMail_Id') final String? emailId,
+      @JsonKey(name: 'Password') final String? password,
+      @JsonKey(name: 'Hospital_List') final String? hospitalList,
+      @JsonKey(name: 'subcatlist') final String? subCatList,
+      @JsonKey(name: 'LocationNewList') final String? locationNewList,
+      @JsonKey(name: 'Between_Distance') final num? betweenDistance,
+      @JsonKey(name: 'service_id') final num? serviceId,
+      @JsonKey(name: 'service_name') final String? serviceName,
+      @JsonKey(name: 'endorse_list') final String? endorseList,
+      @JsonKey(name: 'cancel_flag') final String? cancelFlag,
+      @JsonKey(name: 'clinicid') final num? clinicId,
+      @JsonKey(name: 'clinicname') final String? clinicName,
+      @JsonKey(name: 'clinicfee') final num? clinicFee,
+      @JsonKey(name: 'Latitude') final String? latitude,
+      @JsonKey(name: 'Longitude') final String? longitude,
+      @JsonKey(name: 'Hospital_Name') final String? hospitalName,
+      @JsonKey(name: 'Hospital_Number') final String? hospitalNumber,
+      @JsonKey(name: 'Country_Id') final num? countryId,
+      @JsonKey(name: 'Clinic_Model') final String? clinicModel,
+      @JsonKey(name: 'Doctor_Url_With_Name') final String? doctorUrlWithName,
+      @JsonKey(name: 'Doctor_URL_City') final String? doctorUrlCity,
+      @JsonKey(name: 'Doctor_Designation') final String? designation,
+      @JsonKey(name: 'Phone_Number') final String? phoneNumber,
+      @JsonKey(name: 'Language_Name') final String? languageName,
+      @JsonKey(name: 'Watsapp_Number') final String? whatsapp,
+      @JsonKey(name: 'Patient_Id') final dynamic patientid,
       @JsonKey(name: 'Patient_Registration_Number')
-          final dynamic patientregistrationnumber,
-      @JsonKey(name: 'First_Name')
-          final dynamic firstname,
-      @JsonKey(name: 'Last_Name')
-          final dynamic lastname,
-      @JsonKey(name: 'DOB')
-          final dynamic dob,
-      @JsonKey(name: 'Age')
-          final dynamic patientage,
-      @JsonKey(name: 'Image')
-          final dynamic patientImage,
-      @JsonKey(name: 'Time_in_Therapeutic_Ratio')
-          final dynamic TTR,
-      @JsonKey(name: 'Traget_INR_From')
-          final dynamic TTRfrom,
-      @JsonKey(name: 'Traget_INR_To')
-          final dynamic TTRto,
-      @JsonKey(name: 'Date')
-          final dynamic date,
-      @JsonKey(name: 'Doctor_ActiveFlag')
-          final dynamic doctorActivationflag,
-      @JsonKey(name: 'Patient_ActiveFlag')
-          final dynamic patientActivationflag,
+      final dynamic patientregistrationnumber,
+      @JsonKey(name: 'First_Name') final dynamic firstname,
+      @JsonKey(name: 'Last_Name') final dynamic lastname,
+      @JsonKey(name: 'DOB') final dynamic dob,
+      @JsonKey(name: 'Age') final dynamic patientage,
+      @JsonKey(name: 'Image') final dynamic patientImage,
+      @JsonKey(name: 'Time_in_Therapeutic_Ratio') final dynamic TTR,
+      @JsonKey(name: 'Traget_INR_From') final dynamic TTRfrom,
+      @JsonKey(name: 'Traget_INR_To') final dynamic TTRto,
+      @JsonKey(name: 'Date') final dynamic date,
+      @JsonKey(name: 'Doctor_ActiveFlag') final dynamic doctorActivationflag,
+      @JsonKey(name: 'Patient_ActiveFlag') final dynamic patientActivationflag,
       @JsonKey(name: 'PatientRegistration_list')
-          final dynamic patientRegistrationlist}) = _$_User;
+      final dynamic patientRegistrationlist}) = _$UserImpl;
 
-  factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
+  factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
   @override
   @JsonKey(name: 'Doctor_id')
@@ -2687,5 +2338,6 @@ abstract class _User implements User {
   dynamic get patientRegistrationlist;
   @override
   @JsonKey(ignore: true)
-  _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
+  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'order_cart_item.dart';
 
@@ -12,7 +12,7 @@ part of 'order_cart_item.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 OrderCartItem _$OrderCartItemFromJson(Map<String, dynamic> json) {
   return _OrderCartItem.fromJson(json);
@@ -63,24 +63,24 @@ class _$OrderCartItemCopyWithImpl<$Res, $Val extends OrderCartItem>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Cart_id = null,
-    Object? Product_id = null,
-    Object? Product_Name = null,
+    Object? Cart_id = freezed,
+    Object? Product_id = freezed,
+    Object? Product_Name = freezed,
     Object? Qty = null,
-    Object? Product_mrp = null,
-    Object? Product_Price = null,
-    Object? User_id = null,
+    Object? Product_mrp = freezed,
+    Object? Product_Price = freezed,
+    Object? User_id = freezed,
   }) {
     return _then(_value.copyWith(
-      Cart_id: null == Cart_id
+      Cart_id: freezed == Cart_id
           ? _value.Cart_id
           : Cart_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Product_id: null == Product_id
+      Product_id: freezed == Product_id
           ? _value.Product_id
           : Product_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Product_Name: null == Product_Name
+      Product_Name: freezed == Product_Name
           ? _value.Product_Name
           : Product_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -88,15 +88,15 @@ class _$OrderCartItemCopyWithImpl<$Res, $Val extends OrderCartItem>
           ? _value.Qty
           : Qty // ignore: cast_nullable_to_non_nullable
               as int,
-      Product_mrp: null == Product_mrp
+      Product_mrp: freezed == Product_mrp
           ? _value.Product_mrp
           : Product_mrp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Product_Price: null == Product_Price
+      Product_Price: freezed == Product_Price
           ? _value.Product_Price
           : Product_Price // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_id: null == User_id
+      User_id: freezed == User_id
           ? _value.User_id
           : User_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -105,11 +105,11 @@ class _$OrderCartItemCopyWithImpl<$Res, $Val extends OrderCartItem>
 }
 
 /// @nodoc
-abstract class _$$_OrderCartItemCopyWith<$Res>
+abstract class _$$OrderCartItemImplCopyWith<$Res>
     implements $OrderCartItemCopyWith<$Res> {
-  factory _$$_OrderCartItemCopyWith(
-          _$_OrderCartItem value, $Res Function(_$_OrderCartItem) then) =
-      __$$_OrderCartItemCopyWithImpl<$Res>;
+  factory _$$OrderCartItemImplCopyWith(
+          _$OrderCartItemImpl value, $Res Function(_$OrderCartItemImpl) then) =
+      __$$OrderCartItemImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -123,34 +123,34 @@ abstract class _$$_OrderCartItemCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_OrderCartItemCopyWithImpl<$Res>
-    extends _$OrderCartItemCopyWithImpl<$Res, _$_OrderCartItem>
-    implements _$$_OrderCartItemCopyWith<$Res> {
-  __$$_OrderCartItemCopyWithImpl(
-      _$_OrderCartItem _value, $Res Function(_$_OrderCartItem) _then)
+class __$$OrderCartItemImplCopyWithImpl<$Res>
+    extends _$OrderCartItemCopyWithImpl<$Res, _$OrderCartItemImpl>
+    implements _$$OrderCartItemImplCopyWith<$Res> {
+  __$$OrderCartItemImplCopyWithImpl(
+      _$OrderCartItemImpl _value, $Res Function(_$OrderCartItemImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Cart_id = null,
-    Object? Product_id = null,
-    Object? Product_Name = null,
+    Object? Cart_id = freezed,
+    Object? Product_id = freezed,
+    Object? Product_Name = freezed,
     Object? Qty = null,
-    Object? Product_mrp = null,
-    Object? Product_Price = null,
-    Object? User_id = null,
+    Object? Product_mrp = freezed,
+    Object? Product_Price = freezed,
+    Object? User_id = freezed,
   }) {
-    return _then(_$_OrderCartItem(
-      Cart_id: null == Cart_id
+    return _then(_$OrderCartItemImpl(
+      Cart_id: freezed == Cart_id
           ? _value.Cart_id
           : Cart_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Product_id: null == Product_id
+      Product_id: freezed == Product_id
           ? _value.Product_id
           : Product_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Product_Name: null == Product_Name
+      Product_Name: freezed == Product_Name
           ? _value.Product_Name
           : Product_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -158,15 +158,15 @@ class __$$_OrderCartItemCopyWithImpl<$Res>
           ? _value.Qty
           : Qty // ignore: cast_nullable_to_non_nullable
               as int,
-      Product_mrp: null == Product_mrp
+      Product_mrp: freezed == Product_mrp
           ? _value.Product_mrp
           : Product_mrp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Product_Price: null == Product_Price
+      Product_Price: freezed == Product_Price
           ? _value.Product_Price
           : Product_Price // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_id: null == User_id
+      User_id: freezed == User_id
           ? _value.User_id
           : User_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -176,8 +176,8 @@ class __$$_OrderCartItemCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_OrderCartItem implements _OrderCartItem {
-  const _$_OrderCartItem(
+class _$OrderCartItemImpl implements _OrderCartItem {
+  const _$OrderCartItemImpl(
       {this.Cart_id = null,
       this.Product_id = null,
       this.Product_Name = null,
@@ -186,8 +186,8 @@ class _$_OrderCartItem implements _OrderCartItem {
       this.Product_Price = null,
       this.User_id = null});
 
-  factory _$_OrderCartItem.fromJson(Map<String, dynamic> json) =>
-      _$$_OrderCartItemFromJson(json);
+  factory _$OrderCartItemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OrderCartItemImplFromJson(json);
 
   @override
   @JsonKey()
@@ -217,10 +217,10 @@ class _$_OrderCartItem implements _OrderCartItem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OrderCartItem &&
+            other is _$OrderCartItemImpl &&
             const DeepCollectionEquality().equals(other.Cart_id, Cart_id) &&
             const DeepCollectionEquality()
                 .equals(other.Product_id, Product_id) &&
@@ -249,12 +249,12 @@ class _$_OrderCartItem implements _OrderCartItem {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OrderCartItemCopyWith<_$_OrderCartItem> get copyWith =>
-      __$$_OrderCartItemCopyWithImpl<_$_OrderCartItem>(this, _$identity);
+  _$$OrderCartItemImplCopyWith<_$OrderCartItemImpl> get copyWith =>
+      __$$OrderCartItemImplCopyWithImpl<_$OrderCartItemImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OrderCartItemToJson(
+    return _$$OrderCartItemImplToJson(
       this,
     );
   }
@@ -268,10 +268,10 @@ abstract class _OrderCartItem implements OrderCartItem {
       final int Qty,
       final dynamic Product_mrp,
       final dynamic Product_Price,
-      final dynamic User_id}) = _$_OrderCartItem;
+      final dynamic User_id}) = _$OrderCartItemImpl;
 
   factory _OrderCartItem.fromJson(Map<String, dynamic> json) =
-      _$_OrderCartItem.fromJson;
+      _$OrderCartItemImpl.fromJson;
 
   @override
   dynamic get Cart_id;
@@ -289,6 +289,6 @@ abstract class _OrderCartItem implements OrderCartItem {
   dynamic get User_id;
   @override
   @JsonKey(ignore: true)
-  _$$_OrderCartItemCopyWith<_$_OrderCartItem> get copyWith =>
+  _$$OrderCartItemImplCopyWith<_$OrderCartItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

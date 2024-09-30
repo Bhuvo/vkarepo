@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'saved_presc.dart';
 
@@ -12,7 +12,7 @@ part of 'saved_presc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SavedPrescription _$SavedPrescriptionFromJson(Map<String, dynamic> json) {
   return _SavedPrescription.fromJson(json);
@@ -175,11 +175,11 @@ class _$SavedPrescriptionCopyWithImpl<$Res, $Val extends SavedPrescription>
 }
 
 /// @nodoc
-abstract class _$$_SavedPrescriptionCopyWith<$Res>
+abstract class _$$SavedPrescriptionImplCopyWith<$Res>
     implements $SavedPrescriptionCopyWith<$Res> {
-  factory _$$_SavedPrescriptionCopyWith(_$_SavedPrescription value,
-          $Res Function(_$_SavedPrescription) then) =
-      __$$_SavedPrescriptionCopyWithImpl<$Res>;
+  factory _$$SavedPrescriptionImplCopyWith(_$SavedPrescriptionImpl value,
+          $Res Function(_$SavedPrescriptionImpl) then) =
+      __$$SavedPrescriptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -203,11 +203,11 @@ abstract class _$$_SavedPrescriptionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SavedPrescriptionCopyWithImpl<$Res>
-    extends _$SavedPrescriptionCopyWithImpl<$Res, _$_SavedPrescription>
-    implements _$$_SavedPrescriptionCopyWith<$Res> {
-  __$$_SavedPrescriptionCopyWithImpl(
-      _$_SavedPrescription _value, $Res Function(_$_SavedPrescription) _then)
+class __$$SavedPrescriptionImplCopyWithImpl<$Res>
+    extends _$SavedPrescriptionCopyWithImpl<$Res, _$SavedPrescriptionImpl>
+    implements _$$SavedPrescriptionImplCopyWith<$Res> {
+  __$$SavedPrescriptionImplCopyWithImpl(_$SavedPrescriptionImpl _value,
+      $Res Function(_$SavedPrescriptionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -231,7 +231,7 @@ class __$$_SavedPrescriptionCopyWithImpl<$Res>
     Object? Pres_Name = freezed,
     Object? ListPresc = freezed,
   }) {
-    return _then(_$_SavedPrescription(
+    return _then(_$SavedPrescriptionImpl(
       Prescription_id: freezed == Prescription_id
           ? _value.Prescription_id
           : Prescription_id // ignore: cast_nullable_to_non_nullable
@@ -306,8 +306,8 @@ class __$$_SavedPrescriptionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SavedPrescription implements _SavedPrescription {
-  const _$_SavedPrescription(
+class _$SavedPrescriptionImpl implements _SavedPrescription {
+  const _$SavedPrescriptionImpl(
       {this.Prescription_id,
       this.Doctor_Notes,
       this.Drug_id,
@@ -327,8 +327,8 @@ class _$_SavedPrescription implements _SavedPrescription {
       final List<SavedPrescription>? ListPresc = null})
       : _ListPresc = ListPresc;
 
-  factory _$_SavedPrescription.fromJson(Map<String, dynamic> json) =>
-      _$$_SavedPrescriptionFromJson(json);
+  factory _$SavedPrescriptionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SavedPrescriptionImplFromJson(json);
 
   @override
   final String? Prescription_id;
@@ -368,6 +368,7 @@ class _$_SavedPrescription implements _SavedPrescription {
   List<SavedPrescription>? get ListPresc {
     final value = _ListPresc;
     if (value == null) return null;
+    if (_ListPresc is EqualUnmodifiableListView) return _ListPresc;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -378,10 +379,10 @@ class _$_SavedPrescription implements _SavedPrescription {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SavedPrescription &&
+            other is _$SavedPrescriptionImpl &&
             (identical(other.Prescription_id, Prescription_id) ||
                 other.Prescription_id == Prescription_id) &&
             (identical(other.Doctor_Notes, Doctor_Notes) ||
@@ -437,13 +438,13 @@ class _$_SavedPrescription implements _SavedPrescription {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SavedPrescriptionCopyWith<_$_SavedPrescription> get copyWith =>
-      __$$_SavedPrescriptionCopyWithImpl<_$_SavedPrescription>(
+  _$$SavedPrescriptionImplCopyWith<_$SavedPrescriptionImpl> get copyWith =>
+      __$$SavedPrescriptionImplCopyWithImpl<_$SavedPrescriptionImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SavedPrescriptionToJson(
+    return _$$SavedPrescriptionImplToJson(
       this,
     );
   }
@@ -467,10 +468,10 @@ abstract class _SavedPrescription implements SavedPrescription {
       final String? AfternoonTime,
       final String? NightTime,
       final String? Pres_Name,
-      final List<SavedPrescription>? ListPresc}) = _$_SavedPrescription;
+      final List<SavedPrescription>? ListPresc}) = _$SavedPrescriptionImpl;
 
   factory _SavedPrescription.fromJson(Map<String, dynamic> json) =
-      _$_SavedPrescription.fromJson;
+      _$SavedPrescriptionImpl.fromJson;
 
   @override
   String? get Prescription_id;
@@ -508,6 +509,6 @@ abstract class _SavedPrescription implements SavedPrescription {
   List<SavedPrescription>? get ListPresc;
   @override
   @JsonKey(ignore: true)
-  _$$_SavedPrescriptionCopyWith<_$_SavedPrescription> get copyWith =>
+  _$$SavedPrescriptionImplCopyWith<_$SavedPrescriptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'api_response.dart';
 
@@ -12,7 +12,7 @@ part of 'api_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ApiResponse _$ApiResponseFromJson(Map<String, dynamic> json) {
   return _ApiResponse.fromJson(json);
@@ -71,39 +71,39 @@ class _$ApiResponseCopyWithImpl<$Res, $Val extends ApiResponse>
   @override
   $Res call({
     Object? message = freezed,
-    Object? Rmessage = null,
-    Object? Rkey = null,
-    Object? code = null,
-    Object? Rcode = null,
-    Object? R = null,
-    Object? data = null,
+    Object? Rmessage = freezed,
+    Object? Rkey = freezed,
+    Object? code = freezed,
+    Object? Rcode = freezed,
+    Object? R = freezed,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      Rmessage: null == Rmessage
+      Rmessage: freezed == Rmessage
           ? _value.Rmessage
           : Rmessage // ignore: cast_nullable_to_non_nullable
               as dynamic?,
-      Rkey: null == Rkey
+      Rkey: freezed == Rkey
           ? _value.Rkey
           : Rkey // ignore: cast_nullable_to_non_nullable
               as dynamic?,
-      code: null == code
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as dynamic?,
-      Rcode: null == Rcode
+      Rcode: freezed == Rcode
           ? _value.Rcode
           : Rcode // ignore: cast_nullable_to_non_nullable
               as dynamic?,
-      R: null == R
+      R: freezed == R
           ? _value.R
           : R // ignore: cast_nullable_to_non_nullable
               as dynamic?,
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -112,11 +112,11 @@ class _$ApiResponseCopyWithImpl<$Res, $Val extends ApiResponse>
 }
 
 /// @nodoc
-abstract class _$$_ApiResponseCopyWith<$Res>
+abstract class _$$ApiResponseImplCopyWith<$Res>
     implements $ApiResponseCopyWith<$Res> {
-  factory _$$_ApiResponseCopyWith(
-          _$_ApiResponse value, $Res Function(_$_ApiResponse) then) =
-      __$$_ApiResponseCopyWithImpl<$Res>;
+  factory _$$ApiResponseImplCopyWith(
+          _$ApiResponseImpl value, $Res Function(_$ApiResponseImpl) then) =
+      __$$ApiResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -130,50 +130,50 @@ abstract class _$$_ApiResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ApiResponseCopyWithImpl<$Res>
-    extends _$ApiResponseCopyWithImpl<$Res, _$_ApiResponse>
-    implements _$$_ApiResponseCopyWith<$Res> {
-  __$$_ApiResponseCopyWithImpl(
-      _$_ApiResponse _value, $Res Function(_$_ApiResponse) _then)
+class __$$ApiResponseImplCopyWithImpl<$Res>
+    extends _$ApiResponseCopyWithImpl<$Res, _$ApiResponseImpl>
+    implements _$$ApiResponseImplCopyWith<$Res> {
+  __$$ApiResponseImplCopyWithImpl(
+      _$ApiResponseImpl _value, $Res Function(_$ApiResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
-    Object? Rmessage = null,
-    Object? Rkey = null,
-    Object? code = null,
-    Object? Rcode = null,
-    Object? R = null,
-    Object? data = null,
+    Object? Rmessage = freezed,
+    Object? Rkey = freezed,
+    Object? code = freezed,
+    Object? Rcode = freezed,
+    Object? R = freezed,
+    Object? data = freezed,
   }) {
-    return _then(_$_ApiResponse(
+    return _then(_$ApiResponseImpl(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      Rmessage: null == Rmessage
+      Rmessage: freezed == Rmessage
           ? _value.Rmessage
           : Rmessage // ignore: cast_nullable_to_non_nullable
               as dynamic?,
-      Rkey: null == Rkey
+      Rkey: freezed == Rkey
           ? _value.Rkey
           : Rkey // ignore: cast_nullable_to_non_nullable
               as dynamic?,
-      code: null == code
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as dynamic?,
-      Rcode: null == Rcode
+      Rcode: freezed == Rcode
           ? _value.Rcode
           : Rcode // ignore: cast_nullable_to_non_nullable
               as dynamic?,
-      R: null == R
+      R: freezed == R
           ? _value.R
           : R // ignore: cast_nullable_to_non_nullable
               as dynamic?,
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -183,8 +183,8 @@ class __$$_ApiResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApiResponse implements _ApiResponse {
-  const _$_ApiResponse(
+class _$ApiResponseImpl implements _ApiResponse {
+  const _$ApiResponseImpl(
       {@JsonKey(name: 'ResponseMessage') this.message,
       @JsonKey(name: 'Message') this.Rmessage,
       @JsonKey(name: 'Key') this.Rkey,
@@ -193,8 +193,8 @@ class _$_ApiResponse implements _ApiResponse {
       @JsonKey(name: 'R') this.R,
       @JsonKey(name: 'Data') this.data = null});
 
-  factory _$_ApiResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_ApiResponseFromJson(json);
+  factory _$ApiResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApiResponseImplFromJson(json);
 
   @override
   @JsonKey(name: 'ResponseMessage')
@@ -224,10 +224,10 @@ class _$_ApiResponse implements _ApiResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApiResponse &&
+            other is _$ApiResponseImpl &&
             (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality().equals(other.Rmessage, Rmessage) &&
             const DeepCollectionEquality().equals(other.Rkey, Rkey) &&
@@ -252,12 +252,12 @@ class _$_ApiResponse implements _ApiResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApiResponseCopyWith<_$_ApiResponse> get copyWith =>
-      __$$_ApiResponseCopyWithImpl<_$_ApiResponse>(this, _$identity);
+  _$$ApiResponseImplCopyWith<_$ApiResponseImpl> get copyWith =>
+      __$$ApiResponseImplCopyWithImpl<_$ApiResponseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApiResponseToJson(
+    return _$$ApiResponseImplToJson(
       this,
     );
   }
@@ -271,10 +271,10 @@ abstract class _ApiResponse implements ApiResponse {
       @JsonKey(name: 'ResponseCode') final dynamic? code,
       @JsonKey(name: 'Responsecode') final dynamic? Rcode,
       @JsonKey(name: 'R') final dynamic? R,
-      @JsonKey(name: 'Data') final dynamic data}) = _$_ApiResponse;
+      @JsonKey(name: 'Data') final dynamic data}) = _$ApiResponseImpl;
 
   factory _ApiResponse.fromJson(Map<String, dynamic> json) =
-      _$_ApiResponse.fromJson;
+      _$ApiResponseImpl.fromJson;
 
   @override
   @JsonKey(name: 'ResponseMessage')
@@ -299,6 +299,6 @@ abstract class _ApiResponse implements ApiResponse {
   dynamic get data;
   @override
   @JsonKey(ignore: true)
-  _$$_ApiResponseCopyWith<_$_ApiResponse> get copyWith =>
+  _$$ApiResponseImplCopyWith<_$ApiResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

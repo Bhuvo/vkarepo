@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'appointment_response.dart';
 
@@ -12,7 +12,7 @@ part of 'appointment_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 AppointmentResponse _$AppointmentResponseFromJson(Map<String, dynamic> json) {
   return _AppointmentResponse.fromJson(json);
@@ -39,9 +39,9 @@ abstract class $AppointmentResponseCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'PreviousAppointmentList')
-          List<AppointmentData>? previous,
+      List<AppointmentData>? previous,
       @JsonKey(name: 'UpcomingAppointmentList')
-          List<AppointmentData>? upcoming});
+      List<AppointmentData>? upcoming});
 }
 
 /// @nodoc
@@ -74,26 +74,26 @@ class _$AppointmentResponseCopyWithImpl<$Res, $Val extends AppointmentResponse>
 }
 
 /// @nodoc
-abstract class _$$_AppointmentResponseCopyWith<$Res>
+abstract class _$$AppointmentResponseImplCopyWith<$Res>
     implements $AppointmentResponseCopyWith<$Res> {
-  factory _$$_AppointmentResponseCopyWith(_$_AppointmentResponse value,
-          $Res Function(_$_AppointmentResponse) then) =
-      __$$_AppointmentResponseCopyWithImpl<$Res>;
+  factory _$$AppointmentResponseImplCopyWith(_$AppointmentResponseImpl value,
+          $Res Function(_$AppointmentResponseImpl) then) =
+      __$$AppointmentResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@JsonKey(name: 'PreviousAppointmentList')
-          List<AppointmentData>? previous,
+      List<AppointmentData>? previous,
       @JsonKey(name: 'UpcomingAppointmentList')
-          List<AppointmentData>? upcoming});
+      List<AppointmentData>? upcoming});
 }
 
 /// @nodoc
-class __$$_AppointmentResponseCopyWithImpl<$Res>
-    extends _$AppointmentResponseCopyWithImpl<$Res, _$_AppointmentResponse>
-    implements _$$_AppointmentResponseCopyWith<$Res> {
-  __$$_AppointmentResponseCopyWithImpl(_$_AppointmentResponse _value,
-      $Res Function(_$_AppointmentResponse) _then)
+class __$$AppointmentResponseImplCopyWithImpl<$Res>
+    extends _$AppointmentResponseCopyWithImpl<$Res, _$AppointmentResponseImpl>
+    implements _$$AppointmentResponseImplCopyWith<$Res> {
+  __$$AppointmentResponseImplCopyWithImpl(_$AppointmentResponseImpl _value,
+      $Res Function(_$AppointmentResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +102,7 @@ class __$$_AppointmentResponseCopyWithImpl<$Res>
     Object? previous = freezed,
     Object? upcoming = freezed,
   }) {
-    return _then(_$_AppointmentResponse(
+    return _then(_$AppointmentResponseImpl(
       previous: freezed == previous
           ? _value._previous
           : previous // ignore: cast_nullable_to_non_nullable
@@ -117,17 +117,17 @@ class __$$_AppointmentResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AppointmentResponse implements _AppointmentResponse {
-  const _$_AppointmentResponse(
+class _$AppointmentResponseImpl implements _AppointmentResponse {
+  const _$AppointmentResponseImpl(
       {@JsonKey(name: 'PreviousAppointmentList')
-          final List<AppointmentData>? previous,
+      final List<AppointmentData>? previous,
       @JsonKey(name: 'UpcomingAppointmentList')
-          final List<AppointmentData>? upcoming})
+      final List<AppointmentData>? upcoming})
       : _previous = previous,
         _upcoming = upcoming;
 
-  factory _$_AppointmentResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_AppointmentResponseFromJson(json);
+  factory _$AppointmentResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppointmentResponseImplFromJson(json);
 
   final List<AppointmentData>? _previous;
   @override
@@ -135,6 +135,7 @@ class _$_AppointmentResponse implements _AppointmentResponse {
   List<AppointmentData>? get previous {
     final value = _previous;
     if (value == null) return null;
+    if (_previous is EqualUnmodifiableListView) return _previous;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -145,6 +146,7 @@ class _$_AppointmentResponse implements _AppointmentResponse {
   List<AppointmentData>? get upcoming {
     final value = _upcoming;
     if (value == null) return null;
+    if (_upcoming is EqualUnmodifiableListView) return _upcoming;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -155,10 +157,10 @@ class _$_AppointmentResponse implements _AppointmentResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppointmentResponse &&
+            other is _$AppointmentResponseImpl &&
             const DeepCollectionEquality().equals(other._previous, _previous) &&
             const DeepCollectionEquality().equals(other._upcoming, _upcoming));
   }
@@ -173,13 +175,13 @@ class _$_AppointmentResponse implements _AppointmentResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppointmentResponseCopyWith<_$_AppointmentResponse> get copyWith =>
-      __$$_AppointmentResponseCopyWithImpl<_$_AppointmentResponse>(
+  _$$AppointmentResponseImplCopyWith<_$AppointmentResponseImpl> get copyWith =>
+      __$$AppointmentResponseImplCopyWithImpl<_$AppointmentResponseImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AppointmentResponseToJson(
+    return _$$AppointmentResponseImplToJson(
       this,
     );
   }
@@ -188,12 +190,12 @@ class _$_AppointmentResponse implements _AppointmentResponse {
 abstract class _AppointmentResponse implements AppointmentResponse {
   const factory _AppointmentResponse(
       {@JsonKey(name: 'PreviousAppointmentList')
-          final List<AppointmentData>? previous,
+      final List<AppointmentData>? previous,
       @JsonKey(name: 'UpcomingAppointmentList')
-          final List<AppointmentData>? upcoming}) = _$_AppointmentResponse;
+      final List<AppointmentData>? upcoming}) = _$AppointmentResponseImpl;
 
   factory _AppointmentResponse.fromJson(Map<String, dynamic> json) =
-      _$_AppointmentResponse.fromJson;
+      _$AppointmentResponseImpl.fromJson;
 
   @override
   @JsonKey(name: 'PreviousAppointmentList')
@@ -203,6 +205,6 @@ abstract class _AppointmentResponse implements AppointmentResponse {
   List<AppointmentData>? get upcoming;
   @override
   @JsonKey(ignore: true)
-  _$$_AppointmentResponseCopyWith<_$_AppointmentResponse> get copyWith =>
+  _$$AppointmentResponseImplCopyWith<_$AppointmentResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

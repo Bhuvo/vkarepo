@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'doctor_event.dart';
 
@@ -12,7 +12,7 @@ part of 'doctor_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DoctorEvent _$DoctorEventFromJson(Map<String, dynamic> json) {
   return _DoctorEvent.fromJson(json);
@@ -79,80 +79,80 @@ class _$DoctorEventCopyWithImpl<$Res, $Val extends DoctorEvent>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? s_date = null,
-    Object? e_date = null,
-    Object? description = null,
-    Object? y = null,
-    Object? m = null,
-    Object? d = null,
-    Object? h = null,
-    Object? s = null,
-    Object? timeinterval = null,
-    Object? appid = null,
-    Object? type_flag = null,
-    Object? Pay_Status = null,
-    Object? Hospital_Name = null,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? s_date = freezed,
+    Object? e_date = freezed,
+    Object? description = freezed,
+    Object? y = freezed,
+    Object? m = freezed,
+    Object? d = freezed,
+    Object? h = freezed,
+    Object? s = freezed,
+    Object? timeinterval = freezed,
+    Object? appid = freezed,
+    Object? type_flag = freezed,
+    Object? Pay_Status = freezed,
+    Object? Hospital_Name = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      s_date: null == s_date
+      s_date: freezed == s_date
           ? _value.s_date
           : s_date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      e_date: null == e_date
+      e_date: freezed == e_date
           ? _value.e_date
           : e_date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      y: null == y
+      y: freezed == y
           ? _value.y
           : y // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      m: null == m
+      m: freezed == m
           ? _value.m
           : m // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      d: null == d
+      d: freezed == d
           ? _value.d
           : d // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      h: null == h
+      h: freezed == h
           ? _value.h
           : h // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      s: null == s
+      s: freezed == s
           ? _value.s
           : s // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      timeinterval: null == timeinterval
+      timeinterval: freezed == timeinterval
           ? _value.timeinterval
           : timeinterval // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      appid: null == appid
+      appid: freezed == appid
           ? _value.appid
           : appid // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      type_flag: null == type_flag
+      type_flag: freezed == type_flag
           ? _value.type_flag
           : type_flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Pay_Status: null == Pay_Status
+      Pay_Status: freezed == Pay_Status
           ? _value.Pay_Status
           : Pay_Status // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Name: null == Hospital_Name
+      Hospital_Name: freezed == Hospital_Name
           ? _value.Hospital_Name
           : Hospital_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -161,11 +161,11 @@ class _$DoctorEventCopyWithImpl<$Res, $Val extends DoctorEvent>
 }
 
 /// @nodoc
-abstract class _$$_DoctorEventCopyWith<$Res>
+abstract class _$$DoctorEventImplCopyWith<$Res>
     implements $DoctorEventCopyWith<$Res> {
-  factory _$$_DoctorEventCopyWith(
-          _$_DoctorEvent value, $Res Function(_$_DoctorEvent) then) =
-      __$$_DoctorEventCopyWithImpl<$Res>;
+  factory _$$DoctorEventImplCopyWith(
+          _$DoctorEventImpl value, $Res Function(_$DoctorEventImpl) then) =
+      __$$DoctorEventImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -187,90 +187,90 @@ abstract class _$$_DoctorEventCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DoctorEventCopyWithImpl<$Res>
-    extends _$DoctorEventCopyWithImpl<$Res, _$_DoctorEvent>
-    implements _$$_DoctorEventCopyWith<$Res> {
-  __$$_DoctorEventCopyWithImpl(
-      _$_DoctorEvent _value, $Res Function(_$_DoctorEvent) _then)
+class __$$DoctorEventImplCopyWithImpl<$Res>
+    extends _$DoctorEventCopyWithImpl<$Res, _$DoctorEventImpl>
+    implements _$$DoctorEventImplCopyWith<$Res> {
+  __$$DoctorEventImplCopyWithImpl(
+      _$DoctorEventImpl _value, $Res Function(_$DoctorEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? s_date = null,
-    Object? e_date = null,
-    Object? description = null,
-    Object? y = null,
-    Object? m = null,
-    Object? d = null,
-    Object? h = null,
-    Object? s = null,
-    Object? timeinterval = null,
-    Object? appid = null,
-    Object? type_flag = null,
-    Object? Pay_Status = null,
-    Object? Hospital_Name = null,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? s_date = freezed,
+    Object? e_date = freezed,
+    Object? description = freezed,
+    Object? y = freezed,
+    Object? m = freezed,
+    Object? d = freezed,
+    Object? h = freezed,
+    Object? s = freezed,
+    Object? timeinterval = freezed,
+    Object? appid = freezed,
+    Object? type_flag = freezed,
+    Object? Pay_Status = freezed,
+    Object? Hospital_Name = freezed,
   }) {
-    return _then(_$_DoctorEvent(
-      id: null == id
+    return _then(_$DoctorEventImpl(
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      s_date: null == s_date
+      s_date: freezed == s_date
           ? _value.s_date
           : s_date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      e_date: null == e_date
+      e_date: freezed == e_date
           ? _value.e_date
           : e_date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      y: null == y
+      y: freezed == y
           ? _value.y
           : y // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      m: null == m
+      m: freezed == m
           ? _value.m
           : m // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      d: null == d
+      d: freezed == d
           ? _value.d
           : d // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      h: null == h
+      h: freezed == h
           ? _value.h
           : h // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      s: null == s
+      s: freezed == s
           ? _value.s
           : s // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      timeinterval: null == timeinterval
+      timeinterval: freezed == timeinterval
           ? _value.timeinterval
           : timeinterval // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      appid: null == appid
+      appid: freezed == appid
           ? _value.appid
           : appid // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      type_flag: null == type_flag
+      type_flag: freezed == type_flag
           ? _value.type_flag
           : type_flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Pay_Status: null == Pay_Status
+      Pay_Status: freezed == Pay_Status
           ? _value.Pay_Status
           : Pay_Status // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Name: null == Hospital_Name
+      Hospital_Name: freezed == Hospital_Name
           ? _value.Hospital_Name
           : Hospital_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -280,8 +280,8 @@ class __$$_DoctorEventCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DoctorEvent implements _DoctorEvent {
-  const _$_DoctorEvent(
+class _$DoctorEventImpl implements _DoctorEvent {
+  const _$DoctorEventImpl(
       {this.id = null,
       this.title = null,
       this.s_date = null,
@@ -298,8 +298,8 @@ class _$_DoctorEvent implements _DoctorEvent {
       this.Pay_Status = null,
       this.Hospital_Name = null});
 
-  factory _$_DoctorEvent.fromJson(Map<String, dynamic> json) =>
-      _$$_DoctorEventFromJson(json);
+  factory _$DoctorEventImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DoctorEventImplFromJson(json);
 
   @override
   @JsonKey()
@@ -353,10 +353,10 @@ class _$_DoctorEvent implements _DoctorEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DoctorEvent &&
+            other is _$DoctorEventImpl &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.s_date, s_date) &&
@@ -401,12 +401,12 @@ class _$_DoctorEvent implements _DoctorEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DoctorEventCopyWith<_$_DoctorEvent> get copyWith =>
-      __$$_DoctorEventCopyWithImpl<_$_DoctorEvent>(this, _$identity);
+  _$$DoctorEventImplCopyWith<_$DoctorEventImpl> get copyWith =>
+      __$$DoctorEventImplCopyWithImpl<_$DoctorEventImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DoctorEventToJson(
+    return _$$DoctorEventImplToJson(
       this,
     );
   }
@@ -428,10 +428,10 @@ abstract class _DoctorEvent implements DoctorEvent {
       final dynamic appid,
       final dynamic type_flag,
       final dynamic Pay_Status,
-      final dynamic Hospital_Name}) = _$_DoctorEvent;
+      final dynamic Hospital_Name}) = _$DoctorEventImpl;
 
   factory _DoctorEvent.fromJson(Map<String, dynamic> json) =
-      _$_DoctorEvent.fromJson;
+      _$DoctorEventImpl.fromJson;
 
   @override
   dynamic get id;
@@ -465,6 +465,6 @@ abstract class _DoctorEvent implements DoctorEvent {
   dynamic get Hospital_Name;
   @override
   @JsonKey(ignore: true)
-  _$$_DoctorEventCopyWith<_$_DoctorEvent> get copyWith =>
+  _$$DoctorEventImplCopyWith<_$DoctorEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

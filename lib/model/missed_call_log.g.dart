@@ -6,8 +6,8 @@ part of 'missed_call_log.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MissedCallLog _$$_MissedCallLogFromJson(Map<String, dynamic> json) =>
-    _$_MissedCallLog(
+_$MissedCallLogImpl _$$MissedCallLogImplFromJson(Map<String, dynamic> json) =>
+    _$MissedCallLogImpl(
       User_id: json['User_id'] ?? '',
       User_Name: json['User_Name'] ?? '',
       Appointment_Date: json['Appointment_Date'] ?? '',
@@ -19,7 +19,7 @@ _$_MissedCallLog _$$_MissedCallLogFromJson(Map<String, dynamic> json) =>
       PatientImage: json['PatientImage'] ?? '',
     );
 
-Map<String, dynamic> _$$_MissedCallLogToJson(_$_MissedCallLog instance) =>
+Map<String, dynamic> _$$MissedCallLogImplToJson(_$MissedCallLogImpl instance) =>
     <String, dynamic>{
       'User_id': instance.User_id,
       'User_Name': instance.User_Name,

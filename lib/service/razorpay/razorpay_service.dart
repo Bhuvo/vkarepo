@@ -20,7 +20,7 @@ abstract class RazorpayService extends ChopperService {
 
   static RazorpayService create() {
     final client = ChopperClient(
-      baseUrl: Consts.BASE_URL,
+      baseUrl: Uri.parse(Consts.BASE_URL),
       services: [
         _$RazorpayService(),
       ],

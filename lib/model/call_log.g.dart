@@ -6,7 +6,8 @@ part of 'call_log.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CallLog _$$_CallLogFromJson(Map<String, dynamic> json) => _$_CallLog(
+_$CallLogImpl _$$CallLogImplFromJson(Map<String, dynamic> json) =>
+    _$CallLogImpl(
       CallStatus_Flag: json['CallStatus_Flag'] ?? null,
       CompNow_Flag: json['CompNow_Flag'] ?? null,
       reApp_Date: json['reApp_Date'] ?? null,
@@ -39,7 +40,7 @@ _$_CallLog _$$_CallLogFromJson(Map<String, dynamic> json) => _$_CallLog(
       CallendedBy_Patient: json['CallendedBy_Patient'] ?? null,
     );
 
-Map<String, dynamic> _$$_CallLogToJson(_$_CallLog instance) =>
+Map<String, dynamic> _$$CallLogImplToJson(_$CallLogImpl instance) =>
     <String, dynamic>{
       'CallStatus_Flag': instance.CallStatus_Flag,
       'CompNow_Flag': instance.CompNow_Flag,

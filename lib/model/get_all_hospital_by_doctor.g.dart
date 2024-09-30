@@ -6,14 +6,14 @@ part of 'get_all_hospital_by_doctor.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GetAllHospitalByDoctor _$$_GetAllHospitalByDoctorFromJson(
+_$GetAllHospitalByDoctorImpl _$$GetAllHospitalByDoctorImplFromJson(
         Map<String, dynamic> json) =>
-    _$_GetAllHospitalByDoctor(
-      doctorId: json['Doctor_Id'] as int?,
-      hospitalId: json['Hospital_id'] as int?,
+    _$GetAllHospitalByDoctorImpl(
+      doctorId: (json['Doctor_Id'] as num?)?.toInt(),
+      hospitalId: (json['Hospital_id'] as num?)?.toInt(),
       hospitalName: json['Hospital_Name'] as String?,
       urlString: json['URL_String'] ?? null,
-      locationId: json['Location_id'] as int?,
+      locationId: (json['Location_id'] as num?)?.toInt(),
       locationName: json['Location_Name'] as String?,
       cityName: json['City_Name'] as String?,
       hospitalUrlWithName: json['Hospital_Url_With_Name'] ?? null,
@@ -30,10 +30,10 @@ _$_GetAllHospitalByDoctor _$$_GetAllHospitalByDoctorFromJson(
       typeFlag: json['Type_Flag'] ?? null,
       cDate: json['C_Date'] as String?,
       updateDate: json['update_date'] ?? null,
-      cityId: json['City_id'] as int?,
+      cityId: (json['City_id'] as num?)?.toInt(),
       stateName: json['State_Name'] ?? null,
-      stateId: json['State_id'] as int?,
-      countryId: json['Country_id'] as int?,
+      stateId: (json['State_id'] as num?)?.toInt(),
+      countryId: (json['Country_id'] as num?)?.toInt(),
       countryList: json['Country_List'] ?? null,
       stateList: json['State_List'] ?? null,
       cityList: json['City_List'] ?? null,
@@ -52,8 +52,8 @@ _$_GetAllHospitalByDoctor _$$_GetAllHospitalByDoctorFromJson(
       mobileCountryCode: json['Mobile_country_code'] ?? null,
     );
 
-Map<String, dynamic> _$$_GetAllHospitalByDoctorToJson(
-        _$_GetAllHospitalByDoctor instance) =>
+Map<String, dynamic> _$$GetAllHospitalByDoctorImplToJson(
+        _$GetAllHospitalByDoctorImpl instance) =>
     <String, dynamic>{
       'Doctor_Id': instance.doctorId,
       'Hospital_id': instance.hospitalId,

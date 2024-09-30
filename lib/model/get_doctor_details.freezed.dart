@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'get_doctor_details.dart';
 
@@ -12,7 +12,7 @@ part of 'get_doctor_details.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 GetDoctorDetails _$GetDoctorDetailsFromJson(Map<String, dynamic> json) {
   return _GetDoctorDetails.fromJson(json);
@@ -152,124 +152,67 @@ abstract class $GetDoctorDetailsCopyWith<$Res> {
       _$GetDoctorDetailsCopyWithImpl<$Res, GetDoctorDetails>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'PRC_Number')
-          String? prcNumber,
-      @JsonKey(name: 'City_Id')
-          int? cityId,
-      @JsonKey(name: 'City_Name')
-          dynamic cityName,
-      @JsonKey(name: 'Language_Name')
-          dynamic languageName,
-      @JsonKey(name: 'Language_Id')
-          dynamic languageId,
-      @JsonKey(name: 'Middle_Name')
-          String? middleName,
-      @JsonKey(name: 'Last_Name')
-          String? lastName,
-      @JsonKey(name: 'URL')
-          dynamic url,
-      @JsonKey(name: 'Virtual')
-          dynamic virtual,
-      @JsonKey(name: 'Service')
-          dynamic service,
-      @JsonKey(name: 'Online')
-          String? online,
-      @JsonKey(name: 'AccountName')
-          String? accountName,
-      @JsonKey(name: 'BankName')
-          String? bankName,
-      @JsonKey(name: 'AccountNo')
-          String? accountNo,
-      @JsonKey(name: 'BranchName')
-          String? branchName,
-      @JsonKey(name: 'IFSCCode')
-          String? ifscCode,
-      @JsonKey(name: 'Hospital_id')
-          int? hospitalId,
-      @JsonKey(name: 'Hospital_Name')
-          dynamic hospitalName,
-      @JsonKey(name: 'Password')
-          String? password,
-      @JsonKey(name: 'Lat')
-          int? lat,
-      @JsonKey(name: 'DoctorCategory_id')
-          int? doctorCategoryId,
-      @JsonKey(name: 'DoctorCategory_Name')
-          String? doctorCategoryName,
-      @JsonKey(name: 'file')
-          dynamic file,
-      @JsonKey(name: 'Long')
-          int? long,
-      @JsonKey(name: 'Location_Name')
-          dynamic locationName,
-      @JsonKey(name: 'Category')
-          dynamic category,
-      @JsonKey(name: 'Doctor_id')
-          int? doctorId,
-      @JsonKey(name: 'Doctor_Name')
-          String? doctorName,
-      @JsonKey(name: 'QualificationName')
-          dynamic qualificationName,
-      @JsonKey(name: 'Doctor_Qualification')
-          String? doctorQualification,
-      @JsonKey(name: 'Location_id')
-          int? locationId,
-      @JsonKey(name: 'SubCategory_id')
-          String? subCategoryId,
-      @JsonKey(name: 'DoctorExperience_Years')
-          int? doctorExperienceYears,
-      @JsonKey(name: 'Recommendations')
-          int? recommendations,
-      @JsonKey(name: 'Doctor_Description')
-          String? doctorDescription,
-      @JsonKey(name: 'Doctor_Image')
-          String? doctorImage,
-      @JsonKey(name: 'Doctor_Age')
-          int? doctorAge,
-      @JsonKey(name: 'Doctor_PhoneNumber')
-          String? doctorPhoneNumber,
-      @JsonKey(name: 'SubCategory_Name')
-          dynamic subCategoryName,
-      @JsonKey(name: 'Doctor_Address')
-          String? doctorAddress,
-      @JsonKey(name: 'ClinicDoctorFee')
-          int? clinicDoctorFee,
-      @JsonKey(name: 'Type_Flag')
-          dynamic typeFlag,
-      @JsonKey(name: 'Days')
-          dynamic days,
-      @JsonKey(name: 'sscategory_Name')
-          dynamic sscategoryName,
-      @JsonKey(name: 'sscat_id')
-          int? sscatId,
-      @JsonKey(name: 'Email_id')
-          String? emailId,
-      @JsonKey(name: 'SubCat')
-          dynamic subCat,
-      @JsonKey(name: 'Gender')
-          String? gender,
-      @JsonKey(name: 'Status')
-          int? status,
-      @JsonKey(name: 'Flag')
-          dynamic flag,
+      {@JsonKey(name: 'PRC_Number') String? prcNumber,
+      @JsonKey(name: 'City_Id') int? cityId,
+      @JsonKey(name: 'City_Name') dynamic cityName,
+      @JsonKey(name: 'Language_Name') dynamic languageName,
+      @JsonKey(name: 'Language_Id') dynamic languageId,
+      @JsonKey(name: 'Middle_Name') String? middleName,
+      @JsonKey(name: 'Last_Name') String? lastName,
+      @JsonKey(name: 'URL') dynamic url,
+      @JsonKey(name: 'Virtual') dynamic virtual,
+      @JsonKey(name: 'Service') dynamic service,
+      @JsonKey(name: 'Online') String? online,
+      @JsonKey(name: 'AccountName') String? accountName,
+      @JsonKey(name: 'BankName') String? bankName,
+      @JsonKey(name: 'AccountNo') String? accountNo,
+      @JsonKey(name: 'BranchName') String? branchName,
+      @JsonKey(name: 'IFSCCode') String? ifscCode,
+      @JsonKey(name: 'Hospital_id') int? hospitalId,
+      @JsonKey(name: 'Hospital_Name') dynamic hospitalName,
+      @JsonKey(name: 'Password') String? password,
+      @JsonKey(name: 'Lat') int? lat,
+      @JsonKey(name: 'DoctorCategory_id') int? doctorCategoryId,
+      @JsonKey(name: 'DoctorCategory_Name') String? doctorCategoryName,
+      @JsonKey(name: 'file') dynamic file,
+      @JsonKey(name: 'Long') int? long,
+      @JsonKey(name: 'Location_Name') dynamic locationName,
+      @JsonKey(name: 'Category') dynamic category,
+      @JsonKey(name: 'Doctor_id') int? doctorId,
+      @JsonKey(name: 'Doctor_Name') String? doctorName,
+      @JsonKey(name: 'QualificationName') dynamic qualificationName,
+      @JsonKey(name: 'Doctor_Qualification') String? doctorQualification,
+      @JsonKey(name: 'Location_id') int? locationId,
+      @JsonKey(name: 'SubCategory_id') String? subCategoryId,
+      @JsonKey(name: 'DoctorExperience_Years') int? doctorExperienceYears,
+      @JsonKey(name: 'Recommendations') int? recommendations,
+      @JsonKey(name: 'Doctor_Description') String? doctorDescription,
+      @JsonKey(name: 'Doctor_Image') String? doctorImage,
+      @JsonKey(name: 'Doctor_Age') int? doctorAge,
+      @JsonKey(name: 'Doctor_PhoneNumber') String? doctorPhoneNumber,
+      @JsonKey(name: 'SubCategory_Name') dynamic subCategoryName,
+      @JsonKey(name: 'Doctor_Address') String? doctorAddress,
+      @JsonKey(name: 'ClinicDoctorFee') int? clinicDoctorFee,
+      @JsonKey(name: 'Type_Flag') dynamic typeFlag,
+      @JsonKey(name: 'Days') dynamic days,
+      @JsonKey(name: 'sscategory_Name') dynamic sscategoryName,
+      @JsonKey(name: 'sscat_id') int? sscatId,
+      @JsonKey(name: 'Email_id') String? emailId,
+      @JsonKey(name: 'SubCat') dynamic subCat,
+      @JsonKey(name: 'Gender') String? gender,
+      @JsonKey(name: 'Status') int? status,
+      @JsonKey(name: 'Flag') dynamic flag,
       @JsonKey(name: 'Doctor_Mobile_countrycode')
-          String? doctorMobileCountrycode,
+      String? doctorMobileCountrycode,
       @JsonKey(name: 'Doctor_QualificationCode')
-          dynamic doctorQualificationCode,
-      @JsonKey(name: 'Doctor_DOB')
-          String? doctorDob,
-      @JsonKey(name: 'Doctor_List')
-          dynamic doctorList,
-      @JsonKey(name: 'City_List')
-          dynamic cityList,
-      @JsonKey(name: 'Langugage_List')
-          dynamic langList,
-      @JsonKey(name: 'Doclist')
-          dynamic docList,
-      @JsonKey(name: 'QualificationList')
-          dynamic qualificationList,
-      @JsonKey(name: 'CategoryList')
-          dynamic categoryList});
+      dynamic doctorQualificationCode,
+      @JsonKey(name: 'Doctor_DOB') String? doctorDob,
+      @JsonKey(name: 'Doctor_List') dynamic doctorList,
+      @JsonKey(name: 'City_List') dynamic cityList,
+      @JsonKey(name: 'Langugage_List') dynamic langList,
+      @JsonKey(name: 'Doclist') dynamic docList,
+      @JsonKey(name: 'QualificationList') dynamic qualificationList,
+      @JsonKey(name: 'CategoryList') dynamic categoryList});
 }
 
 /// @nodoc
@@ -287,14 +230,14 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
   $Res call({
     Object? prcNumber = freezed,
     Object? cityId = freezed,
-    Object? cityName = null,
-    Object? languageName = null,
-    Object? languageId = null,
+    Object? cityName = freezed,
+    Object? languageName = freezed,
+    Object? languageId = freezed,
     Object? middleName = freezed,
     Object? lastName = freezed,
-    Object? url = null,
-    Object? virtual = null,
-    Object? service = null,
+    Object? url = freezed,
+    Object? virtual = freezed,
+    Object? service = freezed,
     Object? online = freezed,
     Object? accountName = freezed,
     Object? bankName = freezed,
@@ -302,18 +245,18 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
     Object? branchName = freezed,
     Object? ifscCode = freezed,
     Object? hospitalId = freezed,
-    Object? hospitalName = null,
+    Object? hospitalName = freezed,
     Object? password = freezed,
     Object? lat = freezed,
     Object? doctorCategoryId = freezed,
     Object? doctorCategoryName = freezed,
-    Object? file = null,
+    Object? file = freezed,
     Object? long = freezed,
-    Object? locationName = null,
-    Object? category = null,
+    Object? locationName = freezed,
+    Object? category = freezed,
     Object? doctorId = freezed,
     Object? doctorName = freezed,
-    Object? qualificationName = null,
+    Object? qualificationName = freezed,
     Object? doctorQualification = freezed,
     Object? locationId = freezed,
     Object? subCategoryId = freezed,
@@ -323,27 +266,27 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
     Object? doctorImage = freezed,
     Object? doctorAge = freezed,
     Object? doctorPhoneNumber = freezed,
-    Object? subCategoryName = null,
+    Object? subCategoryName = freezed,
     Object? doctorAddress = freezed,
     Object? clinicDoctorFee = freezed,
-    Object? typeFlag = null,
-    Object? days = null,
-    Object? sscategoryName = null,
+    Object? typeFlag = freezed,
+    Object? days = freezed,
+    Object? sscategoryName = freezed,
     Object? sscatId = freezed,
     Object? emailId = freezed,
-    Object? subCat = null,
+    Object? subCat = freezed,
     Object? gender = freezed,
     Object? status = freezed,
-    Object? flag = null,
+    Object? flag = freezed,
     Object? doctorMobileCountrycode = freezed,
-    Object? doctorQualificationCode = null,
+    Object? doctorQualificationCode = freezed,
     Object? doctorDob = freezed,
-    Object? doctorList = null,
-    Object? cityList = null,
-    Object? langList = null,
-    Object? docList = null,
-    Object? qualificationList = null,
-    Object? categoryList = null,
+    Object? doctorList = freezed,
+    Object? cityList = freezed,
+    Object? langList = freezed,
+    Object? docList = freezed,
+    Object? qualificationList = freezed,
+    Object? categoryList = freezed,
   }) {
     return _then(_value.copyWith(
       prcNumber: freezed == prcNumber
@@ -354,15 +297,15 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
           ? _value.cityId
           : cityId // ignore: cast_nullable_to_non_nullable
               as int?,
-      cityName: null == cityName
+      cityName: freezed == cityName
           ? _value.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      languageName: null == languageName
+      languageName: freezed == languageName
           ? _value.languageName
           : languageName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      languageId: null == languageId
+      languageId: freezed == languageId
           ? _value.languageId
           : languageId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -374,15 +317,15 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String?,
-      url: null == url
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      virtual: null == virtual
+      virtual: freezed == virtual
           ? _value.virtual
           : virtual // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      service: null == service
+      service: freezed == service
           ? _value.service
           : service // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -414,7 +357,7 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
           ? _value.hospitalId
           : hospitalId // ignore: cast_nullable_to_non_nullable
               as int?,
-      hospitalName: null == hospitalName
+      hospitalName: freezed == hospitalName
           ? _value.hospitalName
           : hospitalName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -434,7 +377,7 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
           ? _value.doctorCategoryName
           : doctorCategoryName // ignore: cast_nullable_to_non_nullable
               as String?,
-      file: null == file
+      file: freezed == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -442,11 +385,11 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
           ? _value.long
           : long // ignore: cast_nullable_to_non_nullable
               as int?,
-      locationName: null == locationName
+      locationName: freezed == locationName
           ? _value.locationName
           : locationName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      category: null == category
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -458,7 +401,7 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
           ? _value.doctorName
           : doctorName // ignore: cast_nullable_to_non_nullable
               as String?,
-      qualificationName: null == qualificationName
+      qualificationName: freezed == qualificationName
           ? _value.qualificationName
           : qualificationName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -498,7 +441,7 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
           ? _value.doctorPhoneNumber
           : doctorPhoneNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      subCategoryName: null == subCategoryName
+      subCategoryName: freezed == subCategoryName
           ? _value.subCategoryName
           : subCategoryName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -510,15 +453,15 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
           ? _value.clinicDoctorFee
           : clinicDoctorFee // ignore: cast_nullable_to_non_nullable
               as int?,
-      typeFlag: null == typeFlag
+      typeFlag: freezed == typeFlag
           ? _value.typeFlag
           : typeFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      days: null == days
+      days: freezed == days
           ? _value.days
           : days // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      sscategoryName: null == sscategoryName
+      sscategoryName: freezed == sscategoryName
           ? _value.sscategoryName
           : sscategoryName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -530,7 +473,7 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
           ? _value.emailId
           : emailId // ignore: cast_nullable_to_non_nullable
               as String?,
-      subCat: null == subCat
+      subCat: freezed == subCat
           ? _value.subCat
           : subCat // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -542,7 +485,7 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as int?,
-      flag: null == flag
+      flag: freezed == flag
           ? _value.flag
           : flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -550,7 +493,7 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
           ? _value.doctorMobileCountrycode
           : doctorMobileCountrycode // ignore: cast_nullable_to_non_nullable
               as String?,
-      doctorQualificationCode: null == doctorQualificationCode
+      doctorQualificationCode: freezed == doctorQualificationCode
           ? _value.doctorQualificationCode
           : doctorQualificationCode // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -558,27 +501,27 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
           ? _value.doctorDob
           : doctorDob // ignore: cast_nullable_to_non_nullable
               as String?,
-      doctorList: null == doctorList
+      doctorList: freezed == doctorList
           ? _value.doctorList
           : doctorList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      cityList: null == cityList
+      cityList: freezed == cityList
           ? _value.cityList
           : cityList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      langList: null == langList
+      langList: freezed == langList
           ? _value.langList
           : langList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      docList: null == docList
+      docList: freezed == docList
           ? _value.docList
           : docList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      qualificationList: null == qualificationList
+      qualificationList: freezed == qualificationList
           ? _value.qualificationList
           : qualificationList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      categoryList: null == categoryList
+      categoryList: freezed == categoryList
           ? _value.categoryList
           : categoryList // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -587,140 +530,83 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
 }
 
 /// @nodoc
-abstract class _$$_GetDoctorDetailsCopyWith<$Res>
+abstract class _$$GetDoctorDetailsImplCopyWith<$Res>
     implements $GetDoctorDetailsCopyWith<$Res> {
-  factory _$$_GetDoctorDetailsCopyWith(
-          _$_GetDoctorDetails value, $Res Function(_$_GetDoctorDetails) then) =
-      __$$_GetDoctorDetailsCopyWithImpl<$Res>;
+  factory _$$GetDoctorDetailsImplCopyWith(_$GetDoctorDetailsImpl value,
+          $Res Function(_$GetDoctorDetailsImpl) then) =
+      __$$GetDoctorDetailsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'PRC_Number')
-          String? prcNumber,
-      @JsonKey(name: 'City_Id')
-          int? cityId,
-      @JsonKey(name: 'City_Name')
-          dynamic cityName,
-      @JsonKey(name: 'Language_Name')
-          dynamic languageName,
-      @JsonKey(name: 'Language_Id')
-          dynamic languageId,
-      @JsonKey(name: 'Middle_Name')
-          String? middleName,
-      @JsonKey(name: 'Last_Name')
-          String? lastName,
-      @JsonKey(name: 'URL')
-          dynamic url,
-      @JsonKey(name: 'Virtual')
-          dynamic virtual,
-      @JsonKey(name: 'Service')
-          dynamic service,
-      @JsonKey(name: 'Online')
-          String? online,
-      @JsonKey(name: 'AccountName')
-          String? accountName,
-      @JsonKey(name: 'BankName')
-          String? bankName,
-      @JsonKey(name: 'AccountNo')
-          String? accountNo,
-      @JsonKey(name: 'BranchName')
-          String? branchName,
-      @JsonKey(name: 'IFSCCode')
-          String? ifscCode,
-      @JsonKey(name: 'Hospital_id')
-          int? hospitalId,
-      @JsonKey(name: 'Hospital_Name')
-          dynamic hospitalName,
-      @JsonKey(name: 'Password')
-          String? password,
-      @JsonKey(name: 'Lat')
-          int? lat,
-      @JsonKey(name: 'DoctorCategory_id')
-          int? doctorCategoryId,
-      @JsonKey(name: 'DoctorCategory_Name')
-          String? doctorCategoryName,
-      @JsonKey(name: 'file')
-          dynamic file,
-      @JsonKey(name: 'Long')
-          int? long,
-      @JsonKey(name: 'Location_Name')
-          dynamic locationName,
-      @JsonKey(name: 'Category')
-          dynamic category,
-      @JsonKey(name: 'Doctor_id')
-          int? doctorId,
-      @JsonKey(name: 'Doctor_Name')
-          String? doctorName,
-      @JsonKey(name: 'QualificationName')
-          dynamic qualificationName,
-      @JsonKey(name: 'Doctor_Qualification')
-          String? doctorQualification,
-      @JsonKey(name: 'Location_id')
-          int? locationId,
-      @JsonKey(name: 'SubCategory_id')
-          String? subCategoryId,
-      @JsonKey(name: 'DoctorExperience_Years')
-          int? doctorExperienceYears,
-      @JsonKey(name: 'Recommendations')
-          int? recommendations,
-      @JsonKey(name: 'Doctor_Description')
-          String? doctorDescription,
-      @JsonKey(name: 'Doctor_Image')
-          String? doctorImage,
-      @JsonKey(name: 'Doctor_Age')
-          int? doctorAge,
-      @JsonKey(name: 'Doctor_PhoneNumber')
-          String? doctorPhoneNumber,
-      @JsonKey(name: 'SubCategory_Name')
-          dynamic subCategoryName,
-      @JsonKey(name: 'Doctor_Address')
-          String? doctorAddress,
-      @JsonKey(name: 'ClinicDoctorFee')
-          int? clinicDoctorFee,
-      @JsonKey(name: 'Type_Flag')
-          dynamic typeFlag,
-      @JsonKey(name: 'Days')
-          dynamic days,
-      @JsonKey(name: 'sscategory_Name')
-          dynamic sscategoryName,
-      @JsonKey(name: 'sscat_id')
-          int? sscatId,
-      @JsonKey(name: 'Email_id')
-          String? emailId,
-      @JsonKey(name: 'SubCat')
-          dynamic subCat,
-      @JsonKey(name: 'Gender')
-          String? gender,
-      @JsonKey(name: 'Status')
-          int? status,
-      @JsonKey(name: 'Flag')
-          dynamic flag,
+      {@JsonKey(name: 'PRC_Number') String? prcNumber,
+      @JsonKey(name: 'City_Id') int? cityId,
+      @JsonKey(name: 'City_Name') dynamic cityName,
+      @JsonKey(name: 'Language_Name') dynamic languageName,
+      @JsonKey(name: 'Language_Id') dynamic languageId,
+      @JsonKey(name: 'Middle_Name') String? middleName,
+      @JsonKey(name: 'Last_Name') String? lastName,
+      @JsonKey(name: 'URL') dynamic url,
+      @JsonKey(name: 'Virtual') dynamic virtual,
+      @JsonKey(name: 'Service') dynamic service,
+      @JsonKey(name: 'Online') String? online,
+      @JsonKey(name: 'AccountName') String? accountName,
+      @JsonKey(name: 'BankName') String? bankName,
+      @JsonKey(name: 'AccountNo') String? accountNo,
+      @JsonKey(name: 'BranchName') String? branchName,
+      @JsonKey(name: 'IFSCCode') String? ifscCode,
+      @JsonKey(name: 'Hospital_id') int? hospitalId,
+      @JsonKey(name: 'Hospital_Name') dynamic hospitalName,
+      @JsonKey(name: 'Password') String? password,
+      @JsonKey(name: 'Lat') int? lat,
+      @JsonKey(name: 'DoctorCategory_id') int? doctorCategoryId,
+      @JsonKey(name: 'DoctorCategory_Name') String? doctorCategoryName,
+      @JsonKey(name: 'file') dynamic file,
+      @JsonKey(name: 'Long') int? long,
+      @JsonKey(name: 'Location_Name') dynamic locationName,
+      @JsonKey(name: 'Category') dynamic category,
+      @JsonKey(name: 'Doctor_id') int? doctorId,
+      @JsonKey(name: 'Doctor_Name') String? doctorName,
+      @JsonKey(name: 'QualificationName') dynamic qualificationName,
+      @JsonKey(name: 'Doctor_Qualification') String? doctorQualification,
+      @JsonKey(name: 'Location_id') int? locationId,
+      @JsonKey(name: 'SubCategory_id') String? subCategoryId,
+      @JsonKey(name: 'DoctorExperience_Years') int? doctorExperienceYears,
+      @JsonKey(name: 'Recommendations') int? recommendations,
+      @JsonKey(name: 'Doctor_Description') String? doctorDescription,
+      @JsonKey(name: 'Doctor_Image') String? doctorImage,
+      @JsonKey(name: 'Doctor_Age') int? doctorAge,
+      @JsonKey(name: 'Doctor_PhoneNumber') String? doctorPhoneNumber,
+      @JsonKey(name: 'SubCategory_Name') dynamic subCategoryName,
+      @JsonKey(name: 'Doctor_Address') String? doctorAddress,
+      @JsonKey(name: 'ClinicDoctorFee') int? clinicDoctorFee,
+      @JsonKey(name: 'Type_Flag') dynamic typeFlag,
+      @JsonKey(name: 'Days') dynamic days,
+      @JsonKey(name: 'sscategory_Name') dynamic sscategoryName,
+      @JsonKey(name: 'sscat_id') int? sscatId,
+      @JsonKey(name: 'Email_id') String? emailId,
+      @JsonKey(name: 'SubCat') dynamic subCat,
+      @JsonKey(name: 'Gender') String? gender,
+      @JsonKey(name: 'Status') int? status,
+      @JsonKey(name: 'Flag') dynamic flag,
       @JsonKey(name: 'Doctor_Mobile_countrycode')
-          String? doctorMobileCountrycode,
+      String? doctorMobileCountrycode,
       @JsonKey(name: 'Doctor_QualificationCode')
-          dynamic doctorQualificationCode,
-      @JsonKey(name: 'Doctor_DOB')
-          String? doctorDob,
-      @JsonKey(name: 'Doctor_List')
-          dynamic doctorList,
-      @JsonKey(name: 'City_List')
-          dynamic cityList,
-      @JsonKey(name: 'Langugage_List')
-          dynamic langList,
-      @JsonKey(name: 'Doclist')
-          dynamic docList,
-      @JsonKey(name: 'QualificationList')
-          dynamic qualificationList,
-      @JsonKey(name: 'CategoryList')
-          dynamic categoryList});
+      dynamic doctorQualificationCode,
+      @JsonKey(name: 'Doctor_DOB') String? doctorDob,
+      @JsonKey(name: 'Doctor_List') dynamic doctorList,
+      @JsonKey(name: 'City_List') dynamic cityList,
+      @JsonKey(name: 'Langugage_List') dynamic langList,
+      @JsonKey(name: 'Doclist') dynamic docList,
+      @JsonKey(name: 'QualificationList') dynamic qualificationList,
+      @JsonKey(name: 'CategoryList') dynamic categoryList});
 }
 
 /// @nodoc
-class __$$_GetDoctorDetailsCopyWithImpl<$Res>
-    extends _$GetDoctorDetailsCopyWithImpl<$Res, _$_GetDoctorDetails>
-    implements _$$_GetDoctorDetailsCopyWith<$Res> {
-  __$$_GetDoctorDetailsCopyWithImpl(
-      _$_GetDoctorDetails _value, $Res Function(_$_GetDoctorDetails) _then)
+class __$$GetDoctorDetailsImplCopyWithImpl<$Res>
+    extends _$GetDoctorDetailsCopyWithImpl<$Res, _$GetDoctorDetailsImpl>
+    implements _$$GetDoctorDetailsImplCopyWith<$Res> {
+  __$$GetDoctorDetailsImplCopyWithImpl(_$GetDoctorDetailsImpl _value,
+      $Res Function(_$GetDoctorDetailsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -728,14 +614,14 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
   $Res call({
     Object? prcNumber = freezed,
     Object? cityId = freezed,
-    Object? cityName = null,
-    Object? languageName = null,
-    Object? languageId = null,
+    Object? cityName = freezed,
+    Object? languageName = freezed,
+    Object? languageId = freezed,
     Object? middleName = freezed,
     Object? lastName = freezed,
-    Object? url = null,
-    Object? virtual = null,
-    Object? service = null,
+    Object? url = freezed,
+    Object? virtual = freezed,
+    Object? service = freezed,
     Object? online = freezed,
     Object? accountName = freezed,
     Object? bankName = freezed,
@@ -743,18 +629,18 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
     Object? branchName = freezed,
     Object? ifscCode = freezed,
     Object? hospitalId = freezed,
-    Object? hospitalName = null,
+    Object? hospitalName = freezed,
     Object? password = freezed,
     Object? lat = freezed,
     Object? doctorCategoryId = freezed,
     Object? doctorCategoryName = freezed,
-    Object? file = null,
+    Object? file = freezed,
     Object? long = freezed,
-    Object? locationName = null,
-    Object? category = null,
+    Object? locationName = freezed,
+    Object? category = freezed,
     Object? doctorId = freezed,
     Object? doctorName = freezed,
-    Object? qualificationName = null,
+    Object? qualificationName = freezed,
     Object? doctorQualification = freezed,
     Object? locationId = freezed,
     Object? subCategoryId = freezed,
@@ -764,29 +650,29 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
     Object? doctorImage = freezed,
     Object? doctorAge = freezed,
     Object? doctorPhoneNumber = freezed,
-    Object? subCategoryName = null,
+    Object? subCategoryName = freezed,
     Object? doctorAddress = freezed,
     Object? clinicDoctorFee = freezed,
-    Object? typeFlag = null,
-    Object? days = null,
-    Object? sscategoryName = null,
+    Object? typeFlag = freezed,
+    Object? days = freezed,
+    Object? sscategoryName = freezed,
     Object? sscatId = freezed,
     Object? emailId = freezed,
-    Object? subCat = null,
+    Object? subCat = freezed,
     Object? gender = freezed,
     Object? status = freezed,
-    Object? flag = null,
+    Object? flag = freezed,
     Object? doctorMobileCountrycode = freezed,
-    Object? doctorQualificationCode = null,
+    Object? doctorQualificationCode = freezed,
     Object? doctorDob = freezed,
-    Object? doctorList = null,
-    Object? cityList = null,
-    Object? langList = null,
-    Object? docList = null,
-    Object? qualificationList = null,
-    Object? categoryList = null,
+    Object? doctorList = freezed,
+    Object? cityList = freezed,
+    Object? langList = freezed,
+    Object? docList = freezed,
+    Object? qualificationList = freezed,
+    Object? categoryList = freezed,
   }) {
-    return _then(_$_GetDoctorDetails(
+    return _then(_$GetDoctorDetailsImpl(
       prcNumber: freezed == prcNumber
           ? _value.prcNumber
           : prcNumber // ignore: cast_nullable_to_non_nullable
@@ -795,15 +681,15 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
           ? _value.cityId
           : cityId // ignore: cast_nullable_to_non_nullable
               as int?,
-      cityName: null == cityName
+      cityName: freezed == cityName
           ? _value.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      languageName: null == languageName
+      languageName: freezed == languageName
           ? _value.languageName
           : languageName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      languageId: null == languageId
+      languageId: freezed == languageId
           ? _value.languageId
           : languageId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -815,15 +701,15 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String?,
-      url: null == url
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      virtual: null == virtual
+      virtual: freezed == virtual
           ? _value.virtual
           : virtual // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      service: null == service
+      service: freezed == service
           ? _value.service
           : service // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -855,7 +741,7 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
           ? _value.hospitalId
           : hospitalId // ignore: cast_nullable_to_non_nullable
               as int?,
-      hospitalName: null == hospitalName
+      hospitalName: freezed == hospitalName
           ? _value.hospitalName
           : hospitalName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -875,7 +761,7 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
           ? _value.doctorCategoryName
           : doctorCategoryName // ignore: cast_nullable_to_non_nullable
               as String?,
-      file: null == file
+      file: freezed == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -883,11 +769,11 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
           ? _value.long
           : long // ignore: cast_nullable_to_non_nullable
               as int?,
-      locationName: null == locationName
+      locationName: freezed == locationName
           ? _value.locationName
           : locationName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      category: null == category
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -899,7 +785,7 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
           ? _value.doctorName
           : doctorName // ignore: cast_nullable_to_non_nullable
               as String?,
-      qualificationName: null == qualificationName
+      qualificationName: freezed == qualificationName
           ? _value.qualificationName
           : qualificationName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -939,7 +825,7 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
           ? _value.doctorPhoneNumber
           : doctorPhoneNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      subCategoryName: null == subCategoryName
+      subCategoryName: freezed == subCategoryName
           ? _value.subCategoryName
           : subCategoryName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -951,15 +837,15 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
           ? _value.clinicDoctorFee
           : clinicDoctorFee // ignore: cast_nullable_to_non_nullable
               as int?,
-      typeFlag: null == typeFlag
+      typeFlag: freezed == typeFlag
           ? _value.typeFlag
           : typeFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      days: null == days
+      days: freezed == days
           ? _value.days
           : days // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      sscategoryName: null == sscategoryName
+      sscategoryName: freezed == sscategoryName
           ? _value.sscategoryName
           : sscategoryName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -971,7 +857,7 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
           ? _value.emailId
           : emailId // ignore: cast_nullable_to_non_nullable
               as String?,
-      subCat: null == subCat
+      subCat: freezed == subCat
           ? _value.subCat
           : subCat // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -983,7 +869,7 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as int?,
-      flag: null == flag
+      flag: freezed == flag
           ? _value.flag
           : flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -991,7 +877,7 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
           ? _value.doctorMobileCountrycode
           : doctorMobileCountrycode // ignore: cast_nullable_to_non_nullable
               as String?,
-      doctorQualificationCode: null == doctorQualificationCode
+      doctorQualificationCode: freezed == doctorQualificationCode
           ? _value.doctorQualificationCode
           : doctorQualificationCode // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -999,27 +885,27 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
           ? _value.doctorDob
           : doctorDob // ignore: cast_nullable_to_non_nullable
               as String?,
-      doctorList: null == doctorList
+      doctorList: freezed == doctorList
           ? _value.doctorList
           : doctorList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      cityList: null == cityList
+      cityList: freezed == cityList
           ? _value.cityList
           : cityList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      langList: null == langList
+      langList: freezed == langList
           ? _value.langList
           : langList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      docList: null == docList
+      docList: freezed == docList
           ? _value.docList
           : docList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      qualificationList: null == qualificationList
+      qualificationList: freezed == qualificationList
           ? _value.qualificationList
           : qualificationList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      categoryList: null == categoryList
+      categoryList: freezed == categoryList
           ? _value.categoryList
           : categoryList // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -1029,129 +915,71 @@ class __$$_GetDoctorDetailsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GetDoctorDetails implements _GetDoctorDetails {
-  const _$_GetDoctorDetails(
-      {@JsonKey(name: 'PRC_Number')
-          this.prcNumber,
-      @JsonKey(name: 'City_Id')
-          this.cityId,
-      @JsonKey(name: 'City_Name')
-          this.cityName = null,
-      @JsonKey(name: 'Language_Name')
-          this.languageName = null,
-      @JsonKey(name: 'Language_Id')
-          this.languageId = null,
-      @JsonKey(name: 'Middle_Name')
-          this.middleName,
-      @JsonKey(name: 'Last_Name')
-          this.lastName,
-      @JsonKey(name: 'URL')
-          this.url = null,
-      @JsonKey(name: 'Virtual')
-          this.virtual = null,
-      @JsonKey(name: 'Service')
-          this.service = null,
-      @JsonKey(name: 'Online')
-          this.online,
-      @JsonKey(name: 'AccountName')
-          this.accountName,
-      @JsonKey(name: 'BankName')
-          this.bankName,
-      @JsonKey(name: 'AccountNo')
-          this.accountNo,
-      @JsonKey(name: 'BranchName')
-          this.branchName,
-      @JsonKey(name: 'IFSCCode')
-          this.ifscCode,
-      @JsonKey(name: 'Hospital_id')
-          this.hospitalId,
-      @JsonKey(name: 'Hospital_Name')
-          this.hospitalName = null,
-      @JsonKey(name: 'Password')
-          this.password,
-      @JsonKey(name: 'Lat')
-          this.lat = null,
-      @JsonKey(name: 'DoctorCategory_id')
-          this.doctorCategoryId,
-      @JsonKey(name: 'DoctorCategory_Name')
-          this.doctorCategoryName,
-      @JsonKey(name: 'file')
-          this.file = null,
-      @JsonKey(name: 'Long')
-          this.long,
-      @JsonKey(name: 'Location_Name')
-          this.locationName = null,
-      @JsonKey(name: 'Category')
-          this.category = null,
-      @JsonKey(name: 'Doctor_id')
-          this.doctorId,
-      @JsonKey(name: 'Doctor_Name')
-          this.doctorName,
-      @JsonKey(name: 'QualificationName')
-          this.qualificationName = null,
-      @JsonKey(name: 'Doctor_Qualification')
-          this.doctorQualification,
-      @JsonKey(name: 'Location_id')
-          this.locationId,
-      @JsonKey(name: 'SubCategory_id')
-          this.subCategoryId,
-      @JsonKey(name: 'DoctorExperience_Years')
-          this.doctorExperienceYears,
-      @JsonKey(name: 'Recommendations')
-          this.recommendations,
-      @JsonKey(name: 'Doctor_Description')
-          this.doctorDescription,
-      @JsonKey(name: 'Doctor_Image')
-          this.doctorImage,
-      @JsonKey(name: 'Doctor_Age')
-          this.doctorAge,
-      @JsonKey(name: 'Doctor_PhoneNumber')
-          this.doctorPhoneNumber,
-      @JsonKey(name: 'SubCategory_Name')
-          this.subCategoryName = null,
-      @JsonKey(name: 'Doctor_Address')
-          this.doctorAddress,
-      @JsonKey(name: 'ClinicDoctorFee')
-          this.clinicDoctorFee,
-      @JsonKey(name: 'Type_Flag')
-          this.typeFlag = null,
-      @JsonKey(name: 'Days')
-          this.days = null,
-      @JsonKey(name: 'sscategory_Name')
-          this.sscategoryName = null,
-      @JsonKey(name: 'sscat_id')
-          this.sscatId,
-      @JsonKey(name: 'Email_id')
-          this.emailId,
-      @JsonKey(name: 'SubCat')
-          this.subCat = null,
-      @JsonKey(name: 'Gender')
-          this.gender,
-      @JsonKey(name: 'Status')
-          this.status,
-      @JsonKey(name: 'Flag')
-          this.flag = null,
-      @JsonKey(name: 'Doctor_Mobile_countrycode')
-          this.doctorMobileCountrycode,
+class _$GetDoctorDetailsImpl implements _GetDoctorDetails {
+  const _$GetDoctorDetailsImpl(
+      {@JsonKey(name: 'PRC_Number') this.prcNumber,
+      @JsonKey(name: 'City_Id') this.cityId,
+      @JsonKey(name: 'City_Name') this.cityName = null,
+      @JsonKey(name: 'Language_Name') this.languageName = null,
+      @JsonKey(name: 'Language_Id') this.languageId = null,
+      @JsonKey(name: 'Middle_Name') this.middleName,
+      @JsonKey(name: 'Last_Name') this.lastName,
+      @JsonKey(name: 'URL') this.url = null,
+      @JsonKey(name: 'Virtual') this.virtual = null,
+      @JsonKey(name: 'Service') this.service = null,
+      @JsonKey(name: 'Online') this.online,
+      @JsonKey(name: 'AccountName') this.accountName,
+      @JsonKey(name: 'BankName') this.bankName,
+      @JsonKey(name: 'AccountNo') this.accountNo,
+      @JsonKey(name: 'BranchName') this.branchName,
+      @JsonKey(name: 'IFSCCode') this.ifscCode,
+      @JsonKey(name: 'Hospital_id') this.hospitalId,
+      @JsonKey(name: 'Hospital_Name') this.hospitalName = null,
+      @JsonKey(name: 'Password') this.password,
+      @JsonKey(name: 'Lat') this.lat = null,
+      @JsonKey(name: 'DoctorCategory_id') this.doctorCategoryId,
+      @JsonKey(name: 'DoctorCategory_Name') this.doctorCategoryName,
+      @JsonKey(name: 'file') this.file = null,
+      @JsonKey(name: 'Long') this.long,
+      @JsonKey(name: 'Location_Name') this.locationName = null,
+      @JsonKey(name: 'Category') this.category = null,
+      @JsonKey(name: 'Doctor_id') this.doctorId,
+      @JsonKey(name: 'Doctor_Name') this.doctorName,
+      @JsonKey(name: 'QualificationName') this.qualificationName = null,
+      @JsonKey(name: 'Doctor_Qualification') this.doctorQualification,
+      @JsonKey(name: 'Location_id') this.locationId,
+      @JsonKey(name: 'SubCategory_id') this.subCategoryId,
+      @JsonKey(name: 'DoctorExperience_Years') this.doctorExperienceYears,
+      @JsonKey(name: 'Recommendations') this.recommendations,
+      @JsonKey(name: 'Doctor_Description') this.doctorDescription,
+      @JsonKey(name: 'Doctor_Image') this.doctorImage,
+      @JsonKey(name: 'Doctor_Age') this.doctorAge,
+      @JsonKey(name: 'Doctor_PhoneNumber') this.doctorPhoneNumber,
+      @JsonKey(name: 'SubCategory_Name') this.subCategoryName = null,
+      @JsonKey(name: 'Doctor_Address') this.doctorAddress,
+      @JsonKey(name: 'ClinicDoctorFee') this.clinicDoctorFee,
+      @JsonKey(name: 'Type_Flag') this.typeFlag = null,
+      @JsonKey(name: 'Days') this.days = null,
+      @JsonKey(name: 'sscategory_Name') this.sscategoryName = null,
+      @JsonKey(name: 'sscat_id') this.sscatId,
+      @JsonKey(name: 'Email_id') this.emailId,
+      @JsonKey(name: 'SubCat') this.subCat = null,
+      @JsonKey(name: 'Gender') this.gender,
+      @JsonKey(name: 'Status') this.status,
+      @JsonKey(name: 'Flag') this.flag = null,
+      @JsonKey(name: 'Doctor_Mobile_countrycode') this.doctorMobileCountrycode,
       @JsonKey(name: 'Doctor_QualificationCode')
-          this.doctorQualificationCode = null,
-      @JsonKey(name: 'Doctor_DOB')
-          this.doctorDob,
-      @JsonKey(name: 'Doctor_List')
-          this.doctorList = null,
-      @JsonKey(name: 'City_List')
-          this.cityList = null,
-      @JsonKey(name: 'Langugage_List')
-          this.langList = null,
-      @JsonKey(name: 'Doclist')
-          this.docList = null,
-      @JsonKey(name: 'QualificationList')
-          this.qualificationList = null,
-      @JsonKey(name: 'CategoryList')
-          this.categoryList = null});
+      this.doctorQualificationCode = null,
+      @JsonKey(name: 'Doctor_DOB') this.doctorDob,
+      @JsonKey(name: 'Doctor_List') this.doctorList = null,
+      @JsonKey(name: 'City_List') this.cityList = null,
+      @JsonKey(name: 'Langugage_List') this.langList = null,
+      @JsonKey(name: 'Doclist') this.docList = null,
+      @JsonKey(name: 'QualificationList') this.qualificationList = null,
+      @JsonKey(name: 'CategoryList') this.categoryList = null});
 
-  factory _$_GetDoctorDetails.fromJson(Map<String, dynamic> json) =>
-      _$$_GetDoctorDetailsFromJson(json);
+  factory _$GetDoctorDetailsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GetDoctorDetailsImplFromJson(json);
 
   @override
   @JsonKey(name: 'PRC_Number')
@@ -1337,10 +1165,10 @@ class _$_GetDoctorDetails implements _GetDoctorDetails {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetDoctorDetails &&
+            other is _$GetDoctorDetailsImpl &&
             (identical(other.prcNumber, prcNumber) ||
                 other.prcNumber == prcNumber) &&
             (identical(other.cityId, cityId) || other.cityId == cityId) &&
@@ -1509,12 +1337,13 @@ class _$_GetDoctorDetails implements _GetDoctorDetails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetDoctorDetailsCopyWith<_$_GetDoctorDetails> get copyWith =>
-      __$$_GetDoctorDetailsCopyWithImpl<_$_GetDoctorDetails>(this, _$identity);
+  _$$GetDoctorDetailsImplCopyWith<_$GetDoctorDetailsImpl> get copyWith =>
+      __$$GetDoctorDetailsImplCopyWithImpl<_$GetDoctorDetailsImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GetDoctorDetailsToJson(
+    return _$$GetDoctorDetailsImplToJson(
       this,
     );
   }
@@ -1522,127 +1351,71 @@ class _$_GetDoctorDetails implements _GetDoctorDetails {
 
 abstract class _GetDoctorDetails implements GetDoctorDetails {
   const factory _GetDoctorDetails(
-      {@JsonKey(name: 'PRC_Number')
-          final String? prcNumber,
-      @JsonKey(name: 'City_Id')
-          final int? cityId,
-      @JsonKey(name: 'City_Name')
-          final dynamic cityName,
-      @JsonKey(name: 'Language_Name')
-          final dynamic languageName,
-      @JsonKey(name: 'Language_Id')
-          final dynamic languageId,
-      @JsonKey(name: 'Middle_Name')
-          final String? middleName,
-      @JsonKey(name: 'Last_Name')
-          final String? lastName,
-      @JsonKey(name: 'URL')
-          final dynamic url,
-      @JsonKey(name: 'Virtual')
-          final dynamic virtual,
-      @JsonKey(name: 'Service')
-          final dynamic service,
-      @JsonKey(name: 'Online')
-          final String? online,
-      @JsonKey(name: 'AccountName')
-          final String? accountName,
-      @JsonKey(name: 'BankName')
-          final String? bankName,
-      @JsonKey(name: 'AccountNo')
-          final String? accountNo,
-      @JsonKey(name: 'BranchName')
-          final String? branchName,
-      @JsonKey(name: 'IFSCCode')
-          final String? ifscCode,
-      @JsonKey(name: 'Hospital_id')
-          final int? hospitalId,
-      @JsonKey(name: 'Hospital_Name')
-          final dynamic hospitalName,
-      @JsonKey(name: 'Password')
-          final String? password,
-      @JsonKey(name: 'Lat')
-          final int? lat,
-      @JsonKey(name: 'DoctorCategory_id')
-          final int? doctorCategoryId,
-      @JsonKey(name: 'DoctorCategory_Name')
-          final String? doctorCategoryName,
-      @JsonKey(name: 'file')
-          final dynamic file,
-      @JsonKey(name: 'Long')
-          final int? long,
-      @JsonKey(name: 'Location_Name')
-          final dynamic locationName,
-      @JsonKey(name: 'Category')
-          final dynamic category,
-      @JsonKey(name: 'Doctor_id')
-          final int? doctorId,
-      @JsonKey(name: 'Doctor_Name')
-          final String? doctorName,
-      @JsonKey(name: 'QualificationName')
-          final dynamic qualificationName,
-      @JsonKey(name: 'Doctor_Qualification')
-          final String? doctorQualification,
-      @JsonKey(name: 'Location_id')
-          final int? locationId,
-      @JsonKey(name: 'SubCategory_id')
-          final String? subCategoryId,
-      @JsonKey(name: 'DoctorExperience_Years')
-          final int? doctorExperienceYears,
-      @JsonKey(name: 'Recommendations')
-          final int? recommendations,
-      @JsonKey(name: 'Doctor_Description')
-          final String? doctorDescription,
-      @JsonKey(name: 'Doctor_Image')
-          final String? doctorImage,
-      @JsonKey(name: 'Doctor_Age')
-          final int? doctorAge,
-      @JsonKey(name: 'Doctor_PhoneNumber')
-          final String? doctorPhoneNumber,
-      @JsonKey(name: 'SubCategory_Name')
-          final dynamic subCategoryName,
-      @JsonKey(name: 'Doctor_Address')
-          final String? doctorAddress,
-      @JsonKey(name: 'ClinicDoctorFee')
-          final int? clinicDoctorFee,
-      @JsonKey(name: 'Type_Flag')
-          final dynamic typeFlag,
-      @JsonKey(name: 'Days')
-          final dynamic days,
-      @JsonKey(name: 'sscategory_Name')
-          final dynamic sscategoryName,
-      @JsonKey(name: 'sscat_id')
-          final int? sscatId,
-      @JsonKey(name: 'Email_id')
-          final String? emailId,
-      @JsonKey(name: 'SubCat')
-          final dynamic subCat,
-      @JsonKey(name: 'Gender')
-          final String? gender,
-      @JsonKey(name: 'Status')
-          final int? status,
-      @JsonKey(name: 'Flag')
-          final dynamic flag,
+      {@JsonKey(name: 'PRC_Number') final String? prcNumber,
+      @JsonKey(name: 'City_Id') final int? cityId,
+      @JsonKey(name: 'City_Name') final dynamic cityName,
+      @JsonKey(name: 'Language_Name') final dynamic languageName,
+      @JsonKey(name: 'Language_Id') final dynamic languageId,
+      @JsonKey(name: 'Middle_Name') final String? middleName,
+      @JsonKey(name: 'Last_Name') final String? lastName,
+      @JsonKey(name: 'URL') final dynamic url,
+      @JsonKey(name: 'Virtual') final dynamic virtual,
+      @JsonKey(name: 'Service') final dynamic service,
+      @JsonKey(name: 'Online') final String? online,
+      @JsonKey(name: 'AccountName') final String? accountName,
+      @JsonKey(name: 'BankName') final String? bankName,
+      @JsonKey(name: 'AccountNo') final String? accountNo,
+      @JsonKey(name: 'BranchName') final String? branchName,
+      @JsonKey(name: 'IFSCCode') final String? ifscCode,
+      @JsonKey(name: 'Hospital_id') final int? hospitalId,
+      @JsonKey(name: 'Hospital_Name') final dynamic hospitalName,
+      @JsonKey(name: 'Password') final String? password,
+      @JsonKey(name: 'Lat') final int? lat,
+      @JsonKey(name: 'DoctorCategory_id') final int? doctorCategoryId,
+      @JsonKey(name: 'DoctorCategory_Name') final String? doctorCategoryName,
+      @JsonKey(name: 'file') final dynamic file,
+      @JsonKey(name: 'Long') final int? long,
+      @JsonKey(name: 'Location_Name') final dynamic locationName,
+      @JsonKey(name: 'Category') final dynamic category,
+      @JsonKey(name: 'Doctor_id') final int? doctorId,
+      @JsonKey(name: 'Doctor_Name') final String? doctorName,
+      @JsonKey(name: 'QualificationName') final dynamic qualificationName,
+      @JsonKey(name: 'Doctor_Qualification') final String? doctorQualification,
+      @JsonKey(name: 'Location_id') final int? locationId,
+      @JsonKey(name: 'SubCategory_id') final String? subCategoryId,
+      @JsonKey(name: 'DoctorExperience_Years') final int? doctorExperienceYears,
+      @JsonKey(name: 'Recommendations') final int? recommendations,
+      @JsonKey(name: 'Doctor_Description') final String? doctorDescription,
+      @JsonKey(name: 'Doctor_Image') final String? doctorImage,
+      @JsonKey(name: 'Doctor_Age') final int? doctorAge,
+      @JsonKey(name: 'Doctor_PhoneNumber') final String? doctorPhoneNumber,
+      @JsonKey(name: 'SubCategory_Name') final dynamic subCategoryName,
+      @JsonKey(name: 'Doctor_Address') final String? doctorAddress,
+      @JsonKey(name: 'ClinicDoctorFee') final int? clinicDoctorFee,
+      @JsonKey(name: 'Type_Flag') final dynamic typeFlag,
+      @JsonKey(name: 'Days') final dynamic days,
+      @JsonKey(name: 'sscategory_Name') final dynamic sscategoryName,
+      @JsonKey(name: 'sscat_id') final int? sscatId,
+      @JsonKey(name: 'Email_id') final String? emailId,
+      @JsonKey(name: 'SubCat') final dynamic subCat,
+      @JsonKey(name: 'Gender') final String? gender,
+      @JsonKey(name: 'Status') final int? status,
+      @JsonKey(name: 'Flag') final dynamic flag,
       @JsonKey(name: 'Doctor_Mobile_countrycode')
-          final String? doctorMobileCountrycode,
+      final String? doctorMobileCountrycode,
       @JsonKey(name: 'Doctor_QualificationCode')
-          final dynamic doctorQualificationCode,
-      @JsonKey(name: 'Doctor_DOB')
-          final String? doctorDob,
-      @JsonKey(name: 'Doctor_List')
-          final dynamic doctorList,
-      @JsonKey(name: 'City_List')
-          final dynamic cityList,
-      @JsonKey(name: 'Langugage_List')
-          final dynamic langList,
-      @JsonKey(name: 'Doclist')
-          final dynamic docList,
-      @JsonKey(name: 'QualificationList')
-          final dynamic qualificationList,
+      final dynamic doctorQualificationCode,
+      @JsonKey(name: 'Doctor_DOB') final String? doctorDob,
+      @JsonKey(name: 'Doctor_List') final dynamic doctorList,
+      @JsonKey(name: 'City_List') final dynamic cityList,
+      @JsonKey(name: 'Langugage_List') final dynamic langList,
+      @JsonKey(name: 'Doclist') final dynamic docList,
+      @JsonKey(name: 'QualificationList') final dynamic qualificationList,
       @JsonKey(name: 'CategoryList')
-          final dynamic categoryList}) = _$_GetDoctorDetails;
+      final dynamic categoryList}) = _$GetDoctorDetailsImpl;
 
   factory _GetDoctorDetails.fromJson(Map<String, dynamic> json) =
-      _$_GetDoctorDetails.fromJson;
+      _$GetDoctorDetailsImpl.fromJson;
 
   @override
   @JsonKey(name: 'PRC_Number')
@@ -1823,6 +1596,6 @@ abstract class _GetDoctorDetails implements GetDoctorDetails {
   dynamic get categoryList;
   @override
   @JsonKey(ignore: true)
-  _$$_GetDoctorDetailsCopyWith<_$_GetDoctorDetails> get copyWith =>
+  _$$GetDoctorDetailsImplCopyWith<_$GetDoctorDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

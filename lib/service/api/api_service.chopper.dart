@@ -21,9 +21,9 @@ class _$ApiService extends ApiService {
     required String path,
     Map<String, dynamic> query = const {},
   }) {
-    final $url = 'https://tmsnew.timesmed.com/WebAPIP/${path}';
-    final $params = query;
-    final $request = Request(
+    final Uri $url = Uri.parse('https://tmsnew.timesmed.com/WebAPIP/${path}');
+    final Map<String, dynamic> $params = query;
+    final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
@@ -37,9 +37,9 @@ class _$ApiService extends ApiService {
     required String path,
     Map<String, dynamic> query = const {},
   }) {
-    final $url = 'https://tmsnew.timesmed.com/WebAPI2/${path}';
-    final $params = query;
-    final $request = Request(
+    final Uri $url = Uri.parse('https://tmsnew.timesmed.com/WebAPI2/${path}');
+    final Map<String, dynamic> $params = query;
+    final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
@@ -53,9 +53,9 @@ class _$ApiService extends ApiService {
     required String path,
     Map<String, dynamic> query = const {},
   }) {
-    final $url = 'https://tmsnew.timesmed.com/WebAPIP/${path}';
-    final $params = query;
-    final $request = Request(
+    final Uri $url = Uri.parse('https://tmsnew.timesmed.com/WebAPIP/${path}');
+    final Map<String, dynamic> $params = query;
+    final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
@@ -70,10 +70,10 @@ class _$ApiService extends ApiService {
     Map<String, dynamic> query = const {},
     Map<String, dynamic>? body,
   }) {
-    final $url = 'https://tmsnew.timesmed.com/WebAPIP/${path}';
-    final $params = query;
+    final Uri $url = Uri.parse('https://tmsnew.timesmed.com/WebAPIP/${path}');
+    final Map<String, dynamic> $params = query;
     final $body = body;
-    final $request = Request(
+    final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
@@ -89,10 +89,10 @@ class _$ApiService extends ApiService {
     Map<String, dynamic> query = const {},
     Map<String, dynamic>? body,
   }) {
-    final $url = 'https://tmsnew.timesmed.com/WebAPI2/${path}';
-    final $params = query;
+    final Uri $url = Uri.parse('https://tmsnew.timesmed.com/WebAPI2/${path}');
+    final Map<String, dynamic> $params = query;
     final $body = body;
-    final $request = Request(
+    final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
@@ -108,10 +108,10 @@ class _$ApiService extends ApiService {
     Map<String, dynamic> query = const {},
     Map<String, dynamic>? body,
   }) {
-    final $url = 'https://tmsnew.timesmed.com/WebAPIP/${path}';
-    final $params = query;
+    final Uri $url = Uri.parse('https://tmsnew.timesmed.com/WebAPIP/${path}');
+    final Map<String, dynamic> $params = query;
     final $body = body;
-    final $request = Request(
+    final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
@@ -126,9 +126,9 @@ class _$ApiService extends ApiService {
     required String path,
     Map<String, dynamic> query = const {},
   }) {
-    final $url = 'https://tmsnew.timesmed.com/WebAPIP/${path}';
-    final $params = query;
-    final $request = Request(
+    final Uri $url = Uri.parse('https://tmsnew.timesmed.com/WebAPIP/${path}');
+    final Map<String, dynamic> $params = query;
+    final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
@@ -142,9 +142,9 @@ class _$ApiService extends ApiService {
     required String path,
     Map<String, dynamic> query = const {},
   }) {
-    final $url = 'https://tmsnew.timesmed.com/WebAPI2/${path}';
-    final $params = query;
-    final $request = Request(
+    final Uri $url = Uri.parse('https://tmsnew.timesmed.com/WebAPI2/${path}');
+    final Map<String, dynamic> $params = query;
+    final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
@@ -158,9 +158,9 @@ class _$ApiService extends ApiService {
     required String path,
     Map<String, dynamic> query = const {},
   }) {
-    final $url = 'https://tmsnew.timesmed.com/WebAPIP/${path}';
-    final $params = query;
-    final $request = Request(
+    final Uri $url = Uri.parse('https://tmsnew.timesmed.com/WebAPIP/${path}');
+    final Map<String, dynamic> $params = query;
+    final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
@@ -174,9 +174,9 @@ class _$ApiService extends ApiService {
     required String path,
     Map<String, dynamic> query = const {},
   }) {
-    final $url = 'https://tmsnew.timesmed.com/WebAPI2/${path}';
-    final $params = query;
-    final $request = Request(
+    final Uri $url = Uri.parse('https://tmsnew.timesmed.com/WebAPI2/${path}');
+    final Map<String, dynamic> $params = query;
+    final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
@@ -192,13 +192,13 @@ class _$ApiService extends ApiService {
     String? mobile,
     required String password,
   }) {
-    final $url = 'https://tmsnew.timesmed.com/WebAPIP/${path}';
-    final $params = <String, dynamic>{
+    final Uri $url = Uri.parse('https://tmsnew.timesmed.com/WebAPIP/${path}');
+    final Map<String, dynamic> $params = <String, dynamic>{
       'DoctorPhone': doctorPhone,
       'MobileNumber': mobile,
       'Password': password,
     };
-    final $request = Request(
+    final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,

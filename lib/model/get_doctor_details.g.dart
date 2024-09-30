@@ -6,10 +6,11 @@ part of 'get_doctor_details.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GetDoctorDetails _$$_GetDoctorDetailsFromJson(Map<String, dynamic> json) =>
-    _$_GetDoctorDetails(
+_$GetDoctorDetailsImpl _$$GetDoctorDetailsImplFromJson(
+        Map<String, dynamic> json) =>
+    _$GetDoctorDetailsImpl(
       prcNumber: json['PRC_Number'] as String?,
-      cityId: json['City_Id'] as int?,
+      cityId: (json['City_Id'] as num?)?.toInt(),
       cityName: json['City_Name'] ?? null,
       languageName: json['Language_Name'] ?? null,
       languageId: json['Language_Id'] ?? null,
@@ -24,39 +25,39 @@ _$_GetDoctorDetails _$$_GetDoctorDetailsFromJson(Map<String, dynamic> json) =>
       accountNo: json['AccountNo'] as String?,
       branchName: json['BranchName'] as String?,
       ifscCode: json['IFSCCode'] as String?,
-      hospitalId: json['Hospital_id'] as int?,
+      hospitalId: (json['Hospital_id'] as num?)?.toInt(),
       hospitalName: json['Hospital_Name'] ?? null,
       password: json['Password'] as String?,
-      lat: json['Lat'] as int? ?? null,
-      doctorCategoryId: json['DoctorCategory_id'] as int?,
+      lat: (json['Lat'] as num?)?.toInt() ?? null,
+      doctorCategoryId: (json['DoctorCategory_id'] as num?)?.toInt(),
       doctorCategoryName: json['DoctorCategory_Name'] as String?,
       file: json['file'] ?? null,
-      long: json['Long'] as int?,
+      long: (json['Long'] as num?)?.toInt(),
       locationName: json['Location_Name'] ?? null,
       category: json['Category'] ?? null,
-      doctorId: json['Doctor_id'] as int?,
+      doctorId: (json['Doctor_id'] as num?)?.toInt(),
       doctorName: json['Doctor_Name'] as String?,
       qualificationName: json['QualificationName'] ?? null,
       doctorQualification: json['Doctor_Qualification'] as String?,
-      locationId: json['Location_id'] as int?,
+      locationId: (json['Location_id'] as num?)?.toInt(),
       subCategoryId: json['SubCategory_id'] as String?,
-      doctorExperienceYears: json['DoctorExperience_Years'] as int?,
-      recommendations: json['Recommendations'] as int?,
+      doctorExperienceYears: (json['DoctorExperience_Years'] as num?)?.toInt(),
+      recommendations: (json['Recommendations'] as num?)?.toInt(),
       doctorDescription: json['Doctor_Description'] as String?,
       doctorImage: json['Doctor_Image'] as String?,
-      doctorAge: json['Doctor_Age'] as int?,
+      doctorAge: (json['Doctor_Age'] as num?)?.toInt(),
       doctorPhoneNumber: json['Doctor_PhoneNumber'] as String?,
       subCategoryName: json['SubCategory_Name'] ?? null,
       doctorAddress: json['Doctor_Address'] as String?,
-      clinicDoctorFee: json['ClinicDoctorFee'] as int?,
+      clinicDoctorFee: (json['ClinicDoctorFee'] as num?)?.toInt(),
       typeFlag: json['Type_Flag'] ?? null,
       days: json['Days'] ?? null,
       sscategoryName: json['sscategory_Name'] ?? null,
-      sscatId: json['sscat_id'] as int?,
+      sscatId: (json['sscat_id'] as num?)?.toInt(),
       emailId: json['Email_id'] as String?,
       subCat: json['SubCat'] ?? null,
       gender: json['Gender'] as String?,
-      status: json['Status'] as int?,
+      status: (json['Status'] as num?)?.toInt(),
       flag: json['Flag'] ?? null,
       doctorMobileCountrycode: json['Doctor_Mobile_countrycode'] as String?,
       doctorQualificationCode: json['Doctor_QualificationCode'] ?? null,
@@ -69,7 +70,8 @@ _$_GetDoctorDetails _$$_GetDoctorDetailsFromJson(Map<String, dynamic> json) =>
       categoryList: json['CategoryList'] ?? null,
     );
 
-Map<String, dynamic> _$$_GetDoctorDetailsToJson(_$_GetDoctorDetails instance) =>
+Map<String, dynamic> _$$GetDoctorDetailsImplToJson(
+        _$GetDoctorDetailsImpl instance) =>
     <String, dynamic>{
       'PRC_Number': instance.prcNumber,
       'City_Id': instance.cityId,

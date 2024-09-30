@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'missed_call_log.dart';
 
@@ -12,7 +12,7 @@ part of 'missed_call_log.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 MissedCallLog _$MissedCallLogFromJson(Map<String, dynamic> json) {
   return _MissedCallLog.fromJson(json);
@@ -67,50 +67,50 @@ class _$MissedCallLogCopyWithImpl<$Res, $Val extends MissedCallLog>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? User_id = null,
-    Object? User_Name = null,
-    Object? Appointment_Date = null,
-    Object? Appointment_Time = null,
-    Object? Appointment_id = null,
-    Object? MobileNumber = null,
-    Object? Doctor_id = null,
-    Object? transaction_status = null,
-    Object? PatientImage = null,
+    Object? User_id = freezed,
+    Object? User_Name = freezed,
+    Object? Appointment_Date = freezed,
+    Object? Appointment_Time = freezed,
+    Object? Appointment_id = freezed,
+    Object? MobileNumber = freezed,
+    Object? Doctor_id = freezed,
+    Object? transaction_status = freezed,
+    Object? PatientImage = freezed,
   }) {
     return _then(_value.copyWith(
-      User_id: null == User_id
+      User_id: freezed == User_id
           ? _value.User_id
           : User_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_Name: null == User_Name
+      User_Name: freezed == User_Name
           ? _value.User_Name
           : User_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Appointment_Date: null == Appointment_Date
+      Appointment_Date: freezed == Appointment_Date
           ? _value.Appointment_Date
           : Appointment_Date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Appointment_Time: null == Appointment_Time
+      Appointment_Time: freezed == Appointment_Time
           ? _value.Appointment_Time
           : Appointment_Time // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Appointment_id: null == Appointment_id
+      Appointment_id: freezed == Appointment_id
           ? _value.Appointment_id
           : Appointment_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      MobileNumber: null == MobileNumber
+      MobileNumber: freezed == MobileNumber
           ? _value.MobileNumber
           : MobileNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_id: null == Doctor_id
+      Doctor_id: freezed == Doctor_id
           ? _value.Doctor_id
           : Doctor_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      transaction_status: null == transaction_status
+      transaction_status: freezed == transaction_status
           ? _value.transaction_status
           : transaction_status // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      PatientImage: null == PatientImage
+      PatientImage: freezed == PatientImage
           ? _value.PatientImage
           : PatientImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -119,11 +119,11 @@ class _$MissedCallLogCopyWithImpl<$Res, $Val extends MissedCallLog>
 }
 
 /// @nodoc
-abstract class _$$_MissedCallLogCopyWith<$Res>
+abstract class _$$MissedCallLogImplCopyWith<$Res>
     implements $MissedCallLogCopyWith<$Res> {
-  factory _$$_MissedCallLogCopyWith(
-          _$_MissedCallLog value, $Res Function(_$_MissedCallLog) then) =
-      __$$_MissedCallLogCopyWithImpl<$Res>;
+  factory _$$MissedCallLogImplCopyWith(
+          _$MissedCallLogImpl value, $Res Function(_$MissedCallLogImpl) then) =
+      __$$MissedCallLogImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -139,60 +139,60 @@ abstract class _$$_MissedCallLogCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MissedCallLogCopyWithImpl<$Res>
-    extends _$MissedCallLogCopyWithImpl<$Res, _$_MissedCallLog>
-    implements _$$_MissedCallLogCopyWith<$Res> {
-  __$$_MissedCallLogCopyWithImpl(
-      _$_MissedCallLog _value, $Res Function(_$_MissedCallLog) _then)
+class __$$MissedCallLogImplCopyWithImpl<$Res>
+    extends _$MissedCallLogCopyWithImpl<$Res, _$MissedCallLogImpl>
+    implements _$$MissedCallLogImplCopyWith<$Res> {
+  __$$MissedCallLogImplCopyWithImpl(
+      _$MissedCallLogImpl _value, $Res Function(_$MissedCallLogImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? User_id = null,
-    Object? User_Name = null,
-    Object? Appointment_Date = null,
-    Object? Appointment_Time = null,
-    Object? Appointment_id = null,
-    Object? MobileNumber = null,
-    Object? Doctor_id = null,
-    Object? transaction_status = null,
-    Object? PatientImage = null,
+    Object? User_id = freezed,
+    Object? User_Name = freezed,
+    Object? Appointment_Date = freezed,
+    Object? Appointment_Time = freezed,
+    Object? Appointment_id = freezed,
+    Object? MobileNumber = freezed,
+    Object? Doctor_id = freezed,
+    Object? transaction_status = freezed,
+    Object? PatientImage = freezed,
   }) {
-    return _then(_$_MissedCallLog(
-      User_id: null == User_id
+    return _then(_$MissedCallLogImpl(
+      User_id: freezed == User_id
           ? _value.User_id
           : User_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      User_Name: null == User_Name
+      User_Name: freezed == User_Name
           ? _value.User_Name
           : User_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Appointment_Date: null == Appointment_Date
+      Appointment_Date: freezed == Appointment_Date
           ? _value.Appointment_Date
           : Appointment_Date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Appointment_Time: null == Appointment_Time
+      Appointment_Time: freezed == Appointment_Time
           ? _value.Appointment_Time
           : Appointment_Time // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Appointment_id: null == Appointment_id
+      Appointment_id: freezed == Appointment_id
           ? _value.Appointment_id
           : Appointment_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      MobileNumber: null == MobileNumber
+      MobileNumber: freezed == MobileNumber
           ? _value.MobileNumber
           : MobileNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_id: null == Doctor_id
+      Doctor_id: freezed == Doctor_id
           ? _value.Doctor_id
           : Doctor_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      transaction_status: null == transaction_status
+      transaction_status: freezed == transaction_status
           ? _value.transaction_status
           : transaction_status // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      PatientImage: null == PatientImage
+      PatientImage: freezed == PatientImage
           ? _value.PatientImage
           : PatientImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -202,8 +202,8 @@ class __$$_MissedCallLogCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MissedCallLog implements _MissedCallLog {
-  const _$_MissedCallLog(
+class _$MissedCallLogImpl implements _MissedCallLog {
+  const _$MissedCallLogImpl(
       {this.User_id = '',
       this.User_Name = '',
       this.Appointment_Date = '',
@@ -214,8 +214,8 @@ class _$_MissedCallLog implements _MissedCallLog {
       this.transaction_status = '',
       this.PatientImage = ''});
 
-  factory _$_MissedCallLog.fromJson(Map<String, dynamic> json) =>
-      _$$_MissedCallLogFromJson(json);
+  factory _$MissedCallLogImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MissedCallLogImplFromJson(json);
 
   @override
   @JsonKey()
@@ -251,10 +251,10 @@ class _$_MissedCallLog implements _MissedCallLog {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MissedCallLog &&
+            other is _$MissedCallLogImpl &&
             const DeepCollectionEquality().equals(other.User_id, User_id) &&
             const DeepCollectionEquality().equals(other.User_Name, User_Name) &&
             const DeepCollectionEquality()
@@ -289,12 +289,12 @@ class _$_MissedCallLog implements _MissedCallLog {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MissedCallLogCopyWith<_$_MissedCallLog> get copyWith =>
-      __$$_MissedCallLogCopyWithImpl<_$_MissedCallLog>(this, _$identity);
+  _$$MissedCallLogImplCopyWith<_$MissedCallLogImpl> get copyWith =>
+      __$$MissedCallLogImplCopyWithImpl<_$MissedCallLogImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MissedCallLogToJson(
+    return _$$MissedCallLogImplToJson(
       this,
     );
   }
@@ -310,10 +310,10 @@ abstract class _MissedCallLog implements MissedCallLog {
       final dynamic MobileNumber,
       final dynamic Doctor_id,
       final dynamic transaction_status,
-      final dynamic PatientImage}) = _$_MissedCallLog;
+      final dynamic PatientImage}) = _$MissedCallLogImpl;
 
   factory _MissedCallLog.fromJson(Map<String, dynamic> json) =
-      _$_MissedCallLog.fromJson;
+      _$MissedCallLogImpl.fromJson;
 
   @override
   dynamic get User_id;
@@ -335,6 +335,6 @@ abstract class _MissedCallLog implements MissedCallLog {
   dynamic get PatientImage;
   @override
   @JsonKey(ignore: true)
-  _$$_MissedCallLogCopyWith<_$_MissedCallLog> get copyWith =>
+  _$$MissedCallLogImplCopyWith<_$MissedCallLogImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

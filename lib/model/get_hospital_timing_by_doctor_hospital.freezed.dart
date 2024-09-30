@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'get_hospital_timing_by_doctor_hospital.dart';
 
@@ -12,7 +12,7 @@ part of 'get_hospital_timing_by_doctor_hospital.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 GetHospitalTimingByDoctorHospital _$GetHospitalTimingByDoctorHospitalFromJson(
     Map<String, dynamic> json) {
@@ -70,38 +70,23 @@ abstract class $GetHospitalTimingByDoctorHospitalCopyWith<$Res> {
           GetHospitalTimingByDoctorHospital>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'VideoTiming_id')
-          int? videoTimingId,
-      @JsonKey(name: 'Day')
-          String? day,
-      @JsonKey(name: 'Hospital_id')
-          int? hospitalId,
-      @JsonKey(name: 'Hospital_Name')
-          dynamic hospitalName,
-      @JsonKey(name: 'FromTime')
-          String? fromTime,
-      @JsonKey(name: 'ToTime')
-          String? toTime,
-      @JsonKey(name: 'Days_Get')
-          dynamic daysGet,
-      @JsonKey(name: 'Doctor_Image')
-          dynamic doctorImage,
-      @JsonKey(name: 'Doctor_Name')
-          dynamic doctorName,
-      @JsonKey(name: 'Doctor_id')
-          int? doctorId,
-      @JsonKey(name: 'DoctorFee')
-          int? doctorFee,
-      @JsonKey(name: 'SetInterval')
-          int? setInterval,
-      @JsonKey(name: 'Days')
-          String? days,
-      @JsonKey(name: 'HospitalDetails_id')
-          int? hospitalDetailsId,
-      @JsonKey(name: 'Status')
-          dynamic status,
+      {@JsonKey(name: 'VideoTiming_id') int? videoTimingId,
+      @JsonKey(name: 'Day') String? day,
+      @JsonKey(name: 'Hospital_id') int? hospitalId,
+      @JsonKey(name: 'Hospital_Name') dynamic hospitalName,
+      @JsonKey(name: 'FromTime') String? fromTime,
+      @JsonKey(name: 'ToTime') String? toTime,
+      @JsonKey(name: 'Days_Get') dynamic daysGet,
+      @JsonKey(name: 'Doctor_Image') dynamic doctorImage,
+      @JsonKey(name: 'Doctor_Name') dynamic doctorName,
+      @JsonKey(name: 'Doctor_id') int? doctorId,
+      @JsonKey(name: 'DoctorFee') int? doctorFee,
+      @JsonKey(name: 'SetInterval') int? setInterval,
+      @JsonKey(name: 'Days') String? days,
+      @JsonKey(name: 'HospitalDetails_id') int? hospitalDetailsId,
+      @JsonKey(name: 'Status') dynamic status,
       @JsonKey(name: 'ListTiming')
-          List<GetHospitalTimingByDoctorHospital>? listTiming});
+      List<GetHospitalTimingByDoctorHospital>? listTiming});
 }
 
 /// @nodoc
@@ -121,18 +106,18 @@ class _$GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res,
     Object? videoTimingId = freezed,
     Object? day = freezed,
     Object? hospitalId = freezed,
-    Object? hospitalName = null,
+    Object? hospitalName = freezed,
     Object? fromTime = freezed,
     Object? toTime = freezed,
-    Object? daysGet = null,
-    Object? doctorImage = null,
-    Object? doctorName = null,
+    Object? daysGet = freezed,
+    Object? doctorImage = freezed,
+    Object? doctorName = freezed,
     Object? doctorId = freezed,
     Object? doctorFee = freezed,
     Object? setInterval = freezed,
     Object? days = freezed,
     Object? hospitalDetailsId = freezed,
-    Object? status = null,
+    Object? status = freezed,
     Object? listTiming = freezed,
   }) {
     return _then(_value.copyWith(
@@ -148,7 +133,7 @@ class _$GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res,
           ? _value.hospitalId
           : hospitalId // ignore: cast_nullable_to_non_nullable
               as int?,
-      hospitalName: null == hospitalName
+      hospitalName: freezed == hospitalName
           ? _value.hospitalName
           : hospitalName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -160,15 +145,15 @@ class _$GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res,
           ? _value.toTime
           : toTime // ignore: cast_nullable_to_non_nullable
               as String?,
-      daysGet: null == daysGet
+      daysGet: freezed == daysGet
           ? _value.daysGet
           : daysGet // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorImage: null == doctorImage
+      doctorImage: freezed == doctorImage
           ? _value.doctorImage
           : doctorImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorName: null == doctorName
+      doctorName: freezed == doctorName
           ? _value.doctorName
           : doctorName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -192,7 +177,7 @@ class _$GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res,
           ? _value.hospitalDetailsId
           : hospitalDetailsId // ignore: cast_nullable_to_non_nullable
               as int?,
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -205,57 +190,42 @@ class _$GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_GetHospitalTimingByDoctorHospitalCopyWith<$Res>
+abstract class _$$GetHospitalTimingByDoctorHospitalImplCopyWith<$Res>
     implements $GetHospitalTimingByDoctorHospitalCopyWith<$Res> {
-  factory _$$_GetHospitalTimingByDoctorHospitalCopyWith(
-          _$_GetHospitalTimingByDoctorHospital value,
-          $Res Function(_$_GetHospitalTimingByDoctorHospital) then) =
-      __$$_GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res>;
+  factory _$$GetHospitalTimingByDoctorHospitalImplCopyWith(
+          _$GetHospitalTimingByDoctorHospitalImpl value,
+          $Res Function(_$GetHospitalTimingByDoctorHospitalImpl) then) =
+      __$$GetHospitalTimingByDoctorHospitalImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'VideoTiming_id')
-          int? videoTimingId,
-      @JsonKey(name: 'Day')
-          String? day,
-      @JsonKey(name: 'Hospital_id')
-          int? hospitalId,
-      @JsonKey(name: 'Hospital_Name')
-          dynamic hospitalName,
-      @JsonKey(name: 'FromTime')
-          String? fromTime,
-      @JsonKey(name: 'ToTime')
-          String? toTime,
-      @JsonKey(name: 'Days_Get')
-          dynamic daysGet,
-      @JsonKey(name: 'Doctor_Image')
-          dynamic doctorImage,
-      @JsonKey(name: 'Doctor_Name')
-          dynamic doctorName,
-      @JsonKey(name: 'Doctor_id')
-          int? doctorId,
-      @JsonKey(name: 'DoctorFee')
-          int? doctorFee,
-      @JsonKey(name: 'SetInterval')
-          int? setInterval,
-      @JsonKey(name: 'Days')
-          String? days,
-      @JsonKey(name: 'HospitalDetails_id')
-          int? hospitalDetailsId,
-      @JsonKey(name: 'Status')
-          dynamic status,
+      {@JsonKey(name: 'VideoTiming_id') int? videoTimingId,
+      @JsonKey(name: 'Day') String? day,
+      @JsonKey(name: 'Hospital_id') int? hospitalId,
+      @JsonKey(name: 'Hospital_Name') dynamic hospitalName,
+      @JsonKey(name: 'FromTime') String? fromTime,
+      @JsonKey(name: 'ToTime') String? toTime,
+      @JsonKey(name: 'Days_Get') dynamic daysGet,
+      @JsonKey(name: 'Doctor_Image') dynamic doctorImage,
+      @JsonKey(name: 'Doctor_Name') dynamic doctorName,
+      @JsonKey(name: 'Doctor_id') int? doctorId,
+      @JsonKey(name: 'DoctorFee') int? doctorFee,
+      @JsonKey(name: 'SetInterval') int? setInterval,
+      @JsonKey(name: 'Days') String? days,
+      @JsonKey(name: 'HospitalDetails_id') int? hospitalDetailsId,
+      @JsonKey(name: 'Status') dynamic status,
       @JsonKey(name: 'ListTiming')
-          List<GetHospitalTimingByDoctorHospital>? listTiming});
+      List<GetHospitalTimingByDoctorHospital>? listTiming});
 }
 
 /// @nodoc
-class __$$_GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res>
+class __$$GetHospitalTimingByDoctorHospitalImplCopyWithImpl<$Res>
     extends _$GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res,
-        _$_GetHospitalTimingByDoctorHospital>
-    implements _$$_GetHospitalTimingByDoctorHospitalCopyWith<$Res> {
-  __$$_GetHospitalTimingByDoctorHospitalCopyWithImpl(
-      _$_GetHospitalTimingByDoctorHospital _value,
-      $Res Function(_$_GetHospitalTimingByDoctorHospital) _then)
+        _$GetHospitalTimingByDoctorHospitalImpl>
+    implements _$$GetHospitalTimingByDoctorHospitalImplCopyWith<$Res> {
+  __$$GetHospitalTimingByDoctorHospitalImplCopyWithImpl(
+      _$GetHospitalTimingByDoctorHospitalImpl _value,
+      $Res Function(_$GetHospitalTimingByDoctorHospitalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -264,21 +234,21 @@ class __$$_GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res>
     Object? videoTimingId = freezed,
     Object? day = freezed,
     Object? hospitalId = freezed,
-    Object? hospitalName = null,
+    Object? hospitalName = freezed,
     Object? fromTime = freezed,
     Object? toTime = freezed,
-    Object? daysGet = null,
-    Object? doctorImage = null,
-    Object? doctorName = null,
+    Object? daysGet = freezed,
+    Object? doctorImage = freezed,
+    Object? doctorName = freezed,
     Object? doctorId = freezed,
     Object? doctorFee = freezed,
     Object? setInterval = freezed,
     Object? days = freezed,
     Object? hospitalDetailsId = freezed,
-    Object? status = null,
+    Object? status = freezed,
     Object? listTiming = freezed,
   }) {
-    return _then(_$_GetHospitalTimingByDoctorHospital(
+    return _then(_$GetHospitalTimingByDoctorHospitalImpl(
       videoTimingId: freezed == videoTimingId
           ? _value.videoTimingId
           : videoTimingId // ignore: cast_nullable_to_non_nullable
@@ -291,7 +261,7 @@ class __$$_GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res>
           ? _value.hospitalId
           : hospitalId // ignore: cast_nullable_to_non_nullable
               as int?,
-      hospitalName: null == hospitalName
+      hospitalName: freezed == hospitalName
           ? _value.hospitalName
           : hospitalName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -303,15 +273,15 @@ class __$$_GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res>
           ? _value.toTime
           : toTime // ignore: cast_nullable_to_non_nullable
               as String?,
-      daysGet: null == daysGet
+      daysGet: freezed == daysGet
           ? _value.daysGet
           : daysGet // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorImage: null == doctorImage
+      doctorImage: freezed == doctorImage
           ? _value.doctorImage
           : doctorImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorName: null == doctorName
+      doctorName: freezed == doctorName
           ? _value.doctorName
           : doctorName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -335,7 +305,7 @@ class __$$_GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res>
           ? _value.hospitalDetailsId
           : hospitalDetailsId // ignore: cast_nullable_to_non_nullable
               as int?,
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -349,46 +319,31 @@ class __$$_GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GetHospitalTimingByDoctorHospital
+class _$GetHospitalTimingByDoctorHospitalImpl
     implements _GetHospitalTimingByDoctorHospital {
-  const _$_GetHospitalTimingByDoctorHospital(
-      {@JsonKey(name: 'VideoTiming_id')
-          this.videoTimingId,
-      @JsonKey(name: 'Day')
-          this.day,
-      @JsonKey(name: 'Hospital_id')
-          this.hospitalId,
-      @JsonKey(name: 'Hospital_Name')
-          this.hospitalName = null,
-      @JsonKey(name: 'FromTime')
-          this.fromTime,
-      @JsonKey(name: 'ToTime')
-          this.toTime,
-      @JsonKey(name: 'Days_Get')
-          this.daysGet = null,
-      @JsonKey(name: 'Doctor_Image')
-          this.doctorImage = null,
-      @JsonKey(name: 'Doctor_Name')
-          this.doctorName = null,
-      @JsonKey(name: 'Doctor_id')
-          this.doctorId,
-      @JsonKey(name: 'DoctorFee')
-          this.doctorFee,
-      @JsonKey(name: 'SetInterval')
-          this.setInterval,
-      @JsonKey(name: 'Days')
-          this.days,
-      @JsonKey(name: 'HospitalDetails_id')
-          this.hospitalDetailsId,
-      @JsonKey(name: 'Status')
-          this.status = null,
+  const _$GetHospitalTimingByDoctorHospitalImpl(
+      {@JsonKey(name: 'VideoTiming_id') this.videoTimingId,
+      @JsonKey(name: 'Day') this.day,
+      @JsonKey(name: 'Hospital_id') this.hospitalId,
+      @JsonKey(name: 'Hospital_Name') this.hospitalName = null,
+      @JsonKey(name: 'FromTime') this.fromTime,
+      @JsonKey(name: 'ToTime') this.toTime,
+      @JsonKey(name: 'Days_Get') this.daysGet = null,
+      @JsonKey(name: 'Doctor_Image') this.doctorImage = null,
+      @JsonKey(name: 'Doctor_Name') this.doctorName = null,
+      @JsonKey(name: 'Doctor_id') this.doctorId,
+      @JsonKey(name: 'DoctorFee') this.doctorFee,
+      @JsonKey(name: 'SetInterval') this.setInterval,
+      @JsonKey(name: 'Days') this.days,
+      @JsonKey(name: 'HospitalDetails_id') this.hospitalDetailsId,
+      @JsonKey(name: 'Status') this.status = null,
       @JsonKey(name: 'ListTiming')
-          final List<GetHospitalTimingByDoctorHospital>? listTiming = null})
+      final List<GetHospitalTimingByDoctorHospital>? listTiming = null})
       : _listTiming = listTiming;
 
-  factory _$_GetHospitalTimingByDoctorHospital.fromJson(
+  factory _$GetHospitalTimingByDoctorHospitalImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_GetHospitalTimingByDoctorHospitalFromJson(json);
+      _$$GetHospitalTimingByDoctorHospitalImplFromJson(json);
 
   @override
   @JsonKey(name: 'VideoTiming_id')
@@ -441,6 +396,7 @@ class _$_GetHospitalTimingByDoctorHospital
   List<GetHospitalTimingByDoctorHospital>? get listTiming {
     final value = _listTiming;
     if (value == null) return null;
+    if (_listTiming is EqualUnmodifiableListView) return _listTiming;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -451,10 +407,10 @@ class _$_GetHospitalTimingByDoctorHospital
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetHospitalTimingByDoctorHospital &&
+            other is _$GetHospitalTimingByDoctorHospitalImpl &&
             (identical(other.videoTimingId, videoTimingId) ||
                 other.videoTimingId == videoTimingId) &&
             (identical(other.day, day) || other.day == day) &&
@@ -508,14 +464,14 @@ class _$_GetHospitalTimingByDoctorHospital
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetHospitalTimingByDoctorHospitalCopyWith<
-          _$_GetHospitalTimingByDoctorHospital>
-      get copyWith => __$$_GetHospitalTimingByDoctorHospitalCopyWithImpl<
-          _$_GetHospitalTimingByDoctorHospital>(this, _$identity);
+  _$$GetHospitalTimingByDoctorHospitalImplCopyWith<
+          _$GetHospitalTimingByDoctorHospitalImpl>
+      get copyWith => __$$GetHospitalTimingByDoctorHospitalImplCopyWithImpl<
+          _$GetHospitalTimingByDoctorHospitalImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GetHospitalTimingByDoctorHospitalToJson(
+    return _$$GetHospitalTimingByDoctorHospitalImplToJson(
       this,
     );
   }
@@ -524,43 +480,28 @@ class _$_GetHospitalTimingByDoctorHospital
 abstract class _GetHospitalTimingByDoctorHospital
     implements GetHospitalTimingByDoctorHospital {
   const factory _GetHospitalTimingByDoctorHospital(
-          {@JsonKey(name: 'VideoTiming_id')
-              final int? videoTimingId,
-          @JsonKey(name: 'Day')
-              final String? day,
-          @JsonKey(name: 'Hospital_id')
-              final int? hospitalId,
-          @JsonKey(name: 'Hospital_Name')
-              final dynamic hospitalName,
-          @JsonKey(name: 'FromTime')
-              final String? fromTime,
-          @JsonKey(name: 'ToTime')
-              final String? toTime,
-          @JsonKey(name: 'Days_Get')
-              final dynamic daysGet,
-          @JsonKey(name: 'Doctor_Image')
-              final dynamic doctorImage,
-          @JsonKey(name: 'Doctor_Name')
-              final dynamic doctorName,
-          @JsonKey(name: 'Doctor_id')
-              final int? doctorId,
-          @JsonKey(name: 'DoctorFee')
-              final int? doctorFee,
-          @JsonKey(name: 'SetInterval')
-              final int? setInterval,
-          @JsonKey(name: 'Days')
-              final String? days,
-          @JsonKey(name: 'HospitalDetails_id')
-              final int? hospitalDetailsId,
-          @JsonKey(name: 'Status')
-              final dynamic status,
+          {@JsonKey(name: 'VideoTiming_id') final int? videoTimingId,
+          @JsonKey(name: 'Day') final String? day,
+          @JsonKey(name: 'Hospital_id') final int? hospitalId,
+          @JsonKey(name: 'Hospital_Name') final dynamic hospitalName,
+          @JsonKey(name: 'FromTime') final String? fromTime,
+          @JsonKey(name: 'ToTime') final String? toTime,
+          @JsonKey(name: 'Days_Get') final dynamic daysGet,
+          @JsonKey(name: 'Doctor_Image') final dynamic doctorImage,
+          @JsonKey(name: 'Doctor_Name') final dynamic doctorName,
+          @JsonKey(name: 'Doctor_id') final int? doctorId,
+          @JsonKey(name: 'DoctorFee') final int? doctorFee,
+          @JsonKey(name: 'SetInterval') final int? setInterval,
+          @JsonKey(name: 'Days') final String? days,
+          @JsonKey(name: 'HospitalDetails_id') final int? hospitalDetailsId,
+          @JsonKey(name: 'Status') final dynamic status,
           @JsonKey(name: 'ListTiming')
-              final List<GetHospitalTimingByDoctorHospital>? listTiming}) =
-      _$_GetHospitalTimingByDoctorHospital;
+          final List<GetHospitalTimingByDoctorHospital>? listTiming}) =
+      _$GetHospitalTimingByDoctorHospitalImpl;
 
   factory _GetHospitalTimingByDoctorHospital.fromJson(
           Map<String, dynamic> json) =
-      _$_GetHospitalTimingByDoctorHospital.fromJson;
+      _$GetHospitalTimingByDoctorHospitalImpl.fromJson;
 
   @override
   @JsonKey(name: 'VideoTiming_id')
@@ -612,7 +553,7 @@ abstract class _GetHospitalTimingByDoctorHospital
   List<GetHospitalTimingByDoctorHospital>? get listTiming;
   @override
   @JsonKey(ignore: true)
-  _$$_GetHospitalTimingByDoctorHospitalCopyWith<
-          _$_GetHospitalTimingByDoctorHospital>
+  _$$GetHospitalTimingByDoctorHospitalImplCopyWith<
+          _$GetHospitalTimingByDoctorHospitalImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

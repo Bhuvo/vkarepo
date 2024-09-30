@@ -6,9 +6,9 @@ part of 'schedule_doctors_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ScheduleDoctorsResponse _$$_ScheduleDoctorsResponseFromJson(
+_$ScheduleDoctorsResponseImpl _$$ScheduleDoctorsResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ScheduleDoctorsResponse(
+    _$ScheduleDoctorsResponseImpl(
       doctors: (json['DoctorInfo'] as List<dynamic>?)
           ?.map((e) => InstantDoctor.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -17,8 +17,8 @@ _$_ScheduleDoctorsResponse _$$_ScheduleDoctorsResponseFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_ScheduleDoctorsResponseToJson(
-        _$_ScheduleDoctorsResponse instance) =>
+Map<String, dynamic> _$$ScheduleDoctorsResponseImplToJson(
+        _$ScheduleDoctorsResponseImpl instance) =>
     <String, dynamic>{
       'DoctorInfo': instance.doctors,
       'ClinicFee': instance.clinics,

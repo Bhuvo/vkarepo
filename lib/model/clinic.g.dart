@@ -6,7 +6,7 @@ part of 'clinic.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Clinic _$$_ClinicFromJson(Map<String, dynamic> json) => _$_Clinic(
+_$ClinicImpl _$$ClinicImplFromJson(Map<String, dynamic> json) => _$ClinicImpl(
       Location_Name_Temp: json['Location_Name_Temp'] ?? '',
       URL_String: json['URL_String'] ?? '',
       Clinic_NameTemp: json['Clinic_NameTemp'] ?? '',
@@ -66,7 +66,8 @@ _$_Clinic _$$_ClinicFromJson(Map<String, dynamic> json) => _$_Clinic(
           .toList(),
     );
 
-Map<String, dynamic> _$$_ClinicToJson(_$_Clinic instance) => <String, dynamic>{
+Map<String, dynamic> _$$ClinicImplToJson(_$ClinicImpl instance) =>
+    <String, dynamic>{
       'Location_Name_Temp': instance.Location_Name_Temp,
       'URL_String': instance.URL_String,
       'Clinic_NameTemp': instance.Clinic_NameTemp,

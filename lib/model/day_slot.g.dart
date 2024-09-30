@@ -6,7 +6,8 @@ part of 'day_slot.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DaySlot _$$_DaySlotFromJson(Map<String, dynamic> json) => _$_DaySlot(
+_$DaySlotImpl _$$DaySlotImplFromJson(Map<String, dynamic> json) =>
+    _$DaySlotImpl(
       Time: json['Time'] ?? '',
       FromTime: json['FromTime'] ?? '',
       ToTime: json['ToTime'] ?? '',
@@ -15,7 +16,7 @@ _$_DaySlot _$$_DaySlotFromJson(Map<String, dynamic> json) => _$_DaySlot(
       Time_List: json['Time_List'] ?? '',
     );
 
-Map<String, dynamic> _$$_DaySlotToJson(_$_DaySlot instance) =>
+Map<String, dynamic> _$$DaySlotImplToJson(_$DaySlotImpl instance) =>
     <String, dynamic>{
       'Time': instance.Time,
       'FromTime': instance.FromTime,

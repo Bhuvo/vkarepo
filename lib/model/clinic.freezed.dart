@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'clinic.dart';
 
@@ -12,7 +12,7 @@ part of 'clinic.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Clinic _$ClinicFromJson(Map<String, dynamic> json) {
   return _Clinic.fromJson(json);
@@ -158,276 +158,276 @@ class _$ClinicCopyWithImpl<$Res, $Val extends Clinic>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Location_Name_Temp = null,
-    Object? URL_String = null,
-    Object? Clinic_NameTemp = null,
-    Object? Type_Flag = null,
-    Object? Clinic_id = null,
-    Object? Clinic_Name = null,
-    Object? Clinic_Name_temp = null,
-    Object? Clinic_Address = null,
-    Object? SubCategory_id = null,
-    Object? Location_id = null,
-    Object? Location_name = null,
-    Object? ClinicDoctorFee = null,
-    Object? FromTime = null,
-    Object? FeedBack = null,
-    Object? Doctor_id = null,
-    Object? startSplit = null,
-    Object? EndSplit = null,
-    Object? ToTime = null,
-    Object? Day = null,
-    Object? AboutClinic = null,
-    Object? Clinic_Images = null,
-    Object? CandHList = null,
-    Object? Location_Name = null,
-    Object? Days = null,
-    Object? SubCategory_Name = null,
-    Object? Class = null,
-    Object? Link = null,
-    Object? Banner_Id = null,
-    Object? Banner_Image = null,
-    Object? listbanner = null,
-    Object? Timing = null,
-    Object? PhoneNumber = null,
-    Object? SerList = null,
-    Object? SubCategoryList = null,
-    Object? CImage = null,
-    Object? LocationList = null,
-    Object? Count = null,
-    Object? count = null,
-    Object? Lat = null,
-    Object? longi = null,
-    Object? Hospital_Speciliazation = null,
-    Object? Hospital_Type = null,
-    Object? Hospital_Address = null,
-    Object? Currency = null,
-    Object? City_Name = null,
-    Object? Country_Name = null,
-    Object? Hospital_URL_With_Name = null,
-    Object? HospitalDetails_id = null,
-    Object? user_id = null,
-    Object? user_name = null,
-    Object? user_image = null,
-    Object? mobileno = null,
-    Object? app_id = null,
-    Object? view_flag = null,
+    Object? Location_Name_Temp = freezed,
+    Object? URL_String = freezed,
+    Object? Clinic_NameTemp = freezed,
+    Object? Type_Flag = freezed,
+    Object? Clinic_id = freezed,
+    Object? Clinic_Name = freezed,
+    Object? Clinic_Name_temp = freezed,
+    Object? Clinic_Address = freezed,
+    Object? SubCategory_id = freezed,
+    Object? Location_id = freezed,
+    Object? Location_name = freezed,
+    Object? ClinicDoctorFee = freezed,
+    Object? FromTime = freezed,
+    Object? FeedBack = freezed,
+    Object? Doctor_id = freezed,
+    Object? startSplit = freezed,
+    Object? EndSplit = freezed,
+    Object? ToTime = freezed,
+    Object? Day = freezed,
+    Object? AboutClinic = freezed,
+    Object? Clinic_Images = freezed,
+    Object? CandHList = freezed,
+    Object? Location_Name = freezed,
+    Object? Days = freezed,
+    Object? SubCategory_Name = freezed,
+    Object? Class = freezed,
+    Object? Link = freezed,
+    Object? Banner_Id = freezed,
+    Object? Banner_Image = freezed,
+    Object? listbanner = freezed,
+    Object? Timing = freezed,
+    Object? PhoneNumber = freezed,
+    Object? SerList = freezed,
+    Object? SubCategoryList = freezed,
+    Object? CImage = freezed,
+    Object? LocationList = freezed,
+    Object? Count = freezed,
+    Object? count = freezed,
+    Object? Lat = freezed,
+    Object? longi = freezed,
+    Object? Hospital_Speciliazation = freezed,
+    Object? Hospital_Type = freezed,
+    Object? Hospital_Address = freezed,
+    Object? Currency = freezed,
+    Object? City_Name = freezed,
+    Object? Country_Name = freezed,
+    Object? Hospital_URL_With_Name = freezed,
+    Object? HospitalDetails_id = freezed,
+    Object? user_id = freezed,
+    Object? user_name = freezed,
+    Object? user_image = freezed,
+    Object? mobileno = freezed,
+    Object? app_id = freezed,
+    Object? view_flag = freezed,
     Object? daySlot = freezed,
   }) {
     return _then(_value.copyWith(
-      Location_Name_Temp: null == Location_Name_Temp
+      Location_Name_Temp: freezed == Location_Name_Temp
           ? _value.Location_Name_Temp
           : Location_Name_Temp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      URL_String: null == URL_String
+      URL_String: freezed == URL_String
           ? _value.URL_String
           : URL_String // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Clinic_NameTemp: null == Clinic_NameTemp
+      Clinic_NameTemp: freezed == Clinic_NameTemp
           ? _value.Clinic_NameTemp
           : Clinic_NameTemp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Type_Flag: null == Type_Flag
+      Type_Flag: freezed == Type_Flag
           ? _value.Type_Flag
           : Type_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Clinic_id: null == Clinic_id
+      Clinic_id: freezed == Clinic_id
           ? _value.Clinic_id
           : Clinic_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Clinic_Name: null == Clinic_Name
+      Clinic_Name: freezed == Clinic_Name
           ? _value.Clinic_Name
           : Clinic_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Clinic_Name_temp: null == Clinic_Name_temp
+      Clinic_Name_temp: freezed == Clinic_Name_temp
           ? _value.Clinic_Name_temp
           : Clinic_Name_temp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Clinic_Address: null == Clinic_Address
+      Clinic_Address: freezed == Clinic_Address
           ? _value.Clinic_Address
           : Clinic_Address // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      SubCategory_id: null == SubCategory_id
+      SubCategory_id: freezed == SubCategory_id
           ? _value.SubCategory_id
           : SubCategory_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Location_id: null == Location_id
+      Location_id: freezed == Location_id
           ? _value.Location_id
           : Location_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Location_name: null == Location_name
+      Location_name: freezed == Location_name
           ? _value.Location_name
           : Location_name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ClinicDoctorFee: null == ClinicDoctorFee
+      ClinicDoctorFee: freezed == ClinicDoctorFee
           ? _value.ClinicDoctorFee
           : ClinicDoctorFee // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      FromTime: null == FromTime
+      FromTime: freezed == FromTime
           ? _value.FromTime
           : FromTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      FeedBack: null == FeedBack
+      FeedBack: freezed == FeedBack
           ? _value.FeedBack
           : FeedBack // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_id: null == Doctor_id
+      Doctor_id: freezed == Doctor_id
           ? _value.Doctor_id
           : Doctor_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      startSplit: null == startSplit
+      startSplit: freezed == startSplit
           ? _value.startSplit
           : startSplit // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      EndSplit: null == EndSplit
+      EndSplit: freezed == EndSplit
           ? _value.EndSplit
           : EndSplit // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ToTime: null == ToTime
+      ToTime: freezed == ToTime
           ? _value.ToTime
           : ToTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Day: null == Day
+      Day: freezed == Day
           ? _value.Day
           : Day // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      AboutClinic: null == AboutClinic
+      AboutClinic: freezed == AboutClinic
           ? _value.AboutClinic
           : AboutClinic // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Clinic_Images: null == Clinic_Images
+      Clinic_Images: freezed == Clinic_Images
           ? _value.Clinic_Images
           : Clinic_Images // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      CandHList: null == CandHList
+      CandHList: freezed == CandHList
           ? _value.CandHList
           : CandHList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Location_Name: null == Location_Name
+      Location_Name: freezed == Location_Name
           ? _value.Location_Name
           : Location_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Days: null == Days
+      Days: freezed == Days
           ? _value.Days
           : Days // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      SubCategory_Name: null == SubCategory_Name
+      SubCategory_Name: freezed == SubCategory_Name
           ? _value.SubCategory_Name
           : SubCategory_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Class: null == Class
+      Class: freezed == Class
           ? _value.Class
           : Class // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Link: null == Link
+      Link: freezed == Link
           ? _value.Link
           : Link // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Banner_Id: null == Banner_Id
+      Banner_Id: freezed == Banner_Id
           ? _value.Banner_Id
           : Banner_Id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Banner_Image: null == Banner_Image
+      Banner_Image: freezed == Banner_Image
           ? _value.Banner_Image
           : Banner_Image // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      listbanner: null == listbanner
+      listbanner: freezed == listbanner
           ? _value.listbanner
           : listbanner // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Timing: null == Timing
+      Timing: freezed == Timing
           ? _value.Timing
           : Timing // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      PhoneNumber: null == PhoneNumber
+      PhoneNumber: freezed == PhoneNumber
           ? _value.PhoneNumber
           : PhoneNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      SerList: null == SerList
+      SerList: freezed == SerList
           ? _value.SerList
           : SerList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      SubCategoryList: null == SubCategoryList
+      SubCategoryList: freezed == SubCategoryList
           ? _value.SubCategoryList
           : SubCategoryList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      CImage: null == CImage
+      CImage: freezed == CImage
           ? _value.CImage
           : CImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      LocationList: null == LocationList
+      LocationList: freezed == LocationList
           ? _value.LocationList
           : LocationList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Count: null == Count
+      Count: freezed == Count
           ? _value.Count
           : Count // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      count: null == count
+      count: freezed == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Lat: null == Lat
+      Lat: freezed == Lat
           ? _value.Lat
           : Lat // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      longi: null == longi
+      longi: freezed == longi
           ? _value.longi
           : longi // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Speciliazation: null == Hospital_Speciliazation
+      Hospital_Speciliazation: freezed == Hospital_Speciliazation
           ? _value.Hospital_Speciliazation
           : Hospital_Speciliazation // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Type: null == Hospital_Type
+      Hospital_Type: freezed == Hospital_Type
           ? _value.Hospital_Type
           : Hospital_Type // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Address: null == Hospital_Address
+      Hospital_Address: freezed == Hospital_Address
           ? _value.Hospital_Address
           : Hospital_Address // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Currency: null == Currency
+      Currency: freezed == Currency
           ? _value.Currency
           : Currency // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      City_Name: null == City_Name
+      City_Name: freezed == City_Name
           ? _value.City_Name
           : City_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Country_Name: null == Country_Name
+      Country_Name: freezed == Country_Name
           ? _value.Country_Name
           : Country_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_URL_With_Name: null == Hospital_URL_With_Name
+      Hospital_URL_With_Name: freezed == Hospital_URL_With_Name
           ? _value.Hospital_URL_With_Name
           : Hospital_URL_With_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      HospitalDetails_id: null == HospitalDetails_id
+      HospitalDetails_id: freezed == HospitalDetails_id
           ? _value.HospitalDetails_id
           : HospitalDetails_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      user_id: null == user_id
+      user_id: freezed == user_id
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      user_name: null == user_name
+      user_name: freezed == user_name
           ? _value.user_name
           : user_name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      user_image: null == user_image
+      user_image: freezed == user_image
           ? _value.user_image
           : user_image // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      mobileno: null == mobileno
+      mobileno: freezed == mobileno
           ? _value.mobileno
           : mobileno // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      app_id: null == app_id
+      app_id: freezed == app_id
           ? _value.app_id
           : app_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      view_flag: null == view_flag
+      view_flag: freezed == view_flag
           ? _value.view_flag
           : view_flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -440,9 +440,10 @@ class _$ClinicCopyWithImpl<$Res, $Val extends Clinic>
 }
 
 /// @nodoc
-abstract class _$$_ClinicCopyWith<$Res> implements $ClinicCopyWith<$Res> {
-  factory _$$_ClinicCopyWith(_$_Clinic value, $Res Function(_$_Clinic) then) =
-      __$$_ClinicCopyWithImpl<$Res>;
+abstract class _$$ClinicImplCopyWith<$Res> implements $ClinicCopyWith<$Res> {
+  factory _$$ClinicImplCopyWith(
+          _$ClinicImpl value, $Res Function(_$ClinicImpl) then) =
+      __$$ClinicImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -504,285 +505,286 @@ abstract class _$$_ClinicCopyWith<$Res> implements $ClinicCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ClinicCopyWithImpl<$Res>
-    extends _$ClinicCopyWithImpl<$Res, _$_Clinic>
-    implements _$$_ClinicCopyWith<$Res> {
-  __$$_ClinicCopyWithImpl(_$_Clinic _value, $Res Function(_$_Clinic) _then)
+class __$$ClinicImplCopyWithImpl<$Res>
+    extends _$ClinicCopyWithImpl<$Res, _$ClinicImpl>
+    implements _$$ClinicImplCopyWith<$Res> {
+  __$$ClinicImplCopyWithImpl(
+      _$ClinicImpl _value, $Res Function(_$ClinicImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Location_Name_Temp = null,
-    Object? URL_String = null,
-    Object? Clinic_NameTemp = null,
-    Object? Type_Flag = null,
-    Object? Clinic_id = null,
-    Object? Clinic_Name = null,
-    Object? Clinic_Name_temp = null,
-    Object? Clinic_Address = null,
-    Object? SubCategory_id = null,
-    Object? Location_id = null,
-    Object? Location_name = null,
-    Object? ClinicDoctorFee = null,
-    Object? FromTime = null,
-    Object? FeedBack = null,
-    Object? Doctor_id = null,
-    Object? startSplit = null,
-    Object? EndSplit = null,
-    Object? ToTime = null,
-    Object? Day = null,
-    Object? AboutClinic = null,
-    Object? Clinic_Images = null,
-    Object? CandHList = null,
-    Object? Location_Name = null,
-    Object? Days = null,
-    Object? SubCategory_Name = null,
-    Object? Class = null,
-    Object? Link = null,
-    Object? Banner_Id = null,
-    Object? Banner_Image = null,
-    Object? listbanner = null,
-    Object? Timing = null,
-    Object? PhoneNumber = null,
-    Object? SerList = null,
-    Object? SubCategoryList = null,
-    Object? CImage = null,
-    Object? LocationList = null,
-    Object? Count = null,
-    Object? count = null,
-    Object? Lat = null,
-    Object? longi = null,
-    Object? Hospital_Speciliazation = null,
-    Object? Hospital_Type = null,
-    Object? Hospital_Address = null,
-    Object? Currency = null,
-    Object? City_Name = null,
-    Object? Country_Name = null,
-    Object? Hospital_URL_With_Name = null,
-    Object? HospitalDetails_id = null,
-    Object? user_id = null,
-    Object? user_name = null,
-    Object? user_image = null,
-    Object? mobileno = null,
-    Object? app_id = null,
-    Object? view_flag = null,
+    Object? Location_Name_Temp = freezed,
+    Object? URL_String = freezed,
+    Object? Clinic_NameTemp = freezed,
+    Object? Type_Flag = freezed,
+    Object? Clinic_id = freezed,
+    Object? Clinic_Name = freezed,
+    Object? Clinic_Name_temp = freezed,
+    Object? Clinic_Address = freezed,
+    Object? SubCategory_id = freezed,
+    Object? Location_id = freezed,
+    Object? Location_name = freezed,
+    Object? ClinicDoctorFee = freezed,
+    Object? FromTime = freezed,
+    Object? FeedBack = freezed,
+    Object? Doctor_id = freezed,
+    Object? startSplit = freezed,
+    Object? EndSplit = freezed,
+    Object? ToTime = freezed,
+    Object? Day = freezed,
+    Object? AboutClinic = freezed,
+    Object? Clinic_Images = freezed,
+    Object? CandHList = freezed,
+    Object? Location_Name = freezed,
+    Object? Days = freezed,
+    Object? SubCategory_Name = freezed,
+    Object? Class = freezed,
+    Object? Link = freezed,
+    Object? Banner_Id = freezed,
+    Object? Banner_Image = freezed,
+    Object? listbanner = freezed,
+    Object? Timing = freezed,
+    Object? PhoneNumber = freezed,
+    Object? SerList = freezed,
+    Object? SubCategoryList = freezed,
+    Object? CImage = freezed,
+    Object? LocationList = freezed,
+    Object? Count = freezed,
+    Object? count = freezed,
+    Object? Lat = freezed,
+    Object? longi = freezed,
+    Object? Hospital_Speciliazation = freezed,
+    Object? Hospital_Type = freezed,
+    Object? Hospital_Address = freezed,
+    Object? Currency = freezed,
+    Object? City_Name = freezed,
+    Object? Country_Name = freezed,
+    Object? Hospital_URL_With_Name = freezed,
+    Object? HospitalDetails_id = freezed,
+    Object? user_id = freezed,
+    Object? user_name = freezed,
+    Object? user_image = freezed,
+    Object? mobileno = freezed,
+    Object? app_id = freezed,
+    Object? view_flag = freezed,
     Object? daySlot = freezed,
   }) {
-    return _then(_$_Clinic(
-      Location_Name_Temp: null == Location_Name_Temp
+    return _then(_$ClinicImpl(
+      Location_Name_Temp: freezed == Location_Name_Temp
           ? _value.Location_Name_Temp
           : Location_Name_Temp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      URL_String: null == URL_String
+      URL_String: freezed == URL_String
           ? _value.URL_String
           : URL_String // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Clinic_NameTemp: null == Clinic_NameTemp
+      Clinic_NameTemp: freezed == Clinic_NameTemp
           ? _value.Clinic_NameTemp
           : Clinic_NameTemp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Type_Flag: null == Type_Flag
+      Type_Flag: freezed == Type_Flag
           ? _value.Type_Flag
           : Type_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Clinic_id: null == Clinic_id
+      Clinic_id: freezed == Clinic_id
           ? _value.Clinic_id
           : Clinic_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Clinic_Name: null == Clinic_Name
+      Clinic_Name: freezed == Clinic_Name
           ? _value.Clinic_Name
           : Clinic_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Clinic_Name_temp: null == Clinic_Name_temp
+      Clinic_Name_temp: freezed == Clinic_Name_temp
           ? _value.Clinic_Name_temp
           : Clinic_Name_temp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Clinic_Address: null == Clinic_Address
+      Clinic_Address: freezed == Clinic_Address
           ? _value.Clinic_Address
           : Clinic_Address // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      SubCategory_id: null == SubCategory_id
+      SubCategory_id: freezed == SubCategory_id
           ? _value.SubCategory_id
           : SubCategory_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Location_id: null == Location_id
+      Location_id: freezed == Location_id
           ? _value.Location_id
           : Location_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Location_name: null == Location_name
+      Location_name: freezed == Location_name
           ? _value.Location_name
           : Location_name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ClinicDoctorFee: null == ClinicDoctorFee
+      ClinicDoctorFee: freezed == ClinicDoctorFee
           ? _value.ClinicDoctorFee
           : ClinicDoctorFee // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      FromTime: null == FromTime
+      FromTime: freezed == FromTime
           ? _value.FromTime
           : FromTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      FeedBack: null == FeedBack
+      FeedBack: freezed == FeedBack
           ? _value.FeedBack
           : FeedBack // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_id: null == Doctor_id
+      Doctor_id: freezed == Doctor_id
           ? _value.Doctor_id
           : Doctor_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      startSplit: null == startSplit
+      startSplit: freezed == startSplit
           ? _value.startSplit
           : startSplit // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      EndSplit: null == EndSplit
+      EndSplit: freezed == EndSplit
           ? _value.EndSplit
           : EndSplit // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ToTime: null == ToTime
+      ToTime: freezed == ToTime
           ? _value.ToTime
           : ToTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Day: null == Day
+      Day: freezed == Day
           ? _value.Day
           : Day // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      AboutClinic: null == AboutClinic
+      AboutClinic: freezed == AboutClinic
           ? _value.AboutClinic
           : AboutClinic // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Clinic_Images: null == Clinic_Images
+      Clinic_Images: freezed == Clinic_Images
           ? _value.Clinic_Images
           : Clinic_Images // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      CandHList: null == CandHList
+      CandHList: freezed == CandHList
           ? _value.CandHList
           : CandHList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Location_Name: null == Location_Name
+      Location_Name: freezed == Location_Name
           ? _value.Location_Name
           : Location_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Days: null == Days
+      Days: freezed == Days
           ? _value.Days
           : Days // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      SubCategory_Name: null == SubCategory_Name
+      SubCategory_Name: freezed == SubCategory_Name
           ? _value.SubCategory_Name
           : SubCategory_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Class: null == Class
+      Class: freezed == Class
           ? _value.Class
           : Class // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Link: null == Link
+      Link: freezed == Link
           ? _value.Link
           : Link // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Banner_Id: null == Banner_Id
+      Banner_Id: freezed == Banner_Id
           ? _value.Banner_Id
           : Banner_Id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Banner_Image: null == Banner_Image
+      Banner_Image: freezed == Banner_Image
           ? _value.Banner_Image
           : Banner_Image // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      listbanner: null == listbanner
+      listbanner: freezed == listbanner
           ? _value.listbanner
           : listbanner // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Timing: null == Timing
+      Timing: freezed == Timing
           ? _value.Timing
           : Timing // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      PhoneNumber: null == PhoneNumber
+      PhoneNumber: freezed == PhoneNumber
           ? _value.PhoneNumber
           : PhoneNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      SerList: null == SerList
+      SerList: freezed == SerList
           ? _value.SerList
           : SerList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      SubCategoryList: null == SubCategoryList
+      SubCategoryList: freezed == SubCategoryList
           ? _value.SubCategoryList
           : SubCategoryList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      CImage: null == CImage
+      CImage: freezed == CImage
           ? _value.CImage
           : CImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      LocationList: null == LocationList
+      LocationList: freezed == LocationList
           ? _value.LocationList
           : LocationList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Count: null == Count
+      Count: freezed == Count
           ? _value.Count
           : Count // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      count: null == count
+      count: freezed == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Lat: null == Lat
+      Lat: freezed == Lat
           ? _value.Lat
           : Lat // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      longi: null == longi
+      longi: freezed == longi
           ? _value.longi
           : longi // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Speciliazation: null == Hospital_Speciliazation
+      Hospital_Speciliazation: freezed == Hospital_Speciliazation
           ? _value.Hospital_Speciliazation
           : Hospital_Speciliazation // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Type: null == Hospital_Type
+      Hospital_Type: freezed == Hospital_Type
           ? _value.Hospital_Type
           : Hospital_Type // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_Address: null == Hospital_Address
+      Hospital_Address: freezed == Hospital_Address
           ? _value.Hospital_Address
           : Hospital_Address // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Currency: null == Currency
+      Currency: freezed == Currency
           ? _value.Currency
           : Currency // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      City_Name: null == City_Name
+      City_Name: freezed == City_Name
           ? _value.City_Name
           : City_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Country_Name: null == Country_Name
+      Country_Name: freezed == Country_Name
           ? _value.Country_Name
           : Country_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Hospital_URL_With_Name: null == Hospital_URL_With_Name
+      Hospital_URL_With_Name: freezed == Hospital_URL_With_Name
           ? _value.Hospital_URL_With_Name
           : Hospital_URL_With_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      HospitalDetails_id: null == HospitalDetails_id
+      HospitalDetails_id: freezed == HospitalDetails_id
           ? _value.HospitalDetails_id
           : HospitalDetails_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      user_id: null == user_id
+      user_id: freezed == user_id
           ? _value.user_id
           : user_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      user_name: null == user_name
+      user_name: freezed == user_name
           ? _value.user_name
           : user_name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      user_image: null == user_image
+      user_image: freezed == user_image
           ? _value.user_image
           : user_image // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      mobileno: null == mobileno
+      mobileno: freezed == mobileno
           ? _value.mobileno
           : mobileno // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      app_id: null == app_id
+      app_id: freezed == app_id
           ? _value.app_id
           : app_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      view_flag: null == view_flag
+      view_flag: freezed == view_flag
           ? _value.view_flag
           : view_flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -796,8 +798,8 @@ class __$$_ClinicCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Clinic implements _Clinic {
-  const _$_Clinic(
+class _$ClinicImpl implements _Clinic {
+  const _$ClinicImpl(
       {this.Location_Name_Temp = '',
       this.URL_String = '',
       this.Clinic_NameTemp = '',
@@ -855,8 +857,8 @@ class _$_Clinic implements _Clinic {
       @JsonKey(name: 'DaySlot') final List<DaySlot>? daySlot})
       : _daySlot = daySlot;
 
-  factory _$_Clinic.fromJson(Map<String, dynamic> json) =>
-      _$$_ClinicFromJson(json);
+  factory _$ClinicImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ClinicImplFromJson(json);
 
   @override
   @JsonKey()
@@ -1026,6 +1028,7 @@ class _$_Clinic implements _Clinic {
   List<DaySlot>? get daySlot {
     final value = _daySlot;
     if (value == null) return null;
+    if (_daySlot is EqualUnmodifiableListView) return _daySlot;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -1036,10 +1039,10 @@ class _$_Clinic implements _Clinic {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Clinic &&
+            other is _$ClinicImpl &&
             const DeepCollectionEquality()
                 .equals(other.Location_Name_Temp, Location_Name_Temp) &&
             const DeepCollectionEquality()
@@ -1188,12 +1191,12 @@ class _$_Clinic implements _Clinic {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ClinicCopyWith<_$_Clinic> get copyWith =>
-      __$$_ClinicCopyWithImpl<_$_Clinic>(this, _$identity);
+  _$$ClinicImplCopyWith<_$ClinicImpl> get copyWith =>
+      __$$ClinicImplCopyWithImpl<_$ClinicImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ClinicToJson(
+    return _$$ClinicImplToJson(
       this,
     );
   }
@@ -1255,9 +1258,9 @@ abstract class _Clinic implements Clinic {
       final dynamic mobileno,
       final dynamic app_id,
       final dynamic view_flag,
-      @JsonKey(name: 'DaySlot') final List<DaySlot>? daySlot}) = _$_Clinic;
+      @JsonKey(name: 'DaySlot') final List<DaySlot>? daySlot}) = _$ClinicImpl;
 
-  factory _Clinic.fromJson(Map<String, dynamic> json) = _$_Clinic.fromJson;
+  factory _Clinic.fromJson(Map<String, dynamic> json) = _$ClinicImpl.fromJson;
 
   @override
   dynamic get Location_Name_Temp;
@@ -1372,6 +1375,6 @@ abstract class _Clinic implements Clinic {
   List<DaySlot>? get daySlot;
   @override
   @JsonKey(ignore: true)
-  _$$_ClinicCopyWith<_$_Clinic> get copyWith =>
+  _$$ClinicImplCopyWith<_$ClinicImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

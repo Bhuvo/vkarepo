@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'get_all_hospital_by_doctor.dart';
 
@@ -12,7 +12,7 @@ part of 'get_all_hospital_by_doctor.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 GetAllHospitalByDoctor _$GetAllHospitalByDoctorFromJson(
     Map<String, dynamic> json) {
@@ -178,44 +178,44 @@ class _$GetAllHospitalByDoctorCopyWithImpl<$Res,
     Object? doctorId = freezed,
     Object? hospitalId = freezed,
     Object? hospitalName = freezed,
-    Object? urlString = null,
+    Object? urlString = freezed,
     Object? locationId = freezed,
     Object? locationName = freezed,
     Object? cityName = freezed,
-    Object? hospitalUrlWithName = null,
+    Object? hospitalUrlWithName = freezed,
     Object? hospitalAddress = freezed,
     Object? hospitalImage = freezed,
-    Object? labTestDepartmentListServiceList = null,
-    Object? password = null,
+    Object? labTestDepartmentListServiceList = freezed,
+    Object? password = freezed,
     Object? aboutHospital = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
     Object? timing = freezed,
     Object? hospitalPhoneNumber = freezed,
     Object? activeFlag = freezed,
-    Object? typeFlag = null,
+    Object? typeFlag = freezed,
     Object? cDate = freezed,
-    Object? updateDate = null,
+    Object? updateDate = freezed,
     Object? cityId = freezed,
-    Object? stateName = null,
+    Object? stateName = freezed,
     Object? stateId = freezed,
     Object? countryId = freezed,
-    Object? countryList = null,
-    Object? stateList = null,
-    Object? cityList = null,
-    Object? locationList = null,
-    Object? countryName = null,
-    Object? servicesName = null,
-    Object? serviceList = null,
+    Object? countryList = freezed,
+    Object? stateList = freezed,
+    Object? cityList = freezed,
+    Object? locationList = freezed,
+    Object? countryName = freezed,
+    Object? servicesName = freezed,
+    Object? serviceList = freezed,
     Object? hospitalType = freezed,
-    Object? hospitalMapId = null,
-    Object? hId = null,
-    Object? mobileNumber = null,
-    Object? emailId = null,
-    Object? mapId = null,
-    Object? alreadyRegisterd = null,
-    Object? testTmp = null,
-    Object? mobileCountryCode = null,
+    Object? hospitalMapId = freezed,
+    Object? hId = freezed,
+    Object? mobileNumber = freezed,
+    Object? emailId = freezed,
+    Object? mapId = freezed,
+    Object? alreadyRegisterd = freezed,
+    Object? testTmp = freezed,
+    Object? mobileCountryCode = freezed,
   }) {
     return _then(_value.copyWith(
       doctorId: freezed == doctorId
@@ -230,7 +230,7 @@ class _$GetAllHospitalByDoctorCopyWithImpl<$Res,
           ? _value.hospitalName
           : hospitalName // ignore: cast_nullable_to_non_nullable
               as String?,
-      urlString: null == urlString
+      urlString: freezed == urlString
           ? _value.urlString
           : urlString // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -246,7 +246,7 @@ class _$GetAllHospitalByDoctorCopyWithImpl<$Res,
           ? _value.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
               as String?,
-      hospitalUrlWithName: null == hospitalUrlWithName
+      hospitalUrlWithName: freezed == hospitalUrlWithName
           ? _value.hospitalUrlWithName
           : hospitalUrlWithName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -258,11 +258,12 @@ class _$GetAllHospitalByDoctorCopyWithImpl<$Res,
           ? _value.hospitalImage
           : hospitalImage // ignore: cast_nullable_to_non_nullable
               as String?,
-      labTestDepartmentListServiceList: null == labTestDepartmentListServiceList
+      labTestDepartmentListServiceList: freezed ==
+              labTestDepartmentListServiceList
           ? _value.labTestDepartmentListServiceList
           : labTestDepartmentListServiceList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      password: null == password
+      password: freezed == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -290,7 +291,7 @@ class _$GetAllHospitalByDoctorCopyWithImpl<$Res,
           ? _value.activeFlag
           : activeFlag // ignore: cast_nullable_to_non_nullable
               as String?,
-      typeFlag: null == typeFlag
+      typeFlag: freezed == typeFlag
           ? _value.typeFlag
           : typeFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -298,7 +299,7 @@ class _$GetAllHospitalByDoctorCopyWithImpl<$Res,
           ? _value.cDate
           : cDate // ignore: cast_nullable_to_non_nullable
               as String?,
-      updateDate: null == updateDate
+      updateDate: freezed == updateDate
           ? _value.updateDate
           : updateDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -306,7 +307,7 @@ class _$GetAllHospitalByDoctorCopyWithImpl<$Res,
           ? _value.cityId
           : cityId // ignore: cast_nullable_to_non_nullable
               as int?,
-      stateName: null == stateName
+      stateName: freezed == stateName
           ? _value.stateName
           : stateName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -318,31 +319,31 @@ class _$GetAllHospitalByDoctorCopyWithImpl<$Res,
           ? _value.countryId
           : countryId // ignore: cast_nullable_to_non_nullable
               as int?,
-      countryList: null == countryList
+      countryList: freezed == countryList
           ? _value.countryList
           : countryList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      stateList: null == stateList
+      stateList: freezed == stateList
           ? _value.stateList
           : stateList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      cityList: null == cityList
+      cityList: freezed == cityList
           ? _value.cityList
           : cityList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      locationList: null == locationList
+      locationList: freezed == locationList
           ? _value.locationList
           : locationList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      countryName: null == countryName
+      countryName: freezed == countryName
           ? _value.countryName
           : countryName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      servicesName: null == servicesName
+      servicesName: freezed == servicesName
           ? _value.servicesName
           : servicesName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      serviceList: null == serviceList
+      serviceList: freezed == serviceList
           ? _value.serviceList
           : serviceList // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -350,35 +351,35 @@ class _$GetAllHospitalByDoctorCopyWithImpl<$Res,
           ? _value.hospitalType
           : hospitalType // ignore: cast_nullable_to_non_nullable
               as String?,
-      hospitalMapId: null == hospitalMapId
+      hospitalMapId: freezed == hospitalMapId
           ? _value.hospitalMapId
           : hospitalMapId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hId: null == hId
+      hId: freezed == hId
           ? _value.hId
           : hId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      mobileNumber: null == mobileNumber
+      mobileNumber: freezed == mobileNumber
           ? _value.mobileNumber
           : mobileNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      emailId: null == emailId
+      emailId: freezed == emailId
           ? _value.emailId
           : emailId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      mapId: null == mapId
+      mapId: freezed == mapId
           ? _value.mapId
           : mapId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      alreadyRegisterd: null == alreadyRegisterd
+      alreadyRegisterd: freezed == alreadyRegisterd
           ? _value.alreadyRegisterd
           : alreadyRegisterd // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      testTmp: null == testTmp
+      testTmp: freezed == testTmp
           ? _value.testTmp
           : testTmp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      mobileCountryCode: null == mobileCountryCode
+      mobileCountryCode: freezed == mobileCountryCode
           ? _value.mobileCountryCode
           : mobileCountryCode // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -387,11 +388,12 @@ class _$GetAllHospitalByDoctorCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_GetAllHospitalByDoctorCopyWith<$Res>
+abstract class _$$GetAllHospitalByDoctorImplCopyWith<$Res>
     implements $GetAllHospitalByDoctorCopyWith<$Res> {
-  factory _$$_GetAllHospitalByDoctorCopyWith(_$_GetAllHospitalByDoctor value,
-          $Res Function(_$_GetAllHospitalByDoctor) then) =
-      __$$_GetAllHospitalByDoctorCopyWithImpl<$Res>;
+  factory _$$GetAllHospitalByDoctorImplCopyWith(
+          _$GetAllHospitalByDoctorImpl value,
+          $Res Function(_$GetAllHospitalByDoctorImpl) then) =
+      __$$GetAllHospitalByDoctorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -439,12 +441,13 @@ abstract class _$$_GetAllHospitalByDoctorCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GetAllHospitalByDoctorCopyWithImpl<$Res>
+class __$$GetAllHospitalByDoctorImplCopyWithImpl<$Res>
     extends _$GetAllHospitalByDoctorCopyWithImpl<$Res,
-        _$_GetAllHospitalByDoctor>
-    implements _$$_GetAllHospitalByDoctorCopyWith<$Res> {
-  __$$_GetAllHospitalByDoctorCopyWithImpl(_$_GetAllHospitalByDoctor _value,
-      $Res Function(_$_GetAllHospitalByDoctor) _then)
+        _$GetAllHospitalByDoctorImpl>
+    implements _$$GetAllHospitalByDoctorImplCopyWith<$Res> {
+  __$$GetAllHospitalByDoctorImplCopyWithImpl(
+      _$GetAllHospitalByDoctorImpl _value,
+      $Res Function(_$GetAllHospitalByDoctorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -453,46 +456,46 @@ class __$$_GetAllHospitalByDoctorCopyWithImpl<$Res>
     Object? doctorId = freezed,
     Object? hospitalId = freezed,
     Object? hospitalName = freezed,
-    Object? urlString = null,
+    Object? urlString = freezed,
     Object? locationId = freezed,
     Object? locationName = freezed,
     Object? cityName = freezed,
-    Object? hospitalUrlWithName = null,
+    Object? hospitalUrlWithName = freezed,
     Object? hospitalAddress = freezed,
     Object? hospitalImage = freezed,
-    Object? labTestDepartmentListServiceList = null,
-    Object? password = null,
+    Object? labTestDepartmentListServiceList = freezed,
+    Object? password = freezed,
     Object? aboutHospital = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
     Object? timing = freezed,
     Object? hospitalPhoneNumber = freezed,
     Object? activeFlag = freezed,
-    Object? typeFlag = null,
+    Object? typeFlag = freezed,
     Object? cDate = freezed,
-    Object? updateDate = null,
+    Object? updateDate = freezed,
     Object? cityId = freezed,
-    Object? stateName = null,
+    Object? stateName = freezed,
     Object? stateId = freezed,
     Object? countryId = freezed,
-    Object? countryList = null,
-    Object? stateList = null,
-    Object? cityList = null,
-    Object? locationList = null,
-    Object? countryName = null,
-    Object? servicesName = null,
-    Object? serviceList = null,
+    Object? countryList = freezed,
+    Object? stateList = freezed,
+    Object? cityList = freezed,
+    Object? locationList = freezed,
+    Object? countryName = freezed,
+    Object? servicesName = freezed,
+    Object? serviceList = freezed,
     Object? hospitalType = freezed,
-    Object? hospitalMapId = null,
-    Object? hId = null,
-    Object? mobileNumber = null,
-    Object? emailId = null,
-    Object? mapId = null,
-    Object? alreadyRegisterd = null,
-    Object? testTmp = null,
-    Object? mobileCountryCode = null,
+    Object? hospitalMapId = freezed,
+    Object? hId = freezed,
+    Object? mobileNumber = freezed,
+    Object? emailId = freezed,
+    Object? mapId = freezed,
+    Object? alreadyRegisterd = freezed,
+    Object? testTmp = freezed,
+    Object? mobileCountryCode = freezed,
   }) {
-    return _then(_$_GetAllHospitalByDoctor(
+    return _then(_$GetAllHospitalByDoctorImpl(
       doctorId: freezed == doctorId
           ? _value.doctorId
           : doctorId // ignore: cast_nullable_to_non_nullable
@@ -505,7 +508,7 @@ class __$$_GetAllHospitalByDoctorCopyWithImpl<$Res>
           ? _value.hospitalName
           : hospitalName // ignore: cast_nullable_to_non_nullable
               as String?,
-      urlString: null == urlString
+      urlString: freezed == urlString
           ? _value.urlString
           : urlString // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -521,7 +524,7 @@ class __$$_GetAllHospitalByDoctorCopyWithImpl<$Res>
           ? _value.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
               as String?,
-      hospitalUrlWithName: null == hospitalUrlWithName
+      hospitalUrlWithName: freezed == hospitalUrlWithName
           ? _value.hospitalUrlWithName
           : hospitalUrlWithName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -533,11 +536,12 @@ class __$$_GetAllHospitalByDoctorCopyWithImpl<$Res>
           ? _value.hospitalImage
           : hospitalImage // ignore: cast_nullable_to_non_nullable
               as String?,
-      labTestDepartmentListServiceList: null == labTestDepartmentListServiceList
+      labTestDepartmentListServiceList: freezed ==
+              labTestDepartmentListServiceList
           ? _value.labTestDepartmentListServiceList
           : labTestDepartmentListServiceList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      password: null == password
+      password: freezed == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -565,7 +569,7 @@ class __$$_GetAllHospitalByDoctorCopyWithImpl<$Res>
           ? _value.activeFlag
           : activeFlag // ignore: cast_nullable_to_non_nullable
               as String?,
-      typeFlag: null == typeFlag
+      typeFlag: freezed == typeFlag
           ? _value.typeFlag
           : typeFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -573,7 +577,7 @@ class __$$_GetAllHospitalByDoctorCopyWithImpl<$Res>
           ? _value.cDate
           : cDate // ignore: cast_nullable_to_non_nullable
               as String?,
-      updateDate: null == updateDate
+      updateDate: freezed == updateDate
           ? _value.updateDate
           : updateDate // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -581,7 +585,7 @@ class __$$_GetAllHospitalByDoctorCopyWithImpl<$Res>
           ? _value.cityId
           : cityId // ignore: cast_nullable_to_non_nullable
               as int?,
-      stateName: null == stateName
+      stateName: freezed == stateName
           ? _value.stateName
           : stateName // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -593,31 +597,31 @@ class __$$_GetAllHospitalByDoctorCopyWithImpl<$Res>
           ? _value.countryId
           : countryId // ignore: cast_nullable_to_non_nullable
               as int?,
-      countryList: null == countryList
+      countryList: freezed == countryList
           ? _value.countryList
           : countryList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      stateList: null == stateList
+      stateList: freezed == stateList
           ? _value.stateList
           : stateList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      cityList: null == cityList
+      cityList: freezed == cityList
           ? _value.cityList
           : cityList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      locationList: null == locationList
+      locationList: freezed == locationList
           ? _value.locationList
           : locationList // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      countryName: null == countryName
+      countryName: freezed == countryName
           ? _value.countryName
           : countryName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      servicesName: null == servicesName
+      servicesName: freezed == servicesName
           ? _value.servicesName
           : servicesName // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      serviceList: null == serviceList
+      serviceList: freezed == serviceList
           ? _value.serviceList
           : serviceList // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -625,35 +629,35 @@ class __$$_GetAllHospitalByDoctorCopyWithImpl<$Res>
           ? _value.hospitalType
           : hospitalType // ignore: cast_nullable_to_non_nullable
               as String?,
-      hospitalMapId: null == hospitalMapId
+      hospitalMapId: freezed == hospitalMapId
           ? _value.hospitalMapId
           : hospitalMapId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      hId: null == hId
+      hId: freezed == hId
           ? _value.hId
           : hId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      mobileNumber: null == mobileNumber
+      mobileNumber: freezed == mobileNumber
           ? _value.mobileNumber
           : mobileNumber // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      emailId: null == emailId
+      emailId: freezed == emailId
           ? _value.emailId
           : emailId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      mapId: null == mapId
+      mapId: freezed == mapId
           ? _value.mapId
           : mapId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      alreadyRegisterd: null == alreadyRegisterd
+      alreadyRegisterd: freezed == alreadyRegisterd
           ? _value.alreadyRegisterd
           : alreadyRegisterd // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      testTmp: null == testTmp
+      testTmp: freezed == testTmp
           ? _value.testTmp
           : testTmp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      mobileCountryCode: null == mobileCountryCode
+      mobileCountryCode: freezed == mobileCountryCode
           ? _value.mobileCountryCode
           : mobileCountryCode // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -663,93 +667,53 @@ class __$$_GetAllHospitalByDoctorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GetAllHospitalByDoctor implements _GetAllHospitalByDoctor {
-  const _$_GetAllHospitalByDoctor(
-      {@JsonKey(name: 'Doctor_Id')
-          this.doctorId,
-      @JsonKey(name: 'Hospital_id')
-          this.hospitalId,
-      @JsonKey(name: 'Hospital_Name')
-          this.hospitalName,
-      @JsonKey(name: 'URL_String')
-          this.urlString = null,
-      @JsonKey(name: 'Location_id')
-          this.locationId,
-      @JsonKey(name: 'Location_Name')
-          this.locationName,
-      @JsonKey(name: 'City_Name')
-          this.cityName,
-      @JsonKey(name: 'Hospital_Url_With_Name')
-          this.hospitalUrlWithName = null,
-      @JsonKey(name: 'Hospital_Address')
-          this.hospitalAddress,
-      @JsonKey(name: 'Hospital_Image')
-          this.hospitalImage,
+class _$GetAllHospitalByDoctorImpl implements _GetAllHospitalByDoctor {
+  const _$GetAllHospitalByDoctorImpl(
+      {@JsonKey(name: 'Doctor_Id') this.doctorId,
+      @JsonKey(name: 'Hospital_id') this.hospitalId,
+      @JsonKey(name: 'Hospital_Name') this.hospitalName,
+      @JsonKey(name: 'URL_String') this.urlString = null,
+      @JsonKey(name: 'Location_id') this.locationId,
+      @JsonKey(name: 'Location_Name') this.locationName,
+      @JsonKey(name: 'City_Name') this.cityName,
+      @JsonKey(name: 'Hospital_Url_With_Name') this.hospitalUrlWithName = null,
+      @JsonKey(name: 'Hospital_Address') this.hospitalAddress,
+      @JsonKey(name: 'Hospital_Image') this.hospitalImage,
       @JsonKey(name: 'Service_list')
-          this.labTestDepartmentListServiceList = null,
-      @JsonKey(name: 'Password')
-          this.password = null,
-      @JsonKey(name: 'AboutHospital')
-          this.aboutHospital,
-      @JsonKey(name: 'Latitude')
-          this.latitude,
-      @JsonKey(name: 'Longitude')
-          this.longitude,
-      @JsonKey(name: 'Timing')
-          this.timing,
-      @JsonKey(name: 'Hospital_PhoneNumber')
-          this.hospitalPhoneNumber,
-      @JsonKey(name: 'Active_Flag')
-          this.activeFlag,
-      @JsonKey(name: 'Type_Flag')
-          this.typeFlag = null,
-      @JsonKey(name: 'C_Date')
-          this.cDate,
-      @JsonKey(name: 'update_date')
-          this.updateDate = null,
-      @JsonKey(name: 'City_id')
-          this.cityId,
-      @JsonKey(name: 'State_Name')
-          this.stateName = null,
-      @JsonKey(name: 'State_id')
-          this.stateId,
-      @JsonKey(name: 'Country_id')
-          this.countryId,
-      @JsonKey(name: 'Country_List')
-          this.countryList = null,
-      @JsonKey(name: 'State_List')
-          this.stateList = null,
-      @JsonKey(name: 'City_List')
-          this.cityList = null,
-      @JsonKey(name: 'LocationList')
-          this.locationList = null,
-      @JsonKey(name: 'Country_Name')
-          this.countryName = null,
-      @JsonKey(name: 'Services_Name')
-          this.servicesName = null,
-      @JsonKey(name: 'ServiceList')
-          this.serviceList = null,
-      @JsonKey(name: 'Hospital_Type')
-          this.hospitalType,
-      @JsonKey(name: 'Hospital_Map_Id')
-          this.hospitalMapId = null,
-      @JsonKey(name: 'H_Id')
-          this.hId = null,
-      @JsonKey(name: 'Mobile_Number')
-          this.mobileNumber = null,
-      @JsonKey(name: 'Email_Id')
-          this.emailId = null,
-      @JsonKey(name: 'Map_Id')
-          this.mapId = null,
-      @JsonKey(name: 'Already_Registerd')
-          this.alreadyRegisterd = null,
-      @JsonKey(name: 'Test_Tmp')
-          this.testTmp = null,
-      @JsonKey(name: 'Mobile_country_code')
-          this.mobileCountryCode = null});
+      this.labTestDepartmentListServiceList = null,
+      @JsonKey(name: 'Password') this.password = null,
+      @JsonKey(name: 'AboutHospital') this.aboutHospital,
+      @JsonKey(name: 'Latitude') this.latitude,
+      @JsonKey(name: 'Longitude') this.longitude,
+      @JsonKey(name: 'Timing') this.timing,
+      @JsonKey(name: 'Hospital_PhoneNumber') this.hospitalPhoneNumber,
+      @JsonKey(name: 'Active_Flag') this.activeFlag,
+      @JsonKey(name: 'Type_Flag') this.typeFlag = null,
+      @JsonKey(name: 'C_Date') this.cDate,
+      @JsonKey(name: 'update_date') this.updateDate = null,
+      @JsonKey(name: 'City_id') this.cityId,
+      @JsonKey(name: 'State_Name') this.stateName = null,
+      @JsonKey(name: 'State_id') this.stateId,
+      @JsonKey(name: 'Country_id') this.countryId,
+      @JsonKey(name: 'Country_List') this.countryList = null,
+      @JsonKey(name: 'State_List') this.stateList = null,
+      @JsonKey(name: 'City_List') this.cityList = null,
+      @JsonKey(name: 'LocationList') this.locationList = null,
+      @JsonKey(name: 'Country_Name') this.countryName = null,
+      @JsonKey(name: 'Services_Name') this.servicesName = null,
+      @JsonKey(name: 'ServiceList') this.serviceList = null,
+      @JsonKey(name: 'Hospital_Type') this.hospitalType,
+      @JsonKey(name: 'Hospital_Map_Id') this.hospitalMapId = null,
+      @JsonKey(name: 'H_Id') this.hId = null,
+      @JsonKey(name: 'Mobile_Number') this.mobileNumber = null,
+      @JsonKey(name: 'Email_Id') this.emailId = null,
+      @JsonKey(name: 'Map_Id') this.mapId = null,
+      @JsonKey(name: 'Already_Registerd') this.alreadyRegisterd = null,
+      @JsonKey(name: 'Test_Tmp') this.testTmp = null,
+      @JsonKey(name: 'Mobile_country_code') this.mobileCountryCode = null});
 
-  factory _$_GetAllHospitalByDoctor.fromJson(Map<String, dynamic> json) =>
-      _$$_GetAllHospitalByDoctorFromJson(json);
+  factory _$GetAllHospitalByDoctorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GetAllHospitalByDoctorImplFromJson(json);
 
   @override
   @JsonKey(name: 'Doctor_Id')
@@ -881,10 +845,10 @@ class _$_GetAllHospitalByDoctor implements _GetAllHospitalByDoctor {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetAllHospitalByDoctor &&
+            other is _$GetAllHospitalByDoctorImpl &&
             (identical(other.doctorId, doctorId) ||
                 other.doctorId == doctorId) &&
             (identical(other.hospitalId, hospitalId) ||
@@ -1006,13 +970,13 @@ class _$_GetAllHospitalByDoctor implements _GetAllHospitalByDoctor {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetAllHospitalByDoctorCopyWith<_$_GetAllHospitalByDoctor> get copyWith =>
-      __$$_GetAllHospitalByDoctorCopyWithImpl<_$_GetAllHospitalByDoctor>(
-          this, _$identity);
+  _$$GetAllHospitalByDoctorImplCopyWith<_$GetAllHospitalByDoctorImpl>
+      get copyWith => __$$GetAllHospitalByDoctorImplCopyWithImpl<
+          _$GetAllHospitalByDoctorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GetAllHospitalByDoctorToJson(
+    return _$$GetAllHospitalByDoctorImplToJson(
       this,
     );
   }
@@ -1020,91 +984,53 @@ class _$_GetAllHospitalByDoctor implements _GetAllHospitalByDoctor {
 
 abstract class _GetAllHospitalByDoctor implements GetAllHospitalByDoctor {
   const factory _GetAllHospitalByDoctor(
-      {@JsonKey(name: 'Doctor_Id')
-          final int? doctorId,
-      @JsonKey(name: 'Hospital_id')
-          final int? hospitalId,
-      @JsonKey(name: 'Hospital_Name')
-          final String? hospitalName,
-      @JsonKey(name: 'URL_String')
-          final dynamic urlString,
-      @JsonKey(name: 'Location_id')
-          final int? locationId,
-      @JsonKey(name: 'Location_Name')
-          final String? locationName,
-      @JsonKey(name: 'City_Name')
-          final String? cityName,
+      {@JsonKey(name: 'Doctor_Id') final int? doctorId,
+      @JsonKey(name: 'Hospital_id') final int? hospitalId,
+      @JsonKey(name: 'Hospital_Name') final String? hospitalName,
+      @JsonKey(name: 'URL_String') final dynamic urlString,
+      @JsonKey(name: 'Location_id') final int? locationId,
+      @JsonKey(name: 'Location_Name') final String? locationName,
+      @JsonKey(name: 'City_Name') final String? cityName,
       @JsonKey(name: 'Hospital_Url_With_Name')
-          final dynamic hospitalUrlWithName,
-      @JsonKey(name: 'Hospital_Address')
-          final String? hospitalAddress,
-      @JsonKey(name: 'Hospital_Image')
-          final String? hospitalImage,
+      final dynamic hospitalUrlWithName,
+      @JsonKey(name: 'Hospital_Address') final String? hospitalAddress,
+      @JsonKey(name: 'Hospital_Image') final String? hospitalImage,
       @JsonKey(name: 'Service_list')
-          final dynamic labTestDepartmentListServiceList,
-      @JsonKey(name: 'Password')
-          final dynamic password,
-      @JsonKey(name: 'AboutHospital')
-          final String? aboutHospital,
-      @JsonKey(name: 'Latitude')
-          final String? latitude,
-      @JsonKey(name: 'Longitude')
-          final String? longitude,
-      @JsonKey(name: 'Timing')
-          final String? timing,
-      @JsonKey(name: 'Hospital_PhoneNumber')
-          final String? hospitalPhoneNumber,
-      @JsonKey(name: 'Active_Flag')
-          final String? activeFlag,
-      @JsonKey(name: 'Type_Flag')
-          final dynamic typeFlag,
-      @JsonKey(name: 'C_Date')
-          final String? cDate,
-      @JsonKey(name: 'update_date')
-          final dynamic updateDate,
-      @JsonKey(name: 'City_id')
-          final int? cityId,
-      @JsonKey(name: 'State_Name')
-          final dynamic stateName,
-      @JsonKey(name: 'State_id')
-          final int? stateId,
-      @JsonKey(name: 'Country_id')
-          final int? countryId,
-      @JsonKey(name: 'Country_List')
-          final dynamic countryList,
-      @JsonKey(name: 'State_List')
-          final dynamic stateList,
-      @JsonKey(name: 'City_List')
-          final dynamic cityList,
-      @JsonKey(name: 'LocationList')
-          final dynamic locationList,
-      @JsonKey(name: 'Country_Name')
-          final dynamic countryName,
-      @JsonKey(name: 'Services_Name')
-          final dynamic servicesName,
-      @JsonKey(name: 'ServiceList')
-          final dynamic serviceList,
-      @JsonKey(name: 'Hospital_Type')
-          final String? hospitalType,
-      @JsonKey(name: 'Hospital_Map_Id')
-          final dynamic hospitalMapId,
-      @JsonKey(name: 'H_Id')
-          final dynamic hId,
-      @JsonKey(name: 'Mobile_Number')
-          final dynamic mobileNumber,
-      @JsonKey(name: 'Email_Id')
-          final dynamic emailId,
-      @JsonKey(name: 'Map_Id')
-          final dynamic mapId,
-      @JsonKey(name: 'Already_Registerd')
-          final dynamic alreadyRegisterd,
-      @JsonKey(name: 'Test_Tmp')
-          final dynamic testTmp,
+      final dynamic labTestDepartmentListServiceList,
+      @JsonKey(name: 'Password') final dynamic password,
+      @JsonKey(name: 'AboutHospital') final String? aboutHospital,
+      @JsonKey(name: 'Latitude') final String? latitude,
+      @JsonKey(name: 'Longitude') final String? longitude,
+      @JsonKey(name: 'Timing') final String? timing,
+      @JsonKey(name: 'Hospital_PhoneNumber') final String? hospitalPhoneNumber,
+      @JsonKey(name: 'Active_Flag') final String? activeFlag,
+      @JsonKey(name: 'Type_Flag') final dynamic typeFlag,
+      @JsonKey(name: 'C_Date') final String? cDate,
+      @JsonKey(name: 'update_date') final dynamic updateDate,
+      @JsonKey(name: 'City_id') final int? cityId,
+      @JsonKey(name: 'State_Name') final dynamic stateName,
+      @JsonKey(name: 'State_id') final int? stateId,
+      @JsonKey(name: 'Country_id') final int? countryId,
+      @JsonKey(name: 'Country_List') final dynamic countryList,
+      @JsonKey(name: 'State_List') final dynamic stateList,
+      @JsonKey(name: 'City_List') final dynamic cityList,
+      @JsonKey(name: 'LocationList') final dynamic locationList,
+      @JsonKey(name: 'Country_Name') final dynamic countryName,
+      @JsonKey(name: 'Services_Name') final dynamic servicesName,
+      @JsonKey(name: 'ServiceList') final dynamic serviceList,
+      @JsonKey(name: 'Hospital_Type') final String? hospitalType,
+      @JsonKey(name: 'Hospital_Map_Id') final dynamic hospitalMapId,
+      @JsonKey(name: 'H_Id') final dynamic hId,
+      @JsonKey(name: 'Mobile_Number') final dynamic mobileNumber,
+      @JsonKey(name: 'Email_Id') final dynamic emailId,
+      @JsonKey(name: 'Map_Id') final dynamic mapId,
+      @JsonKey(name: 'Already_Registerd') final dynamic alreadyRegisterd,
+      @JsonKey(name: 'Test_Tmp') final dynamic testTmp,
       @JsonKey(name: 'Mobile_country_code')
-          final dynamic mobileCountryCode}) = _$_GetAllHospitalByDoctor;
+      final dynamic mobileCountryCode}) = _$GetAllHospitalByDoctorImpl;
 
   factory _GetAllHospitalByDoctor.fromJson(Map<String, dynamic> json) =
-      _$_GetAllHospitalByDoctor.fromJson;
+      _$GetAllHospitalByDoctorImpl.fromJson;
 
   @override
   @JsonKey(name: 'Doctor_Id')
@@ -1231,6 +1157,6 @@ abstract class _GetAllHospitalByDoctor implements GetAllHospitalByDoctor {
   dynamic get mobileCountryCode;
   @override
   @JsonKey(ignore: true)
-  _$$_GetAllHospitalByDoctorCopyWith<_$_GetAllHospitalByDoctor> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GetAllHospitalByDoctorImplCopyWith<_$GetAllHospitalByDoctorImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

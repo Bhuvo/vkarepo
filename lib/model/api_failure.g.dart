@@ -6,13 +6,13 @@ part of 'api_failure.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApiFailure _$$_ApiFailureFromJson(Map<String, dynamic> json) =>
-    _$_ApiFailure(
+_$ApiFailureImpl _$$ApiFailureImplFromJson(Map<String, dynamic> json) =>
+    _$ApiFailureImpl(
       message: json['ResponseMessage'] as String?,
       code: json['ResponseCode'] as String?,
     );
 
-Map<String, dynamic> _$$_ApiFailureToJson(_$_ApiFailure instance) =>
+Map<String, dynamic> _$$ApiFailureImplToJson(_$ApiFailureImpl instance) =>
     <String, dynamic>{
       'ResponseMessage': instance.message,
       'ResponseCode': instance.code,

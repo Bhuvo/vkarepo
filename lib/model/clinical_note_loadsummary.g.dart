@@ -6,9 +6,9 @@ part of 'clinical_note_loadsummary.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ClinicalNotesLoadSummary _$$_ClinicalNotesLoadSummaryFromJson(
+_$ClinicalNotesLoadSummaryImpl _$$ClinicalNotesLoadSummaryImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ClinicalNotesLoadSummary(
+    _$ClinicalNotesLoadSummaryImpl(
       Summary_id: json['Summary_id'] ?? null,
       Pulse: json['Pulse'] ?? null,
       Disease_name: json['Disease_name'] as String?,
@@ -33,8 +33,8 @@ _$_ClinicalNotesLoadSummary _$$_ClinicalNotesLoadSummaryFromJson(
           null,
     );
 
-Map<String, dynamic> _$$_ClinicalNotesLoadSummaryToJson(
-        _$_ClinicalNotesLoadSummary instance) =>
+Map<String, dynamic> _$$ClinicalNotesLoadSummaryImplToJson(
+        _$ClinicalNotesLoadSummaryImpl instance) =>
     <String, dynamic>{
       'Summary_id': instance.Summary_id,
       'Pulse': instance.Pulse,

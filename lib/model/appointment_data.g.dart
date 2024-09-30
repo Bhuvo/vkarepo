@@ -6,14 +6,15 @@ part of 'appointment_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AppointmentData _$$_AppointmentDataFromJson(Map<String, dynamic> json) =>
-    _$_AppointmentData(
+_$AppointmentDataImpl _$$AppointmentDataImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AppointmentDataImpl(
       type: json['Type'] as String?,
-      freeReview: json['FreeReview'] as int?,
-      id: json['Appointment_id'] as int?,
+      freeReview: (json['FreeReview'] as num?)?.toInt(),
+      id: (json['Appointment_id'] as num?)?.toInt(),
       date: json['Appointment_Date'] as String?,
       time: json['Appointment_Time'] as String?,
-      doctorId: json['Doctor_id'] as int?,
+      doctorId: (json['Doctor_id'] as num?)?.toInt(),
       doctorName: json['Doctor_Name'] as String?,
       doctorCategory: json['DoctorCategory_Name'] as String?,
       doctorImage: json['Doctor_Image'] as String?,
@@ -23,7 +24,8 @@ _$_AppointmentData _$$_AppointmentDataFromJson(Map<String, dynamic> json) =>
       eClinicFlag: json['eclinic_Flag'] ?? null,
     );
 
-Map<String, dynamic> _$$_AppointmentDataToJson(_$_AppointmentData instance) =>
+Map<String, dynamic> _$$AppointmentDataImplToJson(
+        _$AppointmentDataImpl instance) =>
     <String, dynamic>{
       'Type': instance.type,
       'FreeReview': instance.freeReview,

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'api_builder_bloc.dart';
 
@@ -12,7 +12,7 @@ part of 'api_builder_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ApiBuilderEvent {
@@ -87,23 +87,24 @@ class _$ApiBuilderEventCopyWithImpl<$Res, $Val extends ApiBuilderEvent>
 }
 
 /// @nodoc
-abstract class _$$LoadCopyWith<$Res> {
-  factory _$$LoadCopyWith(_$Load value, $Res Function(_$Load) then) =
-      __$$LoadCopyWithImpl<$Res>;
+abstract class _$$LoadImplCopyWith<$Res> {
+  factory _$$LoadImplCopyWith(
+          _$LoadImpl value, $Res Function(_$LoadImpl) then) =
+      __$$LoadImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadCopyWithImpl<$Res>
-    extends _$ApiBuilderEventCopyWithImpl<$Res, _$Load>
-    implements _$$LoadCopyWith<$Res> {
-  __$$LoadCopyWithImpl(_$Load _value, $Res Function(_$Load) _then)
+class __$$LoadImplCopyWithImpl<$Res>
+    extends _$ApiBuilderEventCopyWithImpl<$Res, _$LoadImpl>
+    implements _$$LoadImplCopyWith<$Res> {
+  __$$LoadImplCopyWithImpl(_$LoadImpl _value, $Res Function(_$LoadImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Load implements Load {
-  const _$Load();
+class _$LoadImpl implements Load {
+  const _$LoadImpl();
 
   @override
   String toString() {
@@ -111,9 +112,9 @@ class _$Load implements Load {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Load);
+        (other.runtimeType == runtimeType && other is _$LoadImpl);
   }
 
   @override
@@ -195,24 +196,24 @@ class _$Load implements Load {
 }
 
 abstract class Load implements ApiBuilderEvent {
-  const factory Load() = _$Load;
+  const factory Load() = _$LoadImpl;
 }
 
 /// @nodoc
-abstract class _$$UpdateQueryCopyWith<$Res> {
-  factory _$$UpdateQueryCopyWith(
-          _$UpdateQuery value, $Res Function(_$UpdateQuery) then) =
-      __$$UpdateQueryCopyWithImpl<$Res>;
+abstract class _$$UpdateQueryImplCopyWith<$Res> {
+  factory _$$UpdateQueryImplCopyWith(
+          _$UpdateQueryImpl value, $Res Function(_$UpdateQueryImpl) then) =
+      __$$UpdateQueryImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> query});
 }
 
 /// @nodoc
-class __$$UpdateQueryCopyWithImpl<$Res>
-    extends _$ApiBuilderEventCopyWithImpl<$Res, _$UpdateQuery>
-    implements _$$UpdateQueryCopyWith<$Res> {
-  __$$UpdateQueryCopyWithImpl(
-      _$UpdateQuery _value, $Res Function(_$UpdateQuery) _then)
+class __$$UpdateQueryImplCopyWithImpl<$Res>
+    extends _$ApiBuilderEventCopyWithImpl<$Res, _$UpdateQueryImpl>
+    implements _$$UpdateQueryImplCopyWith<$Res> {
+  __$$UpdateQueryImplCopyWithImpl(
+      _$UpdateQueryImpl _value, $Res Function(_$UpdateQueryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -220,7 +221,7 @@ class __$$UpdateQueryCopyWithImpl<$Res>
   $Res call({
     Object? query = null,
   }) {
-    return _then(_$UpdateQuery(
+    return _then(_$UpdateQueryImpl(
       null == query
           ? _value._query
           : query // ignore: cast_nullable_to_non_nullable
@@ -231,12 +232,13 @@ class __$$UpdateQueryCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UpdateQuery implements UpdateQuery {
-  const _$UpdateQuery(final Map<String, dynamic> query) : _query = query;
+class _$UpdateQueryImpl implements UpdateQuery {
+  const _$UpdateQueryImpl(final Map<String, dynamic> query) : _query = query;
 
   final Map<String, dynamic> _query;
   @override
   Map<String, dynamic> get query {
+    if (_query is EqualUnmodifiableMapView) return _query;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_query);
   }
@@ -247,10 +249,10 @@ class _$UpdateQuery implements UpdateQuery {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UpdateQuery &&
+            other is _$UpdateQueryImpl &&
             const DeepCollectionEquality().equals(other._query, _query));
   }
 
@@ -261,8 +263,8 @@ class _$UpdateQuery implements UpdateQuery {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UpdateQueryCopyWith<_$UpdateQuery> get copyWith =>
-      __$$UpdateQueryCopyWithImpl<_$UpdateQuery>(this, _$identity);
+  _$$UpdateQueryImplCopyWith<_$UpdateQueryImpl> get copyWith =>
+      __$$UpdateQueryImplCopyWithImpl<_$UpdateQueryImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -340,33 +342,35 @@ class _$UpdateQuery implements UpdateQuery {
 }
 
 abstract class UpdateQuery implements ApiBuilderEvent {
-  const factory UpdateQuery(final Map<String, dynamic> query) = _$UpdateQuery;
+  const factory UpdateQuery(final Map<String, dynamic> query) =
+      _$UpdateQueryImpl;
 
   Map<String, dynamic> get query;
   @JsonKey(ignore: true)
-  _$$UpdateQueryCopyWith<_$UpdateQuery> get copyWith =>
+  _$$UpdateQueryImplCopyWith<_$UpdateQueryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoadMoreCopyWith<$Res> {
-  factory _$$LoadMoreCopyWith(
-          _$LoadMore value, $Res Function(_$LoadMore) then) =
-      __$$LoadMoreCopyWithImpl<$Res>;
+abstract class _$$LoadMoreImplCopyWith<$Res> {
+  factory _$$LoadMoreImplCopyWith(
+          _$LoadMoreImpl value, $Res Function(_$LoadMoreImpl) then) =
+      __$$LoadMoreImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadMoreCopyWithImpl<$Res>
-    extends _$ApiBuilderEventCopyWithImpl<$Res, _$LoadMore>
-    implements _$$LoadMoreCopyWith<$Res> {
-  __$$LoadMoreCopyWithImpl(_$LoadMore _value, $Res Function(_$LoadMore) _then)
+class __$$LoadMoreImplCopyWithImpl<$Res>
+    extends _$ApiBuilderEventCopyWithImpl<$Res, _$LoadMoreImpl>
+    implements _$$LoadMoreImplCopyWith<$Res> {
+  __$$LoadMoreImplCopyWithImpl(
+      _$LoadMoreImpl _value, $Res Function(_$LoadMoreImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoadMore implements LoadMore {
-  const _$LoadMore();
+class _$LoadMoreImpl implements LoadMore {
+  const _$LoadMoreImpl();
 
   @override
   String toString() {
@@ -374,9 +378,9 @@ class _$LoadMore implements LoadMore {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadMore);
+        (other.runtimeType == runtimeType && other is _$LoadMoreImpl);
   }
 
   @override
@@ -458,27 +462,29 @@ class _$LoadMore implements LoadMore {
 }
 
 abstract class LoadMore implements ApiBuilderEvent {
-  const factory LoadMore() = _$LoadMore;
+  const factory LoadMore() = _$LoadMoreImpl;
 }
 
 /// @nodoc
-abstract class _$$RefreshCopyWith<$Res> {
-  factory _$$RefreshCopyWith(_$Refresh value, $Res Function(_$Refresh) then) =
-      __$$RefreshCopyWithImpl<$Res>;
+abstract class _$$RefreshImplCopyWith<$Res> {
+  factory _$$RefreshImplCopyWith(
+          _$RefreshImpl value, $Res Function(_$RefreshImpl) then) =
+      __$$RefreshImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$RefreshCopyWithImpl<$Res>
-    extends _$ApiBuilderEventCopyWithImpl<$Res, _$Refresh>
-    implements _$$RefreshCopyWith<$Res> {
-  __$$RefreshCopyWithImpl(_$Refresh _value, $Res Function(_$Refresh) _then)
+class __$$RefreshImplCopyWithImpl<$Res>
+    extends _$ApiBuilderEventCopyWithImpl<$Res, _$RefreshImpl>
+    implements _$$RefreshImplCopyWith<$Res> {
+  __$$RefreshImplCopyWithImpl(
+      _$RefreshImpl _value, $Res Function(_$RefreshImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Refresh implements Refresh {
-  const _$Refresh();
+class _$RefreshImpl implements Refresh {
+  const _$RefreshImpl();
 
   @override
   String toString() {
@@ -486,9 +492,9 @@ class _$Refresh implements Refresh {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Refresh);
+        (other.runtimeType == runtimeType && other is _$RefreshImpl);
   }
 
   @override
@@ -570,7 +576,7 @@ class _$Refresh implements Refresh {
 }
 
 abstract class Refresh implements ApiBuilderEvent {
-  const factory Refresh() = _$Refresh;
+  const factory Refresh() = _$RefreshImpl;
 }
 
 /// @nodoc
@@ -668,23 +674,25 @@ class _$ApiBuilderStateCopyWithImpl<$Res, $Val extends ApiBuilderState>
 }
 
 /// @nodoc
-abstract class _$$LoadingCopyWith<$Res> {
-  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
-      __$$LoadingCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingCopyWithImpl<$Res>
-    extends _$ApiBuilderStateCopyWithImpl<$Res, _$Loading>
-    implements _$$LoadingCopyWith<$Res> {
-  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$ApiBuilderStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Loading implements Loading {
-  const _$Loading();
+class _$LoadingImpl implements Loading {
+  const _$LoadingImpl();
 
   @override
   String toString() {
@@ -692,9 +700,9 @@ class _$Loading implements Loading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loading);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -798,24 +806,24 @@ class _$Loading implements Loading {
 }
 
 abstract class Loading implements ApiBuilderState {
-  const factory Loading() = _$Loading;
+  const factory Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadingMoreCopyWith<$Res> {
-  factory _$$LoadingMoreCopyWith(
-          _$LoadingMore value, $Res Function(_$LoadingMore) then) =
-      __$$LoadingMoreCopyWithImpl<$Res>;
+abstract class _$$LoadingMoreImplCopyWith<$Res> {
+  factory _$$LoadingMoreImplCopyWith(
+          _$LoadingMoreImpl value, $Res Function(_$LoadingMoreImpl) then) =
+      __$$LoadingMoreImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Map<String, dynamic>> data});
 }
 
 /// @nodoc
-class __$$LoadingMoreCopyWithImpl<$Res>
-    extends _$ApiBuilderStateCopyWithImpl<$Res, _$LoadingMore>
-    implements _$$LoadingMoreCopyWith<$Res> {
-  __$$LoadingMoreCopyWithImpl(
-      _$LoadingMore _value, $Res Function(_$LoadingMore) _then)
+class __$$LoadingMoreImplCopyWithImpl<$Res>
+    extends _$ApiBuilderStateCopyWithImpl<$Res, _$LoadingMoreImpl>
+    implements _$$LoadingMoreImplCopyWith<$Res> {
+  __$$LoadingMoreImplCopyWithImpl(
+      _$LoadingMoreImpl _value, $Res Function(_$LoadingMoreImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -823,7 +831,7 @@ class __$$LoadingMoreCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$LoadingMore(
+    return _then(_$LoadingMoreImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -834,13 +842,14 @@ class __$$LoadingMoreCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingMore implements LoadingMore {
-  const _$LoadingMore({required final List<Map<String, dynamic>> data})
+class _$LoadingMoreImpl implements LoadingMore {
+  const _$LoadingMoreImpl({required final List<Map<String, dynamic>> data})
       : _data = data;
 
   final List<Map<String, dynamic>> _data;
   @override
   List<Map<String, dynamic>> get data {
+    if (_data is EqualUnmodifiableListView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_data);
   }
@@ -851,10 +860,10 @@ class _$LoadingMore implements LoadingMore {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadingMore &&
+            other is _$LoadingMoreImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -865,8 +874,8 @@ class _$LoadingMore implements LoadingMore {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoadingMoreCopyWith<_$LoadingMore> get copyWith =>
-      __$$LoadingMoreCopyWithImpl<_$LoadingMore>(this, _$identity);
+  _$$LoadingMoreImplCopyWith<_$LoadingMoreImpl> get copyWith =>
+      __$$LoadingMoreImplCopyWithImpl<_$LoadingMoreImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -967,29 +976,29 @@ class _$LoadingMore implements LoadingMore {
 
 abstract class LoadingMore implements ApiBuilderState {
   const factory LoadingMore({required final List<Map<String, dynamic>> data}) =
-      _$LoadingMore;
+      _$LoadingMoreImpl;
 
   List<Map<String, dynamic>> get data;
   @JsonKey(ignore: true)
-  _$$LoadingMoreCopyWith<_$LoadingMore> get copyWith =>
+  _$$LoadingMoreImplCopyWith<_$LoadingMoreImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RefreshingCopyWith<$Res> {
-  factory _$$RefreshingCopyWith(
-          _$Refreshing value, $Res Function(_$Refreshing) then) =
-      __$$RefreshingCopyWithImpl<$Res>;
+abstract class _$$RefreshingImplCopyWith<$Res> {
+  factory _$$RefreshingImplCopyWith(
+          _$RefreshingImpl value, $Res Function(_$RefreshingImpl) then) =
+      __$$RefreshingImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Map<String, dynamic>> data});
 }
 
 /// @nodoc
-class __$$RefreshingCopyWithImpl<$Res>
-    extends _$ApiBuilderStateCopyWithImpl<$Res, _$Refreshing>
-    implements _$$RefreshingCopyWith<$Res> {
-  __$$RefreshingCopyWithImpl(
-      _$Refreshing _value, $Res Function(_$Refreshing) _then)
+class __$$RefreshingImplCopyWithImpl<$Res>
+    extends _$ApiBuilderStateCopyWithImpl<$Res, _$RefreshingImpl>
+    implements _$$RefreshingImplCopyWith<$Res> {
+  __$$RefreshingImplCopyWithImpl(
+      _$RefreshingImpl _value, $Res Function(_$RefreshingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -997,7 +1006,7 @@ class __$$RefreshingCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$Refreshing(
+    return _then(_$RefreshingImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1008,13 +1017,14 @@ class __$$RefreshingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Refreshing implements Refreshing {
-  const _$Refreshing({required final List<Map<String, dynamic>> data})
+class _$RefreshingImpl implements Refreshing {
+  const _$RefreshingImpl({required final List<Map<String, dynamic>> data})
       : _data = data;
 
   final List<Map<String, dynamic>> _data;
   @override
   List<Map<String, dynamic>> get data {
+    if (_data is EqualUnmodifiableListView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_data);
   }
@@ -1025,10 +1035,10 @@ class _$Refreshing implements Refreshing {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Refreshing &&
+            other is _$RefreshingImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -1039,8 +1049,8 @@ class _$Refreshing implements Refreshing {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RefreshingCopyWith<_$Refreshing> get copyWith =>
-      __$$RefreshingCopyWithImpl<_$Refreshing>(this, _$identity);
+  _$$RefreshingImplCopyWith<_$RefreshingImpl> get copyWith =>
+      __$$RefreshingImplCopyWithImpl<_$RefreshingImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1141,32 +1151,34 @@ class _$Refreshing implements Refreshing {
 
 abstract class Refreshing implements ApiBuilderState {
   const factory Refreshing({required final List<Map<String, dynamic>> data}) =
-      _$Refreshing;
+      _$RefreshingImpl;
 
   List<Map<String, dynamic>> get data;
   @JsonKey(ignore: true)
-  _$$RefreshingCopyWith<_$Refreshing> get copyWith =>
+  _$$RefreshingImplCopyWith<_$RefreshingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EmptyCopyWith<$Res> {
-  factory _$$EmptyCopyWith(_$Empty value, $Res Function(_$Empty) then) =
-      __$$EmptyCopyWithImpl<$Res>;
+abstract class _$$EmptyImplCopyWith<$Res> {
+  factory _$$EmptyImplCopyWith(
+          _$EmptyImpl value, $Res Function(_$EmptyImpl) then) =
+      __$$EmptyImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EmptyCopyWithImpl<$Res>
-    extends _$ApiBuilderStateCopyWithImpl<$Res, _$Empty>
-    implements _$$EmptyCopyWith<$Res> {
-  __$$EmptyCopyWithImpl(_$Empty _value, $Res Function(_$Empty) _then)
+class __$$EmptyImplCopyWithImpl<$Res>
+    extends _$ApiBuilderStateCopyWithImpl<$Res, _$EmptyImpl>
+    implements _$$EmptyImplCopyWith<$Res> {
+  __$$EmptyImplCopyWithImpl(
+      _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Empty implements Empty {
-  const _$Empty();
+class _$EmptyImpl implements Empty {
+  const _$EmptyImpl();
 
   @override
   String toString() {
@@ -1174,9 +1186,9 @@ class _$Empty implements Empty {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Empty);
+        (other.runtimeType == runtimeType && other is _$EmptyImpl);
   }
 
   @override
@@ -1280,29 +1292,29 @@ class _$Empty implements Empty {
 }
 
 abstract class Empty implements ApiBuilderState {
-  const factory Empty() = _$Empty;
+  const factory Empty() = _$EmptyImpl;
 }
 
 /// @nodoc
-abstract class _$$InitialStateCopyWith<$Res> {
-  factory _$$InitialStateCopyWith(
-          _$InitialState value, $Res Function(_$InitialState) then) =
-      __$$InitialStateCopyWithImpl<$Res>;
+abstract class _$$InitialStateImplCopyWith<$Res> {
+  factory _$$InitialStateImplCopyWith(
+          _$InitialStateImpl value, $Res Function(_$InitialStateImpl) then) =
+      __$$InitialStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialStateCopyWithImpl<$Res>
-    extends _$ApiBuilderStateCopyWithImpl<$Res, _$InitialState>
-    implements _$$InitialStateCopyWith<$Res> {
-  __$$InitialStateCopyWithImpl(
-      _$InitialState _value, $Res Function(_$InitialState) _then)
+class __$$InitialStateImplCopyWithImpl<$Res>
+    extends _$ApiBuilderStateCopyWithImpl<$Res, _$InitialStateImpl>
+    implements _$$InitialStateImplCopyWith<$Res> {
+  __$$InitialStateImplCopyWithImpl(
+      _$InitialStateImpl _value, $Res Function(_$InitialStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialState implements InitialState {
-  const _$InitialState();
+class _$InitialStateImpl implements InitialState {
+  const _$InitialStateImpl();
 
   @override
   String toString() {
@@ -1310,9 +1322,9 @@ class _$InitialState implements InitialState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialState);
+        (other.runtimeType == runtimeType && other is _$InitialStateImpl);
   }
 
   @override
@@ -1416,22 +1428,23 @@ class _$InitialState implements InitialState {
 }
 
 abstract class InitialState implements ApiBuilderState {
-  const factory InitialState() = _$InitialState;
+  const factory InitialState() = _$InitialStateImpl;
 }
 
 /// @nodoc
-abstract class _$$DataCopyWith<$Res> {
-  factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
-      __$$DataCopyWithImpl<$Res>;
+abstract class _$$DataImplCopyWith<$Res> {
+  factory _$$DataImplCopyWith(
+          _$DataImpl value, $Res Function(_$DataImpl) then) =
+      __$$DataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Map<String, dynamic>> data, DateTime updatedAt});
 }
 
 /// @nodoc
-class __$$DataCopyWithImpl<$Res>
-    extends _$ApiBuilderStateCopyWithImpl<$Res, _$Data>
-    implements _$$DataCopyWith<$Res> {
-  __$$DataCopyWithImpl(_$Data _value, $Res Function(_$Data) _then)
+class __$$DataImplCopyWithImpl<$Res>
+    extends _$ApiBuilderStateCopyWithImpl<$Res, _$DataImpl>
+    implements _$$DataImplCopyWith<$Res> {
+  __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1440,7 +1453,7 @@ class __$$DataCopyWithImpl<$Res>
     Object? data = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$Data(
+    return _then(_$DataImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1455,14 +1468,15 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Data implements Data {
-  const _$Data(
+class _$DataImpl implements Data {
+  const _$DataImpl(
       {required final List<Map<String, dynamic>> data, required this.updatedAt})
       : _data = data;
 
   final List<Map<String, dynamic>> _data;
   @override
   List<Map<String, dynamic>> get data {
+    if (_data is EqualUnmodifiableListView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_data);
   }
@@ -1476,10 +1490,10 @@ class _$Data implements Data {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Data &&
+            other is _$DataImpl &&
             const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt));
@@ -1492,8 +1506,8 @@ class _$Data implements Data {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DataCopyWith<_$Data> get copyWith =>
-      __$$DataCopyWithImpl<_$Data>(this, _$identity);
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+      __$$DataImplCopyWithImpl<_$DataImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1595,18 +1609,20 @@ class _$Data implements Data {
 abstract class Data implements ApiBuilderState {
   const factory Data(
       {required final List<Map<String, dynamic>> data,
-      required final DateTime updatedAt}) = _$Data;
+      required final DateTime updatedAt}) = _$DataImpl;
 
   List<Map<String, dynamic>> get data;
   DateTime get updatedAt;
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorCopyWith<$Res> {
-  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
-      __$$ErrorCopyWithImpl<$Res>;
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ApiFailure error});
 
@@ -1614,10 +1630,11 @@ abstract class _$$ErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ErrorCopyWithImpl<$Res>
-    extends _$ApiBuilderStateCopyWithImpl<$Res, _$Error>
-    implements _$$ErrorCopyWith<$Res> {
-  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$ApiBuilderStateCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1625,7 +1642,7 @@ class __$$ErrorCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$Error(
+    return _then(_$ErrorImpl(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -1644,8 +1661,8 @@ class __$$ErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Error implements Error {
-  const _$Error({required this.error});
+class _$ErrorImpl implements Error {
+  const _$ErrorImpl({required this.error});
 
   @override
   final ApiFailure error;
@@ -1656,10 +1673,10 @@ class _$Error implements Error {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Error &&
+            other is _$ErrorImpl &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -1669,8 +1686,8 @@ class _$Error implements Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorCopyWith<_$Error> get copyWith =>
-      __$$ErrorCopyWithImpl<_$Error>(this, _$identity);
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1770,9 +1787,10 @@ class _$Error implements Error {
 }
 
 abstract class Error implements ApiBuilderState {
-  const factory Error({required final ApiFailure error}) = _$Error;
+  const factory Error({required final ApiFailure error}) = _$ErrorImpl;
 
   ApiFailure get error;
   @JsonKey(ignore: true)
-  _$$ErrorCopyWith<_$Error> get copyWith => throw _privateConstructorUsedError;
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

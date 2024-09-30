@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'call_bloc.dart';
 
@@ -12,7 +12,7 @@ part of 'call_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CallEvent {
@@ -98,23 +98,25 @@ class _$CallEventCopyWithImpl<$Res, $Val extends CallEvent>
 }
 
 /// @nodoc
-abstract class _$$EndCallCopyWith<$Res> {
-  factory _$$EndCallCopyWith(_$EndCall value, $Res Function(_$EndCall) then) =
-      __$$EndCallCopyWithImpl<$Res>;
+abstract class _$$EndCallImplCopyWith<$Res> {
+  factory _$$EndCallImplCopyWith(
+          _$EndCallImpl value, $Res Function(_$EndCallImpl) then) =
+      __$$EndCallImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EndCallCopyWithImpl<$Res>
-    extends _$CallEventCopyWithImpl<$Res, _$EndCall>
-    implements _$$EndCallCopyWith<$Res> {
-  __$$EndCallCopyWithImpl(_$EndCall _value, $Res Function(_$EndCall) _then)
+class __$$EndCallImplCopyWithImpl<$Res>
+    extends _$CallEventCopyWithImpl<$Res, _$EndCallImpl>
+    implements _$$EndCallImplCopyWith<$Res> {
+  __$$EndCallImplCopyWithImpl(
+      _$EndCallImpl _value, $Res Function(_$EndCallImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$EndCall implements EndCall {
-  const _$EndCall();
+class _$EndCallImpl implements EndCall {
+  const _$EndCallImpl();
 
   @override
   String toString() {
@@ -122,9 +124,9 @@ class _$EndCall implements EndCall {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EndCall);
+        (other.runtimeType == runtimeType && other is _$EndCallImpl);
   }
 
   @override
@@ -218,29 +220,29 @@ class _$EndCall implements EndCall {
 }
 
 abstract class EndCall implements CallEvent {
-  const factory EndCall() = _$EndCall;
+  const factory EndCall() = _$EndCallImpl;
 }
 
 /// @nodoc
-abstract class _$$ToggleMicCopyWith<$Res> {
-  factory _$$ToggleMicCopyWith(
-          _$ToggleMic value, $Res Function(_$ToggleMic) then) =
-      __$$ToggleMicCopyWithImpl<$Res>;
+abstract class _$$ToggleMicImplCopyWith<$Res> {
+  factory _$$ToggleMicImplCopyWith(
+          _$ToggleMicImpl value, $Res Function(_$ToggleMicImpl) then) =
+      __$$ToggleMicImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ToggleMicCopyWithImpl<$Res>
-    extends _$CallEventCopyWithImpl<$Res, _$ToggleMic>
-    implements _$$ToggleMicCopyWith<$Res> {
-  __$$ToggleMicCopyWithImpl(
-      _$ToggleMic _value, $Res Function(_$ToggleMic) _then)
+class __$$ToggleMicImplCopyWithImpl<$Res>
+    extends _$CallEventCopyWithImpl<$Res, _$ToggleMicImpl>
+    implements _$$ToggleMicImplCopyWith<$Res> {
+  __$$ToggleMicImplCopyWithImpl(
+      _$ToggleMicImpl _value, $Res Function(_$ToggleMicImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ToggleMic implements ToggleMic {
-  const _$ToggleMic();
+class _$ToggleMicImpl implements ToggleMic {
+  const _$ToggleMicImpl();
 
   @override
   String toString() {
@@ -248,9 +250,9 @@ class _$ToggleMic implements ToggleMic {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToggleMic);
+        (other.runtimeType == runtimeType && other is _$ToggleMicImpl);
   }
 
   @override
@@ -344,29 +346,29 @@ class _$ToggleMic implements ToggleMic {
 }
 
 abstract class ToggleMic implements CallEvent {
-  const factory ToggleMic() = _$ToggleMic;
+  const factory ToggleMic() = _$ToggleMicImpl;
 }
 
 /// @nodoc
-abstract class _$$ToggleSpeakerCopyWith<$Res> {
-  factory _$$ToggleSpeakerCopyWith(
-          _$ToggleSpeaker value, $Res Function(_$ToggleSpeaker) then) =
-      __$$ToggleSpeakerCopyWithImpl<$Res>;
+abstract class _$$ToggleSpeakerImplCopyWith<$Res> {
+  factory _$$ToggleSpeakerImplCopyWith(
+          _$ToggleSpeakerImpl value, $Res Function(_$ToggleSpeakerImpl) then) =
+      __$$ToggleSpeakerImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ToggleSpeakerCopyWithImpl<$Res>
-    extends _$CallEventCopyWithImpl<$Res, _$ToggleSpeaker>
-    implements _$$ToggleSpeakerCopyWith<$Res> {
-  __$$ToggleSpeakerCopyWithImpl(
-      _$ToggleSpeaker _value, $Res Function(_$ToggleSpeaker) _then)
+class __$$ToggleSpeakerImplCopyWithImpl<$Res>
+    extends _$CallEventCopyWithImpl<$Res, _$ToggleSpeakerImpl>
+    implements _$$ToggleSpeakerImplCopyWith<$Res> {
+  __$$ToggleSpeakerImplCopyWithImpl(
+      _$ToggleSpeakerImpl _value, $Res Function(_$ToggleSpeakerImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ToggleSpeaker implements ToggleSpeaker {
-  const _$ToggleSpeaker();
+class _$ToggleSpeakerImpl implements ToggleSpeaker {
+  const _$ToggleSpeakerImpl();
 
   @override
   String toString() {
@@ -374,9 +376,9 @@ class _$ToggleSpeaker implements ToggleSpeaker {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToggleSpeaker);
+        (other.runtimeType == runtimeType && other is _$ToggleSpeakerImpl);
   }
 
   @override
@@ -470,29 +472,29 @@ class _$ToggleSpeaker implements ToggleSpeaker {
 }
 
 abstract class ToggleSpeaker implements CallEvent {
-  const factory ToggleSpeaker() = _$ToggleSpeaker;
+  const factory ToggleSpeaker() = _$ToggleSpeakerImpl;
 }
 
 /// @nodoc
-abstract class _$$ToggleVideoCopyWith<$Res> {
-  factory _$$ToggleVideoCopyWith(
-          _$ToggleVideo value, $Res Function(_$ToggleVideo) then) =
-      __$$ToggleVideoCopyWithImpl<$Res>;
+abstract class _$$ToggleVideoImplCopyWith<$Res> {
+  factory _$$ToggleVideoImplCopyWith(
+          _$ToggleVideoImpl value, $Res Function(_$ToggleVideoImpl) then) =
+      __$$ToggleVideoImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ToggleVideoCopyWithImpl<$Res>
-    extends _$CallEventCopyWithImpl<$Res, _$ToggleVideo>
-    implements _$$ToggleVideoCopyWith<$Res> {
-  __$$ToggleVideoCopyWithImpl(
-      _$ToggleVideo _value, $Res Function(_$ToggleVideo) _then)
+class __$$ToggleVideoImplCopyWithImpl<$Res>
+    extends _$CallEventCopyWithImpl<$Res, _$ToggleVideoImpl>
+    implements _$$ToggleVideoImplCopyWith<$Res> {
+  __$$ToggleVideoImplCopyWithImpl(
+      _$ToggleVideoImpl _value, $Res Function(_$ToggleVideoImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ToggleVideo implements ToggleVideo {
-  const _$ToggleVideo();
+class _$ToggleVideoImpl implements ToggleVideo {
+  const _$ToggleVideoImpl();
 
   @override
   String toString() {
@@ -500,9 +502,9 @@ class _$ToggleVideo implements ToggleVideo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToggleVideo);
+        (other.runtimeType == runtimeType && other is _$ToggleVideoImpl);
   }
 
   @override
@@ -596,29 +598,29 @@ class _$ToggleVideo implements ToggleVideo {
 }
 
 abstract class ToggleVideo implements CallEvent {
-  const factory ToggleVideo() = _$ToggleVideo;
+  const factory ToggleVideo() = _$ToggleVideoImpl;
 }
 
 /// @nodoc
-abstract class _$$ToggleViewCopyWith<$Res> {
-  factory _$$ToggleViewCopyWith(
-          _$ToggleView value, $Res Function(_$ToggleView) then) =
-      __$$ToggleViewCopyWithImpl<$Res>;
+abstract class _$$ToggleViewImplCopyWith<$Res> {
+  factory _$$ToggleViewImplCopyWith(
+          _$ToggleViewImpl value, $Res Function(_$ToggleViewImpl) then) =
+      __$$ToggleViewImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ToggleViewCopyWithImpl<$Res>
-    extends _$CallEventCopyWithImpl<$Res, _$ToggleView>
-    implements _$$ToggleViewCopyWith<$Res> {
-  __$$ToggleViewCopyWithImpl(
-      _$ToggleView _value, $Res Function(_$ToggleView) _then)
+class __$$ToggleViewImplCopyWithImpl<$Res>
+    extends _$CallEventCopyWithImpl<$Res, _$ToggleViewImpl>
+    implements _$$ToggleViewImplCopyWith<$Res> {
+  __$$ToggleViewImplCopyWithImpl(
+      _$ToggleViewImpl _value, $Res Function(_$ToggleViewImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ToggleView implements ToggleView {
-  const _$ToggleView();
+class _$ToggleViewImpl implements ToggleView {
+  const _$ToggleViewImpl();
 
   @override
   String toString() {
@@ -626,9 +628,9 @@ class _$ToggleView implements ToggleView {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToggleView);
+        (other.runtimeType == runtimeType && other is _$ToggleViewImpl);
   }
 
   @override
@@ -722,29 +724,29 @@ class _$ToggleView implements ToggleView {
 }
 
 abstract class ToggleView implements CallEvent {
-  const factory ToggleView() = _$ToggleView;
+  const factory ToggleView() = _$ToggleViewImpl;
 }
 
 /// @nodoc
-abstract class _$$SwitchCameraCopyWith<$Res> {
-  factory _$$SwitchCameraCopyWith(
-          _$SwitchCamera value, $Res Function(_$SwitchCamera) then) =
-      __$$SwitchCameraCopyWithImpl<$Res>;
+abstract class _$$SwitchCameraImplCopyWith<$Res> {
+  factory _$$SwitchCameraImplCopyWith(
+          _$SwitchCameraImpl value, $Res Function(_$SwitchCameraImpl) then) =
+      __$$SwitchCameraImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SwitchCameraCopyWithImpl<$Res>
-    extends _$CallEventCopyWithImpl<$Res, _$SwitchCamera>
-    implements _$$SwitchCameraCopyWith<$Res> {
-  __$$SwitchCameraCopyWithImpl(
-      _$SwitchCamera _value, $Res Function(_$SwitchCamera) _then)
+class __$$SwitchCameraImplCopyWithImpl<$Res>
+    extends _$CallEventCopyWithImpl<$Res, _$SwitchCameraImpl>
+    implements _$$SwitchCameraImplCopyWith<$Res> {
+  __$$SwitchCameraImplCopyWithImpl(
+      _$SwitchCameraImpl _value, $Res Function(_$SwitchCameraImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$SwitchCamera implements SwitchCamera {
-  const _$SwitchCamera();
+class _$SwitchCameraImpl implements SwitchCamera {
+  const _$SwitchCameraImpl();
 
   @override
   String toString() {
@@ -752,9 +754,9 @@ class _$SwitchCamera implements SwitchCamera {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SwitchCamera);
+        (other.runtimeType == runtimeType && other is _$SwitchCameraImpl);
   }
 
   @override
@@ -848,7 +850,7 @@ class _$SwitchCamera implements SwitchCamera {
 }
 
 abstract class SwitchCamera implements CallEvent {
-  const factory SwitchCamera() = _$SwitchCamera;
+  const factory SwitchCamera() = _$SwitchCameraImpl;
 }
 
 /// @nodoc
@@ -929,23 +931,25 @@ class _$CallStateCopyWithImpl<$Res, $Val extends CallState>
 }
 
 /// @nodoc
-abstract class _$$InitialCopyWith<$Res> {
-  factory _$$InitialCopyWith(_$Initial value, $Res Function(_$Initial) then) =
-      __$$InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialCopyWithImpl<$Res>
-    extends _$CallStateCopyWithImpl<$Res, _$Initial>
-    implements _$$InitialCopyWith<$Res> {
-  __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$CallStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Initial implements Initial {
-  const _$Initial();
+class _$InitialImpl implements Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -953,9 +957,9 @@ class _$Initial implements Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -1043,29 +1047,29 @@ class _$Initial implements Initial {
 }
 
 abstract class Initial implements CallState {
-  const factory Initial() = _$Initial;
+  const factory Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$RecconectingCopyWith<$Res> {
-  factory _$$RecconectingCopyWith(
-          _$Recconecting value, $Res Function(_$Recconecting) then) =
-      __$$RecconectingCopyWithImpl<$Res>;
+abstract class _$$RecconectingImplCopyWith<$Res> {
+  factory _$$RecconectingImplCopyWith(
+          _$RecconectingImpl value, $Res Function(_$RecconectingImpl) then) =
+      __$$RecconectingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$RecconectingCopyWithImpl<$Res>
-    extends _$CallStateCopyWithImpl<$Res, _$Recconecting>
-    implements _$$RecconectingCopyWith<$Res> {
-  __$$RecconectingCopyWithImpl(
-      _$Recconecting _value, $Res Function(_$Recconecting) _then)
+class __$$RecconectingImplCopyWithImpl<$Res>
+    extends _$CallStateCopyWithImpl<$Res, _$RecconectingImpl>
+    implements _$$RecconectingImplCopyWith<$Res> {
+  __$$RecconectingImplCopyWithImpl(
+      _$RecconectingImpl _value, $Res Function(_$RecconectingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Recconecting implements Recconecting {
-  const _$Recconecting();
+class _$RecconectingImpl implements Recconecting {
+  const _$RecconectingImpl();
 
   @override
   String toString() {
@@ -1073,9 +1077,9 @@ class _$Recconecting implements Recconecting {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Recconecting);
+        (other.runtimeType == runtimeType && other is _$RecconectingImpl);
   }
 
   @override
@@ -1163,27 +1167,29 @@ class _$Recconecting implements Recconecting {
 }
 
 abstract class Recconecting implements CallState {
-  const factory Recconecting() = _$Recconecting;
+  const factory Recconecting() = _$RecconectingImpl;
 }
 
 /// @nodoc
-abstract class _$$FailedCopyWith<$Res> {
-  factory _$$FailedCopyWith(_$Failed value, $Res Function(_$Failed) then) =
-      __$$FailedCopyWithImpl<$Res>;
+abstract class _$$FailedImplCopyWith<$Res> {
+  factory _$$FailedImplCopyWith(
+          _$FailedImpl value, $Res Function(_$FailedImpl) then) =
+      __$$FailedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FailedCopyWithImpl<$Res>
-    extends _$CallStateCopyWithImpl<$Res, _$Failed>
-    implements _$$FailedCopyWith<$Res> {
-  __$$FailedCopyWithImpl(_$Failed _value, $Res Function(_$Failed) _then)
+class __$$FailedImplCopyWithImpl<$Res>
+    extends _$CallStateCopyWithImpl<$Res, _$FailedImpl>
+    implements _$$FailedImplCopyWith<$Res> {
+  __$$FailedImplCopyWithImpl(
+      _$FailedImpl _value, $Res Function(_$FailedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Failed implements Failed {
-  const _$Failed();
+class _$FailedImpl implements Failed {
+  const _$FailedImpl();
 
   @override
   String toString() {
@@ -1191,9 +1197,9 @@ class _$Failed implements Failed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Failed);
+        (other.runtimeType == runtimeType && other is _$FailedImpl);
   }
 
   @override
@@ -1281,29 +1287,29 @@ class _$Failed implements Failed {
 }
 
 abstract class Failed implements CallState {
-  const factory Failed() = _$Failed;
+  const factory Failed() = _$FailedImpl;
 }
 
 /// @nodoc
-abstract class _$$ConnectedCopyWith<$Res> {
-  factory _$$ConnectedCopyWith(
-          _$Connected value, $Res Function(_$Connected) then) =
-      __$$ConnectedCopyWithImpl<$Res>;
+abstract class _$$ConnectedImplCopyWith<$Res> {
+  factory _$$ConnectedImplCopyWith(
+          _$ConnectedImpl value, $Res Function(_$ConnectedImpl) then) =
+      __$$ConnectedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ConnectedCopyWithImpl<$Res>
-    extends _$CallStateCopyWithImpl<$Res, _$Connected>
-    implements _$$ConnectedCopyWith<$Res> {
-  __$$ConnectedCopyWithImpl(
-      _$Connected _value, $Res Function(_$Connected) _then)
+class __$$ConnectedImplCopyWithImpl<$Res>
+    extends _$CallStateCopyWithImpl<$Res, _$ConnectedImpl>
+    implements _$$ConnectedImplCopyWith<$Res> {
+  __$$ConnectedImplCopyWithImpl(
+      _$ConnectedImpl _value, $Res Function(_$ConnectedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Connected implements Connected {
-  const _$Connected();
+class _$ConnectedImpl implements Connected {
+  const _$ConnectedImpl();
 
   @override
   String toString() {
@@ -1311,9 +1317,9 @@ class _$Connected implements Connected {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Connected);
+        (other.runtimeType == runtimeType && other is _$ConnectedImpl);
   }
 
   @override
@@ -1401,13 +1407,14 @@ class _$Connected implements Connected {
 }
 
 abstract class Connected implements CallState {
-  const factory Connected() = _$Connected;
+  const factory Connected() = _$ConnectedImpl;
 }
 
 /// @nodoc
-abstract class _$$ChangedCopyWith<$Res> {
-  factory _$$ChangedCopyWith(_$Changed value, $Res Function(_$Changed) then) =
-      __$$ChangedCopyWithImpl<$Res>;
+abstract class _$$ChangedImplCopyWith<$Res> {
+  factory _$$ChangedImplCopyWith(
+          _$ChangedImpl value, $Res Function(_$ChangedImpl) then) =
+      __$$ChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool value, CallEvent event});
 
@@ -1415,10 +1422,11 @@ abstract class _$$ChangedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ChangedCopyWithImpl<$Res>
-    extends _$CallStateCopyWithImpl<$Res, _$Changed>
-    implements _$$ChangedCopyWith<$Res> {
-  __$$ChangedCopyWithImpl(_$Changed _value, $Res Function(_$Changed) _then)
+class __$$ChangedImplCopyWithImpl<$Res>
+    extends _$CallStateCopyWithImpl<$Res, _$ChangedImpl>
+    implements _$$ChangedImplCopyWith<$Res> {
+  __$$ChangedImplCopyWithImpl(
+      _$ChangedImpl _value, $Res Function(_$ChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1427,7 +1435,7 @@ class __$$ChangedCopyWithImpl<$Res>
     Object? value = null,
     Object? event = null,
   }) {
-    return _then(_$Changed(
+    return _then(_$ChangedImpl(
       null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -1450,8 +1458,8 @@ class __$$ChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Changed implements Changed {
-  const _$Changed(this.value, this.event);
+class _$ChangedImpl implements Changed {
+  const _$ChangedImpl(this.value, this.event);
 
   @override
   final bool value;
@@ -1464,10 +1472,10 @@ class _$Changed implements Changed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Changed &&
+            other is _$ChangedImpl &&
             (identical(other.value, value) || other.value == value) &&
             (identical(other.event, event) || other.event == event));
   }
@@ -1478,8 +1486,8 @@ class _$Changed implements Changed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangedCopyWith<_$Changed> get copyWith =>
-      __$$ChangedCopyWithImpl<_$Changed>(this, _$identity);
+  _$$ChangedImplCopyWith<_$ChangedImpl> get copyWith =>
+      __$$ChangedImplCopyWithImpl<_$ChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1563,11 +1571,12 @@ class _$Changed implements Changed {
 }
 
 abstract class Changed implements CallState {
-  const factory Changed(final bool value, final CallEvent event) = _$Changed;
+  const factory Changed(final bool value, final CallEvent event) =
+      _$ChangedImpl;
 
   bool get value;
   CallEvent get event;
   @JsonKey(ignore: true)
-  _$$ChangedCopyWith<_$Changed> get copyWith =>
+  _$$ChangedImplCopyWith<_$ChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

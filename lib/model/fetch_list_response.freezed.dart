@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'fetch_list_response.dart';
 
@@ -12,7 +12,7 @@ part of 'fetch_list_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 FetchListResponse _$FetchListResponseFromJson(Map<String, dynamic> json) {
   return _FetchListResponse.fromJson(json);
@@ -62,24 +62,24 @@ class _$FetchListResponseCopyWithImpl<$Res, $Val extends FetchListResponse>
   @override
   $Res call({
     Object? message = freezed,
-    Object? code = null,
-    Object? data = null,
-    Object? payload = null,
+    Object? code = freezed,
+    Object? data = freezed,
+    Object? payload = freezed,
   }) {
     return _then(_value.copyWith(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      code: null == code
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      payload: null == payload
+      payload: freezed == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -88,11 +88,11 @@ class _$FetchListResponseCopyWithImpl<$Res, $Val extends FetchListResponse>
 }
 
 /// @nodoc
-abstract class _$$_FetchListResponseCopyWith<$Res>
+abstract class _$$FetchListResponseImplCopyWith<$Res>
     implements $FetchListResponseCopyWith<$Res> {
-  factory _$$_FetchListResponseCopyWith(_$_FetchListResponse value,
-          $Res Function(_$_FetchListResponse) then) =
-      __$$_FetchListResponseCopyWithImpl<$Res>;
+  factory _$$FetchListResponseImplCopyWith(_$FetchListResponseImpl value,
+          $Res Function(_$FetchListResponseImpl) then) =
+      __$$FetchListResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -103,35 +103,35 @@ abstract class _$$_FetchListResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FetchListResponseCopyWithImpl<$Res>
-    extends _$FetchListResponseCopyWithImpl<$Res, _$_FetchListResponse>
-    implements _$$_FetchListResponseCopyWith<$Res> {
-  __$$_FetchListResponseCopyWithImpl(
-      _$_FetchListResponse _value, $Res Function(_$_FetchListResponse) _then)
+class __$$FetchListResponseImplCopyWithImpl<$Res>
+    extends _$FetchListResponseCopyWithImpl<$Res, _$FetchListResponseImpl>
+    implements _$$FetchListResponseImplCopyWith<$Res> {
+  __$$FetchListResponseImplCopyWithImpl(_$FetchListResponseImpl _value,
+      $Res Function(_$FetchListResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
-    Object? code = null,
-    Object? data = null,
-    Object? payload = null,
+    Object? code = freezed,
+    Object? data = freezed,
+    Object? payload = freezed,
   }) {
-    return _then(_$_FetchListResponse(
+    return _then(_$FetchListResponseImpl(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      code: null == code
+      code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      payload: null == payload
+      payload: freezed == payload
           ? _value.payload
           : payload // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -141,15 +141,15 @@ class __$$_FetchListResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FetchListResponse implements _FetchListResponse {
-  const _$_FetchListResponse(
+class _$FetchListResponseImpl implements _FetchListResponse {
+  const _$FetchListResponseImpl(
       {@JsonKey(name: 'ResponseMessage') this.message,
       @JsonKey(name: 'ResponseCode') this.code = null,
       @JsonKey(name: 'Data') this.data = const [],
       @JsonKey(name: 'data') this.payload = const []});
 
-  factory _$_FetchListResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_FetchListResponseFromJson(json);
+  factory _$FetchListResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FetchListResponseImplFromJson(json);
 
   @override
   @JsonKey(name: 'ResponseMessage')
@@ -170,10 +170,10 @@ class _$_FetchListResponse implements _FetchListResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchListResponse &&
+            other is _$FetchListResponseImpl &&
             (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality().equals(other.data, data) &&
@@ -192,13 +192,13 @@ class _$_FetchListResponse implements _FetchListResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchListResponseCopyWith<_$_FetchListResponse> get copyWith =>
-      __$$_FetchListResponseCopyWithImpl<_$_FetchListResponse>(
+  _$$FetchListResponseImplCopyWith<_$FetchListResponseImpl> get copyWith =>
+      __$$FetchListResponseImplCopyWithImpl<_$FetchListResponseImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FetchListResponseToJson(
+    return _$$FetchListResponseImplToJson(
       this,
     );
   }
@@ -209,10 +209,10 @@ abstract class _FetchListResponse implements FetchListResponse {
       {@JsonKey(name: 'ResponseMessage') final String? message,
       @JsonKey(name: 'ResponseCode') final dynamic code,
       @JsonKey(name: 'Data') final dynamic data,
-      @JsonKey(name: 'data') final dynamic payload}) = _$_FetchListResponse;
+      @JsonKey(name: 'data') final dynamic payload}) = _$FetchListResponseImpl;
 
   factory _FetchListResponse.fromJson(Map<String, dynamic> json) =
-      _$_FetchListResponse.fromJson;
+      _$FetchListResponseImpl.fromJson;
 
   @override
   @JsonKey(name: 'ResponseMessage')
@@ -228,6 +228,6 @@ abstract class _FetchListResponse implements FetchListResponse {
   dynamic get payload;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchListResponseCopyWith<_$_FetchListResponse> get copyWith =>
+  _$$FetchListResponseImplCopyWith<_$FetchListResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

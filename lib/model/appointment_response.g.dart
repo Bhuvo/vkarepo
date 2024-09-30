@@ -6,9 +6,9 @@ part of 'appointment_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AppointmentResponse _$$_AppointmentResponseFromJson(
+_$AppointmentResponseImpl _$$AppointmentResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_AppointmentResponse(
+    _$AppointmentResponseImpl(
       previous: (json['PreviousAppointmentList'] as List<dynamic>?)
           ?.map((e) => AppointmentData.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -17,8 +17,8 @@ _$_AppointmentResponse _$$_AppointmentResponseFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_AppointmentResponseToJson(
-        _$_AppointmentResponse instance) =>
+Map<String, dynamic> _$$AppointmentResponseImplToJson(
+        _$AppointmentResponseImpl instance) =>
     <String, dynamic>{
       'PreviousAppointmentList': instance.previous,
       'UpcomingAppointmentList': instance.upcoming,

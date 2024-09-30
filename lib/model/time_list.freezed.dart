@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'time_list.dart';
 
@@ -12,7 +12,7 @@ part of 'time_list.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TimeList _$TimeListFromJson(Map<String, dynamic> json) {
   return _TimeList.fromJson(json);
@@ -68,55 +68,55 @@ class _$TimeListCopyWithImpl<$Res, $Val extends TimeList>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Clinic_id = null,
-    Object? FromTime = null,
-    Object? Doctor_id = null,
-    Object? startSplit = null,
-    Object? EndSplit = null,
-    Object? ToTime = null,
-    Object? Day = null,
-    Object? Days = null,
-    Object? Dayslot = null,
-    Object? Class = null,
+    Object? Clinic_id = freezed,
+    Object? FromTime = freezed,
+    Object? Doctor_id = freezed,
+    Object? startSplit = freezed,
+    Object? EndSplit = freezed,
+    Object? ToTime = freezed,
+    Object? Day = freezed,
+    Object? Days = freezed,
+    Object? Dayslot = freezed,
+    Object? Class = freezed,
   }) {
     return _then(_value.copyWith(
-      Clinic_id: null == Clinic_id
+      Clinic_id: freezed == Clinic_id
           ? _value.Clinic_id
           : Clinic_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      FromTime: null == FromTime
+      FromTime: freezed == FromTime
           ? _value.FromTime
           : FromTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_id: null == Doctor_id
+      Doctor_id: freezed == Doctor_id
           ? _value.Doctor_id
           : Doctor_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      startSplit: null == startSplit
+      startSplit: freezed == startSplit
           ? _value.startSplit
           : startSplit // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      EndSplit: null == EndSplit
+      EndSplit: freezed == EndSplit
           ? _value.EndSplit
           : EndSplit // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ToTime: null == ToTime
+      ToTime: freezed == ToTime
           ? _value.ToTime
           : ToTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Day: null == Day
+      Day: freezed == Day
           ? _value.Day
           : Day // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Days: null == Days
+      Days: freezed == Days
           ? _value.Days
           : Days // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Dayslot: null == Dayslot
+      Dayslot: freezed == Dayslot
           ? _value.Dayslot
           : Dayslot // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Class: null == Class
+      Class: freezed == Class
           ? _value.Class
           : Class // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -125,10 +125,11 @@ class _$TimeListCopyWithImpl<$Res, $Val extends TimeList>
 }
 
 /// @nodoc
-abstract class _$$_TimeListCopyWith<$Res> implements $TimeListCopyWith<$Res> {
-  factory _$$_TimeListCopyWith(
-          _$_TimeList value, $Res Function(_$_TimeList) then) =
-      __$$_TimeListCopyWithImpl<$Res>;
+abstract class _$$TimeListImplCopyWith<$Res>
+    implements $TimeListCopyWith<$Res> {
+  factory _$$TimeListImplCopyWith(
+          _$TimeListImpl value, $Res Function(_$TimeListImpl) then) =
+      __$$TimeListImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -145,65 +146,65 @@ abstract class _$$_TimeListCopyWith<$Res> implements $TimeListCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_TimeListCopyWithImpl<$Res>
-    extends _$TimeListCopyWithImpl<$Res, _$_TimeList>
-    implements _$$_TimeListCopyWith<$Res> {
-  __$$_TimeListCopyWithImpl(
-      _$_TimeList _value, $Res Function(_$_TimeList) _then)
+class __$$TimeListImplCopyWithImpl<$Res>
+    extends _$TimeListCopyWithImpl<$Res, _$TimeListImpl>
+    implements _$$TimeListImplCopyWith<$Res> {
+  __$$TimeListImplCopyWithImpl(
+      _$TimeListImpl _value, $Res Function(_$TimeListImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Clinic_id = null,
-    Object? FromTime = null,
-    Object? Doctor_id = null,
-    Object? startSplit = null,
-    Object? EndSplit = null,
-    Object? ToTime = null,
-    Object? Day = null,
-    Object? Days = null,
-    Object? Dayslot = null,
-    Object? Class = null,
+    Object? Clinic_id = freezed,
+    Object? FromTime = freezed,
+    Object? Doctor_id = freezed,
+    Object? startSplit = freezed,
+    Object? EndSplit = freezed,
+    Object? ToTime = freezed,
+    Object? Day = freezed,
+    Object? Days = freezed,
+    Object? Dayslot = freezed,
+    Object? Class = freezed,
   }) {
-    return _then(_$_TimeList(
-      Clinic_id: null == Clinic_id
+    return _then(_$TimeListImpl(
+      Clinic_id: freezed == Clinic_id
           ? _value.Clinic_id
           : Clinic_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      FromTime: null == FromTime
+      FromTime: freezed == FromTime
           ? _value.FromTime
           : FromTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_id: null == Doctor_id
+      Doctor_id: freezed == Doctor_id
           ? _value.Doctor_id
           : Doctor_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      startSplit: null == startSplit
+      startSplit: freezed == startSplit
           ? _value.startSplit
           : startSplit // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      EndSplit: null == EndSplit
+      EndSplit: freezed == EndSplit
           ? _value.EndSplit
           : EndSplit // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ToTime: null == ToTime
+      ToTime: freezed == ToTime
           ? _value.ToTime
           : ToTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Day: null == Day
+      Day: freezed == Day
           ? _value.Day
           : Day // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Days: null == Days
+      Days: freezed == Days
           ? _value.Days
           : Days // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Dayslot: null == Dayslot
+      Dayslot: freezed == Dayslot
           ? _value.Dayslot
           : Dayslot // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Class: null == Class
+      Class: freezed == Class
           ? _value.Class
           : Class // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -213,8 +214,8 @@ class __$$_TimeListCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TimeList implements _TimeList {
-  const _$_TimeList(
+class _$TimeListImpl implements _TimeList {
+  const _$TimeListImpl(
       {this.Clinic_id = '',
       this.FromTime = '',
       this.Doctor_id = '',
@@ -226,8 +227,8 @@ class _$_TimeList implements _TimeList {
       this.Dayslot = '',
       this.Class = ''});
 
-  factory _$_TimeList.fromJson(Map<String, dynamic> json) =>
-      _$$_TimeListFromJson(json);
+  factory _$TimeListImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TimeListImplFromJson(json);
 
   @override
   @JsonKey()
@@ -266,10 +267,10 @@ class _$_TimeList implements _TimeList {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TimeList &&
+            other is _$TimeListImpl &&
             const DeepCollectionEquality().equals(other.Clinic_id, Clinic_id) &&
             const DeepCollectionEquality().equals(other.FromTime, FromTime) &&
             const DeepCollectionEquality().equals(other.Doctor_id, Doctor_id) &&
@@ -301,12 +302,12 @@ class _$_TimeList implements _TimeList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimeListCopyWith<_$_TimeList> get copyWith =>
-      __$$_TimeListCopyWithImpl<_$_TimeList>(this, _$identity);
+  _$$TimeListImplCopyWith<_$TimeListImpl> get copyWith =>
+      __$$TimeListImplCopyWithImpl<_$TimeListImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TimeListToJson(
+    return _$$TimeListImplToJson(
       this,
     );
   }
@@ -323,9 +324,10 @@ abstract class _TimeList implements TimeList {
       final dynamic Day,
       final dynamic Days,
       final dynamic Dayslot,
-      final dynamic Class}) = _$_TimeList;
+      final dynamic Class}) = _$TimeListImpl;
 
-  factory _TimeList.fromJson(Map<String, dynamic> json) = _$_TimeList.fromJson;
+  factory _TimeList.fromJson(Map<String, dynamic> json) =
+      _$TimeListImpl.fromJson;
 
   @override
   dynamic get Clinic_id;
@@ -349,6 +351,6 @@ abstract class _TimeList implements TimeList {
   dynamic get Class;
   @override
   @JsonKey(ignore: true)
-  _$$_TimeListCopyWith<_$_TimeList> get copyWith =>
+  _$$TimeListImplCopyWith<_$TimeListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

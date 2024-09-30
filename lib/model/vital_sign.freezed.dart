@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'vital_sign.dart';
 
@@ -12,7 +12,7 @@ part of 'vital_sign.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 VitalSign _$VitalSignFromJson(Map<String, dynamic> json) {
   return _VitalSign.fromJson(json);
@@ -175,10 +175,11 @@ class _$VitalSignCopyWithImpl<$Res, $Val extends VitalSign>
 }
 
 /// @nodoc
-abstract class _$$_VitalSignCopyWith<$Res> implements $VitalSignCopyWith<$Res> {
-  factory _$$_VitalSignCopyWith(
-          _$_VitalSign value, $Res Function(_$_VitalSign) then) =
-      __$$_VitalSignCopyWithImpl<$Res>;
+abstract class _$$VitalSignImplCopyWith<$Res>
+    implements $VitalSignCopyWith<$Res> {
+  factory _$$VitalSignImplCopyWith(
+          _$VitalSignImpl value, $Res Function(_$VitalSignImpl) then) =
+      __$$VitalSignImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -200,11 +201,11 @@ abstract class _$$_VitalSignCopyWith<$Res> implements $VitalSignCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_VitalSignCopyWithImpl<$Res>
-    extends _$VitalSignCopyWithImpl<$Res, _$_VitalSign>
-    implements _$$_VitalSignCopyWith<$Res> {
-  __$$_VitalSignCopyWithImpl(
-      _$_VitalSign _value, $Res Function(_$_VitalSign) _then)
+class __$$VitalSignImplCopyWithImpl<$Res>
+    extends _$VitalSignCopyWithImpl<$Res, _$VitalSignImpl>
+    implements _$$VitalSignImplCopyWith<$Res> {
+  __$$VitalSignImplCopyWithImpl(
+      _$VitalSignImpl _value, $Res Function(_$VitalSignImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -226,7 +227,7 @@ class __$$_VitalSignCopyWithImpl<$Res>
     Object? height = freezed,
     Object? weight = freezed,
   }) {
-    return _then(_$_VitalSign(
+    return _then(_$VitalSignImpl(
       preparedName: freezed == preparedName
           ? _value.preparedName
           : preparedName // ignore: cast_nullable_to_non_nullable
@@ -293,8 +294,8 @@ class __$$_VitalSignCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_VitalSign implements _VitalSign {
-  const _$_VitalSign(
+class _$VitalSignImpl implements _VitalSign {
+  const _$VitalSignImpl(
       {@JsonKey(name: 'prepared_name') this.preparedName,
       @JsonKey(name: 'admission_id') this.admissionId,
       @JsonKey(name: 'Saturation') this.saturation,
@@ -311,8 +312,8 @@ class _$_VitalSign implements _VitalSign {
       @JsonKey(name: 'height') this.height,
       @JsonKey(name: 'weight') this.weight});
 
-  factory _$_VitalSign.fromJson(Map<String, dynamic> json) =>
-      _$$_VitalSignFromJson(json);
+  factory _$VitalSignImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VitalSignImplFromJson(json);
 
   @override
   @JsonKey(name: 'prepared_name')
@@ -366,10 +367,10 @@ class _$_VitalSign implements _VitalSign {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_VitalSign &&
+            other is _$VitalSignImpl &&
             (identical(other.preparedName, preparedName) ||
                 other.preparedName == preparedName) &&
             (identical(other.admissionId, admissionId) ||
@@ -420,12 +421,12 @@ class _$_VitalSign implements _VitalSign {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_VitalSignCopyWith<_$_VitalSign> get copyWith =>
-      __$$_VitalSignCopyWithImpl<_$_VitalSign>(this, _$identity);
+  _$$VitalSignImplCopyWith<_$VitalSignImpl> get copyWith =>
+      __$$VitalSignImplCopyWithImpl<_$VitalSignImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_VitalSignToJson(
+    return _$$VitalSignImplToJson(
       this,
     );
   }
@@ -447,10 +448,10 @@ abstract class _VitalSign implements VitalSign {
       @JsonKey(name: 'temperature') final String? temperature,
       @JsonKey(name: 'respiration') final String? respiration,
       @JsonKey(name: 'height') final String? height,
-      @JsonKey(name: 'weight') final String? weight}) = _$_VitalSign;
+      @JsonKey(name: 'weight') final String? weight}) = _$VitalSignImpl;
 
   factory _VitalSign.fromJson(Map<String, dynamic> json) =
-      _$_VitalSign.fromJson;
+      _$VitalSignImpl.fromJson;
 
   @override
   @JsonKey(name: 'prepared_name')
@@ -499,6 +500,6 @@ abstract class _VitalSign implements VitalSign {
   String? get weight;
   @override
   @JsonKey(ignore: true)
-  _$$_VitalSignCopyWith<_$_VitalSign> get copyWith =>
+  _$$VitalSignImplCopyWith<_$VitalSignImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
