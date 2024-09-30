@@ -6,15 +6,15 @@ part of 'stream_time_updation.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_StreamTimeUpdationModel _$$_StreamTimeUpdationModelFromJson(
+_$StreamTimeUpdationModelImpl _$$StreamTimeUpdationModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_StreamTimeUpdationModel(
+    _$StreamTimeUpdationModelImpl(
       responseCode: json['responseCode'] as String,
       responseMessage: json['responseMessage'] as String,
     );
 
-Map<String, dynamic> _$$_StreamTimeUpdationModelToJson(
-        _$_StreamTimeUpdationModel instance) =>
+Map<String, dynamic> _$$StreamTimeUpdationModelImplToJson(
+        _$StreamTimeUpdationModelImpl instance) =>
     <String, dynamic>{
       'responseCode': instance.responseCode,
       'responseMessage': instance.responseMessage,

@@ -6,8 +6,8 @@ part of 'doctor_event.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DoctorEvent _$$_DoctorEventFromJson(Map<String, dynamic> json) =>
-    _$_DoctorEvent(
+_$DoctorEventImpl _$$DoctorEventImplFromJson(Map<String, dynamic> json) =>
+    _$DoctorEventImpl(
       id: json['id'] ?? null,
       title: json['title'] ?? null,
       s_date: json['s_date'] ?? null,
@@ -25,7 +25,7 @@ _$_DoctorEvent _$$_DoctorEventFromJson(Map<String, dynamic> json) =>
       Hospital_Name: json['Hospital_Name'] ?? null,
     );
 
-Map<String, dynamic> _$$_DoctorEventToJson(_$_DoctorEvent instance) =>
+Map<String, dynamic> _$$DoctorEventImplToJson(_$DoctorEventImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,

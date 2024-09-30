@@ -78,7 +78,7 @@ abstract class ApiService extends ChopperService {
 
   static ApiService create() {
     final client = ChopperClient(
-      baseUrl: Consts.BASE_URL,
+      baseUrl: Uri.parse(Consts.BASE_URL),
       services: [
         _$ApiService(),
       ],

@@ -6,9 +6,9 @@ part of 'instant_doctors_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_InstantDoctorsResponse _$$_InstantDoctorsResponseFromJson(
+_$InstantDoctorsResponseImpl _$$InstantDoctorsResponseImplFromJson(
         Map<String, dynamic> json) =>
-    _$_InstantDoctorsResponse(
+    _$InstantDoctorsResponseImpl(
       doctors: (json['DFSendList'] as List<dynamic>?)
           ?.map((e) => InstantDoctor.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -17,8 +17,8 @@ _$_InstantDoctorsResponse _$$_InstantDoctorsResponseFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_InstantDoctorsResponseToJson(
-        _$_InstantDoctorsResponse instance) =>
+Map<String, dynamic> _$$InstantDoctorsResponseImplToJson(
+        _$InstantDoctorsResponseImpl instance) =>
     <String, dynamic>{
       'DFSendList': instance.doctors,
       'ClinicFee': instance.clinics,

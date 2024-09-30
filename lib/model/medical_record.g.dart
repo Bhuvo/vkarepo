@@ -6,8 +6,8 @@ part of 'medical_record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MedicalRecord _$$_MedicalRecordFromJson(Map<String, dynamic> json) =>
-    _$_MedicalRecord(
+_$MedicalRecordImpl _$$MedicalRecordImplFromJson(Map<String, dynamic> json) =>
+    _$MedicalRecordImpl(
       DeptName: json['DeptName'] ?? '',
       Doctor_Notes: json['Doctor_Notes'] ?? '',
       Hospital_id: json['Hospital_id'] ?? '',
@@ -174,7 +174,7 @@ _$_MedicalRecord _$$_MedicalRecordFromJson(Map<String, dynamic> json) =>
               json['Intake_Object'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_MedicalRecordToJson(_$_MedicalRecord instance) =>
+Map<String, dynamic> _$$MedicalRecordImplToJson(_$MedicalRecordImpl instance) =>
     <String, dynamic>{
       'DeptName': instance.DeptName,
       'Doctor_Notes': instance.Doctor_Notes,

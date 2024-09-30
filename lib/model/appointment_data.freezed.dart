@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'appointment_data.dart';
 
@@ -12,7 +12,7 @@ part of 'appointment_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 AppointmentData _$AppointmentDataFromJson(Map<String, dynamic> json) {
   return _AppointmentData.fromJson(json);
@@ -100,7 +100,7 @@ class _$AppointmentDataCopyWithImpl<$Res, $Val extends AppointmentData>
     Object? cityName = freezed,
     Object? instantURL = freezed,
     Object? scheduleURL = freezed,
-    Object? eClinicFlag = null,
+    Object? eClinicFlag = freezed,
   }) {
     return _then(_value.copyWith(
       type: freezed == type
@@ -151,7 +151,7 @@ class _$AppointmentDataCopyWithImpl<$Res, $Val extends AppointmentData>
           ? _value.scheduleURL
           : scheduleURL // ignore: cast_nullable_to_non_nullable
               as String?,
-      eClinicFlag: null == eClinicFlag
+      eClinicFlag: freezed == eClinicFlag
           ? _value.eClinicFlag
           : eClinicFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -160,11 +160,11 @@ class _$AppointmentDataCopyWithImpl<$Res, $Val extends AppointmentData>
 }
 
 /// @nodoc
-abstract class _$$_AppointmentDataCopyWith<$Res>
+abstract class _$$AppointmentDataImplCopyWith<$Res>
     implements $AppointmentDataCopyWith<$Res> {
-  factory _$$_AppointmentDataCopyWith(
-          _$_AppointmentData value, $Res Function(_$_AppointmentData) then) =
-      __$$_AppointmentDataCopyWithImpl<$Res>;
+  factory _$$AppointmentDataImplCopyWith(_$AppointmentDataImpl value,
+          $Res Function(_$AppointmentDataImpl) then) =
+      __$$AppointmentDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -184,11 +184,11 @@ abstract class _$$_AppointmentDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AppointmentDataCopyWithImpl<$Res>
-    extends _$AppointmentDataCopyWithImpl<$Res, _$_AppointmentData>
-    implements _$$_AppointmentDataCopyWith<$Res> {
-  __$$_AppointmentDataCopyWithImpl(
-      _$_AppointmentData _value, $Res Function(_$_AppointmentData) _then)
+class __$$AppointmentDataImplCopyWithImpl<$Res>
+    extends _$AppointmentDataCopyWithImpl<$Res, _$AppointmentDataImpl>
+    implements _$$AppointmentDataImplCopyWith<$Res> {
+  __$$AppointmentDataImplCopyWithImpl(
+      _$AppointmentDataImpl _value, $Res Function(_$AppointmentDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -206,9 +206,9 @@ class __$$_AppointmentDataCopyWithImpl<$Res>
     Object? cityName = freezed,
     Object? instantURL = freezed,
     Object? scheduleURL = freezed,
-    Object? eClinicFlag = null,
+    Object? eClinicFlag = freezed,
   }) {
-    return _then(_$_AppointmentData(
+    return _then(_$AppointmentDataImpl(
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -257,7 +257,7 @@ class __$$_AppointmentDataCopyWithImpl<$Res>
           ? _value.scheduleURL
           : scheduleURL // ignore: cast_nullable_to_non_nullable
               as String?,
-      eClinicFlag: null == eClinicFlag
+      eClinicFlag: freezed == eClinicFlag
           ? _value.eClinicFlag
           : eClinicFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -267,8 +267,8 @@ class __$$_AppointmentDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AppointmentData implements _AppointmentData {
-  const _$_AppointmentData(
+class _$AppointmentDataImpl implements _AppointmentData {
+  const _$AppointmentDataImpl(
       {@JsonKey(name: 'Type') this.type,
       @JsonKey(name: 'FreeReview') this.freeReview,
       @JsonKey(name: 'Appointment_id') this.id,
@@ -283,8 +283,8 @@ class _$_AppointmentData implements _AppointmentData {
       @JsonKey(name: 'ScheduleURL') this.scheduleURL,
       @JsonKey(name: 'eclinic_Flag') this.eClinicFlag = null});
 
-  factory _$_AppointmentData.fromJson(Map<String, dynamic> json) =>
-      _$$_AppointmentDataFromJson(json);
+  factory _$AppointmentDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppointmentDataImplFromJson(json);
 
   @override
   @JsonKey(name: 'Type')
@@ -332,10 +332,10 @@ class _$_AppointmentData implements _AppointmentData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppointmentData &&
+            other is _$AppointmentDataImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.freeReview, freeReview) ||
                 other.freeReview == freeReview) &&
@@ -381,12 +381,13 @@ class _$_AppointmentData implements _AppointmentData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppointmentDataCopyWith<_$_AppointmentData> get copyWith =>
-      __$$_AppointmentDataCopyWithImpl<_$_AppointmentData>(this, _$identity);
+  _$$AppointmentDataImplCopyWith<_$AppointmentDataImpl> get copyWith =>
+      __$$AppointmentDataImplCopyWithImpl<_$AppointmentDataImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AppointmentDataToJson(
+    return _$$AppointmentDataImplToJson(
       this,
     );
   }
@@ -407,10 +408,10 @@ abstract class _AppointmentData implements AppointmentData {
           @JsonKey(name: 'InstantURL') final String? instantURL,
           @JsonKey(name: 'ScheduleURL') final String? scheduleURL,
           @JsonKey(name: 'eclinic_Flag') final dynamic eClinicFlag}) =
-      _$_AppointmentData;
+      _$AppointmentDataImpl;
 
   factory _AppointmentData.fromJson(Map<String, dynamic> json) =
-      _$_AppointmentData.fromJson;
+      _$AppointmentDataImpl.fromJson;
 
   @override
   @JsonKey(name: 'Type')
@@ -453,6 +454,6 @@ abstract class _AppointmentData implements AppointmentData {
   dynamic get eClinicFlag;
   @override
   @JsonKey(ignore: true)
-  _$$_AppointmentDataCopyWith<_$_AppointmentData> get copyWith =>
+  _$$AppointmentDataImplCopyWith<_$AppointmentDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,7 +6,8 @@ part of 'time_list.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TimeList _$$_TimeListFromJson(Map<String, dynamic> json) => _$_TimeList(
+_$TimeListImpl _$$TimeListImplFromJson(Map<String, dynamic> json) =>
+    _$TimeListImpl(
       Clinic_id: json['Clinic_id'] ?? '',
       FromTime: json['FromTime'] ?? '',
       Doctor_id: json['Doctor_id'] ?? '',
@@ -19,7 +20,7 @@ _$_TimeList _$$_TimeListFromJson(Map<String, dynamic> json) => _$_TimeList(
       Class: json['Class'] ?? '',
     );
 
-Map<String, dynamic> _$$_TimeListToJson(_$_TimeList instance) =>
+Map<String, dynamic> _$$TimeListImplToJson(_$TimeListImpl instance) =>
     <String, dynamic>{
       'Clinic_id': instance.Clinic_id,
       'FromTime': instance.FromTime,

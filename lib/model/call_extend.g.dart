@@ -6,13 +6,15 @@ part of 'call_extend.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CallExtendModel _$$_CallExtendModelFromJson(Map<String, dynamic> json) =>
-    _$_CallExtendModel(
+_$CallExtendModelImpl _$$CallExtendModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$CallExtendModelImpl(
       responseCode: json['responseCode'] as String,
       responseMessage: json['responseMessage'] as String,
     );
 
-Map<String, dynamic> _$$_CallExtendModelToJson(_$_CallExtendModel instance) =>
+Map<String, dynamic> _$$CallExtendModelImplToJson(
+        _$CallExtendModelImpl instance) =>
     <String, dynamic>{
       'responseCode': instance.responseCode,
       'responseMessage': instance.responseMessage,

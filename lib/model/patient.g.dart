@@ -6,7 +6,8 @@ part of 'patient.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Patient _$$_PatientFromJson(Map<String, dynamic> json) => _$_Patient(
+_$PatientImpl _$$PatientImplFromJson(Map<String, dynamic> json) =>
+    _$PatientImpl(
       id: json['Patient_Id'] ?? null,
       userId: json['User_id'] ?? null,
       regNo: json['Patient_Registration_Number'] as String?,
@@ -21,7 +22,7 @@ _$_Patient _$$_PatientFromJson(Map<String, dynamic> json) => _$_Patient(
       patientImage: json['Image'] ?? null,
       phone: json['Phone_Number'] as String?,
       familyMemberId: json['FamilyMember_id'] ?? null,
-      primaryAccountNo: json['PrimaryAccount_No'] as int?,
+      primaryAccountNo: (json['PrimaryAccount_No'] as num?)?.toInt(),
       primaryMobile: json['PrimaryMobile'] as String?,
       primaryUserId: json['Primary_User_id'] ?? null,
       mobile: json['MobileNumber'] as String?,
@@ -39,7 +40,7 @@ _$_Patient _$$_PatientFromJson(Map<String, dynamic> json) => _$_Patient(
       patientRegistrationList: json['PatientRegistration_list'] as String?,
     );
 
-Map<String, dynamic> _$$_PatientToJson(_$_Patient instance) =>
+Map<String, dynamic> _$$PatientImplToJson(_$PatientImpl instance) =>
     <String, dynamic>{
       'Patient_Id': instance.id,
       'User_id': instance.userId,

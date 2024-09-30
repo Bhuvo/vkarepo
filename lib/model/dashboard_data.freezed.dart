@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'dashboard_data.dart';
 
@@ -12,7 +12,7 @@ part of 'dashboard_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DashboardData _$DashboardDataFromJson(Map<String, dynamic> json) {
   return _DashboardData.fromJson(json);
@@ -96,11 +96,11 @@ class _$DashboardDataCopyWithImpl<$Res, $Val extends DashboardData>
 }
 
 /// @nodoc
-abstract class _$$_DashboardDataCopyWith<$Res>
+abstract class _$$DashboardDataImplCopyWith<$Res>
     implements $DashboardDataCopyWith<$Res> {
-  factory _$$_DashboardDataCopyWith(
-          _$_DashboardData value, $Res Function(_$_DashboardData) then) =
-      __$$_DashboardDataCopyWithImpl<$Res>;
+  factory _$$DashboardDataImplCopyWith(
+          _$DashboardDataImpl value, $Res Function(_$DashboardDataImpl) then) =
+      __$$DashboardDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -112,11 +112,11 @@ abstract class _$$_DashboardDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DashboardDataCopyWithImpl<$Res>
-    extends _$DashboardDataCopyWithImpl<$Res, _$_DashboardData>
-    implements _$$_DashboardDataCopyWith<$Res> {
-  __$$_DashboardDataCopyWithImpl(
-      _$_DashboardData _value, $Res Function(_$_DashboardData) _then)
+class __$$DashboardDataImplCopyWithImpl<$Res>
+    extends _$DashboardDataCopyWithImpl<$Res, _$DashboardDataImpl>
+    implements _$$DashboardDataImplCopyWith<$Res> {
+  __$$DashboardDataImplCopyWithImpl(
+      _$DashboardDataImpl _value, $Res Function(_$DashboardDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -128,7 +128,7 @@ class __$$_DashboardDataCopyWithImpl<$Res>
     Object? completed = freezed,
     Object? totalPending = freezed,
   }) {
-    return _then(_$_DashboardData(
+    return _then(_$DashboardDataImpl(
       patient: freezed == patient
           ? _value.patient
           : patient // ignore: cast_nullable_to_non_nullable
@@ -155,16 +155,16 @@ class __$$_DashboardDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DashboardData implements _DashboardData {
-  const _$_DashboardData(
+class _$DashboardDataImpl implements _DashboardData {
+  const _$DashboardDataImpl(
       {@JsonKey(name: 'Total_Patient_Count') this.patient,
       @JsonKey(name: 'Today_INR_Count') this.inr,
       @JsonKey(name: 'Today_Pending_Count') this.pending,
       @JsonKey(name: 'Today_Completed_Count') this.completed,
       @JsonKey(name: 'Total_Pending_Count') this.totalPending});
 
-  factory _$_DashboardData.fromJson(Map<String, dynamic> json) =>
-      _$$_DashboardDataFromJson(json);
+  factory _$DashboardDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DashboardDataImplFromJson(json);
 
   @override
   @JsonKey(name: 'Total_Patient_Count')
@@ -188,10 +188,10 @@ class _$_DashboardData implements _DashboardData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DashboardData &&
+            other is _$DashboardDataImpl &&
             (identical(other.patient, patient) || other.patient == patient) &&
             (identical(other.inr, inr) || other.inr == inr) &&
             (identical(other.pending, pending) || other.pending == pending) &&
@@ -209,12 +209,12 @@ class _$_DashboardData implements _DashboardData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DashboardDataCopyWith<_$_DashboardData> get copyWith =>
-      __$$_DashboardDataCopyWithImpl<_$_DashboardData>(this, _$identity);
+  _$$DashboardDataImplCopyWith<_$DashboardDataImpl> get copyWith =>
+      __$$DashboardDataImplCopyWithImpl<_$DashboardDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DashboardDataToJson(
+    return _$$DashboardDataImplToJson(
       this,
     );
   }
@@ -227,10 +227,10 @@ abstract class _DashboardData implements DashboardData {
           @JsonKey(name: 'Today_Pending_Count') final String? pending,
           @JsonKey(name: 'Today_Completed_Count') final String? completed,
           @JsonKey(name: 'Total_Pending_Count') final String? totalPending}) =
-      _$_DashboardData;
+      _$DashboardDataImpl;
 
   factory _DashboardData.fromJson(Map<String, dynamic> json) =
-      _$_DashboardData.fromJson;
+      _$DashboardDataImpl.fromJson;
 
   @override
   @JsonKey(name: 'Total_Patient_Count')
@@ -249,6 +249,6 @@ abstract class _DashboardData implements DashboardData {
   String? get totalPending;
   @override
   @JsonKey(ignore: true)
-  _$$_DashboardDataCopyWith<_$_DashboardData> get copyWith =>
+  _$$DashboardDataImplCopyWith<_$DashboardDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

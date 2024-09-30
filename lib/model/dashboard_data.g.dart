@@ -6,8 +6,8 @@ part of 'dashboard_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DashboardData _$$_DashboardDataFromJson(Map<String, dynamic> json) =>
-    _$_DashboardData(
+_$DashboardDataImpl _$$DashboardDataImplFromJson(Map<String, dynamic> json) =>
+    _$DashboardDataImpl(
       patient: json['Total_Patient_Count'] as String?,
       inr: json['Today_INR_Count'] as String?,
       pending: json['Today_Pending_Count'] as String?,
@@ -15,7 +15,7 @@ _$_DashboardData _$$_DashboardDataFromJson(Map<String, dynamic> json) =>
       totalPending: json['Total_Pending_Count'] as String?,
     );
 
-Map<String, dynamic> _$$_DashboardDataToJson(_$_DashboardData instance) =>
+Map<String, dynamic> _$$DashboardDataImplToJson(_$DashboardDataImpl instance) =>
     <String, dynamic>{
       'Total_Patient_Count': instance.patient,
       'Today_INR_Count': instance.inr,

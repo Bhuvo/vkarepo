@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'instant_doctors_response.dart';
 
@@ -12,7 +12,7 @@ part of 'instant_doctors_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 InstantDoctorsResponse _$InstantDoctorsResponseFromJson(
     Map<String, dynamic> json) {
@@ -74,11 +74,12 @@ class _$InstantDoctorsResponseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InstantDoctorsResponseCopyWith<$Res>
+abstract class _$$InstantDoctorsResponseImplCopyWith<$Res>
     implements $InstantDoctorsResponseCopyWith<$Res> {
-  factory _$$_InstantDoctorsResponseCopyWith(_$_InstantDoctorsResponse value,
-          $Res Function(_$_InstantDoctorsResponse) then) =
-      __$$_InstantDoctorsResponseCopyWithImpl<$Res>;
+  factory _$$InstantDoctorsResponseImplCopyWith(
+          _$InstantDoctorsResponseImpl value,
+          $Res Function(_$InstantDoctorsResponseImpl) then) =
+      __$$InstantDoctorsResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -87,12 +88,13 @@ abstract class _$$_InstantDoctorsResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InstantDoctorsResponseCopyWithImpl<$Res>
+class __$$InstantDoctorsResponseImplCopyWithImpl<$Res>
     extends _$InstantDoctorsResponseCopyWithImpl<$Res,
-        _$_InstantDoctorsResponse>
-    implements _$$_InstantDoctorsResponseCopyWith<$Res> {
-  __$$_InstantDoctorsResponseCopyWithImpl(_$_InstantDoctorsResponse _value,
-      $Res Function(_$_InstantDoctorsResponse) _then)
+        _$InstantDoctorsResponseImpl>
+    implements _$$InstantDoctorsResponseImplCopyWith<$Res> {
+  __$$InstantDoctorsResponseImplCopyWithImpl(
+      _$InstantDoctorsResponseImpl _value,
+      $Res Function(_$InstantDoctorsResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +103,7 @@ class __$$_InstantDoctorsResponseCopyWithImpl<$Res>
     Object? doctors = freezed,
     Object? clinics = freezed,
   }) {
-    return _then(_$_InstantDoctorsResponse(
+    return _then(_$InstantDoctorsResponseImpl(
       doctors: freezed == doctors
           ? _value._doctors
           : doctors // ignore: cast_nullable_to_non_nullable
@@ -116,15 +118,15 @@ class __$$_InstantDoctorsResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_InstantDoctorsResponse implements _InstantDoctorsResponse {
-  const _$_InstantDoctorsResponse(
+class _$InstantDoctorsResponseImpl implements _InstantDoctorsResponse {
+  const _$InstantDoctorsResponseImpl(
       {@JsonKey(name: 'DFSendList') final List<InstantDoctor>? doctors,
       @JsonKey(name: 'ClinicFee') final List<Clinic>? clinics})
       : _doctors = doctors,
         _clinics = clinics;
 
-  factory _$_InstantDoctorsResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_InstantDoctorsResponseFromJson(json);
+  factory _$InstantDoctorsResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InstantDoctorsResponseImplFromJson(json);
 
   final List<InstantDoctor>? _doctors;
   @override
@@ -132,6 +134,7 @@ class _$_InstantDoctorsResponse implements _InstantDoctorsResponse {
   List<InstantDoctor>? get doctors {
     final value = _doctors;
     if (value == null) return null;
+    if (_doctors is EqualUnmodifiableListView) return _doctors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -142,6 +145,7 @@ class _$_InstantDoctorsResponse implements _InstantDoctorsResponse {
   List<Clinic>? get clinics {
     final value = _clinics;
     if (value == null) return null;
+    if (_clinics is EqualUnmodifiableListView) return _clinics;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -152,10 +156,10 @@ class _$_InstantDoctorsResponse implements _InstantDoctorsResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InstantDoctorsResponse &&
+            other is _$InstantDoctorsResponseImpl &&
             const DeepCollectionEquality().equals(other._doctors, _doctors) &&
             const DeepCollectionEquality().equals(other._clinics, _clinics));
   }
@@ -170,13 +174,13 @@ class _$_InstantDoctorsResponse implements _InstantDoctorsResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InstantDoctorsResponseCopyWith<_$_InstantDoctorsResponse> get copyWith =>
-      __$$_InstantDoctorsResponseCopyWithImpl<_$_InstantDoctorsResponse>(
-          this, _$identity);
+  _$$InstantDoctorsResponseImplCopyWith<_$InstantDoctorsResponseImpl>
+      get copyWith => __$$InstantDoctorsResponseImplCopyWithImpl<
+          _$InstantDoctorsResponseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InstantDoctorsResponseToJson(
+    return _$$InstantDoctorsResponseImplToJson(
       this,
     );
   }
@@ -186,10 +190,10 @@ abstract class _InstantDoctorsResponse implements InstantDoctorsResponse {
   const factory _InstantDoctorsResponse(
           {@JsonKey(name: 'DFSendList') final List<InstantDoctor>? doctors,
           @JsonKey(name: 'ClinicFee') final List<Clinic>? clinics}) =
-      _$_InstantDoctorsResponse;
+      _$InstantDoctorsResponseImpl;
 
   factory _InstantDoctorsResponse.fromJson(Map<String, dynamic> json) =
-      _$_InstantDoctorsResponse.fromJson;
+      _$InstantDoctorsResponseImpl.fromJson;
 
   @override
   @JsonKey(name: 'DFSendList')
@@ -199,6 +203,6 @@ abstract class _InstantDoctorsResponse implements InstantDoctorsResponse {
   List<Clinic>? get clinics;
   @override
   @JsonKey(ignore: true)
-  _$$_InstantDoctorsResponseCopyWith<_$_InstantDoctorsResponse> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$InstantDoctorsResponseImplCopyWith<_$InstantDoctorsResponseImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

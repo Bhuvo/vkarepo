@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'view_records.dart';
 
@@ -12,7 +12,7 @@ part of 'view_records.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ViewRecords _$ViewRecordsFromJson(Map<String, dynamic> json) {
   return _ViewRecords.fromJson(json);
@@ -59,30 +59,30 @@ class _$ViewRecordsCopyWithImpl<$Res, $Val extends ViewRecords>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? Name = null,
-    Object? Description = null,
-    Object? Date = null,
-    Object? Type = null,
+    Object? id = freezed,
+    Object? Name = freezed,
+    Object? Description = freezed,
+    Object? Date = freezed,
+    Object? Type = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Name: null == Name
+      Name: freezed == Name
           ? _value.Name
           : Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Description: null == Description
+      Description: freezed == Description
           ? _value.Description
           : Description // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Date: null == Date
+      Date: freezed == Date
           ? _value.Date
           : Date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Type: null == Type
+      Type: freezed == Type
           ? _value.Type
           : Type // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -91,11 +91,11 @@ class _$ViewRecordsCopyWithImpl<$Res, $Val extends ViewRecords>
 }
 
 /// @nodoc
-abstract class _$$_ViewRecordsCopyWith<$Res>
+abstract class _$$ViewRecordsImplCopyWith<$Res>
     implements $ViewRecordsCopyWith<$Res> {
-  factory _$$_ViewRecordsCopyWith(
-          _$_ViewRecords value, $Res Function(_$_ViewRecords) then) =
-      __$$_ViewRecordsCopyWithImpl<$Res>;
+  factory _$$ViewRecordsImplCopyWith(
+          _$ViewRecordsImpl value, $Res Function(_$ViewRecordsImpl) then) =
+      __$$ViewRecordsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -107,40 +107,40 @@ abstract class _$$_ViewRecordsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ViewRecordsCopyWithImpl<$Res>
-    extends _$ViewRecordsCopyWithImpl<$Res, _$_ViewRecords>
-    implements _$$_ViewRecordsCopyWith<$Res> {
-  __$$_ViewRecordsCopyWithImpl(
-      _$_ViewRecords _value, $Res Function(_$_ViewRecords) _then)
+class __$$ViewRecordsImplCopyWithImpl<$Res>
+    extends _$ViewRecordsCopyWithImpl<$Res, _$ViewRecordsImpl>
+    implements _$$ViewRecordsImplCopyWith<$Res> {
+  __$$ViewRecordsImplCopyWithImpl(
+      _$ViewRecordsImpl _value, $Res Function(_$ViewRecordsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? Name = null,
-    Object? Description = null,
-    Object? Date = null,
-    Object? Type = null,
+    Object? id = freezed,
+    Object? Name = freezed,
+    Object? Description = freezed,
+    Object? Date = freezed,
+    Object? Type = freezed,
   }) {
-    return _then(_$_ViewRecords(
-      id: null == id
+    return _then(_$ViewRecordsImpl(
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Name: null == Name
+      Name: freezed == Name
           ? _value.Name
           : Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Description: null == Description
+      Description: freezed == Description
           ? _value.Description
           : Description // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Date: null == Date
+      Date: freezed == Date
           ? _value.Date
           : Date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Type: null == Type
+      Type: freezed == Type
           ? _value.Type
           : Type // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -150,16 +150,16 @@ class __$$_ViewRecordsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ViewRecords implements _ViewRecords {
-  const _$_ViewRecords(
+class _$ViewRecordsImpl implements _ViewRecords {
+  const _$ViewRecordsImpl(
       {this.id = '',
       this.Name = '',
       this.Description = '',
       this.Date = '',
       this.Type = ''});
 
-  factory _$_ViewRecords.fromJson(Map<String, dynamic> json) =>
-      _$$_ViewRecordsFromJson(json);
+  factory _$ViewRecordsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ViewRecordsImplFromJson(json);
 
   @override
   @JsonKey()
@@ -183,10 +183,10 @@ class _$_ViewRecords implements _ViewRecords {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ViewRecords &&
+            other is _$ViewRecordsImpl &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.Name, Name) &&
             const DeepCollectionEquality()
@@ -208,12 +208,12 @@ class _$_ViewRecords implements _ViewRecords {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ViewRecordsCopyWith<_$_ViewRecords> get copyWith =>
-      __$$_ViewRecordsCopyWithImpl<_$_ViewRecords>(this, _$identity);
+  _$$ViewRecordsImplCopyWith<_$ViewRecordsImpl> get copyWith =>
+      __$$ViewRecordsImplCopyWithImpl<_$ViewRecordsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ViewRecordsToJson(
+    return _$$ViewRecordsImplToJson(
       this,
     );
   }
@@ -225,10 +225,10 @@ abstract class _ViewRecords implements ViewRecords {
       final dynamic Name,
       final dynamic Description,
       final dynamic Date,
-      final dynamic Type}) = _$_ViewRecords;
+      final dynamic Type}) = _$ViewRecordsImpl;
 
   factory _ViewRecords.fromJson(Map<String, dynamic> json) =
-      _$_ViewRecords.fromJson;
+      _$ViewRecordsImpl.fromJson;
 
   @override
   dynamic get id;
@@ -242,6 +242,6 @@ abstract class _ViewRecords implements ViewRecords {
   dynamic get Type;
   @override
   @JsonKey(ignore: true)
-  _$$_ViewRecordsCopyWith<_$_ViewRecords> get copyWith =>
+  _$$ViewRecordsImplCopyWith<_$ViewRecordsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

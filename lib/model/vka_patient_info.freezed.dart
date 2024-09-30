@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'vka_patient_info.dart';
 
@@ -12,7 +12,7 @@ part of 'vka_patient_info.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 VkaPatientInfo _$VkaPatientInfoFromJson(Map<String, dynamic> json) {
   return _VkaPatientInfo.fromJson(json);
@@ -97,15 +97,15 @@ class _$VkaPatientInfoCopyWithImpl<$Res, $Val extends VkaPatientInfo>
     Object? phoneNumber = freezed,
     Object? watsappNumber = freezed,
     Object? eMailId = freezed,
-    Object? timeInTherapeuticRatio = null,
+    Object? timeInTherapeuticRatio = freezed,
     Object? password = freezed,
     Object? doctorId = freezed,
-    Object? tragetInrFrom = null,
-    Object? tragetInrTo = null,
-    Object? date = null,
-    Object? doctorActiveFlag = null,
-    Object? patientActiveFlag = null,
-    Object? patientRegistrationList = null,
+    Object? tragetInrFrom = freezed,
+    Object? tragetInrTo = freezed,
+    Object? date = freezed,
+    Object? doctorActiveFlag = freezed,
+    Object? patientActiveFlag = freezed,
+    Object? patientRegistrationList = freezed,
   }) {
     return _then(_value.copyWith(
       patientId: freezed == patientId
@@ -148,7 +148,7 @@ class _$VkaPatientInfoCopyWithImpl<$Res, $Val extends VkaPatientInfo>
           ? _value.eMailId
           : eMailId // ignore: cast_nullable_to_non_nullable
               as String?,
-      timeInTherapeuticRatio: null == timeInTherapeuticRatio
+      timeInTherapeuticRatio: freezed == timeInTherapeuticRatio
           ? _value.timeInTherapeuticRatio
           : timeInTherapeuticRatio // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -160,27 +160,27 @@ class _$VkaPatientInfoCopyWithImpl<$Res, $Val extends VkaPatientInfo>
           ? _value.doctorId
           : doctorId // ignore: cast_nullable_to_non_nullable
               as String?,
-      tragetInrFrom: null == tragetInrFrom
+      tragetInrFrom: freezed == tragetInrFrom
           ? _value.tragetInrFrom
           : tragetInrFrom // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      tragetInrTo: null == tragetInrTo
+      tragetInrTo: freezed == tragetInrTo
           ? _value.tragetInrTo
           : tragetInrTo // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorActiveFlag: null == doctorActiveFlag
+      doctorActiveFlag: freezed == doctorActiveFlag
           ? _value.doctorActiveFlag
           : doctorActiveFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientActiveFlag: null == patientActiveFlag
+      patientActiveFlag: freezed == patientActiveFlag
           ? _value.patientActiveFlag
           : patientActiveFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientRegistrationList: null == patientRegistrationList
+      patientRegistrationList: freezed == patientRegistrationList
           ? _value.patientRegistrationList
           : patientRegistrationList // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -189,11 +189,11 @@ class _$VkaPatientInfoCopyWithImpl<$Res, $Val extends VkaPatientInfo>
 }
 
 /// @nodoc
-abstract class _$$_VkaPatientInfoCopyWith<$Res>
+abstract class _$$VkaPatientInfoImplCopyWith<$Res>
     implements $VkaPatientInfoCopyWith<$Res> {
-  factory _$$_VkaPatientInfoCopyWith(
-          _$_VkaPatientInfo value, $Res Function(_$_VkaPatientInfo) then) =
-      __$$_VkaPatientInfoCopyWithImpl<$Res>;
+  factory _$$VkaPatientInfoImplCopyWith(_$VkaPatientInfoImpl value,
+          $Res Function(_$VkaPatientInfoImpl) then) =
+      __$$VkaPatientInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -219,11 +219,11 @@ abstract class _$$_VkaPatientInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_VkaPatientInfoCopyWithImpl<$Res>
-    extends _$VkaPatientInfoCopyWithImpl<$Res, _$_VkaPatientInfo>
-    implements _$$_VkaPatientInfoCopyWith<$Res> {
-  __$$_VkaPatientInfoCopyWithImpl(
-      _$_VkaPatientInfo _value, $Res Function(_$_VkaPatientInfo) _then)
+class __$$VkaPatientInfoImplCopyWithImpl<$Res>
+    extends _$VkaPatientInfoCopyWithImpl<$Res, _$VkaPatientInfoImpl>
+    implements _$$VkaPatientInfoImplCopyWith<$Res> {
+  __$$VkaPatientInfoImplCopyWithImpl(
+      _$VkaPatientInfoImpl _value, $Res Function(_$VkaPatientInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -239,17 +239,17 @@ class __$$_VkaPatientInfoCopyWithImpl<$Res>
     Object? phoneNumber = freezed,
     Object? watsappNumber = freezed,
     Object? eMailId = freezed,
-    Object? timeInTherapeuticRatio = null,
+    Object? timeInTherapeuticRatio = freezed,
     Object? password = freezed,
     Object? doctorId = freezed,
-    Object? tragetInrFrom = null,
-    Object? tragetInrTo = null,
-    Object? date = null,
-    Object? doctorActiveFlag = null,
-    Object? patientActiveFlag = null,
-    Object? patientRegistrationList = null,
+    Object? tragetInrFrom = freezed,
+    Object? tragetInrTo = freezed,
+    Object? date = freezed,
+    Object? doctorActiveFlag = freezed,
+    Object? patientActiveFlag = freezed,
+    Object? patientRegistrationList = freezed,
   }) {
-    return _then(_$_VkaPatientInfo(
+    return _then(_$VkaPatientInfoImpl(
       patientId: freezed == patientId
           ? _value.patientId
           : patientId // ignore: cast_nullable_to_non_nullable
@@ -290,7 +290,7 @@ class __$$_VkaPatientInfoCopyWithImpl<$Res>
           ? _value.eMailId
           : eMailId // ignore: cast_nullable_to_non_nullable
               as String?,
-      timeInTherapeuticRatio: null == timeInTherapeuticRatio
+      timeInTherapeuticRatio: freezed == timeInTherapeuticRatio
           ? _value.timeInTherapeuticRatio
           : timeInTherapeuticRatio // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -302,27 +302,27 @@ class __$$_VkaPatientInfoCopyWithImpl<$Res>
           ? _value.doctorId
           : doctorId // ignore: cast_nullable_to_non_nullable
               as String?,
-      tragetInrFrom: null == tragetInrFrom
+      tragetInrFrom: freezed == tragetInrFrom
           ? _value.tragetInrFrom
           : tragetInrFrom // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      tragetInrTo: null == tragetInrTo
+      tragetInrTo: freezed == tragetInrTo
           ? _value.tragetInrTo
           : tragetInrTo // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctorActiveFlag: null == doctorActiveFlag
+      doctorActiveFlag: freezed == doctorActiveFlag
           ? _value.doctorActiveFlag
           : doctorActiveFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientActiveFlag: null == patientActiveFlag
+      patientActiveFlag: freezed == patientActiveFlag
           ? _value.patientActiveFlag
           : patientActiveFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patientRegistrationList: null == patientRegistrationList
+      patientRegistrationList: freezed == patientRegistrationList
           ? _value.patientRegistrationList
           : patientRegistrationList // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -332,8 +332,8 @@ class __$$_VkaPatientInfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_VkaPatientInfo implements _VkaPatientInfo {
-  const _$_VkaPatientInfo(
+class _$VkaPatientInfoImpl implements _VkaPatientInfo {
+  const _$VkaPatientInfoImpl(
       {this.patientId,
       this.patientRegistrationNumber,
       this.firstName,
@@ -354,8 +354,8 @@ class _$_VkaPatientInfo implements _VkaPatientInfo {
       this.patientActiveFlag,
       this.patientRegistrationList});
 
-  factory _$_VkaPatientInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_VkaPatientInfoFromJson(json);
+  factory _$VkaPatientInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VkaPatientInfoImplFromJson(json);
 
   @override
   final int? patientId;
@@ -402,10 +402,10 @@ class _$_VkaPatientInfo implements _VkaPatientInfo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_VkaPatientInfo &&
+            other is _$VkaPatientInfoImpl &&
             (identical(other.patientId, patientId) ||
                 other.patientId == patientId) &&
             (identical(other.patientRegistrationNumber,
@@ -470,12 +470,13 @@ class _$_VkaPatientInfo implements _VkaPatientInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_VkaPatientInfoCopyWith<_$_VkaPatientInfo> get copyWith =>
-      __$$_VkaPatientInfoCopyWithImpl<_$_VkaPatientInfo>(this, _$identity);
+  _$$VkaPatientInfoImplCopyWith<_$VkaPatientInfoImpl> get copyWith =>
+      __$$VkaPatientInfoImplCopyWithImpl<_$VkaPatientInfoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_VkaPatientInfoToJson(
+    return _$$VkaPatientInfoImplToJson(
       this,
     );
   }
@@ -501,10 +502,10 @@ abstract class _VkaPatientInfo implements VkaPatientInfo {
       final dynamic date,
       final dynamic doctorActiveFlag,
       final dynamic patientActiveFlag,
-      final dynamic patientRegistrationList}) = _$_VkaPatientInfo;
+      final dynamic patientRegistrationList}) = _$VkaPatientInfoImpl;
 
   factory _VkaPatientInfo.fromJson(Map<String, dynamic> json) =
-      _$_VkaPatientInfo.fromJson;
+      _$VkaPatientInfoImpl.fromJson;
 
   @override
   int? get patientId;
@@ -546,6 +547,6 @@ abstract class _VkaPatientInfo implements VkaPatientInfo {
   dynamic get patientRegistrationList;
   @override
   @JsonKey(ignore: true)
-  _$$_VkaPatientInfoCopyWith<_$_VkaPatientInfo> get copyWith =>
+  _$$VkaPatientInfoImplCopyWith<_$VkaPatientInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

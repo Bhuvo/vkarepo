@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'inr_patient.dart';
 
@@ -12,7 +12,7 @@ part of 'inr_patient.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 InrPatient _$InrPatientFromJson(Map<String, dynamic> json) {
   return _InrPatient.fromJson(json);
@@ -97,15 +97,15 @@ class _$InrPatientCopyWithImpl<$Res, $Val extends InrPatient>
     Object? Phone_Number = freezed,
     Object? Watsapp_Number = freezed,
     Object? EMail_Id = freezed,
-    Object? Time_in_Therapeutic_Ratio = null,
+    Object? Time_in_Therapeutic_Ratio = freezed,
     Object? Password = freezed,
     Object? Doctor_Id = freezed,
     Object? Traget_INR_From = freezed,
     Object? Traget_INR_To = freezed,
-    Object? Date = null,
-    Object? Doctor_ActiveFlag = null,
-    Object? Patient_ActiveFlag = null,
-    Object? PatientRegistration_list = null,
+    Object? Date = freezed,
+    Object? Doctor_ActiveFlag = freezed,
+    Object? Patient_ActiveFlag = freezed,
+    Object? PatientRegistration_list = freezed,
   }) {
     return _then(_value.copyWith(
       Patient_Id: freezed == Patient_Id
@@ -148,7 +148,7 @@ class _$InrPatientCopyWithImpl<$Res, $Val extends InrPatient>
           ? _value.EMail_Id
           : EMail_Id // ignore: cast_nullable_to_non_nullable
               as String?,
-      Time_in_Therapeutic_Ratio: null == Time_in_Therapeutic_Ratio
+      Time_in_Therapeutic_Ratio: freezed == Time_in_Therapeutic_Ratio
           ? _value.Time_in_Therapeutic_Ratio
           : Time_in_Therapeutic_Ratio // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -168,19 +168,19 @@ class _$InrPatientCopyWithImpl<$Res, $Val extends InrPatient>
           ? _value.Traget_INR_To
           : Traget_INR_To // ignore: cast_nullable_to_non_nullable
               as String?,
-      Date: null == Date
+      Date: freezed == Date
           ? _value.Date
           : Date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_ActiveFlag: null == Doctor_ActiveFlag
+      Doctor_ActiveFlag: freezed == Doctor_ActiveFlag
           ? _value.Doctor_ActiveFlag
           : Doctor_ActiveFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Patient_ActiveFlag: null == Patient_ActiveFlag
+      Patient_ActiveFlag: freezed == Patient_ActiveFlag
           ? _value.Patient_ActiveFlag
           : Patient_ActiveFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      PatientRegistration_list: null == PatientRegistration_list
+      PatientRegistration_list: freezed == PatientRegistration_list
           ? _value.PatientRegistration_list
           : PatientRegistration_list // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -189,11 +189,11 @@ class _$InrPatientCopyWithImpl<$Res, $Val extends InrPatient>
 }
 
 /// @nodoc
-abstract class _$$_InrPatientCopyWith<$Res>
+abstract class _$$InrPatientImplCopyWith<$Res>
     implements $InrPatientCopyWith<$Res> {
-  factory _$$_InrPatientCopyWith(
-          _$_InrPatient value, $Res Function(_$_InrPatient) then) =
-      __$$_InrPatientCopyWithImpl<$Res>;
+  factory _$$InrPatientImplCopyWith(
+          _$InrPatientImpl value, $Res Function(_$InrPatientImpl) then) =
+      __$$InrPatientImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -219,11 +219,11 @@ abstract class _$$_InrPatientCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InrPatientCopyWithImpl<$Res>
-    extends _$InrPatientCopyWithImpl<$Res, _$_InrPatient>
-    implements _$$_InrPatientCopyWith<$Res> {
-  __$$_InrPatientCopyWithImpl(
-      _$_InrPatient _value, $Res Function(_$_InrPatient) _then)
+class __$$InrPatientImplCopyWithImpl<$Res>
+    extends _$InrPatientCopyWithImpl<$Res, _$InrPatientImpl>
+    implements _$$InrPatientImplCopyWith<$Res> {
+  __$$InrPatientImplCopyWithImpl(
+      _$InrPatientImpl _value, $Res Function(_$InrPatientImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -239,17 +239,17 @@ class __$$_InrPatientCopyWithImpl<$Res>
     Object? Phone_Number = freezed,
     Object? Watsapp_Number = freezed,
     Object? EMail_Id = freezed,
-    Object? Time_in_Therapeutic_Ratio = null,
+    Object? Time_in_Therapeutic_Ratio = freezed,
     Object? Password = freezed,
     Object? Doctor_Id = freezed,
     Object? Traget_INR_From = freezed,
     Object? Traget_INR_To = freezed,
-    Object? Date = null,
-    Object? Doctor_ActiveFlag = null,
-    Object? Patient_ActiveFlag = null,
-    Object? PatientRegistration_list = null,
+    Object? Date = freezed,
+    Object? Doctor_ActiveFlag = freezed,
+    Object? Patient_ActiveFlag = freezed,
+    Object? PatientRegistration_list = freezed,
   }) {
-    return _then(_$_InrPatient(
+    return _then(_$InrPatientImpl(
       Patient_Id: freezed == Patient_Id
           ? _value.Patient_Id
           : Patient_Id // ignore: cast_nullable_to_non_nullable
@@ -290,7 +290,7 @@ class __$$_InrPatientCopyWithImpl<$Res>
           ? _value.EMail_Id
           : EMail_Id // ignore: cast_nullable_to_non_nullable
               as String?,
-      Time_in_Therapeutic_Ratio: null == Time_in_Therapeutic_Ratio
+      Time_in_Therapeutic_Ratio: freezed == Time_in_Therapeutic_Ratio
           ? _value.Time_in_Therapeutic_Ratio
           : Time_in_Therapeutic_Ratio // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -310,19 +310,19 @@ class __$$_InrPatientCopyWithImpl<$Res>
           ? _value.Traget_INR_To
           : Traget_INR_To // ignore: cast_nullable_to_non_nullable
               as String?,
-      Date: null == Date
+      Date: freezed == Date
           ? _value.Date
           : Date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Doctor_ActiveFlag: null == Doctor_ActiveFlag
+      Doctor_ActiveFlag: freezed == Doctor_ActiveFlag
           ? _value.Doctor_ActiveFlag
           : Doctor_ActiveFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Patient_ActiveFlag: null == Patient_ActiveFlag
+      Patient_ActiveFlag: freezed == Patient_ActiveFlag
           ? _value.Patient_ActiveFlag
           : Patient_ActiveFlag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      PatientRegistration_list: null == PatientRegistration_list
+      PatientRegistration_list: freezed == PatientRegistration_list
           ? _value.PatientRegistration_list
           : PatientRegistration_list // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -332,8 +332,8 @@ class __$$_InrPatientCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_InrPatient implements _InrPatient {
-  const _$_InrPatient(
+class _$InrPatientImpl implements _InrPatient {
+  const _$InrPatientImpl(
       {this.Patient_Id,
       this.Patient_Registration_Number,
       this.First_Name,
@@ -354,8 +354,8 @@ class _$_InrPatient implements _InrPatient {
       this.Patient_ActiveFlag = null,
       this.PatientRegistration_list = null});
 
-  factory _$_InrPatient.fromJson(Map<String, dynamic> json) =>
-      _$$_InrPatientFromJson(json);
+  factory _$InrPatientImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InrPatientImplFromJson(json);
 
   @override
   final num? Patient_Id;
@@ -407,10 +407,10 @@ class _$_InrPatient implements _InrPatient {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InrPatient &&
+            other is _$InrPatientImpl &&
             (identical(other.Patient_Id, Patient_Id) ||
                 other.Patient_Id == Patient_Id) &&
             (identical(other.Patient_Registration_Number,
@@ -477,12 +477,12 @@ class _$_InrPatient implements _InrPatient {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InrPatientCopyWith<_$_InrPatient> get copyWith =>
-      __$$_InrPatientCopyWithImpl<_$_InrPatient>(this, _$identity);
+  _$$InrPatientImplCopyWith<_$InrPatientImpl> get copyWith =>
+      __$$InrPatientImplCopyWithImpl<_$InrPatientImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InrPatientToJson(
+    return _$$InrPatientImplToJson(
       this,
     );
   }
@@ -508,10 +508,10 @@ abstract class _InrPatient implements InrPatient {
       final dynamic Date,
       final dynamic Doctor_ActiveFlag,
       final dynamic Patient_ActiveFlag,
-      final dynamic PatientRegistration_list}) = _$_InrPatient;
+      final dynamic PatientRegistration_list}) = _$InrPatientImpl;
 
   factory _InrPatient.fromJson(Map<String, dynamic> json) =
-      _$_InrPatient.fromJson;
+      _$InrPatientImpl.fromJson;
 
   @override
   num? get Patient_Id;
@@ -553,6 +553,6 @@ abstract class _InrPatient implements InrPatient {
   dynamic get PatientRegistration_list;
   @override
   @JsonKey(ignore: true)
-  _$$_InrPatientCopyWith<_$_InrPatient> get copyWith =>
+  _$$InrPatientImplCopyWith<_$InrPatientImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

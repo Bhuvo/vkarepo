@@ -6,8 +6,8 @@ part of 'view_records.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ViewRecords _$$_ViewRecordsFromJson(Map<String, dynamic> json) =>
-    _$_ViewRecords(
+_$ViewRecordsImpl _$$ViewRecordsImplFromJson(Map<String, dynamic> json) =>
+    _$ViewRecordsImpl(
       id: json['id'] ?? '',
       Name: json['Name'] ?? '',
       Description: json['Description'] ?? '',
@@ -15,7 +15,7 @@ _$_ViewRecords _$$_ViewRecordsFromJson(Map<String, dynamic> json) =>
       Type: json['Type'] ?? '',
     );
 
-Map<String, dynamic> _$$_ViewRecordsToJson(_$_ViewRecords instance) =>
+Map<String, dynamic> _$$ViewRecordsImplToJson(_$ViewRecordsImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'Name': instance.Name,

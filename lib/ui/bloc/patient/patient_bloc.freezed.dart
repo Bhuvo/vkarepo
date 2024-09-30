@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'patient_bloc.dart';
 
@@ -12,7 +12,7 @@ part of 'patient_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PatientEvent {
@@ -99,9 +99,11 @@ class _$PatientEventCopyWithImpl<$Res, $Val extends PatientEvent>
 }
 
 /// @nodoc
-abstract class _$$SelectCopyWith<$Res> implements $PatientEventCopyWith<$Res> {
-  factory _$$SelectCopyWith(_$Select value, $Res Function(_$Select) then) =
-      __$$SelectCopyWithImpl<$Res>;
+abstract class _$$SelectImplCopyWith<$Res>
+    implements $PatientEventCopyWith<$Res> {
+  factory _$$SelectImplCopyWith(
+          _$SelectImpl value, $Res Function(_$SelectImpl) then) =
+      __$$SelectImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Patient patient});
@@ -111,10 +113,11 @@ abstract class _$$SelectCopyWith<$Res> implements $PatientEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$SelectCopyWithImpl<$Res>
-    extends _$PatientEventCopyWithImpl<$Res, _$Select>
-    implements _$$SelectCopyWith<$Res> {
-  __$$SelectCopyWithImpl(_$Select _value, $Res Function(_$Select) _then)
+class __$$SelectImplCopyWithImpl<$Res>
+    extends _$PatientEventCopyWithImpl<$Res, _$SelectImpl>
+    implements _$$SelectImplCopyWith<$Res> {
+  __$$SelectImplCopyWithImpl(
+      _$SelectImpl _value, $Res Function(_$SelectImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -122,7 +125,7 @@ class __$$SelectCopyWithImpl<$Res>
   $Res call({
     Object? patient = null,
   }) {
-    return _then(_$Select(
+    return _then(_$SelectImpl(
       null == patient
           ? _value.patient
           : patient // ignore: cast_nullable_to_non_nullable
@@ -133,8 +136,8 @@ class __$$SelectCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Select implements Select {
-  const _$Select(this.patient);
+class _$SelectImpl implements Select {
+  const _$SelectImpl(this.patient);
 
   @override
   final Patient patient;
@@ -145,10 +148,10 @@ class _$Select implements Select {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Select &&
+            other is _$SelectImpl &&
             (identical(other.patient, patient) || other.patient == patient));
   }
 
@@ -158,8 +161,8 @@ class _$Select implements Select {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SelectCopyWith<_$Select> get copyWith =>
-      __$$SelectCopyWithImpl<_$Select>(this, _$identity);
+  _$$SelectImplCopyWith<_$SelectImpl> get copyWith =>
+      __$$SelectImplCopyWithImpl<_$SelectImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -219,13 +222,13 @@ class _$Select implements Select {
 }
 
 abstract class Select implements PatientEvent {
-  const factory Select(final Patient patient) = _$Select;
+  const factory Select(final Patient patient) = _$SelectImpl;
 
   @override
   Patient get patient;
   @override
   @JsonKey(ignore: true)
-  _$$SelectCopyWith<_$Select> get copyWith =>
+  _$$SelectImplCopyWith<_$SelectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -290,9 +293,10 @@ class _$PatientStateCopyWithImpl<$Res, $Val extends PatientState>
 }
 
 /// @nodoc
-abstract class _$$DataCopyWith<$Res> {
-  factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
-      __$$DataCopyWithImpl<$Res>;
+abstract class _$$DataImplCopyWith<$Res> {
+  factory _$$DataImplCopyWith(
+          _$DataImpl value, $Res Function(_$DataImpl) then) =
+      __$$DataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Patient patient});
 
@@ -300,10 +304,10 @@ abstract class _$$DataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$DataCopyWithImpl<$Res>
-    extends _$PatientStateCopyWithImpl<$Res, _$Data>
-    implements _$$DataCopyWith<$Res> {
-  __$$DataCopyWithImpl(_$Data _value, $Res Function(_$Data) _then)
+class __$$DataImplCopyWithImpl<$Res>
+    extends _$PatientStateCopyWithImpl<$Res, _$DataImpl>
+    implements _$$DataImplCopyWith<$Res> {
+  __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -311,7 +315,7 @@ class __$$DataCopyWithImpl<$Res>
   $Res call({
     Object? patient = null,
   }) {
-    return _then(_$Data(
+    return _then(_$DataImpl(
       patient: null == patient
           ? _value.patient
           : patient // ignore: cast_nullable_to_non_nullable
@@ -330,8 +334,8 @@ class __$$DataCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Data implements Data {
-  const _$Data({required this.patient});
+class _$DataImpl implements Data {
+  const _$DataImpl({required this.patient});
 
   @override
   final Patient patient;
@@ -342,10 +346,10 @@ class _$Data implements Data {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Data &&
+            other is _$DataImpl &&
             (identical(other.patient, patient) || other.patient == patient));
   }
 
@@ -355,8 +359,8 @@ class _$Data implements Data {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DataCopyWith<_$Data> get copyWith =>
-      __$$DataCopyWithImpl<_$Data>(this, _$identity);
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+      __$$DataImplCopyWithImpl<_$DataImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -422,31 +426,34 @@ class _$Data implements Data {
 }
 
 abstract class Data implements PatientState {
-  const factory Data({required final Patient patient}) = _$Data;
+  const factory Data({required final Patient patient}) = _$DataImpl;
 
   Patient get patient;
   @JsonKey(ignore: true)
-  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InitialCopyWith<$Res> {
-  factory _$$InitialCopyWith(_$Initial value, $Res Function(_$Initial) then) =
-      __$$InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialCopyWithImpl<$Res>
-    extends _$PatientStateCopyWithImpl<$Res, _$Initial>
-    implements _$$InitialCopyWith<$Res> {
-  __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$PatientStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Initial implements Initial {
-  const _$Initial();
+class _$InitialImpl implements Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -454,9 +461,9 @@ class _$Initial implements Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -526,5 +533,5 @@ class _$Initial implements Initial {
 }
 
 abstract class Initial implements PatientState {
-  const factory Initial() = _$Initial;
+  const factory Initial() = _$InitialImpl;
 }

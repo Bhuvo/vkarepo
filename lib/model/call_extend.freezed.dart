@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'call_extend.dart';
 
@@ -12,7 +12,7 @@ part of 'call_extend.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 CallExtendModel _$CallExtendModelFromJson(Map<String, dynamic> json) {
   return _CallExtendModel.fromJson(json);
@@ -68,22 +68,22 @@ class _$CallExtendModelCopyWithImpl<$Res, $Val extends CallExtendModel>
 }
 
 /// @nodoc
-abstract class _$$_CallExtendModelCopyWith<$Res>
+abstract class _$$CallExtendModelImplCopyWith<$Res>
     implements $CallExtendModelCopyWith<$Res> {
-  factory _$$_CallExtendModelCopyWith(
-          _$_CallExtendModel value, $Res Function(_$_CallExtendModel) then) =
-      __$$_CallExtendModelCopyWithImpl<$Res>;
+  factory _$$CallExtendModelImplCopyWith(_$CallExtendModelImpl value,
+          $Res Function(_$CallExtendModelImpl) then) =
+      __$$CallExtendModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String responseCode, String responseMessage});
 }
 
 /// @nodoc
-class __$$_CallExtendModelCopyWithImpl<$Res>
-    extends _$CallExtendModelCopyWithImpl<$Res, _$_CallExtendModel>
-    implements _$$_CallExtendModelCopyWith<$Res> {
-  __$$_CallExtendModelCopyWithImpl(
-      _$_CallExtendModel _value, $Res Function(_$_CallExtendModel) _then)
+class __$$CallExtendModelImplCopyWithImpl<$Res>
+    extends _$CallExtendModelCopyWithImpl<$Res, _$CallExtendModelImpl>
+    implements _$$CallExtendModelImplCopyWith<$Res> {
+  __$$CallExtendModelImplCopyWithImpl(
+      _$CallExtendModelImpl _value, $Res Function(_$CallExtendModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_CallExtendModelCopyWithImpl<$Res>
     Object? responseCode = null,
     Object? responseMessage = null,
   }) {
-    return _then(_$_CallExtendModel(
+    return _then(_$CallExtendModelImpl(
       responseCode: null == responseCode
           ? _value.responseCode
           : responseCode // ignore: cast_nullable_to_non_nullable
@@ -107,12 +107,12 @@ class __$$_CallExtendModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CallExtendModel implements _CallExtendModel {
-  const _$_CallExtendModel(
+class _$CallExtendModelImpl implements _CallExtendModel {
+  const _$CallExtendModelImpl(
       {required this.responseCode, required this.responseMessage});
 
-  factory _$_CallExtendModel.fromJson(Map<String, dynamic> json) =>
-      _$$_CallExtendModelFromJson(json);
+  factory _$CallExtendModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CallExtendModelImplFromJson(json);
 
   @override
   final String responseCode;
@@ -125,10 +125,10 @@ class _$_CallExtendModel implements _CallExtendModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CallExtendModel &&
+            other is _$CallExtendModelImpl &&
             (identical(other.responseCode, responseCode) ||
                 other.responseCode == responseCode) &&
             (identical(other.responseMessage, responseMessage) ||
@@ -142,12 +142,13 @@ class _$_CallExtendModel implements _CallExtendModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CallExtendModelCopyWith<_$_CallExtendModel> get copyWith =>
-      __$$_CallExtendModelCopyWithImpl<_$_CallExtendModel>(this, _$identity);
+  _$$CallExtendModelImplCopyWith<_$CallExtendModelImpl> get copyWith =>
+      __$$CallExtendModelImplCopyWithImpl<_$CallExtendModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CallExtendModelToJson(
+    return _$$CallExtendModelImplToJson(
       this,
     );
   }
@@ -156,10 +157,10 @@ class _$_CallExtendModel implements _CallExtendModel {
 abstract class _CallExtendModel implements CallExtendModel {
   const factory _CallExtendModel(
       {required final String responseCode,
-      required final String responseMessage}) = _$_CallExtendModel;
+      required final String responseMessage}) = _$CallExtendModelImpl;
 
   factory _CallExtendModel.fromJson(Map<String, dynamic> json) =
-      _$_CallExtendModel.fromJson;
+      _$CallExtendModelImpl.fromJson;
 
   @override
   String get responseCode;
@@ -167,6 +168,6 @@ abstract class _CallExtendModel implements CallExtendModel {
   String get responseMessage;
   @override
   @JsonKey(ignore: true)
-  _$$_CallExtendModelCopyWith<_$_CallExtendModel> get copyWith =>
+  _$$CallExtendModelImplCopyWith<_$CallExtendModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

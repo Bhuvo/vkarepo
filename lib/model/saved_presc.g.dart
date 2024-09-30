@@ -6,8 +6,9 @@ part of 'saved_presc.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SavedPrescription _$$_SavedPrescriptionFromJson(Map<String, dynamic> json) =>
-    _$_SavedPrescription(
+_$SavedPrescriptionImpl _$$SavedPrescriptionImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SavedPrescriptionImpl(
       Prescription_id: json['Prescription_id'] as String?,
       Doctor_Notes: json['Doctor_Notes'] as String?,
       Drug_id: json['Drug_id'] as num?,
@@ -31,8 +32,8 @@ _$_SavedPrescription _$$_SavedPrescriptionFromJson(Map<String, dynamic> json) =>
           null,
     );
 
-Map<String, dynamic> _$$_SavedPrescriptionToJson(
-        _$_SavedPrescription instance) =>
+Map<String, dynamic> _$$SavedPrescriptionImplToJson(
+        _$SavedPrescriptionImpl instance) =>
     <String, dynamic>{
       'Prescription_id': instance.Prescription_id,
       'Doctor_Notes': instance.Doctor_Notes,

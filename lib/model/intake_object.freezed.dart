@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'intake_object.dart';
 
@@ -12,7 +12,7 @@ part of 'intake_object.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 IntakeObject _$IntakeObjectFromJson(Map<String, dynamic> json) {
   return _IntakeObject.fromJson(json);
@@ -119,180 +119,180 @@ class _$IntakeObjectCopyWithImpl<$Res, $Val extends IntakeObject>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Saturation = null,
-    Object? Diastolic = null,
-    Object? Systolic = null,
-    Object? Stools = null,
-    Object? Bath = null,
-    Object? Outdata_Quantity = null,
-    Object? Urine = null,
-    Object? Vomit = null,
-    Object? Fesces = null,
-    Object? id = null,
-    Object? date = null,
-    Object? time = null,
-    Object? particular = null,
-    Object? fluids = null,
-    Object? oral = null,
-    Object? noof_stool = null,
-    Object? noof_urine = null,
-    Object? admission_id = null,
-    Object? patient_id = null,
-    Object? doctor_id = null,
-    Object? prepared_by = null,
-    Object? insertdate = null,
-    Object? prepared_name = null,
-    Object? focus = null,
-    Object? notes = null,
-    Object? pulse_rate = null,
-    Object? bp = null,
-    Object? temperature = null,
-    Object? respiration = null,
-    Object? height = null,
-    Object? weight = null,
-    Object? Descriptionofintake = null,
-    Object? Intake_Quantity = null,
-    Object? Oral_Diet = null,
-    Object? Oral_Medication = null,
+    Object? Saturation = freezed,
+    Object? Diastolic = freezed,
+    Object? Systolic = freezed,
+    Object? Stools = freezed,
+    Object? Bath = freezed,
+    Object? Outdata_Quantity = freezed,
+    Object? Urine = freezed,
+    Object? Vomit = freezed,
+    Object? Fesces = freezed,
+    Object? id = freezed,
+    Object? date = freezed,
+    Object? time = freezed,
+    Object? particular = freezed,
+    Object? fluids = freezed,
+    Object? oral = freezed,
+    Object? noof_stool = freezed,
+    Object? noof_urine = freezed,
+    Object? admission_id = freezed,
+    Object? patient_id = freezed,
+    Object? doctor_id = freezed,
+    Object? prepared_by = freezed,
+    Object? insertdate = freezed,
+    Object? prepared_name = freezed,
+    Object? focus = freezed,
+    Object? notes = freezed,
+    Object? pulse_rate = freezed,
+    Object? bp = freezed,
+    Object? temperature = freezed,
+    Object? respiration = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
+    Object? Descriptionofintake = freezed,
+    Object? Intake_Quantity = freezed,
+    Object? Oral_Diet = freezed,
+    Object? Oral_Medication = freezed,
   }) {
     return _then(_value.copyWith(
-      Saturation: null == Saturation
+      Saturation: freezed == Saturation
           ? _value.Saturation
           : Saturation // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Diastolic: null == Diastolic
+      Diastolic: freezed == Diastolic
           ? _value.Diastolic
           : Diastolic // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Systolic: null == Systolic
+      Systolic: freezed == Systolic
           ? _value.Systolic
           : Systolic // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Stools: null == Stools
+      Stools: freezed == Stools
           ? _value.Stools
           : Stools // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Bath: null == Bath
+      Bath: freezed == Bath
           ? _value.Bath
           : Bath // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Outdata_Quantity: null == Outdata_Quantity
+      Outdata_Quantity: freezed == Outdata_Quantity
           ? _value.Outdata_Quantity
           : Outdata_Quantity // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Urine: null == Urine
+      Urine: freezed == Urine
           ? _value.Urine
           : Urine // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Vomit: null == Vomit
+      Vomit: freezed == Vomit
           ? _value.Vomit
           : Vomit // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Fesces: null == Fesces
+      Fesces: freezed == Fesces
           ? _value.Fesces
           : Fesces // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      time: null == time
+      time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      particular: null == particular
+      particular: freezed == particular
           ? _value.particular
           : particular // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      fluids: null == fluids
+      fluids: freezed == fluids
           ? _value.fluids
           : fluids // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      oral: null == oral
+      oral: freezed == oral
           ? _value.oral
           : oral // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      noof_stool: null == noof_stool
+      noof_stool: freezed == noof_stool
           ? _value.noof_stool
           : noof_stool // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      noof_urine: null == noof_urine
+      noof_urine: freezed == noof_urine
           ? _value.noof_urine
           : noof_urine // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      admission_id: null == admission_id
+      admission_id: freezed == admission_id
           ? _value.admission_id
           : admission_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patient_id: null == patient_id
+      patient_id: freezed == patient_id
           ? _value.patient_id
           : patient_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctor_id: null == doctor_id
+      doctor_id: freezed == doctor_id
           ? _value.doctor_id
           : doctor_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      prepared_by: null == prepared_by
+      prepared_by: freezed == prepared_by
           ? _value.prepared_by
           : prepared_by // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      insertdate: null == insertdate
+      insertdate: freezed == insertdate
           ? _value.insertdate
           : insertdate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      prepared_name: null == prepared_name
+      prepared_name: freezed == prepared_name
           ? _value.prepared_name
           : prepared_name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      focus: null == focus
+      focus: freezed == focus
           ? _value.focus
           : focus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      notes: null == notes
+      notes: freezed == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      pulse_rate: null == pulse_rate
+      pulse_rate: freezed == pulse_rate
           ? _value.pulse_rate
           : pulse_rate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      bp: null == bp
+      bp: freezed == bp
           ? _value.bp
           : bp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      temperature: null == temperature
+      temperature: freezed == temperature
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      respiration: null == respiration
+      respiration: freezed == respiration
           ? _value.respiration
           : respiration // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      height: null == height
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      weight: null == weight
+      weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Descriptionofintake: null == Descriptionofintake
+      Descriptionofintake: freezed == Descriptionofintake
           ? _value.Descriptionofintake
           : Descriptionofintake // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Intake_Quantity: null == Intake_Quantity
+      Intake_Quantity: freezed == Intake_Quantity
           ? _value.Intake_Quantity
           : Intake_Quantity // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Oral_Diet: null == Oral_Diet
+      Oral_Diet: freezed == Oral_Diet
           ? _value.Oral_Diet
           : Oral_Diet // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Oral_Medication: null == Oral_Medication
+      Oral_Medication: freezed == Oral_Medication
           ? _value.Oral_Medication
           : Oral_Medication // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -301,11 +301,11 @@ class _$IntakeObjectCopyWithImpl<$Res, $Val extends IntakeObject>
 }
 
 /// @nodoc
-abstract class _$$_IntakeObjectCopyWith<$Res>
+abstract class _$$IntakeObjectImplCopyWith<$Res>
     implements $IntakeObjectCopyWith<$Res> {
-  factory _$$_IntakeObjectCopyWith(
-          _$_IntakeObject value, $Res Function(_$_IntakeObject) then) =
-      __$$_IntakeObjectCopyWithImpl<$Res>;
+  factory _$$IntakeObjectImplCopyWith(
+          _$IntakeObjectImpl value, $Res Function(_$IntakeObjectImpl) then) =
+      __$$IntakeObjectImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -347,190 +347,190 @@ abstract class _$$_IntakeObjectCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_IntakeObjectCopyWithImpl<$Res>
-    extends _$IntakeObjectCopyWithImpl<$Res, _$_IntakeObject>
-    implements _$$_IntakeObjectCopyWith<$Res> {
-  __$$_IntakeObjectCopyWithImpl(
-      _$_IntakeObject _value, $Res Function(_$_IntakeObject) _then)
+class __$$IntakeObjectImplCopyWithImpl<$Res>
+    extends _$IntakeObjectCopyWithImpl<$Res, _$IntakeObjectImpl>
+    implements _$$IntakeObjectImplCopyWith<$Res> {
+  __$$IntakeObjectImplCopyWithImpl(
+      _$IntakeObjectImpl _value, $Res Function(_$IntakeObjectImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Saturation = null,
-    Object? Diastolic = null,
-    Object? Systolic = null,
-    Object? Stools = null,
-    Object? Bath = null,
-    Object? Outdata_Quantity = null,
-    Object? Urine = null,
-    Object? Vomit = null,
-    Object? Fesces = null,
-    Object? id = null,
-    Object? date = null,
-    Object? time = null,
-    Object? particular = null,
-    Object? fluids = null,
-    Object? oral = null,
-    Object? noof_stool = null,
-    Object? noof_urine = null,
-    Object? admission_id = null,
-    Object? patient_id = null,
-    Object? doctor_id = null,
-    Object? prepared_by = null,
-    Object? insertdate = null,
-    Object? prepared_name = null,
-    Object? focus = null,
-    Object? notes = null,
-    Object? pulse_rate = null,
-    Object? bp = null,
-    Object? temperature = null,
-    Object? respiration = null,
-    Object? height = null,
-    Object? weight = null,
-    Object? Descriptionofintake = null,
-    Object? Intake_Quantity = null,
-    Object? Oral_Diet = null,
-    Object? Oral_Medication = null,
+    Object? Saturation = freezed,
+    Object? Diastolic = freezed,
+    Object? Systolic = freezed,
+    Object? Stools = freezed,
+    Object? Bath = freezed,
+    Object? Outdata_Quantity = freezed,
+    Object? Urine = freezed,
+    Object? Vomit = freezed,
+    Object? Fesces = freezed,
+    Object? id = freezed,
+    Object? date = freezed,
+    Object? time = freezed,
+    Object? particular = freezed,
+    Object? fluids = freezed,
+    Object? oral = freezed,
+    Object? noof_stool = freezed,
+    Object? noof_urine = freezed,
+    Object? admission_id = freezed,
+    Object? patient_id = freezed,
+    Object? doctor_id = freezed,
+    Object? prepared_by = freezed,
+    Object? insertdate = freezed,
+    Object? prepared_name = freezed,
+    Object? focus = freezed,
+    Object? notes = freezed,
+    Object? pulse_rate = freezed,
+    Object? bp = freezed,
+    Object? temperature = freezed,
+    Object? respiration = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
+    Object? Descriptionofintake = freezed,
+    Object? Intake_Quantity = freezed,
+    Object? Oral_Diet = freezed,
+    Object? Oral_Medication = freezed,
   }) {
-    return _then(_$_IntakeObject(
-      Saturation: null == Saturation
+    return _then(_$IntakeObjectImpl(
+      Saturation: freezed == Saturation
           ? _value.Saturation
           : Saturation // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Diastolic: null == Diastolic
+      Diastolic: freezed == Diastolic
           ? _value.Diastolic
           : Diastolic // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Systolic: null == Systolic
+      Systolic: freezed == Systolic
           ? _value.Systolic
           : Systolic // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Stools: null == Stools
+      Stools: freezed == Stools
           ? _value.Stools
           : Stools // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Bath: null == Bath
+      Bath: freezed == Bath
           ? _value.Bath
           : Bath // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Outdata_Quantity: null == Outdata_Quantity
+      Outdata_Quantity: freezed == Outdata_Quantity
           ? _value.Outdata_Quantity
           : Outdata_Quantity // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Urine: null == Urine
+      Urine: freezed == Urine
           ? _value.Urine
           : Urine // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Vomit: null == Vomit
+      Vomit: freezed == Vomit
           ? _value.Vomit
           : Vomit // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Fesces: null == Fesces
+      Fesces: freezed == Fesces
           ? _value.Fesces
           : Fesces // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      time: null == time
+      time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      particular: null == particular
+      particular: freezed == particular
           ? _value.particular
           : particular // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      fluids: null == fluids
+      fluids: freezed == fluids
           ? _value.fluids
           : fluids // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      oral: null == oral
+      oral: freezed == oral
           ? _value.oral
           : oral // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      noof_stool: null == noof_stool
+      noof_stool: freezed == noof_stool
           ? _value.noof_stool
           : noof_stool // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      noof_urine: null == noof_urine
+      noof_urine: freezed == noof_urine
           ? _value.noof_urine
           : noof_urine // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      admission_id: null == admission_id
+      admission_id: freezed == admission_id
           ? _value.admission_id
           : admission_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      patient_id: null == patient_id
+      patient_id: freezed == patient_id
           ? _value.patient_id
           : patient_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      doctor_id: null == doctor_id
+      doctor_id: freezed == doctor_id
           ? _value.doctor_id
           : doctor_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      prepared_by: null == prepared_by
+      prepared_by: freezed == prepared_by
           ? _value.prepared_by
           : prepared_by // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      insertdate: null == insertdate
+      insertdate: freezed == insertdate
           ? _value.insertdate
           : insertdate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      prepared_name: null == prepared_name
+      prepared_name: freezed == prepared_name
           ? _value.prepared_name
           : prepared_name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      focus: null == focus
+      focus: freezed == focus
           ? _value.focus
           : focus // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      notes: null == notes
+      notes: freezed == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      pulse_rate: null == pulse_rate
+      pulse_rate: freezed == pulse_rate
           ? _value.pulse_rate
           : pulse_rate // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      bp: null == bp
+      bp: freezed == bp
           ? _value.bp
           : bp // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      temperature: null == temperature
+      temperature: freezed == temperature
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      respiration: null == respiration
+      respiration: freezed == respiration
           ? _value.respiration
           : respiration // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      height: null == height
+      height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      weight: null == weight
+      weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Descriptionofintake: null == Descriptionofintake
+      Descriptionofintake: freezed == Descriptionofintake
           ? _value.Descriptionofintake
           : Descriptionofintake // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Intake_Quantity: null == Intake_Quantity
+      Intake_Quantity: freezed == Intake_Quantity
           ? _value.Intake_Quantity
           : Intake_Quantity // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Oral_Diet: null == Oral_Diet
+      Oral_Diet: freezed == Oral_Diet
           ? _value.Oral_Diet
           : Oral_Diet // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Oral_Medication: null == Oral_Medication
+      Oral_Medication: freezed == Oral_Medication
           ? _value.Oral_Medication
           : Oral_Medication // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -540,8 +540,8 @@ class __$$_IntakeObjectCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_IntakeObject implements _IntakeObject {
-  const _$_IntakeObject(
+class _$IntakeObjectImpl implements _IntakeObject {
+  const _$IntakeObjectImpl(
       {this.Saturation = null,
       this.Diastolic = null,
       this.Systolic = null,
@@ -578,8 +578,8 @@ class _$_IntakeObject implements _IntakeObject {
       this.Oral_Diet = null,
       this.Oral_Medication = null});
 
-  factory _$_IntakeObject.fromJson(Map<String, dynamic> json) =>
-      _$$_IntakeObjectFromJson(json);
+  factory _$IntakeObjectImpl.fromJson(Map<String, dynamic> json) =>
+      _$$IntakeObjectImplFromJson(json);
 
   @override
   @JsonKey()
@@ -693,10 +693,10 @@ class _$_IntakeObject implements _IntakeObject {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IntakeObject &&
+            other is _$IntakeObjectImpl &&
             const DeepCollectionEquality()
                 .equals(other.Saturation, Saturation) &&
             const DeepCollectionEquality().equals(other.Diastolic, Diastolic) &&
@@ -794,12 +794,12 @@ class _$_IntakeObject implements _IntakeObject {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IntakeObjectCopyWith<_$_IntakeObject> get copyWith =>
-      __$$_IntakeObjectCopyWithImpl<_$_IntakeObject>(this, _$identity);
+  _$$IntakeObjectImplCopyWith<_$IntakeObjectImpl> get copyWith =>
+      __$$IntakeObjectImplCopyWithImpl<_$IntakeObjectImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IntakeObjectToJson(
+    return _$$IntakeObjectImplToJson(
       this,
     );
   }
@@ -841,10 +841,10 @@ abstract class _IntakeObject implements IntakeObject {
       final dynamic Descriptionofintake,
       final dynamic Intake_Quantity,
       final dynamic Oral_Diet,
-      final dynamic Oral_Medication}) = _$_IntakeObject;
+      final dynamic Oral_Medication}) = _$IntakeObjectImpl;
 
   factory _IntakeObject.fromJson(Map<String, dynamic> json) =
-      _$_IntakeObject.fromJson;
+      _$IntakeObjectImpl.fromJson;
 
   @override
   dynamic get Saturation;
@@ -918,6 +918,6 @@ abstract class _IntakeObject implements IntakeObject {
   dynamic get Oral_Medication;
   @override
   @JsonKey(ignore: true)
-  _$$_IntakeObjectCopyWith<_$_IntakeObject> get copyWith =>
+  _$$IntakeObjectImplCopyWith<_$IntakeObjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

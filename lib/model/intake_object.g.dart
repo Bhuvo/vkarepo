@@ -6,8 +6,8 @@ part of 'intake_object.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_IntakeObject _$$_IntakeObjectFromJson(Map<String, dynamic> json) =>
-    _$_IntakeObject(
+_$IntakeObjectImpl _$$IntakeObjectImplFromJson(Map<String, dynamic> json) =>
+    _$IntakeObjectImpl(
       Saturation: json['Saturation'] ?? null,
       Diastolic: json['Diastolic'] ?? null,
       Systolic: json['Systolic'] ?? null,
@@ -45,7 +45,7 @@ _$_IntakeObject _$$_IntakeObjectFromJson(Map<String, dynamic> json) =>
       Oral_Medication: json['Oral_Medication'] ?? null,
     );
 
-Map<String, dynamic> _$$_IntakeObjectToJson(_$_IntakeObject instance) =>
+Map<String, dynamic> _$$IntakeObjectImplToJson(_$IntakeObjectImpl instance) =>
     <String, dynamic>{
       'Saturation': instance.Saturation,
       'Diastolic': instance.Diastolic,

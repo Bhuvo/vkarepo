@@ -73,7 +73,7 @@ abstract class TimesmedService extends ChopperService {
 
   static TimesmedService create() {
     final client = ChopperClient(
-      baseUrl: Consts.BASE_URL,
+      baseUrl: Uri.parse(Consts.BASE_URL),
       services: [
         _$TimesmedService(),
       ],

@@ -6,10 +6,10 @@ part of 'vka_patient_inr_details.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_VKAPatientINRDetails _$$_VKAPatientINRDetailsFromJson(
+_$VKAPatientINRDetailsImpl _$$VKAPatientINRDetailsImplFromJson(
         Map<String, dynamic> json) =>
-    _$_VKAPatientINRDetails(
-      inrDetailsId: json['inrDetailsId'] as int?,
+    _$VKAPatientINRDetailsImpl(
+      inrDetailsId: (json['inrDetailsId'] as num?)?.toInt(),
       doctorId: json['doctorId'] as String?,
       patientId: json['patientId'] as String?,
       date: json['date'] as String?,
@@ -32,14 +32,14 @@ _$_VKAPatientINRDetails _$$_VKAPatientINRDetailsFromJson(
       activeFlag: json['activeFlag'] as String?,
       insertDate: json['insertDate'] as String?,
       notes: json['Notes'] ?? null,
-      days: json['days'] as int?,
+      days: (json['days'] as num?)?.toInt(),
       symbolName: json['symbolName'] as String?,
       inrDetailsList: json['inrDetailsList'],
       patientRegistrationList: json['patientRegistrationList'],
     );
 
-Map<String, dynamic> _$$_VKAPatientINRDetailsToJson(
-        _$_VKAPatientINRDetails instance) =>
+Map<String, dynamic> _$$VKAPatientINRDetailsImplToJson(
+        _$VKAPatientINRDetailsImpl instance) =>
     <String, dynamic>{
       'inrDetailsId': instance.inrDetailsId,
       'doctorId': instance.doctorId,

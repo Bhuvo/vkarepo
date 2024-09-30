@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'clinical_note_loadsummary.dart';
 
@@ -12,7 +12,7 @@ part of 'clinical_note_loadsummary.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ClinicalNotesLoadSummary _$ClinicalNotesLoadSummaryFromJson(
     Map<String, dynamic> json) {
@@ -88,31 +88,31 @@ class _$ClinicalNotesLoadSummaryCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Summary_id = null,
-    Object? Pulse = null,
+    Object? Summary_id = freezed,
+    Object? Pulse = freezed,
     Object? Disease_name = freezed,
     Object? Allergies = freezed,
     Object? Symptoms = freezed,
-    Object? Height = null,
-    Object? Weight = null,
-    Object? Temp = null,
+    Object? Height = freezed,
+    Object? Weight = freezed,
+    Object? Temp = freezed,
     Object? Diagnoses = freezed,
     Object? Causes = freezed,
     Object? Investigation = freezed,
     Object? Notes = freezed,
     Object? Doctor_id = freezed,
     Object? Appointment_id = freezed,
-    Object? User_id = null,
-    Object? Status_Flag = null,
-    Object? Insert_Date = null,
+    Object? User_id = freezed,
+    Object? Status_Flag = freezed,
+    Object? Insert_Date = freezed,
     Object? ClincialList = freezed,
   }) {
     return _then(_value.copyWith(
-      Summary_id: null == Summary_id
+      Summary_id: freezed == Summary_id
           ? _value.Summary_id
           : Summary_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Pulse: null == Pulse
+      Pulse: freezed == Pulse
           ? _value.Pulse
           : Pulse // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -128,15 +128,15 @@ class _$ClinicalNotesLoadSummaryCopyWithImpl<$Res,
           ? _value.Symptoms
           : Symptoms // ignore: cast_nullable_to_non_nullable
               as String?,
-      Height: null == Height
+      Height: freezed == Height
           ? _value.Height
           : Height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Weight: null == Weight
+      Weight: freezed == Weight
           ? _value.Weight
           : Weight // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Temp: null == Temp
+      Temp: freezed == Temp
           ? _value.Temp
           : Temp // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -164,15 +164,15 @@ class _$ClinicalNotesLoadSummaryCopyWithImpl<$Res,
           ? _value.Appointment_id
           : Appointment_id // ignore: cast_nullable_to_non_nullable
               as num?,
-      User_id: null == User_id
+      User_id: freezed == User_id
           ? _value.User_id
           : User_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Status_Flag: null == Status_Flag
+      Status_Flag: freezed == Status_Flag
           ? _value.Status_Flag
           : Status_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Insert_Date: null == Insert_Date
+      Insert_Date: freezed == Insert_Date
           ? _value.Insert_Date
           : Insert_Date // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -185,12 +185,12 @@ class _$ClinicalNotesLoadSummaryCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ClinicalNotesLoadSummaryCopyWith<$Res>
+abstract class _$$ClinicalNotesLoadSummaryImplCopyWith<$Res>
     implements $ClinicalNotesLoadSummaryCopyWith<$Res> {
-  factory _$$_ClinicalNotesLoadSummaryCopyWith(
-          _$_ClinicalNotesLoadSummary value,
-          $Res Function(_$_ClinicalNotesLoadSummary) then) =
-      __$$_ClinicalNotesLoadSummaryCopyWithImpl<$Res>;
+  factory _$$ClinicalNotesLoadSummaryImplCopyWith(
+          _$ClinicalNotesLoadSummaryImpl value,
+          $Res Function(_$ClinicalNotesLoadSummaryImpl) then) =
+      __$$ClinicalNotesLoadSummaryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -215,42 +215,43 @@ abstract class _$$_ClinicalNotesLoadSummaryCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ClinicalNotesLoadSummaryCopyWithImpl<$Res>
+class __$$ClinicalNotesLoadSummaryImplCopyWithImpl<$Res>
     extends _$ClinicalNotesLoadSummaryCopyWithImpl<$Res,
-        _$_ClinicalNotesLoadSummary>
-    implements _$$_ClinicalNotesLoadSummaryCopyWith<$Res> {
-  __$$_ClinicalNotesLoadSummaryCopyWithImpl(_$_ClinicalNotesLoadSummary _value,
-      $Res Function(_$_ClinicalNotesLoadSummary) _then)
+        _$ClinicalNotesLoadSummaryImpl>
+    implements _$$ClinicalNotesLoadSummaryImplCopyWith<$Res> {
+  __$$ClinicalNotesLoadSummaryImplCopyWithImpl(
+      _$ClinicalNotesLoadSummaryImpl _value,
+      $Res Function(_$ClinicalNotesLoadSummaryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Summary_id = null,
-    Object? Pulse = null,
+    Object? Summary_id = freezed,
+    Object? Pulse = freezed,
     Object? Disease_name = freezed,
     Object? Allergies = freezed,
     Object? Symptoms = freezed,
-    Object? Height = null,
-    Object? Weight = null,
-    Object? Temp = null,
+    Object? Height = freezed,
+    Object? Weight = freezed,
+    Object? Temp = freezed,
     Object? Diagnoses = freezed,
     Object? Causes = freezed,
     Object? Investigation = freezed,
     Object? Notes = freezed,
     Object? Doctor_id = freezed,
     Object? Appointment_id = freezed,
-    Object? User_id = null,
-    Object? Status_Flag = null,
-    Object? Insert_Date = null,
+    Object? User_id = freezed,
+    Object? Status_Flag = freezed,
+    Object? Insert_Date = freezed,
     Object? ClincialList = freezed,
   }) {
-    return _then(_$_ClinicalNotesLoadSummary(
-      Summary_id: null == Summary_id
+    return _then(_$ClinicalNotesLoadSummaryImpl(
+      Summary_id: freezed == Summary_id
           ? _value.Summary_id
           : Summary_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Pulse: null == Pulse
+      Pulse: freezed == Pulse
           ? _value.Pulse
           : Pulse // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -266,15 +267,15 @@ class __$$_ClinicalNotesLoadSummaryCopyWithImpl<$Res>
           ? _value.Symptoms
           : Symptoms // ignore: cast_nullable_to_non_nullable
               as String?,
-      Height: null == Height
+      Height: freezed == Height
           ? _value.Height
           : Height // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Weight: null == Weight
+      Weight: freezed == Weight
           ? _value.Weight
           : Weight // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Temp: null == Temp
+      Temp: freezed == Temp
           ? _value.Temp
           : Temp // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -302,15 +303,15 @@ class __$$_ClinicalNotesLoadSummaryCopyWithImpl<$Res>
           ? _value.Appointment_id
           : Appointment_id // ignore: cast_nullable_to_non_nullable
               as num?,
-      User_id: null == User_id
+      User_id: freezed == User_id
           ? _value.User_id
           : User_id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Status_Flag: null == Status_Flag
+      Status_Flag: freezed == Status_Flag
           ? _value.Status_Flag
           : Status_Flag // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Insert_Date: null == Insert_Date
+      Insert_Date: freezed == Insert_Date
           ? _value.Insert_Date
           : Insert_Date // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -324,8 +325,8 @@ class __$$_ClinicalNotesLoadSummaryCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ClinicalNotesLoadSummary implements _ClinicalNotesLoadSummary {
-  const _$_ClinicalNotesLoadSummary(
+class _$ClinicalNotesLoadSummaryImpl implements _ClinicalNotesLoadSummary {
+  const _$ClinicalNotesLoadSummaryImpl(
       {this.Summary_id = null,
       this.Pulse = null,
       this.Disease_name,
@@ -346,8 +347,8 @@ class _$_ClinicalNotesLoadSummary implements _ClinicalNotesLoadSummary {
       final List<ClinicalNotesLoadSummary>? ClincialList = null})
       : _ClincialList = ClincialList;
 
-  factory _$_ClinicalNotesLoadSummary.fromJson(Map<String, dynamic> json) =>
-      _$$_ClinicalNotesLoadSummaryFromJson(json);
+  factory _$ClinicalNotesLoadSummaryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ClinicalNotesLoadSummaryImplFromJson(json);
 
   @override
   @JsonKey()
@@ -397,6 +398,7 @@ class _$_ClinicalNotesLoadSummary implements _ClinicalNotesLoadSummary {
   List<ClinicalNotesLoadSummary>? get ClincialList {
     final value = _ClincialList;
     if (value == null) return null;
+    if (_ClincialList is EqualUnmodifiableListView) return _ClincialList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -407,10 +409,10 @@ class _$_ClinicalNotesLoadSummary implements _ClinicalNotesLoadSummary {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ClinicalNotesLoadSummary &&
+            other is _$ClinicalNotesLoadSummaryImpl &&
             const DeepCollectionEquality()
                 .equals(other.Summary_id, Summary_id) &&
             const DeepCollectionEquality().equals(other.Pulse, Pulse) &&
@@ -468,13 +470,13 @@ class _$_ClinicalNotesLoadSummary implements _ClinicalNotesLoadSummary {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ClinicalNotesLoadSummaryCopyWith<_$_ClinicalNotesLoadSummary>
-      get copyWith => __$$_ClinicalNotesLoadSummaryCopyWithImpl<
-          _$_ClinicalNotesLoadSummary>(this, _$identity);
+  _$$ClinicalNotesLoadSummaryImplCopyWith<_$ClinicalNotesLoadSummaryImpl>
+      get copyWith => __$$ClinicalNotesLoadSummaryImplCopyWithImpl<
+          _$ClinicalNotesLoadSummaryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ClinicalNotesLoadSummaryToJson(
+    return _$$ClinicalNotesLoadSummaryImplToJson(
       this,
     );
   }
@@ -500,10 +502,10 @@ abstract class _ClinicalNotesLoadSummary implements ClinicalNotesLoadSummary {
           final dynamic Status_Flag,
           final dynamic Insert_Date,
           final List<ClinicalNotesLoadSummary>? ClincialList}) =
-      _$_ClinicalNotesLoadSummary;
+      _$ClinicalNotesLoadSummaryImpl;
 
   factory _ClinicalNotesLoadSummary.fromJson(Map<String, dynamic> json) =
-      _$_ClinicalNotesLoadSummary.fromJson;
+      _$ClinicalNotesLoadSummaryImpl.fromJson;
 
   @override
   dynamic get Summary_id;
@@ -543,6 +545,6 @@ abstract class _ClinicalNotesLoadSummary implements ClinicalNotesLoadSummary {
   List<ClinicalNotesLoadSummary>? get ClincialList;
   @override
   @JsonKey(ignore: true)
-  _$$_ClinicalNotesLoadSummaryCopyWith<_$_ClinicalNotesLoadSummary>
+  _$$ClinicalNotesLoadSummaryImplCopyWith<_$ClinicalNotesLoadSummaryImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

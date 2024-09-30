@@ -6,19 +6,19 @@ part of 'update_patient_waiting.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UpdatePatientWaiting _$$_UpdatePatientWaitingFromJson(
+_$UpdatePatientWaitingImpl _$$UpdatePatientWaitingImplFromJson(
         Map<String, dynamic> json) =>
-    _$_UpdatePatientWaiting(
-      responseCode: json['responseCode'] as int,
-      waitingMinutes: json['waitingMinutes'] as int,
-      queue: json['queue'] as int,
-      totalQueue: json['totalQueue'] as int,
+    _$UpdatePatientWaitingImpl(
+      responseCode: (json['responseCode'] as num).toInt(),
+      waitingMinutes: (json['waitingMinutes'] as num).toInt(),
+      queue: (json['queue'] as num).toInt(),
+      totalQueue: (json['totalQueue'] as num).toInt(),
       dayEndFlag: json['dayEndFlag'] as String,
       doctorOnline: json['doctorOnline'] as String,
     );
 
-Map<String, dynamic> _$$_UpdatePatientWaitingToJson(
-        _$_UpdatePatientWaiting instance) =>
+Map<String, dynamic> _$$UpdatePatientWaitingImplToJson(
+        _$UpdatePatientWaitingImpl instance) =>
     <String, dynamic>{
       'responseCode': instance.responseCode,
       'waitingMinutes': instance.waitingMinutes,

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'patient.dart';
 
@@ -12,7 +12,7 @@ part of 'patient.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Patient _$PatientFromJson(Map<String, dynamic> json) {
   return _Patient.fromJson(json);
@@ -92,66 +92,37 @@ abstract class $PatientCopyWith<$Res> {
       _$PatientCopyWithImpl<$Res, Patient>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'Patient_Id')
-          dynamic id,
-      @JsonKey(name: 'User_id')
-          dynamic userId,
-      @JsonKey(name: 'Patient_Registration_Number')
-          String? regNo,
-      @JsonKey(name: 'First_Name')
-          String? firstName,
-      @JsonKey(name: 'RelationName')
-          String? relationName,
-      @JsonKey(name: 'Last_Name')
-          String? lastName,
-      @JsonKey(name: 'PatientName')
-          String? patientName,
-      @JsonKey(name: 'User_Name')
-          String? userName,
-      @JsonKey(name: 'DOB')
-          String? dob,
-      @JsonKey(name: 'Age')
-          dynamic age,
-      @JsonKey(name: 'Gender')
-          String? gender,
-      @JsonKey(name: 'Image')
-          dynamic patientImage,
-      @JsonKey(name: 'Phone_Number')
-          String? phone,
-      @JsonKey(name: 'FamilyMember_id')
-          dynamic familyMemberId,
-      @JsonKey(name: 'PrimaryAccount_No')
-          int? primaryAccountNo,
-      @JsonKey(name: 'PrimaryMobile')
-          String? primaryMobile,
-      @JsonKey(name: 'Primary_User_id')
-          dynamic primaryUserId,
-      @JsonKey(name: 'MobileNumber')
-          String? mobile,
-      @JsonKey(name: 'Watsapp_Number')
-          String? whatsapp,
-      @JsonKey(name: 'EMail_Id')
-          String? email,
-      @JsonKey(name: 'EmailID')
-          String? emailId,
-      @JsonKey(name: 'Time_in_Therapeutic_Ratio')
-          String? ttr,
-      @JsonKey(name: 'Password')
-          String? password,
-      @JsonKey(name: 'Doctor_Id')
-          dynamic doctorId,
-      @JsonKey(name: 'Traget_INR_From')
-          String? inrFrom,
-      @JsonKey(name: 'Traget_INR_To')
-          String? inrTo,
-      @JsonKey(name: 'Date')
-          String? date,
-      @JsonKey(name: 'Doctor_ActiveFlag')
-          String? doctorActive,
-      @JsonKey(name: 'Patient_ActiveFlag')
-          String? patientActive,
+      {@JsonKey(name: 'Patient_Id') dynamic id,
+      @JsonKey(name: 'User_id') dynamic userId,
+      @JsonKey(name: 'Patient_Registration_Number') String? regNo,
+      @JsonKey(name: 'First_Name') String? firstName,
+      @JsonKey(name: 'RelationName') String? relationName,
+      @JsonKey(name: 'Last_Name') String? lastName,
+      @JsonKey(name: 'PatientName') String? patientName,
+      @JsonKey(name: 'User_Name') String? userName,
+      @JsonKey(name: 'DOB') String? dob,
+      @JsonKey(name: 'Age') dynamic age,
+      @JsonKey(name: 'Gender') String? gender,
+      @JsonKey(name: 'Image') dynamic patientImage,
+      @JsonKey(name: 'Phone_Number') String? phone,
+      @JsonKey(name: 'FamilyMember_id') dynamic familyMemberId,
+      @JsonKey(name: 'PrimaryAccount_No') int? primaryAccountNo,
+      @JsonKey(name: 'PrimaryMobile') String? primaryMobile,
+      @JsonKey(name: 'Primary_User_id') dynamic primaryUserId,
+      @JsonKey(name: 'MobileNumber') String? mobile,
+      @JsonKey(name: 'Watsapp_Number') String? whatsapp,
+      @JsonKey(name: 'EMail_Id') String? email,
+      @JsonKey(name: 'EmailID') String? emailId,
+      @JsonKey(name: 'Time_in_Therapeutic_Ratio') String? ttr,
+      @JsonKey(name: 'Password') String? password,
+      @JsonKey(name: 'Doctor_Id') dynamic doctorId,
+      @JsonKey(name: 'Traget_INR_From') String? inrFrom,
+      @JsonKey(name: 'Traget_INR_To') String? inrTo,
+      @JsonKey(name: 'Date') String? date,
+      @JsonKey(name: 'Doctor_ActiveFlag') String? doctorActive,
+      @JsonKey(name: 'Patient_ActiveFlag') String? patientActive,
       @JsonKey(name: 'PatientRegistration_list')
-          String? patientRegistrationList});
+      String? patientRegistrationList});
 }
 
 /// @nodoc
@@ -167,8 +138,8 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? userId = null,
+    Object? id = freezed,
+    Object? userId = freezed,
     Object? regNo = freezed,
     Object? firstName = freezed,
     Object? relationName = freezed,
@@ -176,21 +147,21 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
     Object? patientName = freezed,
     Object? userName = freezed,
     Object? dob = freezed,
-    Object? age = null,
+    Object? age = freezed,
     Object? gender = freezed,
-    Object? patientImage = null,
+    Object? patientImage = freezed,
     Object? phone = freezed,
-    Object? familyMemberId = null,
+    Object? familyMemberId = freezed,
     Object? primaryAccountNo = freezed,
     Object? primaryMobile = freezed,
-    Object? primaryUserId = null,
+    Object? primaryUserId = freezed,
     Object? mobile = freezed,
     Object? whatsapp = freezed,
     Object? email = freezed,
     Object? emailId = freezed,
     Object? ttr = freezed,
     Object? password = freezed,
-    Object? doctorId = null,
+    Object? doctorId = freezed,
     Object? inrFrom = freezed,
     Object? inrTo = freezed,
     Object? date = freezed,
@@ -199,11 +170,11 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
     Object? patientRegistrationList = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userId: null == userId
+      userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -235,7 +206,7 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as String?,
-      age: null == age
+      age: freezed == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -243,7 +214,7 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String?,
-      patientImage: null == patientImage
+      patientImage: freezed == patientImage
           ? _value.patientImage
           : patientImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -251,7 +222,7 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
-      familyMemberId: null == familyMemberId
+      familyMemberId: freezed == familyMemberId
           ? _value.familyMemberId
           : familyMemberId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -263,7 +234,7 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
           ? _value.primaryMobile
           : primaryMobile // ignore: cast_nullable_to_non_nullable
               as String?,
-      primaryUserId: null == primaryUserId
+      primaryUserId: freezed == primaryUserId
           ? _value.primaryUserId
           : primaryUserId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -291,7 +262,7 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
-      doctorId: null == doctorId
+      doctorId: freezed == doctorId
           ? _value.doctorId
           : doctorId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -324,87 +295,59 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
 }
 
 /// @nodoc
-abstract class _$$_PatientCopyWith<$Res> implements $PatientCopyWith<$Res> {
-  factory _$$_PatientCopyWith(
-          _$_Patient value, $Res Function(_$_Patient) then) =
-      __$$_PatientCopyWithImpl<$Res>;
+abstract class _$$PatientImplCopyWith<$Res> implements $PatientCopyWith<$Res> {
+  factory _$$PatientImplCopyWith(
+          _$PatientImpl value, $Res Function(_$PatientImpl) then) =
+      __$$PatientImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'Patient_Id')
-          dynamic id,
-      @JsonKey(name: 'User_id')
-          dynamic userId,
-      @JsonKey(name: 'Patient_Registration_Number')
-          String? regNo,
-      @JsonKey(name: 'First_Name')
-          String? firstName,
-      @JsonKey(name: 'RelationName')
-          String? relationName,
-      @JsonKey(name: 'Last_Name')
-          String? lastName,
-      @JsonKey(name: 'PatientName')
-          String? patientName,
-      @JsonKey(name: 'User_Name')
-          String? userName,
-      @JsonKey(name: 'DOB')
-          String? dob,
-      @JsonKey(name: 'Age')
-          dynamic age,
-      @JsonKey(name: 'Gender')
-          String? gender,
-      @JsonKey(name: 'Image')
-          dynamic patientImage,
-      @JsonKey(name: 'Phone_Number')
-          String? phone,
-      @JsonKey(name: 'FamilyMember_id')
-          dynamic familyMemberId,
-      @JsonKey(name: 'PrimaryAccount_No')
-          int? primaryAccountNo,
-      @JsonKey(name: 'PrimaryMobile')
-          String? primaryMobile,
-      @JsonKey(name: 'Primary_User_id')
-          dynamic primaryUserId,
-      @JsonKey(name: 'MobileNumber')
-          String? mobile,
-      @JsonKey(name: 'Watsapp_Number')
-          String? whatsapp,
-      @JsonKey(name: 'EMail_Id')
-          String? email,
-      @JsonKey(name: 'EmailID')
-          String? emailId,
-      @JsonKey(name: 'Time_in_Therapeutic_Ratio')
-          String? ttr,
-      @JsonKey(name: 'Password')
-          String? password,
-      @JsonKey(name: 'Doctor_Id')
-          dynamic doctorId,
-      @JsonKey(name: 'Traget_INR_From')
-          String? inrFrom,
-      @JsonKey(name: 'Traget_INR_To')
-          String? inrTo,
-      @JsonKey(name: 'Date')
-          String? date,
-      @JsonKey(name: 'Doctor_ActiveFlag')
-          String? doctorActive,
-      @JsonKey(name: 'Patient_ActiveFlag')
-          String? patientActive,
+      {@JsonKey(name: 'Patient_Id') dynamic id,
+      @JsonKey(name: 'User_id') dynamic userId,
+      @JsonKey(name: 'Patient_Registration_Number') String? regNo,
+      @JsonKey(name: 'First_Name') String? firstName,
+      @JsonKey(name: 'RelationName') String? relationName,
+      @JsonKey(name: 'Last_Name') String? lastName,
+      @JsonKey(name: 'PatientName') String? patientName,
+      @JsonKey(name: 'User_Name') String? userName,
+      @JsonKey(name: 'DOB') String? dob,
+      @JsonKey(name: 'Age') dynamic age,
+      @JsonKey(name: 'Gender') String? gender,
+      @JsonKey(name: 'Image') dynamic patientImage,
+      @JsonKey(name: 'Phone_Number') String? phone,
+      @JsonKey(name: 'FamilyMember_id') dynamic familyMemberId,
+      @JsonKey(name: 'PrimaryAccount_No') int? primaryAccountNo,
+      @JsonKey(name: 'PrimaryMobile') String? primaryMobile,
+      @JsonKey(name: 'Primary_User_id') dynamic primaryUserId,
+      @JsonKey(name: 'MobileNumber') String? mobile,
+      @JsonKey(name: 'Watsapp_Number') String? whatsapp,
+      @JsonKey(name: 'EMail_Id') String? email,
+      @JsonKey(name: 'EmailID') String? emailId,
+      @JsonKey(name: 'Time_in_Therapeutic_Ratio') String? ttr,
+      @JsonKey(name: 'Password') String? password,
+      @JsonKey(name: 'Doctor_Id') dynamic doctorId,
+      @JsonKey(name: 'Traget_INR_From') String? inrFrom,
+      @JsonKey(name: 'Traget_INR_To') String? inrTo,
+      @JsonKey(name: 'Date') String? date,
+      @JsonKey(name: 'Doctor_ActiveFlag') String? doctorActive,
+      @JsonKey(name: 'Patient_ActiveFlag') String? patientActive,
       @JsonKey(name: 'PatientRegistration_list')
-          String? patientRegistrationList});
+      String? patientRegistrationList});
 }
 
 /// @nodoc
-class __$$_PatientCopyWithImpl<$Res>
-    extends _$PatientCopyWithImpl<$Res, _$_Patient>
-    implements _$$_PatientCopyWith<$Res> {
-  __$$_PatientCopyWithImpl(_$_Patient _value, $Res Function(_$_Patient) _then)
+class __$$PatientImplCopyWithImpl<$Res>
+    extends _$PatientCopyWithImpl<$Res, _$PatientImpl>
+    implements _$$PatientImplCopyWith<$Res> {
+  __$$PatientImplCopyWithImpl(
+      _$PatientImpl _value, $Res Function(_$PatientImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? userId = null,
+    Object? id = freezed,
+    Object? userId = freezed,
     Object? regNo = freezed,
     Object? firstName = freezed,
     Object? relationName = freezed,
@@ -412,21 +355,21 @@ class __$$_PatientCopyWithImpl<$Res>
     Object? patientName = freezed,
     Object? userName = freezed,
     Object? dob = freezed,
-    Object? age = null,
+    Object? age = freezed,
     Object? gender = freezed,
-    Object? patientImage = null,
+    Object? patientImage = freezed,
     Object? phone = freezed,
-    Object? familyMemberId = null,
+    Object? familyMemberId = freezed,
     Object? primaryAccountNo = freezed,
     Object? primaryMobile = freezed,
-    Object? primaryUserId = null,
+    Object? primaryUserId = freezed,
     Object? mobile = freezed,
     Object? whatsapp = freezed,
     Object? email = freezed,
     Object? emailId = freezed,
     Object? ttr = freezed,
     Object? password = freezed,
-    Object? doctorId = null,
+    Object? doctorId = freezed,
     Object? inrFrom = freezed,
     Object? inrTo = freezed,
     Object? date = freezed,
@@ -434,12 +377,12 @@ class __$$_PatientCopyWithImpl<$Res>
     Object? patientActive = freezed,
     Object? patientRegistrationList = freezed,
   }) {
-    return _then(_$_Patient(
-      id: null == id
+    return _then(_$PatientImpl(
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      userId: null == userId
+      userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -471,7 +414,7 @@ class __$$_PatientCopyWithImpl<$Res>
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
               as String?,
-      age: null == age
+      age: freezed == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -479,7 +422,7 @@ class __$$_PatientCopyWithImpl<$Res>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String?,
-      patientImage: null == patientImage
+      patientImage: freezed == patientImage
           ? _value.patientImage
           : patientImage // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -487,7 +430,7 @@ class __$$_PatientCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
-      familyMemberId: null == familyMemberId
+      familyMemberId: freezed == familyMemberId
           ? _value.familyMemberId
           : familyMemberId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -499,7 +442,7 @@ class __$$_PatientCopyWithImpl<$Res>
           ? _value.primaryMobile
           : primaryMobile // ignore: cast_nullable_to_non_nullable
               as String?,
-      primaryUserId: null == primaryUserId
+      primaryUserId: freezed == primaryUserId
           ? _value.primaryUserId
           : primaryUserId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -527,7 +470,7 @@ class __$$_PatientCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
-      doctorId: null == doctorId
+      doctorId: freezed == doctorId
           ? _value.doctorId
           : doctorId // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -561,8 +504,8 @@ class __$$_PatientCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Patient implements _Patient {
-  const _$_Patient(
+class _$PatientImpl implements _Patient {
+  const _$PatientImpl(
       {@JsonKey(name: 'Patient_Id') this.id = null,
       @JsonKey(name: 'User_id') this.userId = null,
       @JsonKey(name: 'Patient_Registration_Number') this.regNo,
@@ -594,8 +537,8 @@ class _$_Patient implements _Patient {
       @JsonKey(name: 'Patient_ActiveFlag') this.patientActive,
       @JsonKey(name: 'PatientRegistration_list') this.patientRegistrationList});
 
-  factory _$_Patient.fromJson(Map<String, dynamic> json) =>
-      _$$_PatientFromJson(json);
+  factory _$PatientImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PatientImplFromJson(json);
 
   @override
   @JsonKey(name: 'Patient_Id')
@@ -694,10 +637,10 @@ class _$_Patient implements _Patient {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Patient &&
+            other is _$PatientImpl &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.userId, userId) &&
             (identical(other.regNo, regNo) || other.regNo == regNo) &&
@@ -785,12 +728,12 @@ class _$_Patient implements _Patient {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PatientCopyWith<_$_Patient> get copyWith =>
-      __$$_PatientCopyWithImpl<_$_Patient>(this, _$identity);
+  _$$PatientImplCopyWith<_$PatientImpl> get copyWith =>
+      __$$PatientImplCopyWithImpl<_$PatientImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PatientToJson(
+    return _$$PatientImplToJson(
       this,
     );
   }
@@ -798,68 +741,39 @@ class _$_Patient implements _Patient {
 
 abstract class _Patient implements Patient {
   const factory _Patient(
-      {@JsonKey(name: 'Patient_Id')
-          final dynamic id,
-      @JsonKey(name: 'User_id')
-          final dynamic userId,
-      @JsonKey(name: 'Patient_Registration_Number')
-          final String? regNo,
-      @JsonKey(name: 'First_Name')
-          final String? firstName,
-      @JsonKey(name: 'RelationName')
-          final String? relationName,
-      @JsonKey(name: 'Last_Name')
-          final String? lastName,
-      @JsonKey(name: 'PatientName')
-          final String? patientName,
-      @JsonKey(name: 'User_Name')
-          final String? userName,
-      @JsonKey(name: 'DOB')
-          final String? dob,
-      @JsonKey(name: 'Age')
-          final dynamic age,
-      @JsonKey(name: 'Gender')
-          final String? gender,
-      @JsonKey(name: 'Image')
-          final dynamic patientImage,
-      @JsonKey(name: 'Phone_Number')
-          final String? phone,
-      @JsonKey(name: 'FamilyMember_id')
-          final dynamic familyMemberId,
-      @JsonKey(name: 'PrimaryAccount_No')
-          final int? primaryAccountNo,
-      @JsonKey(name: 'PrimaryMobile')
-          final String? primaryMobile,
-      @JsonKey(name: 'Primary_User_id')
-          final dynamic primaryUserId,
-      @JsonKey(name: 'MobileNumber')
-          final String? mobile,
-      @JsonKey(name: 'Watsapp_Number')
-          final String? whatsapp,
-      @JsonKey(name: 'EMail_Id')
-          final String? email,
-      @JsonKey(name: 'EmailID')
-          final String? emailId,
-      @JsonKey(name: 'Time_in_Therapeutic_Ratio')
-          final String? ttr,
-      @JsonKey(name: 'Password')
-          final String? password,
-      @JsonKey(name: 'Doctor_Id')
-          final dynamic doctorId,
-      @JsonKey(name: 'Traget_INR_From')
-          final String? inrFrom,
-      @JsonKey(name: 'Traget_INR_To')
-          final String? inrTo,
-      @JsonKey(name: 'Date')
-          final String? date,
-      @JsonKey(name: 'Doctor_ActiveFlag')
-          final String? doctorActive,
-      @JsonKey(name: 'Patient_ActiveFlag')
-          final String? patientActive,
+      {@JsonKey(name: 'Patient_Id') final dynamic id,
+      @JsonKey(name: 'User_id') final dynamic userId,
+      @JsonKey(name: 'Patient_Registration_Number') final String? regNo,
+      @JsonKey(name: 'First_Name') final String? firstName,
+      @JsonKey(name: 'RelationName') final String? relationName,
+      @JsonKey(name: 'Last_Name') final String? lastName,
+      @JsonKey(name: 'PatientName') final String? patientName,
+      @JsonKey(name: 'User_Name') final String? userName,
+      @JsonKey(name: 'DOB') final String? dob,
+      @JsonKey(name: 'Age') final dynamic age,
+      @JsonKey(name: 'Gender') final String? gender,
+      @JsonKey(name: 'Image') final dynamic patientImage,
+      @JsonKey(name: 'Phone_Number') final String? phone,
+      @JsonKey(name: 'FamilyMember_id') final dynamic familyMemberId,
+      @JsonKey(name: 'PrimaryAccount_No') final int? primaryAccountNo,
+      @JsonKey(name: 'PrimaryMobile') final String? primaryMobile,
+      @JsonKey(name: 'Primary_User_id') final dynamic primaryUserId,
+      @JsonKey(name: 'MobileNumber') final String? mobile,
+      @JsonKey(name: 'Watsapp_Number') final String? whatsapp,
+      @JsonKey(name: 'EMail_Id') final String? email,
+      @JsonKey(name: 'EmailID') final String? emailId,
+      @JsonKey(name: 'Time_in_Therapeutic_Ratio') final String? ttr,
+      @JsonKey(name: 'Password') final String? password,
+      @JsonKey(name: 'Doctor_Id') final dynamic doctorId,
+      @JsonKey(name: 'Traget_INR_From') final String? inrFrom,
+      @JsonKey(name: 'Traget_INR_To') final String? inrTo,
+      @JsonKey(name: 'Date') final String? date,
+      @JsonKey(name: 'Doctor_ActiveFlag') final String? doctorActive,
+      @JsonKey(name: 'Patient_ActiveFlag') final String? patientActive,
       @JsonKey(name: 'PatientRegistration_list')
-          final String? patientRegistrationList}) = _$_Patient;
+      final String? patientRegistrationList}) = _$PatientImpl;
 
-  factory _Patient.fromJson(Map<String, dynamic> json) = _$_Patient.fromJson;
+  factory _Patient.fromJson(Map<String, dynamic> json) = _$PatientImpl.fromJson;
 
   @override
   @JsonKey(name: 'Patient_Id')
@@ -953,6 +867,6 @@ abstract class _Patient implements Patient {
   String? get patientRegistrationList;
   @override
   @JsonKey(ignore: true)
-  _$$_PatientCopyWith<_$_Patient> get copyWith =>
+  _$$PatientImplCopyWith<_$PatientImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

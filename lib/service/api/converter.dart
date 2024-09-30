@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:chopper/chopper.dart';
 
 typedef T JsonFactory<T>(Map<String, dynamic> json);
@@ -28,10 +30,13 @@ class JsonSerializableConverter extends JsonConverter {
   }
 
   @override
-  Response<ResultType> convertResponse<ResultType, Item>(Response response) {
-    final jsonRes = super.convertResponse(response);
-    return jsonRes.copyWith<ResultType>(body: _decode<Item>(jsonRes.body));
+  FutureOr<Response<ResultType>> convertResponse<ResultType, Item>(Response response) async {
+    // log(response.bodyString);
+    final jsonRes = await super.convertResponse(response);
 
+    final res = _decode<ResultType>((jsonRes).body);
+
+    return jsonRes.copyWith<ResultType>(body: res);
   }
 
 }

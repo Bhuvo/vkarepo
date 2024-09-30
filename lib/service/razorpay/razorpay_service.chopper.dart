@@ -21,12 +21,12 @@ class _$RazorpayService extends RazorpayService {
     required String currency,
     required int amount,
   }) {
-    final $url = 'https://api.razorpay.com/v1/orders';
+    final Uri $url = Uri.parse('https://api.razorpay.com/v1/orders');
     final $body = <String, dynamic>{
       'currency': currency,
       'amount': amount,
     };
-    final $request = Request(
+    final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,

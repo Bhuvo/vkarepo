@@ -6,16 +6,17 @@ part of 'fetch_list_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_FetchListResponse _$$_FetchListResponseFromJson(Map<String, dynamic> json) =>
-    _$_FetchListResponse(
+_$FetchListResponseImpl _$$FetchListResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$FetchListResponseImpl(
       message: json['ResponseMessage'] as String?,
       code: json['ResponseCode'] ?? null,
       data: json['Data'] ?? const [],
       payload: json['data'] ?? const [],
     );
 
-Map<String, dynamic> _$$_FetchListResponseToJson(
-        _$_FetchListResponse instance) =>
+Map<String, dynamic> _$$FetchListResponseImplToJson(
+        _$FetchListResponseImpl instance) =>
     <String, dynamic>{
       'ResponseMessage': instance.message,
       'ResponseCode': instance.code,

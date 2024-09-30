@@ -6,11 +6,11 @@ part of 'user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
+_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       id: json['Doctor_id'] ?? null,
       userId: json['User_id'] ?? null,
       bookCheck: json['BookCheck'] as String?,
-      gender: json['Gender'] as int?,
+      gender: (json['Gender'] as num?)?.toInt(),
       registration: json['Registrations'] as String?,
       pClainId: json['PClaim_id'] as num?,
       pDoctorName: json['PDoctor_Name'] as num?,
@@ -43,7 +43,7 @@ _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       recommendations: json['Recommendations'] as String?,
       description: json['Doctor_Description'] as String?,
       image: json['Doctor_Image'] as String?,
-      age: json['Doctor_Age'] as int?,
+      age: (json['Doctor_Age'] as num?)?.toInt(),
       phone: json['Doctor_PhoneNumber'] as String?,
       subCategoryName: json['SubCategory_Name'] as String?,
       subCategoryNameTemp: json['SubCategory_Name_temp'] as String?,
@@ -99,7 +99,8 @@ _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       patientRegistrationlist: json['PatientRegistration_list'] ?? null,
     );
 
-Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
+Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
+    <String, dynamic>{
       'Doctor_id': instance.id,
       'User_id': instance.userId,
       'BookCheck': instance.bookCheck,

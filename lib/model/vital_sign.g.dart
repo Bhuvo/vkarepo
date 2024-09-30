@@ -6,17 +6,18 @@ part of 'vital_sign.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_VitalSign _$$_VitalSignFromJson(Map<String, dynamic> json) => _$_VitalSign(
+_$VitalSignImpl _$$VitalSignImplFromJson(Map<String, dynamic> json) =>
+    _$VitalSignImpl(
       preparedName: json['prepared_name'] as String?,
-      admissionId: json['admission_id'] as int?,
+      admissionId: (json['admission_id'] as num?)?.toInt(),
       saturation: json['Saturation'] as String?,
       diastolic: json['Diastolic'] as String?,
       systolic: json['Systolic'] as String?,
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       date: json['date'] as String?,
       time: json['time'] as String?,
-      patientId: json['patient_id'] as int?,
-      doctorId: json['doctor_id'] as int?,
+      patientId: (json['patient_id'] as num?)?.toInt(),
+      doctorId: (json['doctor_id'] as num?)?.toInt(),
       pulseRate: json['pulse_rate'] as String?,
       temperature: json['temperature'] as String?,
       respiration: json['respiration'] as String?,
@@ -24,7 +25,7 @@ _$_VitalSign _$$_VitalSignFromJson(Map<String, dynamic> json) => _$_VitalSign(
       weight: json['weight'] as String?,
     );
 
-Map<String, dynamic> _$$_VitalSignToJson(_$_VitalSign instance) =>
+Map<String, dynamic> _$$VitalSignImplToJson(_$VitalSignImpl instance) =>
     <String, dynamic>{
       'prepared_name': instance.preparedName,
       'admission_id': instance.admissionId,

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'schedule_doctors_response.dart';
 
@@ -12,7 +12,7 @@ part of 'schedule_doctors_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ScheduleDoctorsResponse _$ScheduleDoctorsResponseFromJson(
     Map<String, dynamic> json) {
@@ -74,11 +74,12 @@ class _$ScheduleDoctorsResponseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ScheduleDoctorsResponseCopyWith<$Res>
+abstract class _$$ScheduleDoctorsResponseImplCopyWith<$Res>
     implements $ScheduleDoctorsResponseCopyWith<$Res> {
-  factory _$$_ScheduleDoctorsResponseCopyWith(_$_ScheduleDoctorsResponse value,
-          $Res Function(_$_ScheduleDoctorsResponse) then) =
-      __$$_ScheduleDoctorsResponseCopyWithImpl<$Res>;
+  factory _$$ScheduleDoctorsResponseImplCopyWith(
+          _$ScheduleDoctorsResponseImpl value,
+          $Res Function(_$ScheduleDoctorsResponseImpl) then) =
+      __$$ScheduleDoctorsResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -87,12 +88,13 @@ abstract class _$$_ScheduleDoctorsResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ScheduleDoctorsResponseCopyWithImpl<$Res>
+class __$$ScheduleDoctorsResponseImplCopyWithImpl<$Res>
     extends _$ScheduleDoctorsResponseCopyWithImpl<$Res,
-        _$_ScheduleDoctorsResponse>
-    implements _$$_ScheduleDoctorsResponseCopyWith<$Res> {
-  __$$_ScheduleDoctorsResponseCopyWithImpl(_$_ScheduleDoctorsResponse _value,
-      $Res Function(_$_ScheduleDoctorsResponse) _then)
+        _$ScheduleDoctorsResponseImpl>
+    implements _$$ScheduleDoctorsResponseImplCopyWith<$Res> {
+  __$$ScheduleDoctorsResponseImplCopyWithImpl(
+      _$ScheduleDoctorsResponseImpl _value,
+      $Res Function(_$ScheduleDoctorsResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +103,7 @@ class __$$_ScheduleDoctorsResponseCopyWithImpl<$Res>
     Object? doctors = freezed,
     Object? clinics = freezed,
   }) {
-    return _then(_$_ScheduleDoctorsResponse(
+    return _then(_$ScheduleDoctorsResponseImpl(
       doctors: freezed == doctors
           ? _value._doctors
           : doctors // ignore: cast_nullable_to_non_nullable
@@ -116,15 +118,15 @@ class __$$_ScheduleDoctorsResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ScheduleDoctorsResponse implements _ScheduleDoctorsResponse {
-  const _$_ScheduleDoctorsResponse(
+class _$ScheduleDoctorsResponseImpl implements _ScheduleDoctorsResponse {
+  const _$ScheduleDoctorsResponseImpl(
       {@JsonKey(name: 'DoctorInfo') final List<InstantDoctor>? doctors,
       @JsonKey(name: 'ClinicFee') final List<Clinic>? clinics})
       : _doctors = doctors,
         _clinics = clinics;
 
-  factory _$_ScheduleDoctorsResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_ScheduleDoctorsResponseFromJson(json);
+  factory _$ScheduleDoctorsResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ScheduleDoctorsResponseImplFromJson(json);
 
   final List<InstantDoctor>? _doctors;
   @override
@@ -132,6 +134,7 @@ class _$_ScheduleDoctorsResponse implements _ScheduleDoctorsResponse {
   List<InstantDoctor>? get doctors {
     final value = _doctors;
     if (value == null) return null;
+    if (_doctors is EqualUnmodifiableListView) return _doctors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -142,6 +145,7 @@ class _$_ScheduleDoctorsResponse implements _ScheduleDoctorsResponse {
   List<Clinic>? get clinics {
     final value = _clinics;
     if (value == null) return null;
+    if (_clinics is EqualUnmodifiableListView) return _clinics;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -152,10 +156,10 @@ class _$_ScheduleDoctorsResponse implements _ScheduleDoctorsResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ScheduleDoctorsResponse &&
+            other is _$ScheduleDoctorsResponseImpl &&
             const DeepCollectionEquality().equals(other._doctors, _doctors) &&
             const DeepCollectionEquality().equals(other._clinics, _clinics));
   }
@@ -170,14 +174,13 @@ class _$_ScheduleDoctorsResponse implements _ScheduleDoctorsResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ScheduleDoctorsResponseCopyWith<_$_ScheduleDoctorsResponse>
-      get copyWith =>
-          __$$_ScheduleDoctorsResponseCopyWithImpl<_$_ScheduleDoctorsResponse>(
-              this, _$identity);
+  _$$ScheduleDoctorsResponseImplCopyWith<_$ScheduleDoctorsResponseImpl>
+      get copyWith => __$$ScheduleDoctorsResponseImplCopyWithImpl<
+          _$ScheduleDoctorsResponseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ScheduleDoctorsResponseToJson(
+    return _$$ScheduleDoctorsResponseImplToJson(
       this,
     );
   }
@@ -187,10 +190,10 @@ abstract class _ScheduleDoctorsResponse implements ScheduleDoctorsResponse {
   const factory _ScheduleDoctorsResponse(
           {@JsonKey(name: 'DoctorInfo') final List<InstantDoctor>? doctors,
           @JsonKey(name: 'ClinicFee') final List<Clinic>? clinics}) =
-      _$_ScheduleDoctorsResponse;
+      _$ScheduleDoctorsResponseImpl;
 
   factory _ScheduleDoctorsResponse.fromJson(Map<String, dynamic> json) =
-      _$_ScheduleDoctorsResponse.fromJson;
+      _$ScheduleDoctorsResponseImpl.fromJson;
 
   @override
   @JsonKey(name: 'DoctorInfo')
@@ -200,6 +203,6 @@ abstract class _ScheduleDoctorsResponse implements ScheduleDoctorsResponse {
   List<Clinic>? get clinics;
   @override
   @JsonKey(ignore: true)
-  _$$_ScheduleDoctorsResponseCopyWith<_$_ScheduleDoctorsResponse>
+  _$$ScheduleDoctorsResponseImplCopyWith<_$ScheduleDoctorsResponseImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

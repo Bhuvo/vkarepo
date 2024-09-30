@@ -6,9 +6,9 @@ part of 'booking_appointment.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_BookingAppointment _$$_BookingAppointmentFromJson(
+_$BookingAppointmentImpl _$$BookingAppointmentImplFromJson(
         Map<String, dynamic> json) =>
-    _$_BookingAppointment(
+    _$BookingAppointmentImpl(
       DeptName: json['DeptName'] ?? null,
       Doctor_Notes: json['Doctor_Notes'] ?? null,
       Hospital_id: json['Hospital_id'] ?? null,
@@ -175,8 +175,8 @@ _$_BookingAppointment _$$_BookingAppointmentFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_BookingAppointmentToJson(
-        _$_BookingAppointment instance) =>
+Map<String, dynamic> _$$BookingAppointmentImplToJson(
+        _$BookingAppointmentImpl instance) =>
     <String, dynamic>{
       'DeptName': instance.DeptName,
       'Doctor_Notes': instance.Doctor_Notes,

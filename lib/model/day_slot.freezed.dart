@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'day_slot.dart';
 
@@ -12,7 +12,7 @@ part of 'day_slot.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DaySlot _$DaySlotFromJson(Map<String, dynamic> json) {
   return _DaySlot.fromJson(json);
@@ -59,23 +59,23 @@ class _$DaySlotCopyWithImpl<$Res, $Val extends DaySlot>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Time = null,
-    Object? FromTime = null,
-    Object? ToTime = null,
+    Object? Time = freezed,
+    Object? FromTime = freezed,
+    Object? ToTime = freezed,
     Object? Day = freezed,
-    Object? Days_Name = null,
-    Object? Time_List = null,
+    Object? Days_Name = freezed,
+    Object? Time_List = freezed,
   }) {
     return _then(_value.copyWith(
-      Time: null == Time
+      Time: freezed == Time
           ? _value.Time
           : Time // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      FromTime: null == FromTime
+      FromTime: freezed == FromTime
           ? _value.FromTime
           : FromTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ToTime: null == ToTime
+      ToTime: freezed == ToTime
           ? _value.ToTime
           : ToTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -83,11 +83,11 @@ class _$DaySlotCopyWithImpl<$Res, $Val extends DaySlot>
           ? _value.Day
           : Day // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      Days_Name: null == Days_Name
+      Days_Name: freezed == Days_Name
           ? _value.Days_Name
           : Days_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Time_List: null == Time_List
+      Time_List: freezed == Time_List
           ? _value.Time_List
           : Time_List // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -96,10 +96,10 @@ class _$DaySlotCopyWithImpl<$Res, $Val extends DaySlot>
 }
 
 /// @nodoc
-abstract class _$$_DaySlotCopyWith<$Res> implements $DaySlotCopyWith<$Res> {
-  factory _$$_DaySlotCopyWith(
-          _$_DaySlot value, $Res Function(_$_DaySlot) then) =
-      __$$_DaySlotCopyWithImpl<$Res>;
+abstract class _$$DaySlotImplCopyWith<$Res> implements $DaySlotCopyWith<$Res> {
+  factory _$$DaySlotImplCopyWith(
+          _$DaySlotImpl value, $Res Function(_$DaySlotImpl) then) =
+      __$$DaySlotImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -112,32 +112,33 @@ abstract class _$$_DaySlotCopyWith<$Res> implements $DaySlotCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DaySlotCopyWithImpl<$Res>
-    extends _$DaySlotCopyWithImpl<$Res, _$_DaySlot>
-    implements _$$_DaySlotCopyWith<$Res> {
-  __$$_DaySlotCopyWithImpl(_$_DaySlot _value, $Res Function(_$_DaySlot) _then)
+class __$$DaySlotImplCopyWithImpl<$Res>
+    extends _$DaySlotCopyWithImpl<$Res, _$DaySlotImpl>
+    implements _$$DaySlotImplCopyWith<$Res> {
+  __$$DaySlotImplCopyWithImpl(
+      _$DaySlotImpl _value, $Res Function(_$DaySlotImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? Time = null,
-    Object? FromTime = null,
-    Object? ToTime = null,
+    Object? Time = freezed,
+    Object? FromTime = freezed,
+    Object? ToTime = freezed,
     Object? Day = freezed,
-    Object? Days_Name = null,
-    Object? Time_List = null,
+    Object? Days_Name = freezed,
+    Object? Time_List = freezed,
   }) {
-    return _then(_$_DaySlot(
-      Time: null == Time
+    return _then(_$DaySlotImpl(
+      Time: freezed == Time
           ? _value.Time
           : Time // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      FromTime: null == FromTime
+      FromTime: freezed == FromTime
           ? _value.FromTime
           : FromTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      ToTime: null == ToTime
+      ToTime: freezed == ToTime
           ? _value.ToTime
           : ToTime // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -145,11 +146,11 @@ class __$$_DaySlotCopyWithImpl<$Res>
           ? _value._Day
           : Day // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      Days_Name: null == Days_Name
+      Days_Name: freezed == Days_Name
           ? _value.Days_Name
           : Days_Name // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      Time_List: null == Time_List
+      Time_List: freezed == Time_List
           ? _value.Time_List
           : Time_List // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -159,8 +160,8 @@ class __$$_DaySlotCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DaySlot implements _DaySlot {
-  const _$_DaySlot(
+class _$DaySlotImpl implements _DaySlot {
+  const _$DaySlotImpl(
       {this.Time = '',
       this.FromTime = '',
       this.ToTime = '',
@@ -169,8 +170,8 @@ class _$_DaySlot implements _DaySlot {
       this.Time_List = ''})
       : _Day = Day;
 
-  factory _$_DaySlot.fromJson(Map<String, dynamic> json) =>
-      _$$_DaySlotFromJson(json);
+  factory _$DaySlotImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DaySlotImplFromJson(json);
 
   @override
   @JsonKey()
@@ -186,6 +187,7 @@ class _$_DaySlot implements _DaySlot {
   List<String>? get Day {
     final value = _Day;
     if (value == null) return null;
+    if (_Day is EqualUnmodifiableListView) return _Day;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -203,10 +205,10 @@ class _$_DaySlot implements _DaySlot {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DaySlot &&
+            other is _$DaySlotImpl &&
             const DeepCollectionEquality().equals(other.Time, Time) &&
             const DeepCollectionEquality().equals(other.FromTime, FromTime) &&
             const DeepCollectionEquality().equals(other.ToTime, ToTime) &&
@@ -229,12 +231,12 @@ class _$_DaySlot implements _DaySlot {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DaySlotCopyWith<_$_DaySlot> get copyWith =>
-      __$$_DaySlotCopyWithImpl<_$_DaySlot>(this, _$identity);
+  _$$DaySlotImplCopyWith<_$DaySlotImpl> get copyWith =>
+      __$$DaySlotImplCopyWithImpl<_$DaySlotImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DaySlotToJson(
+    return _$$DaySlotImplToJson(
       this,
     );
   }
@@ -247,9 +249,9 @@ abstract class _DaySlot implements DaySlot {
       final dynamic ToTime,
       final List<String>? Day,
       final dynamic Days_Name,
-      final dynamic Time_List}) = _$_DaySlot;
+      final dynamic Time_List}) = _$DaySlotImpl;
 
-  factory _DaySlot.fromJson(Map<String, dynamic> json) = _$_DaySlot.fromJson;
+  factory _DaySlot.fromJson(Map<String, dynamic> json) = _$DaySlotImpl.fromJson;
 
   @override
   dynamic get Time;
@@ -265,6 +267,6 @@ abstract class _DaySlot implements DaySlot {
   dynamic get Time_List;
   @override
   @JsonKey(ignore: true)
-  _$$_DaySlotCopyWith<_$_DaySlot> get copyWith =>
+  _$$DaySlotImplCopyWith<_$DaySlotImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

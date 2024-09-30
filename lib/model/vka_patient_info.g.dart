@@ -6,9 +6,9 @@ part of 'vka_patient_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_VkaPatientInfo _$$_VkaPatientInfoFromJson(Map<String, dynamic> json) =>
-    _$_VkaPatientInfo(
-      patientId: json['patientId'] as int?,
+_$VkaPatientInfoImpl _$$VkaPatientInfoImplFromJson(Map<String, dynamic> json) =>
+    _$VkaPatientInfoImpl(
+      patientId: (json['patientId'] as num?)?.toInt(),
       patientRegistrationNumber: json['patientRegistrationNumber'] as String?,
       firstName: json['firstName'] as String?,
       lastName: json['lastName'] as String?,
@@ -29,7 +29,8 @@ _$_VkaPatientInfo _$$_VkaPatientInfoFromJson(Map<String, dynamic> json) =>
       patientRegistrationList: json['patientRegistrationList'],
     );
 
-Map<String, dynamic> _$$_VkaPatientInfoToJson(_$_VkaPatientInfo instance) =>
+Map<String, dynamic> _$$VkaPatientInfoImplToJson(
+        _$VkaPatientInfoImpl instance) =>
     <String, dynamic>{
       'patientId': instance.patientId,
       'patientRegistrationNumber': instance.patientRegistrationNumber,

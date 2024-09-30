@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'update_patient_waiting.dart';
 
@@ -12,7 +12,7 @@ part of 'update_patient_waiting.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UpdatePatientWaiting _$UpdatePatientWaitingFromJson(Map<String, dynamic> json) {
   return _UpdatePatientWaiting.fromJson(json);
@@ -99,11 +99,11 @@ class _$UpdatePatientWaitingCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_UpdatePatientWaitingCopyWith<$Res>
+abstract class _$$UpdatePatientWaitingImplCopyWith<$Res>
     implements $UpdatePatientWaitingCopyWith<$Res> {
-  factory _$$_UpdatePatientWaitingCopyWith(_$_UpdatePatientWaiting value,
-          $Res Function(_$_UpdatePatientWaiting) then) =
-      __$$_UpdatePatientWaitingCopyWithImpl<$Res>;
+  factory _$$UpdatePatientWaitingImplCopyWith(_$UpdatePatientWaitingImpl value,
+          $Res Function(_$UpdatePatientWaitingImpl) then) =
+      __$$UpdatePatientWaitingImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -116,11 +116,11 @@ abstract class _$$_UpdatePatientWaitingCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UpdatePatientWaitingCopyWithImpl<$Res>
-    extends _$UpdatePatientWaitingCopyWithImpl<$Res, _$_UpdatePatientWaiting>
-    implements _$$_UpdatePatientWaitingCopyWith<$Res> {
-  __$$_UpdatePatientWaitingCopyWithImpl(_$_UpdatePatientWaiting _value,
-      $Res Function(_$_UpdatePatientWaiting) _then)
+class __$$UpdatePatientWaitingImplCopyWithImpl<$Res>
+    extends _$UpdatePatientWaitingCopyWithImpl<$Res, _$UpdatePatientWaitingImpl>
+    implements _$$UpdatePatientWaitingImplCopyWith<$Res> {
+  __$$UpdatePatientWaitingImplCopyWithImpl(_$UpdatePatientWaitingImpl _value,
+      $Res Function(_$UpdatePatientWaitingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -133,7 +133,7 @@ class __$$_UpdatePatientWaitingCopyWithImpl<$Res>
     Object? dayEndFlag = null,
     Object? doctorOnline = null,
   }) {
-    return _then(_$_UpdatePatientWaiting(
+    return _then(_$UpdatePatientWaitingImpl(
       responseCode: null == responseCode
           ? _value.responseCode
           : responseCode // ignore: cast_nullable_to_non_nullable
@@ -164,8 +164,8 @@ class __$$_UpdatePatientWaitingCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UpdatePatientWaiting implements _UpdatePatientWaiting {
-  const _$_UpdatePatientWaiting(
+class _$UpdatePatientWaitingImpl implements _UpdatePatientWaiting {
+  const _$UpdatePatientWaitingImpl(
       {required this.responseCode,
       required this.waitingMinutes,
       required this.queue,
@@ -173,8 +173,8 @@ class _$_UpdatePatientWaiting implements _UpdatePatientWaiting {
       required this.dayEndFlag,
       required this.doctorOnline});
 
-  factory _$_UpdatePatientWaiting.fromJson(Map<String, dynamic> json) =>
-      _$$_UpdatePatientWaitingFromJson(json);
+  factory _$UpdatePatientWaitingImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UpdatePatientWaitingImplFromJson(json);
 
   @override
   final int responseCode;
@@ -195,10 +195,10 @@ class _$_UpdatePatientWaiting implements _UpdatePatientWaiting {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdatePatientWaiting &&
+            other is _$UpdatePatientWaitingImpl &&
             (identical(other.responseCode, responseCode) ||
                 other.responseCode == responseCode) &&
             (identical(other.waitingMinutes, waitingMinutes) ||
@@ -220,13 +220,14 @@ class _$_UpdatePatientWaiting implements _UpdatePatientWaiting {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UpdatePatientWaitingCopyWith<_$_UpdatePatientWaiting> get copyWith =>
-      __$$_UpdatePatientWaitingCopyWithImpl<_$_UpdatePatientWaiting>(
-          this, _$identity);
+  _$$UpdatePatientWaitingImplCopyWith<_$UpdatePatientWaitingImpl>
+      get copyWith =>
+          __$$UpdatePatientWaitingImplCopyWithImpl<_$UpdatePatientWaitingImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UpdatePatientWaitingToJson(
+    return _$$UpdatePatientWaitingImplToJson(
       this,
     );
   }
@@ -239,10 +240,10 @@ abstract class _UpdatePatientWaiting implements UpdatePatientWaiting {
       required final int queue,
       required final int totalQueue,
       required final String dayEndFlag,
-      required final String doctorOnline}) = _$_UpdatePatientWaiting;
+      required final String doctorOnline}) = _$UpdatePatientWaitingImpl;
 
   factory _UpdatePatientWaiting.fromJson(Map<String, dynamic> json) =
-      _$_UpdatePatientWaiting.fromJson;
+      _$UpdatePatientWaitingImpl.fromJson;
 
   @override
   int get responseCode;
@@ -258,6 +259,6 @@ abstract class _UpdatePatientWaiting implements UpdatePatientWaiting {
   String get doctorOnline;
   @override
   @JsonKey(ignore: true)
-  _$$_UpdatePatientWaitingCopyWith<_$_UpdatePatientWaiting> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UpdatePatientWaitingImplCopyWith<_$UpdatePatientWaitingImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
