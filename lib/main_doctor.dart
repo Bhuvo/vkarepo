@@ -9,8 +9,7 @@ import 'package:timesmedlite/ui/app/app_config.dart';
 import 'package:timesmedlite/ui/app/m_app.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform(Config.doctor));
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform(Config.doctor));
   print("Handling a background message: ${message.messageId}");
 }
 
@@ -19,8 +18,7 @@ void main() async {
   const config = Config.doctor;
   await initializeDateFormatting();
   if (!Platform.isWindows) {
-    await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform(config));
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform(config));
   }
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   // Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
