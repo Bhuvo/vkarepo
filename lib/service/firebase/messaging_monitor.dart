@@ -49,7 +49,6 @@ abstract class MessagingMonitor {
         if (kDebugMode) {
           print('FCM Payload onBackgroundMessage');
           print(message.data);
-
         }
       });
       FirebaseMessaging.onMessage.listen((event) {
