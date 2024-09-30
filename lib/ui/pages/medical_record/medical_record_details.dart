@@ -245,21 +245,23 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                     style: Theme.of(context).textTheme.caption,
                   ),
                   const Spacer(),
-                  TextButton(
-                      onPressed: () {},
-                      child: Row(
-                        children: const [
-                          Icon(
-                            Icons.print,
-                            size: 15,
-                            color: MTheme.ICON_COLOR,
-                          ),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          Text('Print')
-                        ],
-                      ))
+                  // TextButton(
+                  //     onPressed: () {
+                  //
+                  //     },
+                  //     child: Row(
+                  //       children: const [
+                  //         Icon(
+                  //           Icons.print,
+                  //           size: 15,
+                  //           color: MTheme.ICON_COLOR,
+                  //         ),
+                  //         SizedBox(
+                  //           width: 8,
+                  //         ),
+                  //         Text('Print')
+                  //       ],
+                  //     ))
                 ],
               ),
             ),

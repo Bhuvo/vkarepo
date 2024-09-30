@@ -24,9 +24,10 @@ import '../../routes/routes.dart';
 class UpdateCallStatusPage extends StatefulWidget {
   final appointmentIDFromCallScreen;
   final currentCallKey;
+  final bool? isFromClinicalVisit;
 
   const UpdateCallStatusPage(
-      {Key? key, this.appointmentIDFromCallScreen, this.currentCallKey})
+      {Key? key, this.appointmentIDFromCallScreen, this.currentCallKey, this.isFromClinicalVisit})
       : super(key: key);
 
   @override
@@ -169,6 +170,11 @@ class _UpdateCallStatusPageState extends State<UpdateCallStatusPage>
                         await showWaitingDialog(context: context, call: call1);
                     print("after RevisitBooking api");
                     if (jsonDecode(res1!.bodyString) == "Booked") {
+                      if(widget.isFromClinicalVisit ?? false){
+                        print('coming in if condition ${widget.isFromClinicalVisit}');
+                        context.pop();
+                        return context.pop();
+                      }
                       if (jsonDecode(res1!.bodyString) == "Booked") {
                         final call2 = Injector().apiService.get(
                             path: 'StopNew',
@@ -218,6 +224,11 @@ class _UpdateCallStatusPageState extends State<UpdateCallStatusPage>
                     final res1 =
                         await showWaitingDialog(context: context, call: call1);
                     if (jsonDecode(res1!.bodyString) == "Booked") {
+                      if(widget.isFromClinicalVisit ?? false){
+                        print('coming in if condition ${widget.isFromClinicalVisit}');
+                        context.pop();
+                        return context.pop();
+                      }
                       final call2 =
                           Injector().apiService.get(path: 'StopNew', query: {
                         'Key_id': keyID,
@@ -248,6 +259,11 @@ class _UpdateCallStatusPageState extends State<UpdateCallStatusPage>
                   final res =
                       await showWaitingDialog(context: context, call: call);
                   if (jsonDecode(res!.bodyString) == "Updated") {
+                    if(widget.isFromClinicalVisit ?? false){
+                      print('coming in if condition ${widget.isFromClinicalVisit}');
+                      context.pop();
+                      return context.pop();
+                    }
                     print(
                         'RRRRRRRRRRRRREEEEEEEEEEEEEEEEEESSSSSSSSSSSSSSSSSSSSSS${widget.key}');
 
