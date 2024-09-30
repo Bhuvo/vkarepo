@@ -67,6 +67,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
 
   @override
   void initState() {
+    print('dctor id ${LocalStorage.getUID()}'); //184371
     final now = DateTime.now();
     final yesterday = DateTime(now.year, now.month, now.day - 1);
     print("${query['From']} query['From]");

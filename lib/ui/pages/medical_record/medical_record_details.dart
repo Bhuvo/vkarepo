@@ -112,7 +112,7 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print("${widget.appointment_id} prints appointment id");
+    print("${widget.appointment_id} ,${LocalStorage.getUID().toString()} , ${widget.data?.User_id} prints appointment id");
     bloc = ApiBuilderBloc(
         path: 'ViewMedicalRecords',
         query: {
@@ -268,7 +268,7 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
               create: (c) => ApiBuilderBloc(
                 path: 'get_laboratoryNew_SRMC',
                 query: {
-                  'user_id': LocalStorage.getUID().toString(),
+                  'user_id': LocalStorage.getCursorPatient().userId,
                   'Appointment_id': widget.appointment_id.toString(),
                 },
               )..add(const Load()),

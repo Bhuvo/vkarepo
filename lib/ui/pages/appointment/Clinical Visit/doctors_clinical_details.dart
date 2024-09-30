@@ -277,14 +277,14 @@ class _DoctorsClinicalListDetailsState
                 child: OutlinedButton(
                   onPressed: () {
                     LocalStorage.setBool(LocalStorage.isFromPatient,true) ;
-                    LocalStorage.setInt(LocalStorage.patientSearchDoctorId,178936) ; //178936 // 184364
+                    LocalStorage.setInt(LocalStorage.patientSearchDoctorId, widget.doctorData.doctorId ?? 0) ; //178936 // 184364
                     context.push(Routes.bookingAppointment);
                     // context.push(Routes.BookAppointmentForClinicalTiming, {
                     //   'doctorsName': widget.doctorsName.toString(),
-                    //   'doctorsQualification':
-                    //       widget.doctorsQualification.toString(),
-                    //       widget.doctorsQualification.toString(),
-                    // });
+                    //   'doctorsQualification': widget.doctorsQualification.toString(),
+                    //       // widget.doctorsQualification.toString(),
+                    // }
+                   // );
                   },
                   child: Text(
                     'Book Appointment',

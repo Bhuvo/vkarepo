@@ -18,6 +18,7 @@ import '../../../model/get_hospital_timing_by_doctor_hospital.dart';
 import '../../../utils/local_storage.dart';
 import '../../components/api_builder/api_builder.dart';
 import '../../components/api_builder/api_builder_bloc.dart';
+import '../../components/nothing_widget.dart';
 import '../../components/shimmer/drop_down_shimmer.dart';
 import '../../components/show_message.dart';
 import '../../components/waiting_dialog.dart';
@@ -53,6 +54,7 @@ class _AddHospitalScheduleDialogState extends State<AddHospitalScheduleDialog> {
     fromTime.text = "";
     toTime.text = ""; //set the initial value of text field
     //DocID=38371;
+    hospitalIDselected.text = '193971';
     DocID = LocalStorage.getUID();
     super.initState();
   }
@@ -63,10 +65,10 @@ class _AddHospitalScheduleDialogState extends State<AddHospitalScheduleDialog> {
   Widget build(BuildContext context) {
     print('$DocID');
     final ApiBuilderBloc GetHospitalTimingMasterByDoctor_bloc = ApiBuilderBloc(
-        path: 'GetHospitalTimingMasterByDoctor',
+        path: 'GetAllHospitalByDoctor',
         // query: {'DoctorId': DocID},
         query: {
-          'DoctorId': LocalStorage.getUID().toString(),
+          'DoctorId': LocalStorage.getUID(),
         },
         api2: true);
 
@@ -101,11 +103,17 @@ class _AddHospitalScheduleDialogState extends State<AddHospitalScheduleDialog> {
                   BlocProvider(
                     create: (_) =>
                         GetHospitalTimingMasterByDoctor_bloc..add(const Load()),
-                    child: ApiBuilder(
+                    child: ApiBuilder<GetHospitalTimingByDoctorHospital>(
+                      empty: NothingWidget(
+                        title: "No Hospital Schedule List",
+                        icon: Icons.local_hospital,
+                        message: "",
+                      ),
                       loading: const DropDownShimmer(
                         label: 'Hospital',
                       ),
                       jsonBuilder: (hosptiallist, load) {
+                        print('Hospital List $hosptiallist');
                         return MDialogDown<Map<String, dynamic>>(
                             required: false,
                             items: hosptiallist,

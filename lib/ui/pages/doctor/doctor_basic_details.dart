@@ -177,9 +177,9 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                             DateFormat("MM/dd/yyyy").format(v!).toString());
                   },
                   start: DateTime(1900),
-                  end: DateTime(2005),
-                  initial:
-                      DateFormat("dd/MM/yyyy").parse(data.doctorDob.toString()),
+                  end: DateTime.now(),
+                  // initial:
+                  //     DateFormat("dd/MM/yyyy").parse(data.doctorDob.toString()),
                 ),
                 SizedBox(
                   height: 12,

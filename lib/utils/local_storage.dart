@@ -46,8 +46,9 @@ class LocalStorage {
     //return Consts.DUMMY_USER.copyWith(id: 38371);
     final user = User.fromJson(getJson(USER));
     print(getJson(USER));
-    final id = '${user.userId ?? user.id ?? user.patientid}';
-    return id;
+    final id = '${user.id ??user.userId ?? user.patientid}';
+    final id2 ='${user.userId ?? user.patientid}';
+    return getString(IsType) == Consts.doctor ?id : id2;
   }
   static Patient getCursorPatient(){
     //return Consts.DUMMY_USER.copyWith(id: 38371);

@@ -160,7 +160,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
     print(LocalStorage.getUser().userId);
     print(LocalStorage.getUser().userId.toString());
     print(LocalStorage.getUID());
-    print("prints user id ${LocalStorage.getUser().userId}");
+    print("prints user id ${LocalStorage.getUser().userId} ,${LocalStorage.getUID()}");
     apBloc = ApiBuilderBloc(path: 'Appointmentslist', query: {
        'User_id': LocalStorage.getUser().userId,
       // 'User_id': context.watch<PatientBloc>().patient?.userId.toString()
@@ -171,7 +171,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
       'user_id': LocalStorage.getUser().userId,
     });
     familyBloc = ApiBuilderBloc(path: 'SavedPatientList', query: {
-      'User_id': LocalStorage.getUID(),
+      'User_id': LocalStorage.getUser().userId,
     })
       ..add(const Load());
   }
@@ -189,8 +189,8 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
     print(data.userId);
     print(data.firstName);
     print(data.id);
-    // _reload(data.userId);
-    print("prints user id above");
+     _reload(data.userId);
+    // print("prints user id above");
     Size size = MediaQuery.of(context).size;
     return MScaffold(
       title: Text(Consts.BOOK_AN_APPOINTMENT.toUpperCase()),
@@ -408,7 +408,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                     return UserProvider(
                         data: User(
                             fullName: '${controller.upcoming[i].doctorName}',
-                            image: 'https://www.timesmed.com/images/doc-imgs/55bccd5aa6c01c74389ad3e3be60fed0afa2067a2aef6.jpg'),
+                            image:'${controller.upcoming[i].doctorImage}' ),
                         child: AppointmentListItem(
                           contextfromBookAppointmentPage: context,
                           data: AppointmentData(doctorName: item.doctorName),
@@ -577,14 +577,18 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                                       clApBloc.add(UpdateQuery({
                                         'user_id': data.userId,
                                       }));
+                                      familyBloc.add(UpdateQuery({
+                                        'user_id': LocalStorage.getUser().userId,
+                                      }));
                                       await Future.delayed(
                                           const Duration(milliseconds: 100));
                                       apBloc.add(const Refresh());
                                       clApBloc.add(const Refresh());
                                       await Future.delayed(
                                           const Duration(milliseconds: 100));
-                                      familyBloc.add(const Refresh());
                                       LocalStorage.setJson(LocalStorage.CURSOR_USER, data.toJson());
+
+                                      familyBloc.add(const Refresh());
                                       await Future.delayed(
                                           const Duration(milliseconds: 100));
                                       print('coming ontap ${data.userId}');

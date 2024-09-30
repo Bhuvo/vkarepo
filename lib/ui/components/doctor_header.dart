@@ -30,7 +30,7 @@ class DoctorHeader extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
-            PopupMenuButton(
+         LocalStorage.getString(LocalStorage.IsType) == Consts.doctor ?  PopupMenuButton(
                 offset: const Offset(0, 60),
                 itemBuilder: (BuildContext context) {
                   return const [
@@ -41,6 +41,52 @@ class DoctorHeader extends StatelessWidget {
                     PopupMenuItem(
                       child: Text('Hospital List'),
                       value: 'Hospital List',
+                    ),
+                    PopupMenuItem(
+                      child: Text(
+                        'Logout',
+                        style: TextStyle(color: Colors.red),
+                      ),
+                      value: 'Logout',
+                    ),
+                  ];
+                },
+                onSelected: (v) async {
+                  switch (v) {
+                    case 'Basic Details':
+                      {
+                        final call = Injector().apiService.get2(
+                            path: 'GetDoctorDetails',
+                            query: {'DoctorId': LocalStorage.getUID()});
+                        final res = await showWaitingDialog(
+                            context: context, call: call);
+                        if (res != null) {
+                          var data = GetDoctorDetails.fromJson(res.body.data);
+                          print(data);
+
+                          context.push(Routes.doctorBasicDetails,
+                              {'doctorDetails': data});
+                        }
+                      }
+                      break;
+                    case 'Hospital List':
+                      context.push(Routes.hospitalsBasedOnDoctor);
+                      break;
+                    case 'Logout':
+                      logOut(context);
+                      break;
+                  }
+                },
+                child: const UserAvatar(
+                  radius: 26,
+                ))  :
+            PopupMenuButton(
+                offset: const Offset(0, 60),
+                itemBuilder: (BuildContext context) {
+                  return const [
+                    PopupMenuItem(
+                      child: Text('Basic Details'),
+                      value: 'Basic Details',
                     ),
                     PopupMenuItem(
                       child: Text(

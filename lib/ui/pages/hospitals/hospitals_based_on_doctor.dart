@@ -159,6 +159,7 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: OutlinedButton(
                   onPressed: () {
+                    print('hospital Id ${LocalStorage.getUser().hospitalList}');
                     showDialog(
                       context: context,
                       builder: (c) => const AddHospitalScheduleDialog(),
