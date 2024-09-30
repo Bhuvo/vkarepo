@@ -124,7 +124,9 @@ abstract class RouteGenerator {
             UpdateCallStatusPage(
                 appointmentIDFromCallScreen:
                     args['appointmentIDFromCallScreen'],
-                currentCallKey: args['currentCallKey']));
+                currentCallKey: args['currentCallKey'] ,
+               isFromClinicalVisit: args['isFromClinicalVisit'] ?? false,
+            ));
       case Routes.feedbackPage:
         return route(settings, const FeedbackPage());
       case Routes.patientAccountPage:

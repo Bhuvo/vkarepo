@@ -54,8 +54,8 @@ class MedicalRecordsList extends StatelessWidget {
         //raw: true
       );
     } else {
-      print(patID);
-      print(docID);
+      print(LocalStorage.getCursorPatient().userId);
+      print(appointment?.doctorId);
       print("from pat");
       bloc = ApiBuilderBloc(
         path: 'getdetails',

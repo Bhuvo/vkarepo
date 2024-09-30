@@ -376,11 +376,11 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                           contextfromBookAppointmentPage: context,
                           data: AppointmentData(doctorName: item.doctorName),
                           upcoming: false,
-                          child: Container(
-                            padding: EdgeInsets.all(3),
-                            decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
-                            child: Text("Booked Successfully", style: TextStyle(color: Colors.white),),
-                          ),
+                          // child: Container(
+                          //   padding: EdgeInsets.all(3),
+                          //   decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
+                          //   child: Text("Booked Successfully", style: TextStyle(color: Colors.white),),
+                          // ),
                         )
                     );
                   }),
@@ -413,11 +413,11 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                           contextfromBookAppointmentPage: context,
                           data: AppointmentData(doctorName: item.doctorName),
                           upcoming: false,
-                          child: Container(
-                            padding: EdgeInsets.all(3),
-                            decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
-                            child: Text("Booked Successfully", style: TextStyle(color: Colors.white),),
-                          ),
+                          // child: Container(
+                          //   padding: EdgeInsets.all(3),
+                          //   decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
+                          //   child: Text("Booked Successfully", style: TextStyle(color: Colors.white),),
+                          // ),
                         )
                     );
                   }),

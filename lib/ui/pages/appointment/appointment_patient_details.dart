@@ -12,6 +12,7 @@ import 'package:timesmedlite/ui/providers/user_provider.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
+import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../../di/dependency_injection.dart';
 
@@ -70,18 +71,22 @@ class AppointmentPatientDetails extends StatelessWidget {
                 ActionTile(
                     title: 'Complete Visit',
                     onTap: (){
-                      final call = Injector()
-                          .apiService
-                          .rawGet(path: 'UpdateVideoCall_CallLog', query: {
-                        'Appointment_id': data.Appointment_id,
-                        'Status': 'C',
-                        'R_No': '0',
+                     //  final call = Injector()
+                     //      .apiService
+                     //      .rawGet(path: 'UpdateVideoCall_CallLog', query: {
+                     //    'Appointment_id': data.Appointment_id,
+                     //    'Status': 'C',
+                     //    'R_No': '0',
+                     //  });
+                     // call.then((value) => print(value.body));
+                      context.push(Routes.updateCallStatus, {
+                        'appointmentIDFromCallScreen': '${data.Appointment_id}',
+                        'currentCallKey': '',
+                        'isFromClinicalVisit': true
                       });
-                     call.then((value) => print(value.body));
                     },
                     data: data,
                     icon: FontAwesomeIcons.fileShield),
-
               ],
             ),
           ),
