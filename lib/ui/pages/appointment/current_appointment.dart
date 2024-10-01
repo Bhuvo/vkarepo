@@ -203,7 +203,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                         DashboardCard(
                           title: '${data['total'] ?? '-'}',
                           subTitle: 'Scheduled',
-                          color: Colors.lightBlue,
+                          color: Color(0xFF2fa6c4),
                           asset: 'assets/images/scheduled.png',
                           onTap: () {
                             context.push(
@@ -221,7 +221,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                         DashboardCard(
                           title: '${data['waiting'] ?? '-'}',
                           subTitle: 'Waiting',
-                          color: Colors.teal,
+                          color: Color(0xFFf8457a),
                           asset: 'assets/images/waiting.png',
                           onTap: () {
                             context.push(
@@ -259,7 +259,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                         DashboardCard(
                           title: '0',
                           subTitle: 'Cancel',
-                          color: Colors.red,
+                          color: Color(0xFFf2bd2e),
                           asset: 'assets/images/cancel.png',
                           onTap: () {
                             context.push(
@@ -275,28 +275,28 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                         ),
                       ],
                     ),
-                    DashboardCard(
-                      title: '0',
-                      subTitle: 'Online Consultation',
-                      color: Colors.grey.shade600,
-                      asset: 'assets/images/consultation_online.png',
-                      flex: 0,
-                      onTap: () {
-                        context.push(
-                          Routes.scheduledAppointmentList,
-                          {
-                            'hos_id': query['hos_id'],
-                          },
-                        );
-                      },
-                    ),
                     Row(
                       children: [
+                        // DashboardCard(
+                        //   title: '${data['OT_RequestCount'] ?? '-'}',
+                        //   subTitle: 'OT Request Count',
+                        //   color: Colors.lightBlue,
+                        //   asset: 'assets/images/waiting.png',
+                        //   onTap: () {
+                        //     context.push(
+                        //       Routes.scheduledAppointmentList,
+                        //       {
+                        //         'hos_id': query['hos_id'],
+                        //       },
+                        //     );
+                        //   },
+                        // ),
                         DashboardCard(
-                          title: '${data['OT_RequestCount'] ?? '-'}',
-                          subTitle: 'OT Request Count',
-                          color: Colors.lightBlue,
-                          asset: 'assets/images/waiting.png',
+                          title: '0',
+                          subTitle: 'Online Consultation',
+                          color: Colors.grey.shade600,
+                          asset: 'assets/images/consultation_online.png',
+                          // flex: 0,
                           onTap: () {
                             context.push(
                               Routes.scheduledAppointmentList,
@@ -310,7 +310,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           title: '${data['IP_app_count'] ?? '-'}',
                           subTitle: 'Follow Up Appointment',
                           asset: 'assets/images/scheduled.png',
-                          color: Colors.teal,
+                          color: Color(0xFF2fa6c4),
                           onTap: () {
                             context.push(
                               Routes.scheduledAppointmentList,

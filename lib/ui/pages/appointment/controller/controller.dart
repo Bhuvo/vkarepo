@@ -14,6 +14,7 @@ class PatientClinicalAppointmentController {
   Future<void> getClinicalAppointmentData(int userId) async {
     var response = await http.get(Uri.parse('https://api.timesmed.com/WebAPI2/GetPatientAppointments?user_id=$userId'));
     if(response.statusCode == 200){
+      print('appointment Data ${response.body}');
       var upcomingList = jsonDecode(response.body)['Data']['UpcomingAppointmentList'];
       upcoming = upcomingList.map<AppointmentData>((json) => AppointmentData.fromJson(json)).toList();
       var previousList = jsonDecode(response.body)['Data']['PreviousAppointmentList'];

@@ -666,14 +666,14 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                       await ApiFacade.callApi(context: context, call: call);
                   print(reqRes2);
                   if (reqRes2 != null) {
-                    print("im here at 6----");
+                    print("im here at 7---- wolf");
                     final apId = reqRes2.body['Appointment_id'];
-                    print("apId - $apId");
+                    print("apId - $apId ${LocalStorage.getUser().userId.toString()} ,${p.userId.toString()} ,${doctor!["Doctor_id"].toString()}");
                     final call1 = Injector()
                         .apiService
                         .rawPost(path: 'ConfirmAppointment', query: {
-                      // 'User_id': LocalStorage.getUser().userId.toString(),
-                      'User_id': p.userId.toString(),
+                      'User_id': LocalStorage.getUser().userId.toString(),
+                      // 'User_id': p.userId.toString(),
                       'Doctor_id': doctor!["Doctor_id"].toString(),
                       'Description': symptoms,
                       'Appointment_id': apId
@@ -688,7 +688,7 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                     //   'Appointment_id': apId
                     // });
 
-                    print("im here at 6----over ${call1.then((value) =>print('value - ${value.body.toString()}'))}");
+                    print("im here at 8----over ${call1.then((value) =>print('value - ${value.body.toString()}'))}");
                     final reqRes3 =
                         await ApiFacade.callApi(context: context, call: call1);
                     print("im here at 7-----${reqRes3?.body.toString()}");
@@ -700,117 +700,120 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                     print("Razor payment gateway starts here");
                     openCheckout(amount, orderId);
                   }
+                }else{
+                  print('fffffffffffffffffffffffffffffffffffff');
                 }
-                else {
-                  if (special == null) {
-                    Fluttertoast.showToast(
-                        msg:
-                            "Please select a Doctor or Specialization for Schedule",
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.BOTTOM,
-                        backgroundColor: Colors.redAccent,
-                        textColor: Colors.white,
-                        fontSize: 16.0);
-                  } else {
-                    print("im here at 2");
-                    print(lang?['Language_Id'].toString());
-                    print(special?['SubCategory_Name'].toString());
-                    print("prints language and speciality above");
-                    final res = await context.push(Routes.scheduleDoctorsList, {
-                      'lang': lang?['Language_Id'].toString(),
-                      'speciality': special?['SubCategory_Name'].toString()
-                    });
-                    print("printing res");
-                    if (res is InstantDoctor) {
-                      print("im here at 3");
-                      final dateTime = await context
-                          .push(Routes.scheduleAppointmentPatient, {
-                        'instantDoctor': res,
-                        'doctorGender': res.Gender.toString(),
-                        'doctorQualification':
-                            res.Doctor_Qualification.toString(),
-                        'doctorTotalExperience':
-                            res.Doctor_ExperienceYears.toString(),
-                        'doctorFee': res.Fee.toString(),
-                      });
-                      if (dateTime is DateTime) {
-                        print("im here at 4");
-                        print(dateTime);
-                        print("printing datetime bro");
-
-                        print(dateTime);
-                        var checkPrint = MDateUtils.dateToFormattedDate(
-                            dateTime.toIso8601String(), true,
-                            generic: true);
-                        var checkPrint1 = MDateUtils.getFormattedDate(
-                            dateTime.toIso8601String());
-                        print(checkPrint);
-                        print(checkPrint1);
-                        print("printing datetime bro1111111");
-
-                        /// below code is for booking time slot for schedule date and time api bloc
-                        final call = Injector()
-                            .apiService
-                            .rawGet(path: 'BookThisTime', query: {
-                          // 'User_id': LocalStorage.getUser().userId.toString(),
-                          'User_id': p.userId.toString(),
-                          'Doctor_id': res.Doctor_id,
-                          // 'DateParam': MDateUtils.dateToFormattedDate(
-                          //     dateTime.toIso8601String(), true,
-                          //     generic: true),
-                          'DateParam': MDateUtils.getFormattedDate(
-                              dateTime.toIso8601String()),
-                          'TimeParam': MDateUtils.dateToHourMinuteTimezone(
-                              dateTime.toIso8601String())
-                        });
-                        final reqRes = await ApiFacade.callApi(
-                            context: context, call: call);
-                        print("im here at 5");
-                        if (reqRes != null) {
-                          print("im here at 6--");
-                          final apId = reqRes.body['Appointment_id'];
-
-                          /// below code is to ConfirmAppointment api bloc
-                          final call1 = Injector()
-                              .apiService
-                              .rawPost(path: 'ConfirmAppointment', query: {
-                            // 'User_id': LocalStorage.getUser().userId.toString(),
-                            'User_id': p.userId.toString(),
-                            'Doctor_id': res.Doctor_id,
-                            'Description': symptoms,
-                            'Appointment_id': apId
-                          });
-                          final reqRes1 = await ApiFacade.callApi(
-                              context: context, call: call1);
-                          print("im here at 7---");
-                          final map = reqRes1!.body;
-                          print("req body ");
-                          // -------------------------------------- chcking
-                          // var paymenturl = AWSURL +
-                          //     'api/IspinPaymentOrderid/' +
-                          //     uispin.toString() +
-                          //     '/' +
-                          //     int.parse(pay.toString() + "00").toString();
-                          // // var paymenturl = AWSURL +
-                          // //     'api/IspinPaymentOrderid/' +
-                          // //     uispin.toString() +
-                          // //     '/' +
-                          // //     int.parse("100").toString();
-                          // final response = await http.get(paymenturl);
-                          // final responseJson = json.decode(response.body);
-                          //
-                          // order_id = responseJson['id'];
-
-                          //  testing key
-                          // Razorpay Test Key : rzp_test_TY9QbhRA0AgMK5
-                          // Razorpay Secret Key : xuDvLwatyyf5XarlKemGUHXz
-                          print("Razor payment gateway starts here");
-                          // openCheckout();
-                        }
-                      }
-                    }
-                  }
-                }
+                // else {
+                //   if (special == null) {
+                //     Fluttertoast.showToast(
+                //         msg:
+                //             "Please select a Doctor or Specialization for Schedule",
+                //         toastLength: Toast.LENGTH_SHORT,
+                //         gravity: ToastGravity.BOTTOM,
+                //         backgroundColor: Colors.redAccent,
+                //         textColor: Colors.white,
+                //         fontSize: 16.0);
+                //   }
+                //   else {
+                //     print("im here at 2");
+                //     print(lang?['Language_Id'].toString());
+                //     print(special?['SubCategory_Name'].toString());
+                //     print("prints language and speciality above");
+                //     final res = await context.push(Routes.scheduleDoctorsList, {
+                //       'lang': lang?['Language_Id'].toString(),
+                //       'speciality': special?['SubCategory_Name'].toString()
+                //     });
+                //     print("printing res");
+                //     if (res is InstantDoctor) {
+                //       print("im here at 3");
+                //       final dateTime = await context
+                //           .push(Routes.scheduleAppointmentPatient, {
+                //         'instantDoctor': res,
+                //         'doctorGender': res.Gender.toString(),
+                //         'doctorQualification':
+                //             res.Doctor_Qualification.toString(),
+                //         'doctorTotalExperience':
+                //             res.Doctor_ExperienceYears.toString(),
+                //         'doctorFee': res.Fee.toString(),
+                //       });
+                //       if (dateTime is DateTime) {
+                //         print("im here at 4");
+                //         print(dateTime);
+                //         print("printing datetime bro");
+                //
+                //         print(dateTime);
+                //         var checkPrint = MDateUtils.dateToFormattedDate(
+                //             dateTime.toIso8601String(), true,
+                //             generic: true);
+                //         var checkPrint1 = MDateUtils.getFormattedDate(
+                //             dateTime.toIso8601String());
+                //         print(checkPrint);
+                //         print(checkPrint1);
+                //         print("printing datetime bro1111111");
+                //
+                //         /// below code is for booking time slot for schedule date and time api bloc
+                //         final call = Injector()
+                //             .apiService
+                //             .rawGet(path: 'BookThisTime', query: {
+                //           // 'User_id': LocalStorage.getUser().userId.toString(),
+                //           'User_id': p.userId.toString(),
+                //           'Doctor_id': res.Doctor_id,
+                //           // 'DateParam': MDateUtils.dateToFormattedDate(
+                //           //     dateTime.toIso8601String(), true,
+                //           //     generic: true),
+                //           'DateParam': MDateUtils.getFormattedDate(
+                //               dateTime.toIso8601String()),
+                //           'TimeParam': MDateUtils.dateToHourMinuteTimezone(
+                //               dateTime.toIso8601String())
+                //         });
+                //         final reqRes = await ApiFacade.callApi(
+                //             context: context, call: call);
+                //         print("im here at 5");
+                //         if (reqRes != null) {
+                //           print("im here at 6--");
+                //           final apId = reqRes.body['Appointment_id'];
+                //
+                //           /// below code is to ConfirmAppointment api bloc
+                //           final call1 = Injector()
+                //               .apiService
+                //               .rawPost(path: 'ConfirmAppointment', query: {
+                //             // 'User_id': LocalStorage.getUser().userId.toString(),
+                //             'User_id': p.userId.toString(),
+                //             'Doctor_id': res.Doctor_id,
+                //             'Description': symptoms,
+                //             'Appointment_id': apId
+                //           });
+                //           final reqRes1 = await ApiFacade.callApi(
+                //               context: context, call: call1);
+                //           print("im here at 7---");
+                //           final map = reqRes1!.body;
+                //           print("req body ");
+                //           // -------------------------------------- chcking
+                //           // var paymenturl = AWSURL +
+                //           //     'api/IspinPaymentOrderid/' +
+                //           //     uispin.toString() +
+                //           //     '/' +
+                //           //     int.parse(pay.toString() + "00").toString();
+                //           // // var paymenturl = AWSURL +
+                //           // //     'api/IspinPaymentOrderid/' +
+                //           // //     uispin.toString() +
+                //           // //     '/' +
+                //           // //     int.parse("100").toString();
+                //           // final response = await http.get(paymenturl);
+                //           // final responseJson = json.decode(response.body);
+                //           //
+                //           // order_id = responseJson['id'];
+                //
+                //           //  testing key
+                //           // Razorpay Test Key : rzp_test_TY9QbhRA0AgMK5
+                //           // Razorpay Secret Key : xuDvLwatyyf5XarlKemGUHXz
+                //           print("Razor payment gateway starts here");
+                //           // openCheckout();
+                //         }
+                //       }
+                //     }
+                //   }
+                // }
                 break;
             }
             //context.push(Routes.inQueuePage);

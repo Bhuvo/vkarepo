@@ -80,17 +80,18 @@ class _InCallAppPageFocusState extends State<InCallAppPageFocus> {
 
   @override
   void initState() {
+    print('ggggggggggggggggggggg ${widget.session} ,${LocalStorage.getUID().toString()},${widget.keyId}');
     session = FirebaseFirestore.instance
         .collection('session')
         .doc((widget.session?.isEmpty ?? false) ? 'nothing' : widget.session);
 
     service = FebRtcSdk(
       socketUrl: 'https://focus.ind.in',
-      roomId: widget.session ?? '',
+      roomId: widget.keyId ?? '',
+      // roomId: widget.session ?? '',
       userId: LocalStorage.getUID().toString(),
       voice: true,
       video: true,
-
       onStreamChanged: () async {
         print('onStreamChanged');
         await localRenderer.initialize();
@@ -108,9 +109,6 @@ class _InCallAppPageFocusState extends State<InCallAppPageFocus> {
     initFirestore();
     super.initState();
   }
-
-
-
 
   initFirestore() async {
 

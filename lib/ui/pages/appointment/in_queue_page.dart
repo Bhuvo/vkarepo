@@ -150,7 +150,6 @@ class _InQueuePageState extends State<InQueuePage> {
                 // print(appointmentDate);
                 print("printing appointment date");
                 print(formattedDate);
-
                 // DateTime dateTime = DateTime.parse(data["Appointment_Id"]);
                 //  print(DateFormat("dd/MM/yyyy").format(dateTime));
 

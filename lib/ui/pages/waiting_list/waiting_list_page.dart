@@ -23,6 +23,7 @@ class WaitingListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('doctor id : ${LocalStorage.getUID()}');
     final ApiBuilderBloc bloc = ApiBuilderBloc(
         path: 'Get_Waiting_Patient_List',
         raw: true,

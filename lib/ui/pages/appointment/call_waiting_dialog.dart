@@ -100,7 +100,7 @@ class _CallWaitingDialogState extends State<CallWaitingDialog> {
         context: widget.contextfromBookAppointmentPage, call: call);
     if (res?.body.Rmessage == 'Payment Success') {
       print(
-          "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ${res?.body.Rkey}");
+          "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ${res?.body.Rkey } ${res?.body.Rmessage}");
       Navigator.push(
           widget.contextfromBookAppointmentPage,
           MaterialPageRoute(

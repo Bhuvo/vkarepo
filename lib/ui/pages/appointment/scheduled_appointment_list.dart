@@ -15,8 +15,11 @@ class ScheduledAppointmentList extends StatelessWidget {
   final String? fromDate;
   final String? toDate;
    ScheduledAppointmentList({Key? key, this.hospitalId, this.fromDate, this.toDate, required this.statusId}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
+    print('${LocalStorage.getUID()} $hospitalId,$fromDate $toDate');
     ///TODO: uncomment LocalStorage.getUID() and '$hospitalId' in production
     final bloc = ApiBuilderBloc(
         path: 'GetAppointmentList',

@@ -49,7 +49,7 @@ class DashboardPage extends StatelessWidget {
                               title: '${data.patient}',
                               subTitle: 'Total Patient\nRegistration',
                               color: const Color(0xff29abe2),
-                              asset: 'assets/images/ic_1.png',
+                              asset: 'assets/images/scheduled.png',
                               onTap: () {
                                  context.push(Routes.patientRegistrationList);
                               },
@@ -58,7 +58,7 @@ class DashboardPage extends StatelessWidget {
                               title: '${data.inr}',
                               subTitle: 'Total Patient\nToday INR Testing',
                               color: const Color(0xff0b9b92),
-                              asset: 'assets/images/ic_2.png',
+                              asset: 'assets/images/consultation_online.png',
                               onTap: () {
                                  context.push(Routes.todayInrScheduleList);
                               },
@@ -73,7 +73,7 @@ class DashboardPage extends StatelessWidget {
                               subTitle:
                                   'Total Patient\nToday INR Testing Completed',
                               color: const Color(0xff21d279),
-                              asset: 'assets/images/ic_3.png',
+                              asset: 'assets/images/confirm.png',
                               onTap: () {
                                 //context.push(Routes.totalCompletedList);
                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ScheduleListPage(title: "Total Completed Cases",)));
@@ -84,7 +84,7 @@ class DashboardPage extends StatelessWidget {
                               subTitle:
                                   'Total Patient\nToday INR Testing Pending',
                               color: const Color(0xfffabd2f),
-                              asset: 'assets/images/ic_4.png',
+                              asset: 'assets/images/waiting.png',
                               onTap: () {
                                 context.push(Routes.totalPendingList);
                               },
@@ -94,8 +94,8 @@ class DashboardPage extends StatelessWidget {
                         DashboardCard(
                           title: '${data.totalPending}',
                           subTitle: 'Total Pending Cases',
-                          color: const Color(0xffff4d4d),
-                          asset: 'assets/images/ic_5.png',
+                          color: const Color(0xffff4d4d), 
+                          asset: 'assets/images/appointment_missed.png',
                           flex: 0,
                           onTap: (){
                             context.push(Routes.totalPendingList);

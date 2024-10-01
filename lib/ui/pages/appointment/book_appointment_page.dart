@@ -129,11 +129,11 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
   _reload(int userId) {
     // reload the data here
     apBloc = ApiBuilderBloc(path: 'Appointmentslist', query: {
-      'User_id': userId.toString(),
+      'User_id': LocalStorage.getCursorPatient().userId.toString(),
       // 'User_id': patientData.userId,
     })..add(const Load());
     clApBloc = ApiBuilderBloc(path: 'GetPatientAppointments', query: {
-      'user_id': userId.toString(),
+      'user_id': LocalStorage.getCursorPatient().userId.toString(),
       // 'User_id': patientData.userId,
     })..add(const Load());
 
@@ -162,14 +162,14 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
     print(LocalStorage.getUID());
     print("prints user id ${LocalStorage.getUser().userId} ,${LocalStorage.getUID()}");
     apBloc = ApiBuilderBloc(path: 'Appointmentslist', query: {
-       'User_id': LocalStorage.getUser().userId,
+       'User_id': LocalStorage.getCursorPatient().userId,
       // 'User_id': context.watch<PatientBloc>().patient?.userId.toString()
       // 'User_id': patientData.userId,
       // 'User_id': LocalStorage.getCursorPatient().userId.toString(),
     })..add(const Load());
     clApBloc = ApiBuilderBloc(path: 'GetPatientAppointments',api2: true, query: {
-      'user_id': LocalStorage.getUser().userId,
-    });
+      'user_id': LocalStorage.getCursorPatient().userId,
+    })..add(const Load());
     familyBloc = ApiBuilderBloc(path: 'SavedPatientList', query: {
       'User_id': LocalStorage.getUser().userId,
     })
@@ -189,7 +189,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
     print(data.userId);
     print(data.firstName);
     print(data.id);
-     _reload(data.userId);
+     // _reload(data.userId);
     // print("prints user id above");
     Size size = MediaQuery.of(context).size;
     return MScaffold(
@@ -368,13 +368,15 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                   children: List.generate(controller.previous.length ?? 0, (i) {
                     final item = controller.previous[i];
                     print("XXXX$item");
+                    // return Text('${item.toJson()}');
                     return UserProvider(
                         data: User(
                             fullName: '${controller.previous[i].doctorName}',
                             image: 'https://www.timesmed.com/images/doc-imgs/55bccd5aa6c01c74389ad3e3be60fed0afa2067a2aef6.jpg'),
                         child: AppointmentListItem(
                           contextfromBookAppointmentPage: context,
-                          data: AppointmentData(doctorName: item.doctorName),
+                          data : item,
+                          // data: AppointmentData(doctorName: item.doctorName,id: item.id, ),
                           upcoming: false,
                           // child: Container(
                           //   padding: EdgeInsets.all(3),
@@ -411,7 +413,8 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                             image:'${controller.upcoming[i].doctorImage}' ),
                         child: AppointmentListItem(
                           contextfromBookAppointmentPage: context,
-                          data: AppointmentData(doctorName: item.doctorName),
+                          data: item,
+                          // data: AppointmentData(doctorName: item.doctorName),
                           upcoming: false,
                           // child: Container(
                           //   padding: EdgeInsets.all(3),
@@ -583,6 +586,8 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                                       await Future.delayed(
                                           const Duration(milliseconds: 100));
                                       apBloc.add(const Refresh());
+                                      await Future.delayed(
+                                          const Duration(milliseconds: 100));
                                       clApBloc.add(const Refresh());
                                       await Future.delayed(
                                           const Duration(milliseconds: 100));

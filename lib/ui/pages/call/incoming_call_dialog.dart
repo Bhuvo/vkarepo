@@ -13,7 +13,7 @@ class IncomingCallDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final data = Consts.DUMMY_USER;
-
+    print('gggggggggggg${data}');
     return MDialog(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16), title: Row(
       children: [
