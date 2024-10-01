@@ -32,6 +32,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 class InCallAppPageFocus extends StatefulWidget {
   final bool doctor;
+
   final String? token, session, apId, title, keyId;
   final int? patID;
 
