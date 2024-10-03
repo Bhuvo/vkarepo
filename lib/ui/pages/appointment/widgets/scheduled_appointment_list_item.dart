@@ -202,59 +202,59 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                 ],
               ),
             ),
-            MListTile(
-                color: Colors.white54,
-                child: Row(
-                  children: [
-                    Expanded(
-                        child: TextButton(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: const [
-                          FaIcon(
-                            FontAwesomeIcons.print,
-                            color: MTheme.ICON_COLOR,
-                            size: 16,
-                          ),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          Text('Print')
-                        ],
-                      ),
-                      onPressed: () {},
-                    )),
-                    Container(
-                      width: 0.5,
-                      height: 16,
-                      color: Theme.of(context).dividerColor,
-                    ),
-                    Expanded(
-                        child: TextButton(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: const [
-                          FaIcon(
-                            FontAwesomeIcons.heartPulse,
-                            color: MTheme.ICON_COLOR,
-                            size: 16,
-                          ),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          Text('Vital Sign')
-                        ],
-                      ),
-                      onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (c) => AddVitalSignDialog(
-                                  userId: data.User_id,
-                                ));
-                      },
-                    )),
-                  ],
-                ))
+            // MListTile(
+            //     color: Colors.white54,
+            //     child: Row(
+            //       children: [
+            //         Expanded(
+            //             child: TextButton(
+            //           child: Row(
+            //             mainAxisSize: MainAxisSize.min,
+            //             children: const [
+            //               FaIcon(
+            //                 FontAwesomeIcons.print,
+            //                 color: MTheme.ICON_COLOR,
+            //                 size: 16,
+            //               ),
+            //               SizedBox(
+            //                 width: 8,
+            //               ),
+            //               Text('Print')
+            //             ],
+            //           ),
+            //           onPressed: () {},
+            //         )),
+            //         Container(
+            //           width: 0.5,
+            //           height: 16,
+            //           color: Theme.of(context).dividerColor,
+            //         ),
+            //         Expanded(
+            //             child: TextButton(
+            //           child: Row(
+            //             mainAxisSize: MainAxisSize.min,
+            //             children: const [
+            //               FaIcon(
+            //                 FontAwesomeIcons.heartPulse,
+            //                 color: MTheme.ICON_COLOR,
+            //                 size: 16,
+            //               ),
+            //               SizedBox(
+            //                 width: 8,
+            //               ),
+            //               Text('Vital Sign')
+            //             ],
+            //           ),
+            //           onPressed: () {
+            //             showDialog(
+            //                 context: context,
+            //                 builder: (c) => AddVitalSignDialog(
+            //                       userId: data.User_id,
+            //                     ));
+            //           },
+            //         )),
+            //       ],
+            //     ))
           ],
         ),
       ),

@@ -58,7 +58,6 @@ bool isNotifyDoc = false;
   @override
   Widget build(BuildContext context) {
     return FirebaseNotificationsHandler(
-
       // defaultNavigatorKey: GlobalKey<NavigatorState>(),
       // onOpenNotificationArrive: (_, payload) {
       //   print("Queue ID::::::::::::::::::::::::::::::::::::::::::${payload['Queue_Id']}${payload['Patient_id']}${payload['PatientName']}");

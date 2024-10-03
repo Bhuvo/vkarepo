@@ -213,7 +213,6 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                                 'statusId': 'T',
                                 'fromDate': query['From'],
                                 'toDate': query['To'] ,
-
                               },
                             );
                           },
