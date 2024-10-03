@@ -75,8 +75,7 @@ bool isNotifyDoc = false;
       //   snackbarKey.currentState?.showSnackBar(snackBar);
       //   print("Notification received while app is open with payload $payload");
       // },
-      onTap: (info) {
-        final payload = info.payload;
+      onTap: (navigatorState, appState, payload) {
         print("On Tapped Triggered");
         print(payload);
         print("prints payload");
