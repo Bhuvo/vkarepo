@@ -30,7 +30,7 @@ class _SplashPageState extends State<SplashPage> {
     load();
     super.initState();
   }
-
+bool isNotifyDoc = false;
   load() async {
     //fake load
     await Future.delayed(const Duration(seconds: 1));
@@ -43,7 +43,7 @@ class _SplashPageState extends State<SplashPage> {
       if (LocalStorage.getUser().id == null) {
         context.replace(Routes.login);
       } else {
-        if (mounted) {
+        if (mounted && !isNotifyDoc) {
           MessagingMonitor.init(AppConfig.of(context)!.config);
           if (AppConfig.of(context)?.config == Config.doctor) {
             context.replace(Routes.currentAppointment);  //patientWaitingList
@@ -113,7 +113,8 @@ class _SplashPageState extends State<SplashPage> {
 
         if (AppConfig.of(navigatorKey.currentState!.context)?.config ==
             Config.doctor) {
-          Navigator.push(
+          isNotifyDoc = true;
+        var val = Navigator.push(
             navigatorKey.currentState!.context,
             MaterialPageRoute(
               builder: (context) =>
@@ -122,6 +123,10 @@ class _SplashPageState extends State<SplashPage> {
               ),
             ),
           );
+        val.then((value) {
+          isNotifyDoc = false;
+          load();
+        });
         }
 
         /// below code is for notifying patient about the scheduled video call

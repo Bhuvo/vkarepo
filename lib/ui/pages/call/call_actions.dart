@@ -94,24 +94,24 @@ class CallActions extends StatelessWidget {
             ),
             label: 'History',
           ),
-          ActionButton(
-              onPressed: () {
-                context.push(Routes.clinicalNotesList, {
-                  'doctorID': docID.toString(),
-                  'userID': patID.toString(),
-                  'appointmentID': appointmentid.toString()
-                });
-                print(docID.toString());
-                print(patID.toString());
-                print(appointmentid.toString());
-                print("Notes - notes clicked");
-              },
-              icon: const Icon(
-                FontAwesomeIcons.clipboardCheck,
-                color: Colors.amber,
-                size: 20,
-              ),
-              label: 'Notes'),
+          // ActionButton(
+          //     onPressed: () {
+          //       context.push(Routes.clinicalNotesList, {
+          //         'doctorID': docID.toString(),
+          //         'userID': patID.toString(),
+          //         'appointmentID': appointmentid.toString()
+          //       });
+          //       print(docID.toString());
+          //       print(patID.toString());
+          //       print(appointmentid.toString());
+          //       print("Notes - notes clicked");
+          //     },
+          //     icon: const Icon(
+          //       FontAwesomeIcons.clipboardCheck,
+          //       color: Colors.amber,
+          //       size: 20,
+          //     ),
+          //     label: 'Notes'),
           ActionButton(
               onPressed: () {
                 context.push(Routes.prescriptionEditor, {

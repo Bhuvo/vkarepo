@@ -9,7 +9,6 @@ import '../../widgets/m_scaffold.dart';
 
 class FCMMessageDoctorAcceptorRejectUserInstantRequest extends StatelessWidget {
   final paylaodFromFCM;
-
   const FCMMessageDoctorAcceptorRejectUserInstantRequest(
       {Key? key, required this.paylaodFromFCM})
       : super(key: key);
@@ -84,7 +83,7 @@ class FCMMessageDoctorAcceptorRejectUserInstantRequest extends StatelessWidget {
                                   if (res?.body.message == "Updated") {
                                     print(
                                         "Approved:::::::::::::::::::::::::::::::: $res");
-                                   Navigator.of(context).pop();
+                                   Navigator.of(context).pop(true);
                                   }
                                 },
                                 icon: Icon(Icons.check),
@@ -113,7 +112,7 @@ class FCMMessageDoctorAcceptorRejectUserInstantRequest extends StatelessWidget {
                                   if (res?.body.message == "Updated") {
                                     print(
                                         "Approved:::::::::::::::::::::::::::::::: $res");
-                                    Navigator.of(context).pop();
+                                    Navigator.of(context).pop(true);
                                   }
                                 },
                                 icon: Icon(Icons.close),
