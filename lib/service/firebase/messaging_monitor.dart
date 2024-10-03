@@ -9,6 +9,7 @@ import 'package:timesmedlite/ui/app/app_config.dart';
 import 'package:timesmedlite/ui/app/m_app.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 
+
 import '../../ui/pages/doctor_firebase_instant_call_request/doctor_approval_rejection_screen.dart';
 
 abstract class MessagingMonitor {
@@ -65,43 +66,43 @@ abstract class MessagingMonitor {
           print("Video Key Details");
           AppointmentFacade.handleDoctorIncoming(navigatorKey.currentState!.context, event);
         }else if(event.data.toString().contains('Instant call')){
-          print("Instant Call");
-          final flutterLocalNotificationsPlugin =
-          FlutterLocalNotificationsPlugin();
-          const initializationSettings = InitializationSettings(
-            android: AndroidInitializationSettings(
-                '@mipmap/ic_launcher'), // Replace 'app_icon' with your app's launcher icon name
-          );
-          flutterLocalNotificationsPlugin.initialize(initializationSettings);
-          const androidPlatformChannelSpecifics = AndroidNotificationDetails(
-              'channelId', // Unique channel ID
-              'channelName', // Channel name
-              // Channel description
-              playSound: true,
-              sound:
-              RawResourceAndroidNotificationSound('customnotificationsound'),
-              icon: '@mipmap/ic_launcher');
-          const platformChannelSpecifics =
-          NotificationDetails(android: androidPlatformChannelSpecifics);
-
-          flutterLocalNotificationsPlugin.show(
-            0, // Notification ID
-            '${event.data["title"]}',
-            '${event.data["body"]}',
-            platformChannelSpecifics,
-          );
-          if (AppConfig.of(navigatorKey.currentState!.context)?.config ==
-              Config.doctor){
-               Navigator.push(
-              navigatorKey.currentState!.context,
-              MaterialPageRoute(
-                builder: (context) =>
-                    FCMMessageDoctorAcceptorRejectUserInstantRequest(
-                      paylaodFromFCM: event.data,
-                    ),
-              ),
-            );
-          }
+          // print("Instant Call");
+          // final flutterLocalNotificationsPlugin =
+          // FlutterLocalNotificationsPlugin();
+          // const initializationSettings = InitializationSettings(
+          //   android: AndroidInitializationSettings(
+          //       '@mipmap/ic_launcher'), // Replace 'app_icon' with your app's launcher icon name
+          // );
+          // flutterLocalNotificationsPlugin.initialize(initializationSettings);
+          // const androidPlatformChannelSpecifics = AndroidNotificationDetails(
+          //     'channelId', // Unique channel ID
+          //     'channelName', // Channel name
+          //     // Channel description
+          //     playSound: true,
+          //     sound:
+          //     RawResourceAndroidNotificationSound('customnotificationsound'),
+          //     icon: '@mipmap/ic_launcher');
+          // const platformChannelSpecifics =
+          // NotificationDetails(android: androidPlatformChannelSpecifics);
+          //
+          // flutterLocalNotificationsPlugin.show(
+          //   0, // Notification ID
+          //   '${event.data["title"]}',
+          //   '${event.data["body"]}',
+          //   platformChannelSpecifics,
+          // );
+          // if (AppConfig.of(navigatorKey.currentState!.context)?.config ==
+          //     Config.doctor){
+          //      Navigator.push(
+          //     navigatorKey.currentState!.context,
+          //     MaterialPageRoute(
+          //       builder: (context) =>
+          //           FCMMessageDoctorAcceptorRejectUserInstantRequest(
+          //             paylaodFromFCM: event.data,
+          //           ),
+          //     ),
+          //   );
+          // }
 
         }
       });
