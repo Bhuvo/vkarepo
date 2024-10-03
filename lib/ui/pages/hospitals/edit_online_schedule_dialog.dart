@@ -106,7 +106,7 @@ class _EditOnlineScheduleDialogState extends State<EditOnlineScheduleDialog> {
               children: [
                 Text(
                   '(24 Hrs Format)',
-                  style: Theme.of(context).textTheme.caption?.copyWith(
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       color: Colors.red, fontStyle: FontStyle.italic),
                 )
               ],

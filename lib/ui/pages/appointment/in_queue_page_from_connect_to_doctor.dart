@@ -139,7 +139,7 @@ class _InQueuePageFromUpcomingAppointmentState
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 'Call Request',
-                // style: Theme.of(context).textTheme.caption,
+                // style: Theme.of(context).textTheme.bodySmall,
                 style: TextStyle(
                   fontSize: size.height * 0.015,
                   fontWeight: FontWeight.w500,
@@ -158,7 +158,7 @@ class _InQueuePageFromUpcomingAppointmentState
                 child: Center(
                   child: Text(
                     'No Records',
-                    style: Theme.of(context).textTheme.caption?.copyWith(
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           fontWeight: FontWeight.w600,
                           fontSize: size.height * 0.015,
                         ),
@@ -204,7 +204,7 @@ class _InQueuePageFromUpcomingAppointmentState
                                       "Queue No: $queueNo",
                                       style: Theme.of(context)
                                           .textTheme
-                                          .caption
+                                          .bodySmall
                                           ?.copyWith(
                                               fontWeight: FontWeight.w700,
                                               fontSize: size.height * 0.016),
@@ -212,7 +212,7 @@ class _InQueuePageFromUpcomingAppointmentState
                                     Text("Waiting Minutes: $waitingMinutes",
                                         style: Theme.of(context)
                                             .textTheme
-                                            .caption
+                                            .bodySmall
                                             ?.copyWith(
                                                 fontWeight: FontWeight.w700,
                                                 fontSize: size.height * 0.016)),
@@ -220,7 +220,7 @@ class _InQueuePageFromUpcomingAppointmentState
                                       "Doctor online:",
                                       style: Theme.of(context)
                                           .textTheme
-                                          .caption
+                                          .bodySmall
                                           ?.copyWith(
                                               fontWeight: FontWeight.w700,
                                               fontSize: size.height * 0.016),
@@ -266,7 +266,7 @@ class _InQueuePageFromUpcomingAppointmentState
                   // child:
                   Text(
                     'You are in Queue',
-                    style: Theme.of(context).textTheme.headline6?.copyWith(
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         fontSize: size.height * 0.026,
                         fontWeight: FontWeight.w600,
                         color: Colors.black87),
@@ -277,7 +277,7 @@ class _InQueuePageFromUpcomingAppointmentState
                          EdgeInsets.symmetric(horizontal: size.width * 0.022, vertical: size.height * 0.016),
                     child: Text.rich(
                       TextSpan(
-                          style: Theme.of(context).textTheme.caption?.copyWith(
+                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
                               fontWeight: FontWeight.w600,
                               fontSize: size.height * 0.016),
                           children: [
@@ -287,7 +287,7 @@ class _InQueuePageFromUpcomingAppointmentState
                                 text: 'Dr.$doctorName ',
                                 style: Theme.of(context)
                                     .textTheme
-                                    .caption
+                                    .bodySmall
                                     ?.copyWith(
                                         fontWeight: FontWeight.w600,
                                         fontSize: size.height * 0.016,
@@ -307,7 +307,7 @@ class _InQueuePageFromUpcomingAppointmentState
                   ),
                   Text(
                     'Appointment Date and Time',
-                    style: Theme.of(context).textTheme.headline6?.copyWith(fontSize:size.height * 0.024,
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize:size.height * 0.024,
                         fontWeight: FontWeight.w600, color: Colors.black87),
                   ),
                   MListTile(

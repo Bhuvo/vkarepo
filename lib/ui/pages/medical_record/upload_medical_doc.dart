@@ -136,7 +136,7 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
                 ),
                 Text(
                   'Upload Files',
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(
                   height: 16,
@@ -254,7 +254,7 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
                 const SizedBox(height: 20),
                 Text(
                   Consts.PREVIOUS_RECORDS,
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(height: 10),
                 BlocProvider(
@@ -355,12 +355,12 @@ class _FileViewListState extends State<FileViewList> {
                     widget.description,
                     style: Theme.of(context)
                         .textTheme
-                        .headline6
+                        .headlineSmall
                         ?.copyWith(fontSize: 14),
                   ),
                   Text(
                     widget.date,
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   )
                 ],
               ),

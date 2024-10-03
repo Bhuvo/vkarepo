@@ -49,7 +49,7 @@ class ComplaintListItem extends StatelessWidget {
                   content: complaintName,
                   headStyle: Theme.of(context)
                       .textTheme
-                      .headline6
+                      .headlineSmall
                       ?.copyWith(fontSize: 13),
                 ),
                 Row(),

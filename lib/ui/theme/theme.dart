@@ -31,7 +31,7 @@ class MTheme {
       checkboxTheme:
           const CheckboxThemeData(side: BorderSide(color: THEME_COLOR)),
       textTheme: const TextTheme(
-        caption: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
+        bodySmall: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Colors.transparent,
@@ -103,7 +103,7 @@ class MTheme {
       checkboxTheme:
           const CheckboxThemeData(side: BorderSide(color: THEME_COLOR)),
       textTheme: const TextTheme(
-        caption: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
+        bodySmall: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Colors.transparent,

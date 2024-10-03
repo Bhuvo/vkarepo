@@ -160,7 +160,7 @@ class _PatientAccountPageState extends State<PatientAccountPage> {
                                       style: TextStyle(
                                         color: Theme.of(context)
                                             .textTheme
-                                            .caption
+                                            .bodySmall
                                             ?.color,
                                         fontSize: size.height * 0.0146,
                                         fontWeight: FontWeight.w500,

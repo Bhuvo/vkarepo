@@ -54,7 +54,7 @@ class _OtpDialogState extends State<OtpDialog> {
             },
           ),
         ),
-        Text('Didn\'t you receive any code?', style: Theme.of(context).textTheme.caption,),
+        Text('Didn\'t you receive any code?', style: Theme.of(context).textTheme.bodySmall,),
           TextButton(onPressed: current.inSeconds == 0 ? resendOtp : null, child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [

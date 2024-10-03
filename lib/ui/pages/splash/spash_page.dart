@@ -58,7 +58,8 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return FirebaseNotificationsHandler(
-      defaultNavigatorKey: GlobalKey<NavigatorState>(),
+
+      // defaultNavigatorKey: GlobalKey<NavigatorState>(),
       // onOpenNotificationArrive: (_, payload) {
       //   print("Queue ID::::::::::::::::::::::::::::::::::::::::::${payload['Queue_Id']}${payload['Patient_id']}${payload['PatientName']}");
       //   final SnackBar snackBar = SnackBar(
@@ -74,7 +75,8 @@ class _SplashPageState extends State<SplashPage> {
       //   snackbarKey.currentState?.showSnackBar(snackBar);
       //   print("Notification received while app is open with payload $payload");
       // },
-      onTap: (navigatorState, appState, payload) {
+      onTap: (info) {
+        final payload = info.payload;
         print("On Tapped Triggered");
         print(payload);
         print("prints payload");
@@ -146,7 +148,7 @@ class _SplashPageState extends State<SplashPage> {
                 navigatorKey.currentState!.context, RemoteMessage(data: data));
           }
         }
-        print("Notification tapped with $appState & payload $payload");
+        // print("Notification tapped with $appState & payload $payload");
       },
       child: Scaffold(
         body: Container(

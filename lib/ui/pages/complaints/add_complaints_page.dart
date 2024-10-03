@@ -110,7 +110,7 @@ class _AddComplaintsPageState extends State<AddComplaintsPage> {
                 ),
                 Text(
                   'Complaints',
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(
                   height: 16,
@@ -185,7 +185,7 @@ class _AddComplaintsPageState extends State<AddComplaintsPage> {
                               text: ' Add New Complaint ',
                               style: Theme.of(context)
                                   .textTheme
-                                  .caption
+                                  .bodySmall
                                   ?.copyWith(color: MTheme.THEME_COLOR),
                               // recognizer: TapGestureRecognizer()
                               //   ..onTap = () => showDialog(
@@ -196,7 +196,7 @@ class _AddComplaintsPageState extends State<AddComplaintsPage> {
                           ]),
                           style: Theme.of(context)
                               .textTheme
-                              .caption
+                              .bodySmall
                               ?.copyWith(fontWeight: FontWeight.normal),
                           textAlign: TextAlign.center,
                         ),
@@ -229,14 +229,14 @@ class _AddComplaintsPageState extends State<AddComplaintsPage> {
                     children: [
                       Text(
                         'Choosed Complaint Name',
-                        style: Theme.of(context).textTheme.caption,
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                       Row(),
                       Text(
                         getComplaintsName,
                         style: Theme.of(context)
                             .textTheme
-                            .headline6
+                            .headlineSmall
                             ?.copyWith(fontSize: 15),
                       ),
                     ],

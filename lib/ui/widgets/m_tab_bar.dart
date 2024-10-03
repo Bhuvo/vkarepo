@@ -49,7 +49,7 @@ class MTabBar extends StatelessWidget {
         labelPadding: EdgeInsets.symmetric(horizontal: labelPadding),
         labelStyle: const TextStyle(fontWeight: FontWeight.bold),
         labelColor: pill ? null : contentColor ?? MTheme.THEME_COLOR,
-        unselectedLabelColor: Theme.of(context).textTheme.caption?.color,
+        unselectedLabelColor: Theme.of(context).textTheme.bodySmall?.color,
         isScrollable: scrollable,
         indicatorColor: contentColor ?? MTheme.ICON_COLOR,
         indicatorSize: indicatorSize,

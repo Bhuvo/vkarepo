@@ -8,8 +8,8 @@ part 'connectivity_event.dart';
 
 class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
   ConnectivityBloc() : super(const ConnectivityState.checking()){
-    Connectivity().onConnectivityChanged.listen((ConnectivityResult? event) {
-      if(event?.name == 'none'){
+    Connectivity().onConnectivityChanged.listen((List<ConnectivityResult>? event) {
+      if(event?.first.name == 'none'){
         emit(const Disconnected());
       } else {
         emit(const Connected());

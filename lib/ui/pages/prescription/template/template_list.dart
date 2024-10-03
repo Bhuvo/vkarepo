@@ -140,7 +140,7 @@ class _TemplateListState extends State<TemplateList> {
                                                       .toString(),
                                                   style: Theme.of(context)
                                                       .textTheme
-                                                      .headline6
+                                                      .headlineSmall
                                                       ?.copyWith(fontSize: 14),
                                                 )),
                                                 Container(
@@ -167,7 +167,7 @@ class _TemplateListState extends State<TemplateList> {
                                                   .toString(),
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .caption,
+                                                  .bodySmall,
                                             ),
                                           ],
                                         ),

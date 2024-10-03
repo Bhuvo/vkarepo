@@ -11,7 +11,7 @@ class DropDownShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
       highlightColor: Theme.of(context).canvasColor,
-      baseColor: Theme.of(context).backgroundColor,
+      baseColor: Theme.of(context).dividerColor,
       child: Container(
         width: double.maxFinite,
         padding: const EdgeInsets.only(bottom: 8),

@@ -295,7 +295,7 @@ class _CallWaitingDialogState extends State<CallWaitingDialog> {
             Text(
               'Doctor Rejected your Request.Please try after sometime',
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.caption,
+              style: Theme.of(context).textTheme.bodySmall,
             ),
             const SizedBox(
               height: 16,

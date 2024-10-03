@@ -19,7 +19,7 @@ class DoctorRejectsApproval extends StatelessWidget {
             Text(
               'Doctor Rejected your Request\n Please try after sometime',
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.caption,
+              style: Theme.of(context).textTheme.bodySmall,
             ),
             const SizedBox(
               height: 16,

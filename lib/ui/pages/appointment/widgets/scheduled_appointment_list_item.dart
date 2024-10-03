@@ -167,7 +167,7 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                     children: [
                       Text(
                         'Patient ID: ',
-                        style: Theme.of(context).textTheme.caption,
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                       BarcodeWidget(
                         barcode: Barcode.code128(),
@@ -185,7 +185,7 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                     children: [
                       Text(
                         'Bar Code: ',
-                        style: Theme.of(context).textTheme.caption,
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                       BarcodeWidget(
                         barcode: Barcode.qrCode(),

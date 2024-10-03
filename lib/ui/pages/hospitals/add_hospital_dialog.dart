@@ -411,7 +411,7 @@ class _AddHospitalDialogState extends State<AddHospitalDialog> {
                   ),
                   Text(
                     'Current Location',
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   SizedBox(
                     height: 8,

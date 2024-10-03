@@ -46,7 +46,7 @@ class NothingWidget extends StatelessWidget {
           if (message.isNotEmpty)
             Text(
               message,
-              style: Theme.of(context).textTheme.caption?.copyWith(
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     color: Theme.of(context).dividerColor,
                     fontSize: size.height * 0.016,
                   ),

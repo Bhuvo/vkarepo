@@ -66,7 +66,7 @@ class OrderSummaryPage extends StatelessWidget {
             const SizedBox(height: 8,),
             const Text('Payment Successful', style: TextStyle(color: MTheme.THEME_COLOR, fontSize: 17, fontWeight: FontWeight.w600),),
             const SizedBox(height: 8,),
-            Text('Transaction Number: ${txn}', style: Theme.of(context).textTheme.caption,),
+            Text('Transaction Number: ${txn}', style: Theme.of(context).textTheme.bodySmall,),
             const SizedBox(height: 16,),
             BlocProvider(
               create: (_) => bloc,
@@ -124,7 +124,7 @@ class OrderSummaryPage extends StatelessWidget {
                                               color:
                                               Theme.of(context)
                                                   .textTheme
-                                                  .caption
+                                                  .bodySmall
                                                   ?.color),
                                         ),
                                       ),
@@ -156,7 +156,7 @@ class OrderSummaryPage extends StatelessWidget {
                               //                 ?.copyWith(
                               //                 color: Theme.of(context)
                               //                     .textTheme
-                              //                     .caption
+                              //                     .bodySmall
                               //                     ?.color,
                               //                 fontSize: 12,
                               //                 fontWeight:
@@ -202,7 +202,7 @@ class OrderSummaryPage extends StatelessWidget {
             //                 child: Text(
             //                   '${e['name']}',
             //                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
-            //                       color: Theme.of(context).textTheme.caption?.color),
+            //                       color: Theme.of(context).textTheme.bodySmall?.color),
             //                 )),
             //             PriceView(
             //               value: (e['price'] ?? 0) as num,
@@ -231,7 +231,7 @@ class OrderSummaryPage extends StatelessWidget {
                       child: Text(
                         'Total Amount',
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                            color: Theme.of(context).textTheme.caption?.color, fontSize: 14),
+                            color: Theme.of(context).textTheme.bodySmall?.color, fontSize: 14),
                       )),
                   PriceView(
                     value: amount,

@@ -103,7 +103,7 @@ class _UpdateTimingWidgetState extends State<UpdateTimingWidget> {
 
                 style: Theme.of(context)
                     .textTheme
-                    .headline6
+                    .headlineSmall
                     ?.copyWith(fontSize: 16),
               ),
             )),
@@ -158,7 +158,7 @@ class _UpdateTimingWidgetState extends State<UpdateTimingWidget> {
                           : Colors.transparent),
                   child: Text(
                     item.toUpperCase(),
-                    style: Theme.of(context).textTheme.caption?.copyWith(
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         fontWeight: FontWeight.w600,
                         color: sel ? MTheme.THEME_COLOR : Colors.grey),
                   ),

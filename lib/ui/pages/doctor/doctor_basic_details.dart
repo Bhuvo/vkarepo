@@ -497,7 +497,7 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                 ),
                 Text(
                   'Bank Details',
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 SizedBox(
                   height: 8,

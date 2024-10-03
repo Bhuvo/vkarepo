@@ -360,7 +360,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                       horizontal: 16, vertical: 8),
                   child: Text(
                     'Previous Clinical Appointments',
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ),
                 ExpandableColumn(
@@ -399,7 +399,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                       horizontal: 16, vertical: 8),
                   child: Text(
                     'Upcoming Clinical Appointments',
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ),
                 ExpandableColumn(
@@ -471,7 +471,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                               horizontal: 16, vertical: 8),
                           child: Text(
                             Consts.UPCOMING_APPOINTMENT,
-                            style: Theme.of(context).textTheme.caption,
+                            style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ),
                         ExpandableColumn(
@@ -499,7 +499,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                               ),
                               Text(
                                 Consts.CHOOSE_ACCOUNT,
-                                style: Theme.of(context).textTheme.caption,
+                                style: Theme.of(context).textTheme.bodySmall,
                               ),
                               const Spacer(),
                               TextButton(
@@ -784,7 +784,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                                             data.mobile ?? '',
                                             style: Theme.of(context)
                                                 .textTheme
-                                                .caption,
+                                                .bodySmall,
                                           ),
                                         ],
                                       ),

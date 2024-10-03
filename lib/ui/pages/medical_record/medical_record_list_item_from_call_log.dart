@@ -41,7 +41,7 @@ class MedicalRecordsListItemFromCallLog extends StatelessWidget {
                   padding: const EdgeInsets.all(16),
                   child: Text(
                     Consts.VIEW_HISTORY,
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ),
               )

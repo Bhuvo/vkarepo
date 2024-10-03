@@ -105,7 +105,7 @@ class _LabTestRequestState extends State<LabTestRequest> {
             children: [
               Text(
                 '  Add Lab Test',
-                style: Theme.of(context).textTheme.caption,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               const SizedBox(
                 height: 16,
@@ -342,7 +342,7 @@ class _LabTestRequestState extends State<LabTestRequest> {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Lab Test Records',
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               ),
               BlocProvider(

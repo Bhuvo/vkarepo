@@ -173,7 +173,7 @@ class ScheduleDetailsPage extends StatelessWidget {
                                 Spacer(),
                                 Text(
                                   'Next Test: ',
-                                  style: Theme.of(context).textTheme.caption,
+                                  style: Theme.of(context).textTheme.bodySmall,
                                 ),
                                 UserInfo(
                                   Info.custom,

@@ -202,7 +202,7 @@ class PatientViewInrDetailsScreen extends StatelessWidget {
                                                     'Dr. $doctorName',
                                                     style: Theme.of(context)
                                                         .textTheme
-                                                        .headline6!
+                                                        .headlineSmall!
                                                         .copyWith(fontSize: 16),
                                                   ),
                                               ]),
@@ -320,7 +320,7 @@ class PatientViewInrDetailsScreen extends StatelessWidget {
                                             'Next Test: ',
                                             style: Theme.of(context)
                                                 .textTheme
-                                                .caption,
+                                                .bodySmall,
                                           ),
                                           UserInfo(
                                             Info.custom,

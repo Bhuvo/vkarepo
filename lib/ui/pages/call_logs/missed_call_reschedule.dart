@@ -89,13 +89,13 @@ class _MissedCallRescheduleState extends State<MissedCallReschedule> {
                     children: [
                       Text(
                         'Patient ID: ',
-                        style: Theme.of(context).textTheme.caption,
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                       Text(
                         widget.UserData.User_id.toString(),
                         style: Theme.of(context)
                             .textTheme
-                            .caption
+                            .bodySmall
                             ?.copyWith(color: MTheme.THEME_COLOR),
                       ),
                     ],
@@ -109,7 +109,7 @@ class _MissedCallRescheduleState extends State<MissedCallReschedule> {
                 'Please choose a slot to reschedule appointment...',
                 style: Theme.of(context)
                     .textTheme
-                    .caption
+                    .bodySmall
                     ?.copyWith(color: Colors.red, fontStyle: FontStyle.italic),
               ),
             ),
@@ -195,14 +195,14 @@ class _MissedCallRescheduleState extends State<MissedCallReschedule> {
                 'Doctor Name',
                 style: Theme.of(context)
                     .textTheme
-                    .headline6
+                    .headlineSmall
                     ?.copyWith(color: Colors.white),
               ),
               Text(
                 'MBBS, MD\nPulmonology',
                 style: Theme.of(context)
                     .textTheme
-                    .caption
+                    .bodySmall
                     ?.copyWith(color: Colors.white),
               ),
             ],

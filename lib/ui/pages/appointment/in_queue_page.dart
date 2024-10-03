@@ -139,7 +139,7 @@ class _InQueuePageState extends State<InQueuePage> {
                 apId = '${data["Appointment_Id"]}';
                 // final appointmentDate =
                 //     '${data["Appointment_Date"]?.split(" ")[0]}';
-                String apiDateString = data["Appointment_Date"];
+                String apiDateString = data["Appointment_Date"] ?? '9/1/2024 12:00:00 AM';
                 DateTime apiDateTime =
                     DateFormat('M/d/yyyy h:mm:ss a').parse(apiDateString);
                 String formattedDate =
@@ -187,7 +187,7 @@ class _InQueuePageState extends State<InQueuePage> {
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Text(
                           'Call Request',
-                          // style: Theme.of(context).textTheme.caption,
+                          // style: Theme.of(context).textTheme.bodySmall,
                           style: TextStyle(
                             fontSize: size.height * 0.015,
                             fontWeight: FontWeight.w500,
@@ -207,7 +207,7 @@ class _InQueuePageState extends State<InQueuePage> {
                             child: Text(
                               'No Records',
                               style:
-                                  Theme.of(context).textTheme.caption?.copyWith(
+                                  Theme.of(context).textTheme.bodySmall?.copyWith(
                                         fontWeight: FontWeight.w600,
                                         fontSize: size.height * 0.015,
                                       ),
@@ -255,7 +255,7 @@ class _InQueuePageState extends State<InQueuePage> {
                                                 "Queue No: $queueNo",
                                                 style: Theme.of(context)
                                                     .textTheme
-                                                    .caption
+                                                    .bodySmall
                                                     ?.copyWith(
                                                         fontWeight:
                                                             FontWeight.w700,
@@ -266,7 +266,7 @@ class _InQueuePageState extends State<InQueuePage> {
                                                   "Waiting Minutes: $waitingMinutes",
                                                   style: Theme.of(context)
                                                       .textTheme
-                                                      .caption
+                                                      .bodySmall
                                                       ?.copyWith(
                                                           fontWeight:
                                                               FontWeight.w700,
@@ -277,7 +277,7 @@ class _InQueuePageState extends State<InQueuePage> {
                                                 "Doctor online:",
                                                 style: Theme.of(context)
                                                     .textTheme
-                                                    .caption
+                                                    .bodySmall
                                                     ?.copyWith(
                                                         fontWeight:
                                                             FontWeight.w700,

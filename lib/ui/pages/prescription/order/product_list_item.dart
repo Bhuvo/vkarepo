@@ -24,7 +24,7 @@ class  ProductListItem extends StatelessWidget {
                     child: Text(
                   '${data['drug_name'] ?? ''}',
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      color: Theme.of(context).textTheme.caption?.color),
+                      color: Theme.of(context).textTheme.bodySmall?.color),
                 )),
                 PriceView(
                   value: num.tryParse('${data['Price'] ?? '0'}') ?? 0,

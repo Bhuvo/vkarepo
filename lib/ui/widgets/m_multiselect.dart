@@ -18,7 +18,7 @@ class MMultiSelect<T> extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if(label != null)...[Text('    ${label!}', style: Theme.of(context).textTheme.headline6?.copyWith(color: Colors.grey.shade700, fontSize: 17),),
+        if(label != null)...[Text('    ${label!}', style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.grey.shade700, fontSize: 17),),
         const SizedBox(height: 8,)
         ],
         Row(),

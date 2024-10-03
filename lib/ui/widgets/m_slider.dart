@@ -39,7 +39,7 @@ class MSlider extends StatelessWidget {
                     label!,
                     style: Theme.of(context)
                         .textTheme
-                        .headline6
+                        .headlineSmall
                         ?.copyWith(fontSize: 16),
                   ),
                 const Spacer(),

@@ -15,7 +15,7 @@ class MTextContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final text = Text(content, style: Theme.of(context).textTheme.caption,);
+    final text = Text(content, style: Theme.of(context).textTheme.bodySmall,);
     if (head == null) {
       return Padding(
         padding: margin,
@@ -32,7 +32,7 @@ class MTextContent extends StatelessWidget {
               head!,
               style: Theme.of(context)
                   .textTheme
-                  .caption
+                  .bodySmall
                   ?.copyWith(color: MTheme.THEME_COLOR, fontWeight: FontWeight.w600),
             ),
             const SizedBox(
@@ -68,7 +68,7 @@ class MTextContent2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final text = Text(content, style: Theme.of(context).textTheme.caption?.copyWith(color: contentColor ?? MTheme.THEME_COLOR, fontWeight: bold? FontWeight.w700 : FontWeight.normal),);
+    final text = Text(content, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: contentColor ?? MTheme.THEME_COLOR, fontWeight: bold? FontWeight.w700 : FontWeight.normal),);
     if (head == null) {
       return Padding(
         padding: margin,
@@ -86,7 +86,7 @@ class MTextContent2 extends StatelessWidget {
               head!,
               style: headStyle ?? Theme.of(context)
                   .textTheme
-                  .caption
+                  .bodySmall
                   ?.copyWith( fontWeight: bold ? FontWeight.w600 : FontWeight.w500),
             ),
              SizedBox(

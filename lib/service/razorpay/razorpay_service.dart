@@ -29,14 +29,8 @@ abstract class RazorpayService extends ChopperService {
       }),
       interceptors: [
         HttpLoggingInterceptor(),
-        RazorpayInterceptor(),
-            (Response response) async {
-          if (response.statusCode == 404) {
-            chopperLogger.severe('404 NOT FOUND');
-          }
-          return response;
-        },
-      ],
+        RazorpayInterceptor2()
+    ]
     );
     return _$RazorpayService(client);
   }

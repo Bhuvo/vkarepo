@@ -64,8 +64,8 @@ class _RescheduleAppointmentDialogState extends State<RescheduleAppointmentDialo
                caption: Row(
                  children: [
                    SizedBox(height: 20,),
-                   Text('Patient ID: ', style: Theme.of(context).textTheme.caption,),
-                   Text(widget.patientdata.User_id.toString(), style: Theme.of(context).textTheme.caption?.copyWith(color: MTheme.THEME_COLOR, fontWeight: FontWeight.w700),),
+                   Text('Patient ID: ', style: Theme.of(context).textTheme.bodySmall,),
+                   Text(widget.patientdata.User_id.toString(), style: Theme.of(context).textTheme.bodySmall?.copyWith(color: MTheme.THEME_COLOR, fontWeight: FontWeight.w700),),
                    UserInfo(Info.custom, icon: Icons.date_range_rounded, lable: widget.patientdata.Appointment_Date.toString(), textColor: MTheme.THEME_COLOR, textSize: 12, iconSize: 14,),
                    UserInfo(Info.custom, icon: CupertinoIcons.clock, lable: widget.patientdata.Appointment_Time.toString(), textColor: MTheme.THEME_COLOR, textSize: 12, iconSize: 14,),
                  ],
@@ -82,7 +82,7 @@ class _RescheduleAppointmentDialogState extends State<RescheduleAppointmentDialo
                  crossAxisAlignment: CrossAxisAlignment.start,
                  children: [
                    Row(),
-                   Text('Reschedule Date & Time', style: Theme.of(context).textTheme.caption?.copyWith(color: Colors.white),),
+                   Text('Reschedule Date & Time', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white),),
                    const SizedBox(height: 8,),
                    Row(
                      children: [

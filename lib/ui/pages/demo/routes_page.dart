@@ -62,7 +62,7 @@ class RoutesPage extends StatelessWidget {
           },
           child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 3),
-              child: Text(item.replaceAll('/', ''), style: Theme.of(context).textTheme.headline6?.copyWith(fontSize: 12, color: highlights.contains(item) ? Colors.green : null ),)),
+              child: Text(item.replaceAll('/', ''), style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 12, color: highlights.contains(item) ? Colors.green : null ),)),
         );
       }, itemCount: routes.length,)
 

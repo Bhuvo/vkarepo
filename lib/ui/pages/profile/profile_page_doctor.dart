@@ -75,7 +75,7 @@ class ProfilePage extends StatelessWidget {
                             '${user.qualification}',
                             style: TextStyle(
                                 color:
-                                    Theme.of(context).textTheme.caption?.color,
+                                    Theme.of(context).textTheme.bodySmall?.color,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500),
                           ),

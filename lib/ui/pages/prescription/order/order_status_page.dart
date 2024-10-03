@@ -163,7 +163,7 @@ class _OrderStatusPageState extends State<OrderStatusPage> {
                                       fontSize: 16,
                                       color: Theme.of(context)
                                           .textTheme
-                                          .caption
+                                          .bodySmall
                                           ?.color),
                                 ),
                               ),
@@ -172,7 +172,7 @@ class _OrderStatusPageState extends State<OrderStatusPage> {
                                     const EdgeInsets.symmetric(horizontal: 16),
                                 child: Text(
                                   status['desc'],
-                                  style: Theme.of(context).textTheme.caption,
+                                  style: Theme.of(context).textTheme.bodySmall,
                                 ),
                               ),
                               const SizedBox(
@@ -244,7 +244,7 @@ class _OrderStatusPageState extends State<OrderStatusPage> {
                                               ?.copyWith(
                                                   color: Theme.of(context)
                                                       .textTheme
-                                                      .caption
+                                                      .bodySmall
                                                       ?.color),
                                         ),
                                       ),
@@ -274,7 +274,7 @@ class _OrderStatusPageState extends State<OrderStatusPage> {
                                           ?.copyWith(
                                               color: Theme.of(context)
                                                   .textTheme
-                                                  .caption
+                                                  .bodySmall
                                                   ?.color,
                                               fontSize: 12,
                                               fontWeight: FontWeight.w700),

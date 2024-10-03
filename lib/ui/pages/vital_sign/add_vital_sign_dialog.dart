@@ -422,7 +422,7 @@ class _AddVitalSignDialogState extends State<AddVitalSignDialog> {
                       const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
                   child: Text(
                     'Add Vital Sign',
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ),
                 Padding(

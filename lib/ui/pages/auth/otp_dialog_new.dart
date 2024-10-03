@@ -63,7 +63,7 @@ class _OtpDialogVKAState extends State<OtpDialogVKA> {
             ),
             // Text(
             //   'Didn\'t you receive any code?',
-            //   style: Theme.of(context).textTheme.caption,
+            //   style: Theme.of(context).textTheme.bodySmall,
             // ),
             // TextButton(
             //     onPressed: current.inSeconds == 0 ? resendOtp : null,

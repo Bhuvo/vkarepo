@@ -153,7 +153,7 @@ class _PatientRegisterState extends State<PatientRegister> {
                 ),
                 Text(
                   'Target INR',
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(
                   height: 4,

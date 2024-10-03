@@ -118,7 +118,7 @@ class MRadioChip<T> extends StatelessWidget {
             style: labelStyle ??
                 Theme.of(context)
                     .textTheme
-                    .headline6
+                    .headlineSmall
                     ?.copyWith(color: Colors.grey.shade700, fontSize: 17),
           ),
           const SizedBox(

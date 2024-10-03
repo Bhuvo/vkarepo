@@ -103,7 +103,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
                           ListTile(
                             leading: Icon(
                               Icons.location_on,
-                              color: Theme.of(context).textTheme.caption?.color,
+                              color: Theme.of(context).textTheme.bodySmall?.color,
                               size: 20,
                             ),
                             title: Text(
@@ -112,7 +112,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
                             ),
                             subtitle: Text(
                               'Delivery Address',
-                              style: Theme.of(context).textTheme.caption,
+                              style: Theme.of(context).textTheme.bodySmall,
                             ),
                             horizontalTitleGap: 0,
                             dense: true,
@@ -120,7 +120,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
                           ListTile(
                             leading: Icon(
                               Icons.access_time_filled,
-                              color: Theme.of(context).textTheme.caption?.color,
+                              color: Theme.of(context).textTheme.bodySmall?.color,
                               size: 20,
                             ),
                             title: Text(
@@ -129,7 +129,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
                             ),
                             subtitle: Text(
                               'Estimated delivery time',
-                              style: Theme.of(context).textTheme.caption,
+                              style: Theme.of(context).textTheme.bodySmall,
                             ),
                             horizontalTitleGap: 0,
                             dense: true,
@@ -148,7 +148,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
                             ),
                             subtitle: Text(
                               '${data['DeliveryStatus']}',
-                              style: Theme.of(context).textTheme.caption,
+                              style: Theme.of(context).textTheme.bodySmall,
                             ),
                             trailing: MIconButton(
                               child: Icon(
@@ -224,7 +224,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
                                                             color:
                                                                 Theme.of(context)
                                                                     .textTheme
-                                                                    .caption
+                                                                    .bodySmall
                                                                     ?.color),
                                                   ),
                                                 ),
@@ -256,7 +256,7 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
                                                     ?.copyWith(
                                                         color: Theme.of(context)
                                                             .textTheme
-                                                            .caption
+                                                            .bodySmall
                                                             ?.color,
                                                         fontSize: 12,
                                                         fontWeight:

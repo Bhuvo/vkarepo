@@ -121,7 +121,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
               children: [
                 Text(
                   'Hospital List',
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 BlocProvider(
                   create: (context) => hospitals..add(const Load()),
@@ -190,11 +190,11 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                                   Text(
                                     '${data['Doctor_Name'] ?? ''}',
                                     style:
-                                        Theme.of(context).textTheme.headline6,
+                                        Theme.of(context).textTheme.headlineSmall,
                                   ),
                                   Text(
                                     '${data['Doctor_Qualification'] ?? ''}',
-                                    style: Theme.of(context).textTheme.caption,
+                                    style: Theme.of(context).textTheme.bodySmall,
                                   ),
                                   const SizedBox(
                                     height: 4,
@@ -212,7 +212,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                                       Text(
                                         '${data['Hospital_Name'] ?? ''}',
                                         style:
-                                            Theme.of(context).textTheme.caption,
+                                            Theme.of(context).textTheme.bodySmall,
                                       ),
                                     ],
                                   ),
@@ -236,7 +236,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                                           '${data['Address'] ?? 'Address not available'}',
                                           style: Theme.of(context)
                                               .textTheme
-                                              .caption,
+                                              .bodySmall,
                                         ),
                                       )
                                     ],

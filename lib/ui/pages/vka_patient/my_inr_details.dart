@@ -232,7 +232,7 @@ class _MyInrDetailsState extends State<MyInrDetails> {
                                                     'Dr. $doctorName',
                                                     style: Theme.of(context)
                                                         .textTheme
-                                                        .headline6!
+                                                        .headlineSmall!
                                                         .copyWith(fontSize: 16),
                                                   ),
                                               ]),
@@ -353,7 +353,7 @@ class _MyInrDetailsState extends State<MyInrDetails> {
                                             'Next Test: ',
                                             style: Theme.of(context)
                                                 .textTheme
-                                                .caption,
+                                                .bodySmall,
                                           ),
                                           UserInfo(
                                             Info.custom,

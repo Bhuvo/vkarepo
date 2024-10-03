@@ -48,10 +48,10 @@ class DataAddAndSearch extends StatelessWidget {
                 Text.rich(TextSpan(
                     children: [
                       TextSpan(text: 'please'),
-                      TextSpan(text: ' Add New $entity ', style: Theme.of(context).textTheme.caption?.copyWith(color: MTheme.THEME_COLOR)),
+                      TextSpan(text: ' Add New $entity ', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: MTheme.THEME_COLOR)),
                       TextSpan(text: 'here.'),
                     ]
-                ), style: Theme.of(context).textTheme.caption?.copyWith(fontWeight: FontWeight.normal), textAlign: TextAlign.center,),
+                ), style: Theme.of(context).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.normal), textAlign: TextAlign.center,),
                 const SizedBox(height: 8,),
                 Container(
                   height: 50,

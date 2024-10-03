@@ -25,7 +25,7 @@ class ChatListItem extends StatelessWidget {
             crossAxisAlignment: data.mine ? CrossAxisAlignment.end : CrossAxisAlignment.start,
             children: [
               Text('${data.mine ? patient.fullName : doctor.fullName}', style: TextStyle(color: MTheme.THEME_COLOR, fontSize: 12,  fontWeight: FontWeight.w600 ),),
-              Text('${MDateUtils.dateToHourMinute(data.date.toIso8601String())}', style: Theme.of(context).textTheme.caption?.copyWith(fontSize: 10,  fontWeight: FontWeight.w600 ),),
+              Text('${MDateUtils.dateToHourMinute(data.date.toIso8601String())}', style: Theme.of(context).textTheme.bodySmall?.copyWith(fontSize: 10,  fontWeight: FontWeight.w600 ),),
               const SizedBox(height: 4,),
               buildContent(),
               const SizedBox(height: 16,),

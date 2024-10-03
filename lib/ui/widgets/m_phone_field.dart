@@ -38,8 +38,8 @@ class MPhoneField extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const SizedBox(width: 16,),
-                  Text('$code', style: Theme.of(context).textTheme.headline6?.copyWith(color: Colors.grey.shade700, fontSize: 17),),
-                  Icon(Icons.keyboard_arrow_down_rounded, size: 28, color: Theme.of(context).textTheme.headline6?.color,),
+                  Text('$code', style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.grey.shade700, fontSize: 17),),
+                  Icon(Icons.keyboard_arrow_down_rounded, size: 28, color: Theme.of(context).textTheme.headlineSmall?.color,),
                   const SizedBox(width: 8,),
                   Container(
                     height: 50,

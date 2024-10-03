@@ -523,7 +523,7 @@ class _PrescriptionEditorState extends State<PrescriptionEditor> {
               ),
               Text(
                 '  ${Consts.PRESCRIPTION}',
-                style: Theme.of(context).textTheme.caption,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               const SizedBox(
                 height: 16,

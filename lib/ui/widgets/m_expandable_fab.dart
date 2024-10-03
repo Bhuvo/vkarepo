@@ -230,7 +230,7 @@ class ActionButton extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(8, 2, 12, 2),
                   child: Text(
                     '$label',
-                    style: Theme.of(context).textTheme.headline6?.copyWith(
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         color: Colors.black87,
                         fontWeight: FontWeight.w600,
                         fontSize: 13),

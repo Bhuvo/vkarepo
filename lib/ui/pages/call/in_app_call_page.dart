@@ -236,7 +236,7 @@ class _InCallAppPageState extends State<InCallAppPage> {
                                     printDuration(d),
                                     style: Theme.of(context)
                                         .textTheme
-                                        .caption
+                                        .bodySmall
                                         ?.copyWith(fontSize: 13),
                                   ),
                                 ],
@@ -256,7 +256,7 @@ class _InCallAppPageState extends State<InCallAppPage> {
                                   printDuration(maximum),
                                   style: Theme.of(context)
                                       .textTheme
-                                      .caption
+                                      .bodySmall
                                       ?.copyWith(fontSize: 13),
                                 ),
                               ),
@@ -273,7 +273,7 @@ class _InCallAppPageState extends State<InCallAppPage> {
                                   printDuration(rem),
                                   style: Theme.of(context)
                                       .textTheme
-                                      .caption
+                                      .bodySmall
                                       ?.copyWith(fontSize: 13),
                                 ),
                               ),
@@ -318,7 +318,7 @@ class _InCallAppPageState extends State<InCallAppPage> {
                                     'Extend',
                                     style: Theme.of(context)
                                         .textTheme
-                                        .caption
+                                        .bodySmall
                                         ?.copyWith(fontSize: 13),
                                   ),
                                 ),

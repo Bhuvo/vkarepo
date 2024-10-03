@@ -68,7 +68,7 @@ class DayEndDialog extends StatelessWidget {
                     child: Text(
                       'Doctor you have ${data.length} more patient to consult today..',
                       style:
-                      Theme.of(context).textTheme.headline6?.copyWith(fontSize: 17),
+                      Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 17),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -78,7 +78,7 @@ class DayEndDialog extends StatelessWidget {
                     child: Text(
                       'Do you still want to close the day for calls...',
                       style:
-                      Theme.of(context).textTheme.caption,
+                      Theme.of(context).textTheme.bodySmall,
                       textAlign: TextAlign.center,
                     ),
                   ),

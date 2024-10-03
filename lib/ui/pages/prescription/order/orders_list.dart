@@ -73,7 +73,7 @@ class OrdersList extends StatelessWidget {
                             ),
                             Text(
                               '${data['order_date']}',
-                              style: Theme.of(context).textTheme.caption,
+                              style: Theme.of(context).textTheme.bodySmall,
                             )
                           ],
                         ),

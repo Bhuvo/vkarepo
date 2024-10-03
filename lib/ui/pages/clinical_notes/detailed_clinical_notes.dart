@@ -152,7 +152,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
             ),
             Text(
               'Detail Clinical Notes and Treatment',
-              style: Theme.of(context).textTheme.caption,
+              style: Theme.of(context).textTheme.bodySmall,
             ),
             const SizedBox(
               height: 16,
@@ -275,7 +275,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                 ),
                 Text(
                   'Complaints Added here',
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(
                   height: 12,
@@ -387,7 +387,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                               text: ' Add New Complaint ',
                               style: Theme.of(context)
                                   .textTheme
-                                  .caption
+                                  .bodySmall
                                   ?.copyWith(color: MTheme.THEME_COLOR),
                               // recognizer: TapGestureRecognizer()
                               //   ..onTap = () => showDialog(
@@ -398,7 +398,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                           ]),
                           style: Theme.of(context)
                               .textTheme
-                              .caption
+                              .bodySmall
                               ?.copyWith(fontWeight: FontWeight.normal),
                           textAlign: TextAlign.center,
                         ),
@@ -556,7 +556,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
               ),
               Text(
                 'Observations Added here',
-                style: Theme.of(context).textTheme.caption,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               const SizedBox(
                 height: 12,
@@ -662,7 +662,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                             text: ' Add New Observation ',
                             style: Theme.of(context)
                                 .textTheme
-                                .caption
+                                .bodySmall
                                 ?.copyWith(color: MTheme.THEME_COLOR),
                             // recognizer: TapGestureRecognizer()
                             //   ..onTap = () => showDialog(
@@ -673,7 +673,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                         ]),
                         style: Theme.of(context)
                             .textTheme
-                            .caption
+                            .bodySmall
                             ?.copyWith(fontWeight: FontWeight.normal),
                         textAlign: TextAlign.center,
                       ),
@@ -823,7 +823,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                 ),
                 Text(
                   'Diagnoses Added here',
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(
                   height: 12,
@@ -931,7 +931,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                               text: ' Add New Diagnose ',
                               style: Theme.of(context)
                                   .textTheme
-                                  .caption
+                                  .bodySmall
                                   ?.copyWith(color: MTheme.THEME_COLOR),
                               // recognizer: TapGestureRecognizer()
                               //   ..onTap = () => showDialog(
@@ -942,7 +942,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                           ]),
                           style: Theme.of(context)
                               .textTheme
-                              .caption
+                              .bodySmall
                               ?.copyWith(fontWeight: FontWeight.normal),
                           textAlign: TextAlign.center,
                         ),
@@ -1049,7 +1049,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                     ),
                     Text(
                       'Notes',
-                      style: Theme.of(context).textTheme.caption,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                     const SizedBox(
                       height: 12,
@@ -1217,7 +1217,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                         Expanded(
                             child: Text(
                           'Follow Up Date and Time',
-                          style: Theme.of(context).textTheme.caption,
+                          style: Theme.of(context).textTheme.bodySmall,
                         )),
                       ],
                     ),
@@ -1348,7 +1348,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'Follow Up Date and Time Previous Record',
-                        style: Theme.of(context).textTheme.caption,
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ),
                     BlocProvider(

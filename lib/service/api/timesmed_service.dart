@@ -83,13 +83,7 @@ abstract class TimesmedService extends ChopperService {
       }),
       interceptors: [
         HttpLoggingInterceptor(),
-        Interceptor(),
-        (Response response) async {
-          if (response.statusCode == 404) {
-            chopperLogger.severe('404 NOT FOUND');
-          }
-          return response;
-        },
+        Interceptor2(),
       ],
     );
     return _$TimesmedService(client);

@@ -44,7 +44,7 @@ class _WaitingTimerForApprovalState extends State<WaitingTimerForApproval> {
             Text(
               'Kindly Wait for few Minutes until Doctor Accepts your Consultation Request. Please do not press the back button',
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.caption,
+              style: Theme.of(context).textTheme.bodySmall,
             )
           ],
         ),

@@ -274,11 +274,11 @@ class _CalendarPageState extends State<CalendarPage> {
                             borderRadius: BorderRadius.circular(0)),
                         todayTextStyle: Theme.of(context)
                             .textTheme
-                            .headline6!
+                            .headlineSmall!
                             .copyWith(fontSize: 16, color: Colors.white),
                         defaultTextStyle: Theme.of(context)
                             .textTheme
-                            .headline6!
+                            .headlineSmall!
                             .copyWith(fontSize: 16)),
                     headerStyle: HeaderStyle(
                         headerPadding: const EdgeInsets.all(0),

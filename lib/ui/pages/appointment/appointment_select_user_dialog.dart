@@ -161,7 +161,7 @@ class _AppointmentSelectUserDialogState
                           label: 'Complaints',
                         ),
                         MRadioChip<String>(
-                          labelStyle: Theme.of(context).textTheme.caption,
+                          labelStyle: Theme.of(context).textTheme.bodySmall,
                           value: gender,
                           onChanged: (d) {
                             setState(() {

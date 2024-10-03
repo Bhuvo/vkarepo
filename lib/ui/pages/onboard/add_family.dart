@@ -233,7 +233,7 @@ class _AddFamilyState extends State<AddFamily> {
                     SizedBox(
                       width: 10,
                     ),
-                    // Expanded(child: Text("Age:${data.age??'0'}",style: Theme.of(context).textTheme.headline6?.copyWith(color: Colors.grey.shade700, fontSize: 17),)),
+                    // Expanded(child: Text("Age:${data.age??'0'}",style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.grey.shade700, fontSize: 17),)),
                   ],
                 ),
                 const SizedBox(

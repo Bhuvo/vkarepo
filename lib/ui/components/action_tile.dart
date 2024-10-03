@@ -68,7 +68,7 @@ class ActionTile extends StatelessWidget {
                 if (subTitle != null)
                   Text(
                     subTitle!,
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
               ],
             ),

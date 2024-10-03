@@ -183,7 +183,7 @@ class _EditHospitalScheduleDialogState extends State<EditHospitalScheduleDialog>
                     children: [
                       Text(
                         '(24 Hrs Format)',
-                        style: Theme.of(context).textTheme.caption?.copyWith(
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: Colors.red, fontStyle: FontStyle.italic),
                       )
                     ],
@@ -360,7 +360,7 @@ class _EditHospitalScheduleDialogState extends State<EditHospitalScheduleDialog>
                           })),
                   //ScheduleTimeListItem(),
                   // Divider(endIndent: 0, indent: 0, height: 32,),
-                  // Text('Follow Up Fee', style: Theme.of(context).textTheme.caption,),
+                  // Text('Follow Up Fee', style: Theme.of(context).textTheme.bodySmall,),
                   // const SizedBox(height: 8,),
                   // Row(
                   //   children: [

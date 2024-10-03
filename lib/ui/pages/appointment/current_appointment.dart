@@ -369,7 +369,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                       children: [
                         Text(
                           'Hospital Appointment',
-                          style: Theme.of(context).textTheme.caption,
+                          style: Theme.of(context).textTheme.bodySmall,
                         ),
                         const Spacer(),
                         TextButton(

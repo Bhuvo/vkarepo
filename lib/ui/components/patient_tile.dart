@@ -22,7 +22,7 @@ class PatientTile extends StatelessWidget {
           Expanded(child: Column(children: [
             Row(
               children: [
-                Expanded(child: Text('${UserProvider.of(context)?.fullName ?? ' '}', style: Theme.of(context).textTheme.headline6?.copyWith(fontSize: 15),),),
+                Expanded(child: Text('${UserProvider.of(context)?.fullName ?? ' '}', style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 15),),),
                 UserInfo(Info.phone, textColor: MTheme.THEME_COLOR,)
               ],
             ),

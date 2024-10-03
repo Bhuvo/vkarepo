@@ -420,7 +420,7 @@ class _EditHospitalDialogState extends State<EditHospitalDialog> {
                             ),
                             Text(
                               'Current Location',
-                              style: Theme.of(context).textTheme.caption,
+                              style: Theme.of(context).textTheme.bodySmall,
                             ),
                             SizedBox(
                               height: 8,

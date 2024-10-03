@@ -34,7 +34,7 @@ class IncomingCallDialog extends StatelessWidget {
           ),
           const SizedBox(height: 8,),
           Text('${data['Doctor_Name']}', style: TextStyle(color: MTheme.THEME_COLOR, fontWeight: FontWeight.w600),),
-          Text(Consts.CALLING, style: Theme.of(context).textTheme.caption,),
+          Text(Consts.CALLING, style: Theme.of(context).textTheme.bodySmall,),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 32),
             child: Row(
@@ -45,7 +45,7 @@ class IncomingCallDialog extends StatelessWidget {
                     MIconButton(child: Icon(Icons.phone_disabled, size: 30,), solid: Colors.red, onTap: (){
                       context.popDialog();
                     }, ),
-                    Text(Consts.DECLINE, style: Theme.of(context).textTheme.caption,)
+                    Text(Consts.DECLINE, style: Theme.of(context).textTheme.bodySmall,)
 
                   ],
                 ),
@@ -56,7 +56,7 @@ class IncomingCallDialog extends StatelessWidget {
                       context.popDialog();
                       context.push(Routes.inAppCallPage, data);
                     },),
-                    Text(Consts.ACCEPT, style: Theme.of(context).textTheme.caption,)
+                    Text(Consts.ACCEPT, style: Theme.of(context).textTheme.bodySmall,)
                   ],
                 ),
 

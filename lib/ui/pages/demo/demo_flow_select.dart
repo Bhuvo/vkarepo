@@ -45,7 +45,7 @@ class DemoFlowSelect extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Row(
               children: [
-                Text(key, style: Theme.of(context).textTheme.headline6?.copyWith(fontSize: 15, color: MTheme.THEME_COLOR),),
+                Text(key, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 15, color: MTheme.THEME_COLOR),),
                 const Spacer(),
                 const Icon(Icons.chevron_right, color: Colors.grey,)
               ],

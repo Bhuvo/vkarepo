@@ -56,7 +56,7 @@ class OrderAddressList extends StatelessWidget {
                             ),
                             Text(
                               '${data['${type}_mobile'] ?? '-'}, ${data['${type}_email'] ?? '-'}',
-                              style: Theme.of(context).textTheme.caption,
+                              style: Theme.of(context).textTheme.bodySmall,
                             ),
                             const SizedBox(
                               height: 5,
@@ -66,7 +66,7 @@ class OrderAddressList extends StatelessWidget {
                             ),
                             Text(
                               '${data['${type}_landmark'] ?? '-'}',
-                              style: Theme.of(context).textTheme.caption,
+                              style: Theme.of(context).textTheme.bodySmall,
                             ),
                             // if(kDebugMode)Text('${data}',),
                           ],

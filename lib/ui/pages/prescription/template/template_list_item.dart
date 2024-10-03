@@ -101,7 +101,7 @@ class _TemplateListItemState extends State<TemplateListItem> {
                                       data[ind]["Template_Name"].toString(),
                                       style: Theme.of(context)
                                           .textTheme
-                                          .headline6
+                                          .headlineSmall
                                           ?.copyWith(fontSize: 14),
                                     )),
                                     Container(
@@ -123,7 +123,7 @@ class _TemplateListItemState extends State<TemplateListItem> {
                                 ),
                                 Text(
                                   data[ind]["Description"].toString(),
-                                  style: Theme.of(context).textTheme.caption,
+                                  style: Theme.of(context).textTheme.bodySmall,
                                 ),
                               ],
                             ),

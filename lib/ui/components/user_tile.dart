@@ -104,7 +104,7 @@ class UserTile extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.33,
                   child: DefaultTextStyle(
-                      style: Theme.of(context).textTheme.caption!.copyWith(
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontSize:
                               MediaQuery.of(context).size.height * 0.0128),
                       overflow: TextOverflow.fade,
@@ -119,11 +119,11 @@ class UserTile extends StatelessWidget {
                   ),
                   Text(
                     'Patient ID: ',
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   Text(
                     '${patientId}   ',
-                    style: Theme.of(context).textTheme.caption?.copyWith(
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: MTheme.THEME_COLOR, fontWeight: FontWeight.w700),
                   ),
                   UserInfo(

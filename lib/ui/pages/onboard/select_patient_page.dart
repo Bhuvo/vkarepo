@@ -30,7 +30,7 @@ class SelectPatientPage extends StatelessWidget {
           children: [
             const SizedBox(height: 64,),
             Text('SELECT PATIENT', style: Theme.of(context).textTheme.bodyLarge,),
-            Text('Please select your patient.', style: Theme.of(context).textTheme.caption,),
+            Text('Please select your patient.', style: Theme.of(context).textTheme.bodySmall,),
             const SizedBox(height: 16,),
             BlocProvider(create: (_) => bloc..add(const Load()),
               child: ApiBuilder<Patient>(

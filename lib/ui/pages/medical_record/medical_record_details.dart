@@ -151,7 +151,7 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                 children: [
                   Text(
                     Consts.PRESCRIPTION,
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const Spacer(),
                   TextButton(
@@ -222,7 +222,7 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                         'Doctor Notes',
                         style: Theme.of(context)
                             .textTheme
-                            .headline6
+                            .headlineSmall
                             ?.copyWith(fontSize: 14, color: Colors.red),
                       ),
                       Row(),
@@ -230,7 +230,7 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                         'Follow the above mentioned Drugs for 5 days',
                         style: Theme.of(context)
                             .textTheme
-                            .caption
+                            .bodySmall
                             ?.copyWith(fontWeight: FontWeight.w600),
                       )
                     ],
@@ -242,7 +242,7 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                 children: [
                   Text(
                     Consts.LABTEST,
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const Spacer(),
                   // TextButton(
@@ -308,14 +308,14 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                                         data[index]["DeptName"],
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline6
+                                            .headlineSmall
                                             ?.copyWith(fontSize: 14),
                                       ),
                                       Text(
                                         'Test Name: ${data[index]["labtest_name"]}',
                                         style: Theme.of(context)
                                             .textTheme
-                                            .caption
+                                            .bodySmall
                                             ?.copyWith(
                                                 fontWeight: FontWeight.w600),
                                       ),
@@ -325,7 +325,7 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                                             'Instructions: ',
                                             style: Theme.of(context)
                                                 .textTheme
-                                                .caption
+                                                .bodySmall
                                                 ?.copyWith(
                                                     fontWeight:
                                                         FontWeight.w600),
@@ -356,13 +356,13 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                     Consts.HEALTH_RECORDS,
                     style: Theme.of(context)
                         .textTheme
-                        .caption
+                        .bodySmall
                         ?.copyWith(fontSize: size.height * 0.015),
                   ),
                   const Spacer(),
                   // Text(
                   //   '2 Items',
-                  //   style: Theme.of(context).textTheme.caption?.copyWith(
+                  //   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   //       fontSize: size.height * 0.015,
                   //       fontWeight: FontWeight.w600,
                   //       color: Colors.grey.shade400),
@@ -506,7 +506,7 @@ class PrescriptionListItem extends StatelessWidget {
             Text(
               '${data['drug_name']}',
               style:
-                  Theme.of(context).textTheme.headline6?.copyWith(fontSize: 14),
+                  Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 14),
             ),
             Row(),
             Text(
@@ -514,7 +514,7 @@ class PrescriptionListItem extends StatelessWidget {
               'Frequency: ${data['frequency']}, ${data['duration']} Day, Qty: ${data['dosage']}, Instruction: ${data['instruction']}',
               style: Theme.of(context)
                   .textTheme
-                  .caption
+                  .bodySmall
                   ?.copyWith(fontWeight: FontWeight.w600),
             )
           ],
@@ -567,14 +567,14 @@ class FileListItem extends StatelessWidget {
                     description,
                     style: Theme.of(context)
                         .textTheme
-                        .headline6
+                        .headlineSmall
                         ?.copyWith(fontSize: size.height * 0.018),
                   ),
                   Text(
                     name ?? "240 kb",
                     style: Theme.of(context)
                         .textTheme
-                        .caption
+                        .bodySmall
                         ?.copyWith(fontSize: size.height * 0.015),
                   )
                 ],

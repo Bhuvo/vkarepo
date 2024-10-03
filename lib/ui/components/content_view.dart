@@ -22,13 +22,13 @@ class ContentView extends StatelessWidget {
       children: [
         Text(
           label,
-          style: Theme.of(context).textTheme.caption,
+          style: Theme.of(context).textTheme.bodySmall,
         ),
         Container(
           width: MediaQuery.of(context).size.width * 0.3,
           child: Text(
             content,
-            style: Theme.of(context).textTheme.headline6?.copyWith(
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                 fontSize: MediaQuery.of(context).size.height * 0.018),
           ),
         ),
@@ -87,13 +87,13 @@ class ContentView2 extends StatelessWidget {
       children: [
         Text(
           label,
-          style: Theme.of(context).textTheme.caption?.copyWith(fontSize: 10),
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(fontSize: 10),
         ),
         Text(
           content,
           style: Theme.of(context)
               .textTheme
-              .headline6
+              .headlineSmall
               ?.copyWith(fontSize: 13, color: MTheme.THEME_COLOR),
         ),
       ],
