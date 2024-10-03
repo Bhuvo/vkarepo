@@ -12,12 +12,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  pdfx: ^2.4.0
+  pdfx: 2.7.0
   document_file_save_plus: ^2.0.0
   auto_size_text: ^3.0.0
   timelines: ^0.1.0
   #networking
-#  connectivity_plus: ^6.0.2
+  #  connectivity_plus: ^6.0.2
   http: ^1.1.0
   cached_network_image: ^3.2.0
 
@@ -37,7 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   font_awesome_flutter: ^10.1.0
   table_calendar: ^3.0.3
-#  cross_connectivity: ^3.2.0
+  #  cross_connectivity: ^3.2.0
   shimmer: ^2.0.0
   flutter_portal: ^1.1.1
   flutter_rating_bar: ^4.0.1
@@ -53,8 +53,8 @@ dependencies:
   barcode_widget: ^2.0.2
   cc_avenue:
     path: ./cc_avenue
-#  opentok_flutter:
-#    path: ./opentok_flutter
+  #  opentok_flutter:
+  #    path: ./opentok_flutter
   #flutter_vonage_video: 0.0.3
   #knovi_call: ^0.0.1
   #opentok_flutter: ^0.0.1
@@ -75,7 +75,8 @@ dependencies:
   transparent_image: ^2.0.0
   age_calculator: ^1.0.0
   geolocator: ^9.0.2
-  advance_pdf_viewer2: ^2.0.4
+  advance_pdf_viewer2: 2.0.5
+  pdf_widget_wrapper: ^1.0.4
   socket_io_client: ^2.0.2
   hexcolor: ^3.0.1
   flutter_webrtc: ^0.11.6+hotfix.1

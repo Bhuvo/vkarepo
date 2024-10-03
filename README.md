@@ -5,6 +5,7 @@ Timesmed Product
 ##Getting Started
 
 ##Build
+flutter build apk --no-tree-shake-icons
 
 flutter build apk --flavor doctor -t lib/main_doctor.dart --release --split-per-abi
 flutter build apk --flavor patient -t lib/main_patient.dart --release --split-per-abi

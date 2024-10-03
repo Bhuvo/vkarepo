@@ -17,7 +17,9 @@ class ScheduleHospitalListItem extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
         padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 12),
         onTap: (){
-          context.push(Routes.scheduledAppointmentList, {'hos_id': data.hospital_id});
+          context.push(Routes.scheduledAppointmentList, {'hos_id': data.hospital_id ,
+            'statusId': 'T',
+          });
         },
         child: Row(
           children: [
