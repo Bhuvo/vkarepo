@@ -65,7 +65,8 @@ abstract class MessagingMonitor {
         if(event.data.toString().contains('VideoKeyDetails')){
           print("Video Key Details");
           AppointmentFacade.handleDoctorIncoming(navigatorKey.currentState!.context, event);
-        }else if(event.data.toString().contains('Instant call')){
+        }
+       // else if(event.data.toString().contains('Instant call')){
           // print("Instant Call");
           // final flutterLocalNotificationsPlugin =
           // FlutterLocalNotificationsPlugin();
@@ -103,8 +104,7 @@ abstract class MessagingMonitor {
           //     ),
           //   );
           // }
-
-        }
+       // }
       });
     } catch (e){
       if (kDebugMode) {
