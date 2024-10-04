@@ -287,7 +287,8 @@ class _LoginPageState extends State<LoginPage> {
                           if (res != null) {
                             saveInfo(res, context: context);
                           }
-                        } else {
+                        }
+                        else {
                           var response = await http.get(Uri.parse('https://tmsnew.timesmed.com/VKAAPI1/DoctorLogin_New?DoctorPhone=${phone}&Password=${password}'));
                           if(response.statusCode == 200){
                             var result = jsonDecode(response.body);
@@ -296,14 +297,14 @@ class _LoginPageState extends State<LoginPage> {
                               LocalStorage.setString(LocalStorage.IsType, Consts.nurse);
                               print('Its a Nurse');
                               result['Data']['Doctor_Name'] = result['Data']['Nurse_Name'];
-                              result['Data']['Doctor_id'] = result['Data']['Nurse_Id'];
-                              print('${result['Data']['Doctor_id']} ${result['Data']['Nurse_Id']}');
-                            }else if(result['ResponseCode'] =='3'){
+                              result['Data']['Doctor_id'] = result['Data']['Doctor_Id'];
+                              print('${result['Data']['Doctor_id']} ${result['Data']['Doctor_Id']}');
+                            }else if(result['ResponseCode'] =='6'){
                               LocalStorage.setString(LocalStorage.IsType, Consts.frontOffice);
                               print('Its a front office');
                             result['Data']['Doctor_Name'] = result['Data']['FoMem_Name'];
-                            result['Data']['Doctor_id'] = result['Data']['FoMem_Id'];
-                            print('${result['Data']['Doctor_Name']} ${result['Data']['FoMem_Name']}');
+                            result['Data']['Doctor_id'] = result['Data']['Doctor_Id'];
+                            print('${result['Data']['Doctor_Name']} ${result['Data']['Doctor_Id']}');
                             }else{
                               LocalStorage.setString(LocalStorage.IsType, Consts.doctor);
                             }

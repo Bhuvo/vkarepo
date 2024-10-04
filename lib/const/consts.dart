@@ -281,8 +281,8 @@ class Consts {
     MDrawerItem(PATIENT_REGISTRATION, Routes.patientRegistrationList,
         icon: FontAwesomeIcons.userCheck),
     // MDrawerItem(TODAY_INR_SCHEDULE, Routes.todayInrScheduleList, icon: FontAwesomeIcons.clipboardList),
-    // MDrawerItem(TOTAL_PENDING_CASES, Routes.totalPendingList,
-    //     icon: FontAwesomeIcons.userClock),
+    MDrawerItem(TOTAL_PENDING_CASES, Routes.totalPendingList,
+        icon: FontAwesomeIcons.userClock),
     // MDrawerItem(TOTAL_INR_LINELIST, Routes.totalInrLineList, icon: FontAwesomeIcons.rectangleList),
     MDrawerItem('PROFILE', Routes.doctorProfile,
         icon: FontAwesomeIcons.userDoctor), //DOCTOR_PROFILE
