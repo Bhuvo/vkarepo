@@ -102,6 +102,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
 
   @override
   Widget build(BuildContext context) {
+    print('Doctor id is ${LocalStorage.getUID()}');
     // final f = MDateUtils.queryDateToDate1(query['From']);
     //     // final t = MDateUtils.queryDateToDate1(query['To']);
     final f = MDateUtils.formatDateToDateTime(query['From']);

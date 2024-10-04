@@ -68,7 +68,8 @@ class _PrescriptionListState extends State<PrescriptionList> {
       'Res_PaymentID': d.paymentId,
       'Res_Signature': d.signature
     });
-    print(res.bodyString);
+    print('input RazorpayResponse ${d.orderId} , ${d.paymentId} ,${d.signature}');
+    print('RazorpayResponse ${res.bodyString}');
     if(res.isSuccessful){
       final json = jsonDecode(res.bodyString);
       showMessage(context: context, message: 'Order Placed');
@@ -139,7 +140,8 @@ class _PrescriptionListState extends State<PrescriptionList> {
               'order_date': MDateUtils.dateToQueryDate(DateTime.now().toIso8601String())
             });
             context.pop();
-            print(res.bodyString);
+            print('input create ${LocalStorage.getUID()}, ${total} ,${MDateUtils.dateToQueryDate(DateTime.now().toIso8601String())}');
+            print('create order ${res.bodyString}');
             if(res.bodyString != null){
               try{
                 final json = jsonDecode(res.bodyString);

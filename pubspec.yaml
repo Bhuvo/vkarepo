@@ -29,7 +29,7 @@ dependencies:
   #firebase_message_handling
   firebase_notifications_handler: ^1.1.0
 
-  #ui
+  #uiorder
   flutter_bloc: ^8.1.3
   flutter_slidable: ^3.1.1
   pinput: ^4.0.0

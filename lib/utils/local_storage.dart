@@ -39,7 +39,7 @@ class LocalStorage {
   }
 
   static bool getIsFromPatient(){
-    return _prefs?.getBool(isFromPatient) ?? true;
+    return _prefs?.getBool(isFromPatient) ?? false;
   }
 
   static dynamic getUID(){
@@ -48,7 +48,7 @@ class LocalStorage {
     print(getJson(USER));
     final id = '${user.id ??user.userId ?? user.patientid}';
     final id2 ='${user.userId ?? user.patientid}';
-    return getString(IsType) == Consts.doctor ?id : id2;
+    return getString(IsType) == Consts.doctor ||getString(IsType)== Consts.nurse||getString(IsType)== Consts.frontOffice ?id : id2;
   }
   static Patient getCursorPatient(){
     //return Consts.DUMMY_USER.copyWith(id: 38371);
