@@ -12,6 +12,7 @@ import 'package:timesmedlite/ui/pages/dashboard/dashboard_card.dart';
 import 'package:timesmedlite/ui/pages/home/homepage_base.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
+import 'package:timesmedlite/ui/widgets/space.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
 import 'package:timesmedlite/utils/date_utils.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
@@ -126,6 +127,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                 .map((e) => BookingHospital.fromJson(e))
                 .toList();
             return SingleChildScrollView(
+              // physics: NeverScrollableScrollPhysics(),
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
@@ -382,7 +384,8 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                     ...hospitals.map((e) => ScheduleHospitalListItem(
                           counter: '${e.app_count ?? '-'}',
                           data: e,
-                        ))
+                        )),
+                    const Space(300)
                   ],
                 ),
               ),

@@ -32,7 +32,7 @@ class MApp extends StatelessWidget {
       //darkTheme: MTheme.darkTheme,
        scaffoldMessengerKey: snackbarKey, // <
       navigatorKey:navigatorKey ,// = this
-      scrollBehavior: const ScrollBehaviorModified(),
+      // scrollBehavior: const ScrollBehaviorModified(),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         DefaultCupertinoLocalizations.delegate,
