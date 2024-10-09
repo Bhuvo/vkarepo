@@ -4,6 +4,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:timesmedlite/ui/widgets/m_list_tile.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
 
+import '../../components/patient_bottom_navigation.dart';
 import '../../components/status_indicator.dart';
 import '../../theme/theme.dart';
 import '../../widgets/m_gradient_container.dart';
@@ -35,6 +36,7 @@ class _ClinicalAppointmentsState extends State<ClinicalAppointments> {
   @override
   Widget build(BuildContext context) {
     return MScaffold(
+      bottom: const PatientBottomNavigation(),
       body: controller.patientList.length >0 ?ListView.builder(
         itemCount: controller.patientList.length,
         itemBuilder: (context ,index){
