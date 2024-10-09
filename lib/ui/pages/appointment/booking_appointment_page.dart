@@ -289,27 +289,94 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                                         print('coming inside Yes${timingsQuery['hospital_id']} , ${LocalStorage.getPatientSearchDoctorId()}, ${MDateUtils.dateToHourMinuteQuery(date.toIso8601String())} ,${MDateUtils.dateToQueryDate(date.toIso8601String())}');
                                         final call = Injector()
                                             .timesmedService
-                                            .get2(path: 'VkaDoctorBookAppointment', query: {
-                                            // .get2(path: 'DoctorBookAppointment', query: {
-                                          'UserId': LocalStorage.getCursorPatient().userId, //  user?.userId,
-                                          'Type_Flag': 'H',
-                                          'Hospital_id': timingsQuery['hospital_id'],
-                                          // 'DoctorId': LocalStorage.getUID(),
-                                          'DoctorId': LocalStorage.getPatientSearchDoctorId(),
-                                          'desc': 'complaints',
-                                          'Time': MDateUtils.dateToHourMinuteQuery(date.toIso8601String()),
-                                          'Date': MDateUtils.dateToQueryDate(date.toIso8601String()),
-                                        });
-                                        final res = await ApiFacade.callApi(context: context, call: call);
+                                            .get2(
+                                            path: 'VkaDoctorBookAppointment',
+                                            query: {
+                                              // .get2(path: 'DoctorBookAppointment', query: {
+                                              'UserId': LocalStorage
+                                                  .getCursorPatient()
+                                                  .userId,
+                                              //  user?.userId,
+                                              'Type_Flag': 'H',
+                                              'Hospital_id': timingsQuery['hospital_id'],
+                                              // 'DoctorId': LocalStorage.getUID(),
+                                              'DoctorId': LocalStorage
+                                                  .getPatientSearchDoctorId(),
+                                              'desc': 'complaints',
+                                              'Time': MDateUtils
+                                                  .dateToHourMinuteQuery(
+                                                  date.toIso8601String()),
+                                              'Date': MDateUtils
+                                                  .dateToQueryDate(
+                                                  date.toIso8601String()),
+                                            });
+                                        final res = await ApiFacade.callApi(
+                                            context: context, call: call);
                                         print(res);
                                         print(res?.error);
                                         print(res?.body);
                                         print(res?.statusCode);
                                         if (res != null) {
-                                          showMessage(context: context, message: 'Appointment booked successfully');
+                                          showMessage(context: context,
+                                              message: 'Appointment booked successfully');
                                           context.popDialog(true);
-                                          context.pushAndRemoveUntil(Routes.bookAppointment, (p0) => false);
+                                          context.pushAndRemoveUntil(
+                                              Routes.bookAppointment, (
+                                              p0) => false);
                                         }
+                                        // final bookTime = Injector()
+                                        //     .apiService
+                                        //     .rawGet(path: 'BookThisTime', query: {
+                                        //   // 'User_id': LocalStorage.getUser().userId.toString(),
+                                        //   'User_id': LocalStorage.getCursorPatient().userId,
+                                        //   'Doctor_id':LocalStorage.getPatientSearchDoctorId(),
+                                        //   // 'DateParam': MDateUtils.dateToFormattedDate(
+                                        //   //     reqRes1.toIso8601String(), true,
+                                        //   //     generic: true),
+                                        //   'DateParam':MDateUtils.dateToQueryDate(date.toIso8601String()),
+                                        //   'TimeParam': MDateUtils.dateToHourMinuteQuery(date.toIso8601String())
+                                        // });
+                                        // final reqRes2 =
+                                        // await ApiFacade.callApi(context: context, call: bookTime);
+                                        // if(reqRes2 != null) {
+                                        //   final call = Injector()
+                                        //       .timesmedService
+                                        //       .get2(
+                                        //       path: 'VkaDoctorBookAppointment',
+                                        //       query: {
+                                        //         // .get2(path: 'DoctorBookAppointment', query: {
+                                        //         'UserId': LocalStorage
+                                        //             .getCursorPatient()
+                                        //             .userId,
+                                        //         //  user?.userId,
+                                        //         'Type_Flag': 'H',
+                                        //         'Hospital_id': timingsQuery['hospital_id'],
+                                        //         // 'DoctorId': LocalStorage.getUID(),
+                                        //         'DoctorId': LocalStorage
+                                        //             .getPatientSearchDoctorId(),
+                                        //         'desc': 'complaints',
+                                        //         'Time': MDateUtils
+                                        //             .dateToHourMinuteQuery(
+                                        //             date.toIso8601String()),
+                                        //         'Date': MDateUtils
+                                        //             .dateToQueryDate(
+                                        //             date.toIso8601String()),
+                                        //       });
+                                        //   final res = await ApiFacade.callApi(
+                                        //       context: context, call: call);
+                                        //   print(res);
+                                        //   print(res?.error);
+                                        //   print(res?.body);
+                                        //   print(res?.statusCode);
+                                        //   if (res != null) {
+                                        //     showMessage(context: context,
+                                        //         message: 'Appointment booked successfully');
+                                        //     context.popDialog(true);
+                                        //     context.pushAndRemoveUntil(
+                                        //         Routes.bookAppointment, (
+                                        //         p0) => false);
+                                        //   }
+                                        // }
                                     },
                                     }
                                     );

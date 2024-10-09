@@ -22,68 +22,68 @@ class _DoctorsListForClinicalVisitState
     extends State<DoctorsListForClinicalVisit> {
   bool isLoading = false;
 
-  List<Doctor> doctors = [
-    Doctor(
-        name: "Santhosh",
-        qualifications: "BDS, MDS - Periodontology and Oral Implantology",
-        experience: "3",
-        docSpeciality: "DENTIST - PERIODONTIST"),
-    Doctor(
-        name: "Arun",
-        qualifications: "MBBS",
-        experience: "4",
-        docSpeciality: "DENTIST - PERIODONTIST"),
-    Doctor(
-        name: "MS Dhoni",
-        qualifications: "BDS, MDS - Periodontology and Oral Implantology",
-        experience: "5",
-        docSpeciality: "DENTIST - PERIODONTIST"),
-    Doctor(
-        name: "Subash",
-        qualifications: "MBBS",
-        experience: "4",
-        docSpeciality: "BDS, MDS - Periodontology and Oral Implantology"),
-    Doctor(
-        name: "Santhosh",
-        qualifications: "BDS, MDS - Periodontology and Oral Implantology",
-        experience: "3",
-        docSpeciality: "DENTIST - PERIODONTIST"),
-    Doctor(
-        name: "Arun",
-        qualifications: "MBBS",
-        experience: "4",
-        docSpeciality: "DENTIST - PERIODONTIST"),
-    Doctor(
-        name: "MS Dhoni",
-        qualifications: "BDS, MDS - Periodontology and Oral Implantology",
-        experience: "5",
-        docSpeciality: "DENTIST - PERIODONTIST"),
-    Doctor(
-        name: "Subash",
-        qualifications: "MBBS",
-        experience: "4",
-        docSpeciality: "BDS, MDS - Periodontology and Oral Implantology"),
-    Doctor(
-        name: "Santhosh",
-        qualifications: "BDS, MDS - Periodontology and Oral Implantology",
-        experience: "3",
-        docSpeciality: "DENTIST - PERIODONTIST"),
-    Doctor(
-        name: "Arun",
-        qualifications: "MBBS",
-        experience: "4",
-        docSpeciality: "DENTIST - PERIODONTIST"),
-    Doctor(
-        name: "MS Dhoni",
-        qualifications: "BDS, MDS - Periodontology and Oral Implantology",
-        experience: "5",
-        docSpeciality: "DENTIST - PERIODONTIST"),
-    Doctor(
-        name: "Subash",
-        qualifications: "MBBS",
-        experience: "4",
-        docSpeciality: "BDS, MDS - Periodontology and Oral Implantology"),
-  ];
+  // List<Doctor> doctors = [
+  //   Doctor(
+  //       name: "Santhosh",
+  //       qualifications: "BDS, MDS - Periodontology and Oral Implantology",
+  //       experience: "3",
+  //       docSpeciality: "DENTIST - PERIODONTIST"),
+  //   Doctor(
+  //       name: "Arun",
+  //       qualifications: "MBBS",
+  //       experience: "4",
+  //       docSpeciality: "DENTIST - PERIODONTIST"),
+  //   Doctor(
+  //       name: "MS Dhoni",
+  //       qualifications: "BDS, MDS - Periodontology and Oral Implantology",
+  //       experience: "5",
+  //       docSpeciality: "DENTIST - PERIODONTIST"),
+  //   Doctor(
+  //       name: "Subash",
+  //       qualifications: "MBBS",
+  //       experience: "4",
+  //       docSpeciality: "BDS, MDS - Periodontology and Oral Implantology"),
+  //   Doctor(
+  //       name: "Santhosh",
+  //       qualifications: "BDS, MDS - Periodontology and Oral Implantology",
+  //       experience: "3",
+  //       docSpeciality: "DENTIST - PERIODONTIST"),
+  //   Doctor(
+  //       name: "Arun",
+  //       qualifications: "MBBS",
+  //       experience: "4",
+  //       docSpeciality: "DENTIST - PERIODONTIST"),
+  //   Doctor(
+  //       name: "MS Dhoni",
+  //       qualifications: "BDS, MDS - Periodontology and Oral Implantology",
+  //       experience: "5",
+  //       docSpeciality: "DENTIST - PERIODONTIST"),
+  //   Doctor(
+  //       name: "Subash",
+  //       qualifications: "MBBS",
+  //       experience: "4",
+  //       docSpeciality: "BDS, MDS - Periodontology and Oral Implantology"),
+  //   Doctor(
+  //       name: "Santhosh",
+  //       qualifications: "BDS, MDS - Periodontology and Oral Implantology",
+  //       experience: "3",
+  //       docSpeciality: "DENTIST - PERIODONTIST"),
+  //   Doctor(
+  //       name: "Arun",
+  //       qualifications: "MBBS",
+  //       experience: "4",
+  //       docSpeciality: "DENTIST - PERIODONTIST"),
+  //   Doctor(
+  //       name: "MS Dhoni",
+  //       qualifications: "BDS, MDS - Periodontology and Oral Implantology",
+  //       experience: "5",
+  //       docSpeciality: "DENTIST - PERIODONTIST"),
+  //   Doctor(
+  //       name: "Subash",
+  //       qualifications: "MBBS",
+  //       experience: "4",
+  //       docSpeciality: "BDS, MDS - Periodontology and Oral Implantology"),
+  // ];
 
   @override
   void initState() {
@@ -123,6 +123,14 @@ class _DoctorsListForClinicalVisitState
         child: SizedBox(
           width: size.width * 0.9,
           child: TextField(
+            onChanged: (value) {
+              doctorData.data = widget.controller.doctorData.data?.map((element) => element).where((element) {
+                return element.doctorName?.toLowerCase().contains(value.toLowerCase())?? false;
+              }).toList() as List<DoctorData>;
+              setState(() {
+
+              });
+            },
             decoration: InputDecoration(
               labelText: 'Search For Doctor Appointment',
               suffixIcon: Icon(
