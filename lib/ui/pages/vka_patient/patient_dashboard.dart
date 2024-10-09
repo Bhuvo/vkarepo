@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
+import '../../components/patient_bottom_navigation.dart';
 import '../../routes/routes.dart';
 import '../dashboard/dashboard_card.dart';
 import '../home/home_bottom_navigation.dart';
@@ -17,8 +18,9 @@ class PatientDashboard extends StatefulWidget {
 class _PatientDashboardState extends State<PatientDashboard> {
   @override
   Widget build(BuildContext context) {
-    return HomeBottomNavigation(
-      title: 'Dashboard',
+    return MScaffold(
+      bottom: const PatientBottomNavigation(),
+      title: Text('Dashboard'),
       body:Column(
         children: [
           Row(

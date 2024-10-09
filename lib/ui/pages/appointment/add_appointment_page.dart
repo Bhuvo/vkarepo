@@ -640,8 +640,6 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                     'TimeParam': MDateUtils.dateToHourMinuteTimezone(
                         reqRes1.toIso8601String())
                   });
-
-
                   // final call = Injector()
                   //     .apiService
                   //     .rawGet(path: 'CVBookThisTime', query: {
