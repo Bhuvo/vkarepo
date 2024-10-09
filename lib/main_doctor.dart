@@ -10,7 +10,7 @@ import 'package:timesmedlite/ui/app/m_app.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform(Config.doctor));
-  print("Handling a background message: ${message.messageId}");
+  print("Handling a background messag: ${message.messageId}");
 }
 
 void main() async {
