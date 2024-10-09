@@ -411,7 +411,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
-                                'statusId': 'W',
+                                'statusId': 'C',
                                 'fromDate': query['From'],
                                 'toDate': query['To'] ,
                               },

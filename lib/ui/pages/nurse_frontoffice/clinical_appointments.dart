@@ -29,13 +29,13 @@ class _ClinicalAppointmentsState extends State<ClinicalAppointments> {
     getData();
   }
   getData()async{
-    await controller.getClinicalAppointmentList('184376', '193976', 'W', '10/07/2024', '10/08/2024');
+    await controller.getClinicalAppointmentList('184376', '193976', 'W', '10/07/2024', '10/09/2024');
     setState(() {});
   }
   @override
   Widget build(BuildContext context) {
     return MScaffold(
-      body:ListView.builder(
+      body: controller.patientList.length >0 ?ListView.builder(
         itemCount: controller.patientList.length,
         itemBuilder: (context ,index){
           return MListTile(
@@ -50,8 +50,12 @@ class _ClinicalAppointmentsState extends State<ClinicalAppointments> {
                         color: MTheme.THEME_COLOR,
                       ),
                     ),
-                    onPressed: (BuildContext context) {
-                      controller.changeStatus('50992' ,controller.patientList[index].Appointment_id , 'Accept');
+                    onPressed: (BuildContext context) async {
+                      await controller.changeStatus('50992' ,controller.patientList[index].Appointment_id.toString() , 'Accept');
+                      await controller.getClinicalAppointmentList('184376', '193976', 'W', '10/07/2024', '10/09/2024');
+                      setState(() {
+                      });
+                      print('done');
                     }
                 ),
                 CustomSlidableAction(
@@ -81,6 +85,8 @@ class _ClinicalAppointmentsState extends State<ClinicalAppointments> {
               ],
               child:ScheduledAppointmentListItem(data: controller.patientList[index],onTap: (){},));
         },
+      ) : Container(
+        child: Center(child: Text('No data found',style: TextStyle(color:Colors.black,fontSize: 16),)),
       ),
     );
   }
