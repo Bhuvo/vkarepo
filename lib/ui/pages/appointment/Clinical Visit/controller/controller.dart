@@ -62,9 +62,11 @@ class ClinicalVisitController {
   Future<void> getSpecialityList(String specialitName) async {
     specialityData.clear();
     var response = await http.get(Uri.parse('https://api.timesmed.com/Master_Data/SubCatList?search=$specialitName'));
+    print('response.statusCode ${response.statusCode}');
     if(response.statusCode == 200) {
       print(response.body);
       List<dynamic> jsonData = jsonDecode(response.body);
+      specialityData.clear();
       jsonData.forEach((element) {
         specialityData.add(SpecialityModel.fromJson(element));
       });

@@ -88,7 +88,7 @@ class ApiBuilderFacade{
     } catch (e){
       print(e.toString());
 
-      return left(const ApiFailure(message: 'Runtime Error!', code: '100'));
+      return left(const ApiFailure(message: 'Something went wrong', code: '100'));
     }
 
   }

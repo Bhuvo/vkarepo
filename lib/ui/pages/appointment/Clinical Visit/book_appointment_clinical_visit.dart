@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:timesmedlite/const/consts.dart';
@@ -62,6 +63,7 @@ class _BookAnAppointmentClinicalVisitState
 
   void getData() async{
     await controller.getStateList();
+
     setState(() {
 
     });
@@ -348,31 +350,33 @@ class _BookAnAppointmentClinicalVisitState
               //   ),
               // ),
               Autocomplete<SpecialityModel>(
+                // key: ValueKey('speciality::${controller.specialityData.length}'),
                 // optionsViewBuilder: (BuildContext context, AutocompleteOnSelected<String> onSelected, Iterable<String> options) {
                 //   return optionBuilder( options, onSelected);
                 // },
-                optionsBuilder: (TextEditingValue textEditingValue) {
+                optionsBuilder: (TextEditingValue textEditingValue) async {
                   //return cityList;
+
+                  await controller.getSpecialityList(textEditingValue.text);
+
                   if (textEditingValue.text.isEmpty) {
                     return const Iterable<SpecialityModel>.empty();
                   }
-                  return controller.specialityData.where((SpecialityModel speciality) {
+
+                  return controller.specialityData;
+
+                  print('specialityData: ${controller.specialityData}');
+                  final queried = controller.specialityData.where((SpecialityModel speciality) {
                     return speciality.subCategoryName?.toLowerCase().contains(textEditingValue.text.toLowerCase()) ?? false;
                   });
+                  print('queried: $queried');
+
+                  return queried;
                 },
                 fieldViewBuilder: (BuildContext context, TextEditingController textEditingController, FocusNode focusNode, VoidCallback onFieldSubmitted) {
                   return MTextField(
                       controller: textEditingController,
                       focusNode: focusNode,
-                      // decoration: InputDecoration(
-                      //   labelText: 'Select Speciality',
-                      //   suffixIcon: Icon(
-                      //     FontAwesomeIcons.angleDown,
-                      //     color: Colors.grey.shade500,
-                      //     size: size.height * 0.025,
-                      //   ),
-                      // ),
-
                       label:'Select Speciality',
                       suffixIcon:Icon(
                         FontAwesomeIcons.angleDown,
@@ -381,19 +385,23 @@ class _BookAnAppointmentClinicalVisitState
                       ),
                       validator: (val){
                         if(choose  ==' Chennai'){
-                          return '';
+                          return null;
                         }
                         if(controller.selectedCity.cityId == null){
                           return 'Please select city';
                         }else{
-                          return '';
+                          return null;
                         }
                       },
-                      onChanged: (val)async{
-                          controller.specialityData.clear();
-                          await controller.getSpecialityList(val);
-                          setState(() {
-                          });
+                      onChanged: (val) async {
+                        if(kDebugMode){
+                          print('Select speciality onChanged: $val');
+                        }
+
+
+                          // await Future.delayed(Duration(seconds: 1));
+                          // setState(() {
+                          // });
                       }
                   );
                 },

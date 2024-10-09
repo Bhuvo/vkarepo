@@ -28,7 +28,8 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
         //'DoctorId':38371,
         'DoctorId': LocalStorage.getUID(),
       },
-      api2: true);
+      api2: true
+  );
 
   final blocGetHospitalTimingMasterByDoctor = ApiBuilderBloc(
       path: 'GetHospitalTimingMasterByDoctor',
