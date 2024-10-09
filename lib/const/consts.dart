@@ -5,6 +5,7 @@ import 'package:timesmedlite/model/user.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/ui/widgets/m_drawer.dart';
 
+import '../ui/pages/vka_patient/patient_dashboard.dart';
 import '../utils/local_storage.dart';
 
 class Consts {
@@ -296,9 +297,12 @@ class Consts {
     MDrawerItem(CALL_LOG, Routes.callLogs, icon: FontAwesomeIcons.squarePhone),
     MDrawerItem(MISSED_CALL, Routes.missedCalls,
         icon: FontAwesomeIcons.phoneSlash),
-    MDrawerItem(DASHBOARD, Routes.currentAppointment,
+    // MDrawerItem(DASHBOARD, Routes.currentAppointment,
+    //     icon: FontAwesomeIcons.chartPie),
+    MDrawerItem('Clinical Dashboard', Routes.currentAppointment,
         icon: FontAwesomeIcons.chartPie),
-    MDrawerItem(TELE_MEDICINE, Routes.dashboard,
+    MDrawerItem('Video Dashboard', Routes.VideoDashboard,icon: FontAwesomeIcons.video),
+    MDrawerItem('INR Dashboard', Routes.dashboard,
         icon: FontAwesomeIcons.houseMedicalCircleCheck),
     MDrawerItem(BOOK_APPOINTMENT, Routes.bookingAppointment,
         icon: FontAwesomeIcons.penClip),
@@ -314,6 +318,8 @@ class Consts {
 
   static const List<MDrawerItem> PATIENT_BOTTOM_NAVIGATION_ITEMS = [
     //MDrawerItem(ONLINE_WAITING_HALL, Routes.inQueuePage, icon: CupertinoIcons.clock_fill),
+    MDrawerItem(DASHBOARD, Routes.patientDashboard, icon: CupertinoIcons.doc_append),
+    MDrawerItem('list', Routes.clinicalAppointments, icon: CupertinoIcons.doc_append),
     MDrawerItem(HOME, Routes.bookAppointment, icon: CupertinoIcons.home),
     MDrawerItem(MY_ORDERS, Routes.ordersList, icon: CupertinoIcons.cube_box),
     // MDrawerItem(DASHBOARD, Routes.currentAppointment,

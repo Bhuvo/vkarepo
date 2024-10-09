@@ -131,6 +131,7 @@ class _AddComplaintsPageState extends State<AddComplaintsPage> {
                         .apiService
                         .get2(path: 'Get_Complaints', query: {
                       'DoctorId': '38371',
+                      'Search_Key': d
                     });
                     List<String> complaintNameList = [];
                     List<Map<String, dynamic>> list = [];

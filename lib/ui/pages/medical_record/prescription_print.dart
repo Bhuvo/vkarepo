@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -5,11 +6,16 @@ import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
+import 'package:timesmedlite/ui/theme/theme.dart';
+import 'package:timesmedlite/ui/widgets/loading_widget.dart';
 
 import '../../../const/consts.dart';
 import '../../../model/appointment_data.dart';
 import '../../../utils/local_storage.dart';
 import '../../widgets/m_scaffold.dart';
+import 'package:http/http.dart' as http;
+
+import 'model/prescription_template_model.dart';
 
 class PrescriptionPrint extends StatefulWidget {
   final List data;
@@ -22,11 +28,61 @@ class PrescriptionPrint extends StatefulWidget {
   State<PrescriptionPrint> createState() => _PrescriptionPrintState();
 }
 
+PrescriptionTemplateModel prescriptionTemplateModel = PrescriptionTemplateModel();
+ late pw.MemoryImage? logo;
+ List<pw.MemoryImage?>? images = [];
+
+Future<void> getTemplate() async {
+  images?.clear();
+  var response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=41835&Doctor_Id=184376'));
+  if(response.statusCode == 200){
+    var result =jsonDecode(response.body);
+    List<dynamic> data = result.map((e) => e['Active_Flag'] == 'A' && e['DisplayFlag'] == 'A' ? e : null).toList();
+    if(data.length > 0){
+      prescriptionTemplateModel = PrescriptionTemplateModel.fromJson(data[0]);
+      logo = await getImage(prescriptionTemplateModel.hospitalLogo ?? '');
+      images?.add(await getImage(prescriptionTemplateModel.accreditationImage1 ?? ''));
+      images?.add(await getImage(prescriptionTemplateModel.accreditationImage2 ?? ''));
+      images?.add(await getImage(prescriptionTemplateModel.awardImage ?? ''));
+      }
+  }else{
+    print('error');
+  }
+}
+ Future<pw.MemoryImage?> getImage(String url) async {
+  var result = await http.get(Uri.parse(url));
+  if(result.statusCode == 200){
+    return pw.MemoryImage(result.bodyBytes);
+  }
+}
+
+
 Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
     AppointmentData? appointment, List data) async {
   final pdf = pw.Document();
 
   final image = await imageFromAssetBundle('assets/images/timesmedlogo.png');
+
+  // pdf.addPage(pw.Page(
+  //     theme: pw.ThemeData.withFont(
+  //       icons: await PdfGoogleFonts.materialIcons(),
+  //     ), build: (pw.Context context) {
+  //       return pw.Padding(padding: pw.EdgeInsets.all(8),
+  //         child: pw.Column(children: [
+  //         pw.Row(
+  //         children: [
+  //         pw.Image(
+  //           image,
+  //           height: 20,
+  //         ),
+  //         pw.Spacer(),
+  //         ],
+  //       ),
+  //   pw.
+  //         ])
+  //       );
+  // }
+  // ));
 
   pdf.addPage(pw.Page(
       theme: pw.ThemeData.withFont(
@@ -43,25 +99,83 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
           child: pw.Column(children: [
             pw.Row(
               children: [
-                pw.Image(
-                  image,
-                  height: 20,
-                ),
                 pw.Spacer(),
+                pw.Image(
+                  logo ?? image,
+                  width: 140,
+                  height: 50,
+                  fit: pw.BoxFit.contain,
+                ),
+                // pw.Spacer(),
+              ],
+            ),
+            pw.SizedBox(
+              height: 5,
+            ),
+            pw.Row(
+              mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+              children: [
+                pw.Column(
+                  crossAxisAlignment: pw.CrossAxisAlignment.start,
+                  children: [
+                    pw.Text(prescriptionTemplateModel.doctorName ??'Dr. Ashok Test', style: pw.TextStyle(fontSize: 12,fontWeight: pw.FontWeight.bold),),
+                    pw.Text(prescriptionTemplateModel.doctorPhoneNumber ??'8038836782', style: pw.TextStyle(fontSize: 12,fontWeight: pw.FontWeight.bold),),
+                    // pw.Text('9:00 AM - 12:00 PM', style: pw.TextStyle(fontSize: 12,fontWeight: pw.FontWeight.bold),),
+                  ]
+                ),
+              //  pw.Spacer(),
+                pw.Container(
+                  width: 130,
+                  child: pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.start,
+                    children: [
+                      pw.Text(prescriptionTemplateModel.hospitalAddress ?? '43-landmark road ,sholinganallur, chennai - 600119',textAlign: pw.TextAlign.start, style: pw.TextStyle(fontSize: 8)),
+                      pw.Text('Phone :${prescriptionTemplateModel.hospitalPhoneNumber ??  1234567890}', style: pw.TextStyle(fontSize: 8),textAlign: pw.TextAlign.start),
+                      pw.Text('Email : ${prescriptionTemplateModel.hospitalEmailid ??'0p6wT@example.com' }', style: pw.TextStyle(fontSize: 8),textAlign: pw.TextAlign.start),
+                    ],
+                  )
+                ) // pw.Spacer(),
+              ],
+            ),
+            pw.SizedBox(
+              height: 5,
+            ),
+            pw.Row(
+              children: [
+               pw.Spacer(),
+               pw.ListView.builder(
+                 // shrinkWrap: true,
+                 padding: pw.EdgeInsets.only(right: 5),
+                 direction: pw.Axis.horizontal,
+                 itemBuilder: (context, index) {
+                   return pw.Padding(
+                     padding: pw.EdgeInsets.fromLTRB(2,0,5,0),
+                     child: pw.Container(
+                         height: 30,
+                         width: 30,
+                         decoration: pw.BoxDecoration(
+                             shape: pw.BoxShape.circle,
+                             image: pw.DecorationImage(image: images?[index] ?? image, fit: pw.BoxFit.cover)),
+                         )
+                     );
+                 },
+                 itemCount: images?.length ?? 0,
+               ),
               ],
             ),
             pw.SizedBox(
               height: 10,
             ),
             pw.Divider(
-              height: 2,
-              color: PdfColors.grey,
+              height: 3,
+              color: PdfColor.fromInt(0xff35b8b0),
             ),
             pw.SizedBox(
               height: 20,
             ),
             pw.Text(
-              Consts.PRESCRIPTION_FORM,
+              'PRESCRIPTION',
+              // Consts.PRESCRIPTION_FORM,
               style: pw.TextStyle(
                   fontSize: 17,
                   color: PdfColors.grey,
@@ -73,7 +187,8 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
             pw.Row(
               children: [
                 pw.Text(
-                  "Doctor Name : ${appointment?.doctorName}",
+                  // "Doctor Name : ${appointment?.doctorName}",
+                  '${LocalStorage.getCursorPatient().userId.toString()} : ${LocalStorage.getCursorPatient().patientName.toString()} (${LocalStorage.getCursorPatient().age.toString()} / ${LocalStorage.getCursorPatient().gender.toString()}) - ${LocalStorage.getCursorPatient().phone?? ''}',
                   style: const pw.TextStyle(fontSize: 10),
                 ),
                 pw.Spacer(),
@@ -86,32 +201,32 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
             pw.SizedBox(
               height: 10,
             ),
-            pw.Table(
-                border: pw.TableBorder.all(color: PdfColors.grey200),
-                // Allows to add a border decoration around your table
-                children: [
-                  pw.TableRow(
-                      decoration: const pw.BoxDecoration(
-                        color: PdfColors.grey200,
-                      ),
-                      children: [
-                        TableRowItems('Patient Name'),
-                        TableRowItems('Patient ID'),
-                        TableRowItems('Age'),
-                        TableRowItems('Gender'),
-                      ]),
-                  pw.TableRow(children: [
-                    TableRowItems(
-                        LocalStorage.getCursorPatient().patientName.toString()),
-                    TableRowItems(
-                        LocalStorage.getCursorPatient().userId.toString()),
-                    TableRowItems(
-                        LocalStorage.getCursorPatient().age.toString()),
-                    TableRowItems(
-                      LocalStorage.getCursorPatient().gender.toString(),
-                    ),
-                  ]),
-                ]),
+            // pw.Table(
+            //     border: pw.TableBorder.all(color: PdfColors.grey200),
+            //     // Allows to add a border decoration around your table
+            //     children: [
+            //       pw.TableRow(
+            //           decoration: const pw.BoxDecoration(
+            //             color: PdfColors.grey200,
+            //           ),
+            //           children: [
+            //             TableRowItems('Patient Name'),
+            //             TableRowItems('Patient ID'),
+            //             TableRowItems('Age'),
+            //             TableRowItems('Gender'),
+            //           ]),
+            //       pw.TableRow(children: [
+            //         TableRowItems(
+            //             LocalStorage.getCursorPatient().patientName.toString()),
+            //         TableRowItems(
+            //             LocalStorage.getCursorPatient().userId.toString()),
+            //         TableRowItems(
+            //             LocalStorage.getCursorPatient().age.toString()),
+            //         TableRowItems(
+            //           LocalStorage.getCursorPatient().gender.toString(),
+            //         ),
+            //       ]),
+            //     ]),
             pw.SizedBox(
               height: 10,
             ),
@@ -152,8 +267,8 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
                 ]),
             pw.Spacer(),
             pw.Divider(
-              height: 2,
-              color: PdfColors.grey,
+              height: 3,
+              color: PdfColor.fromInt(0xff35b8b0),
             ),
             pw.SizedBox(
               height: 10,
@@ -165,12 +280,12 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
                   crossAxisAlignment: pw.CrossAxisAlignment.start,
                   children: [
                     pw.Text(
-                      "Timesmed HealthSoft Inc.,",
+                      prescriptionTemplateModel.hospitalName ??"Timesmed HealthSoft Inc.,",
                       style: pw.TextStyle(
                           fontSize: 10, fontWeight: pw.FontWeight.bold),
                     ),
                     pw.Text(
-                      "Suite 21060 Homestead Road, 170, Cupertino,CA 95014, USA",
+                      prescriptionTemplateModel.hospitalAddress ?? "Suite 21060 Homestead Road, 170, Cupertino,CA 95014, USA",
                       style: const pw.TextStyle(fontSize: 8),
                     )
                   ],
@@ -178,7 +293,7 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
                 pw.Spacer(),
                 //pw.Icon(Icons.phone,color: Colors.green,size: 12),
                 pw.Text(
-                  "408 316 7025",
+                  appointment?.id.toString() ?? "408 316 7025",
                   style: pw.TextStyle(
                       fontSize: 10, fontWeight: pw.FontWeight.bold),
                 ),
@@ -211,25 +326,83 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
           child: pw.Column(children: [
             pw.Row(
               children: [
-                pw.Image(
-                  image,
-                  height: 20,
-                ),
                 pw.Spacer(),
+                pw.Image(
+                  logo ?? image,
+                  width: 140,
+                  height: 50,
+                  fit: pw.BoxFit.contain,
+                ),
+                // pw.Spacer(),
+              ],
+            ),
+            pw.SizedBox(
+              height: 5,
+            ),
+            pw.Row(
+              mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+              children: [
+                pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.start,
+                    children: [
+                      pw.Text(prescriptionTemplateModel.doctorName ??'Dr. Ashok Test', style: pw.TextStyle(fontSize: 12,fontWeight: pw.FontWeight.bold),),
+                      pw.Text(prescriptionTemplateModel.doctorPhoneNumber ??'8038836782', style: pw.TextStyle(fontSize: 12,fontWeight: pw.FontWeight.bold),),
+                      // pw.Text('9:00 AM - 12:00 PM', style: pw.TextStyle(fontSize: 12,fontWeight: pw.FontWeight.bold),),
+                    ]
+                ),
+                //  pw.Spacer(),
+                pw.Container(
+                    width: 130,
+                    child: pw.Column(
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
+                      children: [
+                        pw.Text(prescriptionTemplateModel.hospitalAddress ?? '43-landmark road ,sholinganallur, chennai - 600119',textAlign: pw.TextAlign.start, style: pw.TextStyle(fontSize: 8)),
+                        pw.Text('Phone :${prescriptionTemplateModel.hospitalPhoneNumber ??  1234567890}', style: pw.TextStyle(fontSize: 8),textAlign: pw.TextAlign.start),
+                        pw.Text('Email : ${prescriptionTemplateModel.hospitalEmailid ??'0p6wT@example.com' }', style: pw.TextStyle(fontSize: 8),textAlign: pw.TextAlign.start),
+                      ],
+                    )
+                ) // pw.Spacer(),
+              ],
+            ),
+            pw.SizedBox(
+              height: 5,
+            ),
+            pw.Row(
+              children: [
+                pw.Spacer(),
+                pw.ListView.builder(
+                  // shrinkWrap: true,
+                  padding: pw.EdgeInsets.only(right: 5),
+                  direction: pw.Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return pw.Padding(
+                        padding: pw.EdgeInsets.fromLTRB(2,0,5,0),
+                        child: pw.Container(
+                          height: 30,
+                          width: 30,
+                          decoration: pw.BoxDecoration(
+                              shape: pw.BoxShape.circle,
+                              image: pw.DecorationImage(image: images?[index] ?? image, fit: pw.BoxFit.cover)),
+                        )
+                    );
+                  },
+                  itemCount: images?.length ?? 0,
+                ),
               ],
             ),
             pw.SizedBox(
               height: 10,
             ),
             pw.Divider(
-              height: 2,
-              color: PdfColors.grey,
+              height: 3,
+              color: PdfColor.fromInt(0xff35b8b0),
             ),
             pw.SizedBox(
               height: 20,
             ),
             pw.Text(
-              Consts.PRESCRIPTION_FORM,
+              'PRESCRIPTION',
+              // Consts.PRESCRIPTION_FORM,
               style: pw.TextStyle(
                   fontSize: 17,
                   color: PdfColors.grey,
@@ -241,7 +414,8 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
             pw.Row(
               children: [
                 pw.Text(
-                  "Doctor Name : ${appointment?.doctorName}",
+                  '${LocalStorage.getCursorPatient().userId.toString()} : ${LocalStorage.getCursorPatient().patientName.toString()} (${LocalStorage.getCursorPatient().age.toString()} / ${LocalStorage.getCursorPatient().gender.toString()}) - ${LocalStorage.getCursorPatient().phone?? ''}',
+                  // "Doctor Name : ${appointment?.doctorName}",
                   style: const pw.TextStyle(fontSize: 10),
                 ),
                 pw.Spacer(),
@@ -254,31 +428,31 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
             pw.SizedBox(
               height: 10,
             ),
-            pw.Table(
-                border: pw.TableBorder.all(color: PdfColors.grey200),
-                // Allows to add a border decoration around your table
-                children: [
-                  pw.TableRow(
-                      decoration: const pw.BoxDecoration(
-                        color: PdfColors.grey200,
-                      ),
-                      children: [
-                        TableRowItems('Patient Name'),
-                        TableRowItems('Patient ID'),
-                        TableRowItems('Age'),
-                        TableRowItems('Gender'),
-                      ]),
-                  pw.TableRow(children: [
-                    TableRowItems(
-                        LocalStorage.getCursorPatient().patientName.toString()),
-                    TableRowItems(
-                        LocalStorage.getCursorPatient().userId.toString()),
-                    TableRowItems(
-                        LocalStorage.getCursorPatient().age.toString()),
-                    TableRowItems(LocalStorage.getCursorPatient().gender ??
-                        ''.toString()),
-                  ]),
-                ]),
+            // pw.Table(
+            //     border: pw.TableBorder.all(color: PdfColors.grey200),
+            //     // Allows to add a border decoration around your table
+            //     children: [
+            //       pw.TableRow(
+            //           decoration: const pw.BoxDecoration(
+            //             color: PdfColors.grey200,
+            //           ),
+            //           children: [
+            //             TableRowItems('Patient Name'),
+            //             TableRowItems('Patient ID'),
+            //             TableRowItems('Age'),
+            //             TableRowItems('Gender'),
+            //           ]),
+            //       pw.TableRow(children: [
+            //         TableRowItems(
+            //             LocalStorage.getCursorPatient().patientName.toString()),
+            //         TableRowItems(
+            //             LocalStorage.getCursorPatient().userId.toString()),
+            //         TableRowItems(
+            //             LocalStorage.getCursorPatient().age.toString()),
+            //         TableRowItems(LocalStorage.getCursorPatient().gender ??
+            //             ''.toString()),
+            //       ]),
+            //     ]),
             pw.SizedBox(
               height: 10,
             ),
@@ -320,8 +494,8 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
                 ]),
             pw.Spacer(),
             pw.Divider(
-              height: 2,
-              color: PdfColors.grey,
+              height: 3,
+              color: PdfColor.fromInt(0xff35b8b0),
             ),
             pw.SizedBox(
               height: 10,
@@ -492,12 +666,12 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
                   crossAxisAlignment: pw.CrossAxisAlignment.start,
                   children: [
                     pw.Text(
-                      "Timesmed HealthSoft Inc.,",
+                      prescriptionTemplateModel.hospitalName ?? "Timesmed HealthSoft Inc.,",
                       style: pw.TextStyle(
                           fontSize: 10, fontWeight: pw.FontWeight.bold),
                     ),
                     pw.Text(
-                      "Suite 21060 Homestead Road, 170, Cupertino,CA 95014, USA",
+                      prescriptionTemplateModel.hospitalAddress ??  "Suite 21060 Homestead Road, 170, Cupertino,CA 95014, USA",
                       style: const pw.TextStyle(fontSize: 8),
                     )
                   ],
@@ -505,7 +679,7 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
                 pw.Spacer(),
                 //pw.Icon(Icons.phone,color: Colors.green,size: 12),
                 pw.Text(
-                  "408 316 7025",
+                  appointment?.id.toString() ?? "408 316 7025",
                   style: pw.TextStyle(
                       fontSize: 10, fontWeight: pw.FontWeight.bold),
                 ),
@@ -534,6 +708,24 @@ TableRowItems(child) {
 }
 
 class _PrescriptionPrintState extends State<PrescriptionPrint> {
+
+  bool isLoading = false;
+  @override
+  void initState() {
+  print(widget.appointment?.doctorId);
+  getData();
+    super.initState();
+  }
+  getData()async{
+    setState(() {
+      isLoading = true;
+    });
+   await getTemplate();
+   setState(() {
+     isLoading = false;
+   });
+  }
+
   @override
   Widget build(BuildContext context) {
     print("name :    ${widget.data}");
@@ -545,9 +737,9 @@ class _PrescriptionPrintState extends State<PrescriptionPrint> {
           fontSize: size.height * 0.0165,
         ),
       ),
-      body: Padding(
+      body: isLoading ? LoadingWidget() : Padding(
         padding: EdgeInsets.all(size.width * 0.05),
-        child: PdfPreview(
+        child: PdfPreview(loadingWidget: Container(),
           build: (format) => widget.data.length < 15
               ? _generatePdfWhenNumberofItemsIsLessThan15(
                   widget.appointment, widget.data)

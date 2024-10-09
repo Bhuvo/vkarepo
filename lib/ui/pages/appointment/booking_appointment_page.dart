@@ -286,10 +286,11 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                                     final response = await showConfirmDialog(context: context,title: 'Confirm Appointment',message: 'Are you sure you want to book an appointment?',
                                     actions:{
                                       'Yes': () async {
-                                        print('coming inside Yes');
+                                        print('coming inside Yes${timingsQuery['hospital_id']} , ${LocalStorage.getPatientSearchDoctorId()}, ${MDateUtils.dateToHourMinuteQuery(date.toIso8601String())} ,${MDateUtils.dateToQueryDate(date.toIso8601String())}');
                                         final call = Injector()
                                             .timesmedService
-                                            .get2(path: 'DoctorBookAppointment', query: {
+                                            .get2(path: 'VkaDoctorBookAppointment', query: {
+                                            // .get2(path: 'DoctorBookAppointment', query: {
                                           'UserId': LocalStorage.getCursorPatient().userId, //  user?.userId,
                                           'Type_Flag': 'H',
                                           'Hospital_id': timingsQuery['hospital_id'],

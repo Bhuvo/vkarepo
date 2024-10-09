@@ -23,6 +23,7 @@ import 'package:timesmedlite/ui/providers/patient_provider.dart';
 import 'package:timesmedlite/ui/providers/user_provider.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
+import 'package:timesmedlite/ui/widgets/m_divider.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
@@ -352,6 +353,44 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
               Column(
                 crossAxisAlignment : CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(
+                    height: 32,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 8),
+                    child: Text(
+                      'Upcoming Clinical Appointments',
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ),
+                  ExpandableColumn(
+                    min: 3,
+                    children: List.generate(controller.upcoming.length ?? 0, (i) {
+                      final item = controller.upcoming[i];
+                      print("XXXX$item");
+                      return UserProvider(
+                          data: User(
+                              fullName: '${controller.upcoming[i].doctorName}',
+                              image:'${controller.upcoming[i].doctorImage}' ),
+                          child: AppointmentListItem(
+                            contextfromBookAppointmentPage: context,
+                            data: item,
+                            // data: AppointmentData(doctorName: item.doctorName),
+                            upcoming: false,
+                            child: Container(
+                              padding: EdgeInsets.all(5),
+                              decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
+                              child: Text("Booked Successfully", style: TextStyle(color: Colors.white),),
+                            ),
+                          )
+                      );
+                    }),
+                  ),
+                ],),
+              Column(
+                crossAxisAlignment : CrossAxisAlignment.start,
+                children: [
                 const SizedBox(
                   height: 32,
                 ),
@@ -378,54 +417,17 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                           data : item,
                           // data: AppointmentData(doctorName: item.doctorName,id: item.id, ),
                           upcoming: false,
-                          // child: Container(
-                          //   padding: EdgeInsets.all(3),
-                          //   decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
-                          //   child: Text("Booked Successfully", style: TextStyle(color: Colors.white),),
-                          // ),
+                          child: Container(
+                            padding: EdgeInsets.all(5),
+                            decoration:BoxDecoration(color: Colors.red.shade900, borderRadius: BorderRadius.circular(8)),
+                            child: Text("Visit Completed", style: TextStyle(color: Colors.white),),
+                          ),
                         )
                     );
                   }),
                 ),
               ],),
-              Column(
-                crossAxisAlignment : CrossAxisAlignment.start,
-                children: [
-                const SizedBox(
-                  height: 32,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 16, vertical: 8),
-                  child: Text(
-                    'Upcoming Clinical Appointments',
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                ),
-                ExpandableColumn(
-                  min: 3,
-                  children: List.generate(controller.upcoming.length ?? 0, (i) {
-                    final item = controller.upcoming[i];
-                    print("XXXX$item");
-                    return UserProvider(
-                        data: User(
-                            fullName: '${controller.upcoming[i].doctorName}',
-                            image:'${controller.upcoming[i].doctorImage}' ),
-                        child: AppointmentListItem(
-                          contextfromBookAppointmentPage: context,
-                          data: item,
-                          // data: AppointmentData(doctorName: item.doctorName),
-                          upcoming: false,
-                          // child: Container(
-                          //   padding: EdgeInsets.all(3),
-                          //   decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
-                          //   child: Text("Booked Successfully", style: TextStyle(color: Colors.white),),
-                          // ),
-                        )
-                    );
-                  }),
-                ),
-              ],),
+              MDivider(),
               BlocProvider(
                 create: (_) => apBloc,
                 child: ApiBuilder<AppointmentResponse>(
@@ -447,30 +449,8 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 8),
                           child: Text(
-                            Consts.PREVIOUS_APPOINTMENT,
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
-                        ),
-                        ExpandableColumn(
-                          min: 3,
-                          children: List.generate(previous.length, (i) {
-                            print("asjdflasjdf     ${previous[i]}");
-                            final item = previous[i];
-                            return UserProvider(
-                                data: User(
-                                    fullName: '${item.doctorName}',
-                                    image: '${item.doctorImage}'),
-                                child: AppointmentListItem(
-                                  contextfromBookAppointmentPage: context,
-                                  data: item,
-                                ));
-                          }),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 8),
-                          child: Text(
-                            Consts.UPCOMING_APPOINTMENT,
+                            // Consts.UPCOMING_APPOINTMENT,
+                            'Upcoming Video Consultation Appointments',
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ),
@@ -487,6 +467,40 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                                   contextfromBookAppointmentPage: context,
                                   data: item,
                                   upcoming: true,
+                                  child: Container(
+                                    padding: EdgeInsets.all(5),
+                                    decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
+                                    child: Text("Booked Successfully", style: TextStyle(color: Colors.white),),
+                                  ),
+                                ));
+                          }),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 8),
+                          child: Text(
+                            // Consts.PREVIOUS_APPOINTMENT,
+                            'Previous Video Consultation Appointments',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ),
+                        ExpandableColumn(
+                          min: 3,
+                          children: List.generate(previous.length, (i) {
+                            print("asjdflasjdf     ${previous[i]}");
+                            final item = previous[i];
+                            return UserProvider(
+                                data: User(
+                                    fullName: '${item.doctorName}',
+                                    image: '${item.doctorImage}'),
+                                child: AppointmentListItem(
+                                  contextfromBookAppointmentPage: context,
+                                  data: item,
+                                  child: Container(
+                                    padding: EdgeInsets.all(5),
+                                    decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
+                                    child: Text("Visit Completed", style: TextStyle(color: Colors.white),),
+                                  ),
                                 ));
                           }),
                         ),

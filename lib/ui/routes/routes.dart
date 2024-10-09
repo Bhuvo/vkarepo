@@ -2,6 +2,7 @@ abstract class Routes {
   static const String splash = 'splash';
   static const String login = 'login';
   static const String dashboard = 'dashboard';
+  static const String VideoDashboard = 'VideoDashboard';
   static const String demo = 'demo';
 
   static const String patientRegistration = '/patientRegistration';
@@ -21,6 +22,8 @@ abstract class Routes {
   static const String selectPatient = '/selectPatient';
 
   static const String bookAppointment = '/bookAppointment';
+  static const String patientDashboard = '/patientDashboard';
+  static const String clinicalAppointments = '/clinicalAppointments';
   static const String bookAppointmentPage = '/bookAppointmentPage';
   static const String bookAppointmentDialog = '/bookAppointmentDialog';
   static const String medicalRecordsList = '/medicalRecordsList';
@@ -33,6 +36,7 @@ abstract class Routes {
 
   static const String calendarPage = 'calendarPage';
   static const String patientWaitingList = 'patientWaitingList';
+  static const String patientApprovelList = 'patientWaitingList';
   static const String callLogs = 'callLogs';
   static const String missedCalls = 'missedCalls';
   static const String missedCallReschedule = 'missedCallReschedule';

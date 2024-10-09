@@ -71,12 +71,16 @@ import '../pages/appointment/Clinical Visit/book_appointment_clinical_timing.dar
 import '../pages/appointment/Clinical Visit/doctors_clinical_details.dart';
 import '../pages/appointment/Clinical Visit/doctors_list_for_clinical_visit.dart';
 import '../pages/clinical_notes/clinical_notes_add_page.dart';
+import '../pages/dashboard/video_dashboard.dart';
+import '../pages/instant_call/instant_call_list_dialog.dart';
 import '../pages/medical_record/image_overview.dart';
 import '../pages/medical_record/medical_record_list_item_from_call_log.dart';
+import '../pages/nurse_frontoffice/clinical_appointments.dart';
 import '../pages/onboard/add_family_edit_screen.dart';
 import '../pages/prescription/Prescription_Preview.dart';
 import '../pages/profile/edit_profile_page.dart';
 import '../pages/vka_patient/PDFpage.dart';
+import '../pages/vka_patient/patient_dashboard.dart';
 import '../pages/vka_patient/patient_inr_details_screen.dart';
 import 'routes.dart';
 
@@ -95,8 +99,12 @@ abstract class RouteGenerator {
 
       case Routes.calendarPage:
         return route(settings, const CalendarPage());
+        case Routes.clinicalAppointments:
+        return route(settings, const ClinicalAppointments());
       case Routes.patientWaitingList:
         return route(settings, WaitingListPage());
+        case Routes.patientApprovelList:
+        return route(settings, InstantCallListDialog());
       case Routes.callLogs:
         return route(settings, CallLogsPage());
       case Routes.missedCalls:
@@ -341,6 +349,8 @@ abstract class RouteGenerator {
 
       case Routes.selectPatient:
         return route(settings, const SelectPatientPage());
+        case Routes.patientDashboard:
+        return route(settings, const PatientDashboard());
       case Routes.selectPatientDetails:
         return route(settings, const PatientDetailsSelectPage());
       case Routes.bookAppointment:
@@ -361,6 +371,8 @@ abstract class RouteGenerator {
             ));
       case Routes.totalInrLineList:
         return route(settings, LineListPage());
+        case Routes.VideoDashboard:
+          return route(settings, VideoDashboard());
       case Routes.patientInrDetails:
         args as Map;
         return route(

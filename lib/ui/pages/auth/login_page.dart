@@ -308,7 +308,7 @@ class _LoginPageState extends State<LoginPage> {
                             }else{
                               LocalStorage.setString(LocalStorage.IsType, Consts.doctor);
                             }
-                              LocalStorage.setJson(LocalStorage.USER, result['Data']);
+                              LocalStorage.setJson(LocalStorage.USER, result['Data'] );
                             print('Usr id ${LocalStorage.getUID()} ${LocalStorage.getUser().id}');
                               MessagingMonitor.init(AppConfig.of(context)!.config);
                              context.replace(Routes.currentAppointment);

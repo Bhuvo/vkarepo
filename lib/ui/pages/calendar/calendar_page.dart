@@ -139,7 +139,6 @@ class _CalendarPageState extends State<CalendarPage> {
                 onRefresh: () {
                   bloc.add(const Refresh());
                 }
-
                 // Icons.calendar_month_rounded,
                 // "No upcoming appointments to show"
                 ),

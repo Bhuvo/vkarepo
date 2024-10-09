@@ -18,8 +18,8 @@ import 'package:timesmedlite/utils/navigator_utils.dart';
 
 class ScheduledAppointmentListItem extends StatelessWidget {
   final BookingAppointmentPatient data;
-
-  const ScheduledAppointmentListItem({Key? key, required this.data})
+  final Function()? onTap;
+  const ScheduledAppointmentListItem({Key? key, required this.data, this.onTap})
       : super(key: key);
 
   @override
@@ -33,7 +33,7 @@ class ScheduledAppointmentListItem extends StatelessWidget {
     return UserProvider(
       data: user,
       child: MListTile(
-        onTap: () {
+        onTap:onTap ?? () {
           context.push(Routes.appointmentPatientDetails, {'data': data});
         },
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),

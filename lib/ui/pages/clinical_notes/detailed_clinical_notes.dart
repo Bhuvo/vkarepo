@@ -183,9 +183,13 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                     print(d);
                     final res = await Injector()
                         .apiService
-                        .get2(path: 'Get_All_Needs', query: {
-                      'DoctorId': LocalStorage.getUID().toString(),
-                    });
+                        .get2(path: 'Get_All_Needs_Search?Doctor_id=${LocalStorage.getUID().toString()}&Search_Keyword=$d&Type=1',
+                    //     query: {
+                    //   'DoctorId': LocalStorage.getUID().toString(),
+                    //   'Search_Keyword': d,
+                    //   'Type': 1
+                    // }
+                    );
                     List<Map<String, dynamic>> list = [];
                     if (res.isSuccessful) {
                       print("SUCCESS");
@@ -198,6 +202,8 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                           list.add(e as Map<String, dynamic>);
                         }
                       }
+                    }else{
+                      print('Failed ${res.body?.data.toString()}');
                     }
                     return list;
                   },
@@ -462,9 +468,13 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                   print(d);
                   final res = await Injector()
                       .apiService
-                      .get2(path: 'Get_All_Needs', query: {
-                    'DoctorId': LocalStorage.getUID().toString(),
-                  });
+                      .get2(path: 'Get_All_Needs_Search?Doctor_id=${LocalStorage.getUID().toString()}&Search_Keyword=$d&Type=2',
+                  //     query: {
+                  //   'DoctorId': LocalStorage.getUID().toString(),
+                  //   'Search_Keyword': d,
+                  //   'Type': 2
+                  // }
+                  );
                   List<Map<String, dynamic>> list = [];
                   if (res.isSuccessful) {
                     print("SUCCESS");
@@ -731,9 +741,13 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                     print(d);
                     final res = await Injector()
                         .apiService
-                        .get2(path: 'Get_All_Needs', query: {
-                      'DoctorId': LocalStorage.getUID().toString(),
-                    });
+                        .get2(path: 'Get_All_Needs_Search?Doctor_id=${LocalStorage.getUID().toString()}&Search_Keyword=$d&Type=3',
+                    //     query: {
+                    //   'DoctorId': LocalStorage.getUID().toString(),
+                    //   'Search_Keyword': d,
+                    //   'Type': 3
+                    // }
+                    );
                     List<Map<String, dynamic>> list = [];
                     if (res.isSuccessful) {
                       print("SUCCESS");
@@ -745,6 +759,8 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
                           list.add(e as Map<String, dynamic>);
                         }
                       }
+                    }else{
+                      print("ERROR type 3 ${res.bodyString}");
                     }
                     return list;
                   },
