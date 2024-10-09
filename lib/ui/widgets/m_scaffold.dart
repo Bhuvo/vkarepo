@@ -103,14 +103,15 @@ class MScaffold extends StatelessWidget {
                                                         .openDrawer();
                                                   },
                                                   icon: const Icon(
-                                                      FontAwesomeIcons.bars))
+                                                      FontAwesomeIcons.bars, color: Colors.white))
                                               : Navigator.of(context).canPop()
                                                   ? IconButton(
                                                       onPressed: () {
                                                         context.pop();
                                                       },
                                                       icon: const Icon(
-                                                          CupertinoIcons.back))
+
+                                                          CupertinoIcons.back, color: Colors.white,))
                                                   : null,
                                       actions: [
                                         ...?actions,

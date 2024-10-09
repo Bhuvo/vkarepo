@@ -37,7 +37,7 @@ class MTextField extends StatelessWidget {
   final Widget? suffixIcon, prefixIcon, labelWidget;
   final Function(String)? onChanged;
   final Function()? onTap;
-  final String Function(String?)? validator;
+  final String? Function(String?)? validator;
   final MInputType type;
   final String? label, hint, value;
   final int maxLines, minLines;
