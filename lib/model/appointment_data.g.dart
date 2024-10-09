@@ -21,6 +21,7 @@ _$AppointmentDataImpl _$$AppointmentDataImplFromJson(
       cityName: json['City_Name'] as String?,
       instantURL: json['InstantURL'] as String?,
       scheduleURL: json['ScheduleURL'] as String?,
+      confirmStatus: json['Confirm_Status'] as String?,
       eClinicFlag: json['eclinic_Flag'] ?? null,
     );
 
@@ -39,5 +40,6 @@ Map<String, dynamic> _$$AppointmentDataImplToJson(
       'City_Name': instance.cityName,
       'InstantURL': instance.instantURL,
       'ScheduleURL': instance.scheduleURL,
+      'Confirm_Status': instance.confirmStatus,
       'eclinic_Flag': instance.eClinicFlag,
     };

@@ -16,7 +16,7 @@ class OrderAddressList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = ApiBuilderBloc(
-        path: 'ShippingAddressList', query: {'User_id': LocalStorage.getUID()});
+        path: type == 'sa' ? 'ShippingAddressList' : 'BillingAddressList', query: {'User_id': LocalStorage.getUID()});
     return MDialog(
         title: Row(
           children: [

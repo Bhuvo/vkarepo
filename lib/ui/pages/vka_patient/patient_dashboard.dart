@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
+import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../components/patient_bottom_navigation.dart';
 import '../../routes/routes.dart';
 import '../dashboard/dashboard_card.dart';
+import 'package:http/http.dart'as http;
 import '../home/home_bottom_navigation.dart';
+import 'controller/patient_dashboard_controller.dart';
 
 class PatientDashboard extends StatefulWidget {
   const PatientDashboard({super.key});
@@ -16,6 +19,22 @@ class PatientDashboard extends StatefulWidget {
 }
 
 class _PatientDashboardState extends State<PatientDashboard> {
+
+  PatientDashBoardController controller = PatientDashBoardController();
+
+  var clinicalAppointmentData;
+  var videoAppointmentData;
+  var labOrderData;
+  var prescriptinOrderData;
+
+  @override
+  void initState() {
+    clinicalAppointmentData = controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().id ,'A');
+    videoAppointmentData = controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().id ,'E');
+    labOrderData = controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().id ,'PH');
+    prescriptinOrderData = controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().id ,'LB');
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return MScaffold(

@@ -44,6 +44,8 @@ mixin _$AppointmentData {
   String? get instantURL => throw _privateConstructorUsedError;
   @JsonKey(name: 'ScheduleURL')
   String? get scheduleURL => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Confirm_Status')
+  String? get confirmStatus => throw _privateConstructorUsedError;
   @JsonKey(name: 'eclinic_Flag')
   dynamic get eClinicFlag => throw _privateConstructorUsedError;
 
@@ -76,6 +78,7 @@ abstract class $AppointmentDataCopyWith<$Res> {
       @JsonKey(name: 'City_Name') String? cityName,
       @JsonKey(name: 'InstantURL') String? instantURL,
       @JsonKey(name: 'ScheduleURL') String? scheduleURL,
+      @JsonKey(name: 'Confirm_Status') String? confirmStatus,
       @JsonKey(name: 'eclinic_Flag') dynamic eClinicFlag});
 }
 
@@ -106,6 +109,7 @@ class _$AppointmentDataCopyWithImpl<$Res, $Val extends AppointmentData>
     Object? cityName = freezed,
     Object? instantURL = freezed,
     Object? scheduleURL = freezed,
+    Object? confirmStatus = freezed,
     Object? eClinicFlag = freezed,
   }) {
     return _then(_value.copyWith(
@@ -157,6 +161,10 @@ class _$AppointmentDataCopyWithImpl<$Res, $Val extends AppointmentData>
           ? _value.scheduleURL
           : scheduleURL // ignore: cast_nullable_to_non_nullable
               as String?,
+      confirmStatus: freezed == confirmStatus
+          ? _value.confirmStatus
+          : confirmStatus // ignore: cast_nullable_to_non_nullable
+              as String?,
       eClinicFlag: freezed == eClinicFlag
           ? _value.eClinicFlag
           : eClinicFlag // ignore: cast_nullable_to_non_nullable
@@ -186,6 +194,7 @@ abstract class _$$AppointmentDataImplCopyWith<$Res>
       @JsonKey(name: 'City_Name') String? cityName,
       @JsonKey(name: 'InstantURL') String? instantURL,
       @JsonKey(name: 'ScheduleURL') String? scheduleURL,
+      @JsonKey(name: 'Confirm_Status') String? confirmStatus,
       @JsonKey(name: 'eclinic_Flag') dynamic eClinicFlag});
 }
 
@@ -214,6 +223,7 @@ class __$$AppointmentDataImplCopyWithImpl<$Res>
     Object? cityName = freezed,
     Object? instantURL = freezed,
     Object? scheduleURL = freezed,
+    Object? confirmStatus = freezed,
     Object? eClinicFlag = freezed,
   }) {
     return _then(_$AppointmentDataImpl(
@@ -265,6 +275,10 @@ class __$$AppointmentDataImplCopyWithImpl<$Res>
           ? _value.scheduleURL
           : scheduleURL // ignore: cast_nullable_to_non_nullable
               as String?,
+      confirmStatus: freezed == confirmStatus
+          ? _value.confirmStatus
+          : confirmStatus // ignore: cast_nullable_to_non_nullable
+              as String?,
       eClinicFlag: freezed == eClinicFlag
           ? _value.eClinicFlag
           : eClinicFlag // ignore: cast_nullable_to_non_nullable
@@ -289,6 +303,7 @@ class _$AppointmentDataImpl implements _AppointmentData {
       @JsonKey(name: 'City_Name') this.cityName,
       @JsonKey(name: 'InstantURL') this.instantURL,
       @JsonKey(name: 'ScheduleURL') this.scheduleURL,
+      @JsonKey(name: 'Confirm_Status') this.confirmStatus,
       @JsonKey(name: 'eclinic_Flag') this.eClinicFlag = null});
 
   factory _$AppointmentDataImpl.fromJson(Map<String, dynamic> json) =>
@@ -331,12 +346,15 @@ class _$AppointmentDataImpl implements _AppointmentData {
   @JsonKey(name: 'ScheduleURL')
   final String? scheduleURL;
   @override
+  @JsonKey(name: 'Confirm_Status')
+  final String? confirmStatus;
+  @override
   @JsonKey(name: 'eclinic_Flag')
   final dynamic eClinicFlag;
 
   @override
   String toString() {
-    return 'AppointmentData(type: $type, freeReview: $freeReview, id: $id, date: $date, time: $time, doctorId: $doctorId, doctorName: $doctorName, doctorCategory: $doctorCategory, doctorImage: $doctorImage, cityName: $cityName, instantURL: $instantURL, scheduleURL: $scheduleURL, eClinicFlag: $eClinicFlag)';
+    return 'AppointmentData(type: $type, freeReview: $freeReview, id: $id, date: $date, time: $time, doctorId: $doctorId, doctorName: $doctorName, doctorCategory: $doctorCategory, doctorImage: $doctorImage, cityName: $cityName, instantURL: $instantURL, scheduleURL: $scheduleURL, confirmStatus: $confirmStatus, eClinicFlag: $eClinicFlag)';
   }
 
   @override
@@ -364,6 +382,8 @@ class _$AppointmentDataImpl implements _AppointmentData {
                 other.instantURL == instantURL) &&
             (identical(other.scheduleURL, scheduleURL) ||
                 other.scheduleURL == scheduleURL) &&
+            (identical(other.confirmStatus, confirmStatus) ||
+                other.confirmStatus == confirmStatus) &&
             const DeepCollectionEquality()
                 .equals(other.eClinicFlag, eClinicFlag));
   }
@@ -384,6 +404,7 @@ class _$AppointmentDataImpl implements _AppointmentData {
       cityName,
       instantURL,
       scheduleURL,
+      confirmStatus,
       const DeepCollectionEquality().hash(eClinicFlag));
 
   /// Create a copy of AppointmentData
@@ -417,6 +438,7 @@ abstract class _AppointmentData implements AppointmentData {
           @JsonKey(name: 'City_Name') final String? cityName,
           @JsonKey(name: 'InstantURL') final String? instantURL,
           @JsonKey(name: 'ScheduleURL') final String? scheduleURL,
+          @JsonKey(name: 'Confirm_Status') final String? confirmStatus,
           @JsonKey(name: 'eclinic_Flag') final dynamic eClinicFlag}) =
       _$AppointmentDataImpl;
 
@@ -459,6 +481,9 @@ abstract class _AppointmentData implements AppointmentData {
   @override
   @JsonKey(name: 'ScheduleURL')
   String? get scheduleURL;
+  @override
+  @JsonKey(name: 'Confirm_Status')
+  String? get confirmStatus;
   @override
   @JsonKey(name: 'eclinic_Flag')
   dynamic get eClinicFlag;

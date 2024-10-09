@@ -19,6 +19,7 @@ class AppointmentData with _$AppointmentData {
     @JsonKey(name: 'City_Name') String? cityName,
     @JsonKey(name: 'InstantURL') String? instantURL,
     @JsonKey(name: 'ScheduleURL') String? scheduleURL,
+    @JsonKey(name: 'Confirm_Status') String? confirmStatus,
     @JsonKey(name: 'eclinic_Flag') @Default(null) dynamic eClinicFlag,
   }) = _AppointmentData;
 
