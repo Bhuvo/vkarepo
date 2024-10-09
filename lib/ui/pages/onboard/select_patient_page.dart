@@ -7,6 +7,8 @@ import 'package:timesmedlite/ui/components/api_builder/api_builder.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder_bloc.dart';
 import 'package:timesmedlite/ui/components/login_header.dart';
 import 'package:timesmedlite/ui/components/shimmer/drop_down_shimmer.dart';
+import 'package:timesmedlite/ui/components/user_tile.dart';
+import 'package:timesmedlite/ui/providers/patient_provider.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/ui/widgets/m_divider.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
@@ -52,35 +54,54 @@ class SelectPatientPage extends StatelessWidget {
                     //   context.read<PatientBloc>().add(Select(Patient.fromJson(d)));
                     //   navigate(context);
                     // }, labelKey: 'PatientName');
-                    return Container(
+                    return Card(
                       margin: const EdgeInsets.only(left: 30,right: 30),
-
+                      color: Colors.white,
                       child: SingleChildScrollView(
                         child: Column(
                           // shrinkWrap: true,
                           children: data.map((e) {
+                            // return Column(
+                            //   children: [
+                            //     InkWell(
+                            //       onTap: (){
+                            //     LocalStorage.setJson(LocalStorage.CURSOR_USER, e.toJson());
+                            //     print(LocalStorage.getUser().userId.toString());
+                            //     print(LocalStorage.getUser().patientImage);
+                            //     print(LocalStorage.getUser().name);
+                            //     context.read<PatientBloc>().add(Select(Patient.fromJson(e.toJson())));
+                            //     navigate(context);
+                            //       },
+                            //       child: Container(
+                            //         padding: const EdgeInsets.all(10),
+                            //         width:MediaQuery.of(context).size.width,
+                            //         height: 60,
+                            //         color: Colors.white,
+                            //         child: Center(
+                            //           child: Text('${e.patientName}',style: const TextStyle(color: Colors.black),),
+                            //         ),
+                            //       ),
+                            //     ),
+                            //     data.length > 1 ? MDivider(): Container()
+                            //   ],
+                            // );
                             return Column(
                               children: [
                                 InkWell(
                                   onTap: (){
-                                LocalStorage.setJson(LocalStorage.CURSOR_USER, e.toJson());
-                                print(LocalStorage.getUser().userId.toString());
-                                print(LocalStorage.getUser().patientImage);
-                                print(LocalStorage.getUser().name);
-                                context.read<PatientBloc>().add(Select(Patient.fromJson(e.toJson())));
-                                navigate(context);
+                                    LocalStorage.setJson(LocalStorage.CURSOR_USER, e.toJson());
+                                        print(LocalStorage.getUser().userId.toString());
+                                        print(LocalStorage.getUser().patientImage);
+                                        print(LocalStorage.getUser().name);
+                                        context.read<PatientBloc>().add(Select(Patient.fromJson(e.toJson())));
+                                        navigate(context);
                                   },
-                                  child: Container(
-                                    padding: const EdgeInsets.all(10),
-                                    width:MediaQuery.of(context).size.width,
-                                    height: 60,
-                                    color: Colors.white,
-                                    child: Center(
-                                      child: Text('${e.patientName}',style: const TextStyle(color: Colors.black),),
-                                    ),
-                                  ),
+                                  child: PatientProvider(
+                                    data: e,
+                                      child: UserTile(
+                                      )),
                                 ),
-                                data.length > 1 ? MDivider(): Container()
+                                data.length > 1 ?MDivider() : Container()
                               ],
                             );
                           }).toList(),

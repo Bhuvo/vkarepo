@@ -284,15 +284,17 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           color: Color(0xFFf8457a),
                           asset: 'assets/images/waiting.png',
                           onTap: () {
-                            context.push(
-                              Routes.scheduledAppointmentList,
-                              {
-                                'hos_id': query['hos_id'],
-                                'statusId': 'W',
-                                'fromDate': query['From'],
-                                'toDate': query['To'] ,
-                              },
-                            );
+                            context.push(Routes.clinicalAppointments);
+                            // context.push(
+                            //
+                            //   Routes.scheduledAppointmentList,
+                            //   {
+                            //     'hos_id': query['hos_id'],
+                            //     'statusId': 'W',
+                            //     'fromDate': query['From'],
+                            //     'toDate': query['To'] ,
+                            //   },
+                            // );
                           },
                         ),
                       ],
@@ -335,55 +337,73 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                         ),
                       ],
                     ),
-                    Row(
-                      children: [
-                        // DashboardCard(
-                        //   title: '${data['OT_RequestCount'] ?? '-'}',
-                        //   subTitle: 'OT Request Count',
-                        //   color: Colors.lightBlue,
-                        //   asset: 'assets/images/waiting.png',
-                        //   onTap: () {
-                        //     context.push(
-                        //       Routes.scheduledAppointmentList,
-                        //       {
-                        //         'hos_id': query['hos_id'],
-                        //       },
-                        //     );
-                        //   },
-                        // ),
-                        DashboardCard(
-                          title: '0',
-                          subTitle: 'Online Consultation',
-                          color: Colors.grey.shade600,
-                          asset: 'assets/images/consultation_online.png',
-                          // flex: 0,
-                          onTap: () {
-                            context.push(
-                              Routes.scheduledAppointmentList,
-                              {
-                                'hos_id': query['hos_id'],
-                              },
-                            );
+                    // Row(
+                    //   children: [
+                    //     // DashboardCard(
+                    //     //   title: '${data['OT_RequestCount'] ?? '-'}',
+                    //     //   subTitle: 'OT Request Count',
+                    //     //   color: Colors.lightBlue,
+                    //     //   asset: 'assets/images/waiting.png',
+                    //     //   onTap: () {
+                    //     //     context.push(
+                    //     //       Routes.scheduledAppointmentList,
+                    //     //       {
+                    //     //         'hos_id': query['hos_id'],
+                    //     //       },
+                    //     //     );
+                    //     //   },
+                    //     // ),
+                    //     // DashboardCard(
+                    //     //   title: '0',
+                    //     //   subTitle: 'Online Consultation',
+                    //     //   color: Colors.grey.shade600,
+                    //     //   asset: 'assets/images/consultation_online.png',
+                    //     //   // flex: 0,
+                    //     //   onTap: () {
+                    //     //     context.push(
+                    //     //       Routes.scheduledAppointmentList,
+                    //     //       {
+                    //     //         'hos_id': query['hos_id'],
+                    //     //       },
+                    //     //     );
+                    //     //   },
+                    //     // ),
+                    //     DashboardCard(
+                    //       title: '${data['IP_app_count'] ?? '-'}',
+                    //       subTitle: 'Follow Up Appointment',
+                    //       asset: 'assets/images/scheduled.png',
+                    //       color: Color(0xFF2fa6c4),
+                    //       onTap: () {
+                    //         context.push(
+                    //           Routes.scheduledAppointmentList,
+                    //           {
+                    //             'hos_id': query['hos_id'],
+                    //             'statusId': 'M',
+                    //             'fromDate': query['From'],
+                    //             'toDate': query['To'] ,
+                    //           },
+                    //         );
+                    //       },
+                    //     ),
+                    //   ],
+                    // ),
+                    DashboardCard(
+                      title: '${data['IP_app_count'] ?? '-'}',
+                      subTitle: 'Rescheduled Appointment',
+                      asset: 'assets/images/scheduled.png',
+                      color: Color(0xFF2fa6c4),
+                      flex: 0,
+                      onTap: () {
+                        context.push(
+                          Routes.scheduledAppointmentList,
+                          {
+                            'hos_id': query['hos_id'],
+                            'statusId': 'L',
+                            'fromDate': query['From'],
+                            'toDate': query['To'] ,
                           },
-                        ),
-                        DashboardCard(
-                          title: '${data['IP_app_count'] ?? '-'}',
-                          subTitle: 'Follow Up Appointment',
-                          asset: 'assets/images/scheduled.png',
-                          color: Color(0xFF2fa6c4),
-                          onTap: () {
-                            context.push(
-                              Routes.scheduledAppointmentList,
-                              {
-                                'hos_id': query['hos_id'],
-                                'statusId': 'M',
-                                'fromDate': query['From'],
-                                'toDate': query['To'] ,
-                              },
-                            );
-                          },
-                        ),
-                      ],
+                        );
+                      },
                     ),
                     Row(
                       children: [
@@ -406,7 +426,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                         ),
                         DashboardCard(
                           title: '${data['confirmed'] ?? ''}',
-                          subTitle: 'For Confirmation',
+                          subTitle: 'Confirmed',
                           color: Colors.green.shade400,
                           asset: 'assets/images/confirm.png',
                           onTap: () {
@@ -414,7 +434,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
-                                'statusId': 'C',
+                                'statusId': 'F',
                                 'fromDate': query['From'],
                                 'toDate': query['To'] ,
                               },
