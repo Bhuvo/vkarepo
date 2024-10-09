@@ -22,16 +22,18 @@ class ScheduledAppointmentList extends StatelessWidget {
     print('${LocalStorage.getUID()} $hospitalId,$fromDate $toDate');
     ///TODO: uncomment LocalStorage.getUID() and '$hospitalId' in production
     final bloc = ApiBuilderBloc(
-        path: 'GetAppointmentList',
+        // path: 'GetAppointmentList', 
+        path: 'GetVkaAppointmentList?DoctorId=${LocalStorage.getUID()}&status_id=${statusId ?? 'T'}&From=${fromDate ?? '09/18/2024'}&To=${toDate ?? '01/01/2100'}&hos_id=$hospitalId',
         api2: true,
-        timesmedApi: true,
-        query: {
-          'DoctorId': LocalStorage.getUID(),
-          'status_id': statusId ?? 'T',
-          'From': fromDate ?? '09/18/2024',
-          'To':  toDate ?? '01/01/2100',
-          'hos_id': '$hospitalId',
-        });
+        // timesmedApi: true,
+        // query: {
+        //   'DoctorId': LocalStorage.getUID(),
+        //   'status_id': statusId ?? 'T',
+        //   'From': fromDate ?? '09/18/2024',
+        //   'To':  toDate ?? '01/01/2100',
+        //   'hos_id': '$hospitalId',
+        // }
+        );
     return MScaffold(
       title: const Text(Consts.SCHEDULED_APPOINTMENT_LIST),
       // title: const Text("hey bro"),
