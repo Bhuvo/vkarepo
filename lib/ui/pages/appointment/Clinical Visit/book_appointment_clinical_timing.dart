@@ -70,8 +70,7 @@ class _BookAppointmentForClinicalTimingState
               // Background color of the outer circle
               child: CircleAvatar(
                 radius: size.height * 0.035,
-                backgroundImage: AssetImage(
-                    'assets/images/doctor.png'), // Replace this with the actual image asset path
+                backgroundImage: const AssetImage('assets/images/doctor.png'), // Replace this with the actual image asset path
               ),
             ),
             SizedBox(
@@ -91,7 +90,7 @@ class _BookAppointmentForClinicalTimingState
       ),
       paddingTop: size.height * 0.22,
       bottom: Container(
-        constraints: BoxConstraints(maxWidth: 480),
+        constraints: const BoxConstraints(maxWidth: 480),
         margin: EdgeInsets.symmetric(
             horizontal: context.getWPercent(10), vertical: 8),
         child: OutlinedButton(
@@ -137,8 +136,7 @@ class _BookAppointmentForClinicalTimingState
                           timeList: data.first.timeList,
                           onSelect: (d) {
                             selection = d;
-                            print(
-                                'Printttttttttttttttttttttttt${d.hour}/${d.minute}/${d.second}');
+                            print('Printttttttttttttttttttttttt${d.hour}/${d.minute}/${d.second}');
                           },
                           date: cur,
                           onChanged: (d) {

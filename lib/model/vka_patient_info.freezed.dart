@@ -40,8 +40,12 @@ mixin _$VkaPatientInfo {
   dynamic get patientActiveFlag => throw _privateConstructorUsedError;
   dynamic get patientRegistrationList => throw _privateConstructorUsedError;
 
+  /// Serializes this VkaPatientInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of VkaPatientInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $VkaPatientInfoCopyWith<VkaPatientInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -84,6 +88,8 @@ class _$VkaPatientInfoCopyWithImpl<$Res, $Val extends VkaPatientInfo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of VkaPatientInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -226,6 +232,8 @@ class __$$VkaPatientInfoImplCopyWithImpl<$Res>
       _$VkaPatientInfoImpl _value, $Res Function(_$VkaPatientInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VkaPatientInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -442,7 +450,7 @@ class _$VkaPatientInfoImpl implements _VkaPatientInfo {
                 other.patientRegistrationList, patientRegistrationList));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -467,7 +475,9 @@ class _$VkaPatientInfoImpl implements _VkaPatientInfo {
         const DeepCollectionEquality().hash(patientRegistrationList)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VkaPatientInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$VkaPatientInfoImplCopyWith<_$VkaPatientInfoImpl> get copyWith =>
@@ -545,8 +555,11 @@ abstract class _VkaPatientInfo implements VkaPatientInfo {
   dynamic get patientActiveFlag;
   @override
   dynamic get patientRegistrationList;
+
+  /// Create a copy of VkaPatientInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$VkaPatientInfoImplCopyWith<_$VkaPatientInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

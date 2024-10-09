@@ -31,8 +31,12 @@ mixin _$TimeList {
   dynamic get Dayslot => throw _privateConstructorUsedError;
   dynamic get Class => throw _privateConstructorUsedError;
 
+  /// Serializes this TimeList to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TimeList
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TimeListCopyWith<TimeList> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -65,6 +69,8 @@ class _$TimeListCopyWithImpl<$Res, $Val extends TimeList>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TimeList
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -153,6 +159,8 @@ class __$$TimeListImplCopyWithImpl<$Res>
       _$TimeListImpl _value, $Res Function(_$TimeListImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TimeList
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -284,7 +292,7 @@ class _$TimeListImpl implements _TimeList {
             const DeepCollectionEquality().equals(other.Class, Class));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -299,7 +307,9 @@ class _$TimeListImpl implements _TimeList {
       const DeepCollectionEquality().hash(Dayslot),
       const DeepCollectionEquality().hash(Class));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TimeList
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TimeListImplCopyWith<_$TimeListImpl> get copyWith =>
@@ -349,8 +359,11 @@ abstract class _TimeList implements TimeList {
   dynamic get Dayslot;
   @override
   dynamic get Class;
+
+  /// Create a copy of TimeList
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TimeListImplCopyWith<_$TimeListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -26,8 +26,12 @@ mixin _$ScheduleDoctorsResponse {
   @JsonKey(name: 'ClinicFee')
   List<Clinic>? get clinics => throw _privateConstructorUsedError;
 
+  /// Serializes this ScheduleDoctorsResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ScheduleDoctorsResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ScheduleDoctorsResponseCopyWith<ScheduleDoctorsResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$ScheduleDoctorsResponseCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ScheduleDoctorsResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -97,6 +103,8 @@ class __$$ScheduleDoctorsResponseImplCopyWithImpl<$Res>
       $Res Function(_$ScheduleDoctorsResponseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ScheduleDoctorsResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -164,14 +172,16 @@ class _$ScheduleDoctorsResponseImpl implements _ScheduleDoctorsResponse {
             const DeepCollectionEquality().equals(other._clinics, _clinics));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_doctors),
       const DeepCollectionEquality().hash(_clinics));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ScheduleDoctorsResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ScheduleDoctorsResponseImplCopyWith<_$ScheduleDoctorsResponseImpl>
@@ -201,8 +211,11 @@ abstract class _ScheduleDoctorsResponse implements ScheduleDoctorsResponse {
   @override
   @JsonKey(name: 'ClinicFee')
   List<Clinic>? get clinics;
+
+  /// Create a copy of ScheduleDoctorsResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ScheduleDoctorsResponseImplCopyWith<_$ScheduleDoctorsResponseImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

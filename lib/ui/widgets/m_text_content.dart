@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
 
@@ -68,7 +69,7 @@ class MTextContent2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final text = Text(content, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: contentColor ?? MTheme.THEME_COLOR, fontWeight: bold? FontWeight.w700 : FontWeight.normal),);
+    final text = AutoSizeText(content, style: Theme.of(context).textTheme.bodySmall?.copyWith(color: contentColor ?? MTheme.THEME_COLOR, fontWeight: bold? FontWeight.w700 : FontWeight.normal),);
     if (head == null) {
       return Padding(
         padding: margin,
@@ -82,7 +83,7 @@ class MTextContent2 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (head != null) ...[
-            Text(
+            AutoSizeText(
               head!,
               style: headStyle ?? Theme.of(context)
                   .textTheme

@@ -27,8 +27,12 @@ mixin _$UpdatePatientWaiting {
   String get dayEndFlag => throw _privateConstructorUsedError;
   String get doctorOnline => throw _privateConstructorUsedError;
 
+  /// Serializes this UpdatePatientWaiting to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UpdatePatientWaiting
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UpdatePatientWaitingCopyWith<UpdatePatientWaiting> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -59,6 +63,8 @@ class _$UpdatePatientWaitingCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UpdatePatientWaiting
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -123,6 +129,8 @@ class __$$UpdatePatientWaitingImplCopyWithImpl<$Res>
       $Res Function(_$UpdatePatientWaitingImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UpdatePatientWaiting
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -212,12 +220,14 @@ class _$UpdatePatientWaitingImpl implements _UpdatePatientWaiting {
                 other.doctorOnline == doctorOnline));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, responseCode, waitingMinutes,
       queue, totalQueue, dayEndFlag, doctorOnline);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UpdatePatientWaiting
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdatePatientWaitingImplCopyWith<_$UpdatePatientWaitingImpl>
@@ -257,8 +267,11 @@ abstract class _UpdatePatientWaiting implements UpdatePatientWaiting {
   String get dayEndFlag;
   @override
   String get doctorOnline;
+
+  /// Create a copy of UpdatePatientWaiting
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdatePatientWaitingImplCopyWith<_$UpdatePatientWaitingImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -11,8 +11,9 @@ class MSearchListView extends StatelessWidget {
   final EdgeInsets? padding;
   final Widget Function(BuildContext, int) itemBuilder;
   final String label;
+  final Future<void> Function()? onRefresh;
   final int? itemCount;
-  const MSearchListView({Key? key , this.padding, this.onChanged, this.shrinkWrap = false, this.paddingTop = 32, this.label = 'Search', this.controller, this.searchController, required this.itemBuilder, this.itemCount}) : super(key: key);
+  const MSearchListView({Key? key , this.onRefresh, this.padding, this.onChanged, this.shrinkWrap = false, this.paddingTop = 32, this.label = 'Search', this.controller, this.searchController, required this.itemBuilder, this.itemCount}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +36,10 @@ class MSearchListView extends StatelessWidget {
           ),
         )
       ];
-    }, body: ListView.builder(itemBuilder: itemBuilder, itemCount: itemCount, shrinkWrap: shrinkWrap, padding: padding,));
+    }, body: RefreshIndicator(
+        onRefresh: onRefresh ?? () async {
+          return;
+        },
+        child: ListView.builder(itemBuilder: itemBuilder, itemCount: itemCount, shrinkWrap: shrinkWrap, padding: padding,)));
   }
 }

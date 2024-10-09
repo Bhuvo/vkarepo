@@ -73,7 +73,7 @@ class _AddComplaintsPageState extends State<AddComplaintsPage> {
   @override
   Widget build(BuildContext context) {
     return MScaffold(
-        title: const Text(Consts.PATIENT_DETAILS),
+        title: const Text('Complaints'),
         body:
             // BlocProvider(
             //   create: (c) => bloc = ApiBuilderBloc(

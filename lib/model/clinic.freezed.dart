@@ -77,8 +77,12 @@ mixin _$Clinic {
   @JsonKey(name: 'DaySlot')
   List<DaySlot>? get daySlot => throw _privateConstructorUsedError;
 
+  /// Serializes this Clinic to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Clinic
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ClinicCopyWith<Clinic> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -155,6 +159,8 @@ class _$ClinicCopyWithImpl<$Res, $Val extends Clinic>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Clinic
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -512,6 +518,8 @@ class __$$ClinicImplCopyWithImpl<$Res>
       _$ClinicImpl _value, $Res Function(_$ClinicImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Clinic
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1127,7 +1135,7 @@ class _$ClinicImpl implements _Clinic {
             const DeepCollectionEquality().equals(other._daySlot, _daySlot));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -1188,7 +1196,9 @@ class _$ClinicImpl implements _Clinic {
         const DeepCollectionEquality().hash(_daySlot)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Clinic
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ClinicImplCopyWith<_$ClinicImpl> get copyWith =>
@@ -1373,8 +1383,11 @@ abstract class _Clinic implements Clinic {
   @override
   @JsonKey(name: 'DaySlot')
   List<DaySlot>? get daySlot;
+
+  /// Create a copy of Clinic
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ClinicImplCopyWith<_$ClinicImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

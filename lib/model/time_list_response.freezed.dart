@@ -23,8 +23,12 @@ mixin _$TimeListResponse {
   @JsonKey(name: 'TimeList')
   List<TimeList>? get timeList => throw _privateConstructorUsedError;
 
+  /// Serializes this TimeListResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TimeListResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TimeListResponseCopyWith<TimeListResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$TimeListResponseCopyWithImpl<$Res, $Val extends TimeListResponse>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TimeListResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +87,8 @@ class __$$TimeListResponseImplCopyWithImpl<$Res>
       $Res Function(_$TimeListResponseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TimeListResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -129,12 +137,14 @@ class _$TimeListResponseImpl implements _TimeListResponse {
             const DeepCollectionEquality().equals(other._timeList, _timeList));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_timeList));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TimeListResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TimeListResponseImplCopyWith<_$TimeListResponseImpl> get copyWith =>
@@ -160,8 +170,11 @@ abstract class _TimeListResponse implements TimeListResponse {
   @override
   @JsonKey(name: 'TimeList')
   List<TimeList>? get timeList;
+
+  /// Create a copy of TimeListResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TimeListResponseImplCopyWith<_$TimeListResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -51,8 +51,12 @@ mixin _$VitalSign {
   @JsonKey(name: 'weight')
   String? get weight => throw _privateConstructorUsedError;
 
+  /// Serializes this VitalSign to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of VitalSign
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $VitalSignCopyWith<VitalSign> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -90,6 +94,8 @@ class _$VitalSignCopyWithImpl<$Res, $Val extends VitalSign>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of VitalSign
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -208,6 +214,8 @@ class __$$VitalSignImplCopyWithImpl<$Res>
       _$VitalSignImpl _value, $Res Function(_$VitalSignImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VitalSign
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -398,7 +406,7 @@ class _$VitalSignImpl implements _VitalSign {
             (identical(other.weight, weight) || other.weight == weight));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -418,7 +426,9 @@ class _$VitalSignImpl implements _VitalSign {
       height,
       weight);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VitalSign
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$VitalSignImplCopyWith<_$VitalSignImpl> get copyWith =>
@@ -498,8 +508,11 @@ abstract class _VitalSign implements VitalSign {
   @override
   @JsonKey(name: 'weight')
   String? get weight;
+
+  /// Create a copy of VitalSign
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$VitalSignImplCopyWith<_$VitalSignImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

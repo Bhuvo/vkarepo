@@ -40,8 +40,12 @@ mixin _$InrPatient {
   dynamic get Patient_ActiveFlag => throw _privateConstructorUsedError;
   dynamic get PatientRegistration_list => throw _privateConstructorUsedError;
 
+  /// Serializes this InrPatient to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of InrPatient
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $InrPatientCopyWith<InrPatient> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -84,6 +88,8 @@ class _$InrPatientCopyWithImpl<$Res, $Val extends InrPatient>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of InrPatient
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -226,6 +232,8 @@ class __$$InrPatientImplCopyWithImpl<$Res>
       _$InrPatientImpl _value, $Res Function(_$InrPatientImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of InrPatient
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -449,7 +457,7 @@ class _$InrPatientImpl implements _InrPatient {
                 other.PatientRegistration_list, PatientRegistration_list));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -474,7 +482,9 @@ class _$InrPatientImpl implements _InrPatient {
         const DeepCollectionEquality().hash(PatientRegistration_list)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InrPatient
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InrPatientImplCopyWith<_$InrPatientImpl> get copyWith =>
@@ -551,8 +561,11 @@ abstract class _InrPatient implements InrPatient {
   dynamic get Patient_ActiveFlag;
   @override
   dynamic get PatientRegistration_list;
+
+  /// Create a copy of InrPatient
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InrPatientImplCopyWith<_$InrPatientImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

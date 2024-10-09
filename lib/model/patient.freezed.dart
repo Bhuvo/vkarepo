@@ -81,8 +81,12 @@ mixin _$Patient {
   @JsonKey(name: 'PatientRegistration_list')
   String? get patientRegistrationList => throw _privateConstructorUsedError;
 
+  /// Serializes this Patient to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Patient
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PatientCopyWith<Patient> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -135,6 +139,8 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Patient
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -343,6 +349,8 @@ class __$$PatientImplCopyWithImpl<$Res>
       _$PatientImpl _value, $Res Function(_$PatientImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Patient
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -689,7 +697,7 @@ class _$PatientImpl implements _Patient {
                 other.patientRegistrationList == patientRegistrationList));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -725,7 +733,9 @@ class _$PatientImpl implements _Patient {
         patientRegistrationList
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Patient
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PatientImplCopyWith<_$PatientImpl> get copyWith =>
@@ -865,8 +875,11 @@ abstract class _Patient implements Patient {
   @override
   @JsonKey(name: 'PatientRegistration_list')
   String? get patientRegistrationList;
+
+  /// Create a copy of Patient
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PatientImplCopyWith<_$PatientImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

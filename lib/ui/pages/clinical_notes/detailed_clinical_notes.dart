@@ -130,7 +130,7 @@ class _DetailedClinicalNotesState extends State<DetailedClinicalNotes> {
   @override
   Widget build(BuildContext context) {
     return MScaffold(
-      title: const Text(Consts.PATIENT_DETAILS),
+      title: const Text('Detailed Clinical Notes'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),

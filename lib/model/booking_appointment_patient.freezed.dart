@@ -181,10 +181,20 @@ mixin _$BookingAppointmentPatient {
   dynamic get Missed => throw _privateConstructorUsedError;
   dynamic get confirmed => throw _privateConstructorUsedError;
   dynamic get IP_waiting => throw _privateConstructorUsedError;
-  dynamic get OT_Completed => throw _privateConstructorUsedError;
+  dynamic get OT_Completed =>
+      throw _privateConstructorUsedError; //"DiseaseDetails_Flag": "0",
+//         "Prescription_Flag": "0",
+//         "LabTest_Flag": "0"
+  dynamic get DiseaseDetails_Flag => throw _privateConstructorUsedError;
+  dynamic get Prescription_Flag => throw _privateConstructorUsedError;
+  dynamic get LabTest_Flag => throw _privateConstructorUsedError;
 
+  /// Serializes this BookingAppointmentPatient to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BookingAppointmentPatient
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BookingAppointmentPatientCopyWith<BookingAppointmentPatient> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -356,7 +366,10 @@ abstract class $BookingAppointmentPatientCopyWith<$Res> {
       dynamic Missed,
       dynamic confirmed,
       dynamic IP_waiting,
-      dynamic OT_Completed});
+      dynamic OT_Completed,
+      dynamic DiseaseDetails_Flag,
+      dynamic Prescription_Flag,
+      dynamic LabTest_Flag});
 }
 
 /// @nodoc
@@ -370,6 +383,8 @@ class _$BookingAppointmentPatientCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BookingAppointmentPatient
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -534,6 +549,9 @@ class _$BookingAppointmentPatientCopyWithImpl<$Res,
     Object? confirmed = freezed,
     Object? IP_waiting = freezed,
     Object? OT_Completed = freezed,
+    Object? DiseaseDetails_Flag = freezed,
+    Object? Prescription_Flag = freezed,
+    Object? LabTest_Flag = freezed,
   }) {
     return _then(_value.copyWith(
       DeptName: freezed == DeptName
@@ -1180,6 +1198,18 @@ class _$BookingAppointmentPatientCopyWithImpl<$Res,
           ? _value.OT_Completed
           : OT_Completed // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      DiseaseDetails_Flag: freezed == DiseaseDetails_Flag
+          ? _value.DiseaseDetails_Flag
+          : DiseaseDetails_Flag // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      Prescription_Flag: freezed == Prescription_Flag
+          ? _value.Prescription_Flag
+          : Prescription_Flag // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      LabTest_Flag: freezed == LabTest_Flag
+          ? _value.LabTest_Flag
+          : LabTest_Flag // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ) as $Val);
   }
 }
@@ -1354,7 +1384,10 @@ abstract class _$$BookingAppointmentPatientImplCopyWith<$Res>
       dynamic Missed,
       dynamic confirmed,
       dynamic IP_waiting,
-      dynamic OT_Completed});
+      dynamic OT_Completed,
+      dynamic DiseaseDetails_Flag,
+      dynamic Prescription_Flag,
+      dynamic LabTest_Flag});
 }
 
 /// @nodoc
@@ -1367,6 +1400,8 @@ class __$$BookingAppointmentPatientImplCopyWithImpl<$Res>
       $Res Function(_$BookingAppointmentPatientImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BookingAppointmentPatient
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1531,6 +1566,9 @@ class __$$BookingAppointmentPatientImplCopyWithImpl<$Res>
     Object? confirmed = freezed,
     Object? IP_waiting = freezed,
     Object? OT_Completed = freezed,
+    Object? DiseaseDetails_Flag = freezed,
+    Object? Prescription_Flag = freezed,
+    Object? LabTest_Flag = freezed,
   }) {
     return _then(_$BookingAppointmentPatientImpl(
       DeptName: freezed == DeptName
@@ -2177,6 +2215,18 @@ class __$$BookingAppointmentPatientImplCopyWithImpl<$Res>
           ? _value.OT_Completed
           : OT_Completed // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      DiseaseDetails_Flag: freezed == DiseaseDetails_Flag
+          ? _value.DiseaseDetails_Flag
+          : DiseaseDetails_Flag // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      Prescription_Flag: freezed == Prescription_Flag
+          ? _value.Prescription_Flag
+          : Prescription_Flag // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      LabTest_Flag: freezed == LabTest_Flag
+          ? _value.LabTest_Flag
+          : LabTest_Flag // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 }
@@ -2345,7 +2395,10 @@ class _$BookingAppointmentPatientImpl implements _BookingAppointmentPatient {
       this.Missed = null,
       this.confirmed = null,
       this.IP_waiting = null,
-      this.OT_Completed = null});
+      this.OT_Completed = null,
+      this.DiseaseDetails_Flag = null,
+      this.Prescription_Flag = null,
+      this.LabTest_Flag = null});
 
   factory _$BookingAppointmentPatientImpl.fromJson(Map<String, dynamic> json) =>
       _$$BookingAppointmentPatientImplFromJson(json);
@@ -2833,10 +2886,22 @@ class _$BookingAppointmentPatientImpl implements _BookingAppointmentPatient {
   @override
   @JsonKey()
   final dynamic OT_Completed;
+//"DiseaseDetails_Flag": "0",
+//         "Prescription_Flag": "0",
+//         "LabTest_Flag": "0"
+  @override
+  @JsonKey()
+  final dynamic DiseaseDetails_Flag;
+  @override
+  @JsonKey()
+  final dynamic Prescription_Flag;
+  @override
+  @JsonKey()
+  final dynamic LabTest_Flag;
 
   @override
   String toString() {
-    return 'BookingAppointmentPatient(DeptName: $DeptName, Doctor_Notes: $Doctor_Notes, Hospital_id: $Hospital_id, Timing: $Timing, Hospital_PhoneNumber: $Hospital_PhoneNumber, Allergie_id: $Allergie_id, finding: $finding, CountList: $CountList, Allergie_Name: $Allergie_Name, Doctor_id: $Doctor_id, test_id: $test_id, test_cost: $test_cost, Doctor_Name: $Doctor_Name, alter_flag: $alter_flag, Doctor_Image: $Doctor_Image, Doctor_Qualification: $Doctor_Qualification, SubCategory_Name: $SubCategory_Name, Type_Flag: $Type_Flag, file_name: $file_name, test_name: $test_name, User_Name: $User_Name, User_Image: $User_Image, User_address: $User_address, User_bloodgroup: $User_bloodgroup, User_dob: $User_dob, Emailid: $Emailid, MobileNumber: $MobileNumber, Location_Name: $Location_Name, Hospital_Name: $Hospital_Name, Hospital_Address: $Hospital_Address, Clinic_id: $Clinic_id, Clinic_Name: $Clinic_Name, Clinic_Address: $Clinic_Address, cancel_flag: $cancel_flag, SubCategory_id: $SubCategory_id, Location_id: $Location_id, ClinicDoctorFee: $ClinicDoctorFee, FromTime: $FromTime, startSplit: $startSplit, EndSplit: $EndSplit, ToTime: $ToTime, Day: $Day, AboutClinic: $AboutClinic, Clinic_Images: $Clinic_Images, Appointment_Date: $Appointment_Date, Appointment_id: $Appointment_id, Appointment_Time: $Appointment_Time, Confirm_Status: $Confirm_Status, hospital_images: $hospital_images, User_id: $User_id, description: $description, file: $file, folder_date: $folder_date, disease: $disease, allergies: $allergies, symptoms1: $symptoms1, symptoms2: $symptoms2, symptoms3: $symptoms3, height: $height, weight: $weight, temp: $temp, diabetes: $diabetes, date: $date, symptoms: $symptoms, view_status: $view_status, files: $files, prescription: $prescription, lab: $lab, pat_list: $pat_list, summary: $summary, hos_list: $hos_list, total: $total, waiting: $waiting, upcoming: $upcoming, completed: $completed, dosage: $dosage, drug_name: $drug_name, frequency: $frequency, duration: $duration, instruction: $instruction, notes: $notes, error: $error, treatment_date: $treatment_date, treatment_id: $treatment_id, treatment_name: $treatment_name, cost: $cost, days: $days, discount: $discount, grant_total: $grant_total, treatment: $treatment, bill_date: $bill_date, bill_id: $bill_id, bill_name: $bill_name, file_type: $file_type, upload_date: $upload_date, billing: $billing, labtest_date: $labtest_date, labtest_id: $labtest_id, test_code: $test_code, labtest_name: $labtest_name, labtest: $labtest, labname: $labname, app_amount: $app_amount, eclinic_amount: $eclinic_amount, service_amount: $service_amount, app_count: $app_count, eclinic_count: $eclinic_count, service_count: $service_count, lab_id: $lab_id, lab_name: $lab_name, jan: $jan, feb: $feb, mar: $mar, apr: $apr, may: $may, jun: $jun, jul: $jul, aug: $aug, sep: $sep, oct: $oct, nov: $nov, dec: $dec, specialization: $specialization, Lab_Result: $Lab_Result, Payment_Flag: $Payment_Flag, E_Flag: $E_Flag, Test_Status_Flag: $Test_Status_Flag, Follow_Up_Date: $Follow_Up_Date, Follow_Up_Time: $Follow_Up_Time, Follow_Up_Flag: $Follow_Up_Flag, Sample_Flag: $Sample_Flag, Sample_Date: $Sample_Date, Result_Flag: $Result_Flag, Result_Date: $Result_Date, Result_Time: $Result_Time, Expected_Date: $Expected_Date, cancelalert_hour: $cancelalert_hour, cancelalert_notes: $cancelalert_notes, NightTime: $NightTime, AfternoonTime: $AfternoonTime, MorningTime: $MorningTime, FoodInstr: $FoodInstr, PresHalf_id: $PresHalf_id, Test_Result_Property: $Test_Result_Property, Approved_Status: $Approved_Status, ReleasedStatus: $ReleasedStatus, Intake_Object: $Intake_Object, Key_Id: $Key_Id, order_id: $order_id, Confirm_Mail_Flag: $Confirm_Mail_Flag, Vital_Flag: $Vital_Flag, Token_Number: $Token_Number, R_App: $R_App, C_App: $C_App, OT_RequestCount: $OT_RequestCount, IP_app_count: $IP_app_count, Emergrncy_app_count: $Emergrncy_app_count, Missed: $Missed, confirmed: $confirmed, IP_waiting: $IP_waiting, OT_Completed: $OT_Completed)';
+    return 'BookingAppointmentPatient(DeptName: $DeptName, Doctor_Notes: $Doctor_Notes, Hospital_id: $Hospital_id, Timing: $Timing, Hospital_PhoneNumber: $Hospital_PhoneNumber, Allergie_id: $Allergie_id, finding: $finding, CountList: $CountList, Allergie_Name: $Allergie_Name, Doctor_id: $Doctor_id, test_id: $test_id, test_cost: $test_cost, Doctor_Name: $Doctor_Name, alter_flag: $alter_flag, Doctor_Image: $Doctor_Image, Doctor_Qualification: $Doctor_Qualification, SubCategory_Name: $SubCategory_Name, Type_Flag: $Type_Flag, file_name: $file_name, test_name: $test_name, User_Name: $User_Name, User_Image: $User_Image, User_address: $User_address, User_bloodgroup: $User_bloodgroup, User_dob: $User_dob, Emailid: $Emailid, MobileNumber: $MobileNumber, Location_Name: $Location_Name, Hospital_Name: $Hospital_Name, Hospital_Address: $Hospital_Address, Clinic_id: $Clinic_id, Clinic_Name: $Clinic_Name, Clinic_Address: $Clinic_Address, cancel_flag: $cancel_flag, SubCategory_id: $SubCategory_id, Location_id: $Location_id, ClinicDoctorFee: $ClinicDoctorFee, FromTime: $FromTime, startSplit: $startSplit, EndSplit: $EndSplit, ToTime: $ToTime, Day: $Day, AboutClinic: $AboutClinic, Clinic_Images: $Clinic_Images, Appointment_Date: $Appointment_Date, Appointment_id: $Appointment_id, Appointment_Time: $Appointment_Time, Confirm_Status: $Confirm_Status, hospital_images: $hospital_images, User_id: $User_id, description: $description, file: $file, folder_date: $folder_date, disease: $disease, allergies: $allergies, symptoms1: $symptoms1, symptoms2: $symptoms2, symptoms3: $symptoms3, height: $height, weight: $weight, temp: $temp, diabetes: $diabetes, date: $date, symptoms: $symptoms, view_status: $view_status, files: $files, prescription: $prescription, lab: $lab, pat_list: $pat_list, summary: $summary, hos_list: $hos_list, total: $total, waiting: $waiting, upcoming: $upcoming, completed: $completed, dosage: $dosage, drug_name: $drug_name, frequency: $frequency, duration: $duration, instruction: $instruction, notes: $notes, error: $error, treatment_date: $treatment_date, treatment_id: $treatment_id, treatment_name: $treatment_name, cost: $cost, days: $days, discount: $discount, grant_total: $grant_total, treatment: $treatment, bill_date: $bill_date, bill_id: $bill_id, bill_name: $bill_name, file_type: $file_type, upload_date: $upload_date, billing: $billing, labtest_date: $labtest_date, labtest_id: $labtest_id, test_code: $test_code, labtest_name: $labtest_name, labtest: $labtest, labname: $labname, app_amount: $app_amount, eclinic_amount: $eclinic_amount, service_amount: $service_amount, app_count: $app_count, eclinic_count: $eclinic_count, service_count: $service_count, lab_id: $lab_id, lab_name: $lab_name, jan: $jan, feb: $feb, mar: $mar, apr: $apr, may: $may, jun: $jun, jul: $jul, aug: $aug, sep: $sep, oct: $oct, nov: $nov, dec: $dec, specialization: $specialization, Lab_Result: $Lab_Result, Payment_Flag: $Payment_Flag, E_Flag: $E_Flag, Test_Status_Flag: $Test_Status_Flag, Follow_Up_Date: $Follow_Up_Date, Follow_Up_Time: $Follow_Up_Time, Follow_Up_Flag: $Follow_Up_Flag, Sample_Flag: $Sample_Flag, Sample_Date: $Sample_Date, Result_Flag: $Result_Flag, Result_Date: $Result_Date, Result_Time: $Result_Time, Expected_Date: $Expected_Date, cancelalert_hour: $cancelalert_hour, cancelalert_notes: $cancelalert_notes, NightTime: $NightTime, AfternoonTime: $AfternoonTime, MorningTime: $MorningTime, FoodInstr: $FoodInstr, PresHalf_id: $PresHalf_id, Test_Result_Property: $Test_Result_Property, Approved_Status: $Approved_Status, ReleasedStatus: $ReleasedStatus, Intake_Object: $Intake_Object, Key_Id: $Key_Id, order_id: $order_id, Confirm_Mail_Flag: $Confirm_Mail_Flag, Vital_Flag: $Vital_Flag, Token_Number: $Token_Number, R_App: $R_App, C_App: $C_App, OT_RequestCount: $OT_RequestCount, IP_app_count: $IP_app_count, Emergrncy_app_count: $Emergrncy_app_count, Missed: $Missed, confirmed: $confirmed, IP_waiting: $IP_waiting, OT_Completed: $OT_Completed, DiseaseDetails_Flag: $DiseaseDetails_Flag, Prescription_Flag: $Prescription_Flag, LabTest_Flag: $LabTest_Flag)';
   }
 
   @override
@@ -3048,10 +3113,13 @@ class _$BookingAppointmentPatientImpl implements _BookingAppointmentPatient {
             const DeepCollectionEquality().equals(other.Missed, Missed) &&
             const DeepCollectionEquality().equals(other.confirmed, confirmed) &&
             const DeepCollectionEquality().equals(other.IP_waiting, IP_waiting) &&
-            const DeepCollectionEquality().equals(other.OT_Completed, OT_Completed));
+            const DeepCollectionEquality().equals(other.OT_Completed, OT_Completed) &&
+            const DeepCollectionEquality().equals(other.DiseaseDetails_Flag, DiseaseDetails_Flag) &&
+            const DeepCollectionEquality().equals(other.Prescription_Flag, Prescription_Flag) &&
+            const DeepCollectionEquality().equals(other.LabTest_Flag, LabTest_Flag));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -3215,10 +3283,15 @@ class _$BookingAppointmentPatientImpl implements _BookingAppointmentPatient {
         const DeepCollectionEquality().hash(Missed),
         const DeepCollectionEquality().hash(confirmed),
         const DeepCollectionEquality().hash(IP_waiting),
-        const DeepCollectionEquality().hash(OT_Completed)
+        const DeepCollectionEquality().hash(OT_Completed),
+        const DeepCollectionEquality().hash(DiseaseDetails_Flag),
+        const DeepCollectionEquality().hash(Prescription_Flag),
+        const DeepCollectionEquality().hash(LabTest_Flag)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BookingAppointmentPatient
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$BookingAppointmentPatientImplCopyWith<_$BookingAppointmentPatientImpl>
@@ -3395,7 +3468,10 @@ abstract class _BookingAppointmentPatient implements BookingAppointmentPatient {
       final dynamic Missed,
       final dynamic confirmed,
       final dynamic IP_waiting,
-      final dynamic OT_Completed}) = _$BookingAppointmentPatientImpl;
+      final dynamic OT_Completed,
+      final dynamic DiseaseDetails_Flag,
+      final dynamic Prescription_Flag,
+      final dynamic LabTest_Flag}) = _$BookingAppointmentPatientImpl;
 
   factory _BookingAppointmentPatient.fromJson(Map<String, dynamic> json) =
       _$BookingAppointmentPatientImpl.fromJson;
@@ -3721,9 +3797,20 @@ abstract class _BookingAppointmentPatient implements BookingAppointmentPatient {
   @override
   dynamic get IP_waiting;
   @override
-  dynamic get OT_Completed;
+  dynamic get OT_Completed; //"DiseaseDetails_Flag": "0",
+//         "Prescription_Flag": "0",
+//         "LabTest_Flag": "0"
   @override
-  @JsonKey(ignore: true)
+  dynamic get DiseaseDetails_Flag;
+  @override
+  dynamic get Prescription_Flag;
+  @override
+  dynamic get LabTest_Flag;
+
+  /// Create a copy of BookingAppointmentPatient
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BookingAppointmentPatientImplCopyWith<_$BookingAppointmentPatientImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

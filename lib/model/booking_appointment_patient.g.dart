@@ -170,6 +170,9 @@ _$BookingAppointmentPatientImpl _$$BookingAppointmentPatientImplFromJson(
       confirmed: json['confirmed'] ?? null,
       IP_waiting: json['IP_waiting'] ?? null,
       OT_Completed: json['OT_Completed'] ?? null,
+      DiseaseDetails_Flag: json['DiseaseDetails_Flag'] ?? null,
+      Prescription_Flag: json['Prescription_Flag'] ?? null,
+      LabTest_Flag: json['LabTest_Flag'] ?? null,
     );
 
 Map<String, dynamic> _$$BookingAppointmentPatientImplToJson(
@@ -336,4 +339,7 @@ Map<String, dynamic> _$$BookingAppointmentPatientImplToJson(
       'confirmed': instance.confirmed,
       'IP_waiting': instance.IP_waiting,
       'OT_Completed': instance.OT_Completed,
+      'DiseaseDetails_Flag': instance.DiseaseDetails_Flag,
+      'Prescription_Flag': instance.Prescription_Flag,
+      'LabTest_Flag': instance.LabTest_Flag,
     };

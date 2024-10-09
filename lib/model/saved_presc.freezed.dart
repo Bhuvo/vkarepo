@@ -38,8 +38,12 @@ mixin _$SavedPrescription {
   String? get Pres_Name => throw _privateConstructorUsedError;
   List<SavedPrescription>? get ListPresc => throw _privateConstructorUsedError;
 
+  /// Serializes this SavedPrescription to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SavedPrescription
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SavedPrescriptionCopyWith<SavedPrescription> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -80,6 +84,8 @@ class _$SavedPrescriptionCopyWithImpl<$Res, $Val extends SavedPrescription>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SavedPrescription
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -210,6 +216,8 @@ class __$$SavedPrescriptionImplCopyWithImpl<$Res>
       $Res Function(_$SavedPrescriptionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SavedPrescription
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -413,7 +421,7 @@ class _$SavedPrescriptionImpl implements _SavedPrescription {
                 .equals(other._ListPresc, _ListPresc));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -435,7 +443,9 @@ class _$SavedPrescriptionImpl implements _SavedPrescription {
       Pres_Name,
       const DeepCollectionEquality().hash(_ListPresc));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SavedPrescription
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SavedPrescriptionImplCopyWith<_$SavedPrescriptionImpl> get copyWith =>
@@ -507,8 +517,11 @@ abstract class _SavedPrescription implements SavedPrescription {
   String? get Pres_Name;
   @override
   List<SavedPrescription>? get ListPresc;
+
+  /// Create a copy of SavedPrescription
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SavedPrescriptionImplCopyWith<_$SavedPrescriptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

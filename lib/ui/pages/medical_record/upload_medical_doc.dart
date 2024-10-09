@@ -110,7 +110,7 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
   @override
   Widget build(BuildContext context) {
     return MScaffold(
-      title: const Text(Consts.PATIENT_DETAILS),
+      title: const Text('Upload Medical Documents'),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: SingleChildScrollView(

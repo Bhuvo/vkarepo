@@ -50,7 +50,9 @@ mixin _$PatientEvent {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PatientEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PatientEventCopyWith<PatientEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -76,6 +78,8 @@ class _$PatientEventCopyWithImpl<$Res, $Val extends PatientEvent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PatientEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -89,6 +93,8 @@ class _$PatientEventCopyWithImpl<$Res, $Val extends PatientEvent>
     ) as $Val);
   }
 
+  /// Create a copy of PatientEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PatientCopyWith<$Res> get patient {
@@ -120,6 +126,8 @@ class __$$SelectImplCopyWithImpl<$Res>
       _$SelectImpl _value, $Res Function(_$SelectImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PatientEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -158,7 +166,9 @@ class _$SelectImpl implements Select {
   @override
   int get hashCode => Object.hash(runtimeType, patient);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PatientEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SelectImplCopyWith<_$SelectImpl> get copyWith =>
@@ -226,8 +236,11 @@ abstract class Select implements PatientEvent {
 
   @override
   Patient get patient;
+
+  /// Create a copy of PatientEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SelectImplCopyWith<_$SelectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -290,6 +303,9 @@ class _$PatientStateCopyWithImpl<$Res, $Val extends PatientState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of PatientState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -310,6 +326,8 @@ class __$$DataImplCopyWithImpl<$Res>
   __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PatientState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -323,6 +341,8 @@ class __$$DataImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of PatientState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PatientCopyWith<$Res> get patient {
@@ -356,7 +376,9 @@ class _$DataImpl implements Data {
   @override
   int get hashCode => Object.hash(runtimeType, patient);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PatientState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DataImplCopyWith<_$DataImpl> get copyWith =>
@@ -429,7 +451,10 @@ abstract class Data implements PatientState {
   const factory Data({required final Patient patient}) = _$DataImpl;
 
   Patient get patient;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PatientState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DataImplCopyWith<_$DataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -448,6 +473,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of PatientState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc

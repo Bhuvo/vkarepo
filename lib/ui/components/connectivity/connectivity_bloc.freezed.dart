@@ -78,6 +78,9 @@ class _$ConnectivityStateCopyWithImpl<$Res, $Val extends ConnectivityState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ConnectivityState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -94,6 +97,9 @@ class __$$CheckingImplCopyWithImpl<$Res>
   __$$CheckingImplCopyWithImpl(
       _$CheckingImpl _value, $Res Function(_$CheckingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ConnectivityState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -202,6 +208,9 @@ class __$$DisconnectedImplCopyWithImpl<$Res>
   __$$DisconnectedImplCopyWithImpl(
       _$DisconnectedImpl _value, $Res Function(_$DisconnectedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ConnectivityState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -310,6 +319,9 @@ class __$$ConnectedImplCopyWithImpl<$Res>
   __$$ConnectedImplCopyWithImpl(
       _$ConnectedImpl _value, $Res Function(_$ConnectedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ConnectivityState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -456,6 +468,9 @@ class _$ConnectivityEventCopyWithImpl<$Res, $Val extends ConnectivityEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ConnectivityEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -472,6 +487,9 @@ class __$$InitiateImplCopyWithImpl<$Res>
   __$$InitiateImplCopyWithImpl(
       _$InitiateImpl _value, $Res Function(_$InitiateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ConnectivityEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc

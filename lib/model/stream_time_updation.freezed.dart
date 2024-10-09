@@ -24,8 +24,12 @@ mixin _$StreamTimeUpdationModel {
   String get responseCode => throw _privateConstructorUsedError;
   String get responseMessage => throw _privateConstructorUsedError;
 
+  /// Serializes this StreamTimeUpdationModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StreamTimeUpdationModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StreamTimeUpdationModelCopyWith<StreamTimeUpdationModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$StreamTimeUpdationModelCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StreamTimeUpdationModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$StreamTimeUpdationModelImplCopyWithImpl<$Res>
       $Res Function(_$StreamTimeUpdationModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StreamTimeUpdationModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,11 +148,13 @@ class _$StreamTimeUpdationModelImpl implements _StreamTimeUpdationModel {
                 other.responseMessage == responseMessage));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, responseCode, responseMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StreamTimeUpdationModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StreamTimeUpdationModelImplCopyWith<_$StreamTimeUpdationModelImpl>
@@ -171,8 +181,11 @@ abstract class _StreamTimeUpdationModel implements StreamTimeUpdationModel {
   String get responseCode;
   @override
   String get responseMessage;
+
+  /// Create a copy of StreamTimeUpdationModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StreamTimeUpdationModelImplCopyWith<_$StreamTimeUpdationModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -56,8 +56,12 @@ mixin _$IntakeObject {
   dynamic get Oral_Diet => throw _privateConstructorUsedError;
   dynamic get Oral_Medication => throw _privateConstructorUsedError;
 
+  /// Serializes this IntakeObject to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of IntakeObject
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $IntakeObjectCopyWith<IntakeObject> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -116,6 +120,8 @@ class _$IntakeObjectCopyWithImpl<$Res, $Val extends IntakeObject>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of IntakeObject
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -354,6 +360,8 @@ class __$$IntakeObjectImplCopyWithImpl<$Res>
       _$IntakeObjectImpl _value, $Res Function(_$IntakeObjectImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of IntakeObject
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -750,7 +758,7 @@ class _$IntakeObjectImpl implements _IntakeObject {
                 .equals(other.Oral_Medication, Oral_Medication));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -791,7 +799,9 @@ class _$IntakeObjectImpl implements _IntakeObject {
         const DeepCollectionEquality().hash(Oral_Medication)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of IntakeObject
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$IntakeObjectImplCopyWith<_$IntakeObjectImpl> get copyWith =>
@@ -916,8 +926,11 @@ abstract class _IntakeObject implements IntakeObject {
   dynamic get Oral_Diet;
   @override
   dynamic get Oral_Medication;
+
+  /// Create a copy of IntakeObject
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$IntakeObjectImplCopyWith<_$IntakeObjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

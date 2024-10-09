@@ -58,7 +58,7 @@ class AppointmentPatientDetails extends StatelessWidget {
                   data: data,
                 ),
                 ActionTile(
-                  title: 'Detail Clinical Notes',
+                  title: 'Detailed Clinical Notes',
                   route: Routes.detailedClinicalNotes,
                   icon: FontAwesomeIcons.flaskVial,
                   data: data,

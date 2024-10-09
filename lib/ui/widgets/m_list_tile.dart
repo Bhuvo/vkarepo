@@ -35,7 +35,7 @@ class MListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final body = Container(
       decoration: BoxDecoration(
-          color: color ?? Theme.of(context).cardColor,
+          color: color ?? Colors.white,
           borderRadius: BorderRadius.circular(MTheme.RADIUS)),
       child: Material(
           color: Colors.transparent,

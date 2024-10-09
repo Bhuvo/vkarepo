@@ -95,6 +95,9 @@ class _$CallEventCopyWithImpl<$Res, $Val extends CallEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CallEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -111,6 +114,9 @@ class __$$EndCallImplCopyWithImpl<$Res>
   __$$EndCallImplCopyWithImpl(
       _$EndCallImpl _value, $Res Function(_$EndCallImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -237,6 +243,9 @@ class __$$ToggleMicImplCopyWithImpl<$Res>
   __$$ToggleMicImplCopyWithImpl(
       _$ToggleMicImpl _value, $Res Function(_$ToggleMicImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -363,6 +372,9 @@ class __$$ToggleSpeakerImplCopyWithImpl<$Res>
   __$$ToggleSpeakerImplCopyWithImpl(
       _$ToggleSpeakerImpl _value, $Res Function(_$ToggleSpeakerImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -489,6 +501,9 @@ class __$$ToggleVideoImplCopyWithImpl<$Res>
   __$$ToggleVideoImplCopyWithImpl(
       _$ToggleVideoImpl _value, $Res Function(_$ToggleVideoImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -615,6 +630,9 @@ class __$$ToggleViewImplCopyWithImpl<$Res>
   __$$ToggleViewImplCopyWithImpl(
       _$ToggleViewImpl _value, $Res Function(_$ToggleViewImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -741,6 +759,9 @@ class __$$SwitchCameraImplCopyWithImpl<$Res>
   __$$SwitchCameraImplCopyWithImpl(
       _$SwitchCameraImpl _value, $Res Function(_$SwitchCameraImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -928,6 +949,9 @@ class _$CallStateCopyWithImpl<$Res, $Val extends CallState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CallState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -944,6 +968,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1064,6 +1091,9 @@ class __$$RecconectingImplCopyWithImpl<$Res>
   __$$RecconectingImplCopyWithImpl(
       _$RecconectingImpl _value, $Res Function(_$RecconectingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1184,6 +1214,9 @@ class __$$FailedImplCopyWithImpl<$Res>
   __$$FailedImplCopyWithImpl(
       _$FailedImpl _value, $Res Function(_$FailedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1304,6 +1337,9 @@ class __$$ConnectedImplCopyWithImpl<$Res>
   __$$ConnectedImplCopyWithImpl(
       _$ConnectedImpl _value, $Res Function(_$ConnectedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CallState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1429,6 +1465,8 @@ class __$$ChangedImplCopyWithImpl<$Res>
       _$ChangedImpl _value, $Res Function(_$ChangedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CallState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1447,6 +1485,8 @@ class __$$ChangedImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of CallState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CallEventCopyWith<$Res> get event {
@@ -1483,7 +1523,9 @@ class _$ChangedImpl implements Changed {
   @override
   int get hashCode => Object.hash(runtimeType, value, event);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CallState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ChangedImplCopyWith<_$ChangedImpl> get copyWith =>
@@ -1576,7 +1618,10 @@ abstract class Changed implements CallState {
 
   bool get value;
   CallEvent get event;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CallState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChangedImplCopyWith<_$ChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

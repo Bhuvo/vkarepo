@@ -41,7 +41,7 @@ class ActionTile extends StatelessWidget {
       onTap: route != null
           ? () {
               context.push(route!, {
-                "data":data,
+                "data": data,
               });
             }
           : onTap,

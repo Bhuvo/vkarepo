@@ -35,8 +35,12 @@ mixin _$ApiResponse {
   @JsonKey(name: 'Data')
   dynamic get data => throw _privateConstructorUsedError;
 
+  /// Serializes this ApiResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ApiResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ApiResponseCopyWith<ApiResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -67,6 +71,8 @@ class _$ApiResponseCopyWithImpl<$Res, $Val extends ApiResponse>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -137,6 +143,8 @@ class __$$ApiResponseImplCopyWithImpl<$Res>
       _$ApiResponseImpl _value, $Res Function(_$ApiResponseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -237,7 +245,7 @@ class _$ApiResponseImpl implements _ApiResponse {
             const DeepCollectionEquality().equals(other.data, data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -249,7 +257,9 @@ class _$ApiResponseImpl implements _ApiResponse {
       const DeepCollectionEquality().hash(R),
       const DeepCollectionEquality().hash(data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ApiResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ApiResponseImplCopyWith<_$ApiResponseImpl> get copyWith =>
@@ -297,8 +307,11 @@ abstract class _ApiResponse implements ApiResponse {
   @override
   @JsonKey(name: 'Data')
   dynamic get data;
+
+  /// Create a copy of ApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ApiResponseImplCopyWith<_$ApiResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

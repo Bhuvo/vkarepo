@@ -105,8 +105,12 @@ mixin _$GetAllHospitalByDoctor {
   @JsonKey(name: 'Mobile_country_code')
   dynamic get mobileCountryCode => throw _privateConstructorUsedError;
 
+  /// Serializes this GetAllHospitalByDoctor to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GetAllHospitalByDoctor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GetAllHospitalByDoctorCopyWith<GetAllHospitalByDoctor> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -172,6 +176,8 @@ class _$GetAllHospitalByDoctorCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GetAllHospitalByDoctor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -450,6 +456,8 @@ class __$$GetAllHospitalByDoctorImplCopyWithImpl<$Res>
       $Res Function(_$GetAllHospitalByDoctorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GetAllHospitalByDoctor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -920,7 +928,7 @@ class _$GetAllHospitalByDoctorImpl implements _GetAllHospitalByDoctor {
                 .equals(other.mobileCountryCode, mobileCountryCode));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -967,7 +975,9 @@ class _$GetAllHospitalByDoctorImpl implements _GetAllHospitalByDoctor {
         const DeepCollectionEquality().hash(mobileCountryCode)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GetAllHospitalByDoctor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetAllHospitalByDoctorImplCopyWith<_$GetAllHospitalByDoctorImpl>
@@ -1155,8 +1165,11 @@ abstract class _GetAllHospitalByDoctor implements GetAllHospitalByDoctor {
   @override
   @JsonKey(name: 'Mobile_country_code')
   dynamic get mobileCountryCode;
+
+  /// Create a copy of GetAllHospitalByDoctor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetAllHospitalByDoctorImplCopyWith<_$GetAllHospitalByDoctorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

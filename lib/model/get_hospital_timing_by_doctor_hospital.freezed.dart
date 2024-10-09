@@ -55,8 +55,12 @@ mixin _$GetHospitalTimingByDoctorHospital {
   List<GetHospitalTimingByDoctorHospital>? get listTiming =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this GetHospitalTimingByDoctorHospital to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GetHospitalTimingByDoctorHospital
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GetHospitalTimingByDoctorHospitalCopyWith<GetHospitalTimingByDoctorHospital>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -100,6 +104,8 @@ class _$GetHospitalTimingByDoctorHospitalCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GetHospitalTimingByDoctorHospital
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -228,6 +234,8 @@ class __$$GetHospitalTimingByDoctorHospitalImplCopyWithImpl<$Res>
       $Res Function(_$GetHospitalTimingByDoctorHospitalImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GetHospitalTimingByDoctorHospital
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -440,7 +448,7 @@ class _$GetHospitalTimingByDoctorHospitalImpl
                 .equals(other._listTiming, _listTiming));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -461,7 +469,9 @@ class _$GetHospitalTimingByDoctorHospitalImpl
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(_listTiming));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GetHospitalTimingByDoctorHospital
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetHospitalTimingByDoctorHospitalImplCopyWith<
@@ -551,8 +561,11 @@ abstract class _GetHospitalTimingByDoctorHospital
   @override
   @JsonKey(name: 'ListTiming')
   List<GetHospitalTimingByDoctorHospital>? get listTiming;
+
+  /// Create a copy of GetHospitalTimingByDoctorHospital
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetHospitalTimingByDoctorHospitalImplCopyWith<
           _$GetHospitalTimingByDoctorHospitalImpl>
       get copyWith => throw _privateConstructorUsedError;

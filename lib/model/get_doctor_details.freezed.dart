@@ -139,8 +139,12 @@ mixin _$GetDoctorDetails {
   @JsonKey(name: 'CategoryList')
   dynamic get categoryList => throw _privateConstructorUsedError;
 
+  /// Serializes this GetDoctorDetails to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GetDoctorDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GetDoctorDetailsCopyWith<GetDoctorDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -225,6 +229,8 @@ class _$GetDoctorDetailsCopyWithImpl<$Res, $Val extends GetDoctorDetails>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GetDoctorDetails
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -609,6 +615,8 @@ class __$$GetDoctorDetailsImplCopyWithImpl<$Res>
       $Res Function(_$GetDoctorDetailsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GetDoctorDetails
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1269,7 +1277,7 @@ class _$GetDoctorDetailsImpl implements _GetDoctorDetails {
                 .equals(other.categoryList, categoryList));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -1334,7 +1342,9 @@ class _$GetDoctorDetailsImpl implements _GetDoctorDetails {
         const DeepCollectionEquality().hash(categoryList)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GetDoctorDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetDoctorDetailsImplCopyWith<_$GetDoctorDetailsImpl> get copyWith =>
@@ -1594,8 +1604,11 @@ abstract class _GetDoctorDetails implements GetDoctorDetails {
   @override
   @JsonKey(name: 'CategoryList')
   dynamic get categoryList;
+
+  /// Create a copy of GetDoctorDetails
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetDoctorDetailsImplCopyWith<_$GetDoctorDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

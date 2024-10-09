@@ -183,8 +183,12 @@ mixin _$MedicalRecord {
   @JsonKey(name: 'Intake_Object')
   IntakeObject? get intakeObject => throw _privateConstructorUsedError;
 
+  /// Serializes this MedicalRecord to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MedicalRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MedicalRecordCopyWith<MedicalRecord> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -371,6 +375,8 @@ class _$MedicalRecordCopyWithImpl<$Res, $Val extends MedicalRecord>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MedicalRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1184,6 +1190,8 @@ class _$MedicalRecordCopyWithImpl<$Res, $Val extends MedicalRecord>
     ) as $Val);
   }
 
+  /// Create a copy of MedicalRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $IntakeObjectCopyWith<$Res>? get intakeObject {
@@ -1380,6 +1388,8 @@ class __$$MedicalRecordImplCopyWithImpl<$Res>
       _$MedicalRecordImpl _value, $Res Function(_$MedicalRecordImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MedicalRecord
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -3064,7 +3074,7 @@ class _$MedicalRecordImpl implements _MedicalRecord {
             (identical(other.intakeObject, intakeObject) || other.intakeObject == intakeObject));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -3231,7 +3241,9 @@ class _$MedicalRecordImpl implements _MedicalRecord {
         intakeObject
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MedicalRecord
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MedicalRecordImplCopyWith<_$MedicalRecordImpl> get copyWith =>
@@ -3736,8 +3748,11 @@ abstract class _MedicalRecord implements MedicalRecord {
   @override
   @JsonKey(name: 'Intake_Object')
   IntakeObject? get intakeObject;
+
+  /// Create a copy of MedicalRecord
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MedicalRecordImplCopyWith<_$MedicalRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

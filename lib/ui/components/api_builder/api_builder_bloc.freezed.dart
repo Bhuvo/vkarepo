@@ -84,6 +84,9 @@ class _$ApiBuilderEventCopyWithImpl<$Res, $Val extends ApiBuilderEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ApiBuilderEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -99,6 +102,9 @@ class __$$LoadImplCopyWithImpl<$Res>
     implements _$$LoadImplCopyWith<$Res> {
   __$$LoadImplCopyWithImpl(_$LoadImpl _value, $Res Function(_$LoadImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ApiBuilderEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -216,6 +222,8 @@ class __$$UpdateQueryImplCopyWithImpl<$Res>
       _$UpdateQueryImpl _value, $Res Function(_$UpdateQueryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ApiBuilderEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -260,7 +268,9 @@ class _$UpdateQueryImpl implements UpdateQuery {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_query));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ApiBuilderEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateQueryImplCopyWith<_$UpdateQueryImpl> get copyWith =>
@@ -346,7 +356,10 @@ abstract class UpdateQuery implements ApiBuilderEvent {
       _$UpdateQueryImpl;
 
   Map<String, dynamic> get query;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ApiBuilderEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateQueryImplCopyWith<_$UpdateQueryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -365,6 +378,9 @@ class __$$LoadMoreImplCopyWithImpl<$Res>
   __$$LoadMoreImplCopyWithImpl(
       _$LoadMoreImpl _value, $Res Function(_$LoadMoreImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ApiBuilderEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -479,6 +495,9 @@ class __$$RefreshImplCopyWithImpl<$Res>
   __$$RefreshImplCopyWithImpl(
       _$RefreshImpl _value, $Res Function(_$RefreshImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ApiBuilderEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -671,6 +690,9 @@ class _$ApiBuilderStateCopyWithImpl<$Res, $Val extends ApiBuilderState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -687,6 +709,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -826,6 +851,8 @@ class __$$LoadingMoreImplCopyWithImpl<$Res>
       _$LoadingMoreImpl _value, $Res Function(_$LoadingMoreImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -871,7 +898,9 @@ class _$LoadingMoreImpl implements LoadingMore {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadingMoreImplCopyWith<_$LoadingMoreImpl> get copyWith =>
@@ -979,7 +1008,10 @@ abstract class LoadingMore implements ApiBuilderState {
       _$LoadingMoreImpl;
 
   List<Map<String, dynamic>> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadingMoreImplCopyWith<_$LoadingMoreImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1001,6 +1033,8 @@ class __$$RefreshingImplCopyWithImpl<$Res>
       _$RefreshingImpl _value, $Res Function(_$RefreshingImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1046,7 +1080,9 @@ class _$RefreshingImpl implements Refreshing {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RefreshingImplCopyWith<_$RefreshingImpl> get copyWith =>
@@ -1154,7 +1190,10 @@ abstract class Refreshing implements ApiBuilderState {
       _$RefreshingImpl;
 
   List<Map<String, dynamic>> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RefreshingImplCopyWith<_$RefreshingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1173,6 +1212,9 @@ class __$$EmptyImplCopyWithImpl<$Res>
   __$$EmptyImplCopyWithImpl(
       _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1309,6 +1351,9 @@ class __$$InitialStateImplCopyWithImpl<$Res>
   __$$InitialStateImplCopyWithImpl(
       _$InitialStateImpl _value, $Res Function(_$InitialStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1447,6 +1492,8 @@ class __$$DataImplCopyWithImpl<$Res>
   __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1503,7 +1550,9 @@ class _$DataImpl implements Data {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_data), updatedAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DataImplCopyWith<_$DataImpl> get copyWith =>
@@ -1613,7 +1662,10 @@ abstract class Data implements ApiBuilderState {
 
   List<Map<String, dynamic>> get data;
   DateTime get updatedAt;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DataImplCopyWith<_$DataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1637,6 +1689,8 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1650,6 +1704,8 @@ class __$$ErrorImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ApiFailureCopyWith<$Res> get error {
@@ -1683,7 +1739,9 @@ class _$ErrorImpl implements Error {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -1790,7 +1848,10 @@ abstract class Error implements ApiBuilderState {
   const factory Error({required final ApiFailure error}) = _$ErrorImpl;
 
   ApiFailure get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ApiBuilderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

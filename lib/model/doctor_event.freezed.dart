@@ -36,8 +36,12 @@ mixin _$DoctorEvent {
   dynamic get Pay_Status => throw _privateConstructorUsedError;
   dynamic get Hospital_Name => throw _privateConstructorUsedError;
 
+  /// Serializes this DoctorEvent to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DoctorEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DoctorEventCopyWith<DoctorEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -76,6 +80,8 @@ class _$DoctorEventCopyWithImpl<$Res, $Val extends DoctorEvent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DoctorEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -194,6 +200,8 @@ class __$$DoctorEventImplCopyWithImpl<$Res>
       _$DoctorEventImpl _value, $Res Function(_$DoctorEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DoctorEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -378,7 +386,7 @@ class _$DoctorEventImpl implements _DoctorEvent {
                 .equals(other.Hospital_Name, Hospital_Name));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -398,7 +406,9 @@ class _$DoctorEventImpl implements _DoctorEvent {
       const DeepCollectionEquality().hash(Pay_Status),
       const DeepCollectionEquality().hash(Hospital_Name));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DoctorEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DoctorEventImplCopyWith<_$DoctorEventImpl> get copyWith =>
@@ -463,8 +473,11 @@ abstract class _DoctorEvent implements DoctorEvent {
   dynamic get Pay_Status;
   @override
   dynamic get Hospital_Name;
+
+  /// Create a copy of DoctorEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DoctorEventImplCopyWith<_$DoctorEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

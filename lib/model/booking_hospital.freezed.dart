@@ -43,8 +43,12 @@ mixin _$BookingHospital {
   dynamic get lat => throw _privateConstructorUsedError;
   dynamic get lng => throw _privateConstructorUsedError;
 
+  /// Serializes this BookingHospital to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BookingHospital
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BookingHospitalCopyWith<BookingHospital> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -90,6 +94,8 @@ class _$BookingHospitalCopyWithImpl<$Res, $Val extends BookingHospital>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BookingHospital
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -250,6 +256,8 @@ class __$$BookingHospitalImplCopyWithImpl<$Res>
       _$BookingHospitalImpl _value, $Res Function(_$BookingHospitalImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BookingHospital
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -512,7 +520,7 @@ class _$BookingHospitalImpl implements _BookingHospital {
             const DeepCollectionEquality().equals(other.lng, lng));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -540,7 +548,9 @@ class _$BookingHospitalImpl implements _BookingHospital {
         const DeepCollectionEquality().hash(lng)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BookingHospital
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$BookingHospitalImplCopyWith<_$BookingHospitalImpl> get copyWith =>
@@ -627,8 +637,11 @@ abstract class _BookingHospital implements BookingHospital {
   dynamic get lat;
   @override
   dynamic get lng;
+
+  /// Create a copy of BookingHospital
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BookingHospitalImplCopyWith<_$BookingHospitalImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

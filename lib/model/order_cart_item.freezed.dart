@@ -28,8 +28,12 @@ mixin _$OrderCartItem {
   dynamic get Product_Price => throw _privateConstructorUsedError;
   dynamic get User_id => throw _privateConstructorUsedError;
 
+  /// Serializes this OrderCartItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of OrderCartItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $OrderCartItemCopyWith<OrderCartItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,6 +64,8 @@ class _$OrderCartItemCopyWithImpl<$Res, $Val extends OrderCartItem>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of OrderCartItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,6 +136,8 @@ class __$$OrderCartItemImplCopyWithImpl<$Res>
       _$OrderCartItemImpl _value, $Res Function(_$OrderCartItemImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OrderCartItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -234,7 +242,7 @@ class _$OrderCartItemImpl implements _OrderCartItem {
             const DeepCollectionEquality().equals(other.User_id, User_id));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -246,7 +254,9 @@ class _$OrderCartItemImpl implements _OrderCartItem {
       const DeepCollectionEquality().hash(Product_Price),
       const DeepCollectionEquality().hash(User_id));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderCartItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$OrderCartItemImplCopyWith<_$OrderCartItemImpl> get copyWith =>
@@ -287,8 +297,11 @@ abstract class _OrderCartItem implements OrderCartItem {
   dynamic get Product_Price;
   @override
   dynamic get User_id;
+
+  /// Create a copy of OrderCartItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OrderCartItemImplCopyWith<_$OrderCartItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

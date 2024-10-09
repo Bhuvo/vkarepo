@@ -25,8 +25,12 @@ mixin _$AppointmentResponse {
   @JsonKey(name: 'UpcomingAppointmentList')
   List<AppointmentData>? get upcoming => throw _privateConstructorUsedError;
 
+  /// Serializes this AppointmentResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppointmentResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppointmentResponseCopyWith<AppointmentResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$AppointmentResponseCopyWithImpl<$Res, $Val extends AppointmentResponse>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AppointmentResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -96,6 +102,8 @@ class __$$AppointmentResponseImplCopyWithImpl<$Res>
       $Res Function(_$AppointmentResponseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppointmentResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -165,14 +173,16 @@ class _$AppointmentResponseImpl implements _AppointmentResponse {
             const DeepCollectionEquality().equals(other._upcoming, _upcoming));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_previous),
       const DeepCollectionEquality().hash(_upcoming));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppointmentResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AppointmentResponseImplCopyWith<_$AppointmentResponseImpl> get copyWith =>
@@ -203,8 +213,11 @@ abstract class _AppointmentResponse implements AppointmentResponse {
   @override
   @JsonKey(name: 'UpcomingAppointmentList')
   List<AppointmentData>? get upcoming;
+
+  /// Create a copy of AppointmentResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AppointmentResponseImplCopyWith<_$AppointmentResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

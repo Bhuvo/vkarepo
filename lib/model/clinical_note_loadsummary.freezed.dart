@@ -41,8 +41,12 @@ mixin _$ClinicalNotesLoadSummary {
   List<ClinicalNotesLoadSummary>? get ClincialList =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this ClinicalNotesLoadSummary to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ClinicalNotesLoadSummary
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ClinicalNotesLoadSummaryCopyWith<ClinicalNotesLoadSummary> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -85,6 +89,8 @@ class _$ClinicalNotesLoadSummaryCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ClinicalNotesLoadSummary
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -224,6 +230,8 @@ class __$$ClinicalNotesLoadSummaryImplCopyWithImpl<$Res>
       $Res Function(_$ClinicalNotesLoadSummaryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ClinicalNotesLoadSummary
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -444,7 +452,7 @@ class _$ClinicalNotesLoadSummaryImpl implements _ClinicalNotesLoadSummary {
                 .equals(other._ClincialList, _ClincialList));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -467,7 +475,9 @@ class _$ClinicalNotesLoadSummaryImpl implements _ClinicalNotesLoadSummary {
       const DeepCollectionEquality().hash(Insert_Date),
       const DeepCollectionEquality().hash(_ClincialList));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ClinicalNotesLoadSummary
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ClinicalNotesLoadSummaryImplCopyWith<_$ClinicalNotesLoadSummaryImpl>
@@ -543,8 +553,11 @@ abstract class _ClinicalNotesLoadSummary implements ClinicalNotesLoadSummary {
   dynamic get Insert_Date;
   @override
   List<ClinicalNotesLoadSummary>? get ClincialList;
+
+  /// Create a copy of ClinicalNotesLoadSummary
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ClinicalNotesLoadSummaryImplCopyWith<_$ClinicalNotesLoadSummaryImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

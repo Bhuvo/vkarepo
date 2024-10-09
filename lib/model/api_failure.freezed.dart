@@ -25,8 +25,12 @@ mixin _$ApiFailure {
   @JsonKey(name: 'ResponseCode')
   String? get code => throw _privateConstructorUsedError;
 
+  /// Serializes this ApiFailure to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ApiFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ApiFailureCopyWith<ApiFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,6 +56,8 @@ class _$ApiFailureCopyWithImpl<$Res, $Val extends ApiFailure>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ApiFailure
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +98,8 @@ class __$$ApiFailureImplCopyWithImpl<$Res>
       _$ApiFailureImpl _value, $Res Function(_$ApiFailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ApiFailure
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -142,11 +150,13 @@ class _$ApiFailureImpl implements _ApiFailure {
             (identical(other.code, code) || other.code == code));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, message, code);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ApiFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ApiFailureImplCopyWith<_$ApiFailureImpl> get copyWith =>
@@ -174,8 +184,11 @@ abstract class _ApiFailure implements ApiFailure {
   @override
   @JsonKey(name: 'ResponseCode')
   String? get code;
+
+  /// Create a copy of ApiFailure
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ApiFailureImplCopyWith<_$ApiFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

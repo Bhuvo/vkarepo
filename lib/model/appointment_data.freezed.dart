@@ -47,8 +47,12 @@ mixin _$AppointmentData {
   @JsonKey(name: 'eclinic_Flag')
   dynamic get eClinicFlag => throw _privateConstructorUsedError;
 
+  /// Serializes this AppointmentData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppointmentData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppointmentDataCopyWith<AppointmentData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -85,6 +89,8 @@ class _$AppointmentDataCopyWithImpl<$Res, $Val extends AppointmentData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AppointmentData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -191,6 +197,8 @@ class __$$AppointmentDataImplCopyWithImpl<$Res>
       _$AppointmentDataImpl _value, $Res Function(_$AppointmentDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppointmentData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -360,7 +368,7 @@ class _$AppointmentDataImpl implements _AppointmentData {
                 .equals(other.eClinicFlag, eClinicFlag));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -378,7 +386,9 @@ class _$AppointmentDataImpl implements _AppointmentData {
       scheduleURL,
       const DeepCollectionEquality().hash(eClinicFlag));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppointmentData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AppointmentDataImplCopyWith<_$AppointmentDataImpl> get copyWith =>
@@ -452,8 +462,11 @@ abstract class _AppointmentData implements AppointmentData {
   @override
   @JsonKey(name: 'eclinic_Flag')
   dynamic get eClinicFlag;
+
+  /// Create a copy of AppointmentData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AppointmentDataImplCopyWith<_$AppointmentDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

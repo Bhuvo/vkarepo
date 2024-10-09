@@ -330,7 +330,7 @@ class _VitalState extends State<Vital> {
                       ),
                     ),
                     onPressed: () {
-                      setState(() {
+                      // setState(() {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -338,7 +338,7 @@ class _VitalState extends State<Vital> {
                                     patientId: LocalStorage.getCursorPatient().userId.toString(),
                                 isFromPatient: true,
                                 )));
-                      });
+                      // });
                     },
                   ),
                   ElevatedButton(

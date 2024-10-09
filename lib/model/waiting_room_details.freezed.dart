@@ -182,8 +182,12 @@ mixin _$WaitingRoomDetails {
   dynamic get iPWaiting => throw _privateConstructorUsedError;
   dynamic get oTCompleted => throw _privateConstructorUsedError;
 
+  /// Serializes this WaitingRoomDetails to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of WaitingRoomDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $WaitingRoomDetailsCopyWith<WaitingRoomDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -368,6 +372,8 @@ class _$WaitingRoomDetailsCopyWithImpl<$Res, $Val extends WaitingRoomDetails>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of WaitingRoomDetails
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1362,6 +1368,8 @@ class __$$WaitingRoomDetailsImplCopyWithImpl<$Res>
       $Res Function(_$WaitingRoomDetailsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of WaitingRoomDetails
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2884,7 +2892,7 @@ class _$WaitingRoomDetailsImpl implements _WaitingRoomDetails {
             const DeepCollectionEquality().equals(other.oTCompleted, oTCompleted));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -3051,7 +3059,9 @@ class _$WaitingRoomDetailsImpl implements _WaitingRoomDetails {
         const DeepCollectionEquality().hash(oTCompleted)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of WaitingRoomDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$WaitingRoomDetailsImplCopyWith<_$WaitingRoomDetailsImpl> get copyWith =>
@@ -3555,8 +3565,11 @@ abstract class _WaitingRoomDetails implements WaitingRoomDetails {
   dynamic get iPWaiting;
   @override
   dynamic get oTCompleted;
+
+  /// Create a copy of WaitingRoomDetails
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$WaitingRoomDetailsImplCopyWith<_$WaitingRoomDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

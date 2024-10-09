@@ -26,8 +26,12 @@ mixin _$ViewRecords {
   dynamic get Date => throw _privateConstructorUsedError;
   dynamic get Type => throw _privateConstructorUsedError;
 
+  /// Serializes this ViewRecords to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ViewRecords
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ViewRecordsCopyWith<ViewRecords> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$ViewRecordsCopyWithImpl<$Res, $Val extends ViewRecords>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ViewRecords
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +120,8 @@ class __$$ViewRecordsImplCopyWithImpl<$Res>
       _$ViewRecordsImpl _value, $Res Function(_$ViewRecordsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ViewRecords
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -195,7 +203,7 @@ class _$ViewRecordsImpl implements _ViewRecords {
             const DeepCollectionEquality().equals(other.Type, Type));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -205,7 +213,9 @@ class _$ViewRecordsImpl implements _ViewRecords {
       const DeepCollectionEquality().hash(Date),
       const DeepCollectionEquality().hash(Type));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ViewRecords
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ViewRecordsImplCopyWith<_$ViewRecordsImpl> get copyWith =>
@@ -240,8 +250,11 @@ abstract class _ViewRecords implements ViewRecords {
   dynamic get Date;
   @override
   dynamic get Type;
+
+  /// Create a copy of ViewRecords
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ViewRecordsImplCopyWith<_$ViewRecordsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

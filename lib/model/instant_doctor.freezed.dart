@@ -63,8 +63,12 @@ mixin _$InstantDoctor {
   dynamic get Token_Number => throw _privateConstructorUsedError;
   dynamic get Waiting_Time => throw _privateConstructorUsedError;
 
+  /// Serializes this InstantDoctor to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of InstantDoctor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $InstantDoctorCopyWith<InstantDoctor> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -130,6 +134,8 @@ class _$InstantDoctorCopyWithImpl<$Res, $Val extends InstantDoctor>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of InstantDoctor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -410,6 +416,8 @@ class __$$InstantDoctorImplCopyWithImpl<$Res>
       _$InstantDoctorImpl _value, $Res Function(_$InstantDoctorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of InstantDoctor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -887,7 +895,7 @@ class _$InstantDoctorImpl implements _InstantDoctor {
                 .equals(other.Waiting_Time, Waiting_Time));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -935,7 +943,9 @@ class _$InstantDoctorImpl implements _InstantDoctor {
         const DeepCollectionEquality().hash(Waiting_Time)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InstantDoctor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InstantDoctorImplCopyWith<_$InstantDoctorImpl> get copyWith =>
@@ -1081,8 +1091,11 @@ abstract class _InstantDoctor implements InstantDoctor {
   dynamic get Token_Number;
   @override
   dynamic get Waiting_Time;
+
+  /// Create a copy of InstantDoctor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InstantDoctorImplCopyWith<_$InstantDoctorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

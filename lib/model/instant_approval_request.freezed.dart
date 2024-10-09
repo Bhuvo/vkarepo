@@ -34,8 +34,12 @@ mixin _$InstantApprovalRequest {
   String? get userName => throw _privateConstructorUsedError;
   String? get reqDate => throw _privateConstructorUsedError;
 
+  /// Serializes this InstantApprovalRequest to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of InstantApprovalRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $InstantApprovalRequestCopyWith<InstantApprovalRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -72,6 +76,8 @@ class _$InstantApprovalRequestCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of InstantApprovalRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -175,6 +181,8 @@ class __$$InstantApprovalRequestImplCopyWithImpl<$Res>
       $Res Function(_$InstantApprovalRequestImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of InstantApprovalRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -321,7 +329,7 @@ class _$InstantApprovalRequestImpl implements _InstantApprovalRequest {
             (identical(other.reqDate, reqDate) || other.reqDate == reqDate));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -338,7 +346,9 @@ class _$InstantApprovalRequestImpl implements _InstantApprovalRequest {
       userName,
       reqDate);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InstantApprovalRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InstantApprovalRequestImplCopyWith<_$InstantApprovalRequestImpl>
@@ -395,8 +405,11 @@ abstract class _InstantApprovalRequest implements InstantApprovalRequest {
   String? get userName;
   @override
   String? get reqDate;
+
+  /// Create a copy of InstantApprovalRequest
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InstantApprovalRequestImplCopyWith<_$InstantApprovalRequestImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

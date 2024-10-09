@@ -416,36 +416,40 @@ class _BookAnAppointmentClinicalVisitState
               SizedBox(
                 height: size.height * 0.4,
               ),
-              Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: size.width * 0.045,
-                  vertical: size.height * 0.01,
-                ),
-                width: double.maxFinite,
-                height: MediaQuery.of(context).size.height * 0.07,
-                child: OutlinedButton(
-                  onPressed: () {
-                    if(choose == 'Chennai'){
-                      controller.selectedCity = CityModel( cityId: 1, cityName: 'Chennai');
-                      controller.selectedState = StateModel( stateId: 31, stateName: 'Tamil Nadu');
-                      context.push(Routes.DoctorsListForClinicalVisit, {
-                        'controller' : controller
-                      });
-                    }
-                    context.push(Routes.DoctorsListForClinicalVisit, {
-                      'controller' : controller
-                    });
-                  },
-                  child: Text(
-                    'Select Doctor',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: size.height * 0.02,
-                    ),
-                  ),
-                ),
-              ),
+              // Container(
+              //   margin: EdgeInsets.symmetric(
+              //     horizontal: size.width * 0.045,
+              //     vertical: size.height * 0.01,
+              //   ),
+              //   width: double.maxFinite,
+              //   height: MediaQuery.of(context).size.height * 0.07,
+              //   child: ,
+              // ),
               ],
+          ),
+        ),
+      ),
+      bottom: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
+        child: OutlinedButton(
+          onPressed: () {
+            if(choose == 'Chennai'){
+              controller.selectedCity = CityModel( cityId: 1, cityName: 'Chennai');
+              controller.selectedState = StateModel( stateId: 31, stateName: 'Tamil Nadu');
+              context.push(Routes.DoctorsListForClinicalVisit, {
+                'controller' : controller
+              });
+            }
+            context.push(Routes.DoctorsListForClinicalVisit, {
+              'controller' : controller
+            });
+          },
+          child: Text(
+            'Select Doctor',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: size.height * 0.02,
+            ),
           ),
         ),
       ),

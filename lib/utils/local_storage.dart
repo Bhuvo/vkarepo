@@ -16,6 +16,8 @@ class LocalStorage {
   static const String ONLINE = "ONLINE";
   static const String CURSOR_USER = "CURSOR_USER";
 
+  static bool get isNurse =>  LocalStorage.getString(LocalStorage.IsType) == Consts.nurse;
+
   static SharedPreferences? _prefs;
   static final Map<String, dynamic> _memoryPrefs = <String, dynamic>{};
 

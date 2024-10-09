@@ -51,8 +51,12 @@ mixin _$CallLog {
   dynamic get Key_id => throw _privateConstructorUsedError;
   dynamic get CallendedBy_Patient => throw _privateConstructorUsedError;
 
+  /// Serializes this CallLog to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CallLog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CallLogCopyWith<CallLog> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -104,6 +108,8 @@ class _$CallLogCopyWithImpl<$Res, $Val extends CallLog>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CallLog
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -311,6 +317,8 @@ class __$$CallLogImplCopyWithImpl<$Res>
       _$CallLogImpl _value, $Res Function(_$CallLogImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CallLog
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -663,7 +671,7 @@ class _$CallLogImpl implements _CallLog {
                 .equals(other.CallendedBy_Patient, CallendedBy_Patient));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -699,7 +707,9 @@ class _$CallLogImpl implements _CallLog {
         const DeepCollectionEquality().hash(CallendedBy_Patient)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CallLog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CallLogImplCopyWith<_$CallLogImpl> get copyWith =>
@@ -808,8 +818,11 @@ abstract class _CallLog implements CallLog {
   dynamic get Key_id;
   @override
   dynamic get CallendedBy_Patient;
+
+  /// Create a copy of CallLog
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CallLogImplCopyWith<_$CallLogImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

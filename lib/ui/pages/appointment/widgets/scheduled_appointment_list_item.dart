@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,12 +10,16 @@ import 'package:timesmedlite/ui/components/status_indicator.dart';
 import 'package:timesmedlite/ui/components/user_info.dart';
 import 'package:timesmedlite/ui/components/user_tile.dart';
 import 'package:timesmedlite/ui/pages/vital_sign/add_vital_sign_dialog.dart';
+import 'package:timesmedlite/ui/pages/vital_sign/vital_chart.dart';
 import 'package:timesmedlite/ui/providers/user_provider.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
 import 'package:timesmedlite/utils/date_utils.dart';
+import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
+
+import '../../../widgets/space.dart';
 
 class ScheduledAppointmentListItem extends StatelessWidget {
   final BookingAppointmentPatient data;
@@ -29,6 +34,8 @@ class ScheduledAppointmentListItem extends StatelessWidget {
       userId: data.User_id,
       fullName: data.User_Name,
     );
+
+    final nurse = LocalStorage.isNurse;
 
     return UserProvider(
       data: user,
@@ -71,6 +78,7 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                 ),
                 Expanded(
                   child: MTextContent2(
+                    flex: true,
                     margin: EdgeInsets.symmetric(horizontal: 0),
                     head: 'Confirmed Appointments:',
                     content: '${data.confirmed ?? 0}',
@@ -101,54 +109,213 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                     ),
                     MTextContent2(
                       head: 'Token No. :',
-                      content: '${data.Token_Number ?? ''}'.padLeft(2, '0'),
+                      content: '${data.Token_Number ?? '-'}'.padLeft(2, '0'),
                     ),
                   ],
                 ),
                 Container(
                   width: 0.5,
-                  height: 40,
-                  color: Theme.of(context).dividerColor,
+                  height: 100,
+                  color: Theme.of(context).dividerColor.withOpacity(0.5),
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Wrap(
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           //mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Text(
-                              data.Payment_Flag == 'N' ? 'NOT PAID' : 'PAID',
-                              style: TextStyle(
-                                  color: data.Payment_Flag == 'N'
-                                      ? Colors.red
-                                      : Colors.green,
-                                  fontSize: 13),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 16),
+                              child: Text(
+                                data.Payment_Flag == 'N' ? 'NOT PAID' : 'PAID',
+                                style: TextStyle(
+                                    color: data.Payment_Flag == 'N'
+                                        ? Colors.red
+                                        : Colors.green,
+                                    fontSize: 10, fontWeight: FontWeight.w600),
+                              ),
                             ),
-                            Container(
-                              width: 0.5,
-                              height: 16,
-                              color: Theme.of(context).dividerColor,
-                              margin: EdgeInsets.symmetric(horizontal: 10),
+                            // Container(
+                            //   width: 0.5,
+                            //   height: 16,
+                            //   color: Theme.of(context).dividerColor,
+                            //   margin: EdgeInsets.symmetric(horizontal: 10),
+                            // ),
+                            if(data.DiseaseDetails_Flag == '1')...[
+                              TextButton(
+                                  style: TextButton.styleFrom(
+                                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
+                                  ),
+                                  onPressed: (){
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => VitalSignChartPage(
+                                              patientId: '${data.User_id}',
+                                              isFromPatient: false,
+                                            )));
+                                  }, child: const Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.heartPulse,
+                                    color: Colors.green,
+                                    size: 16,
+                                  ),
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Text('VITAL COLLECTED', style: TextStyle(
+                                    color: Colors.green,
+                                    fontSize: 12
+                                  ))
+                                ],
+                              ))
+                            ] else const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16),
+                              child: Text('VITAL NOT COLLECTED',
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 10),
+                              ),
                             ),
-                            Text(
-                              data.Vital_Flag == 'P'
-                                  ? 'VITAL COLLECTED'
-                                  : 'VITAL NOT COLLECTED',
-                              style: TextStyle(
-                                  color: data.Vital_Flag == 'P'
-                                      ? Colors.green
-                                      : Colors.red,
-                                  fontSize: 13),
+
+                            // if(data.DiseaseDetails_Flag == '1')...[
+                            //   TextButton(
+                            //       style: TextButton.styleFrom(
+                            //           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
+                            //       ),
+                            //       onPressed: (){
+                            //         // Routes.detailedClinicalNotes
+                            //         context.push(Routes.detailedClinicalNotes, {'data': data});
+                            //       }, child: const Row(
+                            //     mainAxisAlignment: MainAxisAlignment.end,
+                            //     mainAxisSize: MainAxisSize.min,
+                            //     children: [
+                            //       FaIcon(
+                            //         FontAwesomeIcons.notesMedical,
+                            //         color: Colors.green,
+                            //         size: 16,
+                            //       ),
+                            //       SizedBox(
+                            //         width: 8,
+                            //       ),
+                            //       AutoSizeText('COMPLAINTS\nCOLLECTED', style: TextStyle(
+                            //           color: Colors.green,
+                            //           fontSize: 12
+                            //       ))
+                            //     ],
+                            //   ))
+                            // ] else const Padding(
+                            //   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                            //   child: Text(
+                            //     'COMPLAINTS NOT COLLECTED',
+                            //     textAlign: TextAlign.end,
+                            //     style: TextStyle(
+                            //         color: Colors.red,
+                            //         fontWeight: FontWeight.w600,
+                            //         fontSize: 10),
+                            //   ),
+                            // ),
+
+                            if(data.Prescription_Flag == '1')...[
+                              TextButton(
+                                  style: TextButton.styleFrom(
+                                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
+                                  ),
+                                  onPressed: (){
+                                    final args = {
+                                      'patientid': '${data.User_id}',
+                                      'doctorid': '${data.Doctor_id}',
+                                      'appointmentid': '${data.Appointment_id}',
+                                    };
+                                    print(args);
+                                    context.push(Routes.prescriptionEditor, args);
+                                  }, child: const Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.prescriptionBottleAlt,
+                                    color: Colors.green,
+                                    size: 16,
+                                  ),
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  AutoSizeText('PRESCRIPTION\nCOLLECTED', style: TextStyle(
+                                      color: Colors.green,
+                                      fontSize: 12
+                                  ))
+                                ],
+                              ))
+                            ] else const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                              child: Text(
+                                'PRESCRIPTION NOT COLLECTED',
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 10),
+                              ),
+                            ),
+
+                            if(data.LabTest_Flag == '1')...[
+                              TextButton(
+                                  style: TextButton.styleFrom(
+                                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
+                                  ),
+                                  onPressed: (){
+                                    context.push(Routes.labTestRequest, {
+                                      'patientid': '${data.User_id}',
+                                      'doctorid': '${data.Doctor_id}',
+                                      'appointmentid': '${data.Appointment_id}',
+                                    });
+                                  }, child: const Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  FaIcon(
+                                    FontAwesomeIcons.vial,
+                                    color: Colors.green,
+                                    size: 16,
+                                  ),
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  AutoSizeText('LAB TEST COLLECTED', style: TextStyle(
+                                      color: Colors.green,
+                                      fontSize: 12
+                                  ))
+                                ],
+                              ))
+                            ] else const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                              child: Text(
+                                'LAB TEST NOT COLLECTED',
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 10),
+                              ),
                             ),
                           ],
                         ),
                         const SizedBox(
-                          height: 4,
+                          height: 8,
                         ),
-                        status()
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: status(),
+                        )
                       ],
                     ),
                   ),
@@ -193,8 +360,8 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                         //drawText: false,
                         height: 40,
                         width: 40,
-                        backgroundColor: Theme.of(context).canvasColor,
-                        color: Theme.of(context).highlightColor,
+                        backgroundColor: Colors.white,
+                        color: Colors.black,
                         margin: const EdgeInsets.symmetric(vertical: 8),
                       )
                     ],
@@ -202,6 +369,22 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                 ],
               ),
             ),
+            const Divider(
+              height: 20,
+            ),
+             Row(
+              children: [
+                Space(),
+                Text('Click for full details', style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: Theme.of(context).dividerColor,
+                  fontSize: 10
+                )),
+                Spacer(),
+                Icon(Icons.arrow_forward_ios_rounded, size: 20, color: Colors.grey,),
+                Space()
+              ],
+            ),
+            const Space(10)
             // MListTile(
             //     color: Colors.white54,
             //     child: Row(

@@ -23,8 +23,12 @@ mixin _$CallExtendModel {
   String get responseCode => throw _privateConstructorUsedError;
   String get responseMessage => throw _privateConstructorUsedError;
 
+  /// Serializes this CallExtendModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CallExtendModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CallExtendModelCopyWith<CallExtendModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$CallExtendModelCopyWithImpl<$Res, $Val extends CallExtendModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CallExtendModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$CallExtendModelImplCopyWithImpl<$Res>
       _$CallExtendModelImpl _value, $Res Function(_$CallExtendModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CallExtendModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -135,11 +143,13 @@ class _$CallExtendModelImpl implements _CallExtendModel {
                 other.responseMessage == responseMessage));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, responseCode, responseMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CallExtendModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CallExtendModelImplCopyWith<_$CallExtendModelImpl> get copyWith =>
@@ -166,8 +176,11 @@ abstract class _CallExtendModel implements CallExtendModel {
   String get responseCode;
   @override
   String get responseMessage;
+
+  /// Create a copy of CallExtendModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CallExtendModelImplCopyWith<_$CallExtendModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

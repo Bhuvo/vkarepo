@@ -30,8 +30,12 @@ mixin _$MissedCallLog {
   dynamic get transaction_status => throw _privateConstructorUsedError;
   dynamic get PatientImage => throw _privateConstructorUsedError;
 
+  /// Serializes this MissedCallLog to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MissedCallLog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MissedCallLogCopyWith<MissedCallLog> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -64,6 +68,8 @@ class _$MissedCallLogCopyWithImpl<$Res, $Val extends MissedCallLog>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MissedCallLog
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -146,6 +152,8 @@ class __$$MissedCallLogImplCopyWithImpl<$Res>
       _$MissedCallLogImpl _value, $Res Function(_$MissedCallLogImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MissedCallLog
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -272,7 +280,7 @@ class _$MissedCallLogImpl implements _MissedCallLog {
                 .equals(other.PatientImage, PatientImage));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -286,7 +294,9 @@ class _$MissedCallLogImpl implements _MissedCallLog {
       const DeepCollectionEquality().hash(transaction_status),
       const DeepCollectionEquality().hash(PatientImage));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MissedCallLog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MissedCallLogImplCopyWith<_$MissedCallLogImpl> get copyWith =>
@@ -333,8 +343,11 @@ abstract class _MissedCallLog implements MissedCallLog {
   dynamic get transaction_status;
   @override
   dynamic get PatientImage;
+
+  /// Create a copy of MissedCallLog
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MissedCallLogImplCopyWith<_$MissedCallLogImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -183,8 +183,12 @@ mixin _$BookingAppointment {
   List<BookingAppointmentPatient>? get pat_list =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this BookingAppointment to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BookingAppointment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $BookingAppointmentCopyWith<BookingAppointment> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -369,6 +373,8 @@ class _$BookingAppointmentCopyWithImpl<$Res, $Val extends BookingAppointment>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of BookingAppointment
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1363,6 +1369,8 @@ class __$$BookingAppointmentImplCopyWithImpl<$Res>
       $Res Function(_$BookingAppointmentImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of BookingAppointment
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -3054,7 +3062,7 @@ class _$BookingAppointmentImpl implements _BookingAppointment {
             const DeepCollectionEquality().equals(other._pat_list, _pat_list));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -3221,7 +3229,9 @@ class _$BookingAppointmentImpl implements _BookingAppointment {
         const DeepCollectionEquality().hash(_pat_list)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BookingAppointment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$BookingAppointmentImplCopyWith<_$BookingAppointmentImpl> get copyWith =>
@@ -3726,8 +3736,11 @@ abstract class _BookingAppointment implements BookingAppointment {
   dynamic get OT_Completed;
   @override
   List<BookingAppointmentPatient>? get pat_list;
+
+  /// Create a copy of BookingAppointment
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BookingAppointmentImplCopyWith<_$BookingAppointmentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

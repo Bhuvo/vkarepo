@@ -29,8 +29,12 @@ mixin _$FetchListResponse {
   @JsonKey(name: 'data')
   dynamic get payload => throw _privateConstructorUsedError;
 
+  /// Serializes this FetchListResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FetchListResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FetchListResponseCopyWith<FetchListResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$FetchListResponseCopyWithImpl<$Res, $Val extends FetchListResponse>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FetchListResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -110,6 +116,8 @@ class __$$FetchListResponseImplCopyWithImpl<$Res>
       $Res Function(_$FetchListResponseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FetchListResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -180,7 +188,7 @@ class _$FetchListResponseImpl implements _FetchListResponse {
             const DeepCollectionEquality().equals(other.payload, payload));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -189,7 +197,9 @@ class _$FetchListResponseImpl implements _FetchListResponse {
       const DeepCollectionEquality().hash(data),
       const DeepCollectionEquality().hash(payload));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FetchListResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchListResponseImplCopyWith<_$FetchListResponseImpl> get copyWith =>
@@ -226,8 +236,11 @@ abstract class _FetchListResponse implements FetchListResponse {
   @override
   @JsonKey(name: 'data')
   dynamic get payload;
+
+  /// Create a copy of FetchListResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FetchListResponseImplCopyWith<_$FetchListResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
