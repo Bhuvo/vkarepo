@@ -1,14 +1,16 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:timesmedlite/di/dependency_injection.dart';
 import 'package:timesmedlite/model/api_failure.dart';
+import 'package:chopper/chopper.dart';
 
 class ApiBuilderFacade{
   static Future<Either<ApiFailure,List<Map<String, dynamic>>>> fetchList({required String path, bool raw = false, Map<String, dynamic>? query, int limit = 20, int offset = 0, bool api2 = false, bool timesmedApi = false}) async {
     try{
       dynamic service = timesmedApi ? Injector().timesmedService : Injector().apiService;
-      final res = await (
+      final Response res = await (
       raw ?
       api2 ?
       service.rawGet2(path: path, query: {'limit': limit, 'offset': offset, ...(query ?? {})}) :
@@ -17,6 +19,8 @@ class ApiBuilderFacade{
       service.fetchList2(path: path, query: {'limit': limit, 'offset': offset, ...(query ?? {})}) :
       service.fetchList(path: path, query: {'limit': limit, 'offset': offset, ...(query ?? {})})
       );
+
+      log('API URL: ' + (res.base.request?.url.toString() ?? ''));
 
       // print('api url: ${path} query: ${query}');
       if(raw){

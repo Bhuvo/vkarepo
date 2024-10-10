@@ -8,27 +8,36 @@ import 'package:timesmedlite/ui/widgets/m_list_tile.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
-class OrderAddressList extends StatelessWidget {
+class OrderAddressList extends StatefulWidget {
   final String type;
+  final Function (Map<String, dynamic> data)? onSelected;
 
-  const OrderAddressList({Key? key, this.type = 'sa'}) : super(key: key);
+  const OrderAddressList({Key? key, this.type = 'sa', this.onSelected}) : super(key: key);
+
+  @override
+  State<OrderAddressList> createState() => _OrderAddressListState();
+}
+
+class _OrderAddressListState extends State<OrderAddressList> {
+  late final ApiBuilderBloc bloc = ApiBuilderBloc(
+      path: widget.type == 'sa' ? 'ShippingAddressList' : 'BillingAddressList', query: {'User_id': LocalStorage.getUID()});
+
 
   @override
   Widget build(BuildContext context) {
-    final bloc = ApiBuilderBloc(
-        path: type == 'sa' ? 'ShippingAddressList' : 'BillingAddressList', query: {'User_id': LocalStorage.getUID()});
     return MDialog(
-        title: Row(
-          children: [
-            Text(type == 'sa' ? 'Shipping Address' : 'Billing Address'),
-            const Spacer(),
-            IconButton(
-                onPressed: () {
-                  context.pop();
-                },
-                icon: Icon(Icons.close_rounded))
-          ],
-        ),
+        // title: Row(
+        //   children: [
+        //     Text(widget.type == 'sa' ? 'Shipping Address' : 'Billing Address'),
+        //     const Spacer(),
+        //     IconButton(
+        //         onPressed: () {
+        //           context.pop();
+        //         },
+        //         icon: const Icon(Icons.close_rounded))
+        //   ],
+        // ),
+      padding: const EdgeInsets.only(top: 12),
         child: Expanded(
           child: BlocProvider(
             create: (_) => bloc..add(const Load()),
@@ -38,9 +47,13 @@ class OrderAddressList extends StatelessWidget {
                   itemCount: list.length,
                   itemBuilder: (_, i) {
                     final data = list[i];
-                    return MListTile(
+                    final c = MListTile(
                         onTap: () {
-                          context.pop(data);
+                          if(widget.onSelected != null){
+                            widget.onSelected!(data);
+                            return;
+                          }
+                          // context.pop(data);
                         },
                         padding:
                             const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -48,29 +61,44 @@ class OrderAddressList extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              '${data['${type}_firstname'] ?? '-'}',
-                              style: TextStyle(fontWeight: FontWeight.w700),
+                              '${data['${widget.type}_firstname'] ?? '-'}',
+                              style: const TextStyle(fontWeight: FontWeight.w700),
                             ),
                             const SizedBox(
                               height: 5,
                             ),
                             Text(
-                              '${data['${type}_mobile'] ?? '-'}, ${data['${type}_email'] ?? '-'}',
+                              '${data['${widget.type}_mobile'] ?? '-'}, ${data['${widget.type}_email'] ?? '-'}',
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
                             const SizedBox(
                               height: 5,
                             ),
                             Text(
-                              '${data['${type}_address'] ?? '-'} - ${data['${type}_pincode'] ?? '-'}',
+                              '${data['${widget.type}_address'] ?? '-'} - ${data['${widget.type}_pincode'] ?? '-'}',
                             ),
                             Text(
-                              '${data['${type}_landmark'] ?? '-'}',
+                              '${data['${widget.type}_landmark'] ?? '-'}',
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
                             // if(kDebugMode)Text('${data}',),
                           ],
                         ));
+                    if(i == 0){
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 24) + const EdgeInsets.only(top: 12),
+                            child: Text('Select ${widget.type == 'sa' ? 'Shipping' : 'Billing'} Address', style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: Theme.of(context).dividerColor,
+                            ),),
+                          ),
+                          c,
+                        ],
+                      );
+                    }
+                    return c;
                   },
                 );
               },

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
 
 class MDialog extends StatelessWidget {
-  final Widget? title;
+  final Widget? title, action;
   final Widget child;
   final double radius;
   final EdgeInsets padding;
@@ -10,6 +10,7 @@ class MDialog extends StatelessWidget {
   const MDialog(
       {Key? key,
       this.title,
+      this.action,
       required this.child,
       this.radius = MTheme.RADIUS,
       this.padding =
@@ -24,6 +25,7 @@ class MDialog extends StatelessWidget {
           borderRadius: BorderRadius.circular(radius * 1.25)),
       insetPadding: padding,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.min,
         children: [
           if (title != null)
@@ -54,7 +56,12 @@ class MDialog extends StatelessWidget {
                 ),
               ),
             ),
-          child
+          child,
+          if (action != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: action,
+            )
         ],
       ),
     );
