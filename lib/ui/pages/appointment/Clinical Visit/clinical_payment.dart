@@ -41,25 +41,26 @@ class ClinicalPayment {
                 }
               );
               context.pop();
-              showDialog(context: context, builder: (_){
+              await showDialog(context: context, builder: (_){
                 return AlertDialog(
                   title: const Icon(Icons.check_circle, size: 40, color: Colors.green,),
-                  content: const Center(child: const Text('Payment Success')),
+                  content: const Text('Payment Success', textAlign: TextAlign.center,),
                   actions: [
                     TextButton(onPressed: (){
                       context.pop();
-                      onSuccess();
+
                     }, child: const Text('OK'))
                   ],
                 );
               });
+              onSuccess();
             },
             onFailure: (d) {
               print('Payment Failed');
               showDialog(context: context, builder: (_){
                 return AlertDialog(
                   title: const Icon(Icons.error, size: 40, color: Colors.red,),
-                  content: const Center(child: const Text('Payment Failed')),
+                  content: const Text('Payment Failed'),
                   actions: [
                     TextButton(onPressed: (){
                       context.pop();

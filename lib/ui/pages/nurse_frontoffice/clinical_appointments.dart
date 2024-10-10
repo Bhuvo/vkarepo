@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:intl/intl.dart';
 import 'package:timesmedlite/ui/widgets/m_list_tile.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
 
+import '../../../utils/local_storage.dart';
 import '../../components/patient_bottom_navigation.dart';
 import '../../components/status_indicator.dart';
 import '../../theme/theme.dart';
@@ -29,8 +31,11 @@ class _ClinicalAppointmentsState extends State<ClinicalAppointments> {
     super.initState();
     getData();
   }
-  getData()async{
-    await controller.getClinicalAppointmentList('184376', '193976', 'W', '10/07/2024', '10/09/2024');
+  getData() async {
+    final today = DateTime.now();
+    final yesterday = today.subtract(const Duration(days: 1));
+    final format = DateFormat('MM/dd/yyyy');
+    await controller.getClinicalAppointmentList(LocalStorage.getUID(), '193976', 'W', format.format(yesterday), format.format(today));
     setState(() {});
   }
   @override
