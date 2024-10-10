@@ -39,7 +39,7 @@ class _PatientDashboardState extends State<PatientDashboard> {
   bool loading = true;
 
   load() async {
-    if(mounted){
+    if(mounted) {
       setState(() {
         loading = true;
       });
@@ -64,105 +64,108 @@ class _PatientDashboardState extends State<PatientDashboard> {
           return await load();
         },
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  DashboardCard(
-                    title: '${videoAppointmentData['Video'] ?? '0'}',
-                    subTitle:'Upcoming video Appointments',
-                    color: Color(0xFF2fa6c4),
-                    asset: 'assets/images/scheduled.png',
-                    onTap: (){
-                      context.push(Routes.calendarPage);
-                    },
-                  ),
-                  DashboardCard(
-                    title: '${clinicalAppointmentData['New_Appointment'] ?? '0'}',
-                    subTitle:'Upcoming clinical Appointments',
-                    color: Colors.grey.shade600,
-                    asset: 'assets/images/scheduled.png',
-                    onTap: (){
-                      context.push(Routes.calendarPage);
-                    },
-                  ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    DashboardCard(
+                      title: '${videoAppointmentData['Video'] ?? '0'}',
+                      subTitle:'Upcoming video Appointments',
+                      color: Color(0xFF2fa6c4),
+                      asset: 'assets/images/scheduled.png',
+                      onTap: (){
+                        context.managedPush(Routes.bookAppointment );
+                      },
+                    ),
+                    DashboardCard(
+                      title: '${clinicalAppointmentData['New_Appointment'] ?? '0'}',
+                      subTitle:'Upcoming clinical Appointments',
+                      color: Colors.grey.shade600,
+                      asset: 'assets/images/scheduled.png',
+                      onTap: (){
+                        context.managedPush(Routes.bookAppointment );
+                      },
+                    ),
 
-                ],
-              ),
-              Row(
-                children: [
-                  // DashboardCard(
-                  //   title: '3',
-                  //   subTitle:'Previous video Appointments',
-                  //   color: Colors.green.shade400,
-                  //   asset: 'assets/images/ic_5.png',
-                  //   onTap: (){
-                  //     context.push(Routes.patientWaitingList );
-                  //   },
-                  // ),
-                  DashboardCard(
-                    title: '${clinicalAppointmentData['Completed_Appointment']}',
-                    subTitle:'Previous clinical Appointments',
-                    color: const Color(0xFFf2bd2e),
-                    asset: 'assets/images/ic_5.png',
-                    onTap: (){
-                      context.push(Routes.clinicalAppointments );
-                    },
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  DashboardCard(
-                    title: '${inrData['Completed'] ?? '0'}',
-                    subTitle:'Total Number of INR Appointments',
-                    color: Colors.red,
-                    asset: 'assets/images/Appointment.png',
-                    onTap: (){
-                      context.push(Routes.myInrDetails, {
-                        'PatID': '${LocalStorage.getCursorPatient().userId}',
-                        'DcoID': '178936'
-                      });
-                    },
-                  ),
-                  DashboardCard(
-                    title: '${inrData['Pending'] ?? '0'}',
-                    subTitle:'INR Waiting List',
-                    color: Colors.grey.shade600,
-                    asset: 'assets/images/scheduled.png',
-                    onTap: (){
-                      context.push(Routes.myInrDetails, {
-                        'PatID': '${LocalStorage.getCursorPatient().userId}',
-                        'DcoID': '178936'
-                      });
-                    },
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  DashboardCard(
-                    title: '${prescriptinOrderData['New_Appointment'] ?? '0'}',
-                    subTitle:'Prescription Order Count',
-                    color: Color(0xFFf2bd2e),
-                    asset: 'assets/images/ic_1.png',
-                    onTap: (){
-                      context.push(Routes.ordersList, {} );
-                    },
-                  ),
-                  DashboardCard(
-                    title: '${labOrderData['New_Appointment'] ?? '0'}',
-                    subTitle:'Lab test Order Count',
-                    color: Color(0xFFf8457a),
-                    asset: 'assets/images/ic_4.png',
-                    onTap: (){
-                      context.push(Routes.labTestRequest, {} );
-                    },
-                  ),
-                ],
-              ),
-              const Space(100)
-            ],),
+                  ],
+                ),
+                Row(
+                  children: [
+                    // DashboardCard(
+                    //   title: '3',
+                    //   subTitle:'Previous video Appointments',
+                    //   color: Colors.green.shade400,
+                    //   asset: 'assets/images/ic_5.png',
+                    //   onTap: (){
+                    //     context.push(Routes.patientWaitingList );
+                    //   },
+                    // ),
+                    DashboardCard(
+                      title: '${clinicalAppointmentData['Completed_Appointment']}',
+                      subTitle:'Previous clinical Appointments',
+                      color: const Color(0xFFf2bd2e),
+                      asset: 'assets/images/ic_5.png',
+                      onTap: (){
+                        context.managedPush(Routes.bookAppointment );
+                      },
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    DashboardCard(
+                      title: '${inrData['Completed'] ?? '0'}',
+                      subTitle:'Total Number of INR Appointments',
+                      color: Colors.red,
+                      asset: 'assets/images/Appointment.png',
+                      onTap: (){
+                        context.managedPush(Routes.patientScreenINRDetails, {
+                          'PatID': '${LocalStorage.getCursorPatient().userId}',
+                          'DcoID': '178936'
+                        });
+                      },
+                    ),
+                    DashboardCard(
+                      title: '${inrData['Pending'] ?? '0'}',
+                      subTitle:'INR Waiting List',
+                      color: Colors.grey.shade600,
+                      asset: 'assets/images/scheduled.png',
+                      onTap: (){
+                        context.managedPush(Routes.patientScreenINRDetails, {
+                          'PatID': '${LocalStorage.getCursorPatient().userId}',
+                          'DcoID': '178936'
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    DashboardCard(
+                      title: '${prescriptinOrderData['New_Appointment'] ?? '0'}',
+                      subTitle:'Prescription Order Count',
+                      color: const Color(0xff07a8b7),
+                      asset: 'assets/images/ic_1.png',
+                      onTap: (){
+                        context.push(Routes.ordersList, {} );
+                      },
+                    ),
+                    // DashboardCard(
+                    //   title: '${labOrderData['New_Appointment'] ?? '0'}',
+                    //   subTitle:'Lab test Order Count',
+                    //   color: const Color(0xFFf8457a),
+                    //   asset: 'assets/images/ic_4.png',
+                    //   onTap: (){
+                    //     context.push(Routes.labTestRequest, {} );
+                    //   },
+                    // ),
+                  ],
+                ),
+                const Space(100)
+              ],),
+          ),
         ),
       ),
     );

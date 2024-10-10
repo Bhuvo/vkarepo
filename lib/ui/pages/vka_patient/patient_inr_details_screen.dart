@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:timesmedlite/const/consts.dart';
+import 'package:timesmedlite/ui/components/nothing_widget.dart';
 import 'package:timesmedlite/ui/components/patient_bottom_navigation.dart';
 import 'package:timesmedlite/ui/components/user_age_gender.dart';
 import 'package:timesmedlite/ui/components/user_info.dart';
@@ -93,9 +95,9 @@ class PatientViewInrDetailsScreen extends StatelessWidget {
                     children: [
                       Container(
                           width: double.infinity,
-                          height: MediaQuery.of(context).size.height * 0.13,
+                          // height: MediaQuery.of(context).size.height * 0.13,
                           margin: const EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 8),
+                              horizontal: 0, vertical: 8),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 12, vertical: 8),
                           decoration: BoxDecoration(
@@ -112,6 +114,8 @@ class PatientViewInrDetailsScreen extends StatelessWidget {
                               child: ApiBuilder(
                                   shrinkWrap: true,
                                   jsonBuilder: (TTR, load) {
+                                    if(TTR.isEmpty) return NothingWidget();
+
                                     final timeInTherapeuticRatio =
                                     '${TTR[0]['Percentage']}' == "null"
                                         ? '0'
@@ -169,13 +173,11 @@ class PatientViewInrDetailsScreen extends StatelessWidget {
                               child: ApiBuilder(
                                   shrinkWrap: true,
                                   jsonBuilder: (data, load) {
-                                    print(
-                                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX${data[0]["DoctorRegistration_List"]}");
-                                    try {
-                                      print(
-                                          "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX${vkaDateWiseEntries.data.isNotEmpty}");
-                                    } catch (e, s) {
-                                      print(s);
+                                    final l = data[0]
+                                    ["DoctorRegistration_List"];
+
+                                    if(l.isEmpty){
+                                      return const SizedBox.shrink();
                                     }
                                     final doctorName = data[0]
                                         ["DoctorRegistration_List"][0]["Name"];
@@ -224,6 +226,17 @@ class PatientViewInrDetailsScreen extends StatelessWidget {
                               child: ApiBuilder(
                                   shrinkWrap: true,
                                   jsonBuilder: (data, load) {
+                                    final l = data[0]
+                                    ["DoctorRegistration_List"];
+
+                                    if(l.isEmpty){
+                                      return const NothingWidget(
+                                        icon: CupertinoIcons.graph_circle_fill,
+                                        title: 'No INR Details Found',
+                                        message: 'Add INR details to view',
+                                      );
+                                    }
+
                                     final phoneNumber = data[0]
                                             ["DoctorRegistration_List"][0]
                                         ["Phone_Number"];

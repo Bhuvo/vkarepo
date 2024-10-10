@@ -7,6 +7,7 @@ import 'package:timesmedlite/ui/components/api_builder/api_builder_bloc.dart';
 import 'package:timesmedlite/ui/pages/prescription/order/order_address_list.dart';
 import 'package:timesmedlite/ui/pages/prescription/order/product_list_item.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
+import 'package:timesmedlite/ui/widgets/m_dialog.dart';
 import 'package:timesmedlite/ui/widgets/m_drop_down.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
 import 'package:timesmedlite/ui/widgets/m_tab_bar.dart';
@@ -27,29 +28,35 @@ class _OrderAddressFormState extends State<OrderAddressForm>
   late TabController tab;
   static const List<String> tabs = ['SHIPPING ADDRESS', 'BILLING ADDRESS'];
 
-  final Map<String, dynamic> bData = {}, sData = {}, result = {};
+  final Map<String, dynamic>
+      // bData = {}, sData = {},
+      result = {};
 
   @override
   void initState() {
     tab = TabController(length: tabs.length, vsync: this);
-    init();
+    // init();
     super.initState();
   }
 
   init() async {
     await Future.delayed(const Duration(milliseconds: 500));
-    final res = await showDialog(context: context, builder: (_) => const OrderAddressList());
-    if(res != null){
+    final res = await showDialog(
+        context: context, builder: (_) => const OrderAddressList());
+    if (res != null) {
       result['sa_id'] = res['sa_id'];
       tab.animateTo(1);
 
-      final res2 = await showDialog(context: context, builder: (_) => const OrderAddressList(type: 'ba',));
-      if(res2 != null){
+      final res2 = await showDialog(
+          context: context,
+          builder: (_) => const OrderAddressList(
+                type: 'ba',
+              ));
+      if (res2 != null) {
         result['ba_id'] = res2['ba_id'];
-       context.pop(result);
+        context.pop(result);
       }
     }
-
   }
 
   @override
@@ -59,7 +66,8 @@ class _OrderAddressFormState extends State<OrderAddressForm>
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0) +
+                const EdgeInsets.only(top: 12),
             child: MTabBar(
               tab,
               tabs,
@@ -68,19 +76,32 @@ class _OrderAddressFormState extends State<OrderAddressForm>
           ),
           Expanded(
               child: TabBarView(
-                physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             controller: tab,
             children: [
-              AddressForm(onChanged: (d){
-                for(final e in d.keys){
-                  sData['sa_$e'] = d[e];
-                }
-              },),
-              AddressForm(onChanged: (d){
-                for(final e in d.keys){
-                  bData['ba_$e'] = d[e];
-                }
-              },),
+              OrderAddressList(
+                onSelected: (d) {
+                  result['sa_id'] = d['sa_id'];
+                  tab.animateTo(1);
+                },
+              ),
+              OrderAddressList(
+                type: 'ba',
+                onSelected: (d) {
+                  result['ba_id'] = d['ba_id'];
+                  context.pop(result);
+                },
+              ),
+              // AddressForm(onChanged: (d){
+              //   for(final e in d.keys){
+              //     sData['sa_$e'] = d[e];
+              //   }
+              // },),
+              // AddressForm(onChanged: (d){
+              //   for(final e in d.keys){
+              //     bData['ba_$e'] = d[e];
+              //   }
+              // },),
             ],
           ))
         ],
@@ -90,44 +111,87 @@ class _OrderAddressFormState extends State<OrderAddressForm>
         margin: EdgeInsets.symmetric(
             horizontal: context.getWPercent(8), vertical: 12),
         width: double.maxFinite,
-        child: OutlinedButton(
-          child: const Text('Proceed'),
+        child: OutlinedButton.icon(
+          icon: const Icon(Icons.add_rounded),
+          label: const Text('Add New Address'),
           onPressed: () async {
-            switch(tab.index){
-              case 0: {
-                if(sData['sa_id'] == null) {
-                  sData['sa_id'] = 0;
-                }
-                sData['user_id'] = LocalStorage.getUID();
-                final call = Injector().apiService.get(path: 'ShippingAddress', query: sData);
-                final res = await ApiFacade.callApi(context: context, call: call);
+            Map<String, dynamic> map = {};
+            switch (tab.index) {
+              case 0:
+                {
 
-                print(res?.bodyString);
-                if(res != null){
-                  sData['sa_id'] = res.body?.data;
-                  result['sa_id'] = res.body?.data;
-                  tab.animateTo(1);
-                }
-                break;
-              }
-              case 1: {
-                if(bData['ba_id'] == null) {
-                  bData['ba_id'] = 0;
-                }
-                bData['user_id'] = LocalStorage.getUID();
-                final call = Injector().apiService.get(path: 'BillingAddress', query: bData);
-                final res = await ApiFacade.callApi(context: context, call: call);
+                  final Map<String, dynamic>? sData = await showDialog(
+                      context: context,
+                      builder: (_) =>  AddressForm(
+                            data: map,
+                            type: 'sa',
+                          ));
 
-                print(res?.bodyString);
-                if(res != null){
-                  bData['ba_id'] = res.body?.data;
-                  result['ba_id'] = res.body?.data;
-                  if(mounted) {
-                    context.pop(result);
+                  print(sData);
+                  if (sData == null) {
+                    return;
                   }
+
+                  for (final e in map.keys) {
+                    sData['sa_$e'] = map[e];
+                  }
+
+                  if (sData['sa_id'] == null) {
+                    sData['sa_id'] = 0;
+                  }
+                  sData['user_id'] = LocalStorage.getUID();
+                  final call = Injector()
+                      .apiService
+                      .get(path: 'ShippingAddress', query: sData);
+                  final res =
+                      await ApiFacade.callApi(context: context, call: call);
+
+                  print(res?.bodyString);
+                  if (res != null) {
+                    sData['sa_id'] = res.body?.data;
+                    result['sa_id'] = res.body?.data;
+                    tab.animateTo(1);
+                  }
+                  break;
                 }
-                break;
-              }
+              case 1:
+                {
+                  final Map<String, dynamic>? bData = await showDialog(
+                      context: context,
+                      builder: (_) => AddressForm(
+                            data: map,
+                            type: 'ba',
+                          ));
+                  if (bData == null) {
+                    return;
+                  }
+
+                  for (final e in map.keys) {
+                    bData['ba_$e'] = map[e];
+                  }
+
+
+
+                  if (bData['ba_id'] == null) {
+                    bData['ba_id'] = 0;
+                  }
+                  bData['user_id'] = LocalStorage.getUID();
+                  final call = Injector()
+                      .apiService
+                      .get(path: 'BillingAddress', query: bData);
+                  final res =
+                      await ApiFacade.callApi(context: context, call: call);
+
+                  print(res?.bodyString);
+                  if (res != null) {
+                    bData['ba_id'] = res.body?.data;
+                    result['ba_id'] = res.body?.data;
+                    if (mounted) {
+                      context.pop(result);
+                    }
+                  }
+                  break;
+                }
             }
             //context.push(Routes.paymentForm);
           },
@@ -137,111 +201,149 @@ class _OrderAddressFormState extends State<OrderAddressForm>
   }
 }
 
-class AddressForm extends StatelessWidget {
-  Map<String, dynamic> data = {};
+class AddressForm extends StatefulWidget {
+  final Map<String, dynamic> data;
+  final String type;
   final Function(Map<String, dynamic> data)? onChanged;
-  AddressForm({Key? key,  this.onChanged}) : super(key: key);
+
+  const AddressForm(
+      {Key? key, this.onChanged, this.type = 'sa', required this.data})
+      : super(key: key);
+
+  @override
+  State<AddressForm> createState() => _AddressFormState();
+}
+
+class _AddressFormState extends State<AddressForm> {
 
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Column(
+    return MDialog(
+      title: Row(
         children: [
-          MTextField(
-            label: 'Name',
-            type: MInputType.text,
-            value: data['firstname'],
-            onChanged: (d){
-              data['firstname'] = d;
-              onChanged?.call(data);
-            },
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          MTextField(
-            label: 'Mobile Number',
-            type: MInputType.phone,
-            value: data['mobile'],
-            onChanged: (d){
-              data['mobile'] = d;
-              onChanged?.call(data);
-            },
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          MTextField(
-            label: 'Email',
-            type: MInputType.email,
-            value: data['email'],
-            onChanged: (d){
-              data['email'] = d;
-              onChanged?.call(data);
-            },
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          MDropDown(
-            label: 'Country',
-            hint: 'Select Country',
-            items: ['India'],
-            value: data['country'],
-            onChanged: (d){
-              data['country'] = d;
-              onChanged?.call(data);
-            },
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          MDropDown(
-            label: 'State',
-            hint: 'Select State',
-            items: ['Tamil Nadu'],
-            value: data['state'],
-            onChanged: (d){
-              data['state'] = d;
-              onChanged?.call(data);
-            },
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          MTextField(
-            label: 'Landmark',
-            value: data['landmark'],
-            onChanged: (d){
-              data['landmark'] = d;
-              onChanged?.call(data);
-            },
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          MTextField(
-            label: 'Address',
-            type: MInputType.text,
-            maxLines: 10,
-            minLines: 4,
-            value: data['address'],
-            onChanged: (d){
-              data['address'] = d;
-              onChanged?.call(data);
-            },
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          MTextField(label: 'Pincode', type: MInputType.numeric, maxLength: 6,value: data['pincode'],
-            onChanged: (d){
-              data['pincode'] = d;
-              onChanged?.call(data);
-            }, ),
+          Text('Add ${widget.type == 'sa' ? 'Shipping Address' : 'Billing Address'}'),
+          const Spacer(),
+          IconButton(
+              onPressed: () {
+                context.pop();
+              },
+              icon: const Icon(Icons.close_rounded))
         ],
+      ),
+      action: OutlinedButton(
+        onPressed: () {
+          final Map<String, dynamic> map = {};
+          map.addAll(widget.data);
+          context.pop(map);
+        },
+        child: const Text('Add'),
+      ),
+      child: Expanded(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: Column(
+            children: [
+              MTextField(
+                label: 'Name',
+                type: MInputType.text,
+                value: widget.data['firstname'],
+                onChanged: (d) {
+                  widget.data['firstname'] = d;
+                  widget.onChanged?.call(widget.data);
+                },
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              MTextField(
+                label: 'Mobile Number',
+                type: MInputType.phone,
+                value: widget.data['mobile'],
+                onChanged: (d) {
+                  widget.data['mobile'] = d;
+                  widget.onChanged?.call(widget.data);
+                },
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              MTextField(
+                label: 'Email',
+                type: MInputType.email,
+                value: widget.data['email'],
+                onChanged: (d) {
+                  widget.data['email'] = d;
+                  widget.onChanged?.call(widget.data);
+                },
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              MDropDown(
+                label: 'Country',
+                hint: 'Select Country',
+                items: ['India'],
+                value: widget.data['country'],
+                onChanged: (d) {
+                  widget.data['country'] = d;
+                  widget.onChanged?.call(widget.data);
+                },
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              MDropDown(
+                label: 'State',
+                hint: 'Select State',
+                items: ['Tamil Nadu'],
+                value: widget.data['state'],
+                onChanged: (d) {
+                  widget.data['state'] = d;
+                  widget.onChanged?.call(widget.data);
+                },
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              MTextField(
+                label: 'Landmark',
+                value: widget.data['landmark'],
+                onChanged: (d) {
+                  widget.data['landmark'] = d;
+                  widget.onChanged?.call(widget.data);
+                },
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              MTextField(
+                label: 'Address',
+                type: MInputType.text,
+                maxLines: 10,
+                minLines: 4,
+                value: widget.data['address'],
+                onChanged: (d) {
+                  widget.data['address'] = d;
+                  widget.onChanged?.call(widget.data);
+                },
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              MTextField(
+                label: 'Pincode',
+                type: MInputType.numeric,
+                maxLength: 6,
+                value: widget.data['pincode'],
+                onChanged: (d) {
+                  widget.data['pincode'] = d;
+                  widget.onChanged?.call(widget.data);
+                },
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
