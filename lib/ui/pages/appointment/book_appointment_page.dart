@@ -17,6 +17,7 @@ import 'package:timesmedlite/ui/components/expandable_column.dart';
 import 'package:timesmedlite/ui/components/patient_bottom_navigation.dart';
 import 'package:timesmedlite/ui/components/shimmer/shimmer_list.dart';
 import 'package:timesmedlite/ui/components/user_tile.dart';
+import 'package:timesmedlite/ui/pages/appointment/Clinical%20Visit/clinical_payment.dart';
 import 'package:timesmedlite/ui/pages/auth/logout.dart';
 import 'package:timesmedlite/ui/pages/onboard/add_family.dart';
 import 'package:timesmedlite/ui/providers/patient_provider.dart';
@@ -183,13 +184,22 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
   }
   PatientClinicalAppointmentController controller = PatientClinicalAppointmentController();
 
-  Widget switchBody(String status){
+
+
+  Widget switchBody(String status, String id){
     switch(status){
       case "A":
-        return Container(
-          padding: const EdgeInsets.all(5),
-          decoration:BoxDecoration(color: Colors.yellow.shade700, borderRadius: BorderRadius.circular(8)),
-          child: const Text("Pay Fees", style: TextStyle(color: Colors.white),),
+        return InkWell(
+          onTap: () async {
+            final result = await ClinicalPayment.pay(context, id, () async {
+              getData();
+            });
+          },
+          child: Container(
+            padding: const EdgeInsets.all(5),
+            decoration:BoxDecoration(color: Colors.yellow.shade700, borderRadius: BorderRadius.circular(8)),
+            child: const Text("Pay Fees", style: TextStyle(color: Colors.white),),
+          ),
         );
       case 'F' :
         return Container(
@@ -412,7 +422,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                             data: item,
                             // data: AppointmentData(doctorName: item.doctorName),
                             upcoming: false,
-                            child: switchBody(item.confirmStatus ?? ''),
+                            child: switchBody(item.confirmStatus ?? '', controller.upcoming[i].id.toString()),
                           )
                       );
                     }),
@@ -447,7 +457,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                           data : item,
                           // data: AppointmentData(doctorName: item.doctorName,id: item.id, ),
                           upcoming: false,
-                          child: switchBody(item.confirmStatus ?? ''),
+                          child: switchBody(item.confirmStatus ?? '', controller.previous[i].id.toString()),
                         )
                     );
                   }),

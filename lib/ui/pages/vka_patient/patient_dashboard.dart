@@ -24,11 +24,12 @@ class _PatientDashboardState extends State<PatientDashboard> {
 
   PatientDashBoardController controller = PatientDashBoardController();
 
-  var clinicalAppointmentData;
-  var videoAppointmentData;
-  var labOrderData;
-  var prescriptinOrderData;
-  var inrData;
+  // var clinicalAppointmentData;
+  // var videoAppointmentData;
+  // var labOrderData;
+  // var prescriptinOrderData;
+  // var inrData;
+  var data;
 
   @override
   void initState() {
@@ -44,11 +45,12 @@ class _PatientDashboardState extends State<PatientDashboard> {
         loading = true;
       });
     }
-    clinicalAppointmentData = await controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().userId ,'A');
-    videoAppointmentData = await controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().userId ,'E');
-    labOrderData = await controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().userId ,'PH');
-    prescriptinOrderData = await controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().userId ,'LB');
-    inrData = await controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().userId ,'INR');
+    data = await controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().userId ,'A');
+    // clinicalAppointmentData = await controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().userId ,'A');
+    // videoAppointmentData = await controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().userId ,'E');
+    // labOrderData = await controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().userId ,'PH');
+    // prescriptinOrderData = await controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().userId ,'LB');
+    // inrData = await controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().userId ,'INR');
     setState(() {
       loading = false;
     });
@@ -71,7 +73,7 @@ class _PatientDashboardState extends State<PatientDashboard> {
                 Row(
                   children: [
                     DashboardCard(
-                      title: '${videoAppointmentData['Video'] ?? '0'}',
+                      title: '${data['UpcomingVideoAppointment'] ?? '0'}',
                       subTitle:'Upcoming video Appointments',
                       color: Color(0xFF2fa6c4),
                       asset: 'assets/images/scheduled.png',
@@ -80,7 +82,7 @@ class _PatientDashboardState extends State<PatientDashboard> {
                       },
                     ),
                     DashboardCard(
-                      title: '${clinicalAppointmentData['New_Appointment'] ?? '0'}',
+                      title: '${data['UpcomingClinicalAppointment'] ?? '0'}',
                       subTitle:'Upcoming clinical Appointments',
                       color: Colors.grey.shade600,
                       asset: 'assets/images/scheduled.png',
@@ -93,17 +95,17 @@ class _PatientDashboardState extends State<PatientDashboard> {
                 ),
                 Row(
                   children: [
-                    // DashboardCard(
-                    //   title: '3',
-                    //   subTitle:'Previous video Appointments',
-                    //   color: Colors.green.shade400,
-                    //   asset: 'assets/images/ic_5.png',
-                    //   onTap: (){
-                    //     context.push(Routes.patientWaitingList );
-                    //   },
-                    // ),
                     DashboardCard(
-                      title: '${clinicalAppointmentData['Completed_Appointment']}',
+                      title: '${data['PreviousVideoAppointments'] ?? '0'}',
+                      subTitle:'Previous video Appointments',
+                      color: Colors.green.shade400,
+                      asset: 'assets/images/ic_5.png',
+                      onTap: (){
+                        context.push(Routes.bookAppointment );
+                      },
+                    ),
+                    DashboardCard(
+                      title: '${data['PreviousClinicalAppointment']}',
                       subTitle:'Previous clinical Appointments',
                       color: const Color(0xFFf2bd2e),
                       asset: 'assets/images/ic_5.png',
@@ -116,7 +118,7 @@ class _PatientDashboardState extends State<PatientDashboard> {
                 Row(
                   children: [
                     DashboardCard(
-                      title: '${inrData['Completed'] ?? '0'}',
+                      title: '${data['INR_Count'] ?? '0'}',
                       subTitle:'Total Number of INR Appointments',
                       color: Colors.red,
                       asset: 'assets/images/Appointment.png',
@@ -128,7 +130,7 @@ class _PatientDashboardState extends State<PatientDashboard> {
                       },
                     ),
                     DashboardCard(
-                      title: '${inrData['Pending'] ?? '0'}',
+                      title: '${data['INR_Pending_Count'] ?? '0'}',
                       subTitle:'INR Waiting List',
                       color: Colors.grey.shade600,
                       asset: 'assets/images/scheduled.png',
@@ -144,7 +146,7 @@ class _PatientDashboardState extends State<PatientDashboard> {
                 Row(
                   children: [
                     DashboardCard(
-                      title: '${prescriptinOrderData['New_Appointment'] ?? '0'}',
+                      title: '${data['Prescription_count'] ?? '0'}',
                       subTitle:'Prescription Order Count',
                       color: const Color(0xff07a8b7),
                       asset: 'assets/images/ic_1.png',
