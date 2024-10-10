@@ -17,6 +17,7 @@ import 'package:timesmedlite/ui/pages/medical_record/medical_record_list_item.da
 import 'package:timesmedlite/ui/pages/medical_record/prescription_print.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
+import 'package:timesmedlite/ui/widgets/m_filled_button.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
 import 'package:timesmedlite/utils/file_utils.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
@@ -145,208 +146,245 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                   appointment: widget.appointment,
                   isHeader: true,
                 )),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                children: [
-                  Text(
-                    Consts.PRESCRIPTION,
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                  const Spacer(),
-                  TextButton(
-                      onPressed: () async {
-                        print("DATA::::::::: ${widget.appointment}");
-                        widget.data?.prescription.length == 0
-                            ? await Fluttertoast.showToast(
-                                msg: "No Prescription added by doctor",
-                                toastLength: Toast.LENGTH_LONG,
-                                gravity: ToastGravity.BOTTOM,
-                                timeInSecForIosWeb: 1,
-                                backgroundColor: Colors.white,
-                                textColor: Colors.black,
-                                fontSize: 16.0)
-                            : Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PrescriptionPrint(
-                                      data: widget.data?.prescription,
-                                      appointment: widget.appointment),
-                                ),
-                              );
-                      },
-                      child: Row(
-                        children: const [
-                          Icon(
-                            Icons.print,
-                            size: 15,
-                            color: MTheme.ICON_COLOR,
-                          ),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          Text('Print')
-                        ],
-                      ))
-                ],
-              ),
-            ),
             // Text('data["prescription"]: ${widget.data?.prescription}'),
-            if (widget.data?.prescription is List)
-              Column(
-                children:
-                    List.generate((widget.data?.prescription.length ?? 0), (i) {
-                  final d = widget.data?.prescription[i];
-
-                  return PrescriptionListItem(
-                    data: d,
-                    onTap: () {
-                      final List<Map<String, dynamic>> list = [];
-                      for (final e in widget.data?.prescription ?? []) {
-                        list.add(e);
-                      }
-                      context.push(Routes.prescribeProductList, {'data': list});
-                    },
-                  );
-                }),
-              ),
-            MListTile(
-                color: Colors.red.shade50,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Doctor Notes',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall
-                            ?.copyWith(fontSize: 14, color: Colors.red),
+            // if (widget.data?.prescription is List)
+              Container(
+                // padding: EdgeInsets.all(5),
+                decoration:BoxDecoration(color: Colors.green.shade100, borderRadius: BorderRadius.circular(8)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
+                        children: [
+                          Text(
+                            Consts.PRESCRIPTION,
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                          const Spacer(),
+                          TextButton(
+                              onPressed: () async {
+                                print("DATA::::::::: ${widget.appointment}");
+                                widget.data?.prescription.length == 0
+                                    ? await Fluttertoast.showToast(
+                                    msg: "No Prescription added by doctor",
+                                    toastLength: Toast.LENGTH_LONG,
+                                    gravity: ToastGravity.BOTTOM,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: Colors.white,
+                                    textColor: Colors.black,
+                                    fontSize: 16.0)
+                                    : Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => PrescriptionPrint(
+                                        data: widget.data?.prescription,
+                                        appointment: widget.appointment),
+                                  ),
+                                );
+                              },
+                              child: Row(
+                                children: const [
+                                  Icon(
+                                    Icons.print,
+                                    size: 15,
+                                    color: MTheme.ICON_COLOR,
+                                  ),
+                                  SizedBox(
+                                    width: 8,
+                                  ),
+                                  Text('Print')
+                                ],
+                              ))
+                        ],
                       ),
-                      Row(),
-                      Text(
-                        'Follow the above mentioned Drugs for 5 days',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodySmall
-                            ?.copyWith(fontWeight: FontWeight.w600),
-                      )
-                    ],
-                  ),
-                )),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
+                    ),
+                    if (widget.data?.prescription is List) ...List.generate((widget.data?.prescription.length ?? 0), (i) {
+                      final d = widget.data?.prescription[i];
+
+                      return PrescriptionListItem(
+                        data: d,
+                        onTap: () {
+                          // final List<Map<String, dynamic>> list = [];
+                          // for (final e in widget.data?.prescription ?? []) {
+                          //   list.add(e);
+                          // }
+                          // context.push(Routes.prescribeProductList, {'data': list});
+                        },
+                      );
+                    }),
+                    if (widget.data?.prescription is !List) NothingWidget(
+                        icon: Icons.receipt,
+                        message: 'No Prescription added by doctor',
+                        title: 'No Prescription'),
+                    if (widget.data?.prescription is List) Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16) + EdgeInsets.only(bottom: 8),
+                      child: FilledButton.icon(style: ButtonStyle(backgroundColor: WidgetStateProperty.all(MTheme.THEME_COLOR)),onPressed: () {
+                        final List<Map<String, dynamic>> list = [];
+                        for (final e in widget.data?.prescription ?? []) {
+                          list.add(e);
+                        }
+                        context.push(Routes.prescribeProductList, {'data': list});
+                      }, label: Text('Add to cart'),
+                      icon: Icon(Icons.add_shopping_cart, size: 19, color: Colors.white,), ),
+                    )
+                  ],
+                ),
+              ),
+            // MListTile(
+            //     color: Colors.red.shade50,
+            //     child: Padding(
+            //       padding:
+            //           const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            //       child: Column(
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: [
+            //           Text(
+            //             'Doctor Notes',
+            //             style: Theme.of(context)
+            //                 .textTheme
+            //                 .headlineSmall
+            //                 ?.copyWith(fontSize: 14, color: Colors.red),
+            //           ),
+            //           Row(),
+            //           Text(
+            //             'Follow the above mentioned Drugs for 5 days',
+            //             style: Theme.of(context)
+            //                 .textTheme
+            //                 .bodySmall
+            //                 ?.copyWith(fontWeight: FontWeight.w600),
+            //           )
+            //         ],
+            //       ),
+            //     )),
+            Container(
+              margin: const EdgeInsets.symmetric( vertical: 8),
+              decoration:BoxDecoration(color: Colors.green.shade100, borderRadius: BorderRadius.circular(8)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    Consts.LABTEST,
-                    style: Theme.of(context).textTheme.bodySmall,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16) + EdgeInsets.all(10),
+                    child: Row(
+                      children: [
+                        Text(
+                          Consts.LABTEST,
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                        const Spacer(),
+                        // TextButton(
+                        //     onPressed: () {
+                        //
+                        //     },
+                        //     child: Row(
+                        //       children: const [
+                        //         Icon(
+                        //           Icons.print,
+                        //           size: 15,
+                        //           color: MTheme.ICON_COLOR,
+                        //         ),
+                        //         SizedBox(
+                        //           width: 8,
+                        //         ),
+                        //         Text('Print')
+                        //       ],
+                        //     ))
+                      ],
+                    ),
                   ),
-                  const Spacer(),
-                  // TextButton(
-                  //     onPressed: () {
-                  //
-                  //     },
-                  //     child: Row(
-                  //       children: const [
-                  //         Icon(
-                  //           Icons.print,
-                  //           size: 15,
-                  //           color: MTheme.ICON_COLOR,
-                  //         ),
-                  //         SizedBox(
-                  //           width: 8,
-                  //         ),
-                  //         Text('Print')
-                  //       ],
-                  //     ))
+                  BlocProvider(
+                    create: (c) => ApiBuilderBloc(
+                      path: 'get_laboratoryNew_SRMC',
+                      query: {
+                        'user_id': LocalStorage.getCursorPatient().userId,
+                        'Appointment_id': widget.appointment_id.toString(),
+                      },
+                    )..add(const Load()),
+                    child: ApiBuilder(
+                        empty: const NothingWidget(
+                            icon: Icons.receipt,
+                            message: 'No Lab Test added by doctor',
+                            title: 'No Lab Test'),
+                        shrinkWrap: true,
+                        jsonBuilder: (data, load) {
+                          print("dataaaaaaaaaa                  $data");
+                          return Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 16),
+                                child: ListView.builder(
+                                  itemCount: data.length,
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  itemBuilder: (context, index) => MListTile(
+                                      margin: const EdgeInsets.symmetric(vertical: 8),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 12, horizontal: 16),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                              child: DefaultTextStyle(
+                                            style: TextStyle(
+                                              color: Colors.grey.shade500,
+                                              fontSize: 13,
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  data[index]["DeptName"],
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .headlineSmall
+                                                      ?.copyWith(fontSize: 14),
+                                                ),
+                                                Text(
+                                                  'Test Name: ${data[index]["labtest_name"]}',
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodySmall
+                                                      ?.copyWith(
+                                                          fontWeight: FontWeight.w600),
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      'Instructions: ',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodySmall
+                                                          ?.copyWith(
+                                                              fontWeight:
+                                                                  FontWeight.w600),
+                                                    ),
+                                                    Text(
+                                                      data[index]["finding"],
+                                                      style: const TextStyle(
+                                                          color: Colors.green,
+                                                          fontSize: 13,
+                                                          fontWeight: FontWeight.w600),
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          )),
+                                        ],
+                                      )),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 16) + EdgeInsets.only(bottom: 8),
+                                child: FilledButton(style: ButtonStyle(backgroundColor: WidgetStateProperty.all(MTheme.THEME_COLOR)) ,onPressed:(){}, child: Text('Book Lab Test'),),
+                              ),
+                            ],
+                          );
+                        }),
+                  ),
                 ],
               ),
-            ),
-
-            BlocProvider(
-              create: (c) => ApiBuilderBloc(
-                path: 'get_laboratoryNew_SRMC',
-                query: {
-                  'user_id': LocalStorage.getCursorPatient().userId,
-                  'Appointment_id': widget.appointment_id.toString(),
-                },
-              )..add(const Load()),
-              child: ApiBuilder(
-                  empty: const NothingWidget(
-                      icon: Icons.receipt,
-                      message: 'No Lab Test added by doctor',
-                      title: 'No Lab Test'),
-                  shrinkWrap: true,
-                  jsonBuilder: (data, load) {
-                    print("dataaaaaaaaaa                  $data");
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: ListView.builder(
-                        itemCount: data.length,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) => MListTile(
-                            margin: const EdgeInsets.symmetric(vertical: 8),
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 12, horizontal: 16),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                    child: DefaultTextStyle(
-                                  style: TextStyle(
-                                    color: Colors.grey.shade500,
-                                    fontSize: 13,
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        data[index]["DeptName"],
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headlineSmall
-                                            ?.copyWith(fontSize: 14),
-                                      ),
-                                      Text(
-                                        'Test Name: ${data[index]["labtest_name"]}',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodySmall
-                                            ?.copyWith(
-                                                fontWeight: FontWeight.w600),
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            'Instructions: ',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodySmall
-                                                ?.copyWith(
-                                                    fontWeight:
-                                                        FontWeight.w600),
-                                          ),
-                                          Text(
-                                            data[index]["finding"],
-                                            style: const TextStyle(
-                                                color: Colors.green,
-                                                fontSize: 13,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                )),
-                              ],
-                            )),
-                      ),
-                    );
-                  }),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

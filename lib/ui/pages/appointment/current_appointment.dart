@@ -409,7 +409,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                       children: [
                         DashboardCard(
                           title: '${data['Missed'] ?? '-'}',
-                          subTitle: 'Missed',
+                          subTitle: 'Missed Appointment',
                           color: Colors.red,
                           asset: 'assets/images/appointment_missed.png',
                           onTap: () {
