@@ -15,16 +15,17 @@ import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../../di/dependency_injection.dart';
+import '../nurse_frontoffice/controller/clinical_appointment_controller.dart';
 
 class AppointmentPatientDetails extends StatelessWidget {
   final BookingAppointmentPatient data;
   final int? patID;
   final String? apId;
 
-  const AppointmentPatientDetails(
+   AppointmentPatientDetails(
       {Key? key, required this.data, this.patID, this.apId})
       : super(key: key);
-
+  ClinicalAppointmentController controller = ClinicalAppointmentController();
   @override
   Widget build(BuildContext context) {
     final user = User(
@@ -71,6 +72,22 @@ class AppointmentPatientDetails extends StatelessWidget {
                 ActionTile(
                     title: 'Complete Visit',
                     onTap: (){
+                      showDialog(context: context, builder: (context){
+                        return AlertDialog(
+                          title: Text('Are you sure you want to complete this visit?'),
+                            actions: [
+                              TextButton(onPressed: ()async{
+                                await controller.changeStatus(LocalStorage.getUID().toString(), data.Appointment_id.toString(), 'Visited');
+                                context.pop();
+                                context.pop();
+                              }, child: Text('Yes')),
+                              TextButton(onPressed: (){
+                                context.pop();
+                              }, child: Text('No')),
+                            ],
+                        );
+                      });
+
                      //  final call = Injector()
                      //      .apiService
                      //      .rawGet(path: 'UpdateVideoCall_CallLog', query: {
@@ -79,11 +96,11 @@ class AppointmentPatientDetails extends StatelessWidget {
                      //    'R_No': '0',
                      //  });
                      // call.then((value) => print(value.body));
-                      context.push(Routes.updateCallStatus, {
-                        'appointmentIDFromCallScreen': '${data.Appointment_id}',
-                        'currentCallKey': '',
-                        'isFromClinicalVisit': true
-                      });
+                     //  context.push(Routes.updateCallStatus, {
+                     //    'appointmentIDFromCallScreen': '${data.Appointment_id}',
+                     //    'currentCallKey': '',
+                     //    'isFromClinicalVisit': true
+                     //  });
                     },
                     data: data,
                     icon: FontAwesomeIcons.fileShield),
