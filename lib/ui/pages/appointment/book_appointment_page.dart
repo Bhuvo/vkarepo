@@ -183,6 +183,40 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
   }
   PatientClinicalAppointmentController controller = PatientClinicalAppointmentController();
 
+  Widget switchBody(String status){
+    switch(status){
+      case "A":
+        return Container(
+          padding: const EdgeInsets.all(5),
+          decoration:BoxDecoration(color: Colors.yellow.shade700, borderRadius: BorderRadius.circular(8)),
+          child: const Text("Pay Fees", style: TextStyle(color: Colors.white),),
+        );
+      case 'F' :
+        return Container(
+          padding: const EdgeInsets.all(5),
+          decoration:BoxDecoration(color: Colors.green.shade700, borderRadius: BorderRadius.circular(8)),
+          child: const Text("Booked Successfully", style: TextStyle(color: Colors.white),),
+        );
+      case 'W':
+        return Container(
+          padding: const EdgeInsets.all(5),
+          decoration:BoxDecoration(color: Colors.blue.shade700, borderRadius: BorderRadius.circular(8)),
+          child: const Text("Waiting for Accept", style: TextStyle(color: Colors.white),),
+        );
+      case 'C':
+        return Container(
+          padding: const EdgeInsets.all(5),
+          decoration:BoxDecoration(color: Colors.red.shade700, borderRadius: BorderRadius.circular(8)),
+          child: const Text("Visit Completed", style: TextStyle(color: Colors.white),),
+        );
+      default:
+        return Container(
+          padding: const EdgeInsets.all(5),
+          decoration:BoxDecoration(color: Colors.blue.shade700, borderRadius: BorderRadius.circular(8)),
+          child: const Text("Waiting for Accept", style: TextStyle(color: Colors.white),),
+        );
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final data = context.watch<PatientBloc>().patient ?? const Patient();
@@ -378,11 +412,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                             data: item,
                             // data: AppointmentData(doctorName: item.doctorName),
                             upcoming: false,
-                            child: Container(
-                              padding: const EdgeInsets.all(5),
-                              decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
-                              child: const Text("Booked Successfully", style: TextStyle(color: Colors.white),),
-                            ),
+                            child: switchBody(item.confirmStatus ?? ''),
                           )
                       );
                     }),
@@ -417,11 +447,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                           data : item,
                           // data: AppointmentData(doctorName: item.doctorName,id: item.id, ),
                           upcoming: false,
-                          child: Container(
-                            padding: EdgeInsets.all(5),
-                            decoration:BoxDecoration(color: Colors.red.shade900, borderRadius: BorderRadius.circular(8)),
-                            child: Text("Visit Completed", style: TextStyle(color: Colors.white),),
-                          ),
+                          child: switchBody(item.confirmStatus ?? ''),
                         )
                     );
                   }),
