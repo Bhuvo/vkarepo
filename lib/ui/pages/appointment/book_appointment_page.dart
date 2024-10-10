@@ -196,34 +196,43 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
             });
           },
           child: Container(
-            padding: const EdgeInsets.all(5),
-            decoration:BoxDecoration(color: Colors.yellow.shade700, borderRadius: BorderRadius.circular(8)),
-            child: const Text("Pay Fees", style: TextStyle(color: Colors.white),),
+            padding: const EdgeInsets.all(5) + const EdgeInsets.symmetric(horizontal: 8),
+            decoration:BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 1,
+                    blurRadius: 1,
+                    offset: const Offset(0, 1), // changes position of shadow
+                  ),
+                ],
+                color: Colors.yellow.shade700, borderRadius: BorderRadius.circular(8)),
+            child: const Text("Pay Fees", style: TextStyle(color: Colors.white, fontSize: 12),),
           ),
         );
       case 'F' :
         return Container(
           padding: const EdgeInsets.all(5),
           decoration:BoxDecoration(color: Colors.green.shade700, borderRadius: BorderRadius.circular(8)),
-          child: const Text("Booked Successfully", style: TextStyle(color: Colors.white),),
+          child: const Text("Booked Successfully", style: TextStyle(color: Colors.white, fontSize: 12),),
         );
       case 'W':
         return Container(
           padding: const EdgeInsets.all(5),
           decoration:BoxDecoration(color: Colors.blue.shade700, borderRadius: BorderRadius.circular(8)),
-          child: const Text("Waiting for Accept", style: TextStyle(color: Colors.white),),
+          child: const Text("Waiting for Accept", style: TextStyle(color: Colors.white, fontSize: 12),),
         );
       case 'C':
         return Container(
           padding: const EdgeInsets.all(5),
           decoration:BoxDecoration(color: Colors.red.shade700, borderRadius: BorderRadius.circular(8)),
-          child: const Text("Visit Completed", style: TextStyle(color: Colors.white),),
+          child: const Text("Visit Completed", style: TextStyle(color: Colors.white, fontSize: 12),),
         );
       default:
         return Container(
           padding: const EdgeInsets.all(5),
           decoration:BoxDecoration(color: Colors.blue.shade700, borderRadius: BorderRadius.circular(8)),
-          child: const Text("Waiting for Accept", style: TextStyle(color: Colors.white),),
+          child: const Text("Waiting for Accept", style: TextStyle(color: Colors.white, fontSize: 12),),
         );
     }
   }

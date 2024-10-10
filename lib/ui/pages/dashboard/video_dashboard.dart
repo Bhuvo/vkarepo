@@ -6,6 +6,7 @@ import 'package:timesmedlite/ui/components/api_builder/api_builder.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder_bloc.dart';
 import 'package:timesmedlite/ui/pages/dashboard/dashboard_card.dart';
 import 'package:timesmedlite/ui/pages/home/home_bottom_navigation.dart';
+import 'package:timesmedlite/ui/pages/instant_call/instant_call_list_dialog.dart';
 import 'package:timesmedlite/ui/widgets/space.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
@@ -63,12 +64,12 @@ class _VideoDashboardState extends State<VideoDashboard> {
                     ),
                     DashboardCard(
                       title: '${map['Total_No_Of_Instant_Call'] ?? 0}',
-                      subTitle:'Approval List',
+                      subTitle:'Instant Calls',
                       color: Colors.green.shade400,
                       asset: 'assets/images/waiting.png',
                       flex: 0,
                       onTap: (){
-                        context.push(Routes.patientApprovelList);
+                        showDialog(context: context, builder: (c) => const InstantCallListDialog());
                       },
                     ),
                     Row(
