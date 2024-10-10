@@ -36,7 +36,7 @@ class _ClinicalAppointmentsState extends State<ClinicalAppointments> {
   @override
   Widget build(BuildContext context) {
     return MScaffold(
-      bottom: const PatientBottomNavigation(),
+      // bottom: const PatientBottomNavigation(),
       body: controller.patientList.length >0 ?ListView.builder(
         itemCount: controller.patientList.length,
         itemBuilder: (context ,index){
