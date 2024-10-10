@@ -379,9 +379,9 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                             // data: AppointmentData(doctorName: item.doctorName),
                             upcoming: false,
                             child: Container(
-                              padding: EdgeInsets.all(5),
+                              padding: const EdgeInsets.all(5),
                               decoration:BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(8)),
-                              child: Text("Booked Successfully", style: TextStyle(color: Colors.white),),
+                              child: const Text("Booked Successfully", style: TextStyle(color: Colors.white),),
                             ),
                           )
                       );
