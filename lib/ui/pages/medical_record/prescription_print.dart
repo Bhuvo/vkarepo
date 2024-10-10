@@ -118,7 +118,7 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
                 pw.Column(
                   crossAxisAlignment: pw.CrossAxisAlignment.start,
                   children: [
-                    pw.Text(prescriptionTemplateModel.doctorName ??'Dr. Ashok Test', style: pw.TextStyle(fontSize: 12,fontWeight: pw.FontWeight.bold),),
+                    pw.Text('Dr. ${prescriptionTemplateModel.doctorName ??'Ashok Test'} ${prescriptionTemplateModel.doctorQualification ??'MBBS'}', style: pw.TextStyle(fontSize: 12,fontWeight: pw.FontWeight.bold),),
                     pw.Text(prescriptionTemplateModel.doctorPhoneNumber ??'8038836782', style: pw.TextStyle(fontSize: 12,fontWeight: pw.FontWeight.bold),),
                     // pw.Text('9:00 AM - 12:00 PM', style: pw.TextStyle(fontSize: 12,fontWeight: pw.FontWeight.bold),),
                   ]

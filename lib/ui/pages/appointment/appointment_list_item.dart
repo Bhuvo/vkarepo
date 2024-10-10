@@ -115,6 +115,10 @@ class AppointmentListItem extends StatelessWidget {
               height: 2,
             ),
             Text("Type : ${data.type}"),
+            const SizedBox(
+              height: 2,
+            ),
+            Text('Date  : ${data.date} Time : ${data.time} '),
           ],
         ),
         trailing: upcoming

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,9 +15,12 @@ import '../../components/shimmer/drop_down_shimmer.dart';
 import '../../widgets/m_scaffold.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
+import 'package:http/http.dart' as http;
 
-class PrescriptionPreview extends StatelessWidget {
-  final pdf = pw.Document();
+import '../../widgets/space.dart';
+import '../medical_record/model/prescription_template_model.dart';
+
+class PrescriptionPreview extends StatefulWidget {
   ApiBuilderBloc patientbloc;
   List<SavedPrescription> PresscriptionDrugList;
 
@@ -26,11 +31,47 @@ class PrescriptionPreview extends StatelessWidget {
       : super(key: key);
 
   @override
+  State<PrescriptionPreview> createState() => _PrescriptionPreviewState();
+}
+
+class _PrescriptionPreviewState extends State<PrescriptionPreview> {
+  List<String>? images = [];
+  PrescriptionTemplateModel prescriptionTemplateModel = PrescriptionTemplateModel();
+
+  Future<void> getTemplate() async {
+    images?.clear();
+    var response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=41835&Doctor_Id=184376'));
+    if(response.statusCode == 200){
+      var result =jsonDecode(response.body);
+      List<dynamic> data = result.map((e) => e['Active_Flag'] == 'A' && e['DisplayFlag'] == 'A' ? e : null).toList();
+      if(data.length > 0){
+        prescriptionTemplateModel = PrescriptionTemplateModel.fromJson(data[0]);
+        images?.add(prescriptionTemplateModel.accreditationImage1 ?? '');
+        images?.add(prescriptionTemplateModel.accreditationImage2 ?? '');
+        images?.add(prescriptionTemplateModel.awardImage ?? '');
+        print('length of list ${images?.length}');
+        setState(() {});
+        // logo = await getImage(prescriptionTemplateModel.hospitalLogo ?? '');
+        // images?.add(await getImage(prescriptionTemplateModel.accreditationImage1 ?? ''));
+        // images?.add(await getImage(prescriptionTemplateModel.accreditationImage2 ?? ''));
+        // images?.add(await getImage(prescriptionTemplateModel.awardImage ?? ''));
+      }
+    }else{
+      print('error');
+    }
+  }
+  @override
+  void initState() {
+    super.initState();
+    getTemplate();
+  }
+
+  @override
   Widget build(BuildContext context) {
     print("");
     print("");
     print("");
-    print(PresscriptionDrugList[0].ListPresc!.length);
+    print(widget.PresscriptionDrugList[0].ListPresc!.length);
     print("");
     print("");
     print("");
@@ -48,12 +89,12 @@ class PrescriptionPreview extends StatelessWidget {
   }
 
   Widget UIbasedOnNumberofDrugs(context) {
-    if (PresscriptionDrugList[0].ListPresc!.length <= 7) {
+    if (widget.PresscriptionDrugList[0].ListPresc!.length <= 7) {
       print(
           "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: PresscriptionDrugList.length<=7");
-      return Body(PresscriptionDrugList[0].ListPresc!, 0,
-          PresscriptionDrugList[0].ListPresc!.length, context);
-    } else if (PresscriptionDrugList[0].ListPresc!.length <= 14) {
+      return Body(widget.PresscriptionDrugList[0].ListPresc!, 0,
+          widget.PresscriptionDrugList[0].ListPresc!.length, context);
+    } else if (widget.PresscriptionDrugList[0].ListPresc!.length <= 14) {
       print(
           "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: PresscriptionDrugList.length<=14");
       return CupertinoScrollbar(
@@ -62,13 +103,13 @@ class PrescriptionPreview extends StatelessWidget {
         thicknessWhileDragging: 10,
         child: ListView(
           children: [
-            Body(PresscriptionDrugList[0].ListPresc!, 0, 7, context),
-            Body(PresscriptionDrugList[0].ListPresc!, 7,
-                PresscriptionDrugList[0].ListPresc!.length, context)
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 0, 7, context),
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 7,
+                widget.PresscriptionDrugList[0].ListPresc!.length, context)
           ],
         ),
       );
-    } else if (PresscriptionDrugList[0].ListPresc!.length <= 21) {
+    } else if (widget.PresscriptionDrugList[0].ListPresc!.length <= 21) {
       print(
           "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: PresscriptionDrugList.length<=21");
       return CupertinoScrollbar(
@@ -77,14 +118,14 @@ class PrescriptionPreview extends StatelessWidget {
         thicknessWhileDragging: 10,
         child: ListView(
           children: [
-            Body(PresscriptionDrugList[0].ListPresc!, 0, 7, context),
-            Body(PresscriptionDrugList[0].ListPresc!, 7, 14, context),
-            Body(PresscriptionDrugList[0].ListPresc!, 14,
-                PresscriptionDrugList[0].ListPresc!.length, context),
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 0, 7, context),
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 7, 14, context),
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 14,
+                widget.PresscriptionDrugList[0].ListPresc!.length, context),
           ],
         ),
       );
-    } else if (PresscriptionDrugList[0].ListPresc!.length <= 28) {
+    } else if (widget.PresscriptionDrugList[0].ListPresc!.length <= 28) {
       print(
           "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: PresscriptionDrugList.length<=28");
       return CupertinoScrollbar(
@@ -93,15 +134,15 @@ class PrescriptionPreview extends StatelessWidget {
         thicknessWhileDragging: 10,
         child: ListView(
           children: [
-            Body(PresscriptionDrugList[0].ListPresc!, 0, 7, context),
-            Body(PresscriptionDrugList[0].ListPresc!, 7, 14, context),
-            Body(PresscriptionDrugList[0].ListPresc!, 14, 21, context),
-            Body(PresscriptionDrugList[0].ListPresc!, 21,
-                PresscriptionDrugList[0].ListPresc!.length, context),
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 0, 7, context),
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 7, 14, context),
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 14, 21, context),
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 21,
+                widget.PresscriptionDrugList[0].ListPresc!.length, context),
           ],
         ),
       );
-    } else if (PresscriptionDrugList[0].ListPresc!.length <= 35) {
+    } else if (widget.PresscriptionDrugList[0].ListPresc!.length <= 35) {
       print(
           "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: PresscriptionDrugList.length<=35");
       return CupertinoScrollbar(
@@ -110,12 +151,12 @@ class PrescriptionPreview extends StatelessWidget {
         thicknessWhileDragging: 10,
         child: ListView(
           children: [
-            Body(PresscriptionDrugList[0].ListPresc!, 0, 7, context),
-            Body(PresscriptionDrugList[0].ListPresc!, 7, 14, context),
-            Body(PresscriptionDrugList[0].ListPresc!, 14, 21, context),
-            Body(PresscriptionDrugList[0].ListPresc!, 21, 28, context),
-            Body(PresscriptionDrugList[0].ListPresc!, 28,
-                PresscriptionDrugList[0].ListPresc!.length, context),
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 0, 7, context),
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 7, 14, context),
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 14, 21, context),
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 21, 28, context),
+            Body(widget.PresscriptionDrugList[0].ListPresc!, 28,
+                widget.PresscriptionDrugList[0].ListPresc!.length, context),
           ],
         ),
       );
@@ -139,32 +180,84 @@ class PrescriptionPreview extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Image.asset(
-                      'assets/images/timesmedlogo.png',
-                      height: 20,
-                    ),
                     Spacer(),
+                    Image.network(
+                      prescriptionTemplateModel.hospitalLogo ??'assets/images/timesmedlogo.png',
+                      width: 140,
+                      height: 40,
+                    ),
                   ],
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 5,
+                ),
+                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,children: [
+                   Column(
+                     children: [
+                       Text('Dr. ${prescriptionTemplateModel.doctorName ??'Ashok Test'} ${prescriptionTemplateModel.doctorQualification ??'MBBS'}', style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),
+                       Text(prescriptionTemplateModel.doctorPhoneNumber ??'8038836782', style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),
+                     ],
+                   ),
+                  Container(
+                      width: 130,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(prescriptionTemplateModel.hospitalAddress ?? '43-landmark road ,sholinganallur, chennai - 600119',textAlign: TextAlign.start, style: TextStyle(fontSize: 8)),
+                          Text('Phone :${prescriptionTemplateModel.hospitalPhoneNumber ??  1234567890}', style: TextStyle(fontSize: 8),textAlign: TextAlign.start),
+                          Text('Email : ${prescriptionTemplateModel.hospitalEmailid ??'0p6wT@example.com' }', style: TextStyle(fontSize: 8),textAlign: TextAlign.start),
+                        ],
+                      )
+                  )
+                ],),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    // Spacer(),
+                    Container(
+                      width:MediaQuery.of(context).size.width * 0.3,
+                      height: 40,
+                      child: ListView.builder(
+                        // shrinkWrap: true,
+                        padding: EdgeInsets.only(right: 5),
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                              padding: EdgeInsets.fromLTRB(2,0,5,0),
+                              child: Container(
+                                height: 30,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(image: NetworkImage(images?[index] ?? ''), fit: BoxFit.cover)),
+                              )
+                          );
+                        },
+                        itemCount: images?.length ?? 0,
+                      ),
+                    ),
+                  ],
                 ),
                 Divider(
-                  height: 2,
-                  color: Colors.grey,
+                  height: 3,
+                  color: MTheme.THEME_COLOR,
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 Text(
-                  Consts.PRESCRIPTION_FORM,
+                  // Consts.PRESCRIPTION_FORM,
+                  'PRESCRIPTION',
                   style: TextStyle(
                       fontSize: 17,
                       color: Colors.grey,
                       fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Row(
                   children: [
@@ -183,7 +276,7 @@ class PrescriptionPreview extends StatelessWidget {
                   height: 10,
                 ),
                 BlocProvider(
-                  create: (_) => patientbloc..add(const Load()),
+                  create: (_) => widget.patientbloc..add(const Load()),
                   child: ApiBuilder(
                       loading: CircularProgressIndicator(),
                       jsonBuilder: (data, load) {
@@ -286,20 +379,21 @@ class PrescriptionPreview extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Timesmed HealthSoft Inc.,",
+                          prescriptionTemplateModel.hospitalName ?? "Timesmed HealthSoft Inc.,",
                           style: TextStyle(
                               fontSize: 10, fontWeight: FontWeight.w500),
                         ),
                         Text(
-                          "Suite 21060 Homestead Road, 170, Cupertino,CA 95014, USA",
+                          prescriptionTemplateModel.hospitalAddress ??   "Suite 21060 Homestead Road, 170, Cupertino,CA 95014, USA",
                           style: TextStyle(fontSize: 8),
                         )
                       ],
                     ),
                     Spacer(),
                     Icon(Icons.phone, color: Colors.green, size: 12),
+                    Space(3),
                     Text(
-                      "408 316 7025",
+                      prescriptionTemplateModel.hospitalPhoneNumber ?? "408 316 7025",
                       style:
                           TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
                     ),
