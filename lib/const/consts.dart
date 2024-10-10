@@ -291,6 +291,11 @@ class Consts {
   ];
 
   static const List<MDrawerItem> BOTTOM_NAVIGATION_ITEMS = [
+    MDrawerItem('Clinical Dashboard', Routes.currentAppointment,
+        icon: FontAwesomeIcons.chartPie),
+    MDrawerItem('Video Dashboard', Routes.VideoDashboard,icon: FontAwesomeIcons.video),
+    MDrawerItem('INR Dashboard', Routes.dashboard,
+        icon: FontAwesomeIcons.houseMedicalCircleCheck),
     MDrawerItem(CALENDAR, Routes.calendarPage,
         icon: FontAwesomeIcons.solidCalendarDays),
     MDrawerItem(PATIENT_WAITING_LIST, Routes.patientWaitingList,
@@ -300,11 +305,6 @@ class Consts {
         icon: FontAwesomeIcons.phoneSlash),
     // MDrawerItem(DASHBOARD, Routes.currentAppointment,
     //     icon: FontAwesomeIcons.chartPie),
-    MDrawerItem('Clinical Dashboard', Routes.currentAppointment,
-        icon: FontAwesomeIcons.chartPie),
-    MDrawerItem('Video Dashboard', Routes.VideoDashboard,icon: FontAwesomeIcons.video),
-    MDrawerItem('INR Dashboard', Routes.dashboard,
-        icon: FontAwesomeIcons.houseMedicalCircleCheck),
     MDrawerItem(BOOK_APPOINTMENT, Routes.bookingAppointment,
         icon: FontAwesomeIcons.penClip),
     MDrawerItem(PATIENT_REGISTRATION, Routes.patientRegistrationList,
