@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:timesmedlite/ui/components/nothing_widget.dart';
+import 'package:timesmedlite/ui/widgets/loading_widget.dart';
 import 'package:timesmedlite/ui/widgets/m_list_tile.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
 
@@ -23,6 +25,7 @@ class _ClinicalAppointmentsState extends State<ClinicalAppointments> {
 
   ClinicalAppointmentController controller = ClinicalAppointmentController();
 
+  bool isLoading = false;
   @override
   void initState() {
     // TODO: implement initState
@@ -30,76 +33,88 @@ class _ClinicalAppointmentsState extends State<ClinicalAppointments> {
     getData();
   }
   getData()async{
-    await controller.getClinicalAppointmentList('184376', '193976', 'W', '10/07/2024', '10/09/2024');
-    setState(() {});
+    setState(() {
+      isLoading = true;
+    });
+    await controller.getClinicalAppointmentList('184376', '193976', 'W', '10/07/2024', '10/10/2024');
+    setState(() {
+      isLoading = false;
+    });
   }
   @override
   Widget build(BuildContext context) {
     return MScaffold(
+      title: const Text('Clinical Appointments'),
       // bottom: const PatientBottomNavigation(),
-      body: controller.patientList.length >0 ?ListView.builder(
-        itemCount: controller.patientList.length,
-        itemBuilder: (context ,index){
-          return MListTile(
-              actions: [
-                CustomSlidableAction(
-                    padding: const EdgeInsets.all(0),
-                    backgroundColor: Colors.transparent,
-                    child:  MIconButton(
-                      color: MTheme.THEME_COLOR,
-                      child: Icon(
-                        Icons.done,
-                        color: MTheme.THEME_COLOR,
-                      ),
-                    ),
-                    onPressed: (BuildContext context) async {
-                      await controller.changeStatus('50992' ,controller.patientList[index].Appointment_id.toString() , 'Accept');
-                      await controller.getClinicalAppointmentList('184376', '193976', 'W', '10/07/2024', '10/09/2024');
-                      setState(() {
-                      });
-                      print('done');
-                    }
-                ),
-                CustomSlidableAction(
-                    padding: const EdgeInsets.all(0),
-                    backgroundColor: Colors.transparent,
-                    child:  MIconButton(
-                      color: MTheme.THEME_COLOR,
-                      child: Icon(
-                        Icons.clear,
-                        color: MTheme.THEME_COLOR,
-                      ),
-                    ),
-                    onPressed: (BuildContext context)async {
-                      await controller.changeStatus('50992' ,controller.patientList[index].Appointment_id.toString() , 'Reject');
-                      await controller.getClinicalAppointmentList('184376', '193976', 'W', '10/07/2024', '10/09/2024');
-                      setState(() {
-                      });
-                    }
-                ),
-                CustomSlidableAction(
-                    padding: const EdgeInsets.all(0),
-                    backgroundColor: Colors.transparent,
-                    child:  MIconButton(
-                      color: MTheme.THEME_COLOR,
-                      child: Icon(
-                        Icons.timer_outlined,
-                        color: MTheme.THEME_COLOR,
-                      ),
-                    ),
-                    onPressed: (BuildContext context)async {
-                      await controller.changeStatus('50992' ,controller.patientList[index].Appointment_id.toString() , 'Reschedule');
-                      await controller.getClinicalAppointmentList('184376', '193976', 'W', '10/07/2024', '10/09/2024');
-                      setState(() {
-                      });
-                    }
-                )
-              ],
-              child:ScheduledAppointmentListItem(data: controller.patientList[index],onTap: (){},));
+      body:isLoading? LoadingWidget(): controller.patientList.length >0 ?RefreshIndicator(
+        onRefresh: (){
+          return getData();
         },
-      ) : Container(
-        child: Center(child: Text('No data found',style: TextStyle(color:Colors.black,fontSize: 16),)),
-      ),
+        child: ListView.builder(
+          itemCount: controller.patientList.length,
+          itemBuilder: (context ,index){
+            return MListTile(
+                actions: [
+                  CustomSlidableAction(
+                      padding: const EdgeInsets.all(0),
+                      backgroundColor: Colors.transparent,
+                      child:  MIconButton(
+                        color: MTheme.THEME_COLOR,
+                        child: Icon(
+                          Icons.done,
+                          color: MTheme.THEME_COLOR,
+                        ),
+                      ),
+                      onPressed: (BuildContext context) async {
+                        await controller.changeStatus('50992' ,controller.patientList[index].Appointment_id.toString() , 'Accept');
+                        getData();
+                        // await controller.getClinicalAppointmentList('184376', '193976', 'W', '10/07/2024', '10/09/2024');
+                        // setState(() {
+                        // });
+                        print('done');
+                      }
+                  ),
+                  CustomSlidableAction(
+                      padding: const EdgeInsets.all(0),
+                      backgroundColor: Colors.transparent,
+                      child:  MIconButton(
+                        color: MTheme.THEME_COLOR,
+                        child: Icon(
+                          Icons.clear,
+                          color: MTheme.THEME_COLOR,
+                        ),
+                      ),
+                      onPressed: (BuildContext context)async {
+                        await controller.changeStatus('50992' ,controller.patientList[index].Appointment_id.toString() , 'Reject');
+                        getData();
+                        // await controller.getClinicalAppointmentList('184376', '193976', 'W', '10/07/2024', '10/09/2024');
+                        // setState(() {
+                        // });
+                      }
+                  ),
+                  CustomSlidableAction(
+                      padding: const EdgeInsets.all(0),
+                      backgroundColor: Colors.transparent,
+                      child:  MIconButton(
+                        color: MTheme.THEME_COLOR,
+                        child: Icon(
+                          Icons.timer_outlined,
+                          color: MTheme.THEME_COLOR,
+                        ),
+                      ),
+                      onPressed: (BuildContext context)async {
+                        await controller.changeStatus('50992' ,controller.patientList[index].Appointment_id.toString() , 'Reschedule');
+                        getData();
+                        // await controller.getClinicalAppointmentList('184376', '193976', 'W', '10/07/2024', '10/09/2024');
+                        // setState(() {
+                        // });
+                      }
+                  )
+                ],
+                child:ScheduledAppointmentListItem(data: controller.patientList[index],onTap: (){},));
+          },
+        ),
+      ) : NothingWidget(title: 'No Scheduled Appointments', message: '', onRefresh: getData,),
     );
   }
 }
