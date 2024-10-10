@@ -104,7 +104,7 @@ abstract class RouteGenerator {
       case Routes.patientWaitingList:
         return route(settings, WaitingListPage());
         case Routes.patientApprovelList:
-        return route(settings, InstantCallListDialog());
+        return route(settings, const InstantCallListDialog());
       case Routes.callLogs:
         return route(settings, CallLogsPage());
       case Routes.missedCalls:
