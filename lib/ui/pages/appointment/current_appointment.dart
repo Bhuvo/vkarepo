@@ -284,17 +284,17 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           color: Color(0xFFf8457a),
                           asset: 'assets/images/waiting.png',
                           onTap: () {
-                            context.push(Routes.clinicalAppointments);
-                            // context.push(
-                            //
-                            //   Routes.scheduledAppointmentList,
-                            //   {
-                            //     'hos_id': query['hos_id'],
-                            //     'statusId': 'W',
-                            //     'fromDate': query['From'],
-                            //     'toDate': query['To'] ,
-                            //   },
-                            // );
+                            // context.push(Routes.clinicalAppointments);
+                            context.push(
+
+                              Routes.scheduledAppointmentList,
+                              {
+                                'hos_id': query['hos_id'],
+                                'statusId': 'W',
+                                'fromDate': query['From'],
+                                'toDate': query['To'] ,
+                              },
+                            );
                           },
                         ),
                       ],
