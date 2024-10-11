@@ -26,7 +26,7 @@ class _ScheduledAppointmentListState extends State<ScheduledAppointmentList> {
 
   late ApiBuilderBloc  bloc = ApiBuilderBloc(
     // path: 'GetAppointmentList',
-    path: 'GetVkaAppointmentList?DoctorId=${LocalStorage.getUID()}&status_id=${widget.statusId ?? 'T'}&From=${widget.fromDate ?? '09/18/2024'}&To=${widget.toDate ?? '01/01/2100'}&hos_id=${widget.hospitalId}',
+    path: 'GetVkaAppointmentList?DoctorId=${LocalStorage.getUID()}&status_id=${widget.statusId ?? 'T'}&From=${widget.fromDate ?? '09/18/2024'}&To=${widget.toDate ?? '01/01/2100'}&hos_id=${widget.hospitalId ?? 0}',
     api2: true,
     // timesmedApi: true,
     // query: {

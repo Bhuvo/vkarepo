@@ -299,6 +299,25 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                         ),
                       ],
                     ),
+                    DashboardCard(
+                      // title: '${data['confirmed'] ?? ''}',
+                      title: '${data['accepted'] ?? ''}',
+                      subTitle: 'Accepted',
+                      flex: 0,
+                      color: Colors.grey.shade400,
+                      asset: 'assets/images/confirm.png',
+                      onTap: () {
+                        context.push(
+                          Routes.scheduledAppointmentList,
+                          {
+                            'hos_id': query['hos_id'],
+                            'statusId': 'A',
+                            'fromDate': query['From'],
+                            'toDate': query['To'] ,
+                          },
+                        );
+                      },
+                    ),
                     Row(
                       children: [
                         DashboardCard(
@@ -319,7 +338,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           },
                         ),
                         DashboardCard(
-                          title: '0',
+                          title: '${data['cancel'] ?? '-'}',
                           subTitle: 'Cancel',
                           color: Color(0xFFf2bd2e),
                           asset: 'assets/images/cancel.png',
@@ -425,7 +444,8 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           },
                         ),
                         DashboardCard(
-                          title: '${data['confirmed'] ?? ''}',
+                          // title: '${data['confirmed'] ?? ''}',
+                          title: '${data['upcoming'] ?? ''}',
                           subTitle: 'Confirmed',
                           color: Colors.green.shade400,
                           asset: 'assets/images/confirm.png',
