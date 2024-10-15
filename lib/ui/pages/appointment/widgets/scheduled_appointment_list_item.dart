@@ -53,9 +53,9 @@ class ScheduledAppointmentListItem extends StatelessWidget {
               date: data.Appointment_Date,
               time: data.Appointment_Time,
               avatarRadius: 16,
-              caption: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.025,
-              ),
+              // caption: SizedBox(
+              //   height: MediaQuery.of(context).size.height * 0.025,
+              // ),
             ),
             const Divider(
               height: 20,
@@ -268,8 +268,8 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                             ),
 
                             if(data.LabTest_Flag == '1')...[
-                              OutlinedButton(
-                                  style: OutlinedButton.styleFrom(
+                              FilledButton.tonal(
+                                  style: FilledButton.styleFrom(
                                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
                                   ),
                                   onPressed: (){
