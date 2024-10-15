@@ -268,8 +268,8 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                             ),
 
                             if(data.LabTest_Flag == '1')...[
-                              TextButton(
-                                  style: TextButton.styleFrom(
+                              OutlinedButton(
+                                  style: OutlinedButton.styleFrom(
                                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
                                   ),
                                   onPressed: (){
