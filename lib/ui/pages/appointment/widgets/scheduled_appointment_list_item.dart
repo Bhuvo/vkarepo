@@ -71,33 +71,33 @@ class ScheduledAppointmentListItem extends StatelessWidget {
             const Divider(
               height: 20,
             ),
-            Row(
-              children: [
-                const SizedBox(
-                  width: 16,
-                ),
-                Expanded(
-                  child: MTextContent2(
-                    flex: true,
-                    margin: EdgeInsets.symmetric(horizontal: 0),
-                    head: 'Confirmed Appointments:',
-                    content: '${data.confirmed ?? 0}',
-                  ),
-                ),
-                MTextContent2(
-                  head: 'Missed Appointments:',
-                  content: '${data.Missed ?? 0}',
-                  margin: EdgeInsets.symmetric(horizontal: 0),
-                  contentColor: Colors.red,
-                ),
-                const SizedBox(
-                  width: 16,
-                ),
-              ],
-            ),
-            const Divider(
-              height: 20,
-            ),
+            // Row(
+            //   children: [
+            //     const SizedBox(
+            //       width: 16,
+            //     ),
+            //     Expanded(
+            //       child: MTextContent2(
+            //         flex: true,
+            //         margin: EdgeInsets.symmetric(horizontal: 0),
+            //         head: 'Confirmed Appointments:',
+            //         content: '${data.confirmed ?? 0}',
+            //       ),
+            //     ),
+            //     MTextContent2(
+            //       head: 'Missed Appointments:',
+            //       content: '${data.Missed ?? 0}',
+            //       margin: EdgeInsets.symmetric(horizontal: 0),
+            //       contentColor: Colors.red,
+            //     ),
+            //     const SizedBox(
+            //       width: 16,
+            //     ),
+            //   ],
+            // ),
+            // const Divider(
+            //   height: 20,
+            // ),
             Row(
               children: [
                 Column(

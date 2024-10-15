@@ -26,10 +26,12 @@ import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 import 'package:latlng/latlng.dart';
 
+import 'controller/order_list_controller.dart';
+
 class OrderTrackPage extends StatefulWidget {
   final String orderId;
-
-  const OrderTrackPage({Key? key, required this.orderId}) : super(key: key);
+  final bool? islab;
+  const OrderTrackPage({Key? key, required this.orderId, this.islab}) : super(key: key);
 
   @override
   State<OrderTrackPage> createState() => _OrderTrackPageState();
@@ -37,14 +39,20 @@ class OrderTrackPage extends StatefulWidget {
 
 class _OrderTrackPageState extends State<OrderTrackPage> {
   late ApiBuilderBloc details, track;
-
+  OrderListController controller = OrderListController();
   @override
   void initState() {
     details =
-        ApiBuilderBloc(path: 'historydetail', query: {'oid': widget.orderId})..add(const Load());
+    ApiBuilderBloc(path: 'historydetail', query: {'oid': widget.orderId})..add(const Load());
     track = ApiBuilderBloc(
         path: 'TrackOrderStatus', query: {'OrderId': widget.orderId});
+    getData();
     super.initState();
+  }
+  getData() async{
+    await controller.getOrderDetails(widget.orderId,context);
+    setState(() {
+    });
   }
 
   @override
@@ -182,7 +190,95 @@ class _OrderTrackPageState extends State<OrderTrackPage> {
                               total += (e['total_price'] ?? 0);
                             }
 
-                            return Hero(
+                            return widget.islab?? false ? Hero(
+                                tag: 'order::items',
+                                child: MListTile(
+                                    animate: false,
+                                    child: Column(
+                                      children: [
+                                        ...controller.details.labTestDetails?.map(
+                                              (e) => Container(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 16, vertical: 12),
+                                            decoration: BoxDecoration(
+                                                border: Border(
+                                                    bottom: BorderSide(
+                                                        color: Theme.of(context)
+                                                            .dividerColor,
+                                                        width: 0.5))),
+                                            child: Row(
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: Text.rich(
+                                                    TextSpan(children: [
+                                                      TextSpan(
+                                                        text:
+                                                        '${e.testname}',
+                                                      ),
+                                                      // TextSpan(
+                                                      //     text:
+                                                      //     ' x ${e['product_quantity']}',
+                                                      //     style: TextStyle(
+                                                      //         fontWeight:
+                                                      //         FontWeight
+                                                      //             .w700)),
+                                                    ]),
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .titleSmall
+                                                        ?.copyWith(
+                                                        color:
+                                                        Theme.of(context)
+                                                            .textTheme
+                                                            .bodySmall
+                                                            ?.color),
+                                                  ),
+                                                ),
+                                                const SizedBox(
+                                                  width: 16,
+                                                ),
+                                                PriceView(
+                                                  value: (e.testAmount ?? 0)
+                                                  as num,
+                                                  size: 18,
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        )??[],
+                                        // Container(
+                                        //   padding: const EdgeInsets.symmetric(
+                                        //       horizontal: 16, vertical: 12),
+                                        //   color: Theme.of(context)
+                                        //       .scaffoldBackgroundColor,
+                                        //   child: Row(
+                                        //     children: [
+                                        //       Expanded(
+                                        //           child: Text(
+                                        //             'Total Amount',
+                                        //             style: Theme.of(context)
+                                        //                 .textTheme
+                                        //                 .titleSmall
+                                        //                 ?.copyWith(
+                                        //                 color: Theme.of(context)
+                                        //                     .textTheme
+                                        //                     .bodySmall
+                                        //                     ?.color,
+                                        //                 fontSize: 12,
+                                        //                 fontWeight:
+                                        //                 FontWeight.w700),
+                                        //           )),
+                                        //       PriceView(
+                                        //         value: total,
+                                        //         size: 18,
+                                        //       )
+                                        //     ],
+                                        //   ),
+                                        // )
+                                      ],
+                                    ))) :Hero(
                                 tag: 'order::items',
                                 child: MListTile(
                                     animate: false,

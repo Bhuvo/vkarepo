@@ -579,13 +579,15 @@ abstract class RouteGenerator {
             OrderSummaryPage(
                 orderId: args['OrderId'],
                 amount: args['amount'],
+                islab: args['islab'] ?? false,
                 txn: args['txn']));
       case Routes.trackOrder:
         args as Map;
         return route(
             settings,
             OrderTrackPage(
-              orderId: '${args['order_id']}',
+              orderId: '${args['orderId']}',
+              islab: args['islab'] ?? false,
             ));
       case Routes.orderStatusTimeline:
         args as Map;

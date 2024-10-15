@@ -21,6 +21,7 @@ class MScaffold extends StatelessWidget {
   final double paddingTop;
   final bool automaticallyImplyLeading, hero;
   final CallActions? floatingActionButton;
+  final Widget? float;
 
   const MScaffold({
     Key? key,
@@ -36,7 +37,7 @@ class MScaffold extends StatelessWidget {
     this.appBarBottom,
     this.body,
     this.actions,
-    this.floatingActionButton,
+    this.floatingActionButton, this.float,
   }) : super(key: key);
 
   @override
@@ -191,6 +192,7 @@ class MScaffold extends StatelessWidget {
         //     tag: 'BOTTOM_SECTION',
         //     child: foot,
         //   ) : foot,
+        floatingActionButton: float,
         body: Stack(
           children: [
             if (body != null)

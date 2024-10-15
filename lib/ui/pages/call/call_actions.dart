@@ -9,6 +9,7 @@ import 'package:timesmedlite/utils/navigator_utils.dart';
 
 class CallActions extends StatelessWidget {
   final appointmentid, docID, patID;
+  final Widget? body;
   final GlobalKey<ExpandableFabState> fab;
 
   const CallActions(
@@ -16,14 +17,14 @@ class CallActions extends StatelessWidget {
       required this.fab,
       required this.appointmentid,
       this.docID,
-      this.patID})
+      this.patID, this.body})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 100),
-      child: ExpandableFab(
+      child:body ?? ExpandableFab(
         key: fab,
         distance: 54,
         children: [

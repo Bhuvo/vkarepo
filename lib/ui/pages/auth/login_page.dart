@@ -351,95 +351,99 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 onPressed: () {
-                  if (AppConfig.of(context)?.config == Config.doctor) {
-                    showDialog(
-                      context: context,
-                      builder: (c) {
-                        String? tempSelectedType =
-                            selectedType; // Create a local variable to hold the state within the dialog
-                        return AlertDialog(
-                          title: Text('Select the Register Type'),
-                          content: StatefulBuilder(
-                            builder: (context, setState) => Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                DropdownButton<String>(
-                                  hint: Text(tempSelectedType ?? 'Select Type'),
-                                  items: [
-                                    DropdownMenuItem(
-                                        child: Text('Doctor'), value: 'Doctor'),
-                                    DropdownMenuItem(
-                                        child: Text('Nurse'), value: 'Nurse'),
-                                    DropdownMenuItem(
-                                        child: Text('Front Office'),
-                                        value: 'Front Office'),
-                                  ],
-                                  onChanged: (val) {
-                                    setState(() {
-                                      tempSelectedType =
-                                          val; // Update local state within the dialog
-                                    });
-                                  },
-                                ),
-                                SizedBox(height: 10),
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: ElevatedButton(
-                                        child: Text('Confirm'),
-                                        onPressed: () {
-                                          if (tempSelectedType != null) {
-                                            setState(() {
-                                              selectedType =
-                                                  tempSelectedType!; // Update the original state
-                                            });
-                                            Navigator.pop(
-                                                context); // Close the dialog
+                  // if (AppConfig.of(context)?.config == Config.doctor) {
+                  //   showDialog(
+                  //     context: context,
+                  //     builder: (c) {
+                  //       String? tempSelectedType =
+                  //           selectedType; // Create a local variable to hold the state within the dialog
+                  //       return AlertDialog(
+                  //         title: Text('Select the Register Type'),
+                  //         content: StatefulBuilder(
+                  //           builder: (context, setState) => Column(
+                  //             mainAxisSize: MainAxisSize.min,
+                  //             children: [
+                  //               DropdownButton<String>(
+                  //                 hint: Text(tempSelectedType ?? 'Select Type'),
+                  //                 items: [
+                  //                   DropdownMenuItem(
+                  //                       child: Text('Doctor'), value: 'Doctor'),
+                  //                   DropdownMenuItem(
+                  //                       child: Text('Nurse'), value: 'Nurse'),
+                  //                   DropdownMenuItem(
+                  //                       child: Text('Front Office'),
+                  //                       value: 'Front Office'),
+                  //                 ],
+                  //                 onChanged: (val) {
+                  //                   setState(() {
+                  //                     tempSelectedType =
+                  //                         val; // Update local state within the dialog
+                  //                   });
+                  //                 },
+                  //               ),
+                  //               SizedBox(height: 10),
+                  //               Row(
+                  //                 children: [
+                  //                   Expanded(
+                  //                     child: ElevatedButton(
+                  //                       child: Text('Confirm'),
+                  //                       onPressed: () {
+                  //                         if (tempSelectedType != null) {
+                  //                           setState(() {
+                  //                             selectedType =
+                  //                                 tempSelectedType!; // Update the original state
+                  //                           });
+                  //                           Navigator.pop(
+                  //                               context); // Close the dialog
+                  //
+                  //                           if (selectedType == 'Doctor') {
+                  //                             Navigator.push(
+                  //                               context,
+                  //                               MaterialPageRoute(
+                  //                                 builder: (context) =>
+                  //                                     DoctorSignUpPage(),
+                  //                               ),
+                  //                             );
+                  //                           } else if (selectedType ==
+                  //                               'Nurse') {
+                  //                             Navigator.push(
+                  //                               context,
+                  //                               MaterialPageRoute(
+                  //                                 builder: (context) =>
+                  //                                     NurseFrontOfficeSignUpPage(isNurse: true,), // Assuming you have a separate page for Nurse
+                  //                               ),
+                  //                             );
+                  //                           } else{
+                  //                             Navigator.push(
+                  //                               context,
+                  //                               MaterialPageRoute(
+                  //                                 builder: (context) =>
+                  //                                     NurseFrontOfficeSignUpPage(isNurse: false,), // Assuming you have a separate page for Nurse
+                  //                               ),
+                  //                             );
+                  //                           }
+                  //                         }
+                  //                       },
+                  //                     ),
+                  //                   ),
+                  //                 ],
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       );
+                  //     },
+                  //   );
+                  //
+                  //   // Navigator.push(
+                  //   //     context,
+                  //   //     MaterialPageRoute(
+                  //   //         builder: (context) => DoctorSignUpPage()));
+                  // }
+                  if (AppConfig.of(context)?.config == Config.doctor){
 
-                                            if (selectedType == 'Doctor') {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      DoctorSignUpPage(),
-                                                ),
-                                              );
-                                            } else if (selectedType ==
-                                                'Nurse') {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      NurseFrontOfficeSignUpPage(isNurse: true,), // Assuming you have a separate page for Nurse
-                                                ),
-                                              );
-                                            } else{
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      NurseFrontOfficeSignUpPage(isNurse: false,), // Assuming you have a separate page for Nurse
-                                                ),
-                                              );
-                                            }
-                                          }
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    );
-
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => DoctorSignUpPage()));
-                  } else {
+                  }
+                  else {
                     Navigator.push(
                         context,
                         MaterialPageRoute(

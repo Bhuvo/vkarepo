@@ -33,6 +33,7 @@ class _MDateTimePickerState extends State<MDateTimePicker> {
 
   @override
   void initState() {
+
     super.initState();
     if (widget.initial != null) {
       neverEnds = false;
@@ -53,11 +54,12 @@ class _MDateTimePickerState extends State<MDateTimePicker> {
             absorbing: true,
             child: InputDatePickerFormField(
               key: ValueKey(value),
+
               lastDate: widget.end,
               firstDate: widget.start,
               initialDate: value,
               fieldLabelText: widget.label,
-              fieldHintText: dateFormat.format(value),
+              // fieldHintText: dateFormat.format(value),
               onDateSubmitted: (d) {
                 setState(() {
                   value = d;

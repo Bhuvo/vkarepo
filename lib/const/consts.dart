@@ -266,8 +266,6 @@ class Consts {
   ];
 
   static const List<MDrawerItem> NURSE_BOTTOM_NAVIGATION_ITEMS = [
-    MDrawerItem(CALENDAR, Routes.calendarPage,
-        icon: FontAwesomeIcons.solidCalendarDays),
     // MDrawerItem(PATIENT_WAITING_LIST, Routes.patientWaitingList,
     //     icon: FontAwesomeIcons.userClock),
     //  MDrawerItem(CALL_LOG, Routes.callLogs, icon: FontAwesomeIcons.squarePhone),
@@ -276,6 +274,8 @@ class Consts {
     MDrawerItem(DASHBOARD, Routes.currentAppointment,
         icon: FontAwesomeIcons.chartPie),
     MDrawerItem('CLINICAL APPOINTMENTS', Routes.clinicalAppointments,icon: FontAwesomeIcons.clipboardList),
+    MDrawerItem(CALENDAR, Routes.calendarPage,
+        icon: FontAwesomeIcons.solidCalendarDays),
     // MDrawerItem(TELE_MEDICINE, Routes.dashboard,
     //     icon: FontAwesomeIcons.houseMedicalCircleCheck),
     MDrawerItem(BOOK_APPOINTMENT, Routes.bookingAppointment,

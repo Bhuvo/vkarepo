@@ -3,6 +3,7 @@ import 'package:timesmedlite/const/consts.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
 
 import '../../../utils/local_storage.dart';
+import '../call/call_actions.dart';
 
 class HomeBottomNavigation extends StatelessWidget {
   final String title;
@@ -10,7 +11,8 @@ class HomeBottomNavigation extends StatelessWidget {
   final Widget? appBarBottom;
   final double paddingTop;
   final List<Widget>? actions;
-   HomeBottomNavigation({Key? key, required this.body, required this.title, this.appBarBottom, this.paddingTop = 56, this.actions}) : super(key: key);
+  final CallActions? floatingActionButton;
+   HomeBottomNavigation({Key? key, required this.body, required this.title, this.appBarBottom, this.paddingTop = 56, this.actions, this.floatingActionButton}) : super(key: key);
 
    var IsType = LocalStorage.getString(LocalStorage.IsType);
 
@@ -28,6 +30,8 @@ class HomeBottomNavigation extends StatelessWidget {
       ),
       body: body,
       appBarBottom: appBarBottom,
+      // floatingActionButton:floatingActionButton,
+      float:floatingActionButton,
     );
   }
 }

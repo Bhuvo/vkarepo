@@ -39,9 +39,10 @@ class UserInfo extends StatelessWidget {
         );
         break;
       case Info.phone:
+        // print('hhs ${patient?.toJson()}');
         icon = Icon(Icons.phone, color: MTheme.ICON_COLOR, size: iconSize);
         text = Text(
-          '${user?.phone ?? user?.phoneNumber ?? patient?.phone}',
+          '${ patient?.phone??patient?.whatsapp ??user?.phone ?? user?.phoneNumber }',
         );
         break;
       case Info.whatsapp:

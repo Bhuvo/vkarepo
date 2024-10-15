@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,6 +13,7 @@ import 'package:timesmedlite/ui/components/api_builder/api_builder.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder_bloc.dart';
 import 'package:timesmedlite/ui/components/user_info.dart';
 import 'package:timesmedlite/ui/components/user_tile.dart';
+import 'package:timesmedlite/ui/providers/patient_provider.dart';
 import 'package:timesmedlite/ui/providers/user_provider.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
@@ -17,6 +21,12 @@ import 'package:timesmedlite/utils/date_utils.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 import 'package:timesmedlite/utils/size_utils.dart';
+
+import '../../../model/patient.dart';
+import '../../components/show_message.dart';
+import '../../components/waiting_dialog.dart';
+import '../../routes/routes.dart';
+import '../patient_registration/patient_register.dart';
 
 class AppointmentSelectUserDialog extends StatefulWidget {
   final dynamic hospitalId;
@@ -46,12 +56,15 @@ class _AppointmentSelectUserDialogState
   @override
   void initState() {
     tab = TabController(length: tabs.length, vsync: this);
+    if(data?.doctorId == null) data = data.copyWith(doctorId: LocalStorage.getUser().id);
     print(widget.date);
-    print("prints date");
+    print("prints hospitalId ${widget.hospitalId}");
     super.initState();
   }
 
   User? user;
+  Patient data = Patient();
+  final GlobalKey<FormState> form = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -126,63 +139,270 @@ class _AppointmentSelectUserDialogState
                   ExistingUserTab(
                     onSelect: (d) {
                       setState(() {
-                        user = d;
+                        data = d;
                       });
                     },
                   ),
+                  // SingleChildScrollView(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 12),
+                  //   child: Column(
+                  //     children: [
+                  //       const SizedBox(
+                  //         height: 8,
+                  //       ),
+                  //       const MTextField(
+                  //         label: 'Username',
+                  //       ),
+                  //       const SizedBox(
+                  //         height: 8,
+                  //       ),
+                  //       const MTextField(
+                  //         label: 'Email Address',
+                  //         type: MInputType.email,
+                  //       ),
+                  //       const SizedBox(
+                  //         height: 8,
+                  //       ),
+                  //       const MPhoneField(
+                  //         label: 'Mobile Number',
+                  //         maxLines: 10,
+                  //       ),
+                  //       const SizedBox(
+                  //         height: 8,
+                  //       ),
+                  //       const MTextField(
+                  //         label: 'Complaints',
+                  //       ),
+                  //       MRadioChip<String>(
+                  //         labelStyle: Theme.of(context).textTheme.bodySmall,
+                  //         value: gender,
+                  //         onChanged: (d) {
+                  //           setState(() {
+                  //             gender = d;
+                  //           });
+                  //         },
+                  //         items: const [
+                  //           MRadioItem(
+                  //               value: 'Male',
+                  //               icon: FontAwesomeIcons.person,
+                  //               label: 'Male'),
+                  //           MRadioItem(
+                  //               value: 'Female',
+                  //               icon: FontAwesomeIcons.personDress,
+                  //               label: 'Female'),
+                  //         ],
+                  //         label: 'Gender',
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                   SingleChildScrollView(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        const MTextField(
-                          label: 'Username',
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        const MTextField(
-                          label: 'Email Address',
-                          type: MInputType.email,
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        const MPhoneField(
-                          label: 'Mobile Number',
-                          maxLines: 10,
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        const MTextField(
-                          label: 'Complaints',
-                        ),
-                        MRadioChip<String>(
-                          labelStyle: Theme.of(context).textTheme.bodySmall,
-                          value: gender,
-                          onChanged: (d) {
-                            setState(() {
-                              gender = d;
-                            });
-                          },
-                          items: const [
-                            MRadioItem(
-                                value: 'Male',
-                                icon: FontAwesomeIcons.person,
-                                label: 'Male'),
-                            MRadioItem(
-                                value: 'Female',
-                                icon: FontAwesomeIcons.personDress,
-                                label: 'Female'),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                      child: Form(
+                        key: form,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            MTextField(
+                              label: 'Patient Registration Number',
+                              value: data.regNo,
+                              type: MInputType.numeric,
+                              onChanged: (d) {
+                                data = data.copyWith(regNo: d);
+                              },
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            MTextField(
+                              label: 'First Name',
+                              value: data.firstName,
+                              onChanged: (d) {
+                                data = data.copyWith(firstName: d);
+                              },
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            MTextField(
+                              label: 'Last Name',
+                              value: data.lastName,
+                              onChanged: (d) {
+                                data = data.copyWith(lastName: d);
+                              },
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            MTextField(
+                              label: 'Age',
+                              value: data.age,
+                              type: MInputType.numeric,
+                              onChanged: (d) {
+                                data = data.copyWith(age: d);
+                              },
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            MRadioChip<String>(
+                              value: data.gender,
+                              onChanged: (d) {
+                                setState(() {
+                                  data = data.copyWith(gender: d);
+                                });
+                              },
+                              items: const [
+                                MRadioItem(
+                                    value: 'Male',
+                                    icon: FontAwesomeIcons.person,
+                                    label: 'Male'),
+                                MRadioItem(
+                                    value: 'Female',
+                                    icon: FontAwesomeIcons.personDress,
+                                    label: 'Female'),
+                              ],
+                              label: 'Gender',
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            MTextField(
+                              label: 'Phone Number',
+                              value: data.mobile,
+                              type: MInputType.phone,
+                              onChanged: (d) {
+                                data = data.copyWith(phone: d);
+                              },
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            MTextField(
+                              label: 'WhatsApp Number',
+                              value: data.whatsapp,
+                              type: MInputType.phone,
+                              onChanged: (d) {
+                                data = data.copyWith(whatsapp: d);
+                              },
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            MTextField(
+                              label: 'Mail Id',
+                              value: data.email,
+                              type: MInputType.email,
+                              onChanged: (d) {
+                                data = data.copyWith(email: d);
+                              },
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            MTextField(
+                              label: 'Password',
+                              type: MInputType.password,
+                              value: data.password,
+                              onChanged: (d) {
+                                data = data.copyWith(password: d);
+                              },
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            Text(
+                              'Target INR',
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
+                            const SizedBox(
+                              height: 4,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: MTextField(
+                                    label: 'From',
+                                    type: MInputType.decimal,
+                                    value: data.inrFrom,
+                                    onChanged: (d) {
+                                      data = data.copyWith(inrFrom: d);
+                                    },
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 16,
+                                ),
+                                Expanded(
+                                  child: MTextField(
+                                    label: 'To',
+                                    type: MInputType.decimal,
+                                    value: data.inrTo,
+                                    onChanged: (d) {
+                                      data = data.copyWith(inrTo: d);
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+
+                            // Row(
+                            //   children: [
+                            //     Expanded(
+                            //         child: OutlinedButton(
+                            //           onPressed: () {
+                            //             context.pop();
+                            //           },
+                            //           child: const Text(
+                            //             'Close',
+                            //             style: TextStyle(color: Colors.white),
+                            //           ),
+                            //           style: ButtonStyle(
+                            //               backgroundColor:
+                            //               MaterialStateProperty.all(Colors.red)),
+                            //         )),
+                            //     const SizedBox(
+                            //       width: 16,
+                            //     ),
+                            //     Expanded(
+                            //         child: OutlinedButton(
+                            //             onPressed: () async {
+                            //               if (form.currentState!.validate()) {
+                            //                 showWaitingDialog(context: context);
+                            //                 final res = await Injector()
+                            //                     .apiService
+                            //                     .register(
+                            //                     path: 'VKA_PatientRegistration',
+                            //                     query: data.toJson());
+                            //                 context.pop();
+                            //
+                            //                 if (res.isSuccessful) {
+                            //                   if (res.body?.code == '1') {
+                            //                     context.pop(data);
+                            //                   }
+                            //                   showMessage(
+                            //                       context: context,
+                            //                       message: res.body?.message ?? '');
+                            //                 } else {
+                            //                   showMessage(
+                            //                       context: context,
+                            //                       message:
+                            //                       'Request failed, Please check your connection.');
+                            //                 }
+                            //               }
+                            //             },
+                            //             child: const Text('Save'))),
+                            //   ],
+                            // )
                           ],
-                          label: 'Gender',
                         ),
-                      ],
+                      ),
                     ),
-                  ),
+                  )
                 ]),
               ),
               const SizedBox(
@@ -208,19 +428,43 @@ class _AppointmentSelectUserDialogState
 
   Future book(String complaints) async {
     print("api clicked outside");
-    if (user?.userId != null) {
-      print("api clicked");
+    if (data.id != null) {
+      print("api clicked ${LocalStorage.getUID()}");
+      // final call = Injector()
+      //     .timesmedService
+      //     .get2(
+      //     // path: 'DoctorBookAppointment',
+      //     path: 'VkaDoctorBookAppointment',
+      //     query: {
+      //   'UserId': user?.id,
+      //   'Type_Flag': 'H',
+      //   'Hospital_id': widget.hospitalId,
+      //   'DoctorId': LocalStorage.getUID(),
+      //   'desc': complaints,
+      //   'Time': MDateUtils.dateToHourMinuteQuery(widget.date.toIso8601String()),
+      //   'Date': MDateUtils.dateToQueryDate(widget.date.toIso8601String()),
+      // });
       final call = Injector()
           .timesmedService
-          .get2(path: 'DoctorBookAppointment', query: {
-        'UserId': user?.userId,
-        'Type_Flag': 'H',
-        'Hospital_id': widget.hospitalId,
-        'DoctorId': LocalStorage.getUID(),
-        'desc': complaints,
-        'Time': MDateUtils.dateToHourMinuteQuery(widget.date.toIso8601String()),
-        'Date': MDateUtils.dateToQueryDate(widget.date.toIso8601String()),
-      });
+          .get2(
+          path: 'VkaDoctorBookAppointment',
+          query: {
+            // .get2(path: 'DoctorBookAppointment', query: {
+            'UserId': data.id,
+            //  user?.userId,
+            'Type_Flag': 'H',
+            'OnlineFlag':false,
+            'Hospital_id': widget.hospitalId,
+            // 'DoctorId': LocalStorage.getUID(),
+            'DoctorId': LocalStorage.getUID(),
+            'desc': 'complaints',
+            'Time': MDateUtils
+                .dateToHourMinuteQuery(
+                widget.date.toIso8601String()),
+            'Date': MDateUtils
+                .dateToQueryDate(
+                widget.date.toIso8601String()),
+          });
       final res = await ApiFacade.callApi(context: context, call: call);
       print(res);
       print(res?.error);
@@ -228,35 +472,106 @@ class _AppointmentSelectUserDialogState
       print(res?.statusCode);
       if (res != null) {
         context.popDialog(true);
+        context.pop(data);
       }
     }
     else {
-      print("api clicked2");
-      final call = Injector()
-          .timesmedService
-          .get2(path: 'DoctorBookAppointment', query: {
-        'UserId': 1,
-        'Type_Flag': 'H',
-        'Hospital_id': widget.hospitalId,
-        'DoctorId': LocalStorage.getUID(),
-        'desc': complaints,
-        'Time': MDateUtils.dateToHourMinuteQuery(widget.date.toIso8601String()),
-        'Date': MDateUtils.dateToQueryDate(widget.date.toIso8601String()),
-      });
-      final res = await ApiFacade.callApi(context: context, call: call);
-      print(res);
-      print(res?.error);
-      print(res?.body);
-      print(res?.statusCode);
-      if (res != null) {
-        context.popDialog(true);
+      print('coming inside save');
+      if (form.currentState!.validate()) {
+        showWaitingDialog(context: context);
+        final res = await Injector()
+            .apiService
+            .register(
+            path: 'VKA_PatientRegistration',
+            query: data.toJson());
+        context.pop();
+        log('API URL: ' + (res.base.request?.url.toString() ?? ''));
+        print('VKA_PatientRegistration ${res.body?.data}'); //312503
+        if (res.isSuccessful) {
+          if (res.body?.code == '1') {
+            // final call = Injector()
+            //     .timesmedService
+            //     .get2(
+            //     // path: 'DoctorBookAppointment',
+            //     path: 'VkaDoctorBookAppointment',
+            //     query: {
+            //   'UserId': res.body?.data,
+            //   'Type_Flag': 'H',
+            //   'Hospital_id': widget.hospitalId,
+            //   'DoctorId': LocalStorage.getUID(),
+            //   'desc': complaints,
+            //   'Time': MDateUtils.dateToHourMinuteQuery(widget.date.toIso8601String()),
+            //   'Date': MDateUtils.dateToQueryDate(widget.date.toIso8601String()),
+            // });
+            final call = Injector()
+                .timesmedService
+                .get2(
+                path: 'VkaDoctorBookAppointment',
+                query: {
+                  // .get2(path: 'DoctorBookAppointment', query: {
+                  'UserId': res.body?.data,
+                  //  user?.userId,
+                  'Type_Flag': 'H',
+                  'OnlineFlag':false,
+                  'Hospital_id': widget.hospitalId,
+                  // 'DoctorId': LocalStorage.getUID(),
+                  'DoctorId': LocalStorage.getUID(),
+                  'desc': 'complaints',
+                  'Time': MDateUtils
+                      .dateToHourMinuteQuery(
+                      widget.date.toIso8601String()),
+                  'Date': MDateUtils
+                      .dateToQueryDate(
+                      widget.date.toIso8601String()),
+                });
+            final resp = await ApiFacade.callApi(context: context, call: call);
+            print(resp);
+            print(resp?.error);
+            print(resp?.body);
+            print(resp?.statusCode);
+            if (resp != null) {
+              context.popDialog(true);
+            }
+            print('coming 1');
+            context.pop(data);
+          }else{
+            print('coming 2');
+          }
+          showMessage(
+              context: context,
+              message: res.body?.message ?? '');
+        } else {
+          showMessage(
+              context: context,
+              message:
+              'Request failed, Please check your connection.');
+        }
       }
+      // final call = Injector()
+      //     .timesmedService
+      //     .get2(path: 'DoctorBookAppointment', query: {
+      //   'UserId': 1,
+      //   'Type_Flag': 'H',
+      //   'Hospital_id': widget.hospitalId,
+      //   'DoctorId': LocalStorage.getUID(),
+      //   'desc': complaints,
+      //   'Time': MDateUtils.dateToHourMinuteQuery(widget.date.toIso8601String()),
+      //   'Date': MDateUtils.dateToQueryDate(widget.date.toIso8601String()),
+      // });
+      // final res = await ApiFacade.callApi(context: context, call: call);
+      // print(res);
+      // print(res?.error);
+      // print(res?.body);
+      // print(res?.statusCode);
+      // if (res != null) {
+      //   context.popDialog(true);
+      // }
     }
   }
 }
 
 class ExistingUserTab extends StatefulWidget {
-  final Function(User d)? onSelect;
+  final Function(Patient d)? onSelect;
 
   const ExistingUserTab({Key? key, this.onSelect}) : super(key: key);
 
@@ -265,13 +580,19 @@ class ExistingUserTab extends StatefulWidget {
 }
 
 class _ExistingUserTabState extends State<ExistingUserTab> {
-  User? value;
+  Patient? value;
 
   final bloc =
-      ApiBuilderBloc(path: 'PatientSearch', timesmedApi: true, api2: true);
+      // ApiBuilderBloc(path: 'PatientSearch', timesmedApi: true, api2: true);
+  ApiBuilderBloc(
+      path: 'RegisteredPatientList', query: {'Doctor_id': LocalStorage.getUser().id});
+
+  // List<Patient> orginalList = [];
+  List<Patient> l = [];
 
   @override
   Widget build(BuildContext context) {
+    print('Doctorrr id ${LocalStorage.getUser().id}');
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Column(
@@ -279,37 +600,45 @@ class _ExistingUserTabState extends State<ExistingUserTab> {
           const SizedBox(
             height: 8,
           ),
-          MTextField(
-            label: 'Search Existing User',
-            suffixIcon: const Icon(CupertinoIcons.search),
-            onChanged: (d) {
-              if (d.trim().isNotEmpty) {
-                bloc.add(UpdateQuery({'term': d.trim()}));
-              }
-            },
-          ),
-          const SizedBox(
-            height: 8,
-          ),
+          // MTextField(
+          //   label: 'Search Existing User',
+          //   suffixIcon: const Icon(CupertinoIcons.search),
+          //   onChanged: (d) {
+          //     if (d.trim().isNotEmpty) {
+          //       if (kDebugMode) {
+          //         print('$d jh');
+          //       }
+          //       // bloc.add(UpdateQuery({'term': d.trim()}));
+          //
+          //       l = orginalList.where((e) => e.firstName!.toLowerCase().contains(d.toLowerCase())).toList();
+          //       setState(() {
+          //         print('lenth ${l.length}');
+          //       });
+          //     }
+          //   },
+          // ),
+          // const SizedBox(
+          //   height: 8,
+          // ),
           Expanded(
               child: BlocProvider(
             create: (BuildContext context) {
               bloc.add(const Load());
               return bloc;
             },
-            child: ApiBuilder<User>(
-              fromJson: User.fromJsonFactory,
+            child: ApiBuilder<Patient>(
+              fromJson: Patient.fromJsonFactory,
               jsonBuilder: (list, index) {
-                final l = list
-                    .map((e) => User.fromJson(e).copyWith(
-                        fullName: e['User_Name'], phone: e['MobileNumber']))
+                l = list
+                    .map((e) => Patient.fromJson(e).copyWith(
+                         patientName : e['User_Name'], phone: e['MobileNumber']))
                     .toList();
-
+                // orginalList = List.from(list.map((e) => Patient.fromJson(e)).toList());
                 return ListView.builder(
                   itemCount: l.length,
                   itemBuilder: (c, i) {
                     final data = l[i];
-                    return UserProvider(
+                    return PatientProvider(
                       data: data,
                       child: InkWell(
                         onTap: () {
@@ -328,8 +657,8 @@ class _ExistingUserTabState extends State<ExistingUserTab> {
                           child: Row(
                             children: [
                               Radio(
-                                  value: '${data.userId}',
-                                  groupValue: '${value?.userId}',
+                                  value: '${data.id}',
+                                  groupValue: '${value?.id}',
                                   onChanged: (v) {}),
                               const UserTile(
                                 avatarRadius: 18,

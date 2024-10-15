@@ -103,14 +103,16 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
   @override
   Widget build(BuildContext context) {
     print('Doctor id is ${LocalStorage.getUID()}');
+
     // final f = MDateUtils.queryDateToDate1(query['From']);
     //     // final t = MDateUtils.queryDateToDate1(query['To']);
     final f = MDateUtils.formatDateToDateTime(query['From']);
     final t = MDateUtils.formatDateToDateTime(query['To']);
-
+    print('f is $f');
+    print('t is $t');
     return HomeBottomNavigation(
       // title: Consts.CURRENT_APPOINTMENT,
-      title: 'Clinic Appointment Dashboard',
+      title: 'Clinical Appointment',
       // actions: [
       //   IconButton(
       //       onPressed: () {
@@ -263,7 +265,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                       children: [
                         DashboardCard(
                           title: '${data['total'] ?? '-'}',
-                          subTitle: 'Scheduled',
+                          subTitle: 'Total',
                           color: Color(0xFF2fa6c4),
                           asset: 'assets/images/scheduled.png',
                           onTap: () {
@@ -304,7 +306,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                       title: '${data['accepted'] ?? ''}',
                       subTitle: 'Accepted',
                       flex: 0,
-                      color: Colors.grey.shade400,
+                      color: Colors.purple.shade400,
                       asset: 'assets/images/confirm.png',
                       onTap: () {
                         context.push(
@@ -463,31 +465,31 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                         ),
                       ],
                     ),
-                    const Divider(
-                      height: 24,
-                      endIndent: 0,
-                      indent: 0,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'Hospital Appointment',
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                        const Spacer(),
-                        TextButton(
-                            onPressed: () {},
-                            child: Text('${data['total'] ?? '-'}'))
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    ...hospitals.map((e) => ScheduleHospitalListItem(
-                          counter: '${e.app_count ?? '-'}',
-                          data: e,
-                        )),
-                    const Space(300)
+                    // const Divider(
+                    //   height: 24,
+                    //   endIndent: 0,
+                    //   indent: 0,
+                    // ),
+                    // Row(
+                    //   children: [
+                    //     Text(
+                    //       'Hospital Appointment',
+                    //       style: Theme.of(context).textTheme.bodySmall,
+                    //     ),
+                    //     const Spacer(),
+                    //     TextButton(
+                    //         onPressed: () {},
+                    //         child: Text('${data['total'] ?? '-'}'))
+                    //   ],
+                    // ),
+                    // const SizedBox(
+                    //   height: 5,
+                    // ),
+                    // ...hospitals.map((e) => ScheduleHospitalListItem(
+                    //       counter: '${e.app_count ?? '-'}',
+                    //       data: e,
+                    //     )),
+                    // const Space(300)
                   ],
                 ),
               ),

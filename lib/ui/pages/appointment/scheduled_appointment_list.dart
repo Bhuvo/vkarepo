@@ -13,10 +13,10 @@ import 'package:timesmedlite/utils/navigator_utils.dart';
 
 class ScheduledAppointmentList extends StatefulWidget {
   final dynamic hospitalId;
-  final String statusId;
+  final String? statusId;
   final String? fromDate;
   final String? toDate;
-   ScheduledAppointmentList({Key? key, this.hospitalId, this.fromDate, this.toDate, required this.statusId}) : super(key: key);
+   ScheduledAppointmentList({Key? key, this.hospitalId, this.fromDate, this.toDate,  this.statusId}) : super(key: key);
 
   @override
   State<ScheduledAppointmentList> createState() => _ScheduledAppointmentListState();
@@ -31,10 +31,10 @@ class _ScheduledAppointmentListState extends State<ScheduledAppointmentList> {
     // timesmedApi: true,
     // query: {
     //   'DoctorId': LocalStorage.getUID(),
-    //   'status_id': statusId ?? 'T',
-    //   'From': fromDate ?? '09/18/2024',
-    //   'To':  toDate ?? '01/01/2100',
-    //   'hos_id': '$hospitalId',
+    //   'status_id': widget.statusId ?? 'T',
+    //   'From': widget.fromDate ?? '09/18/2024',
+    //   'To':  widget.toDate ?? '01/01/2100',
+    //   'hos_id': '${widget.hospitalId}',
     // }
   );
   @override

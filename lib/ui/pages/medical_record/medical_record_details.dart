@@ -34,6 +34,8 @@ import '../appointment/image_overview_in_medical_records.dart';
 import '../appointment/image_overview_in_queue_page.dart';
 import 'package:http/http.dart' as http;
 
+import 'controller/medical_record_controller.dart';
+
 class MedicalRecordDetails extends StatefulWidget {
   final int i;
   final MedicalRecord? data;
@@ -108,6 +110,7 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
     print('exit function');
     Navigator.pop(context);
   }
+  MedicalRecordController controller = MedicalRecordController();
 
   @override
   void initState() {
@@ -310,6 +313,7 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                         jsonBuilder: (data, load) {
                           print("dataaaaaaaaaa                  $data");
                           return Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -377,7 +381,13 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 16) + EdgeInsets.only(bottom: 8),
-                                child: FilledButton(style: ButtonStyle(backgroundColor: WidgetStateProperty.all(MTheme.THEME_COLOR)) ,onPressed:(){}, child: Text('Book Lab Test'),),
+                                child: FilledButton(style: ButtonStyle(backgroundColor: WidgetStateProperty.all(MTheme.THEME_COLOR)) ,onPressed:() async {
+                                  var val = await context.push(Routes.addressForm);
+                                  if(val['sa_id'] != null && val['sa_id'] != 0 && val['sa_id'] != '' && val['ba_id'] != null && val['ba_id'] != 0 && val['ba_id'] != ''){
+                                    await controller.orderLabTest(context,widget.appointment_id.toString(), val['sa_id'].toString(), val['ba_id'].toString(), LocalStorage.getCursorPatient().userId.toString() ?? '');
+                                  }
+                                  print('addres val $val');
+                                }, child: Text('Book Lab Test'),),
                               ),
                             ],
                           );

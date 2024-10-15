@@ -40,6 +40,7 @@ class MApp extends StatelessWidget {
       supportedLocales: const [
         Locale('en')
       ],
+
       locale: const Locale('en'),
       initialRoute: Routes.splash,
       onGenerateRoute: RouteGenerator.generateRoute,

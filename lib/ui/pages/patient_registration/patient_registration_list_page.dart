@@ -9,11 +9,14 @@ import 'package:timesmedlite/ui/pages/patient_registration/patient_register_list
 import 'package:timesmedlite/ui/providers/patient_provider.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:timesmedlite/ui/theme/theme.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 import 'package:timesmedlite/utils/size_utils.dart';
 
 import '../../components/nothing_widget.dart';
+import '../../widgets/m_expandable_fab.dart';
+import '../call/call_actions.dart';
 import '../home/home_bottom_navigation.dart';
 
 class PatientRegistrationListPage extends StatelessWidget {
@@ -21,6 +24,8 @@ class PatientRegistrationListPage extends StatelessWidget {
 
   final bloc = ApiBuilderBloc(
       path: 'RegisteredPatientList', query: {'Doctor_id': LocalStorage.getUser().id});
+
+  // GlobalKey<ExpandableFabState> key = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +69,22 @@ class PatientRegistrationListPage extends StatelessWidget {
             );
           },
         ),
+      ),
+      floatingActionButton:CallActions(
+          fab:GlobalKey<ExpandableFabState>(), appointmentid: '', docID: '', patID: '', body:
+      FloatingActionButton(
+        backgroundColor: MTheme.ICON_COLOR,
+        onPressed: () async {
+          final res = await context.push(Routes.patientRegistration);
+          if(res != null) {
+            bloc.add(const Refresh());
+          }
+        },
+        child: const Icon(
+          Icons.add_rounded,
+          size: 32,
+        ),
+      ),
       ),
       // body: Column(
       //   children: [
