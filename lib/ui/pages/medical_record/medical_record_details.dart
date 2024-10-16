@@ -182,6 +182,8 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => PrescriptionPrint(
+                                      orgData: widget.data ?? const MedicalRecord(),
+                                      labTest: widget.data?.lab,
                                         data: widget.data?.prescription,
                                         appointment: widget.appointment),
                                   ),

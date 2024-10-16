@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:timesmedlite/const/consts.dart';
+import 'package:timesmedlite/ui/components/show_message.dart';
 import 'package:timesmedlite/ui/components/update_timing_widget.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
@@ -19,15 +20,17 @@ import '../../components/api_builder/api_builder.dart';
 import '../../components/api_builder/api_builder_bloc.dart';
 import '../../components/waiting_dialog.dart';
 import '../../routes/routes.dart';
+import 'package:http/http.dart' as http;
 
 
 class UpdateCallStatusPage extends StatefulWidget {
   final appointmentIDFromCallScreen;
   final currentCallKey;
   final bool? isFromClinicalVisit;
+  final bool? isReschedule;
 
   const UpdateCallStatusPage(
-      {Key? key, this.appointmentIDFromCallScreen, this.currentCallKey, this.isFromClinicalVisit})
+      {Key? key, this.appointmentIDFromCallScreen, this.currentCallKey, this.isFromClinicalVisit, this.isReschedule })
       : super(key: key);
 
   @override
@@ -73,13 +76,13 @@ class _UpdateCallStatusPageState extends State<UpdateCallStatusPage>
     print("KKKKKKKKKKEEEEEEEEEEEEEEEEEEEEEEEEEEEEEasdfEEEEE${keyID}");
 
     return MScaffold(
-      title: const Text(Consts.UPDATE_CALL_STATUS),
+      title: Text(widget.isFromClinicalVisit ?? false ? 'Update Visit Status':Consts.UPDATE_CALL_STATUS),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: Column(
             children: [
-              MTabBar(
+             widget.isReschedule ?? false ? Container():MTabBar(
                 tab,
                 tabs,
                 onTap: (p0) => currentIndex = p0,
@@ -133,6 +136,18 @@ class _UpdateCallStatusPageState extends State<UpdateCallStatusPage>
         child: OutlinedButton(
           child: const Text('Click to Complete'),
           onPressed: () async {
+            if(widget.isReschedule ?? false){
+              var response = await http.get(Uri.parse('https://api.timesmed.com/WebAPI2/update_appointment?app_id=$appointmentID&Id=${LocalStorage.getUID()}&status=Reschedule&AppDate=${selection!.month}/${selection!.day}/${selection!.year}&AppTime=${selection!.hour}:${selection!.minute}:${selection!.second}'),
+                  headers: {'Content-Type': 'application/json',
+                    'Accept': 'application/json',});
+              if(response.statusCode == 200){
+                showMessage(context: context, message: 'Rescheduled successfully');
+              }else{
+                print('Error while changing status');
+              }
+              context.pop(true);
+              return;
+            }
             print("before switch case");
             switch (currentIndex) {
               case 0:
@@ -153,7 +168,7 @@ class _UpdateCallStatusPageState extends State<UpdateCallStatusPage>
                     print("before RevisitBooking api");
                     final call1 = Injector()
                         .apiService
-                        .rawGet(path: 'RevisitBooking', query: {
+                        .rawGet(path:widget.isFromClinicalVisit?? false ?  'VkaRevisitBooking': 'RevisitBooking', query: {
                       'Old_Appointment_id': appointmentID,
                       'User_Name': res.body['User_Name'],
                       //'MobileNumber': ,
@@ -163,7 +178,7 @@ class _UpdateCallStatusPageState extends State<UpdateCallStatusPage>
                       'AppTime':
                           '${selection!.hour}:${selection!.minute}:${selection!.second}',
                       'Hospital_id': '0',
-                      'Status': 'R',
+                      'Status': widget.isFromClinicalVisit?? false ? 'FR':'R',
                       'Doctor_id': '${LocalStorage.getUID()}',
                     });
                     final res1 =
@@ -208,7 +223,7 @@ class _UpdateCallStatusPageState extends State<UpdateCallStatusPage>
                   if (res!.isSuccessful) {
                     final call1 = Injector()
                         .apiService
-                        .rawGet(path: 'RevisitBooking', query: {
+                        .rawGet(path: widget.isFromClinicalVisit?? false ? 'VkaRevisitBooking' : 'RevisitBooking', query: {
                       'Old_Appointment_id': appointmentID,
                       'User_Name': res.body['User_Name'],
                       //'MobileNumber': ,
@@ -218,7 +233,7 @@ class _UpdateCallStatusPageState extends State<UpdateCallStatusPage>
                       'AppTime':
                           '${selection!.hour}:${selection!.minute}:${selection!.second}',
                       'Hospital_id': '0',
-                      'Status': 'M',
+                      'Status': widget.isFromClinicalVisit?? false ? 'PR':'M',
                       'Doctor_id': '${LocalStorage.getUID()}',
                     });
                     final res1 =
@@ -249,6 +264,19 @@ class _UpdateCallStatusPageState extends State<UpdateCallStatusPage>
 
               case 2:
                 {
+                  if(widget.isFromClinicalVisit ?? false){
+                    var response = await http.get(Uri.parse('https://api.timesmed.com/WebAPI2/update_appointment?app_id=$appointmentID&Id=${LocalStorage.getUID()}&status=Visited'),
+                        headers: {'Content-Type': 'application/json',
+                          'Accept': 'application/json',});
+                    if(response.statusCode == 200){
+                      context.pop();
+                      return context.pop();
+                    }else{
+                      showMessage(context: context, message: 'Something went wrong. Please try again later.');
+                    }
+
+                  }
+
                   final call = Injector()
                       .apiService
                       .rawGet(path: 'UpdateVideoCall_CallLog', query: {

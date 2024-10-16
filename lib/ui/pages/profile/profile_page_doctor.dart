@@ -13,6 +13,8 @@ import 'package:timesmedlite/ui/components/user_info.dart';
 import 'package:timesmedlite/ui/pages/home/homepage_base.dart';
 import 'package:timesmedlite/ui/providers/user_provider.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
+import 'package:timesmedlite/ui/widgets/m_filled_button.dart';
+import 'package:timesmedlite/ui/widgets/space.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
@@ -20,6 +22,7 @@ import 'package:timesmedlite/utils/navigator_utils.dart';
 import '../../../const/consts.dart';
 import '../../../di/dependency_injection.dart';
 import '../../components/waiting_dialog.dart';
+import '../auth/logout.dart';
 import '../home/home_bottom_navigation.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -160,6 +163,12 @@ class ProfilePage extends StatelessWidget {
                           const Expanded(child: UserInfo(Info.phone)),
                         ],
                       )),
+                      Space(),
+                      OutlinedButton(
+                          onPressed: () {
+                            logOut(context);
+                          },
+                          child: const Text('Logout')),
                     ],
                   ),
                 ),

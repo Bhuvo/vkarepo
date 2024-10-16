@@ -7,9 +7,11 @@ import 'package:intl/intl.dart';
 import 'package:timesmedlite/ui/widgets/m_list_tile.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
+import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../components/patient_bottom_navigation.dart';
 import '../../components/status_indicator.dart';
+import '../../routes/routes.dart';
 import '../../theme/theme.dart';
 import '../../widgets/m_gradient_container.dart';
 import '../../widgets/m_icon_button.dart';
@@ -41,6 +43,7 @@ class _ClinicalAppointmentsState extends State<ClinicalAppointments> {
     final today = DateTime.now();
     final yesterday = today.subtract(const Duration(days: 1));
     final format = DateFormat('MM/dd/yyyy');
+
     await controller.getClinicalAppointmentList(LocalStorage.getUID(), '193976', 'W', format.format(yesterday), format.format(today));
     setState(() {
       isLoading = false;
@@ -108,8 +111,15 @@ class _ClinicalAppointmentsState extends State<ClinicalAppointments> {
                         ),
                       ),
                       onPressed: (BuildContext context)async {
-                        await controller.changeStatus('50992' ,controller.patientList[index].Appointment_id.toString() , 'Reschedule');
-                        getData();
+                       await context.push(Routes.updateCallStatus, {
+                          'appointmentIDFromCallScreen': controller.patientList[index].Appointment_id.toString(),
+                          'currentCallKey': '',
+                          'isFromClinicalVisit': true,
+                          'isReschedule' : true
+                        });
+                       getData();
+                        // await controller.changeStatus('50992' ,controller.patientList[index].Appointment_id.toString() , 'Reschedule');
+                        // getData();
                         // await controller.getClinicalAppointmentList('184376', '193976', 'W', '10/07/2024', '10/09/2024');
                         // setState(() {
                         // });

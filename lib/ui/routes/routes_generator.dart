@@ -134,6 +134,7 @@ abstract class RouteGenerator {
                     args['appointmentIDFromCallScreen'],
                 currentCallKey: args['currentCallKey'] ,
                isFromClinicalVisit: args['isFromClinicalVisit'] ?? false,
+              isReschedule: args['isReschedule'] ?? false,
             ));
       case Routes.feedbackPage:
         return route(settings, const FeedbackPage());

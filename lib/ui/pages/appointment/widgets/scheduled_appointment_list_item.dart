@@ -146,7 +146,7 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                             //   margin: EdgeInsets.symmetric(horizontal: 10),
                             // ),
                             if(data.DiseaseDetails_Flag == '1')...[
-                              TextButton(
+                              FilledButton.tonal(
                                   style: TextButton.styleFrom(
                                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
                                   ),
@@ -175,14 +175,18 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                                   ))
                                 ],
                               ))
-                            ] else const Padding(
+                            ] else  Padding(
                               padding: EdgeInsets.symmetric(horizontal: 16),
-                              child: Text('VITAL NOT COLLECTED',
-                                textAlign: TextAlign.end,
-                                style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 10),
+                              child: FilledButton.tonal(
+
+                                onPressed: () {  },
+                                child: Text('VITAL NOT COLLECTED',
+                                  textAlign: TextAlign.end,
+                                  style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 10),
+                                ),
                               ),
                             ),
 
@@ -225,8 +229,8 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                             // ),
 
                             if(data.Prescription_Flag == '1')...[
-                              TextButton(
-                                  style: TextButton.styleFrom(
+                              FilledButton.tonal(
+                                  style: FilledButton.styleFrom(
                                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
                                   ),
                                   onPressed: (){

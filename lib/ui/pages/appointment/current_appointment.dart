@@ -341,7 +341,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                         ),
                         DashboardCard(
                           title: '${data['cancel'] ?? '-'}',
-                          subTitle: 'Cancel',
+                          subTitle: 'Canceled',
                           color: Color(0xFFf2bd2e),
                           asset: 'assets/images/cancel.png',
                           onTap: () {
@@ -409,9 +409,27 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                     //   ],
                     // ),
                     DashboardCard(
-                      title: '${data['IP_app_count'] ?? '-'}',
+                      title: '${data['revisit'] ?? '-'}',
+                      subTitle: 'Revisit Appointment',
+                      asset: 'assets/images/Appointment.png',
+                      color: Colors.orange,
+                      flex: 0,
+                      onTap: () {
+                        context.push(
+                          Routes.scheduledAppointmentList,
+                          {
+                            'hos_id': query['hos_id'],
+                            'statusId': 'X',
+                            'fromDate': query['From'],
+                            'toDate': query['To'] ,
+                          },
+                        );
+                      },
+                    ),
+                    DashboardCard(
+                      title: '${data['Reschedule'] ?? '-'}',
                       subTitle: 'Rescheduled Appointment',
-                      asset: 'assets/images/scheduled.png',
+                      asset: 'assets/images/Appointment.png',
                       color: Color(0xFF2fa6c4),
                       flex: 0,
                       onTap: () {
@@ -465,31 +483,33 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                         ),
                       ],
                     ),
-                    // const Divider(
-                    //   height: 24,
-                    //   endIndent: 0,
-                    //   indent: 0,
-                    // ),
-                    // Row(
-                    //   children: [
-                    //     Text(
-                    //       'Hospital Appointment',
-                    //       style: Theme.of(context).textTheme.bodySmall,
-                    //     ),
-                    //     const Spacer(),
-                    //     TextButton(
-                    //         onPressed: () {},
-                    //         child: Text('${data['total'] ?? '-'}'))
-                    //   ],
-                    // ),
-                    // const SizedBox(
-                    //   height: 5,
-                    // ),
-                    // ...hospitals.map((e) => ScheduleHospitalListItem(
-                    //       counter: '${e.app_count ?? '-'}',
-                    //       data: e,
-                    //     )),
-                    // const Space(300)
+                    const Divider(
+                      height: 24,
+                      endIndent: 0,
+                      indent: 0,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Hospital Appointment',
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                        const Spacer(),
+                        TextButton(
+                            onPressed: () {},
+                            child: Text('${data['total'] ?? '-'}'))
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    ...hospitals.map((e) => ScheduleHospitalListItem(
+                          counter: '${e.app_count ?? '-'}',
+                          data: e,
+                      fromDate: query['From'],
+                      toDate: query['To'] ,
+                        )),
+                    const Space(300)
                   ],
                 ),
               ),

@@ -81,46 +81,26 @@ class UserTile extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               if (doctor != null)
-                Row(
-                  children: [
-                    Text(
-                        doctor.fullName ??
-                            patient?.patientName ??
-                            '${patient?.firstName ?? 'dd'} ${patient?.lastName ?? 'ss'}',
-                        style: textStyle ??
-                            Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                fontSize: 16,
-                                color: DefaultTextStyle.of(context).style.color)),
-                    Text(
-                        '  Age ${patient?.age}',
-                        style: textStyle ??
-                            Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                fontSize: 12,
-                                color: DefaultTextStyle.of(context).style.color)),
-                  ],
-                ),
+                Text(
+                    doctor.fullName ??
+                        patient?.patientName ??
+                        '${patient?.firstName ?? 'dd'} ${patient?.lastName ?? 'ss'}',
+                    style: textStyle ??
+                        Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            fontSize: 16,
+                            color: DefaultTextStyle.of(context).style.color)),
               if (patient != null)
-                Row(
-                  children: [
-                    Text(
-                        patient.patientName ??
-                            '${patient.firstName ?? 'ere'} ${patient.lastName ?? 'eee'} Age ${patient.age}',
-                        style: textStyle ??
-                            Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                fontSize: 16,
-                                color: DefaultTextStyle.of(context).style.color)),
-                    Text(
-                        '  Age ${patient?.age}',
-                        style: textStyle ??
-                            Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                fontSize: 12,
-                                color: DefaultTextStyle.of(context).style.color)),
-                  ],
-                ),
+                Text(
+                    patient.patientName ??
+                        '${patient.firstName ?? 'ere'} ${patient.lastName ?? 'eee'} Age ${patient.age}',
+                    style: textStyle ??
+                        Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            fontSize: 16,
+                            color: DefaultTextStyle.of(context).style.color)),
               if (caption != null) ...[
-                // const SizedBox(
-                //   height: 2,
-                // ),
+                const SizedBox(
+                  height: 2,
+                ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.33,
                   child: DefaultTextStyle(

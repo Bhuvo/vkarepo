@@ -9,16 +9,22 @@ import 'package:timesmedlite/utils/navigator_utils.dart';
 class ScheduleHospitalListItem extends StatelessWidget {
   final String? counter;
   final BookingHospital data;
-  const ScheduleHospitalListItem({Key? key, this.counter, required this.data}) : super(key: key);
+  final String? fromDate;
+  final String? toDate;
+  const ScheduleHospitalListItem({Key? key, this.counter, required this.data, this.fromDate, this.toDate}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print('hostiptal Id ${data.hospital_id}');
     return MListTile(
         margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
         padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 12),
         onTap: (){
-          context.push(Routes.scheduledAppointmentList, {'hos_id': data.hospital_id ,
+          context.push(Routes.scheduledAppointmentList, {
+            'hos_id': data.hospital_id ,
             'statusId': 'T',
+            'fromDate': fromDate,
+            'toDate': toDate ,
           });
         },
         child: Row(

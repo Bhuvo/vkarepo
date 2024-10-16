@@ -11,6 +11,7 @@ import 'package:timesmedlite/ui/widgets/loading_widget.dart';
 
 import '../../../const/consts.dart';
 import '../../../model/appointment_data.dart';
+import '../../../model/medical_record.dart';
 import '../../../utils/local_storage.dart';
 import '../../widgets/m_scaffold.dart';
 import 'package:http/http.dart' as http;
@@ -19,9 +20,11 @@ import 'model/prescription_template_model.dart';
 
 class PrescriptionPrint extends StatefulWidget {
   final List data;
+  final List labTest;
+  final MedicalRecord orgData;
   final AppointmentData? appointment;
 
-  const PrescriptionPrint({Key? key, required this.data, this.appointment})
+  const PrescriptionPrint({Key? key, required this.data, this.appointment, required this.labTest, required this.orgData})
       : super(key: key);
 
   @override
@@ -58,7 +61,7 @@ Future<void> getTemplate() async {
 
 
 Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
-    AppointmentData? appointment, List data) async {
+    AppointmentData? appointment, List data, MedicalRecord orgData, List labTest) async {
   final pdf = pw.Document();
 
   final image = await imageFromAssetBundle('assets/images/timesmedlogo.png');
@@ -265,11 +268,58 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
                           : data[i]['Doctor_Notes']),
                     ]),
                 ]),
+            pw.SizedBox(
+              height: 6
+            ),
+            // pw.Divider(
+            //   height: 3,
+            //   color: PdfColor.fromInt(0xff35b8b0),
+            // ),
+
+            labTest.length == 0 ? pw.Container(): pw.Row(
+              children: [
+                pw.Text('Lab Tests', style: pw.TextStyle(fontSize: 13),textAlign: pw.TextAlign.start),
+              ]
+            ),
+            labTest.length == 0 ? pw.Container(): pw.SizedBox(
+                height: 3
+            ),
+            labTest.length == 0 ? pw.Container() : pw.Table(
+                defaultColumnWidth: const pw.IntrinsicColumnWidth(),
+                border: pw.TableBorder.all(color: PdfColors.grey200),
+                // Allows to add a border decoration around your table
+                children: [
+                  pw.TableRow(
+                      decoration: const pw.BoxDecoration(
+                        color: PdfColors.grey200,
+                      ),
+                      children: [
+                        TableRowItems('Dept Name'),
+                        TableRowItems('Test Name'),
+                        TableRowItems('Instructions'),
+                      ]),
+                  for (int i = 0; i < labTest.length; i++)
+                    pw.TableRow(children: [
+                      TableRowItems(labTest[i]['DeptName'].toString()),
+                      TableRowItems(labTest[i]['test_name'].toString()),
+                      TableRowItems(labTest[i]['finding'].toString()),
+                    ]),
+                ]),
+            pw.SizedBox(
+                height: 6
+            ),
+            pw.Row(
+              children: [
+                pw.Text('Revisit - ${data[0]['revisit']}', style: pw.TextStyle(fontSize: 13),textAlign: pw.TextAlign.start),
+
+              ]
+            ),
             pw.Spacer(),
             pw.Divider(
               height: 3,
               color: PdfColor.fromInt(0xff35b8b0),
             ),
+
             pw.SizedBox(
               height: 10,
             ),
@@ -742,7 +792,7 @@ class _PrescriptionPrintState extends State<PrescriptionPrint> {
         child: PdfPreview(loadingWidget: Container(),
           build: (format) => widget.data.length < 15
               ? _generatePdfWhenNumberofItemsIsLessThan15(
-                  widget.appointment, widget.data)
+                  widget.appointment, widget.data,widget.orgData,widget.labTest)
               : _generatePdfWhenNumberofItemsIsGreaterThan15(
                   widget.appointment, widget.data),
         ),

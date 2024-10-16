@@ -72,21 +72,22 @@ class AppointmentPatientDetails extends StatelessWidget {
                 ActionTile(
                     title: 'Complete Visit',
                     onTap: (){
-                      showDialog(context: context, builder: (context){
-                        return AlertDialog(
-                          title: Text('Are you sure you want to complete this visit?'),
-                            actions: [
-                              TextButton(onPressed: ()async{
-                                await controller.changeStatus(LocalStorage.getUID().toString(), data.Appointment_id.toString(), 'Visited');
-                                context.pop();
-                                context.pop();
-                              }, child: Text('Yes')),
-                              TextButton(onPressed: (){
-                                context.pop();
-                              }, child: Text('No')),
-                            ],
-                        );
-                      });
+                      print('Appointment Id ${data.Appointment_id}');
+                      // showDialog(context: context, builder: (context){
+                      //   return AlertDialog(
+                      //     title: Text('Are you sure you want to complete this visit?'),
+                      //       actions: [
+                      //         TextButton(onPressed: ()async{
+                      //           await controller.changeStatus(LocalStorage.getUID().toString(), data.Appointment_id.toString(), 'Visited');
+                      //           context.pop();
+                      //           context.pop();
+                      //         }, child: Text('Yes')),
+                      //         TextButton(onPressed: (){
+                      //           context.pop();
+                      //         }, child: Text('No')),
+                      //       ],
+                      //   );
+                      // });
 
                      //  final call = Injector()
                      //      .apiService
@@ -96,11 +97,11 @@ class AppointmentPatientDetails extends StatelessWidget {
                      //    'R_No': '0',
                      //  });
                      // call.then((value) => print(value.body));
-                     //  context.push(Routes.updateCallStatus, {
-                     //    'appointmentIDFromCallScreen': '${data.Appointment_id}',
-                     //    'currentCallKey': '',
-                     //    'isFromClinicalVisit': true
-                     //  });
+                      context.push(Routes.updateCallStatus, {
+                        'appointmentIDFromCallScreen': '${data.Appointment_id}',
+                        'currentCallKey': '',
+                        'isFromClinicalVisit': true
+                      });
                     },
                     data: data,
                     icon: FontAwesomeIcons.fileShield),
