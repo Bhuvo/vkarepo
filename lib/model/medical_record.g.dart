@@ -9,6 +9,9 @@ part of 'medical_record.dart';
 _$MedicalRecordImpl _$$MedicalRecordImplFromJson(Map<String, dynamic> json) =>
     _$MedicalRecordImpl(
       DeptName: json['DeptName'] ?? '',
+      reApp_Date: json['reApp_Date'] ?? '',
+      Revisit_Appointment_id: json['Revisit_Appointment_id'] ?? '',
+      reApp_Time: json['reApp_Time'] ?? '',
       Doctor_Notes: json['Doctor_Notes'] ?? '',
       Hospital_id: json['Hospital_id'] ?? '',
       Timing: json['Timing'] ?? '',
@@ -177,6 +180,9 @@ _$MedicalRecordImpl _$$MedicalRecordImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$MedicalRecordImplToJson(_$MedicalRecordImpl instance) =>
     <String, dynamic>{
       'DeptName': instance.DeptName,
+      'reApp_Date': instance.reApp_Date,
+      'Revisit_Appointment_id': instance.Revisit_Appointment_id,
+      'reApp_Time': instance.reApp_Time,
       'Doctor_Notes': instance.Doctor_Notes,
       'Hospital_id': instance.Hospital_id,
       'Timing': instance.Timing,

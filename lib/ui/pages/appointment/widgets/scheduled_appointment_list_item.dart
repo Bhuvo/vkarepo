@@ -259,15 +259,18 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                                   ))
                                 ],
                               ))
-                            ] else const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                              child: Text(
-                                'PRESCRIPTION NOT COLLECTED',
-                                textAlign: TextAlign.end,
-                                style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 10),
+                            ] else FilledButton.tonal(
+                              onPressed: () {  },
+                              child: const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                                child: Text(
+                                  'PRESCRIPTION NOT COLLECTED',
+                                  textAlign: TextAlign.end,
+                                  style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 10),
+                                ),
                               ),
                             ),
 
@@ -300,15 +303,18 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                                   ))
                                 ],
                               ))
-                            ] else const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                              child: Text(
-                                'LAB TEST NOT COLLECTED',
-                                textAlign: TextAlign.end,
-                                style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 10),
+                            ] else FilledButton.tonal(
+                              onPressed: () {  },
+                              child: const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                                child: Text(
+                                  'LAB TEST NOT COLLECTED',
+                                  textAlign: TextAlign.end,
+                                  style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 10),
+                                ),
                               ),
                             ),
                           ],

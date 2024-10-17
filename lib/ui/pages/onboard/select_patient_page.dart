@@ -16,6 +16,8 @@ import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 import 'package:timesmedlite/utils/size_utils.dart';
 
+import '../../theme/theme.dart';
+
 class SelectPatientPage extends StatelessWidget {
   const SelectPatientPage({Key? key}) : super(key: key);
 
@@ -89,16 +91,24 @@ class SelectPatientPage extends StatelessWidget {
                               children: [
                                 InkWell(
                                   onTap: (){
-                                    LocalStorage.setJson(LocalStorage.CURSOR_USER, e.toJson());
+                                    // LocalStorage.setJson(LocalStorage.CURSOR_USER, e.toJson());
+                                    //     print(LocalStorage.getUser().userId.toString());
+                                    //     print(LocalStorage.getUser().patientImage);
+                                    //     print(LocalStorage.getUser().name);
+                                    //     context.read<PatientBloc>().add(Select(Patient.fromJson(e.toJson())));
+                                    //     navigate(context);
+                                  },
+                                  child: PatientProvider(
+                                    data: e,
+                                      child: UserTile(trailing: IconButton(onPressed: (){
+                                        LocalStorage.setJson(LocalStorage.CURSOR_USER, e.toJson());
                                         print(LocalStorage.getUser().userId.toString());
                                         print(LocalStorage.getUser().patientImage);
                                         print(LocalStorage.getUser().name);
                                         context.read<PatientBloc>().add(Select(Patient.fromJson(e.toJson())));
                                         navigate(context);
-                                  },
-                                  child: PatientProvider(
-                                    data: e,
-                                      child: UserTile(
+                                      }, icon: Icon(Icons.arrow_forward_ios,color: MTheme.ICON_COLOR,)),
+                                        caption:Text('Age: ${e.age} | Gender: ${e.gender}'),
                                       )),
                                 ),
                                 data.length > 1 ?MDivider() : Container()

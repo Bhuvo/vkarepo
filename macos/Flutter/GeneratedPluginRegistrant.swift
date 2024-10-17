@@ -21,7 +21,7 @@ import pdfx
 import printing
 import shared_preferences_foundation
 import smart_auth
-import sqflite
+import sqflite_darwin
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   FlutterPluginPdfViewerPlugin.register(with: registry.registrar(forPlugin: "FlutterPluginPdfViewerPlugin"))

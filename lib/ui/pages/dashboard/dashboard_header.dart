@@ -56,7 +56,7 @@ class DashboardHeader extends StatelessWidget {
             width: 10,
           ),
           Text(
-            AppConfig.of(context)?.config == Config.patient ? '${LocalStorage.getCursorPatient().patientName}':'${user.fullName ?? 'Vicky'}',
+            AppConfig.of(context)?.config == Config.patient ? '${LocalStorage.getCursorPatient().patientName}':LocalStorage.isNurse ? 'Nurse ${user.fullName ?? 'Vicky'}':'Dr ${user.fullName ?? 'Vicky'}',
             style: const TextStyle(
                 fontWeight: FontWeight.w600, color: Colors.white),
           ),

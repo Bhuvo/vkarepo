@@ -188,7 +188,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                                     height: 16,
                                   ),
                                   Text(
-                                    '${data['Doctor_Name'] ?? ''}',
+                                    'Dr ${data['Doctor_Name'] ?? ''}',
                                     style:
                                         Theme.of(context).textTheme.headlineSmall,
                                   ),

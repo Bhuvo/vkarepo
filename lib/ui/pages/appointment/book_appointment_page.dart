@@ -56,6 +56,282 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
   late ApiBuilderBloc clApBloc;
 
   /// Below code is for the user saved patient list api bloc
+  changeProfile(BuildContext context){
+    showModalBottomSheet(context: context, builder: (context){
+      Size size = MediaQuery.of(context).size;
+      return Container(
+        // height: 200,
+        child: BlocConsumer<ApiBuilderBloc, ApiBuilderState>(
+            listener: (context, state) {
+              log(state.toString());
+            },
+            bloc: familyBloc,
+            builder: (context, snapshot) {
+              return BlocProvider(
+                key: ValueKey(familyBloc),
+                create: (_) => familyBloc,
+                child: ApiBuilder<Patient>(
+                  fromJson: Patient.fromJsonFactory,
+                  customBuilder: (list, load) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(),
+                        Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Text('Change Profile',style: TextStyle(color: MTheme.THEME_COLOR,fontSize: 18,fontWeight: FontWeight.bold),textAlign: TextAlign.start,),
+                        ) ,
+                        Expanded(
+                          // height: size.height/2,
+                          child: ListView.builder(
+                            itemCount: list.length,
+                            // scrollDirection: Axis.horizontal,
+                            padding:
+                            const EdgeInsets.all(5),
+                            itemBuilder: (c, i) {
+                              final data = list[i];
+                              if (context
+                                  .read<PatientBloc>()
+                                  .patient
+                                  ?.userId ==
+                                  data.userId ||
+                                  context.read<PatientBloc>().patient?.id ==
+                                      data.userId) {
+                                context.read<PatientBloc>().add(Select(data));
+                              }
+                              return PatientProvider(
+                                data: data,
+                                child: MListTile(
+                                  onTap: () async {
+                                    context
+                                        .read<PatientBloc>()
+                                        .add(Select(data));
+                                    await Future.delayed(
+                                        const Duration(milliseconds: 100));
+                                    // familyBloc.add(UpdateQuery({
+                                    //   'user_id': LocalStorage.getUser().userId,
+                                    // }));
+                                    await Future.delayed(
+                                        const Duration(milliseconds: 100));
+                                    LocalStorage.setJson(LocalStorage.CURSOR_USER, data.toJson());
+
+                                    // familyBloc.add(const Refresh());
+                                    await Future.delayed(
+                                        const Duration(milliseconds: 100));
+                                    print('coming ontap ${data.userId}');
+                                    context.pop();
+                                    setState(() {});
+                                    // await controller.getClinicalAppointmentData(data.userId);
+                                  },
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 8),
+                                  child: Padding(
+                                    // padding: const EdgeInsets.symmetric(
+                                    //     horizontal: 16
+                                    padding: const EdgeInsets.all(10),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.center,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  data.patientName ?? 'Name',
+                                                  style: const TextStyle(
+                                                      fontWeight: FontWeight.w600,
+                                                      color: MTheme.THEME_COLOR),
+                                                ),
+                                                const SizedBox(
+                                                  width: 8,
+                                                ),
+                                                Text(
+                                                  'Age: ${data.age ?? ''}',
+                                                  style: const TextStyle(
+                                                      fontWeight:
+                                                      FontWeight.w600),
+                                                ),
+                                              ],
+                                            ),
+                                            data.userId ==
+                                                LocalStorage.getUser().userId
+                                                ? Container(
+                                              padding: EdgeInsets.only(
+                                                top: size.height * 0.03,
+                                              ),
+                                              child: Icon( Icons.account_circle_rounded,color: MTheme.THEME_COLOR,),
+                                            )
+                                                : Row(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                              // crossAxisAlignment: CrossAxisAlignment.end,
+                                              children: [
+                                                SizedBox(
+                                                  width:
+                                                  MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                      0.15,
+                                                ),
+                                                ClipOval(
+                                                  child: Material(
+                                                    elevation: 2,
+                                                    color: Colors.white,
+                                                    child: InkWell(
+                                                      splashColor: MTheme
+                                                          .THEME_COLOR,
+                                                      // Splash color
+                                                      onTap: () async {
+                                                        final updatedPatient =
+                                                        await context.push(
+                                                            Routes
+                                                                .addFamilyEdit,
+                                                            {
+                                                              "userName": data
+                                                                  .patientName
+                                                                  .toString(),
+                                                              "mobileNumber": data
+                                                                  .mobile
+                                                                  .toString(),
+                                                              "age": data
+                                                                  .age
+                                                                  .toString(),
+                                                              "userId": data
+                                                                  .userId
+                                                                  .toString(),
+                                                              "familyMemberId": data
+                                                                  .familyMemberId
+                                                                  .toString(),
+                                                              "relationShipName": data
+                                                                  .relationName
+                                                                  .toString(),
+                                                              "gender": data
+                                                                  .gender
+                                                                  .toString(),
+                                                              "primaryMobile": LocalStorage
+                                                                  .getUser()
+                                                                  .phoneNumber
+                                                                  .toString(),
+                                                              "primaryUserId":
+                                                              LocalStorage
+                                                                  .getUID()
+                                                                  .toString(),
+                                                              "DOB": data
+                                                                  .dob
+                                                                  .toString(),
+                                                            });
+                                                        if (context
+                                                            .read<
+                                                            PatientBloc>()
+                                                            .patient
+                                                            ?.userId
+                                                            .toString() ==
+                                                            data.userId
+                                                                .toString() ) {
+                                                          context
+                                                              .read<
+                                                              PatientBloc>()
+                                                              .add(Select(
+                                                              updatedPatient));
+                                                        }
+
+                                                        await Future
+                                                            .delayed(
+                                                          const Duration(
+                                                              milliseconds:
+                                                              300),
+                                                        );
+                                                        familyBloc.add(
+                                                            const Refresh());
+                                                      },
+                                                      child: SizedBox(
+                                                        width: size.width *
+                                                            0.05,
+                                                        height:
+                                                        size.height *
+                                                            0.032,
+                                                        child: Icon(
+                                                          Icons.edit,
+                                                          color: Colors
+                                                              .black38,
+                                                          size: MediaQuery.of(
+                                                              context)
+                                                              .size
+                                                              .height *
+                                                              0.025,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                ClipOval(
+                                                  child: Material(
+                                                    elevation: 2,
+                                                    color: Colors.white,
+                                                    child: InkWell(
+                                                      splashColor:
+                                                      Colors.red,
+                                                      // Splash color
+                                                      onTap: () async {
+                                                        // showAlertDialog(
+                                                        //     context,
+                                                        //     data.userId);
+                                                      },
+                                                      child: SizedBox(
+                                                        width: size.width *
+                                                            0.095,
+                                                        height:
+                                                        size.height *
+                                                            0.032,
+                                                        child: Icon(
+                                                          Icons.delete,
+                                                          color: Colors
+                                                              .red.shade300,
+                                                          size: MediaQuery.of(
+                                                              context)
+                                                              .size
+                                                              .height *
+                                                              0.025,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 8,
+                                        ),
+                                        Text(
+                                          data.mobile ?? '',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              );
+            }),
+      );
+    });
+  }
 
   showAlertDialog(BuildContext context, int userId) {
     // set up the buttons
@@ -258,6 +534,13 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
             itemBuilder: (BuildContext context) {
               return const [
                 PopupMenuItem(
+                  value: 'Change Profile',
+                  child: Text(
+                    'Change Profile',
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+                PopupMenuItem(
                   value: 'Logout',
                   child: Text(
                     'Logout',
@@ -270,6 +553,9 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
               switch (v) {
                 case 'Logout':
                   logOut(context);
+                break;
+                case 'Change Profile':
+                  changeProfile(context);
                   break;
               }
             },

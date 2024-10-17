@@ -305,15 +305,20 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
                       TableRowItems(labTest[i]['finding'].toString()),
                     ]),
                 ]),
-            // pw.SizedBox(
-            //     height: 6
-            // ),
-            // pw.Row(
-            //   children: [
-            //     pw.Text('Revisit - ${data[0]['revisit']}', style: pw.TextStyle(fontSize: 13),textAlign: pw.TextAlign.start),
-            //
-            //   ]
-            // ),
+            pw.SizedBox(
+                height: 10
+            ),
+            orgData.Revisit_Appointment_id == ''|| orgData.Revisit_Appointment_id == 0 ? pw.Container(): pw.Column(
+              crossAxisAlignment: pw.CrossAxisAlignment.start,
+              children: [
+                pw.Row(),
+                pw.Text('Revisit - ${orgData.reApp_Date} -${orgData.reApp_Time}', style: pw.TextStyle(fontSize: 10),textAlign: pw.TextAlign.start),
+                pw.SizedBox(
+                    height: 3
+                ),
+                pw.Text('Revisit Appointment Id - ${orgData.Revisit_Appointment_id}', style: pw.TextStyle(fontSize: 10),textAlign: pw.TextAlign.start),
+              ]
+            ),
             pw.Spacer(),
             pw.Divider(
               height: 3,
@@ -358,7 +363,7 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
 }
 
 Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
-    AppointmentData? appointment, List data ,List labTest) async {
+    AppointmentData? appointment, List data ,List labTest, MedicalRecord orgData) async {
   final pdf = pw.Document();
 
   final image = await imageFromAssetBundle('assets/images/timesmedlogo.png');
@@ -574,6 +579,20 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
                       TableRowItems(labTest[i]['finding'].toString()),
                     ]),
                 ]),
+            pw.SizedBox(
+                height: 6
+            ),
+            orgData.Revisit_Appointment_id == ''|| orgData.Revisit_Appointment_id == 0 ? pw.Container():  pw.Column(
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
+                children: [
+                  pw.Row(),
+                  pw.Text('Revisit - ${orgData.reApp_Date} -${orgData.reApp_Time}', style: pw.TextStyle(fontSize: 13),textAlign: pw.TextAlign.start),
+                  pw.SizedBox(
+                      height: 3
+                  ),
+                  pw.Text('Revisit Appointment Id - ${orgData.Revisit_Appointment_id}', style: pw.TextStyle(fontSize: 13),textAlign: pw.TextAlign.start),
+                ]
+            ),
             pw.Spacer(),
             pw.Divider(
               height: 3,
@@ -826,7 +845,7 @@ class _PrescriptionPrintState extends State<PrescriptionPrint> {
               ? _generatePdfWhenNumberofItemsIsLessThan15(
                   widget.appointment, widget.data,widget.orgData,widget.labTest)
               : _generatePdfWhenNumberofItemsIsGreaterThan15(
-                  widget.appointment, widget.data,widget.labTest),
+                  widget.appointment, widget.data,widget.labTest,widget.orgData),
         ),
       ),
     );

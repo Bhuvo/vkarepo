@@ -8,6 +8,9 @@ part 'medical_record.g.dart';
 class MedicalRecord with _$MedicalRecord {
   const factory MedicalRecord({
 @Default('') dynamic DeptName,
+@Default('') dynamic reApp_Date,
+@Default('') dynamic Revisit_Appointment_id,
+@Default('') dynamic reApp_Time,
 @Default('') dynamic Doctor_Notes,
 @Default('') dynamic Hospital_id,
 @Default('') dynamic Timing,
