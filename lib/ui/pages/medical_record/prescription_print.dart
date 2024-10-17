@@ -196,7 +196,7 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
                 ),
                 pw.Spacer(),
                 pw.Text(
-                  "Date & Time : ${DateFormat('dd/MM/yyyy – kk:mm a').format(DateTime.now())}",
+                  "Date & Time : ${DateFormat('dd/MM/yyyy  kk:mm a').format(DateTime.now())}",
                   style: const pw.TextStyle(fontSize: 10),
                 ),
               ],
@@ -268,14 +268,14 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
                           : data[i]['Doctor_Notes']),
                     ]),
                 ]),
-            pw.SizedBox(
-              height: 6
-            ),
+
             // pw.Divider(
             //   height: 3,
             //   color: PdfColor.fromInt(0xff35b8b0),
             // ),
-
+            pw.SizedBox(
+                height: 6
+            ),
             labTest.length == 0 ? pw.Container(): pw.Row(
               children: [
                 pw.Text('Lab Tests', style: pw.TextStyle(fontSize: 13),textAlign: pw.TextAlign.start),
@@ -305,15 +305,15 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
                       TableRowItems(labTest[i]['finding'].toString()),
                     ]),
                 ]),
-            pw.SizedBox(
-                height: 6
-            ),
-            pw.Row(
-              children: [
-                pw.Text('Revisit - ${data[0]['revisit']}', style: pw.TextStyle(fontSize: 13),textAlign: pw.TextAlign.start),
-
-              ]
-            ),
+            // pw.SizedBox(
+            //     height: 6
+            // ),
+            // pw.Row(
+            //   children: [
+            //     pw.Text('Revisit - ${data[0]['revisit']}', style: pw.TextStyle(fontSize: 13),textAlign: pw.TextAlign.start),
+            //
+            //   ]
+            // ),
             pw.Spacer(),
             pw.Divider(
               height: 3,
@@ -358,7 +358,7 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
 }
 
 Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
-    AppointmentData? appointment, List data) async {
+    AppointmentData? appointment, List data ,List labTest) async {
   final pdf = pw.Document();
 
   final image = await imageFromAssetBundle('assets/images/timesmedlogo.png');
@@ -470,7 +470,7 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
                 ),
                 pw.Spacer(),
                 pw.Text(
-                  "Date & Time : ${DateFormat('MM/dd/yyyy – kk:mm a').format(DateTime.now())}",
+                  "Date & Time : ${DateFormat('MM/dd/yyyy  kk:mm a').format(DateTime.now())}",
                   style: const pw.TextStyle(fontSize: 10),
                 ),
               ],
@@ -540,6 +540,38 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
                           : data[i]['FoodInstr']),
 
                       TableRowItems(data[i]['instruction'].toString()),
+                    ]),
+                ]),
+            pw.SizedBox(
+                height: 6
+            ),
+            labTest.length == 0 ? pw.Container(): pw.Row(
+                children: [
+                  pw.Text('Lab Tests', style: pw.TextStyle(fontSize: 13),textAlign: pw.TextAlign.start),
+                ]
+            ),
+            labTest.length == 0 ? pw.Container(): pw.SizedBox(
+                height: 3
+            ),
+            labTest.length == 0 ? pw.Container() : pw.Table(
+                defaultColumnWidth: const pw.IntrinsicColumnWidth(),
+                border: pw.TableBorder.all(color: PdfColors.grey200),
+                // Allows to add a border decoration around your table
+                children: [
+                  pw.TableRow(
+                      decoration: const pw.BoxDecoration(
+                        color: PdfColors.grey200,
+                      ),
+                      children: [
+                        TableRowItems('Dept Name'),
+                        TableRowItems('Test Name'),
+                        TableRowItems('Instructions'),
+                      ]),
+                  for (int i = 0; i < labTest.length; i++)
+                    pw.TableRow(children: [
+                      TableRowItems(labTest[i]['DeptName'].toString()),
+                      TableRowItems(labTest[i]['test_name'].toString()),
+                      TableRowItems(labTest[i]['finding'].toString()),
                     ]),
                 ]),
             pw.Spacer(),
@@ -629,7 +661,7 @@ Future<Uint8List> _generatePdfWhenNumberofItemsIsGreaterThan15(
                 ),
                 pw.Spacer(),
                 pw.Text(
-                  "Date & Time : ${DateFormat('MM/dd/yyyy – kk:mm a').format(DateTime.now())}",
+                  "Date & Time : ${DateFormat('MM/dd/yyyy  kk:mm a').format(DateTime.now())}",
                   style: const pw.TextStyle(fontSize: 10),
                 ),
               ],
@@ -794,7 +826,7 @@ class _PrescriptionPrintState extends State<PrescriptionPrint> {
               ? _generatePdfWhenNumberofItemsIsLessThan15(
                   widget.appointment, widget.data,widget.orgData,widget.labTest)
               : _generatePdfWhenNumberofItemsIsGreaterThan15(
-                  widget.appointment, widget.data),
+                  widget.appointment, widget.data,widget.labTest),
         ),
       ),
     );
