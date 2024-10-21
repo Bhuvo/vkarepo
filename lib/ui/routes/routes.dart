@@ -103,4 +103,12 @@ abstract class Routes {
       'BookAppointmentForClinicalTiming';
 
   static const String pdfVka = 'pdfVka';
+
+  //admin
+  static const String adminSignUpPage = 'adminSignUpPage';
+  static const String adminDashboard = 'adminDashboard';
+  static const String doctorsList = 'doctorsList';
+  static const String addNewDoctor = 'addNewDoctor';
+
+
 }

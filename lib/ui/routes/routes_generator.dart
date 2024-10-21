@@ -67,9 +67,13 @@ import 'package:timesmedlite/ui/pages/vka_patient/my_inr_details.dart';
 import 'package:timesmedlite/ui/pages/vka_patient/vital.dart';
 import 'package:timesmedlite/ui/pages/waiting_list/waiting_list_page.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
+import '../pages/admin/add_new_doctor.dart';
+import '../pages/admin/admin_dashboard.dart';
+import '../pages/admin/common_list.dart';
 import '../pages/appointment/Clinical Visit/book_appointment_clinical_timing.dart';
 import '../pages/appointment/Clinical Visit/doctors_clinical_details.dart';
 import '../pages/appointment/Clinical Visit/doctors_list_for_clinical_visit.dart';
+import '../pages/auth/admin_sign_up_page.dart';
 import '../pages/clinical_notes/clinical_notes_add_page.dart';
 import '../pages/dashboard/video_dashboard.dart';
 import '../pages/instant_call/instant_call_list_dialog.dart';
@@ -595,6 +599,21 @@ abstract class RouteGenerator {
         return route(settings, OrderStatusPage(orderId: '${args['order_id']}'));
       case Routes.ordersList:
         return route(settings, OrdersList());
+        case Routes.adminDashboard:
+        return route(settings, AdminDashboard());
+        case Routes.doctorsList:
+          args as Map;
+        return route(settings, CommonList(
+            title: args['title'],
+          adminId: args['adminId'],
+          doctor:args['doctor'] ?? false,
+          nurse:args['nurse'] ?? false,
+          fo:args['fo'] ?? false,
+        ));
+        case Routes.addNewDoctor:
+        return route(settings,AddNewDoctor());
+        case Routes.adminSignUpPage:
+        return route(settings,AdminSignUpPage());
       default:
         return route(settings, const SplashPage());
     }

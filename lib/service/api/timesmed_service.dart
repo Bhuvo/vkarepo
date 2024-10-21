@@ -79,7 +79,7 @@ abstract class TimesmedService extends ChopperService {
       ],
       converter: const JsonSerializableConverter({
         ApiResponse: ApiResponse.fromJsonFactory,
-        FetchListResponse: FetchListResponse.fromJsonFactory
+        FetchListResponse: FetchListResponse.fromJson
       }),
       interceptors: [
         HttpLoggingInterceptor(),

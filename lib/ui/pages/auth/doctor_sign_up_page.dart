@@ -11,6 +11,7 @@ import '../../../di/dependency_injection.dart';
 import '../../components/login_header.dart';
 import '../../components/waiting_dialog.dart';
 import '../../routes/routes.dart';
+import '../../theme/theme.dart';
 import '../../widgets/m_date_time_picker.dart';
 import '../../widgets/m_password_text_field.dart';
 import '../../widgets/m_radio_chip.dart';
@@ -21,6 +22,14 @@ class DoctorSignUpPage extends StatefulWidget {
 
   @override
   State<DoctorSignUpPage> createState() => _DoctorSignUpPageState();
+}
+
+checkDoctorName (String doctorName) {
+  doctorName.trim();
+  if(doctorName.toLowerCase().contains('dr.')){
+    doctorName.toLowerCase().replaceAll('dr.', '');
+  }
+  return 'Dr. $doctorName';
 }
 
 class _DoctorSignUpPageState extends State<DoctorSignUpPage> {
@@ -52,42 +61,47 @@ class _DoctorSignUpPageState extends State<DoctorSignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MScaffold(
-        hero: false,
-        paddingTop: context.getWPercent(10),
-        //bodyPadding: EdgeInsets.only(top: context.getWPercent(60), bottom: 56),
-        customHeader: Container(
-            alignment: Alignment.center,
-            height: context.getWPercent(30),
-            padding: const EdgeInsets.all(20),
-            child: Hero(
-                tag: 'LOGO',
-                child: SvgPicture.asset(
-                  'assets/svg/tm_logo_w.svg',
-                  fit: BoxFit.fitWidth,
-                  color: Colors.white,
-                  height: context.height * 0.1,
-                  width: context.width * 0.1,
-                ))),
+    return Scaffold(
+        // hero: false,
+        // paddingTop: context.getWPercent(10),
+        // //bodyPadding: EdgeInsets.only(top: context.getWPercent(60), bottom: 56),
+        // customHeader: Container(
+        //     alignment: Alignment.center,
+        //     height: context.getWPercent(30),
+        //     padding: const EdgeInsets.all(20),
+        //     child: Hero(
+        //         tag: 'LOGO',
+        //         child: SvgPicture.asset(
+        //           'assets/svg/tm_logo_w.svg',
+        //           fit: BoxFit.fitWidth,
+        //           color: Colors.white,
+        //           height: context.height * 0.1,
+        //           width: context.width * 0.1,
+        //         ))),
+      appBar: AppBar(
+        backgroundColor: MTheme.THEME_COLOR,
+        title: Text('Create Doctor', style: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 18
+      )),),
         body: SingleChildScrollView(
             child: Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
                 ),
-                child: Column(children: [
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                   const SizedBox(
-                    height: 64,
+                    height: 20,
                   ),
                   Text(
-                    'SignUp',
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
-                  Text(
-                    'Please sign up to continue.',
-                    style: Theme.of(context).textTheme.bodyMedium,
+                    'Please Fill below details to Create Doctor',
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   const SizedBox(
-                    height: 32,
+                    height: 10,
                   ),
                   Form(
                     key: _formKey,
@@ -280,7 +294,7 @@ class _DoctorSignUpPageState extends State<DoctorSignUpPage> {
                               'Doctor_PhoneNumber':
                                   doctorMobileNumberController.text,
                               //"150933",
-                              'Doctor_Name': doctorNameController.text,
+                              'Doctor_Name': checkDoctorName(doctorNameController.text),
                               'Password': doctorPasswordController.text,
                               'Doctor_mailid': emailController.text,
                               'Doctor_Age': ageFromDob.text,

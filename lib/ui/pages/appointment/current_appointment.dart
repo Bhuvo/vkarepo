@@ -340,16 +340,17 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           },
                         ),
                         DashboardCard(
-                          title: '${data['cancel'] ?? '-'}',
-                          subTitle: 'Canceled',
-                          color: Color(0xFFf2bd2e),
-                          asset: 'assets/images/cancel.png',
+                          // title: '${data['confirmed'] ?? ''}',
+                          title: '${data['upcoming'] ?? ''}',
+                          subTitle: 'Confirmed',
+                          color: Colors.brown.shade400,
+                          asset: 'assets/images/confirm.png',
                           onTap: () {
                             context.push(
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
-                                'statusId': 'R',
+                                'statusId': 'F',
                                 'fromDate': query['From'],
                                 'toDate': query['To'] ,
                               },
@@ -464,17 +465,16 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           },
                         ),
                         DashboardCard(
-                          // title: '${data['confirmed'] ?? ''}',
-                          title: '${data['upcoming'] ?? ''}',
-                          subTitle: 'Confirmed',
-                          color: Colors.green.shade400,
-                          asset: 'assets/images/confirm.png',
+                          title: '${data['cancel'] ?? '-'}',
+                          subTitle: 'Canceled',
+                          color: Color(0xFFf2bd2e),
+                          asset: 'assets/images/cancel.png',
                           onTap: () {
                             context.push(
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
-                                'statusId': 'F',
+                                'statusId': 'R',
                                 'fromDate': query['From'],
                                 'toDate': query['To'] ,
                               },

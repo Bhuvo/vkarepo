@@ -6,7 +6,7 @@ import 'package:timesmedlite/ui/widgets/widgets.dart';
 class MListTile extends StatelessWidget {
   final Widget child;
   final Function()? onTap;
-  final Color? color, background, borderColor;
+  final Color? color, background, borderColor,shadow;
   final EdgeInsets margin;
   final EdgeInsets? padding;
   final double? width, height;
@@ -27,7 +27,7 @@ class MListTile extends StatelessWidget {
       this.actions,
       this.padding,
       this.margin = const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      this.width})
+      this.width, this.shadow})
       : super(key: key);
 
 
@@ -52,7 +52,7 @@ class MListTile extends StatelessWidget {
           border: Border.all(color: (borderColor ?? Theme.of(context).dividerColor).withOpacity(0.01)),
           boxShadow: [
             BoxShadow(
-                color: Colors.grey.withOpacity(0.05),
+                color: shadow?? Colors.grey.withOpacity(0.05),
                 blurRadius: 5,
                 spreadRadius: 4,
                 offset: Offset(0, 4)

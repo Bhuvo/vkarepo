@@ -123,3 +123,54 @@ class ContentView2 extends StatelessWidget {
     return Expanded(child: container);
   }
 }
+
+class ContentView3 extends StatelessWidget {
+  final String label, content;
+  final IconData? icon;
+
+  const ContentView3(
+      {Key? key,
+      required this.content,
+      required this.label,
+      this.icon,
+      })
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final body = Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600),
+        ),
+        Text(
+          content,
+          style: TextStyle(fontSize: 13,fontWeight: FontWeight.w400),
+        ),
+      ],
+    );
+
+    final container = Container(
+      padding:EdgeInsets.only(bottom: 2),
+      child: icon == null
+          ? body
+          : Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                FaIcon(
+                  icon!,
+                  color: MTheme.ICON_COLOR,
+                  size: 20,
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                body
+              ],
+            ),
+    );
+    return container;
+  }
+}

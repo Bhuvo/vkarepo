@@ -26,7 +26,7 @@ class HomeBottomNavigation extends StatelessWidget {
       actions: actions,
       bottom: MBottomNavigation(
         key: ValueKey('bottomnav'),
-        items: IsType == Consts.nurse || IsType == Consts.frontOffice ? Consts.NURSE_BOTTOM_NAVIGATION_ITEMS : Consts.BOTTOM_NAVIGATION_ITEMS,
+        items: IsType == Consts.nurse || IsType == Consts.frontOffice ? Consts.NURSE_BOTTOM_NAVIGATION_ITEMS :IsType == Consts.admin ? Consts.adminBottomNavigationItems:Consts.BOTTOM_NAVIGATION_ITEMS,
       ),
       body: body,
       appBarBottom: appBarBottom,

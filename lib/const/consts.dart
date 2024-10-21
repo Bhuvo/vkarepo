@@ -199,6 +199,7 @@ class Consts {
   static const String doctor = 'Doctor';
   static const String nurse = 'Nurse';
   static const String frontOffice = 'FOffice';
+  static const String admin = 'admin';
 
   // static const freqs = [
   //   "1-1-0-1",
@@ -334,5 +335,15 @@ class Consts {
     MDrawerItem(ACCOUNT, Routes.patientAccountPage,
         icon: CupertinoIcons.person_fill),
     MDrawerItem(INSTRUCTIONS, Routes.pdfVka, icon: FontAwesomeIcons.print),
+  ];
+
+  static const List<MDrawerItem> adminBottomNavigationItems = [
+    MDrawerItem('Admin Dashboard',  Routes.adminDashboard,
+        icon: FontAwesomeIcons.chartPie),
+    MDrawerItem('PROFILE', Routes.doctorProfile,
+        icon: FontAwesomeIcons.userDoctor),
+    // MDrawerItem(BOOK_APPOINTMENT, Routes.bookingAppointment,
+    //     icon: CupertinoIcons.calendar_today),
+    // MDrawerItem(CALENDAR, Routes.calendarPage,),
   ];
 }

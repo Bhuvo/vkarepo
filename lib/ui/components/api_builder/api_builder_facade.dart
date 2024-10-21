@@ -7,9 +7,9 @@ import 'package:timesmedlite/model/api_failure.dart';
 import 'package:chopper/chopper.dart';
 
 class ApiBuilderFacade{
-  static Future<Either<ApiFailure,List<Map<String, dynamic>>>> fetchList({required String path, bool raw = false, Map<String, dynamic>? query, int limit = 20, int offset = 0, bool api2 = false, bool timesmedApi = false}) async {
+  static Future<Either<ApiFailure,List<Map<String, dynamic>>>> fetchList({required String path, bool raw = false, Map<String, dynamic>? query, int limit = 20, int offset = 0, bool api2 = false, bool timesmedApi = false,bool vka = false}) async {
     try{
-      dynamic service = timesmedApi ? Injector().timesmedService : Injector().apiService;
+      dynamic service = timesmedApi ? Injector().timesmedService :vka?Injector().vkaService: Injector().apiService;
       final Response res = await (
       raw ?
       api2 ?

@@ -12,6 +12,7 @@ import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 import 'package:timesmedlite/utils/size_utils.dart';
 
+import '../../../const/consts.dart';
 import '../../../main_doctor.dart';
 import '../../app/m_app.dart';
 import '../Notification Video Call Schedule/notifying_patient_about_videocall_from_doctor.dart';
@@ -46,7 +47,12 @@ bool isNotifyDoc = false;
         if (mounted && !isNotifyDoc) {
           MessagingMonitor.init(AppConfig.of(context)!.config);
           if (AppConfig.of(context)?.config == Config.doctor) {
-            context.replace(Routes.currentAppointment);  //patientWaitingList
+            print('isType is ${LocalStorage.getString(LocalStorage.IsType)}');
+            if(LocalStorage.getString(LocalStorage.IsType) == Consts.admin){
+              context.replace(Routes.adminDashboard);
+            }else {
+              context.replace(Routes.currentAppointment);
+            }//patientWaitingList
           } else {
             context.replace(Routes.selectPatient);
           }

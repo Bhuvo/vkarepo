@@ -28,21 +28,26 @@ import 'package:chopper/chopper.dart';
 import '../../routes/routes.dart';
 import '../../theme/theme.dart';
 
-class DoctorBasicDetails extends StatefulWidget {
-  GetDoctorDetails? doctorDetails;
-
-  DoctorBasicDetails({Key? key,  this.doctorDetails}) : super(key: key);
+class AddNewDoctor extends StatefulWidget {
+  const AddNewDoctor({super.key});
 
   @override
-  State<DoctorBasicDetails> createState() =>
-      _DoctorBasicDetailsState(doctorDetails ?? GetDoctorDetails());
+  State<AddNewDoctor> createState() => _AddNewDoctorState();
 }
 
-class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
-  GetDoctorDetails data;
+class _AddNewDoctorState extends State<AddNewDoctor> {
+  GetDoctorDetails data = GetDoctorDetails(
+    categoryList: [],
+    cityList: [],
+    langList: [],
+    docList: [],
+      doctorList: [],
+      qualificationList: []
+  );
 
-  _DoctorBasicDetailsState(this.data);
-
+  final ApiBuilderBloc Language_Qualification_Category_bloc =
+  ApiBuilderBloc(path: 'Language_Qualification_Category', api2: true);
+  final _formkey = GlobalKey<FormState>();
   TextEditingController categorycontroller = TextEditingController();
   TextEditingController subcategorycontroller = TextEditingController();
   TextEditingController languagecontroller = TextEditingController();
@@ -52,19 +57,7 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
   List subCategoryListthatisAddedByUser = [];
   List LanguageListthatisAddedByUser = [];
 
-  final _formkey = GlobalKey<FormState>();
-  var gender;
-
-  final ApiBuilderBloc Language_Qualification_Category_bloc =
-      ApiBuilderBloc(path: 'Language_Qualification_Category', api2: true);
   var selectedfile;
-
-
-  void saveInfo(Response res, {required BuildContext context}) {
-    LocalStorage.setJson(LocalStorage.USER, res.body!.data!);
-    //context.replace(Routes.patientWaitingList);
-
-  }
 
   ImageUpload(DoctorId) async {
     var request = http.MultipartRequest('POST',
@@ -86,61 +79,43 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
 
   @override
   Widget build(BuildContext context) {
-    print(data.toJson());
-    return MScaffold(
-      title: const Text(Consts.DOCTOR_BASIC_DETAILS),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: MTheme.THEME_COLOR,
+        title: Text('Create Doctor',style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 18
+        )),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
           child: Form(
             key: _formkey,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CompareUpload(
-                  oldimagefromApi:
-                      'https://www.timesmed.com/images/doc-imgs/${data.doctorImage}',
-                  newiamgeuplaodfromdevice: selectedfile,
-                  onChanged: (selectedFile) async {
-                    setState(() {
-                      selectedfile = selectedFile;
-                    });
-                    print(
-                        "selected file::::::::::::::::::::::::::::::::::::$selectedFile");
-                  },
-                  onChangedRemove: () async {
-                    setState(() {
-                      selectedfile = null;
-                    });
-                  },
-                ),
-
-                SizedBox(
-                  height: 16,
-                ),
-                MRadioChip<String>(
-                  value: data.gender == 'Male' ? 'Male' : 'Female',
-                  onChanged: (v) {
-                    print('${data.gender}');
-                    setState(() {
-                      data = data.copyWith(gender: v);
-                    });
-                  },
-                  items: const [
-                    MRadioItem(
-                        value: 'Male',
-                        icon: FontAwesomeIcons.person,
-                        label: 'Male'),
-                    MRadioItem(
-                        value: 'Female',
-                        icon: FontAwesomeIcons.personDress,
-                        label: 'Female'),
-                  ],
-                  label: 'Gender',
-                ),
-                SizedBox(
-                  height: 16,
-                ),
+              children:  [
+                // CompareUpload(
+                //   oldimagefromApi:
+                //   'https://www.timesmed.com/images/doc-imgs/${data.doctorImage}',
+                //   newiamgeuplaodfromdevice: selectedfile,
+                //   onChanged: (selectedFile) async {
+                //     setState(() {
+                //       selectedfile = selectedFile;
+                //     });
+                //     print(
+                //         "selected file::::::::::::::::::::::::::::::::::::$selectedFile");
+                //   },
+                //   onChangedRemove: () async {
+                //     setState(() {
+                //       selectedfile = null;
+                //     });
+                //   },
+                // ),
+                //
+                // SizedBox(
+                //   height: 16,
+                // ),
                 MTextField(
                   label: 'First Name',
                   value: data.doctorName,
@@ -165,6 +140,29 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                 SizedBox(
                   height: 12,
                 ),
+                MRadioChip<String>(
+                  value: data.gender == 'Male' ? 'Male' : 'Female',
+                  onChanged: (v) {
+                    print('${data.gender}');
+                    setState(() {
+                      data = data.copyWith(gender: v);
+                    });
+                  },
+                  items: const [
+                    MRadioItem(
+                        value: 'Male',
+                        icon: FontAwesomeIcons.person,
+                        label: 'Male'),
+                    MRadioItem(
+                        value: 'Female',
+                        icon: FontAwesomeIcons.personDress,
+                        label: 'Female'),
+                  ],
+                  label: 'Gender',
+                ),
+                SizedBox(
+                  height: 16,
+                ),
                 MDateTimePicker(
                   label: 'DOB',
                   onChanged: (v) {
@@ -174,7 +172,7 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                     print("${DateTime.now().year - v!.year}");
                     data = data.copyWith(
                         doctorDob:
-                            DateFormat("MM/dd/yyyy").format(v!).toString());
+                        DateFormat("MM/dd/yyyy").format(v!).toString());
                   },
                   start: DateTime(1900),
                   end: DateTime.now(),
@@ -189,6 +187,15 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                   label: 'Mobile Number',
                   value: data.doctorPhoneNumber,
                   onChanged: (v) => data = data.copyWith(doctorPhoneNumber: v),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                MTextField(
+                  label: 'Password',
+                  type: MInputType.password,
+                  value: data.password,
+                  onChanged: (v) => data = data.copyWith(password: v),
                 ),
                 SizedBox(
                   height: 12,
@@ -236,7 +243,7 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                       if (res.body?.data['QualificationList'] is List) {
                         print("res.bodyString is List");
                         for (var e
-                            in res.body?.data['QualificationList'] as List) {
+                        in res.body?.data['QualificationList'] as List) {
                           list.add(e as Map<String, dynamic>);
                         }
                       }
@@ -300,8 +307,9 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                 Wrap(
                   spacing: 5,
                   children: List.generate(
-                    data.docList.length,
-                    (index) {
+                    (data.docList !=null) ?
+                    data.docList?.length :0 ,
+                        (index) {
                       return Chip(
                         backgroundColor: MTheme.BUTTON_COLOR,
                         label: Text(data.docList[index]['SubCategory_Name']),
@@ -319,11 +327,11 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                   spacing: 5,
                   children: List.generate(
                     subCategoryListthatisAddedByUser.length,
-                    (index) {
+                        (index) {
                       return Chip(
                         backgroundColor: MTheme.BUTTON_COLOR,
                         label: Text(subCategoryListthatisAddedByUser[index]
-                            ['SubCategory_Name']),
+                        ['SubCategory_Name']),
                         onDeleted: () {
                           setState(() {
                             print(
@@ -341,7 +349,7 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                 ),
                 MSearchDown<Map<String, dynamic>>(
                   label:
-                      'Category (e.g Pediatric Dentist, Preventive Dentistry)',
+                  'Category (e.g Pediatric Dentist, Preventive Dentistry)',
                   hint: 'Search Category',
                   labelKey: 'DoctorCategory_Name',
                   //subTitleKey: 'DoctorCategory_id',
@@ -382,7 +390,7 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                 ),
                 BlocProvider(
                   create: (_) =>
-                      Language_Qualification_Category_bloc..add(const Load()),
+                  Language_Qualification_Category_bloc..add(const Load()),
                   child: ApiBuilder(
                     loading: const DropDownShimmer(
                       label: 'Language',
@@ -421,7 +429,7 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                   spacing: 5,
                   children: List.generate(
                     data.langList.length,
-                    (index) {
+                        (index) {
                       return Chip(
                         backgroundColor: MTheme.BUTTON_COLOR,
                         label: Text(data.langList[index]['Language_Name']),
@@ -439,12 +447,12 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                   spacing: 5,
                   children: List.generate(
                     LanguageListthatisAddedByUser.length,
-                    (index) {
+                        (index) {
                       print("LanguageListthatisAddedByUser         $LanguageListthatisAddedByUser");
                       return Chip(
                         backgroundColor: MTheme.BUTTON_COLOR,
                         label:
-                            Text(LanguageListthatisAddedByUser[index]['Name']),
+                        Text(LanguageListthatisAddedByUser[index]['Name']),
                         onDeleted: () {
                           setState(() {
                             print(
@@ -551,8 +559,9 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                         final call = Injector()
                             .apiService
                             .get2(path: 'DoctorSave', query: {
+                              'Admin_Id' : '1',
                           'Doctor_Name': data.doctorName,
-                          'Doctor_id': data.doctorId,
+                          'Doctor_id': data.doctorId ?? 0,
                           'Gender': data.gender,
                           'Doctor_PhoneNumber': data.doctorPhoneNumber,
                           'Email_id': data.emailId,
@@ -576,11 +585,14 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                           'Last_Name': data.lastName,
                           'City_id': data.cityId,
                           'Doctor_QualificationCode':
-                              data.doctorQualificationCode,
+                          data.doctorQualificationCode,
                         });
+                        print(call.then((res) {
+                          print("response $res");
+                        }));
                         final res = await ApiFacade.callApi(
                             context: context, call: call);
-                        print("xx${res}");
+                        print("xx${res?.base.request?.url}");
                         List listofcatcode = [];
                         if (res?.body.code.toString() == '1') {
                           for (int i = 0; i < data.docList.length; i++) {
@@ -588,21 +600,21 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                                 .add(data.docList[i]['SubCategory_id']);
                           }
                           for (int i = 0;
-                              i < subCategoryListthatisAddedByUser.length;
-                              i++) {
+                          i < subCategoryListthatisAddedByUser.length;
+                          i++) {
                             listofcatcode.add(
                                 subCategoryListthatisAddedByUser[i]
-                                    ['SubCategory_id']);
+                                ['SubCategory_id']);
                           }
                           String str = '$listofcatcode';
                           String s =
-                              str.replaceAll("[", "").replaceAll("]", "");
+                          str.replaceAll("[", "").replaceAll("]", "");
                           print('DoctorSubCategoryUpdate $s');
                           final call = Injector()
                               .apiService
                               .get2(path: 'DoctorSubCategoryUpdate', query: {
                             'Param': s,
-                            'DoctorId': data.doctorId,
+                            'DoctorId': data.doctorId ?? 0,
                           });
                           final res = await showWaitingDialog(
                               context: context, call: call);
@@ -613,22 +625,22 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                               listoflangcode.add(data.langList[i]['Id']);
                             }
                             for (int i = 0;
-                                i < LanguageListthatisAddedByUser.length;
-                                i++) {
+                            i < LanguageListthatisAddedByUser.length;
+                            i++) {
                               listoflangcode
                                   .add(LanguageListthatisAddedByUser[i]['Id']);
                             }
                             String str = '$listoflangcode';
                             String s =
-                                str.replaceAll("[", "").replaceAll("]", "");
+                            str.replaceAll("[", "").replaceAll("]", "");
                             print('DoctorLanguageUpdate $s');
                             final call = Injector()
                                 .apiService
                                 .get2(path: 'DoctorLanguageUpdate', query: {
                               'Param': s,
-                              'DoctorId': data.doctorId,
+                              'DoctorId': data.doctorId??0,
                             });
-                            await ImageUpload(data.doctorId);
+                            // await ImageUpload(data.doctorId);
                             final res = await showWaitingDialog(
                                 context: context, call: call);
                             print("xx${res}");
@@ -641,7 +653,7 @@ class _DoctorBasicDetailsState extends State<DoctorBasicDetails> {
                               final Response? res = await ApiFacade.callApi(
                                   context: context, call: call);
                               if (res != null) {
-                                saveInfo(res, context: context);
+                                // saveInfo(res, context: context);
                               }
                               print("UPDATED Image");
                               context.pop();

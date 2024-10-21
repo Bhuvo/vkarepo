@@ -84,7 +84,7 @@ abstract class ApiService extends ChopperService {
       ],
       converter: const JsonSerializableConverter({
         ApiResponse: ApiResponse.fromJsonFactory,
-        FetchListResponse: FetchListResponse.fromJsonFactory
+        FetchListResponse: FetchListResponse.fromJson
       }),
       interceptors: [
         HttpLoggingInterceptor(),

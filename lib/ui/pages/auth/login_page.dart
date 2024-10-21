@@ -299,7 +299,14 @@ class _LoginPageState extends State<LoginPage> {
                               result['Data']['Doctor_Name'] = result['Data']['Nurse_Name'];
                               result['Data']['Doctor_id'] = result['Data']['Doctor_Id'];
                               print('${result['Data']['Doctor_id']} ${result['Data']['Doctor_Id']}');
-                            }else if(result['ResponseCode'] =='6'){
+                            }else if(result['ResponseCode'] =='7'){
+                              LocalStorage.setString(LocalStorage.IsType, Consts.admin);
+                              print('Its a Admin ${result['Data']}');
+                              result['Data']['Doctor_Name'] = result['Data']['First_Name'];
+                              // result['Data']['Doctor_id'] = result['Data']['Hospital_Admin_Id'];
+                              print('${result['Data']['Doctor_Name']} ${result['Data']['Hospital_Admin_Id']}');
+
+                            } else if(result['ResponseCode'] =='6'){
                               LocalStorage.setString(LocalStorage.IsType, Consts.frontOffice);
                               print('Its a front office');
                             result['Data']['Doctor_Name'] = result['Data']['FoMem_Name'];
@@ -441,7 +448,7 @@ class _LoginPageState extends State<LoginPage> {
                   //   //         builder: (context) => DoctorSignUpPage()));
                   // }
                   if (AppConfig.of(context)?.config == Config.doctor){
-
+                    context.push(Routes.adminSignUpPage);
                   }
                   else {
                     Navigator.push(

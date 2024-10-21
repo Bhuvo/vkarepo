@@ -17,11 +17,12 @@ class ApiBuilderBloc extends Bloc<ApiBuilderEvent, ApiBuilderState> {
   Map<String, dynamic> query;
   List<Map<String, dynamic>> data = [];
   final int limit;
-  final bool raw, api2, timesmedApi;
+  final bool raw, api2, timesmedApi,vka;
   int offset;
-  ApiBuilderBloc duplicate() => ApiBuilderBloc(path: path, raw: raw, api2: api2, timesmedApi: timesmedApi, query: query, )..data = data;
+  ApiBuilderBloc duplicate() => ApiBuilderBloc(path: path, raw: raw, api2: api2, timesmedApi: timesmedApi,vka: vka, query: query, )..data = data;
   ApiBuilderBloc(
       {required this.path,
+        this.vka = false,
       this.limit = 20,
       this.offset = 0,
       this.raw = false,
@@ -63,13 +64,12 @@ class ApiBuilderBloc extends Bloc<ApiBuilderEvent, ApiBuilderState> {
 
   fetch(event, emit, {bool refresh = false}) async {
     final res = await ApiBuilderFacade.fetchList(
-        path: path, query: query, limit: limit, offset: offset, raw: raw, api2: api2, timesmedApi: timesmedApi);
+        path: path, query: query, limit: limit, offset: offset, raw: raw, api2: api2, timesmedApi: timesmedApi,vka: vka);
     res.fold((l) => emit(Error(error: l)), (r) {
       data = refresh ? [] : data;
       if(refresh) data.clear();
       data.addAll(r);
       log('${path} fetched: ${data.toString()}');
-
       emit(Data(data: data, updatedAt: DateTime.now()));
       if(data.isEmpty){
         emit(const Empty());
