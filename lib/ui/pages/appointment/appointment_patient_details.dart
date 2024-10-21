@@ -32,7 +32,7 @@ class AppointmentPatientDetails extends StatelessWidget {
       userId: data.User_id,
       fullName: data.User_Name,
       email: data.Emailid ?? '',
-      phone: '',
+      phone: data.MobileNumber ?? '',
     );
     var name = data.User_Name;
     var phone = '';

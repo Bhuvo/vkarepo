@@ -5,6 +5,7 @@ import 'package:timesmedlite/const/consts.dart';
 import 'package:timesmedlite/model/booking_appointment.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder_bloc.dart';
+import 'package:timesmedlite/ui/components/nothing_widget.dart';
 import 'package:timesmedlite/ui/pages/appointment/widgets/scheduled_appointment_list_item.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
@@ -26,7 +27,7 @@ class _ScheduledAppointmentListState extends State<ScheduledAppointmentList> {
 
   late ApiBuilderBloc  bloc = ApiBuilderBloc(
     // path: 'GetAppointmentList',
-    path: 'GetVkaAppointmentList?DoctorId=${LocalStorage.getUID()}&status_id=${widget.statusId ?? 'T'}&From=${widget.fromDate ?? '09/18/2024'}&To=${widget.toDate ?? '01/01/2100'}&hos_id=${widget.hospitalId ?? 0}',
+    path: 'GetVkaAppointmentList?DoctorId=${LocalStorage.getUID().toString()}&status_id=${widget.statusId ?? 'T'}&From=${widget.fromDate ?? '09/18/2024'}&To=${widget.toDate ?? '01/01/2100'}&hos_id=${widget.hospitalId ?? 0}',
     api2: true,
     // timesmedApi: true,
     // query: {
@@ -50,8 +51,12 @@ class _ScheduledAppointmentListState extends State<ScheduledAppointmentList> {
         create: (context) => bloc..add(const Load()),
         child: ApiBuilder<BookingAppointment>(
           type: ApiBuilderType.searchList,
+          empty: NothingWidget(
+            title: 'No Data Found',
+          ),
           fromJson: BookingAppointment.fromJsonFactory,
           customBuilder: (data, load) {
+            print('data ${data.first.pat_list}');
             final list = data.first.pat_list ?? [];
             return MSearchListView(
               onRefresh: () async {

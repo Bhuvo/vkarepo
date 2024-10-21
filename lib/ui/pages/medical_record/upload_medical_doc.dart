@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -9,7 +10,9 @@ import 'package:intl/intl.dart';
 import 'package:timesmedlite/const/consts.dart';
 import 'package:timesmedlite/ui/components/file_upload.dart';
 import 'package:timesmedlite/ui/components/patient_tile.dart';
+import 'package:timesmedlite/ui/components/show_message.dart';
 import 'package:timesmedlite/ui/providers/user_provider.dart';
+import 'package:timesmedlite/ui/widgets/loading_widget.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
@@ -44,22 +47,26 @@ class UploadMedicalDoc extends StatefulWidget {
 }
 
 class _UploadMedicalDocState extends State<UploadMedicalDoc> {
+  TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   TextEditingController dateController = TextEditingController();
-  var selectedfile;
+  List<ImageModel> selectedfile = [];
   var uploadedImage;
+  bool isLoading = false;
 
   var appointmentId;
   var userId;
-
+  int indexCount =0;
   late ApiBuilderBloc bloc;
 
   @override
   initState() {
     super.initState();
     setState(() {
+      print('Appointment id ${widget.data?.Appointment_id}');
       appointmentId = widget.data?.Appointment_id;
       userId = widget.data?.User_id;
+      dateController.text = DateFormat('MM/dd/yyyy hh:mm a').format(DateTime.now());
     });
     bloc = ApiBuilderBloc(
         path: 'ViewMedicalRecords',
@@ -68,33 +75,56 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
   }
 
   imageUpload(description, date) async {
-    print('entered image function');
-    var request = http.MultipartRequest(
-        'POST', Uri.parse('https://api.timesmed.com/WebAPI2/UploadRecordFile'));
-    request.fields['Appointment_Id'] = appointmentId.toString();
-    request.files.add(await http.MultipartFile.fromPath(
-      selectedfile.name,
-      selectedfile.path,
-    ));
-    request.fields['Description'] = description.toString();
-    request.fields['Date'] = date.toString();
-
-    var res = await request.send().then((response) {
-      print(response.statusCode);
-      print("response here");
-
-      if (response.statusCode == 200) {
-        response.stream.transform(utf8.decoder).listen((value) {
-          print(value);
-        });
-      }
+    final DateFormat formatter = DateFormat('MM/dd/yyyy hh:mm a');
+    setState(() {
+      isLoading = true;
     });
+    print('entered image function');
+    if(selectedfile == null){
+      print("no file selected");
+      return;
+    }
+
+    for(int i = 0; i < selectedfile!.length; i++) {
+      var request = await http.MultipartRequest(
+          'POST',
+          Uri.parse('https://api.timesmed.com/WebAPI2/UploadRecordFile'));
+      request.fields['Appointment_Id'] = appointmentId.toString();
+
+      // for(int i = 0; i < selectedfile!.length; i++){
+      request.files.add(await http.MultipartFile.fromPath(
+        selectedfile![i].file!.name,
+        selectedfile![i].file!.path ?? '',
+      ));
+      // }
+      request.fields['Title'] = selectedfile[i].title ?? '';
+      request.fields['Description'] =  selectedfile[i].description ?? '';
+      request.fields['Date'] = formatter.format(selectedfile[i].date ?? DateTime.now());
+
+      var res = await request.send();
+      if(res.statusCode == 200){
+        print(res.statusCode);
+        print("response here");
+
+        if (res.statusCode == 200) {
+          res.stream.transform(utf8.decoder).listen((value) {
+            print(value);
+          });
+        }else{
+          showMessage(context: context, message:'Error in uploading file');
+          break;
+        }
+      }
+
+    }
     setState(() {
       descriptionController.text = "";
       dateController.text = "";
-      selectedfile = null;
-      bloc.add(const Load());
+      selectedfile = [];
+      // bloc.add(const Load());
       bloc.add(const Refresh());
+      isLoading = false;
+      indexCount== 0;
     });
     await Fluttertoast.showToast(
         msg: "Files added successfully",
@@ -141,82 +171,136 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
                 const SizedBox(
                   height: 16,
                 ),
-                (selectedfile == null || selectedfile == '')
+                (selectedfile == null || selectedfile!.isEmpty)
                     ? FileUpload(
+                   onMultiple: (list)async {
+                     setState(() {
+                       print('lenght of list ${list.length} , ${selectedfile.length}');
+                       list.map((e) => selectedfile.add(ImageModel(e, '','',DateTime.now(), e  ))).toList();
+                     });
+                     // uploadedImage = selectedfile;
+                   },
                         margin: const EdgeInsets.all(0),
                         title: 'Upload files',
                         subTitle: 'Choose your files to upload',
-                        onChanged: (imageFile) async {
-                          setState(() {
-                            selectedfile = imageFile;
-                            uploadedImage = selectedfile;
-                          });
-                          print(
-                              "selected file::::::::::::::::::::::::::::::::::::$selectedfile");
-                        },
+                        // onChanged: (imageFile) async {
+                        //   setState(() {
+                        //     selectedfile = imageFile;
+                        //     uploadedImage = selectedfile;
+                        //   });
+                        //   print(
+                        //       "selected file::::::::::::::::::::::::::::::::::::$selectedfile");
+                        // },
                       )
-                    : Center(
-                        child: Stack(
-                          children: <Widget>[
-                            Container(
-                              width: 150.0,
-                              height: 150.0,
-                              child: Image.file(
-                                  File(selectedfile.path.toString())),
-                            ),
-                            Positioned(
-                              right: 5.0,
-                              child: InkWell(
-                                child: const Icon(
-                                  Icons.remove_circle_outline_outlined,
-                                  size: 30,
-                                  color: Colors.red,
+                    : Container(
+                  height: 200,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: selectedfile.length ?? 0,
+                        itemBuilder: (context , index){
+                          return  Container(
+                            padding: const EdgeInsets.all(5),
+                            margin: const EdgeInsets.all(8.0),
+                            color:indexCount == index ? MTheme.BUTTON_COLOR: Colors.grey.shade300,
+                            child: Stack(
+                              children: <Widget>[
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      indexCount = index;
+                                      descriptionController.text = selectedfile[index].description?? '';
+                                      titleController.text = selectedfile[index].title?? '';
+                                      dateController.text = DateFormat('MM/dd/yyyy hh:mm a').format(selectedfile![index].date!);
+                                    });
+                                  },
+                                  child: Container(
+                                    width: 150.0,
+                                    height: 200.0,
+                                    child: Image.file(
+                                      fit: BoxFit.fill,
+                                        File(selectedfile![index].file!.path.toString())),
+                                  ),
                                 ),
-                                // This is where the _image value sets to null on tap of the red circle icon
-                                onTap: () {
-                                  setState(
-                                    () {
-                                      selectedfile = null;
+                                Positioned(
+                                  right: 5.0,
+                                  child: InkWell(
+                                    child: const Icon(
+                                      Icons.remove_circle_outline_outlined,
+                                      size: 30,
+                                      color: Colors.red,
+                                    ),
+                                    // This is where the _image value sets to null on tap of the red circle icon
+                                    onTap: () {
+                                      setState(
+                                            () {
+                                          selectedfile.removeAt(index);
+                                          if(selectedfile.isEmpty){
+                                            selectedfile = [];
+                                          }
+                                        },
+                                      );
                                     },
-                                  );
-                                },
-                              ),
-                            )
-                          ],
-                        ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          );
+                        },
                       ),
+                    ),
                 const SizedBox(
                   height: 16,
                 ),
-                MTextField(
-                  label: 'Description',
-                  maxLines: 5,
-                  minLines: 3,
-                  controller: descriptionController,
+                (selectedfile.length ??0) == 0 ?  Container() : MTextField(
+                  label: 'Title ${indexCount + 1}',
+                  // maxLines: 5,
+                  // minLines: 3,
+                  onChanged: (val){
+                    selectedfile[indexCount].title = val;
+                  },
+                  controller: titleController,
                 ),
-                const SizedBox(
+
+                (selectedfile?.length??0) == 0 ?  Container() :  const SizedBox(
                   height: 10,
                 ),
-                MDateTimePicker(
+            (selectedfile.length ??0) == 0 ?  Container() : MTextField(
+                  label: 'Description ${indexCount + 1}',
+                  maxLines: 5,
+                  minLines: 3,
+                  onChanged: (val){
+                    selectedfile![indexCount].description = val;
+                  },
+                  controller: descriptionController,
+                ),
+                (selectedfile?.length??0) == 0 ?  Container() :  const SizedBox(
+                  height: 10,
+                ),
+                (selectedfile?.length??0) == 0 ?  Container() : MDateTimePicker(
+                  key:ValueKey('$indexCount value ${selectedfile[indexCount].date} '),
+                  initial:((selectedfile?.length ?? 0)>0) ? (selectedfile[indexCount].date ?? DateTime.now()) : DateTime.now(),
                   start: DateTime(2000),
                   end: DateTime(2100),
-                  label: 'Date',
+                  label: 'Date ${indexCount + 1}',
                   onChanged: (d) {
-                    final DateFormat formatter = DateFormat('MM/dd/yyyy');
+                    selectedfile![indexCount].date = d;
+                    print('Date $indexCount :: $d');
+                    final DateFormat formatter = DateFormat('MM/dd/yyyy hh:mm a');
                     final String formatted = formatter.format(d!);
                     dateController.text = formatted;
-                    print(dateController);
+                    print('dateController ${dateController.text}');
+                    setState(() {});
                   },
                 ),
-                const SizedBox(height: 50),
-                SizedBox(
+                selectedfile.length == 0 ?  Container() :const SizedBox(height: 50),
+                selectedfile.length == 0 ?  Container() : SizedBox(
                   height: 50,
                   width: double.maxFinite,
                   child: OutlinedButton(
-                    child: const Text('Add'),
+                    child: isLoading? LoadingWidget(): Text('Add'),
                     onPressed: () async {
                       print("onpressed below");
-                      if (selectedfile == null) {
+                      if (selectedfile.isEmpty) {
                         await Fluttertoast.showToast(
                             msg: "Please pick a file",
                             toastLength: Toast.LENGTH_LONG,
@@ -226,16 +310,16 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
                             textColor: Colors.black,
                             fontSize: 16.0);
                       }
-                      if (descriptionController.text.isEmpty) {
-                        await Fluttertoast.showToast(
-                            msg: "Description field cant be empty",
-                            toastLength: Toast.LENGTH_LONG,
-                            gravity: ToastGravity.BOTTOM,
-                            timeInSecForIosWeb: 1,
-                            backgroundColor: Colors.white,
-                            textColor: Colors.black,
-                            fontSize: 16.0);
-                      }
+                      // if (descriptionController.text.isEmpty) {
+                      //   await Fluttertoast.showToast(
+                      //       msg: "Description field cant be empty",
+                      //       toastLength: Toast.LENGTH_LONG,
+                      //       gravity: ToastGravity.BOTTOM,
+                      //       timeInSecForIosWeb: 1,
+                      //       backgroundColor: Colors.white,
+                      //       textColor: Colors.black,
+                      //       fontSize: 16.0);
+                      // }
 
                       print(selectedfile);
                       await imageUpload(
@@ -244,7 +328,7 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
                       setState(() {
                         descriptionController.text = "";
                         dateController.text = "";
-                        selectedfile = null;
+                        selectedfile = [];
                         bloc.add(const Load());
                         bloc.add(const Refresh());
                       });
@@ -267,6 +351,8 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
                           child: ListView.builder(
                             itemCount: data.length,
                             itemBuilder: (context, index) => FileViewList(
+                              key: ValueKey(data[index]),
+                              title: data[index]["Title"] ==''? null : data[index]["Title"],
                               name: data[index]["Name"].toString(),
                               appointmentId: appointmentId.toString(),
                               description: data[index]["Description"] ?? "Null",
@@ -290,6 +376,7 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
 }
 
 class FileViewList extends StatefulWidget {
+  final String? title;
   final String name;
   final String description;
   final String date;
@@ -304,7 +391,7 @@ class FileViewList extends StatefulWidget {
     required this.date,
     required this.appointmentId,
     this.recordsId,
-    this.deleteVoidCallBack,
+    this.deleteVoidCallBack, this.title,
   }) : super(key: key);
 
   @override
@@ -351,8 +438,15 @@ class _FileViewListState extends State<FileViewList> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  widget.title != null ? Text(
+                    'Title : ${widget.title?? 'dd'}',
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineSmall
+                        ?.copyWith(fontSize: 14,color: Colors.black),
+                  ): Container(),
                   Text(
-                    widget.description,
+                    'Description : ${widget.description}',
                     style: Theme.of(context)
                         .textTheme
                         .headlineSmall
@@ -382,12 +476,21 @@ class _FileViewListState extends State<FileViewList> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ImageOverviewInMedicalRecords(
-                              appointmentId: widget.appointmentId,
-                              name: widget.name,
-                              description: widget.description,
-                            )),
+                        builder: (context) => ImageOverviewInQueuePage(
+                          appointmentId: widget.appointmentId,
+                          name: widget.name,
+                          description: widget.description,
+                        )),
                   );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //       builder: (context) => ImageOverviewInMedicalRecords(
+                  //             appointmentId: widget.appointmentId,
+                  //             name: widget.name,
+                  //             description: widget.description,
+                  //           )),
+                  // );
                 }
               },
               color: MTheme.THEME_COLOR,
@@ -483,4 +586,16 @@ class _FileViewListState extends State<FileViewList> {
       ),
     );
   }
+}
+
+
+
+class ImageModel{
+  PlatformFile? file;
+   String? description;
+   String? title;
+   DateTime? date;
+  PlatformFile? image;
+
+  ImageModel(this.file, this.description,this.title, this.date, this.image);
 }

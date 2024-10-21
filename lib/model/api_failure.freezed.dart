@@ -23,7 +23,7 @@ mixin _$ApiFailure {
   @JsonKey(name: 'ResponseMessage')
   String? get message => throw _privateConstructorUsedError;
   @JsonKey(name: 'ResponseCode')
-  String? get code => throw _privateConstructorUsedError;
+  dynamic get code => throw _privateConstructorUsedError;
 
   /// Serializes this ApiFailure to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $ApiFailureCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'ResponseMessage') String? message,
-      @JsonKey(name: 'ResponseCode') String? code});
+      @JsonKey(name: 'ResponseCode') dynamic code});
 }
 
 /// @nodoc
@@ -72,7 +72,7 @@ class _$ApiFailureCopyWithImpl<$Res, $Val extends ApiFailure>
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
     ) as $Val);
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$ApiFailureImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'ResponseMessage') String? message,
-      @JsonKey(name: 'ResponseCode') String? code});
+      @JsonKey(name: 'ResponseCode') dynamic code});
 }
 
 /// @nodoc
@@ -114,7 +114,7 @@ class __$$ApiFailureImplCopyWithImpl<$Res>
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
     ));
   }
 }
@@ -134,7 +134,7 @@ class _$ApiFailureImpl implements _ApiFailure {
   final String? message;
   @override
   @JsonKey(name: 'ResponseCode')
-  final String? code;
+  final dynamic code;
 
   @override
   String toString() {
@@ -147,12 +147,13 @@ class _$ApiFailureImpl implements _ApiFailure {
         (other.runtimeType == runtimeType &&
             other is _$ApiFailureImpl &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.code, code) || other.code == code));
+            const DeepCollectionEquality().equals(other.code, code));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, message, code);
+  int get hashCode => Object.hash(
+      runtimeType, message, const DeepCollectionEquality().hash(code));
 
   /// Create a copy of ApiFailure
   /// with the given fields replaced by the non-null parameter values.
@@ -173,7 +174,7 @@ class _$ApiFailureImpl implements _ApiFailure {
 abstract class _ApiFailure implements ApiFailure {
   const factory _ApiFailure(
       {@JsonKey(name: 'ResponseMessage') final String? message,
-      @JsonKey(name: 'ResponseCode') final String? code}) = _$ApiFailureImpl;
+      @JsonKey(name: 'ResponseCode') final dynamic code}) = _$ApiFailureImpl;
 
   factory _ApiFailure.fromJson(Map<String, dynamic> json) =
       _$ApiFailureImpl.fromJson;
@@ -183,7 +184,7 @@ abstract class _ApiFailure implements ApiFailure {
   String? get message;
   @override
   @JsonKey(name: 'ResponseCode')
-  String? get code;
+  dynamic get code;
 
   /// Create a copy of ApiFailure
   /// with the given fields replaced by the non-null parameter values.

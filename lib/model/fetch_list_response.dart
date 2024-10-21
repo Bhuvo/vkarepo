@@ -7,7 +7,7 @@ part 'fetch_list_response.g.dart';
 class FetchListResponse {
 
   @JsonKey(name: 'ResponseMessage') String? message;
-    @JsonKey(name: 'ResponseCode') @Default(null) dynamic code;
+    @JsonKey(name: 'ResponseCode') @Default(1) dynamic code;
     @JsonKey(name: 'Data') @Default([]) dynamic data;
     @JsonKey(name: 'data') @Default([]) dynamic payload;
 

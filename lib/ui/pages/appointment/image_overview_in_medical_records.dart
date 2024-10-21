@@ -18,7 +18,7 @@ class ImageOverviewInMedicalRecords extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MScaffold(
-      title: const Text("File Preview"),
+      title: const Text("File Prevhhiew"),
       body: Stack(
         children: <Widget>[
           const Center(child: CircularProgressIndicator()),

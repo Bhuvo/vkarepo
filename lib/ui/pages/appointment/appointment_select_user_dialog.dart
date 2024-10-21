@@ -585,7 +585,7 @@ class _ExistingUserTabState extends State<ExistingUserTab> {
   final bloc =
       // ApiBuilderBloc(path: 'PatientSearch', timesmedApi: true, api2: true);
   ApiBuilderBloc(
-      path: 'RegisteredPatientList', query: {'Doctor_id': LocalStorage.getUser().id});
+        path: 'RegisteredPatientList', query: {'Doctor_id': LocalStorage.getUser().id});
 
   // List<Patient> orginalList = [];
   List<Patient> l = [];

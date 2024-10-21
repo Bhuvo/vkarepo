@@ -30,17 +30,30 @@ class _ImageOverviewInQueuePageState extends State<ImageOverviewInQueuePage> {
 
   @override
   void initState() {
+    print('isPdf');
+    getMethod();
     super.initState();
+  }
+
+  // @override
+  // void initState() {
+  //   getMethod();
+  //   super.initState();
+  // }
+  getMethod(){
     if (widget.name.contains('.pdf')) {
-      setState(() {
+      // setState(() {
         itsPDF = true;
+        print('isPdf $itsPDF  ' );
         loadDocument();
-      });
+      // });
     } else {
-      setState(() {
+      print('isPdf $itsPDF  ' );
+      // setState(() {
         itsPDF = false;
-      });
+      // });
     }
+
   }
 
   @override

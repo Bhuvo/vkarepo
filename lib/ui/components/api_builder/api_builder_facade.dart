@@ -88,7 +88,6 @@ class ApiBuilderFacade{
           return left(const ApiFailure(message: 'Failed to Load, Please check your connection.'));
         }
       }
-
     } catch (e){
       print(e.toString());
 

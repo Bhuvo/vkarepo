@@ -7,7 +7,7 @@ part 'api_failure.g.dart';
 class ApiFailure with _$ApiFailure {
   const factory ApiFailure({
     @JsonKey(name: 'ResponseMessage') String? message,
-    @JsonKey(name: 'ResponseCode') String? code,
+    @JsonKey(name: 'ResponseCode') dynamic code,
   }) = _ApiFailure;
   static const fromJsonFactory = _$ApiFailureFromJson;
   factory ApiFailure.fromJson(Map<String, dynamic> json) =>

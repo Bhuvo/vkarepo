@@ -9,7 +9,7 @@ part of 'api_failure.dart';
 _$ApiFailureImpl _$$ApiFailureImplFromJson(Map<String, dynamic> json) =>
     _$ApiFailureImpl(
       message: json['ResponseMessage'] as String?,
-      code: json['ResponseCode'] as String?,
+      code: json['ResponseCode'],
     );
 
 Map<String, dynamic> _$$ApiFailureImplToJson(_$ApiFailureImpl instance) =>
