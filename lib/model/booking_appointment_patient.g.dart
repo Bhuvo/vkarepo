@@ -173,6 +173,8 @@ _$BookingAppointmentPatientImpl _$$BookingAppointmentPatientImplFromJson(
       DiseaseDetails_Flag: json['DiseaseDetails_Flag'] ?? null,
       Prescription_Flag: json['Prescription_Flag'] ?? null,
       LabTest_Flag: json['LabTest_Flag'] ?? null,
+      MediaAvailablity: json['MediaAvailablity'] ?? null,
+      complaints: json['complaints'] ?? null,
     );
 
 Map<String, dynamic> _$$BookingAppointmentPatientImplToJson(
@@ -342,4 +344,6 @@ Map<String, dynamic> _$$BookingAppointmentPatientImplToJson(
       'DiseaseDetails_Flag': instance.DiseaseDetails_Flag,
       'Prescription_Flag': instance.Prescription_Flag,
       'LabTest_Flag': instance.LabTest_Flag,
+      'MediaAvailablity': instance.MediaAvailablity,
+      'complaints': instance.complaints,
     };

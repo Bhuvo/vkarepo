@@ -46,7 +46,6 @@ class _ScheduledAppointmentListState extends State<ScheduledAppointmentList> {
     return MScaffold(
       title: const Text(Consts.SCHEDULED_APPOINTMENT_LIST),
       // title: const Text("hey bro"),
-
       body: BlocProvider(
         create: (context) => bloc..add(const Load()),
         child: ApiBuilder<BookingAppointment>(
@@ -73,7 +72,11 @@ class _ScheduledAppointmentListState extends State<ScheduledAppointmentList> {
                 },
                 itemBuilder: (c, i) {
                   final data = list[i];
-                  return ScheduledAppointmentListItem(data: data);
+                  return ScheduledAppointmentListItem(data: data,onTap: () async {
+                  await context.push(Routes.appointmentPatientDetails, {'data': data});
+                  print('pop is coming');
+                  bloc..add(Refresh());
+                  },);
                 });
           },
         ),

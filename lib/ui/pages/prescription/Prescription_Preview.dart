@@ -194,7 +194,8 @@ class _PrescriptionPreviewState extends State<PrescriptionPreview> {
                 Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,children: [
                    Column(
                      children: [
-                       Text('Dr. ${prescriptionTemplateModel.doctorName ??'Ashok Test'} ${prescriptionTemplateModel.doctorQualification ??'MBBS'}', style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),
+                       Text('${prescriptionTemplateModel.doctorName ??'Ashok Test'} ${prescriptionTemplateModel.doctorQualification ??'MBBS'}', style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),
+                       Text('${prescriptionTemplateModel.specializations ??'Cardiologist'}', style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),
                        Text(prescriptionTemplateModel.doctorPhoneNumber ??'8038836782', style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),
                      ],
                    ),

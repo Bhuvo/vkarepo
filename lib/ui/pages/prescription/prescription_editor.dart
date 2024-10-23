@@ -140,6 +140,225 @@ class _PrescriptionEditorState extends State<PrescriptionEditor> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              LocalStorage.isDoctor?  Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '  ${Consts.PRESCRIPTION}',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  templateListbloc.data == []
+                      ? BlocProvider(
+                    create: (_) => templateListbloc..add(const Load()),
+                    child: ApiBuilder(
+                      loading: const DropDownShimmer(
+                        label: 'Template',
+                      ),
+                      jsonBuilder: (data, load) {
+                        print("data:  $data");
+                        //return DropDownShimmer(label: 'Select Patient',);
+                        return MDialogDown<Map<String, dynamic>>(
+                            items: data,
+                            label: 'Template',
+                            onChanged: (d) {
+                              setState(() {
+                                print(
+                                    "::::::::::::::::::::::::::::::::::::::::::::::::::::::data${d!['Appointment_id']}");
+                                template_list = d;
+                                bloc.add(UpdateQuery(
+                                  {'Appointment_id': d['Appointment_id']},
+                                ));
+                                count = count! + 1;
+                                // Navigator.pushReplacement(context,
+                                //   MaterialPageRoute(builder: (context)=>PrescriptionEditor(counter: 1,Epharmachy_Masterid: widget.Epharmachy_Masterid,appointmentid:'157196', )),);
+                              });
+                            },
+                            value: template_list,
+                            labelKey: 'Template_Name');
+                      },
+                    ),
+                  )
+                      : Container(),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        MTextButton(
+                          onPressed: () async {
+                            Future<Response<ApiResponse>> call =
+                            GetmasterPrescription();
+                            final res = await showWaitingDialog(
+                                context: context, call: call);
+                            if (res?.body.R != null) {
+                              print(
+                                  ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::${res?.body.R}");
+                              Epharmachy_Masterid = res?.body.R;
+                              context.push(Routes.templateList, {
+                                'patientID': widget.patientid,
+                                'Epharmachy_Masterid': Epharmachy_Masterid,
+                                'already_added_drugs_to_list':
+                                PresscriptionDrugList,
+                                'issaveExisting': false,
+                              });
+                            }
+                          },
+                          label: 'Template List',
+                          icon: Icons.list_alt,
+                        ),
+                        MTextButton(
+                          onPressed: () async {
+                            print(
+                                "PresscriptionDrugList:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::$PresscriptionDrugList");
+                            context.push(Routes.templateList, {
+                              'patientID': widget.patientid,
+                              'Epharmachy_Masterid': Epharmachy_Masterid,
+                              'already_added_drugs_to_list': PresscriptionDrugList,
+                              'issaveExisting': true,
+                            });
+                          },
+                          label: 'Save Existing',
+                          icon: Icons.save,
+                        ),
+                        MTextButton(
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (c) => SaveTemplateDialog(
+                                Appointment_id: widget.appointmentid,
+                              ),
+                            );
+                          },
+                          label: 'Save New',
+                          icon: Icons.save,
+                        ),
+                        MTextButton(
+                          onPressed: () {
+                            print(
+                                "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP${PresscriptionDrugList.length}");
+                            PresscriptionDrugList.length == 0
+                                ? {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text(
+                                          'Please add atleast 1 drug to prescription to preview the prescription')))
+                            }
+                                : context.push(Routes.prescriptionPreview, {
+                              /// bloc has been called as duplicate because when going context.pop the state and bloc gets closed so used duplicate
+                              'patientbloc': patientbloc.duplicate(),
+                              'PresscriptionDrugList': PresscriptionDrugList
+                            });
+                          },
+                          label: 'Preview',
+                          icon: FontAwesomeIcons.solidFileLines,
+                        ),
+                      ],
+                    ),
+                  ),
+                  widget.appointmentids_for_when_returing_from_template_screen ==
+                      null
+                      ? BlocProvider(
+                    create: (c) => bloc..add(const Load()),
+                    child: ApiBuilder<SavedPrescription>(
+                      shrinkWrap: true,
+                      empty: Container(),
+                      fromJson: SavedPrescription.fromJsonFactory,
+                      builder: (SavedPrescription data, int index) {
+                        print("data ::::::::::::::::: ${data}");
+
+                        PresscriptionDrugList.add(data);
+
+                        return DrugListItem(
+                          data: data,
+                          doctorid: widget.doctorid,
+                          patientid: widget.patientid,
+                          appointmentid: widget.appointmentid,
+                          Epharmachy_Masterid: Epharmachy_Masterid,
+                          bloc: bloc,
+                        );
+                      },
+                    ),
+                  )
+                      : ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: widget
+                        .appointmentids_for_when_returing_from_template_screen
+                        ?.length,
+                    itemBuilder: (c, i) {
+                      return BlocProvider(
+                        create: (c) => widget
+                            .appointmentids_for_when_returing_from_template_screen![i]
+                          ..add(const Load()),
+                        child: ApiBuilder<SavedPrescription>(
+                          direction: Axis.vertical,
+                          shrinkWrap: true,
+                          fromJson: SavedPrescription.fromJsonFactory,
+                          builder: (SavedPrescription data, int index) {
+                            print(
+                                "data :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ${data}");
+
+                            PresscriptionDrugList.add(data);
+                            return DrugListItem(
+                              data: data,
+                              doctorid: widget.doctorid,
+                              patientid: widget.patientid,
+                              appointmentid: widget.appointmentid,
+                              Epharmachy_Masterid: Epharmachy_Masterid,
+                              bloc: widget
+                                  .appointmentids_for_when_returing_from_template_screen![i],
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  // const MTextField(
+                  //   label: 'Doctor Notes',
+                  //   maxLines: 5,
+                  //   minLines: 3,
+                  // ),
+                  Container(
+                      width: double.maxFinite,
+                      height: 50,
+                      margin: const EdgeInsets.symmetric(vertical: 16),
+                      child: OutlinedButton(
+                        onPressed: () {
+                          print(
+                              "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP${PresscriptionDrugList.length}");
+                          PresscriptionDrugList.length == 0
+                              ? {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text(
+                                        'Please add atleast 1 drug to prescription to send the prescription')))
+                          }
+                              : context.pop();
+                        },
+                        child: const Text('Send Prescription'),
+                      ))
+                ],
+              ): Container(),
+              LocalStorage.isDoctor? const Divider(
+                indent: 0,
+                endIndent: 0,
+                height: 32,
+              ): Container(),
+              Text(
+                '  Add Prescription',
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
               MSearchDown<Map<String, dynamic>>(
                 label: 'Drug Name',
                 hint: 'Search by Drug Name',
@@ -521,210 +740,213 @@ class _PrescriptionEditorState extends State<PrescriptionEditor> {
                 endIndent: 0,
                 height: 32,
               ),
-              Text(
-                '  ${Consts.PRESCRIPTION}',
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              templateListbloc.data == []
-                  ? BlocProvider(
-                      create: (_) => templateListbloc..add(const Load()),
-                      child: ApiBuilder(
-                        loading: const DropDownShimmer(
-                          label: 'Template',
-                        ),
-                        jsonBuilder: (data, load) {
-                          print("data:  $data");
-                          //return DropDownShimmer(label: 'Select Patient',);
-                          return MDialogDown<Map<String, dynamic>>(
-                              items: data,
-                              label: 'Template',
-                              onChanged: (d) {
-                                setState(() {
-                                  print(
-                                      "::::::::::::::::::::::::::::::::::::::::::::::::::::::data${d!['Appointment_id']}");
-                                  template_list = d;
-                                  bloc.add(UpdateQuery(
-                                    {'Appointment_id': d['Appointment_id']},
-                                  ));
-                                  count = count! + 1;
-                                  // Navigator.pushReplacement(context,
-                                  //   MaterialPageRoute(builder: (context)=>PrescriptionEditor(counter: 1,Epharmachy_Masterid: widget.Epharmachy_Masterid,appointmentid:'157196', )),);
-                                });
-                              },
-                              value: template_list,
-                              labelKey: 'Template_Name');
-                        },
+            !LocalStorage.isDoctor?  Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '  ${Consts.PRESCRIPTION}',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  templateListbloc.data == []
+                      ? BlocProvider(
+                    create: (_) => templateListbloc..add(const Load()),
+                    child: ApiBuilder(
+                      loading: const DropDownShimmer(
+                        label: 'Template',
                       ),
-                    )
-                  : Container(),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MTextButton(
-                      onPressed: () async {
-                        Future<Response<ApiResponse>> call =
-                            GetmasterPrescription();
-                        final res = await showWaitingDialog(
-                            context: context, call: call);
-                        if (res?.body.R != null) {
-                          print(
-                              ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::${res?.body.R}");
-                          Epharmachy_Masterid = res?.body.R;
-                          context.push(Routes.templateList, {
-                            'patientID': widget.patientid,
-                            'Epharmachy_Masterid': Epharmachy_Masterid,
-                            'already_added_drugs_to_list':
-                                PresscriptionDrugList,
-                            'issaveExisting': false,
-                          });
-                        }
-                      },
-                      label: 'Template List',
-                      icon: Icons.list_alt,
-                    ),
-                    MTextButton(
-                      onPressed: () async {
-                        print(
-                            "PresscriptionDrugList:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::$PresscriptionDrugList");
-                        context.push(Routes.templateList, {
-                          'patientID': widget.patientid,
-                          'Epharmachy_Masterid': Epharmachy_Masterid,
-                          'already_added_drugs_to_list': PresscriptionDrugList,
-                          'issaveExisting': true,
-                        });
-                      },
-                      label: 'Save Existing',
-                      icon: Icons.save,
-                    ),
-                    MTextButton(
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (c) => SaveTemplateDialog(
-                            Appointment_id: widget.appointmentid,
-                          ),
-                        );
-                      },
-                      label: 'Save New',
-                      icon: Icons.save,
-                    ),
-                    MTextButton(
-                      onPressed: () {
-                        print(
-                            "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP${PresscriptionDrugList.length}");
-                        PresscriptionDrugList.length == 0
-                            ? {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text(
-                                            'Please add atleast 1 drug to prescription to preview the prescription')))
-                              }
-                            : context.push(Routes.prescriptionPreview, {
-                                /// bloc has been called as duplicate because when going context.pop the state and bloc gets closed so used duplicate
-                                'patientbloc': patientbloc.duplicate(),
-                                'PresscriptionDrugList': PresscriptionDrugList
+                      jsonBuilder: (data, load) {
+                        print("data:  $data");
+                        //return DropDownShimmer(label: 'Select Patient',);
+                        return MDialogDown<Map<String, dynamic>>(
+                            items: data,
+                            label: 'Template',
+                            onChanged: (d) {
+                              setState(() {
+                                print(
+                                    "::::::::::::::::::::::::::::::::::::::::::::::::::::::data${d!['Appointment_id']}");
+                                template_list = d;
+                                bloc.add(UpdateQuery(
+                                  {'Appointment_id': d['Appointment_id']},
+                                ));
+                                count = count! + 1;
+                                // Navigator.pushReplacement(context,
+                                //   MaterialPageRoute(builder: (context)=>PrescriptionEditor(counter: 1,Epharmachy_Masterid: widget.Epharmachy_Masterid,appointmentid:'157196', )),);
                               });
-                      },
-                      label: 'Preview',
-                      icon: FontAwesomeIcons.solidFileLines,
-                    ),
-                  ],
-                ),
-              ),
-              widget.appointmentids_for_when_returing_from_template_screen ==
-                      null
-                  ? BlocProvider(
-                      create: (c) => bloc..add(const Load()),
-                      child: ApiBuilder<SavedPrescription>(
-                        shrinkWrap: true,
-                        empty: Container(),
-                        fromJson: SavedPrescription.fromJsonFactory,
-                        builder: (SavedPrescription data, int index) {
-                          print("data ::::::::::::::::: ${data}");
-
-                          PresscriptionDrugList.add(data);
-
-                          return DrugListItem(
-                            data: data,
-                            doctorid: widget.doctorid,
-                            patientid: widget.patientid,
-                            appointmentid: widget.appointmentid,
-                            Epharmachy_Masterid: Epharmachy_Masterid,
-                            bloc: bloc,
-                          );
-                        },
-                      ),
-                    )
-                  : ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: widget
-                          .appointmentids_for_when_returing_from_template_screen
-                          ?.length,
-                      itemBuilder: (c, i) {
-                        return BlocProvider(
-                          create: (c) => widget
-                              .appointmentids_for_when_returing_from_template_screen![i]
-                            ..add(const Load()),
-                          child: ApiBuilder<SavedPrescription>(
-                            direction: Axis.vertical,
-                            shrinkWrap: true,
-                            fromJson: SavedPrescription.fromJsonFactory,
-                            builder: (SavedPrescription data, int index) {
-                              print(
-                                  "data :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ${data}");
-
-                              PresscriptionDrugList.add(data);
-                              return DrugListItem(
-                                data: data,
-                                doctorid: widget.doctorid,
-                                patientid: widget.patientid,
-                                appointmentid: widget.appointmentid,
-                                Epharmachy_Masterid: Epharmachy_Masterid,
-                                bloc: widget
-                                    .appointmentids_for_when_returing_from_template_screen![i],
-                              );
                             },
-                          ),
-                        );
+                            value: template_list,
+                            labelKey: 'Template_Name');
                       },
                     ),
-
-              const SizedBox(
-                height: 8,
-              ),
-
-              // const MTextField(
-              //   label: 'Doctor Notes',
-              //   maxLines: 5,
-              //   minLines: 3,
-              // ),
-
-              Container(
-                  width: double.maxFinite,
-                  height: 50,
-                  margin: const EdgeInsets.symmetric(vertical: 16),
-                  child: OutlinedButton(
-                    onPressed: () {
-                      print(
-                          "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP${PresscriptionDrugList.length}");
-                      PresscriptionDrugList.length == 0
-                          ? {
+                  )
+                      : Container(),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        MTextButton(
+                          onPressed: () async {
+                            Future<Response<ApiResponse>> call =
+                            GetmasterPrescription();
+                            final res = await showWaitingDialog(
+                                context: context, call: call);
+                            if (res?.body.R != null) {
+                              print(
+                                  ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::${res?.body.R}");
+                              Epharmachy_Masterid = res?.body.R;
+                              context.push(Routes.templateList, {
+                                'patientID': widget.patientid,
+                                'Epharmachy_Masterid': Epharmachy_Masterid,
+                                'already_added_drugs_to_list':
+                                PresscriptionDrugList,
+                                'issaveExisting': false,
+                              });
+                            }
+                          },
+                          label: 'Template List',
+                          icon: Icons.list_alt,
+                        ),
+                        MTextButton(
+                          onPressed: () async {
+                            print(
+                                "PresscriptionDrugList:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::$PresscriptionDrugList");
+                            context.push(Routes.templateList, {
+                              'patientID': widget.patientid,
+                              'Epharmachy_Masterid': Epharmachy_Masterid,
+                              'already_added_drugs_to_list': PresscriptionDrugList,
+                              'issaveExisting': true,
+                            });
+                          },
+                          label: 'Save Existing',
+                          icon: Icons.save,
+                        ),
+                        MTextButton(
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (c) => SaveTemplateDialog(
+                                Appointment_id: widget.appointmentid,
+                              ),
+                            );
+                          },
+                          label: 'Save New',
+                          icon: Icons.save,
+                        ),
+                        MTextButton(
+                          onPressed: () {
+                            print(
+                                "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP${PresscriptionDrugList.length}");
+                            PresscriptionDrugList.length == 0
+                                ? {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                       content: Text(
-                                          'Please add atleast 1 drug to prescription to send the prescription')))
+                                          'Please add atleast 1 drug to prescription to preview the prescription')))
                             }
-                          : context.pop();
+                                : context.push(Routes.prescriptionPreview, {
+                              /// bloc has been called as duplicate because when going context.pop the state and bloc gets closed so used duplicate
+                              'patientbloc': patientbloc.duplicate(),
+                              'PresscriptionDrugList': PresscriptionDrugList
+                            });
+                          },
+                          label: 'Preview',
+                          icon: FontAwesomeIcons.solidFileLines,
+                        ),
+                      ],
+                    ),
+                  ),
+                  widget.appointmentids_for_when_returing_from_template_screen ==
+                      null
+                      ? BlocProvider(
+                    create: (c) => bloc..add(const Load()),
+                    child: ApiBuilder<SavedPrescription>(
+                      shrinkWrap: true,
+                      empty: Container(),
+                      fromJson: SavedPrescription.fromJsonFactory,
+                      builder: (SavedPrescription data, int index) {
+                        print("data ::::::::::::::::: ${data}");
+
+                        PresscriptionDrugList.add(data);
+
+                        return DrugListItem(
+                          data: data,
+                          doctorid: widget.doctorid,
+                          patientid: widget.patientid,
+                          appointmentid: widget.appointmentid,
+                          Epharmachy_Masterid: Epharmachy_Masterid,
+                          bloc: bloc,
+                        );
+                      },
+                    ),
+                  )
+                      : ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: widget
+                        .appointmentids_for_when_returing_from_template_screen
+                        ?.length,
+                    itemBuilder: (c, i) {
+                      return BlocProvider(
+                        create: (c) => widget
+                            .appointmentids_for_when_returing_from_template_screen![i]
+                          ..add(const Load()),
+                        child: ApiBuilder<SavedPrescription>(
+                          direction: Axis.vertical,
+                          shrinkWrap: true,
+                          fromJson: SavedPrescription.fromJsonFactory,
+                          builder: (SavedPrescription data, int index) {
+                            print(
+                                "data :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ${data}");
+
+                            PresscriptionDrugList.add(data);
+                            return DrugListItem(
+                              data: data,
+                              doctorid: widget.doctorid,
+                              patientid: widget.patientid,
+                              appointmentid: widget.appointmentid,
+                              Epharmachy_Masterid: Epharmachy_Masterid,
+                              bloc: widget
+                                  .appointmentids_for_when_returing_from_template_screen![i],
+                            );
+                          },
+                        ),
+                      );
                     },
-                    child: const Text('Send Prescription'),
-                  ))
+                  ),
+
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  // const MTextField(
+                  //   label: 'Doctor Notes',
+                  //   maxLines: 5,
+                  //   minLines: 3,
+                  // ),
+                  Container(
+                      width: double.maxFinite,
+                      height: 50,
+                      margin: const EdgeInsets.symmetric(vertical: 16),
+                      child: OutlinedButton(
+                        onPressed: () {
+                          print(
+                              "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP${PresscriptionDrugList.length}");
+                          PresscriptionDrugList.length == 0
+                              ? {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text(
+                                        'Please add atleast 1 drug to prescription to send the prescription')))
+                          }
+                              : context.pop();
+                        },
+                        child: const Text('Send Prescription'),
+                      ))
+                ],
+              ): Container(),
             ],
           ),
         ),

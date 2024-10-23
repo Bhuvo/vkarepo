@@ -52,6 +52,8 @@ class _FileUploadState extends State<FileUpload> {
     void pickFile() async {
       print("pick file runs from here");
       final result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: widget.allowedExtensions,
         allowMultiple: widget.onMultiple != null,
       );
       if (result != null && result.files.isNotEmpty) {

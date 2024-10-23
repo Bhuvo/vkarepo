@@ -275,6 +275,7 @@ class _LoginPageState extends State<LoginPage> {
                 //height: MediaQuery.of(context).size.height * 0.065,
                 child: OutlinedButton(
                     onPressed: () async {
+                      showWaitingDialog(context: context);
                       print(password);
                       if (_formKey.currentState!.validate()) {
                         if (AppConfig.of(context)?.config == Config.patient) {
@@ -305,7 +306,8 @@ class _LoginPageState extends State<LoginPage> {
                               result['Data']['Doctor_Name'] = result['Data']['First_Name'];
                               // result['Data']['Doctor_id'] = result['Data']['Hospital_Admin_Id'];
                               print('${result['Data']['Doctor_Name']} ${result['Data']['Hospital_Admin_Id']}');
-
+                              context.replace(Routes.adminDashboard);
+                              return ;
                             } else if(result['ResponseCode'] =='6'){
                               LocalStorage.setString(LocalStorage.IsType, Consts.frontOffice);
                               print('Its a front office');

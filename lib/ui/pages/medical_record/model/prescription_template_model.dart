@@ -15,6 +15,7 @@ class PrescriptionTemplateModel {
   String? doctorName;
   String? doctorPhoneNumber;
   String? doctorQualification;
+  String? specializations;
 
   PrescriptionTemplateModel(
       {this.registrations,
@@ -32,7 +33,8 @@ class PrescriptionTemplateModel {
         this.displayFlag,
         this.doctorName,
         this.doctorPhoneNumber,
-        this.doctorQualification});
+        this.doctorQualification,
+      this.specializations});
 
   PrescriptionTemplateModel.fromJson(Map<String, dynamic> json) {
     registrations = json['Registrations'];
@@ -51,6 +53,7 @@ class PrescriptionTemplateModel {
     doctorName = json['Doctor_Name'];
     doctorPhoneNumber = json['Doctor_Phone_Number'];
     doctorQualification = json['Doctor_Qualification'];
+    specializations = json['Specializations'];
   }
 
   Map<String, dynamic> toJson() {
@@ -71,6 +74,7 @@ class PrescriptionTemplateModel {
     data['Doctor_Name'] = this.doctorName;
     data['Doctor_Phone_Number'] = this.doctorPhoneNumber;
     data['Doctor_Qualification'] = this.doctorQualification;
+    data['Specializations'] = this.specializations;
     return data;
   }
 }

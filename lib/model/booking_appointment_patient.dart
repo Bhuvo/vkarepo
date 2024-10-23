@@ -173,6 +173,8 @@ class BookingAppointmentPatient with _$BookingAppointmentPatient {
   @Default(null) dynamic DiseaseDetails_Flag,
   @Default(null) dynamic Prescription_Flag,
   @Default(null) dynamic LabTest_Flag,
+  @Default(null) dynamic MediaAvailablity,
+    @Default(null) dynamic complaints,
   }) = _BookingAppointmentPatient;
   static const fromJsonFactory = _$BookingAppointmentPatientFromJson;
   factory BookingAppointmentPatient.fromJson(Map<String, dynamic> json) =>

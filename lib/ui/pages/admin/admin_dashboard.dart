@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:timesmedlite/ui/pages/dashboard/dashboard_card.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
+import 'package:timesmedlite/ui/widgets/space.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../routes/routes.dart';
@@ -106,6 +107,7 @@ class AdminDashboard extends StatelessWidget {
                 color: Colors.orange,
                 asset: 'assets/images/scheduled.png',
                 onTap: () {
+                  context.push(Routes.prescriptionLetteredList);
                 },
               ),
               DashboardCard(
@@ -114,6 +116,7 @@ class AdminDashboard extends StatelessWidget {
                 color: Colors.red.shade600,
                 asset: 'assets/images/scheduled.png',
                 onTap: () {
+                  context.push(Routes.hospitalDetail);
                 },
               ),
             ],

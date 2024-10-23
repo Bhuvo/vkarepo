@@ -486,7 +486,7 @@ class _AppointmentSelectUserDialogState
             query: data.toJson());
         context.pop();
         log('API URL: ' + (res.base.request?.url.toString() ?? ''));
-        print('VKA_PatientRegistration ${res.body?.data}'); //312503
+        print('VKA_PatientRegistration ${res.body}'); //312503
         if (res.isSuccessful) {
           if (res.body?.code == '1') {
             // final call = Injector()

@@ -34,11 +34,12 @@ class ProfilePage extends StatelessWidget {
   final bloc = ApiBuilderBloc(path: 'DoctorDetails', query: {
     'Doctor_id': LocalStorage.getUID().toString(),
   });
-
+  var type = LocalStorage.getString(LocalStorage.IsType);
   @override
   Widget build(BuildContext context) {
+
     return HomeBottomNavigation( //HomePageBase
-      title: title.toUpperCase(),
+      title: type == Consts.doctor? 'Doctor Profile' : type == Consts.nurse?'Nurse Profile': type == Consts.frontOffice?'Front Office Profile':'Patient Profile',
       body: BlocProvider(
         create: (context) => bloc..add(const Load()),
         child: ApiBuilder<User>(

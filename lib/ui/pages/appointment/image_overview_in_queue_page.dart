@@ -41,7 +41,7 @@ class _ImageOverviewInQueuePageState extends State<ImageOverviewInQueuePage> {
   //   super.initState();
   // }
   getMethod(){
-    if (widget.name.contains('.pdf')) {
+    if (widget.name.contains('.pdf') || widget.name.contains('.docx')) {
       // setState(() {
         itsPDF = true;
         print('isPdf $itsPDF  ' );

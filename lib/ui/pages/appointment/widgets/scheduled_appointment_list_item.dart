@@ -99,6 +99,7 @@ class ScheduledAppointmentListItem extends StatelessWidget {
             //   height: 20,
             // ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -113,224 +114,287 @@ class ScheduledAppointmentListItem extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  width: 0.5,
-                  height: 100,
-                  color: Theme.of(context).dividerColor.withOpacity(0.5),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          //mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 16),
-                              child: Text(
-                                data.Payment_Flag == 'N' ? 'NOT PAID' : 'PAID',
-                                style: TextStyle(
-                                    color: data.Payment_Flag == 'N'
-                                        ? Colors.red
-                                        : Colors.green,
-                                    fontSize: 10, fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                            // Container(
-                            //   width: 0.5,
-                            //   height: 16,
-                            //   color: Theme.of(context).dividerColor,
-                            //   margin: EdgeInsets.symmetric(horizontal: 10),
-                            // ),
-                            if(data.DiseaseDetails_Flag == '1')...[
-                              FilledButton.tonal(
-                                  style: TextButton.styleFrom(
-                                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
-                                  ),
-                                  onPressed: (){
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => VitalSignChartPage(
-                                              patientId: '${data.User_id}',
-                                              isFromPatient: false,
-                                            )));
-                                  }, child: const Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  FaIcon(
-                                    FontAwesomeIcons.heartPulse,
-                                    color: Colors.green,
-                                    size: 16,
-                                  ),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  Text('VITAL COLLECTED', style: TextStyle(
-                                    color: Colors.green,
-                                    fontSize: 12
-                                  ))
-                                ],
-                              ))
-                            ] else  Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 16),
-                              child: FilledButton.tonal(
-
-                                onPressed: () {  },
-                                child: Text('VITAL NOT COLLECTED',
-                                  textAlign: TextAlign.end,
-                                  style: TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 10),
-                                ),
-                              ),
-                            ),
-
-                            // if(data.DiseaseDetails_Flag == '1')...[
-                            //   TextButton(
-                            //       style: TextButton.styleFrom(
-                            //           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
-                            //       ),
-                            //       onPressed: (){
-                            //         // Routes.detailedClinicalNotes
-                            //         context.push(Routes.detailedClinicalNotes, {'data': data});
-                            //       }, child: const Row(
-                            //     mainAxisAlignment: MainAxisAlignment.end,
-                            //     mainAxisSize: MainAxisSize.min,
-                            //     children: [
-                            //       FaIcon(
-                            //         FontAwesomeIcons.notesMedical,
-                            //         color: Colors.green,
-                            //         size: 16,
-                            //       ),
-                            //       SizedBox(
-                            //         width: 8,
-                            //       ),
-                            //       AutoSizeText('COMPLAINTS\nCOLLECTED', style: TextStyle(
-                            //           color: Colors.green,
-                            //           fontSize: 12
-                            //       ))
-                            //     ],
-                            //   ))
-                            // ] else const Padding(
-                            //   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                            //   child: Text(
-                            //     'COMPLAINTS NOT COLLECTED',
-                            //     textAlign: TextAlign.end,
-                            //     style: TextStyle(
-                            //         color: Colors.red,
-                            //         fontWeight: FontWeight.w600,
-                            //         fontSize: 10),
-                            //   ),
-                            // ),
-
-                            if(data.Prescription_Flag == '1')...[
-                              FilledButton.tonal(
-                                  style: FilledButton.styleFrom(
-                                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
-                                  ),
-                                  onPressed: (){
-                                    final args = {
-                                      'patientid': '${data.User_id}',
-                                      'doctorid': '${data.Doctor_id}',
-                                      'appointmentid': '${data.Appointment_id}',
-                                    };
-                                    print(args);
-                                    context.push(Routes.prescriptionEditor, args);
-                                  }, child: const Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  FaIcon(
-                                    FontAwesomeIcons.prescriptionBottleAlt,
-                                    color: Colors.green,
-                                    size: 16,
-                                  ),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  AutoSizeText('PRESCRIPTION\nCOLLECTED', style: TextStyle(
-                                      color: Colors.green,
-                                      fontSize: 12
-                                  ))
-                                ],
-                              ))
-                            ] else FilledButton.tonal(
-                              onPressed: () {  },
-                              child: const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                                child: Text(
-                                  'PRESCRIPTION NOT COLLECTED',
-                                  textAlign: TextAlign.end,
-                                  style: TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 10),
-                                ),
-                              ),
-                            ),
-
-                            if(data.LabTest_Flag == '1')...[
-                              FilledButton.tonal(
-                                  style: FilledButton.styleFrom(
-                                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
-                                  ),
-                                  onPressed: (){
-                                    context.push(Routes.labTestRequest, {
-                                      'patientid': '${data.User_id}',
-                                      'doctorid': '${data.Doctor_id}',
-                                      'appointmentid': '${data.Appointment_id}',
-                                    });
-                                  }, child: const Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  FaIcon(
-                                    FontAwesomeIcons.vial,
-                                    color: Colors.green,
-                                    size: 16,
-                                  ),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  AutoSizeText('LAB TEST COLLECTED', style: TextStyle(
-                                      color: Colors.green,
-                                      fontSize: 12
-                                  ))
-                                ],
-                              ))
-                            ] else FilledButton.tonal(
-                              onPressed: () {  },
-                              child: const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                                child: Text(
-                                  'LAB TEST NOT COLLECTED',
-                                  textAlign: TextAlign.end,
-                                  style: TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 10),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: status(),
-                        )
-                      ],
-                    ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Row(),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: status(),
+                      )
+                    ],
                   ),
                 )
               ],
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 1),
+              child: Row(
+                children: [
+                  AutoSizeText(
+                    'Complaints : ',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall
+                        ?.copyWith( fontWeight:  FontWeight.w600),
+                  ),
+                  Space(2),
+                  Flexible(child: Text(data.complaints == ''?'No Complaints':data.complaints ?? 'No Complaints', style: Theme.of(context).textTheme.bodySmall?.copyWith(color:  MTheme.THEME_COLOR, fontWeight:  FontWeight.w700 ),))
+                ],
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection:Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                //mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  FilledButton.tonal(
+                    style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      data.Payment_Flag == 'N' ? 'NOT PAID' : 'PAID',
+                      style: TextStyle(
+                          color: data.Payment_Flag == 'N'
+                              ? Colors.red
+                              : Colors.green,
+                          fontSize: 10, fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                  Space(),
+                  // Container(
+                  //   width: 0.5,
+                  //   height: 16,
+                  //   color: Theme.of(context).dividerColor,
+                  //   margin: EdgeInsets.symmetric(horizontal: 10),
+                  // ),
+                  if(data.MediaAvailablity == 'true')...[
+                    FilledButton.tonal(
+                        style: FilledButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
+                        ),
+                        onPressed: (){
+                          // final args = {
+                          //   'patientid': '${data.User_id}',
+                          //   'doctorid': '${data.Doctor_id}',
+                          //   'appointmentid': '${data.Appointment_id}',
+                          // };
+                          // print(args);
+                          context.push(Routes.uploadMedicalDocument, {'data' : data});
+                        }, child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.prescriptionBottleAlt,
+                          color: Colors.green,
+                          size: 16,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        AutoSizeText('Medical records\nCOLLECTED', style: TextStyle(
+                            color: Colors.green,
+                            fontSize: 12
+                        ))
+                      ],
+                    ))
+                  ] else FilledButton.tonal(
+                    onPressed: () {  },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                      child: Text(
+                        'Medical records\nNOT COLLECTED',
+                        textAlign: TextAlign.end,
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 10),
+                      ),
+                    ),
+                  ),
+                  if(data.DiseaseDetails_Flag == '1')...[
+                    FilledButton.tonal(
+                        style: TextButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(horizontal: 16)
+                        ),
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VitalSignChartPage(
+                                    patientId: '${data.User_id}',
+                                    isFromPatient: false,
+                                  )));
+                        }, child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.heartPulse,
+                          color: Colors.green,
+                          size: 16,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text('VITAL COLLECTED', style: TextStyle(
+                            color: Colors.green,
+                            fontSize: 12
+                        ))
+                      ],
+                    ))
+                  ] else  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: FilledButton.tonal(
+
+                      onPressed: () {  },
+                      child: Text('VITAL NOT COLLECTED',
+                        textAlign: TextAlign.end,
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 10),
+                      ),
+                    ),
+                  ),
+
+                  // if(data.DiseaseDetails_Flag == '1')...[
+                  //   TextButton(
+                  //       style: TextButton.styleFrom(
+                  //           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
+                  //       ),
+                  //       onPressed: (){
+                  //         // Routes.detailedClinicalNotes
+                  //         context.push(Routes.detailedClinicalNotes, {'data': data});
+                  //       }, child: const Row(
+                  //     mainAxisAlignment: MainAxisAlignment.end,
+                  //     mainAxisSize: MainAxisSize.min,
+                  //     children: [
+                  //       FaIcon(
+                  //         FontAwesomeIcons.notesMedical,
+                  //         color: Colors.green,
+                  //         size: 16,
+                  //       ),
+                  //       SizedBox(
+                  //         width: 8,
+                  //       ),
+                  //       AutoSizeText('COMPLAINTS\nCOLLECTED', style: TextStyle(
+                  //           color: Colors.green,
+                  //           fontSize: 12
+                  //       ))
+                  //     ],
+                  //   ))
+                  // ] else const Padding(
+                  //   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                  //   child: Text(
+                  //     'COMPLAINTS NOT COLLECTED',
+                  //     textAlign: TextAlign.end,
+                  //     style: TextStyle(
+                  //         color: Colors.red,
+                  //         fontWeight: FontWeight.w600,
+                  //         fontSize: 10),
+                  //   ),
+                  // ),
+
+                  if(data.Prescription_Flag == '1')...[
+                    FilledButton.tonal(
+                        style: FilledButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
+                        ),
+                        onPressed: (){
+                          final args = {
+                            'patientid': '${data.User_id}',
+                            'doctorid': '${data.Doctor_id}',
+                            'appointmentid': '${data.Appointment_id}',
+                          };
+                          print(args);
+                          context.push(Routes.prescriptionEditor, args);
+                        }, child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.prescriptionBottleAlt,
+                          color: Colors.green,
+                          size: 16,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        AutoSizeText('PRESCRIPTION\nCOLLECTED', style: TextStyle(
+                            color: Colors.green,
+                            fontSize: 12
+                        ))
+                      ],
+                    ))
+                  ] else FilledButton.tonal(
+                    onPressed: () {  },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      child: Text(
+                        'PRESCRIPTION NOT COLLECTED',
+                        textAlign: TextAlign.end,
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 10),
+                      ),
+                    ),
+                  ),
+                  Space(),
+                  if(data.LabTest_Flag == '1')...[
+                    FilledButton.tonal(
+                        style: FilledButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
+                        ),
+                        onPressed: (){
+                          context.push(Routes.labTestRequest, {
+                            'patientid': '${data.User_id}',
+                            'doctorid': '${data.Doctor_id}',
+                            'appointmentid': '${data.Appointment_id}',
+                          });
+                        }, child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.vial,
+                          color: Colors.green,
+                          size: 16,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        AutoSizeText('LAB TEST COLLECTED', style: TextStyle(
+                            color: Colors.green,
+                            fontSize: 12
+                        ))
+                      ],
+                    ))
+                  ] else FilledButton.tonal(
+                    onPressed: () {  },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                      child: Text(
+                        'LAB TEST NOT COLLECTED',
+                        textAlign: TextAlign.end,
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 10),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             const Divider(
               height: 20,
@@ -460,7 +524,7 @@ class ScheduledAppointmentListItem extends StatelessWidget {
         return const StatusIndicator(label: 'MISSED');
       default:
         return StatusIndicator(
-          label: 'UNKNOWN: ${data.view_status}',
+          label: 'Status: ${data.view_status}',
           color: Colors.grey,
         );
     }

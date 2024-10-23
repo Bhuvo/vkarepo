@@ -68,8 +68,11 @@ import 'package:timesmedlite/ui/pages/vka_patient/vital.dart';
 import 'package:timesmedlite/ui/pages/waiting_list/waiting_list_page.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 import '../pages/admin/add_new_doctor.dart';
+import '../pages/admin/prescription/add_prescription_template.dart';
 import '../pages/admin/admin_dashboard.dart';
 import '../pages/admin/common_list.dart';
+import '../pages/admin/hospital_manage.dart';
+import '../pages/admin/prescription/prescriptionList.dart';
 import '../pages/appointment/Clinical Visit/book_appointment_clinical_timing.dart';
 import '../pages/appointment/Clinical Visit/doctors_clinical_details.dart';
 import '../pages/appointment/Clinical Visit/doctors_list_for_clinical_visit.dart';
@@ -614,6 +617,12 @@ abstract class RouteGenerator {
         return route(settings,AddNewDoctor());
         case Routes.adminSignUpPage:
         return route(settings,AdminSignUpPage());
+        case Routes.hospitalDetail:
+        return route(settings,HospitalManage());
+        case Routes.addPrescriptionLettered:
+        return route(settings,AddPrescriptionTemplate());
+        case Routes.prescriptionLetteredList:
+        return route(settings,Prescriptionlist());
       default:
         return route(settings, const SplashPage());
     }

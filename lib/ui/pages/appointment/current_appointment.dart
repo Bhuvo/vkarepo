@@ -112,7 +112,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
     print('t is $t');
     return HomeBottomNavigation(
       // title: Consts.CURRENT_APPOINTMENT,
-      title: 'Clinical Appointment',
+      title: 'Clinical Dashboard',
       // actions: [
       //   IconButton(
       //       onPressed: () {
@@ -268,8 +268,8 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           subTitle: 'Total',
                           color: Color(0xFF2fa6c4),
                           asset: 'assets/images/scheduled.png',
-                          onTap: () {
-                            context.push(
+                          onTap: () async {
+                            await context.push(
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
@@ -278,6 +278,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                                 'toDate': query['To'] ,
                               },
                             );
+                            bloc..add(Refresh());
                           },
                         ),
                         DashboardCard(
@@ -285,10 +286,9 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           subTitle: 'Waiting',
                           color: Color(0xFFf8457a),
                           asset: 'assets/images/waiting.png',
-                          onTap: () {
+                          onTap: ()async {
                             // context.push(Routes.clinicalAppointments);
-                            context.push(
-
+                            await context.push(
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
@@ -297,6 +297,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                                 'toDate': query['To'] ,
                               },
                             );
+                            bloc..add(Refresh());
                           },
                         ),
                       ],
@@ -308,8 +309,8 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                       flex: 0,
                       color: Colors.purple.shade400,
                       asset: 'assets/images/confirm.png',
-                      onTap: () {
-                        context.push(
+                      onTap: () async{
+                        await context.push(
                           Routes.scheduledAppointmentList,
                           {
                             'hos_id': query['hos_id'],
@@ -318,6 +319,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                             'toDate': query['To'] ,
                           },
                         );
+                        bloc..add(Refresh());
                       },
                     ),
                     Row(
@@ -327,8 +329,8 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           subTitle: 'Checked Out',
                           color: Colors.green.shade400,
                           asset: 'assets/images/scheduled.png',
-                          onTap: () {
-                            context.push(
+                          onTap: () async{
+                           await context.push(
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
@@ -337,6 +339,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                                 'toDate': query['To'] ,
                               },
                             );
+                           bloc..add(Refresh());
                           },
                         ),
                         DashboardCard(
@@ -345,8 +348,8 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                           subTitle: 'Confirmed',
                           color: Colors.brown.shade400,
                           asset: 'assets/images/confirm.png',
-                          onTap: () {
-                            context.push(
+                          onTap: ()async {
+                           await context.push(
                               Routes.scheduledAppointmentList,
                               {
                                 'hos_id': query['hos_id'],
@@ -355,6 +358,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                                 'toDate': query['To'] ,
                               },
                             );
+                            bloc..add(Refresh());
                           },
                         ),
                       ],
@@ -415,8 +419,8 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                       asset: 'assets/images/Appointment.png',
                       color: Colors.orange,
                       flex: 0,
-                      onTap: () {
-                        context.push(
+                      onTap: () async{
+                        await context.push(
                           Routes.scheduledAppointmentList,
                           {
                             'hos_id': query['hos_id'],
@@ -425,6 +429,7 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
                             'toDate': query['To'] ,
                           },
                         );
+                        bloc..add(Refresh());
                       },
                     ),
                     DashboardCard(

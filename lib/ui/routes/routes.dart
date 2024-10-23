@@ -109,6 +109,12 @@ abstract class Routes {
   static const String adminDashboard = 'adminDashboard';
   static const String doctorsList = 'doctorsList';
   static const String addNewDoctor = 'addNewDoctor';
+  static const String hospitalDetail = 'hospitalDetail';
+  static const String addPrescriptionLettered = 'addPrescriptionLettered';
+  static const String prescriptionLetteredList = 'prescriptionLetteredList';
+
+
+
 
 
 }

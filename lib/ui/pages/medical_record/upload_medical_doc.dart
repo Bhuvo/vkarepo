@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:advance_pdf_viewer2/advance_pdf_viewer.dart' hide Config;
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,6 +15,7 @@ import 'package:timesmedlite/ui/components/show_message.dart';
 import 'package:timesmedlite/ui/providers/user_provider.dart';
 import 'package:timesmedlite/ui/widgets/loading_widget.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
+import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../../di/dependency_injection.dart';
@@ -137,6 +139,7 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
     print('exit function');
   }
 
+
   @override
   Widget build(BuildContext context) {
     return MScaffold(
@@ -164,6 +167,42 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
                   indent: 0,
                   thickness: 0.5,
                 ),
+                LocalStorage.isDoctor ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                  Text(
+                    Consts.PREVIOUS_RECORDS,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const SizedBox(height: 10),
+                  BlocProvider(
+                    create: (_) => bloc..add(const Load()),
+                    child: ApiBuilder(
+                        shrinkWrap: true,
+                        jsonBuilder: (data, load) {
+                          return SizedBox(
+                            height: 400,
+                            child: ListView.builder(
+                              itemCount: data.length,
+                              itemBuilder: (context, index) => FileViewList(
+                                key: ValueKey(data[index]),
+                                title: data[index]["Title"] ==''? null : data[index]["Title"],
+                                name: data[index]["Name"].toString(),
+                                appointmentId: appointmentId.toString(),
+                                description: data[index]["Description"] ?? "Null",
+                                date: data[index]["Date"] ?? "Null",
+                                recordsId: data[index]["id"],
+                                deleteVoidCallBack: (val){
+                                  print('delet pop $val');
+                                },
+                              ),
+                            ),
+                          );
+                        }),
+                  )
+                ],) : Container(),
+
+
                 Text(
                   'Upload Files',
                   style: Theme.of(context).textTheme.bodySmall,
@@ -171,8 +210,11 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
                 const SizedBox(
                   height: 16,
                 ),
-                (selectedfile == null || selectedfile!.isEmpty)
+                (selectedfile.isEmpty)
                     ? FileUpload(
+                  allowedExtensions: [
+                    'png' ,'jpg' ,'jpeg' ,'pdf'
+                  ],
                    onMultiple: (list)async {
                      setState(() {
                        print('lenght of list ${list.length} , ${selectedfile.length}');
@@ -216,9 +258,15 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
                                   child: Container(
                                     width: 150.0,
                                     height: 200.0,
-                                    child: Image.file(
+                                    child:selectedfile[index].file!.name.contains('.pdf') ?
+                                        Icon( Icons.picture_as_pdf_outlined, size: 30, color: Colors.red,)
+                                    // PDFViewer(
+                                    //   document:PDFDocument.fromAsset(selectedfile[index].file!.path.toString()),
+                                    //
+                                    // )
+                                        : Image.file(
                                       fit: BoxFit.fill,
-                                        File(selectedfile![index].file!.path.toString())),
+                                        File(selectedfile[index].file!.path.toString())),
                                   ),
                                 ),
                                 Positioned(
@@ -336,36 +384,40 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Text(
-                  Consts.PREVIOUS_RECORDS,
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-                const SizedBox(height: 10),
-                BlocProvider(
-                  create: (_) => bloc..add(const Load()),
-                  child: ApiBuilder(
-                      shrinkWrap: true,
-                      jsonBuilder: (data, load) {
-                        return SizedBox(
-                          height: 400,
-                          child: ListView.builder(
-                            itemCount: data.length,
-                            itemBuilder: (context, index) => FileViewList(
-                              key: ValueKey(data[index]),
-                              title: data[index]["Title"] ==''? null : data[index]["Title"],
-                              name: data[index]["Name"].toString(),
-                              appointmentId: appointmentId.toString(),
-                              description: data[index]["Description"] ?? "Null",
-                              date: data[index]["Date"] ?? "Null",
-                              recordsId: data[index]["id"],
-                              deleteVoidCallBack: (val){
-                                print('delet pop $val');
-                              },
+                !LocalStorage.isDoctor ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                  Text(
+                    Consts.PREVIOUS_RECORDS,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const SizedBox(height: 10),
+                  BlocProvider(
+                    create: (_) => bloc..add(const Load()),
+                    child: ApiBuilder(
+                        shrinkWrap: true,
+                        jsonBuilder: (data, load) {
+                          return SizedBox(
+                            height: 400,
+                            child: ListView.builder(
+                              itemCount: data.length,
+                              itemBuilder: (context, index) => FileViewList(
+                                key: ValueKey(data[index]),
+                                title: data[index]["Title"] ==''? null : data[index]["Title"],
+                                name: data[index]["Name"].toString(),
+                                appointmentId: appointmentId.toString(),
+                                description: data[index]["Description"] ?? "Null",
+                                date: data[index]["Date"] ?? "Null",
+                                recordsId: data[index]["id"],
+                                deleteVoidCallBack: (val){
+                                  print('delet pop $val');
+                                },
+                              ),
                             ),
-                          ),
-                        );
-                      }),
-                )
+                          );
+                        }),
+                  )
+                ],) : Container(),
               ],
             ),
           ),

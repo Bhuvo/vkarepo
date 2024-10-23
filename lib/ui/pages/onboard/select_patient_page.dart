@@ -143,6 +143,6 @@ class SelectPatientPage extends StatelessWidget {
   }
 
   void navigate(BuildContext context){
-    context.replace(Routes.bookAppointment);
+    context.replace(Routes.patientDashboard);
   }
 }
