@@ -112,6 +112,7 @@ abstract class Routes {
   static const String hospitalDetail = 'hospitalDetail';
   static const String addPrescriptionLettered = 'addPrescriptionLettered';
   static const String prescriptionLetteredList = 'prescriptionLetteredList';
+  static const String addNewNurseOrFo = 'addNewNurseOrFo';
 
 
 

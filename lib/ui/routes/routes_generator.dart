@@ -77,6 +77,7 @@ import '../pages/appointment/Clinical Visit/book_appointment_clinical_timing.dar
 import '../pages/appointment/Clinical Visit/doctors_clinical_details.dart';
 import '../pages/appointment/Clinical Visit/doctors_list_for_clinical_visit.dart';
 import '../pages/auth/admin_sign_up_page.dart';
+import '../pages/auth/nurse_front_office_sign_up_page.dart';
 import '../pages/clinical_notes/clinical_notes_add_page.dart';
 import '../pages/dashboard/video_dashboard.dart';
 import '../pages/instant_call/instant_call_list_dialog.dart';
@@ -607,6 +608,7 @@ abstract class RouteGenerator {
         case Routes.doctorsList:
           args as Map;
         return route(settings, CommonList(
+          status: args['status'] ?? 'A',
             title: args['title'],
           adminId: args['adminId'],
           doctor:args['doctor'] ?? false,
@@ -623,6 +625,9 @@ abstract class RouteGenerator {
         return route(settings,AddPrescriptionTemplate());
         case Routes.prescriptionLetteredList:
         return route(settings,Prescriptionlist());
+        case Routes.addNewNurseOrFo:
+          args as Map;
+        return route(settings,NurseFrontOfficeSignUpPage(isNurse: args['isNurse'] ,));
       default:
         return route(settings, const SplashPage());
     }

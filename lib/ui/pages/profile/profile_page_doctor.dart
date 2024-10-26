@@ -31,15 +31,14 @@ class ProfilePage extends StatelessWidget {
 
   ProfilePage({Key? key, required this.user, required this.title})
       : super(key: key);
-  final bloc = ApiBuilderBloc(path: 'DoctorDetails', query: {
-    'Doctor_id': LocalStorage.getUID().toString(),
+  final bloc = ApiBuilderBloc(path:LocalStorage.isAdmin ? 'AdminDetails': 'DoctorDetails', query: {
+    ( LocalStorage.isAdmin ? 'admin_id': 'Doctor_id'): LocalStorage.getUID().toString(),
   });
   var type = LocalStorage.getString(LocalStorage.IsType);
   @override
   Widget build(BuildContext context) {
-
     return HomeBottomNavigation( //HomePageBase
-      title: type == Consts.doctor? 'Doctor Profile' : type == Consts.nurse?'Nurse Profile': type == Consts.frontOffice?'Front Office Profile':'Patient Profile',
+      title: type == Consts.doctor? 'Doctor Profile' : type == Consts.nurse?'Nurse Profile': type == Consts.frontOffice?'Front Office Profile':type == Consts.admin? 'Admin Profile':'Patient Profile',
       body: BlocProvider(
         create: (context) => bloc..add(const Load()),
         child: ApiBuilder<User>(
@@ -69,14 +68,14 @@ class ProfilePage extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                            "${user.name}",
+                            "${user.name ?? user.adminName}",
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyLarge
                                 ?.copyWith(color: MTheme.THEME_COLOR),
                           ),
                           Text(
-                            '${user.qualification}',
+                            '${user.qualification ??'Hospital : ${user.hospitalName} - Id : ${user.hospitalId}'}',
                             style: TextStyle(
                                 color:
                                     Theme.of(context).textTheme.bodySmall?.color,
@@ -104,7 +103,7 @@ class ProfilePage extends StatelessWidget {
                           const SizedBox(
                             width: 16,
                           ),
-                          const Expanded(child: UserInfo(Info.whatsapp)),
+                          LocalStorage.isAdmin ? Expanded(child: Text('DOB : ${user.dob ?? 'N/A'}',style: TextStyle(fontSize: 14),textAlign: TextAlign.center,)):const Expanded(child: UserInfo(Info.whatsapp)),
                         ],
                       )),
                       MListTile(

@@ -104,6 +104,14 @@ class User with _$User {
     @JsonKey(name: 'PatientRegistration_list')
     @Default(null)
     dynamic patientRegistrationlist,
+    @JsonKey(name: 'Hospital_Admin_Id') @Default(null) dynamic hospitalAdminId,
+    @JsonKey(name: 'Hospital_Id') @Default(null) dynamic hospitalId,
+    @JsonKey(name: 'Email_Id') @Default(null) dynamic hospitalEmailId,
+    @JsonKey(name: 'AdminGender') @Default(null) dynamic adminGender,
+    @JsonKey(name: 'Address') @Default(null) dynamic adminAddress,
+    @JsonKey(name: 'User_Firstname') @Default(null) dynamic adminName,
+    @JsonKey(name: 'Mobile_Number') @Default(null) dynamic adminNumber,
+
   }) = _User;
   static const fromJsonFactory = _$UserFromJson;
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

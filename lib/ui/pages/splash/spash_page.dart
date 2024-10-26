@@ -41,7 +41,7 @@ bool isNotifyDoc = false;
     //LocalStorage.clear();
     ///
     if (mounted) {
-      if (LocalStorage.getUser().id == null) {
+      if (LocalStorage.getUser().id == null && LocalStorage.getUser().hospitalAdminId == null) {
         context.replace(Routes.login);
       } else {
         if (mounted && !isNotifyDoc) {

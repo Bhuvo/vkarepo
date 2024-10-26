@@ -18,6 +18,7 @@ class LocalStorage {
 
   static bool get isNurse =>  LocalStorage.getString(LocalStorage.IsType) == Consts.nurse;
   static bool get isDoctor =>  LocalStorage.getString(LocalStorage.IsType) == Consts.doctor;
+  static bool get isAdmin=>  LocalStorage.getString(LocalStorage.IsType) == Consts.admin;
 
   static SharedPreferences? _prefs;
   static final Map<String, dynamic> _memoryPrefs = <String, dynamic>{};
@@ -51,7 +52,8 @@ class LocalStorage {
     print(getJson(USER));
     final id = '${user.id ??user.userId ?? user.patientid}';
     final id2 ='${user.userId ?? user.patientid}';
-    return getString(IsType) == Consts.doctor ||getString(IsType)== Consts.nurse||getString(IsType)== Consts.frontOffice ?id : id2;
+    final admin ='${user.hospitalAdminId}';
+    return getString(IsType) == Consts.doctor ||getString(IsType)== Consts.nurse||getString(IsType)== Consts.frontOffice ?id :isAdmin ?admin : id2;
   }
   static Patient getCursorPatient(){
     //return Consts.DUMMY_USER.copyWith(id: 38371);

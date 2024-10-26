@@ -8,7 +8,7 @@ class PrescriptionListController{
   List<PrescriptionTemplateModel> data =  [];
 
   Future<void> getTemplateList()async{
-    final response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=41835&Doctor_Id=184376'));
+    final response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=41835&Doctor_Id=0&Admin_Id=3'));
     if(response.statusCode == 200){
       List<dynamic> result = jsonDecode(response.body);
       data = result.map((e)=> PrescriptionTemplateModel.fromJson(e)).toList();

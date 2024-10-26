@@ -82,14 +82,13 @@ class _OrderAddressFormState extends State<OrderAddressForm>
               OrderAddressList(
                 onSelected: (d) {
                   result['sa_id'] = d['sa_id'];
-                  tab.animateTo(1);
+                  // tab.animateTo(1);
                 },
               ),
               OrderAddressList(
                 type: 'ba',
                 onSelected: (d) {
                   result['ba_id'] = d['ba_id'];
-                  context.pop(result);
                 },
               ),
               // AddressForm(onChanged: (d){
@@ -113,88 +112,91 @@ class _OrderAddressFormState extends State<OrderAddressForm>
         width: double.maxFinite,
         child: OutlinedButton.icon(
           icon: const Icon(Icons.add_rounded),
-          label: const Text('Add New Address'),
-          onPressed: () async {
-            Map<String, dynamic> map = {};
-            switch (tab.index) {
-              case 0:
-                {
-
-                  final Map<String, dynamic>? sData = await showDialog(
-                      context: context,
-                      builder: (_) =>  AddressForm(
-                            data: map,
-                            type: 'sa',
-                          ));
-
-                  print(sData);
-                  if (sData == null) {
-                    return;
-                  }
-
-                  for (final e in map.keys) {
-                    sData['sa_$e'] = map[e];
-                  }
-
-                  if (sData['sa_id'] == null) {
-                    sData['sa_id'] = 0;
-                  }
-                  sData['user_id'] = LocalStorage.getUID();
-                  final call = Injector()
-                      .apiService
-                      .get(path: 'ShippingAddress', query: sData);
-                  final res =
-                      await ApiFacade.callApi(context: context, call: call);
-
-                  print(res?.bodyString);
-                  if (res != null) {
-                    sData['sa_id'] = res.body?.data;
-                    result['sa_id'] = res.body?.data;
-                    tab.animateTo(1);
-                  }
-                  break;
-                }
-              case 1:
-                {
-                  final Map<String, dynamic>? bData = await showDialog(
-                      context: context,
-                      builder: (_) => AddressForm(
-                            data: map,
-                            type: 'ba',
-                          ));
-                  if (bData == null) {
-                    return;
-                  }
-
-                  for (final e in map.keys) {
-                    bData['ba_$e'] = map[e];
-                  }
-
-
-
-                  if (bData['ba_id'] == null) {
-                    bData['ba_id'] = 0;
-                  }
-                  bData['user_id'] = LocalStorage.getUID();
-                  final call = Injector()
-                      .apiService
-                      .get(path: 'BillingAddress', query: bData);
-                  final res =
-                      await ApiFacade.callApi(context: context, call: call);
-
-                  print(res?.bodyString);
-                  if (res != null) {
-                    bData['ba_id'] = res.body?.data;
-                    result['ba_id'] = res.body?.data;
-                    if (mounted) {
-                      context.pop(result);
-                    }
-                  }
-                  break;
-                }
-            }
-            //context.push(Routes.paymentForm);
+          label: const Text('Confirm Address'),
+          onPressed: (){
+            print('result ${result}'); //{ba_id: 54440, sa_id: 42115}
+            // context.pop(result);
           },
+          // onPressed: () async {
+          //   Map<String, dynamic> map = {};
+          //   switch (tab.index) {
+          //     case 0:
+          //       {
+          //
+          //         final Map<String, dynamic>? sData = await showDialog(
+          //             context: context,
+          //             builder: (_) =>  AddressForm(
+          //                   data: map,
+          //                   type: 'sa',
+          //                 ));
+          //
+          //         print(sData);
+          //         if (sData == null) {
+          //           return;
+          //         }
+          //
+          //         for (final e in map.keys) {
+          //           sData['sa_$e'] = map[e];
+          //         }
+          //
+          //         if (sData['sa_id'] == null) {
+          //           sData['sa_id'] = 0;
+          //         }
+          //         sData['user_id'] = LocalStorage.getUID();
+          //         final call = Injector()
+          //             .apiService
+          //             .get(path: 'ShippingAddress', query: sData);
+          //         final res =
+          //             await ApiFacade.callApi(context: context, call: call);
+          //         print(res?.bodyString);
+          //         if (res != null) {
+          //           sData['sa_id'] = res.body?.data;
+          //           result['sa_id'] = res.body?.data;
+          //           // tab.animateTo(1);
+          //         }
+          //         break;
+          //       }
+          //     case 1:
+          //       {
+          //         final Map<String, dynamic>? bData = await showDialog(
+          //             context: context,
+          //             builder: (_) => AddressForm(
+          //                   data: map,
+          //                   type: 'ba',
+          //                 ));
+          //         if (bData == null) {
+          //           return;
+          //         }
+          //
+          //         for (final e in map.keys) {
+          //           bData['ba_$e'] = map[e];
+          //         }
+          //
+          //
+          //
+          //         if (bData['ba_id'] == null) {
+          //           bData['ba_id'] = 0;
+          //         }
+          //         bData['user_id'] = LocalStorage.getUID();
+          //         final call = Injector()
+          //             .apiService
+          //             .get(path: 'BillingAddress', query: bData);
+          //         final res =
+          //             await ApiFacade.callApi(context: context, call: call);
+          //
+          //         print(res?.bodyString);
+          //         if (res != null) {
+          //           bData['ba_id'] = res.body?.data;
+          //           result['ba_id'] = res.body?.data;
+          //           if (mounted) {
+          //             context.pop(result);
+          //           }
+          //         }
+          //         break;
+          //       }
+          //   }
+          //   //context.push(Routes.paymentForm);
+          // },
         ),
       ),
     );

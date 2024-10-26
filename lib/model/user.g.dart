@@ -97,6 +97,13 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       doctorActivationflag: json['Doctor_ActiveFlag'] ?? null,
       patientActivationflag: json['Patient_ActiveFlag'] ?? null,
       patientRegistrationlist: json['PatientRegistration_list'] ?? null,
+      hospitalAdminId: json['Hospital_Admin_Id'] ?? null,
+      hospitalId: json['Hospital_Id'] ?? null,
+      hospitalEmailId: json['Email_Id'] ?? null,
+      adminGender: json['AdminGender'] ?? null,
+      adminAddress: json['Address'] ?? null,
+      adminName: json['User_Firstname'] ?? null,
+      adminNumber: json['Mobile_Number'] ?? null,
     );
 
 Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
@@ -191,4 +198,11 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'Doctor_ActiveFlag': instance.doctorActivationflag,
       'Patient_ActiveFlag': instance.patientActivationflag,
       'PatientRegistration_list': instance.patientRegistrationlist,
+      'Hospital_Admin_Id': instance.hospitalAdminId,
+      'Hospital_Id': instance.hospitalId,
+      'Email_Id': instance.hospitalEmailId,
+      'AdminGender': instance.adminGender,
+      'Address': instance.adminAddress,
+      'User_Firstname': instance.adminName,
+      'Mobile_Number': instance.adminNumber,
     };

@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
+import 'package:timesmedlite/ui/components/show_message.dart';
 import 'package:timesmedlite/ui/widgets/m_drop_down.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
@@ -71,22 +72,8 @@ class _NurseFrontOfficeSignUpPageState extends State<NurseFrontOfficeSignUpPage>
   @override
   Widget build(BuildContext context) {
     return MScaffold(
-        hero: false,
         paddingTop: context.getWPercent(10),
         //bodyPadding: EdgeInsets.only(top: context.getWPercent(60), bottom: 56),
-        customHeader: Container(
-            alignment: Alignment.center,
-            height: context.getWPercent(30),
-            padding: const EdgeInsets.all(20),
-            child: Hero(
-                tag: 'LOGO',
-                child: SvgPicture.asset(
-                  'assets/svg/tm_logo_w.svg',
-                  fit: BoxFit.fitWidth,
-                  color: Colors.white,
-                  height: context.height * 0.1,
-                  width: context.width * 0.1,
-                ))),
         body: SingleChildScrollView(
             child: Padding(
                 padding: const EdgeInsets.symmetric(
@@ -97,14 +84,14 @@ class _NurseFrontOfficeSignUpPageState extends State<NurseFrontOfficeSignUpPage>
                     height: 64,
                   ),
                  widget.isNurse? Text(
-                    'Nurse SignUp',
+                    'Create Nurse',
                     style: Theme.of(context).textTheme.headlineSmall,
                   ): Text(
-                   'Front Office SignUp',
+                   'Create Front Office',
                    style: Theme.of(context).textTheme.headlineSmall,
                  ),
                   Text(
-                    'Please sign up to continue.',
+                    'Please Create account to continue.',
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   const SizedBox(
@@ -232,7 +219,8 @@ class _NurseFrontOfficeSignUpPageState extends State<NurseFrontOfficeSignUpPage>
                           controller: addressController,
                           label: 'Address',
                           prefixIcon: const Icon(Icons.location_on_sharp),
-                          type: MInputType.email,
+                          type: MInputType.text,
+                          maxLines: 4,
                           onChanged: (d) {
                             //phone = d;
                           },
@@ -340,6 +328,8 @@ class _NurseFrontOfficeSignUpPageState extends State<NurseFrontOfficeSignUpPage>
                               "User_Firstname":doctorFirstNameController.text,
                               "User_Lastname":doctorLastNameController.text,
                               "Hospital_Id":41835,
+                              'Admin_Id' : 3,
+                              'Active_Flag' :'A',
                               "Gender_Id":gender == "Male"?1:gender == 'Female' ?2:3,//1-Male,2-Female
                               "Bloodgroupcode":bloodGroups.indexOf(doctorBloodGroupController.text).toString(),
                               "Mobile_Number":doctorMobileNumberController.text,
@@ -347,8 +337,8 @@ class _NurseFrontOfficeSignUpPageState extends State<NurseFrontOfficeSignUpPage>
                               "Email_Id":emailController.text,
                               "Address":addressController.text,
                               "Query_Type":"1",//1-add,2-update,3-delete
-                              "Category_Id":"1",//6-frontoffice,1-nurse
-                              "Role_Id":"1"//9-frontoffice,1-nurse
+                              "Category_Id": widget.isNurse ? "1" : '6',//6-frontoffice,1-nurse
+                              "Role_Id":widget.isNurse ?"1" : '9',//9-frontoffice,1-nurse
                             }),
                               headers:{
                                 "Content-Type": "application/json",
@@ -362,14 +352,8 @@ class _NurseFrontOfficeSignUpPageState extends State<NurseFrontOfficeSignUpPage>
                             // print(res?.body);
                             if(response.statusCode == 200){
                               print('Signup Done${response.body}');
-                              Fluttertoast.showToast(
-                                  msg: "Signup Done Please Log In",
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.BOTTOM,
-                                  backgroundColor: Colors.redAccent,
-                                  textColor: Colors.white,
-                                  fontSize: 16.0);
-                              context.replace(Routes.login);
+                            showMessage(context: context, message:'${widget.isNurse ? "Nurse" : "Front Office"} Account Created Successfully');
+                              context.pop();
                             }else{
                               Fluttertoast.showToast(
                                   msg: "Something went wrong in signUp",

@@ -559,7 +559,8 @@ class _AddNewDoctorState extends State<AddNewDoctor> {
                         final call = Injector()
                             .apiService
                             .get2(path: 'DoctorSave', query: {
-                              'Admin_Id' : '1',
+                              'Admin_Id' : '3',
+                          'Active_Flag' :'A',
                           'Doctor_Name': data.doctorName,
                           'Doctor_id': data.doctorId ?? 0,
                           'Gender': data.gender,

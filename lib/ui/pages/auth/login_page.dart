@@ -275,7 +275,6 @@ class _LoginPageState extends State<LoginPage> {
                 //height: MediaQuery.of(context).size.height * 0.065,
                 child: OutlinedButton(
                     onPressed: () async {
-                      showWaitingDialog(context: context);
                       print(password);
                       if (_formKey.currentState!.validate()) {
                         if (AppConfig.of(context)?.config == Config.patient) {
@@ -285,11 +284,13 @@ class _LoginPageState extends State<LoginPage> {
                               password: password);
                           final Response? res = await ApiFacade.callApi(
                               context: context, call: call);
+                          print(res?.body);
                           if (res != null) {
                             saveInfo(res, context: context);
                           }
                         }
                         else {
+                          showWaitingDialog(context: context,message:'Logging in...');
                           var response = await http.get(Uri.parse('https://tmsnew.timesmed.com/VKAAPI1/DoctorLogin_New?DoctorPhone=${phone}&Password=${password}'));
                           if(response.statusCode == 200){
                             var result = jsonDecode(response.body);
@@ -303,11 +304,9 @@ class _LoginPageState extends State<LoginPage> {
                             }else if(result['ResponseCode'] =='7'){
                               LocalStorage.setString(LocalStorage.IsType, Consts.admin);
                               print('Its a Admin ${result['Data']}');
-                              result['Data']['Doctor_Name'] = result['Data']['First_Name'];
+                              // result['Data']['Doctor_Name'] = result['Data']['First_Name'];
                               // result['Data']['Doctor_id'] = result['Data']['Hospital_Admin_Id'];
                               print('${result['Data']['Doctor_Name']} ${result['Data']['Hospital_Admin_Id']}');
-                              context.replace(Routes.adminDashboard);
-                              return ;
                             } else if(result['ResponseCode'] =='6'){
                               LocalStorage.setString(LocalStorage.IsType, Consts.frontOffice);
                               print('Its a front office');
@@ -320,7 +319,11 @@ class _LoginPageState extends State<LoginPage> {
                               LocalStorage.setJson(LocalStorage.USER, result['Data'] );
                             print('Usr id ${LocalStorage.getUID()} ${LocalStorage.getUser().id}');
                               MessagingMonitor.init(AppConfig.of(context)!.config);
-                             context.replace(Routes.currentAppointment);
+                              if(LocalStorage.isAdmin){
+                                context.replace(Routes.adminDashboard);
+                              }else{
+                                context.replace(Routes.currentAppointment);
+                              }
                           }else{
                             print('Login response failed ${response.body}');
                           }

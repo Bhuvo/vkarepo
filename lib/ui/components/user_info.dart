@@ -11,7 +11,7 @@ class UserInfo extends StatelessWidget {
   final String? lable;
   final double iconSize, textSize;
 
-  const UserInfo(this.type,
+  const  UserInfo(this.type,
       {Key? key,
       this.icon,
       this.lable,
@@ -35,14 +35,14 @@ class UserInfo extends StatelessWidget {
           size: iconSize,
         );
         text = Text(
-          '${user?.email ?? user?.emailId ?? patient?.email}',
+          '${user?.email  ?? user?.emailId ??user?.hospitalEmailId ?? patient?.email}',
         );
         break;
       case Info.phone:
         // print('hhs ${patient?.toJson()}');
         icon = Icon(Icons.phone, color: MTheme.ICON_COLOR, size: iconSize);
         text = Text(
-          '${ patient?.phone??patient?.whatsapp ??user?.phone ?? user?.phoneNumber }',
+          '${ patient?.phone??patient?.whatsapp ??user?.phone ?? user?.phoneNumber ?? user?.adminNumber }',
         );
         break;
       case Info.whatsapp:
