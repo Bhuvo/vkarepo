@@ -1,5 +1,6 @@
 
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -136,11 +137,12 @@ class _PrescriptionListState extends State<PrescriptionList> {
             final res = await Injector().apiService.rawGet(path: 'CreateOrder', query: {
               ...address,
               'user_id': LocalStorage.getUID(),
-              'order_amount': total,
+              'order_amount': total.toDouble(),
               'order_date': MDateUtils.dateToQueryDate(DateTime.now().toIso8601String())
             });
+            log('API URL: ' + (res.base.request?.url.toString() ?? ''));
             context.pop();
-            print('input create ${LocalStorage.getUID()}, ${total} ,${MDateUtils.dateToQueryDate(DateTime.now().toIso8601String())}');
+            print('input create ${address}${LocalStorage.getUID()}, ${total} ,${MDateUtils.dateToQueryDate(DateTime.now().toIso8601String())}');
             print('create order ${res.bodyString}');
             if(res.bodyString != null){
               try{

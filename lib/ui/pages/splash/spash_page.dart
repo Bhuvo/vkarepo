@@ -50,6 +50,8 @@ bool isNotifyDoc = false;
             print('isType is ${LocalStorage.getString(LocalStorage.IsType)}');
             if(LocalStorage.getString(LocalStorage.IsType) == Consts.admin){
               context.replace(Routes.adminDashboard);
+            }else if(LocalStorage.isFo || LocalStorage.isNurse){
+              context.replace(Routes.selectDoctor);
             }else {
               context.replace(Routes.currentAppointment);
             }//patientWaitingList

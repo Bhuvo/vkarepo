@@ -298,9 +298,9 @@ class _LoginPageState extends State<LoginPage> {
                             if(result['ResponseCode'] =='2' ){
                               LocalStorage.setString(LocalStorage.IsType, Consts.nurse);
                               print('Its a Nurse');
-                              result['Data']['Doctor_Name'] = result['Data']['Nurse_Name'];
-                              result['Data']['Doctor_id'] = result['Data']['Doctor_Id'];
-                              print('${result['Data']['Doctor_id']} ${result['Data']['Doctor_Id']}');
+                              // result['Data']['Doctor_Name'] = result['Data']['Nurse_Name'];
+                              // result['Data']['Doctor_id'] = result['Data']['Doctor_Id'];
+                              // print('${result['Data']['Doctor_id']} ${result['Data']['Doctor_Id']}');
                             }else if(result['ResponseCode'] =='7'){
                               LocalStorage.setString(LocalStorage.IsType, Consts.admin);
                               print('Its a Admin ${result['Data']}');
@@ -310,9 +310,9 @@ class _LoginPageState extends State<LoginPage> {
                             } else if(result['ResponseCode'] =='6'){
                               LocalStorage.setString(LocalStorage.IsType, Consts.frontOffice);
                               print('Its a front office');
-                            result['Data']['Doctor_Name'] = result['Data']['FoMem_Name'];
-                            result['Data']['Doctor_id'] = result['Data']['Doctor_Id'];
-                            print('${result['Data']['Doctor_Name']} ${result['Data']['Doctor_Id']}');
+                            // result['Data']['Doctor_Name'] = result['Data']['FoMem_Name'];
+                            // result['Data']['Doctor_id'] = result['Data']['Doctor_Id'];
+                            // print('${result['Data']['Doctor_Name']} ${result['Data']['Doctor_Id']}');
                             }else{
                               LocalStorage.setString(LocalStorage.IsType, Consts.doctor);
                             }
@@ -321,7 +321,10 @@ class _LoginPageState extends State<LoginPage> {
                               MessagingMonitor.init(AppConfig.of(context)!.config);
                               if(LocalStorage.isAdmin){
                                 context.replace(Routes.adminDashboard);
+                              }else if(LocalStorage.isNurse || LocalStorage.isFo){
+                                context.replace(Routes.selectDoctor);
                               }else{
+
                                 context.replace(Routes.currentAppointment);
                               }
                           }else{

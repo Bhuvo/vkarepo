@@ -4,10 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timesmedlite/di/dependency_injection.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder_bloc.dart';
+import 'package:timesmedlite/ui/components/nothing_widget.dart';
 import 'package:timesmedlite/ui/components/waiting_dialog.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
 import 'package:timesmedlite/ui/widgets/m_dialog.dart';
 import 'package:timesmedlite/ui/widgets/m_list_tile.dart';
+import 'package:timesmedlite/ui/widgets/space.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
@@ -26,10 +28,10 @@ class _OrderAddressListState extends State<OrderAddressList> {
   late final ApiBuilderBloc bloc = ApiBuilderBloc(
       path: widget.type == 'sa' ? 'ShippingAddressList' : 'BillingAddressList', query: {'User_id': LocalStorage.getUID()});
 
-
   int? _selectedIndex;
   @override
   Widget build(BuildContext context) {
+    // print('the type is ${widget.type}');
     return MDialog(
         // title: Row(
         //   children: [
@@ -47,10 +49,35 @@ class _OrderAddressListState extends State<OrderAddressList> {
           child: BlocProvider(
             create: (_) => bloc..add(const Load()),
             child: ApiBuilder(
+               empty: NothingWidget(
+                 title: 'No ${widget.type == 'sa' ? 'Shipping Address' : 'Billing Address'} Found',
+                 message: widget.type == 'sa' ? 'Add Shipping Address' : 'Same as Shipping Address ?',
+                 onTap: (){
+                   showModalBottomSheet(context: context, builder: (context) => Padding(
+                     padding: const EdgeInsets.only(top: 16,left: 10,right: 10),
+                     child: Column(
+                       crossAxisAlignment: CrossAxisAlignment.start,
+                       children: [
+                         Text('Choose Address',style: Theme.of(context).textTheme.bodySmall?.copyWith(color: MTheme.THEME_COLOR),),
+                         Expanded(
+                           child: OrderAddressList( isSameSa: true,
+                             onSelected: (val){
+                               // val['ba_id'] =val['sa_id'];
+                               widget.onSelected!(val);
+                               print('val is $val');
+                             },),
+                         ),
+                       ],
+                     ),
+                   ));
+                 },messageColor: MTheme.THEME_COLOR,
+                 icon: Icons.location_on_rounded,
+               ),
               jsonBuilder: (list, load) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
+                    Space(),
                     widget.type == 'ba'?  Padding(
                       padding: const EdgeInsets.only(right: 10,top: 8),
                       child: InkWell(
@@ -64,7 +91,7 @@ class _OrderAddressListState extends State<OrderAddressList> {
                                   Expanded(
                                     child: OrderAddressList( isSameSa: true,
                                       onSelected: (val){
-                                      val['ba_id'] =val['sa_id'];
+                                      // val['ba_id'] =val['sa_id'];
                                         widget.onSelected!(val);
                                         print('val is$val');
                                       },),
@@ -183,7 +210,12 @@ class _OrderAddressListState extends State<OrderAddressList> {
                                           }
                                           );
                                           print('res of create ${res.statusCode}${res.body}');
+                                          widget.onSelected!({
+                                            'ba_id': res.body?.data
+                                          });
                                           context.pop();
+                                          context.pop();
+                                          return;
                                         }
                                         if (widget.onSelected != null) {
                                           widget.onSelected!(data); // Call onSelected with the data

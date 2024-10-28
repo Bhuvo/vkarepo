@@ -7,14 +7,17 @@ import '../widgets/m_scaffold.dart';
 class NothingWidget extends StatelessWidget {
   final String title, message;
   final IconData icon;
+  final Function()? onTap;
   final VoidCallback? onRefresh;
+  final Color? messageColor;
 
-  const NothingWidget(
+   const NothingWidget(
       {Key? key,
       this.icon = CupertinoIcons.app,
       this.title = 'No Internet',
       this.message = 'Please check your connection',
-      this.onRefresh})
+        this.onTap ,
+      this.onRefresh, this.messageColor})
       : super(key: key);
 
   @override
@@ -44,13 +47,16 @@ class NothingWidget extends StatelessWidget {
             ),
           const SizedBox(height: 4),
           if (message.isNotEmpty)
-            Text(
-              message,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: Theme.of(context).dividerColor,
-                    fontSize: size.height * 0.016,
-                  ),
-              textAlign: TextAlign.center,
+            InkWell(
+              onTap: onTap ?? (){},
+              child: Text(
+                message,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color:messageColor ?? Theme.of(context).dividerColor,
+                      fontSize: size.height * 0.016,
+                    ),
+                textAlign: TextAlign.center,
+              ),
             ),
           const SizedBox(height: 4),
           if (onRefresh != null)

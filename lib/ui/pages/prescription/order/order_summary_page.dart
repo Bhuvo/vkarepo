@@ -37,14 +37,14 @@ class _OrderSummaryPageState extends State<OrderSummaryPage> {
   }
 
   getData() async{
-    await controller.getOrderDetails(widget.orderId,context);
+    widget.islab ?? false ? await controller.getOrderDetails(widget.orderId,context) : null;
     setState(() {});
   }
   @override
   Widget build(BuildContext context) {
     final bloc =
     ApiBuilderBloc(path: 'historydetail', query: {'oid': widget.orderId})..add(const Load());
-
+    print('is Lab ${widget.islab}');
     return MScaffold(
       title: Text('Payment'.toUpperCase()),
       appBarBottom: Padding(
@@ -101,6 +101,7 @@ class _OrderSummaryPageState extends State<OrderSummaryPage> {
                     total += (e['total_price'] ?? 0);
                   }
 
+                  print('Data is ${data}');
                   return widget.islab?? false ? Hero(
                       tag: 'order::items',
                       child: MListTile(

@@ -68,7 +68,7 @@ class ProfilePage extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                            "${user.name ?? user.adminName}",
+                           LocalStorage.isNurse||LocalStorage.isFo? '${user.nurseName ?? user.foName}':"${user.name ?? user.adminName}",
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyLarge

@@ -27,7 +27,7 @@ mixin _$User {
   @JsonKey(name: 'BookCheck')
   String? get bookCheck => throw _privateConstructorUsedError;
   @JsonKey(name: 'Gender')
-  int? get gender => throw _privateConstructorUsedError;
+  dynamic get gender => throw _privateConstructorUsedError;
   @JsonKey(name: 'Registrations')
   String? get registration => throw _privateConstructorUsedError;
   @JsonKey(name: 'PClaim_id')
@@ -87,7 +87,7 @@ mixin _$User {
   @JsonKey(name: 'DoctorExperience_Years')
   num? get experience => throw _privateConstructorUsedError;
   @JsonKey(name: 'Recommendations')
-  String? get recommendations => throw _privateConstructorUsedError;
+  dynamic get recommendations => throw _privateConstructorUsedError;
   @JsonKey(name: 'Doctor_Description')
   String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'Doctor_Image')
@@ -200,6 +200,14 @@ mixin _$User {
   dynamic get patientActivationflag => throw _privateConstructorUsedError;
   @JsonKey(name: 'PatientRegistration_list')
   dynamic get patientRegistrationlist => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Nurse_Id')
+  dynamic get nurseId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Nurse_Name')
+  dynamic get nurseName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'FoMem_Id')
+  dynamic get foId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'FoMem_Name')
+  dynamic get foName => throw _privateConstructorUsedError;
   @JsonKey(name: 'Hospital_Admin_Id')
   dynamic get hospitalAdminId => throw _privateConstructorUsedError;
   @JsonKey(name: 'Hospital_Id')
@@ -233,7 +241,7 @@ abstract class $UserCopyWith<$Res> {
       {@JsonKey(name: 'Doctor_id') dynamic id,
       @JsonKey(name: 'User_id') dynamic userId,
       @JsonKey(name: 'BookCheck') String? bookCheck,
-      @JsonKey(name: 'Gender') int? gender,
+      @JsonKey(name: 'Gender') dynamic gender,
       @JsonKey(name: 'Registrations') String? registration,
       @JsonKey(name: 'PClaim_id') num? pClainId,
       @JsonKey(name: 'PDoctor_Name') num? pDoctorName,
@@ -263,7 +271,7 @@ abstract class $UserCopyWith<$Res> {
       @JsonKey(name: 'sscat_id') num? sscatId,
       @JsonKey(name: 'sscategory_Name') String? sscategoryName,
       @JsonKey(name: 'DoctorExperience_Years') num? experience,
-      @JsonKey(name: 'Recommendations') String? recommendations,
+      @JsonKey(name: 'Recommendations') dynamic recommendations,
       @JsonKey(name: 'Doctor_Description') String? description,
       @JsonKey(name: 'Doctor_Image') String? image,
       @JsonKey(name: 'Doctor_Age') int? age,
@@ -322,6 +330,10 @@ abstract class $UserCopyWith<$Res> {
       @JsonKey(name: 'Patient_ActiveFlag') dynamic patientActivationflag,
       @JsonKey(name: 'PatientRegistration_list')
       dynamic patientRegistrationlist,
+      @JsonKey(name: 'Nurse_Id') dynamic nurseId,
+      @JsonKey(name: 'Nurse_Name') dynamic nurseName,
+      @JsonKey(name: 'FoMem_Id') dynamic foId,
+      @JsonKey(name: 'FoMem_Name') dynamic foName,
       @JsonKey(name: 'Hospital_Admin_Id') dynamic hospitalAdminId,
       @JsonKey(name: 'Hospital_Id') dynamic hospitalId,
       @JsonKey(name: 'Email_Id') dynamic hospitalEmailId,
@@ -436,6 +448,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? doctorActivationflag = freezed,
     Object? patientActivationflag = freezed,
     Object? patientRegistrationlist = freezed,
+    Object? nurseId = freezed,
+    Object? nurseName = freezed,
+    Object? foId = freezed,
+    Object? foName = freezed,
     Object? hospitalAdminId = freezed,
     Object? hospitalId = freezed,
     Object? hospitalEmailId = freezed,
@@ -460,7 +476,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as dynamic,
       registration: freezed == registration
           ? _value.registration
           : registration // ignore: cast_nullable_to_non_nullable
@@ -580,7 +596,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       recommendations: freezed == recommendations
           ? _value.recommendations
           : recommendations // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -805,6 +821,22 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.patientRegistrationlist
           : patientRegistrationlist // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      nurseId: freezed == nurseId
+          ? _value.nurseId
+          : nurseId // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      nurseName: freezed == nurseName
+          ? _value.nurseName
+          : nurseName // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      foId: freezed == foId
+          ? _value.foId
+          : foId // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      foName: freezed == foName
+          ? _value.foName
+          : foName // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       hospitalAdminId: freezed == hospitalAdminId
           ? _value.hospitalAdminId
           : hospitalAdminId // ignore: cast_nullable_to_non_nullable
@@ -848,7 +880,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       {@JsonKey(name: 'Doctor_id') dynamic id,
       @JsonKey(name: 'User_id') dynamic userId,
       @JsonKey(name: 'BookCheck') String? bookCheck,
-      @JsonKey(name: 'Gender') int? gender,
+      @JsonKey(name: 'Gender') dynamic gender,
       @JsonKey(name: 'Registrations') String? registration,
       @JsonKey(name: 'PClaim_id') num? pClainId,
       @JsonKey(name: 'PDoctor_Name') num? pDoctorName,
@@ -878,7 +910,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       @JsonKey(name: 'sscat_id') num? sscatId,
       @JsonKey(name: 'sscategory_Name') String? sscategoryName,
       @JsonKey(name: 'DoctorExperience_Years') num? experience,
-      @JsonKey(name: 'Recommendations') String? recommendations,
+      @JsonKey(name: 'Recommendations') dynamic recommendations,
       @JsonKey(name: 'Doctor_Description') String? description,
       @JsonKey(name: 'Doctor_Image') String? image,
       @JsonKey(name: 'Doctor_Age') int? age,
@@ -937,6 +969,10 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       @JsonKey(name: 'Patient_ActiveFlag') dynamic patientActivationflag,
       @JsonKey(name: 'PatientRegistration_list')
       dynamic patientRegistrationlist,
+      @JsonKey(name: 'Nurse_Id') dynamic nurseId,
+      @JsonKey(name: 'Nurse_Name') dynamic nurseName,
+      @JsonKey(name: 'FoMem_Id') dynamic foId,
+      @JsonKey(name: 'FoMem_Name') dynamic foName,
       @JsonKey(name: 'Hospital_Admin_Id') dynamic hospitalAdminId,
       @JsonKey(name: 'Hospital_Id') dynamic hospitalId,
       @JsonKey(name: 'Email_Id') dynamic hospitalEmailId,
@@ -1048,6 +1084,10 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? doctorActivationflag = freezed,
     Object? patientActivationflag = freezed,
     Object? patientRegistrationlist = freezed,
+    Object? nurseId = freezed,
+    Object? nurseName = freezed,
+    Object? foId = freezed,
+    Object? foName = freezed,
     Object? hospitalAdminId = freezed,
     Object? hospitalId = freezed,
     Object? hospitalEmailId = freezed,
@@ -1072,7 +1112,7 @@ class __$$UserImplCopyWithImpl<$Res>
       gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as dynamic,
       registration: freezed == registration
           ? _value.registration
           : registration // ignore: cast_nullable_to_non_nullable
@@ -1192,7 +1232,7 @@ class __$$UserImplCopyWithImpl<$Res>
       recommendations: freezed == recommendations
           ? _value.recommendations
           : recommendations // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -1417,6 +1457,22 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.patientRegistrationlist
           : patientRegistrationlist // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      nurseId: freezed == nurseId
+          ? _value.nurseId
+          : nurseId // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      nurseName: freezed == nurseName
+          ? _value.nurseName
+          : nurseName // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      foId: freezed == foId
+          ? _value.foId
+          : foId // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      foName: freezed == foName
+          ? _value.foName
+          : foName // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       hospitalAdminId: freezed == hospitalAdminId
           ? _value.hospitalAdminId
           : hospitalAdminId // ignore: cast_nullable_to_non_nullable
@@ -1486,7 +1542,7 @@ class _$UserImpl implements _User {
       @JsonKey(name: 'sscat_id') this.sscatId,
       @JsonKey(name: 'sscategory_Name') this.sscategoryName,
       @JsonKey(name: 'DoctorExperience_Years') this.experience,
-      @JsonKey(name: 'Recommendations') this.recommendations,
+      @JsonKey(name: 'Recommendations') this.recommendations = null,
       @JsonKey(name: 'Doctor_Description') this.description,
       @JsonKey(name: 'Doctor_Image') this.image,
       @JsonKey(name: 'Doctor_Age') this.age,
@@ -1545,6 +1601,10 @@ class _$UserImpl implements _User {
       @JsonKey(name: 'Patient_ActiveFlag') this.patientActivationflag = null,
       @JsonKey(name: 'PatientRegistration_list')
       this.patientRegistrationlist = null,
+      @JsonKey(name: 'Nurse_Id') this.nurseId = null,
+      @JsonKey(name: 'Nurse_Name') this.nurseName = null,
+      @JsonKey(name: 'FoMem_Id') this.foId = null,
+      @JsonKey(name: 'FoMem_Name') this.foName = null,
       @JsonKey(name: 'Hospital_Admin_Id') this.hospitalAdminId = null,
       @JsonKey(name: 'Hospital_Id') this.hospitalId = null,
       @JsonKey(name: 'Email_Id') this.hospitalEmailId = null,
@@ -1567,7 +1627,7 @@ class _$UserImpl implements _User {
   final String? bookCheck;
   @override
   @JsonKey(name: 'Gender')
-  final int? gender;
+  final dynamic gender;
   @override
   @JsonKey(name: 'Registrations')
   final String? registration;
@@ -1657,7 +1717,7 @@ class _$UserImpl implements _User {
   final num? experience;
   @override
   @JsonKey(name: 'Recommendations')
-  final String? recommendations;
+  final dynamic recommendations;
   @override
   @JsonKey(name: 'Doctor_Description')
   final String? description;
@@ -1827,6 +1887,18 @@ class _$UserImpl implements _User {
   @JsonKey(name: 'PatientRegistration_list')
   final dynamic patientRegistrationlist;
   @override
+  @JsonKey(name: 'Nurse_Id')
+  final dynamic nurseId;
+  @override
+  @JsonKey(name: 'Nurse_Name')
+  final dynamic nurseName;
+  @override
+  @JsonKey(name: 'FoMem_Id')
+  final dynamic foId;
+  @override
+  @JsonKey(name: 'FoMem_Name')
+  final dynamic foName;
+  @override
   @JsonKey(name: 'Hospital_Admin_Id')
   final dynamic hospitalAdminId;
   @override
@@ -1850,7 +1922,7 @@ class _$UserImpl implements _User {
 
   @override
   String toString() {
-    return 'User(id: $id, userId: $userId, bookCheck: $bookCheck, gender: $gender, registration: $registration, pClainId: $pClainId, pDoctorName: $pDoctorName, pHospitalName: $pHospitalName, pDoctorImage: $pDoctorImage, pAppointmentSchedule: $pAppointmentSchedule, pConsulationFee: $pConsulationFee, pFlag: $pFlag, feedback: $feedback, subList: $subList, eClinicFlag: $eClinicFlag, cityListDisplay: $cityListDisplay, cityNameTmp: $cityNameTmp, cityName: $cityName, cityId: $cityId, locationNameTemp: $locationNameTemp, urlString: $urlString, specialization: $specialization, fullName: $fullName, name: $name, nameTemp: $nameTemp, doctorQualification: $doctorQualification, qualification: $qualification, locationId: $locationId, locationName: $locationName, subCategoryId: $subCategoryId, sscatId: $sscatId, sscategoryName: $sscategoryName, experience: $experience, recommendations: $recommendations, description: $description, image: $image, age: $age, phone: $phone, subCategoryName: $subCategoryName, subCategoryNameTemp: $subCategoryNameTemp, address: $address, type: $type, clinicDoctorFee: $clinicDoctorFee, typeFlag: $typeFlag, days: $days, daysTotal: $daysTotal, clinicImages: $clinicImages, cImage: $cImage, fromTime: $fromTime, toTime: $toTime, email: $email, emailId: $emailId, password: $password, hospitalList: $hospitalList, subCatList: $subCatList, locationNewList: $locationNewList, betweenDistance: $betweenDistance, serviceId: $serviceId, serviceName: $serviceName, endorseList: $endorseList, cancelFlag: $cancelFlag, clinicId: $clinicId, clinicName: $clinicName, clinicFee: $clinicFee, latitude: $latitude, longitude: $longitude, hospitalName: $hospitalName, hospitalNumber: $hospitalNumber, countryId: $countryId, clinicModel: $clinicModel, doctorUrlWithName: $doctorUrlWithName, doctorUrlCity: $doctorUrlCity, designation: $designation, phoneNumber: $phoneNumber, languageName: $languageName, whatsapp: $whatsapp, patientid: $patientid, patientregistrationnumber: $patientregistrationnumber, firstname: $firstname, lastname: $lastname, dob: $dob, patientage: $patientage, patientImage: $patientImage, TTR: $TTR, TTRfrom: $TTRfrom, TTRto: $TTRto, date: $date, doctorActivationflag: $doctorActivationflag, patientActivationflag: $patientActivationflag, patientRegistrationlist: $patientRegistrationlist, hospitalAdminId: $hospitalAdminId, hospitalId: $hospitalId, hospitalEmailId: $hospitalEmailId, adminGender: $adminGender, adminAddress: $adminAddress, adminName: $adminName, adminNumber: $adminNumber)';
+    return 'User(id: $id, userId: $userId, bookCheck: $bookCheck, gender: $gender, registration: $registration, pClainId: $pClainId, pDoctorName: $pDoctorName, pHospitalName: $pHospitalName, pDoctorImage: $pDoctorImage, pAppointmentSchedule: $pAppointmentSchedule, pConsulationFee: $pConsulationFee, pFlag: $pFlag, feedback: $feedback, subList: $subList, eClinicFlag: $eClinicFlag, cityListDisplay: $cityListDisplay, cityNameTmp: $cityNameTmp, cityName: $cityName, cityId: $cityId, locationNameTemp: $locationNameTemp, urlString: $urlString, specialization: $specialization, fullName: $fullName, name: $name, nameTemp: $nameTemp, doctorQualification: $doctorQualification, qualification: $qualification, locationId: $locationId, locationName: $locationName, subCategoryId: $subCategoryId, sscatId: $sscatId, sscategoryName: $sscategoryName, experience: $experience, recommendations: $recommendations, description: $description, image: $image, age: $age, phone: $phone, subCategoryName: $subCategoryName, subCategoryNameTemp: $subCategoryNameTemp, address: $address, type: $type, clinicDoctorFee: $clinicDoctorFee, typeFlag: $typeFlag, days: $days, daysTotal: $daysTotal, clinicImages: $clinicImages, cImage: $cImage, fromTime: $fromTime, toTime: $toTime, email: $email, emailId: $emailId, password: $password, hospitalList: $hospitalList, subCatList: $subCatList, locationNewList: $locationNewList, betweenDistance: $betweenDistance, serviceId: $serviceId, serviceName: $serviceName, endorseList: $endorseList, cancelFlag: $cancelFlag, clinicId: $clinicId, clinicName: $clinicName, clinicFee: $clinicFee, latitude: $latitude, longitude: $longitude, hospitalName: $hospitalName, hospitalNumber: $hospitalNumber, countryId: $countryId, clinicModel: $clinicModel, doctorUrlWithName: $doctorUrlWithName, doctorUrlCity: $doctorUrlCity, designation: $designation, phoneNumber: $phoneNumber, languageName: $languageName, whatsapp: $whatsapp, patientid: $patientid, patientregistrationnumber: $patientregistrationnumber, firstname: $firstname, lastname: $lastname, dob: $dob, patientage: $patientage, patientImage: $patientImage, TTR: $TTR, TTRfrom: $TTRfrom, TTRto: $TTRto, date: $date, doctorActivationflag: $doctorActivationflag, patientActivationflag: $patientActivationflag, patientRegistrationlist: $patientRegistrationlist, nurseId: $nurseId, nurseName: $nurseName, foId: $foId, foName: $foName, hospitalAdminId: $hospitalAdminId, hospitalId: $hospitalId, hospitalEmailId: $hospitalEmailId, adminGender: $adminGender, adminAddress: $adminAddress, adminName: $adminName, adminNumber: $adminNumber)';
   }
 
   @override
@@ -1862,7 +1934,7 @@ class _$UserImpl implements _User {
             const DeepCollectionEquality().equals(other.userId, userId) &&
             (identical(other.bookCheck, bookCheck) ||
                 other.bookCheck == bookCheck) &&
-            (identical(other.gender, gender) || other.gender == gender) &&
+            const DeepCollectionEquality().equals(other.gender, gender) &&
             (identical(other.registration, registration) ||
                 other.registration == registration) &&
             (identical(other.pClainId, pClainId) ||
@@ -1916,8 +1988,8 @@ class _$UserImpl implements _User {
                 other.sscategoryName == sscategoryName) &&
             (identical(other.experience, experience) ||
                 other.experience == experience) &&
-            (identical(other.recommendations, recommendations) ||
-                other.recommendations == recommendations) &&
+            const DeepCollectionEquality()
+                .equals(other.recommendations, recommendations) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.image, image) || other.image == image) &&
@@ -1991,6 +2063,10 @@ class _$UserImpl implements _User {
             const DeepCollectionEquality().equals(other.doctorActivationflag, doctorActivationflag) &&
             const DeepCollectionEquality().equals(other.patientActivationflag, patientActivationflag) &&
             const DeepCollectionEquality().equals(other.patientRegistrationlist, patientRegistrationlist) &&
+            const DeepCollectionEquality().equals(other.nurseId, nurseId) &&
+            const DeepCollectionEquality().equals(other.nurseName, nurseName) &&
+            const DeepCollectionEquality().equals(other.foId, foId) &&
+            const DeepCollectionEquality().equals(other.foName, foName) &&
             const DeepCollectionEquality().equals(other.hospitalAdminId, hospitalAdminId) &&
             const DeepCollectionEquality().equals(other.hospitalId, hospitalId) &&
             const DeepCollectionEquality().equals(other.hospitalEmailId, hospitalEmailId) &&
@@ -2007,7 +2083,7 @@ class _$UserImpl implements _User {
         const DeepCollectionEquality().hash(id),
         const DeepCollectionEquality().hash(userId),
         bookCheck,
-        gender,
+        const DeepCollectionEquality().hash(gender),
         registration,
         pClainId,
         pDoctorName,
@@ -2037,7 +2113,7 @@ class _$UserImpl implements _User {
         sscatId,
         sscategoryName,
         experience,
-        recommendations,
+        const DeepCollectionEquality().hash(recommendations),
         description,
         image,
         age,
@@ -2094,6 +2170,10 @@ class _$UserImpl implements _User {
         const DeepCollectionEquality().hash(doctorActivationflag),
         const DeepCollectionEquality().hash(patientActivationflag),
         const DeepCollectionEquality().hash(patientRegistrationlist),
+        const DeepCollectionEquality().hash(nurseId),
+        const DeepCollectionEquality().hash(nurseName),
+        const DeepCollectionEquality().hash(foId),
+        const DeepCollectionEquality().hash(foName),
         const DeepCollectionEquality().hash(hospitalAdminId),
         const DeepCollectionEquality().hash(hospitalId),
         const DeepCollectionEquality().hash(hospitalEmailId),
@@ -2124,7 +2204,7 @@ abstract class _User implements User {
       {@JsonKey(name: 'Doctor_id') final dynamic id,
       @JsonKey(name: 'User_id') final dynamic userId,
       @JsonKey(name: 'BookCheck') final String? bookCheck,
-      @JsonKey(name: 'Gender') final int? gender,
+      @JsonKey(name: 'Gender') final dynamic gender,
       @JsonKey(name: 'Registrations') final String? registration,
       @JsonKey(name: 'PClaim_id') final num? pClainId,
       @JsonKey(name: 'PDoctor_Name') final num? pDoctorName,
@@ -2154,7 +2234,7 @@ abstract class _User implements User {
       @JsonKey(name: 'sscat_id') final num? sscatId,
       @JsonKey(name: 'sscategory_Name') final String? sscategoryName,
       @JsonKey(name: 'DoctorExperience_Years') final num? experience,
-      @JsonKey(name: 'Recommendations') final String? recommendations,
+      @JsonKey(name: 'Recommendations') final dynamic recommendations,
       @JsonKey(name: 'Doctor_Description') final String? description,
       @JsonKey(name: 'Doctor_Image') final String? image,
       @JsonKey(name: 'Doctor_Age') final int? age,
@@ -2213,6 +2293,10 @@ abstract class _User implements User {
       @JsonKey(name: 'Patient_ActiveFlag') final dynamic patientActivationflag,
       @JsonKey(name: 'PatientRegistration_list')
       final dynamic patientRegistrationlist,
+      @JsonKey(name: 'Nurse_Id') final dynamic nurseId,
+      @JsonKey(name: 'Nurse_Name') final dynamic nurseName,
+      @JsonKey(name: 'FoMem_Id') final dynamic foId,
+      @JsonKey(name: 'FoMem_Name') final dynamic foName,
       @JsonKey(name: 'Hospital_Admin_Id') final dynamic hospitalAdminId,
       @JsonKey(name: 'Hospital_Id') final dynamic hospitalId,
       @JsonKey(name: 'Email_Id') final dynamic hospitalEmailId,
@@ -2234,7 +2318,7 @@ abstract class _User implements User {
   String? get bookCheck;
   @override
   @JsonKey(name: 'Gender')
-  int? get gender;
+  dynamic get gender;
   @override
   @JsonKey(name: 'Registrations')
   String? get registration;
@@ -2324,7 +2408,7 @@ abstract class _User implements User {
   num? get experience;
   @override
   @JsonKey(name: 'Recommendations')
-  String? get recommendations;
+  dynamic get recommendations;
   @override
   @JsonKey(name: 'Doctor_Description')
   String? get description;
@@ -2493,6 +2577,18 @@ abstract class _User implements User {
   @override
   @JsonKey(name: 'PatientRegistration_list')
   dynamic get patientRegistrationlist;
+  @override
+  @JsonKey(name: 'Nurse_Id')
+  dynamic get nurseId;
+  @override
+  @JsonKey(name: 'Nurse_Name')
+  dynamic get nurseName;
+  @override
+  @JsonKey(name: 'FoMem_Id')
+  dynamic get foId;
+  @override
+  @JsonKey(name: 'FoMem_Name')
+  dynamic get foName;
   @override
   @JsonKey(name: 'Hospital_Admin_Id')
   dynamic get hospitalAdminId;

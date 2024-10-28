@@ -82,7 +82,7 @@ class UserTile extends StatelessWidget {
             children: [
               if (doctor != null)
                 Text(
-                    doctor.fullName ??
+                    doctorName ?? doctor.fullName ??
                         patient?.patientName ??
                         '${patient?.firstName ?? 'dd'} ${patient?.lastName ?? 'ss'}',
                     style: textStyle ??

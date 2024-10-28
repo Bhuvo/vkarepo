@@ -74,7 +74,14 @@ class ScheduleListPage extends StatelessWidget {
                 shrinkWrap: true,
                 jsonBuilder: (data, load) {
                   print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX${data}");
-                  return ListView.builder(
+                  return data.first['Data'].length == 0 ? NothingWidget(
+                    title: 'No Pending Case',
+                    icon: Icons.timer,
+                    message: "",
+                    onRefresh: () {
+                      Pendingbloc.add(const Refresh());
+                    }
+                  ):ListView.builder(
                       itemCount: data.first['Data'].length,
                       itemBuilder: (c, i) {
                         return PatientProvider(

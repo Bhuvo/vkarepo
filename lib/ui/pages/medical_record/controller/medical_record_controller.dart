@@ -16,6 +16,7 @@ class MedicalRecordController
   Future<void> getOrderDetails(String orderId , BuildContext context)async{
     var response = await http.get(Uri.parse('https://tmsnew.timesmed.com/WebAPIP/GetuserlabOrderDetails?OrderId=$orderId'));
     if(response.statusCode == 200) {
+      print('order responce ${response.body}');
       List<dynamic> data = jsonDecode(response.body)['Data']['LabTestDetails'];
       details = data.map((e) => LabTestDetails.fromJson(e)).toList();
       // details = jsonDecode(response.body)['Data']['LabTestDetails'];

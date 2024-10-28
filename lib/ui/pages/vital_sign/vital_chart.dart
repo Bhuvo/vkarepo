@@ -5,7 +5,10 @@ import 'package:timesmedlite/ui/pages/vital_sign/controller/vital_sign.dart';
 import 'package:timesmedlite/ui/pages/vital_sign/model/vital_signs_chart_model.dart';
 import 'package:timesmedlite/ui/widgets/line_chart_design.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
+import 'package:timesmedlite/ui/widgets/m_text_field.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
+
+import '../../widgets/space.dart';
 
 class VitalSignChartPage extends StatefulWidget {
   String patientId;
@@ -79,6 +82,12 @@ class _VitalSignChartPageState extends State<VitalSignChartPage> {
                           child: ListView(
                             padding: const EdgeInsets.all(16.0),
                             children: [
+                              MTextField(label: 'Notes',enabled: false, value: _vitalSignsReport.data?.notes),
+                              Space(),
+                              MTextField(label: 'Diet & Exercise',enabled: false, value: _vitalSignsReport.data?.dietAndExercise),
+                              Space(),
+                              MTextField(label: 'Diagnosis',enabled: false, value: _vitalSignsReport.data?.diagnoses),
+                              Space(),
                               LineChartDesign(
                                 vitalSignsReportModel: _vitalSignsReport,
                                 chartType: 'Weight',

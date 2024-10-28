@@ -7,6 +7,7 @@ import 'package:timesmedlite/ui/components/api_builder/api_builder_bloc.dart';
 import 'package:timesmedlite/ui/pages/prescription/order/order_address_list.dart';
 import 'package:timesmedlite/ui/pages/prescription/order/product_list_item.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
+import 'package:timesmedlite/ui/theme/theme.dart';
 import 'package:timesmedlite/ui/widgets/m_dialog.dart';
 import 'package:timesmedlite/ui/widgets/m_drop_down.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
@@ -63,46 +64,140 @@ class _OrderAddressFormState extends State<OrderAddressForm>
   Widget build(BuildContext context) {
     return MScaffold(
       title: Text('Address'.toUpperCase()),
-      body: Column(
+      body: Stack(
+        alignment: Alignment.bottomRight,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0) +
-                const EdgeInsets.only(top: 12),
-            child: MTabBar(
-              tab,
-              tabs,
-              scrollable: false,
-            ),
-          ),
-          Expanded(
-              child: TabBarView(
-            physics: const NeverScrollableScrollPhysics(),
-            controller: tab,
+          Column(
             children: [
-              OrderAddressList(
-                onSelected: (d) {
-                  result['sa_id'] = d['sa_id'];
-                  // tab.animateTo(1);
-                },
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0) +
+                    const EdgeInsets.only(top: 12),
+                child: MTabBar(
+                  tab,
+                  tabs,
+                  scrollable: false,
+                ),
               ),
-              OrderAddressList(
-                type: 'ba',
-                onSelected: (d) {
-                  result['ba_id'] = d['ba_id'];
-                },
-              ),
-              // AddressForm(onChanged: (d){
-              //   for(final e in d.keys){
-              //     sData['sa_$e'] = d[e];
-              //   }
-              // },),
-              // AddressForm(onChanged: (d){
-              //   for(final e in d.keys){
-              //     bData['ba_$e'] = d[e];
-              //   }
-              // },),
+              Expanded(
+                  child: TabBarView(
+                physics: const NeverScrollableScrollPhysics(),
+                controller: tab,
+                children: [
+                  OrderAddressList(
+                    onSelected: (d) {
+                      result['sa_id'] = d['sa_id'];
+                      // tab.animateTo(1);
+                    },
+                  ),
+                  OrderAddressList(
+                    type: 'ba',
+                    onSelected: (d) {
+                      result['ba_id'] = d['ba_id'];
+                    },
+                  ),
+                  // AddressForm(onChanged: (d){
+                  //   for(final e in d.keys){
+                  //     sData['sa_$e'] = d[e];
+                  //   }
+                  // },),
+                  // AddressForm(onChanged: (d){
+                  //   for(final e in d.keys){
+                  //     bData['ba_$e'] = d[e];
+                  //   }
+                  // },),
+                ],
+              ))
             ],
-          ))
+          ),
+          Padding(
+            padding: const EdgeInsets.all(30),
+            child: IconButton.filled(onPressed: ()async {
+                Map<String, dynamic> map = {};
+                switch (tab.index) {
+                  case 0:
+                    {
+
+                      final Map<String, dynamic>? sData = await showDialog(
+                          context: context,
+                          builder: (_) =>  AddressForm(
+                                data: map,
+                                type: 'sa',
+                              ));
+
+                      print(sData);
+                      if (sData == null) {
+                        return;
+                      }
+
+                      for (final e in map.keys) {
+                        sData['sa_$e'] = map[e];
+                      }
+
+                      if (sData['sa_id'] == null) {
+                        sData['sa_id'] = 0;
+                      }
+                      sData['user_id'] = LocalStorage.getUID();
+                      final call = Injector()
+                          .apiService
+                          .get(path: 'ShippingAddress', query: sData);
+                      final res =
+                          await ApiFacade.callApi(context: context, call: call);
+                      print(res?.bodyString);
+                      if (res != null) {
+                        sData['sa_id'] = res.body?.data;
+                        result['sa_id'] = res.body?.data;
+                        // tab.animateTo(1);
+                      }
+                      break;
+                    }
+                  case 1:
+                    {
+                      final Map<String, dynamic>? bData = await showDialog(
+                          context: context,
+                          builder: (_) => AddressForm(
+                                data: map,
+                                type: 'ba',
+                              ));
+                      if (bData == null) {
+                        return;
+                      }
+
+                      for (final e in map.keys) {
+                        bData['ba_$e'] = map[e];
+                      }
+
+
+
+                      if (bData['ba_id'] == null) {
+                        bData['ba_id'] = 0;
+                      }
+                      bData['user_id'] = LocalStorage.getUID();
+                      final call = Injector()
+                          .apiService
+                          .get(path: 'BillingAddress', query: bData);
+                      final res =
+                          await ApiFacade.callApi(context: context, call: call);
+
+                      print(res?.bodyString);
+                      if (res != null) {
+                        bData['ba_id'] = res.body?.data;
+                        result['ba_id'] = res.body?.data;
+                        if (mounted) {
+                          context.pop(result);
+                        }
+                      }
+                      break;
+                    }
+                }
+                //context.push(Routes.paymentForm);
+
+            }, icon: const Icon(Icons.add),style: const ButtonStyle(
+              backgroundColor: WidgetStatePropertyAll(MTheme.THEME_COLOR),
+              iconColor: WidgetStatePropertyAll(Colors.white),
+              iconSize: WidgetStatePropertyAll(32),
+
+            ),),
+          )
         ],
       ),
       bottom: Container(
@@ -110,12 +205,11 @@ class _OrderAddressFormState extends State<OrderAddressForm>
         margin: EdgeInsets.symmetric(
             horizontal: context.getWPercent(8), vertical: 12),
         width: double.maxFinite,
-        child: OutlinedButton.icon(
-          icon: const Icon(Icons.add_rounded),
-          label: const Text('Confirm Address'),
+        child: OutlinedButton(
+          child: const Text('Confirm Address'),
           onPressed: (){
             print('result ${result}'); //{ba_id: 54440, sa_id: 42115}
-            // context.pop(result);
+             context.pop(result);
           },
           // onPressed: () async {
           //   Map<String, dynamic> map = {};

@@ -9,7 +9,7 @@ class User with _$User {
     @JsonKey(name: 'Doctor_id') @Default(null) dynamic id,
     @JsonKey(name: 'User_id') @Default(null) dynamic userId,
     @JsonKey(name: 'BookCheck') String? bookCheck,
-    @JsonKey(name: 'Gender') int? gender,
+    @JsonKey(name: 'Gender') dynamic gender,
     @JsonKey(name: 'Registrations') String? registration,
     @JsonKey(name: 'PClaim_id') num? pClainId,
     @JsonKey(name: 'PDoctor_Name') num? pDoctorName,
@@ -39,7 +39,7 @@ class User with _$User {
     @JsonKey(name: 'sscat_id') num? sscatId,
     @JsonKey(name: 'sscategory_Name') String? sscategoryName,
     @JsonKey(name: 'DoctorExperience_Years') num? experience,
-    @JsonKey(name: 'Recommendations') String? recommendations,
+    @JsonKey(name: 'Recommendations')@Default(null) dynamic recommendations,
     @JsonKey(name: 'Doctor_Description') String? description,
     @JsonKey(name: 'Doctor_Image') String? image,
     @JsonKey(name: 'Doctor_Age') int? age,
@@ -104,6 +104,10 @@ class User with _$User {
     @JsonKey(name: 'PatientRegistration_list')
     @Default(null)
     dynamic patientRegistrationlist,
+    @JsonKey(name : 'Nurse_Id') @Default(null) dynamic nurseId,
+    @JsonKey(name : 'Nurse_Name') @Default(null) dynamic nurseName,
+    @JsonKey(name : 'FoMem_Id') @Default(null) dynamic foId,
+    @JsonKey(name : 'FoMem_Name') @Default(null) dynamic foName,
     @JsonKey(name: 'Hospital_Admin_Id') @Default(null) dynamic hospitalAdminId,
     @JsonKey(name: 'Hospital_Id') @Default(null) dynamic hospitalId,
     @JsonKey(name: 'Email_Id') @Default(null) dynamic hospitalEmailId,

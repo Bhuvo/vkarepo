@@ -21,10 +21,10 @@ class ApiBuilderFacade{
       );
 
       log('API URL: ' + (res.base.request?.url.toString() ?? ''));
+      // log('Api value ${res.body.Data}');
 
       // print('api url: ${path} query: ${query}');
       if(raw){
-
         // print('api body: ${res.body ?? 'nothing'}');
         // print('api error: ${res.error ?? 'nothing'}');
 
@@ -64,6 +64,7 @@ class ApiBuilderFacade{
         if(res.isSuccessful){
           if(res.body?.code == '1' || res.body?.code == '' || res.body?.data != null){
             if(res.body?.data is List) {
+              print('body is inside List');
               List<Map<String, dynamic>> list = [];
               res.body?.data?.forEach((e){
                 list.add(e);
@@ -79,9 +80,9 @@ class ApiBuilderFacade{
             } else if(res.body?.data is Map) {
               return right([res.body?.data]);
             }
-
             return right([]);
           } else {
+            print('body is not inside List');
             return left(ApiFailure(message: res.body?.message, code: res.body?.code));
           }
         } else {
@@ -90,9 +91,7 @@ class ApiBuilderFacade{
       }
     } catch (e){
       print(e.toString());
-
       return left(const ApiFailure(message: 'Something went wrong', code: '100'));
     }
-
   }
 }
