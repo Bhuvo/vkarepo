@@ -31,8 +31,8 @@ class ProfilePage extends StatelessWidget {
 
   ProfilePage({Key? key, required this.user, required this.title})
       : super(key: key);
-  final bloc = ApiBuilderBloc(path:LocalStorage.isAdmin ? 'AdminDetails': 'DoctorDetails', query: {
-    ( LocalStorage.isAdmin ? 'admin_id': 'Doctor_id'): LocalStorage.getUID().toString(),
+  final bloc = ApiBuilderBloc(path:LocalStorage.isAdmin ? 'AdminDetails': (LocalStorage.isNurse||LocalStorage.isFo)? 'DutyUserDetails':'DoctorDetails', query: {
+    ( LocalStorage.isAdmin ? 'admin_id':(LocalStorage.isNurse||LocalStorage.isFo)? 'UserId': 'Doctor_id'): LocalStorage.isNurse? LocalStorage.getUser().nurseId.toString():LocalStorage.isFo ? LocalStorage.getUser().foId.toString():LocalStorage.getUID().toString(),
   });
   var type = LocalStorage.getString(LocalStorage.IsType);
   @override
@@ -68,7 +68,7 @@ class ProfilePage extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                           LocalStorage.isNurse||LocalStorage.isFo? '${user.nurseName ?? user.foName}':"${user.name ?? user.adminName}",
+                           "${user.name ?? user.adminName}",
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyLarge
@@ -134,7 +134,7 @@ class ProfilePage extends StatelessWidget {
                             onPressed: () {
                               print(user.id);
                               print(LocalStorage.getUID().toString());
-                              showDialogWithFields(context, user.id);
+                              showDialogWithFields(context, LocalStorage.isNurse || LocalStorage.isFo ? user.userId :user.id);
                             },
                             child: const Text('Change Password')),
                       ),
