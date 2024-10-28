@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +28,8 @@ import '../../routes/routes.dart';
 import '../../widgets/m_date_picker_text_field.dart';
 
 class AddHospitalScheduleDialog extends StatefulWidget {
-  const AddHospitalScheduleDialog({Key? key}) : super(key: key);
+  final String? doctorId;
+  const AddHospitalScheduleDialog({Key? key, this.doctorId}) : super(key: key);
 
   @override
   State<AddHospitalScheduleDialog> createState() =>
@@ -51,6 +54,7 @@ class _AddHospitalScheduleDialogState extends State<AddHospitalScheduleDialog> {
 
   @override
   void initState() {
+    log('hospital id ${LocalStorage.getUser().hospitalId}');
     fromTime.text = "";
     toTime.text = ""; //set the initial value of text field
     //DocID=38371;
@@ -68,7 +72,7 @@ class _AddHospitalScheduleDialogState extends State<AddHospitalScheduleDialog> {
         path: 'GetAllHospitalByDoctor',
         // query: {'DoctorId': DocID},
         query: {
-          'DoctorId': LocalStorage.getUID(),
+          'DoctorId': widget.doctorId ?? LocalStorage.getUID(),
         },
         api2: true);
 
@@ -76,13 +80,13 @@ class _AddHospitalScheduleDialogState extends State<AddHospitalScheduleDialog> {
         path: 'GetHospitalTimingByDoctorHospital',
         query: {
           'HospitalId': 0,
-          'DoctorId': LocalStorage.getUID().toString(),
+          'DoctorId':widget.doctorId ?? LocalStorage.getUID().toString(),
         },
         api2: true);
     return MDialog(
       title: Row(
         children: [
-          const Text('ADD HOSPITAL SCHEDULE LIST'),
+          const Text('ADD DOCTOR SCHEDULE LIST'),
           const Spacer(),
           IconButton(
               onPressed: () {
@@ -100,44 +104,44 @@ class _AddHospitalScheduleDialogState extends State<AddHospitalScheduleDialog> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  BlocProvider(
-                    create: (_) =>
-                        GetHospitalTimingMasterByDoctor_bloc..add(const Load()),
-                    child: ApiBuilder<GetHospitalTimingByDoctorHospital>(
-                      empty: NothingWidget(
-                        title: "No Hospital Schedule List",
-                        icon: Icons.local_hospital,
-                        message: "",
-                      ),
-                      loading: const DropDownShimmer(
-                        label: 'Hospital',
-                      ),
-                      jsonBuilder: (hosptiallist, load) {
-                        print('Hospital List $hosptiallist');
-                        return MDialogDown<Map<String, dynamic>>(
-                            required: false,
-                            items: hosptiallist,
-                            label: 'Hospital',
-                            // controller: hospitalCountry,
-                            onChanged: (d) {
-                              setState(() {
-                                hospitalname = d;
-                                hospitalIDselected.text =
-                                    d!['Hospital_id'].toString();
-                                print(
-                                    "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::DDDDDDDDDDDDDDDDDDDDDDD${hospitalIDselected.text}");
-                                blocGetHospitalTimingByDoctorHospital
-                                    .add(UpdateQuery({
-                                  'HospitalId': hospitalIDselected.text,
-                                  'DoctorId': LocalStorage.getUID().toString(),
-                                }));
-                              });
-                            },
-                            value: hospitalname,
-                            labelKey: 'Hospital_Name');
-                      },
-                    ),
-                  ),
+                  // BlocProvider(
+                  //   create: (_) =>
+                  //       GetHospitalTimingMasterByDoctor_bloc..add(const Load()),
+                  //   child: ApiBuilder<GetHospitalTimingByDoctorHospital>(
+                  //     empty: NothingWidget(
+                  //       title: "No Hospital Schedule List",
+                  //       icon: Icons.local_hospital,
+                  //       message: "",
+                  //     ),
+                  //     loading: const DropDownShimmer(
+                  //       label: 'Hospital',
+                  //     ),
+                  //     jsonBuilder: (hosptiallist, load) {
+                  //       print('Hospital List $hosptiallist');
+                  //       return MDialogDown<Map<String, dynamic>>(
+                  //           required: false,
+                  //           items: hosptiallist,
+                  //           label: 'Hospital',
+                  //           // controller: hospitalCountry,
+                  //           onChanged: (d) {
+                  //             setState(() {
+                  //               hospitalname = d;
+                  //               hospitalIDselected.text =
+                  //                   d!['Hospital_id'].toString();
+                  //               print(
+                  //                   "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::DDDDDDDDDDDDDDDDDDDDDDD${hospitalIDselected.text}");
+                  //               blocGetHospitalTimingByDoctorHospital
+                  //                   .add(UpdateQuery({
+                  //                 'HospitalId': hospitalIDselected.text,
+                  //                 'DoctorId': LocalStorage.getUID().toString(),
+                  //               }));
+                  //             });
+                  //           },
+                  //           value: hospitalname,
+                  //           labelKey: 'Hospital_Name');
+                  //     },
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 12,
                   ),
@@ -266,8 +270,8 @@ class _AddHospitalScheduleDialogState extends State<AddHospitalScheduleDialog> {
                               .apiService
                               .post2(path: 'AddHospitalTiming', query: {
                             "HospitalDetails_id": 0,
-                            "Doctor_id": LocalStorage.getUID().toString(),
-                            "Hospital_id":
+                            "Doctor_id":widget.doctorId ?? LocalStorage.getUID().toString(),
+                            "Hospital_id":193989?? LocalStorage.getUser().hospitalId??
                                 int.tryParse(hospitalIDselected.text),
                             "DoctorFee": int.tryParse(fee.text),
                             "FromTime": fromTime.text.toString(),
@@ -286,7 +290,9 @@ class _AddHospitalScheduleDialogState extends State<AddHospitalScheduleDialog> {
                             if (res.body?.message.toString() ==
                                 "Timing Added Successfully") {
                               context.pop();
-                              context.replace(Routes.hospitalsBasedOnDoctor);
+                              context.replace(Routes.hospitalsBasedOnDoctor,{
+                                'doctorId': widget.doctorId
+                              });
                               print(
                                   ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::${res.body?.message}");
                             }

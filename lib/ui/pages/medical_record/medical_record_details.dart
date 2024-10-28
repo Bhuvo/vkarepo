@@ -168,6 +168,7 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                           const Spacer(),
                           TextButton(
                               onPressed: () async {
+                                print('lab................. ${widget.data?.lab=='' ? 'jhvv' : widget.data?.lab}');
                                 print("DATA::::::::: ${widget.appointment}");
                                 widget.data?.prescription.length == 0
                                     ? await Fluttertoast.showToast(
@@ -183,7 +184,7 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                                   MaterialPageRoute(
                                     builder: (context) => PrescriptionPrint(
                                       orgData: widget.data ?? const MedicalRecord(),
-                                      labTest: widget.data?.lab ?? [],
+                                      labTest: widget.data?.lab=='' ?[] : widget.data?.lab,
                                         data: widget.data?.prescription,
                                         appointment: widget.appointment),
                                   ),

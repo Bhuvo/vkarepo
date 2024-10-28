@@ -324,7 +324,8 @@ abstract class RouteGenerator {
             ));
 
       case Routes.hospitalsBasedOnDoctor:
-        return route(settings, HospitalsBasedOnDoctor());
+        args as Map;
+        return route(settings, HospitalsBasedOnDoctor(doctorId: args['doctorId'] ?? '' ,));
       case Routes.doctorBasicDetails:
         args as Map;
         return route(

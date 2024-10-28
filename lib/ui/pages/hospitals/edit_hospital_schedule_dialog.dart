@@ -49,10 +49,10 @@ class _EditHospitalScheduleDialogState extends State<EditHospitalScheduleDialog>
   TextEditingController fromTime = TextEditingController();
   TextEditingController toTime = TextEditingController();
 
-  final ApiBuilderBloc GetHospitalTimingMasterByDoctor_bloc = ApiBuilderBloc(
-      path: 'GetHospitalTimingMasterByDoctor',
-      query: {'DoctorId': LocalStorage.getUID()},
-      api2: true);
+  // final ApiBuilderBloc GetHospitalTimingMasterByDoctor_bloc = ApiBuilderBloc(
+  //     path: 'GetHospitalTimingMasterByDoctor',
+  //     query: {'DoctorId': LocalStorage.getUID()},
+  //     api2: true);
 
 
   @override

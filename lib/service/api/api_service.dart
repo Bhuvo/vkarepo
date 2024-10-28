@@ -34,7 +34,7 @@ abstract class ApiService extends ChopperService {
     @QueryMap() Map<String, dynamic> query = const {},
     @Body() Map<String, dynamic>? body,
   });
-  @Post(path: 'WebAPI2/{path}')
+    @Post(path: 'WebAPI2/{path}')
   Future<Response<ApiResponse>> post2({
     @Path() required String path,
     @QueryMap() Map<String, dynamic> query = const {},

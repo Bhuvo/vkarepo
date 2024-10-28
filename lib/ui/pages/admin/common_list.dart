@@ -107,6 +107,11 @@ class _CommonListState extends State<CommonList> {
                           borderColor:Colors.red,
                           animate: true,padding: EdgeInsets.all(10),
                           actions: [
+                           CustomSlidableAction(onPressed:widget.doctor?? false ?  (context) {
+                              context.push(Routes.hospitalsBasedOnDoctor,{
+                                'doctorId': search[i]['Doctor_id'].toString(),
+                              });
+                            } :(context){}, child:widget.doctor?? false ?  Icon(Icons.timer_outlined,size: 28,): Container()),
                             CustomSlidableAction(onPressed: (BuildContext context) {  },
                               child: Icon(Icons.edit,size: 28,)),
                             CustomSlidableAction(onPressed: (BuildContext context) {  },
@@ -142,7 +147,7 @@ class _CommonListState extends State<CommonList> {
                                 result.then((value) {
                                   bloc.add(Refresh());
                                 });
-                              }, child: Text(widget.status == 'A' ? 'DeActivate' : 'Activate'))
+                              }, child: Text(widget.status == 'A' ? 'Deactivate' : 'Activate'))
                             ],
                           ),
                         ),

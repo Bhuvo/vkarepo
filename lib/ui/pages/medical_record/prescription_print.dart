@@ -36,23 +36,7 @@ PrescriptionTemplateModel prescriptionTemplateModel = PrescriptionTemplateModel(
  late pw.MemoryImage? logo;
  List<pw.MemoryImage?>? images = [];
 
-Future<void> getTemplate() async {
-  images?.clear();
-  var response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=41835&Doctor_Id=0&Admin_Id=3'));
-  if(response.statusCode == 200){
-    var result =jsonDecode(response.body);
-    List<dynamic> data = result.map((e) => e['Active_Flag'] == 'D' && e['DisplayFlag'] == 'D' ? e : null).toList();
-    if(data.length > 0){
-      prescriptionTemplateModel = PrescriptionTemplateModel.fromJson(data[0]);
-      logo = await getImage(prescriptionTemplateModel.hospitalLogo ?? '');
-      images?.add(await getImage(prescriptionTemplateModel.accreditationImage1 ?? ''));
-      images?.add(await getImage(prescriptionTemplateModel.accreditationImage2 ?? ''));
-      images?.add(await getImage(prescriptionTemplateModel.awardImage ?? ''));
-      }
-  }else{
-    print('error');
-  }
-}
+
  Future<pw.MemoryImage?> getImage(String url) async {
   var result = await http.get(Uri.parse(url));
   if(result.statusCode == 200){
@@ -74,6 +58,7 @@ Future<Uint8List> _generatePdfWithPagination(
     final currentItems = data.skip(i).take(itemsPerPage).toList();
     bool isLastPage = (i + itemsPerPage) >= data.length;
     bool isLastPage2 = (i + itemsPerPage) >= data.length+labTest.length;
+    log('current ${currentItems.first}');
     pdf.addPage(
         pw.Page(
             theme: pw.ThemeData.withFont(
@@ -230,9 +215,7 @@ Future<Uint8List> _generatePdfWithPagination(
                             // TableRowItems(
                             //     '${item['Morning'] ?? ''.toString()}${item['Morning'] == null ? '' : '|'}${item['Afternoon'] ?? ''.toString()}${item['Morning'] == null ? '' : '|'}${item['Night'] ?? ''.toString()}'),
                             TableRowItems(item['instruction'].toString()),
-                            TableRowItems(item['Doctor_Notes'] == "" || item['Doctor_Notes'] == null
-                                ? "No specific\ninstructions given"
-                                : item['Doctor_Notes']),
+                            TableRowItems(item['FoodInstr'] == null||item['FoodInstr'] == '' ? '' : item['FoodInstr'].toString()),
                           ]),
                       ]),
 
@@ -1049,7 +1032,23 @@ TableRowItems(child) {
 }
 
 class _PrescriptionPrintState extends State<PrescriptionPrint> {
-
+  Future<void> getTemplate() async {
+    images?.clear();
+    var response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${widget.appointment?.doctorId}&Doctor_Id=${widget.appointment?.doctorId}&Admin_Id=3'));
+    if(response.statusCode == 200){
+      var result =jsonDecode(response.body);
+      List<dynamic> data = result.map((e) => e['Active_Flag'] == 'D' && e['DisplayFlag'] == 'D' ? e : null).toList();
+      if(data.length > 0){
+        prescriptionTemplateModel = PrescriptionTemplateModel.fromJson(data[0]);
+        logo = await getImage(prescriptionTemplateModel.hospitalLogo ?? '');
+        images?.add(await getImage(prescriptionTemplateModel.accreditationImage1 ?? ''));
+        images?.add(await getImage(prescriptionTemplateModel.accreditationImage2 ?? ''));
+        images?.add(await getImage(prescriptionTemplateModel.awardImage ?? ''));
+      }
+    }else{
+      print('error');
+    }
+  }
   bool isLoading = false;
   @override
   void initState() {

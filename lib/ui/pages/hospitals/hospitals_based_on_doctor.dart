@@ -19,23 +19,48 @@ import '../../components/nothing_widget.dart';
 import 'add_hospital_dialog.dart';
 import 'edit_hospital_dialog.dart';
 
-class HospitalsBasedOnDoctor extends StatelessWidget {
-  HospitalsBasedOnDoctor({Key? key}) : super(key: key);
+class HospitalsBasedOnDoctor extends StatefulWidget {
+  final String? doctorId;
+  HospitalsBasedOnDoctor({Key? key, this.doctorId}) : super(key: key);
 
-  final blocGetAllHospitalByDoctor = ApiBuilderBloc(
-      path: 'GetAllHospitalByDoctor',
-      query: {
-        //'DoctorId':38371,
-        'DoctorId': LocalStorage.getUID(),
-      },
-      api2: true
-  );
+  @override
+  State<HospitalsBasedOnDoctor> createState() => _HospitalsBasedOnDoctorState();
+}
+
+class _HospitalsBasedOnDoctorState extends State<HospitalsBasedOnDoctor> {
+
+  @override
+  void initState() {
+    blocGetHospitalTimingMasterByDoctor.query.addAll({
+      'DoctorId':widget.doctorId,
+    });
+    blocGetDoctorOnlineTiming.query.addAll({
+      'DoctorId':widget.doctorId,
+    });
+    blocgetOnlineFeeData.query.addAll({
+      'DoctorId':widget.doctorId,
+    });
+
+    // blocGetAllHospitalByDoctor.add(Load());
+    blocGetHospitalTimingMasterByDoctor.add(Load());
+    blocGetDoctorOnlineTiming.add(Load());
+    blocgetOnlineFeeData.add(Load());
+    super.initState();
+  }
+  // final blocGetAllHospitalByDoctor = ApiBuilderBloc(
+  //     path: 'GetAllHospitalByDoctor',
+  //     query: {
+  //       //'DoctorId':38371,
+  //       'DoctorId': LocalStorage.getUID(),
+  //     },
+  //     api2: true
+  // );
 
   final blocGetHospitalTimingMasterByDoctor = ApiBuilderBloc(
       path: 'GetHospitalTimingMasterByDoctor',
       query: {
         //'DoctorId':38371,
-        'DoctorId': LocalStorage.getUID(),
+        'DoctorId': LocalStorage.getUID().toString(),
       },
       api2: true);
 
@@ -47,7 +72,7 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
       },
       api2: true);
 
-  final blocgetOnlineFeeData = ApiBuilderBloc(
+  var blocgetOnlineFeeData = ApiBuilderBloc(
       path: 'getOnlineFeeData',
       query: {
         //'DoctorId':38371,
@@ -59,7 +84,7 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MScaffold(
-      title: const Text(Consts.HOSPITAL_LIST_BASED_ON_DOCTOR),
+      title: const Text('Doctor Time Allotment'),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,55 +92,55 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
             const SizedBox(
               height: 24,
             ),
-            const Text(
-              '      Hospital List',
-              style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.black54,
-                  fontWeight: FontWeight.w600),
-            ),
-            BlocProvider(
-                create: (c) => blocGetAllHospitalByDoctor..add(const Load()),
-                child: ApiBuilder<GetAllHospitalByDoctor>(
-                    empty: NothingWidget(
-                      title: "No Hospital List",
-                      icon: Icons.local_hospital,
-                      message: "",
-                    ),
-                    //shrinkWrap: true,
-                    fromJson: GetAllHospitalByDoctor.fromJsonFactory,
-                    customBuilder: (data, _) {
-                      print(
-                          "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::${data}");
-                      return ListView.builder(
-                        physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        padding: const EdgeInsets.symmetric(vertical: 24),
-                        itemBuilder: (c, i) =>
-                            HospitalListItem(getAllHospitalByDoctor: data[i]),
-                        itemCount: data.length,
-                      );
-                    })),
+            // const Text(
+            //   '      Hospital List',
+            //   style: TextStyle(
+            //       fontSize: 12,
+            //       color: Colors.black54,
+            //       fontWeight: FontWeight.w600),
+            // ),
+            // BlocProvider(
+            //     create: (c) => blocGetAllHospitalByDoctor..add(const Load()),
+            //     child: ApiBuilder<GetAllHospitalByDoctor>(
+            //         empty: NothingWidget(
+            //           title: "No Hospital List",
+            //           icon: Icons.local_hospital,
+            //           message: "",
+            //         ),
+            //         //shrinkWrap: true,
+            //         fromJson: GetAllHospitalByDoctor.fromJsonFactory,
+            //         customBuilder: (data, _) {
+            //           print(
+            //               "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::${data}");
+            //           return ListView.builder(
+            //             physics: NeverScrollableScrollPhysics(),
+            //             shrinkWrap: true,
+            //             padding: const EdgeInsets.symmetric(vertical: 24),
+            //             itemBuilder: (c, i) =>
+            //                 HospitalListItem(getAllHospitalByDoctor: data[i]),
+            //             itemCount: data.length,
+            //           );
+            //         })),
             // ...const [
             //   HospitalListItem(),
             //   HospitalListItem(),
             // ],
-            Container(
-              width: double.maxFinite,
-              height: 50,
-              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: OutlinedButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (c) => AddHospitalDialog(
-                        blocGetAllHospitalByDoctor: blocGetAllHospitalByDoctor,
-                      ),
-                    );
-                  },
-                  child: const Text('Add')),
-            ),
-            const Divider(),
+            // Container(
+            //   width: double.maxFinite,
+            //   height: 50,
+            //   margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            //   child: OutlinedButton(
+            //       onPressed: () {
+            //         showDialog(
+            //           context: context,
+            //           builder: (c) => AddHospitalDialog(
+            //             blocGetAllHospitalByDoctor: blocGetAllHospitalByDoctor,
+            //           ),
+            //         );
+            //       },
+            //       child: const Text('Add')),
+            // ),
+            // const Divider(),
             const SizedBox(
               height: 8,
             ),
@@ -128,7 +153,7 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
             ),
             BlocProvider(
                 create: (c) =>
-                    blocGetHospitalTimingMasterByDoctor..add(const Load()),
+                    blocGetHospitalTimingMasterByDoctor,
                 child: ApiBuilder<GetHospitalTimingByDoctorHospital>(
                     empty: NothingWidget(
                       title: "No Hospital Schedule List",
@@ -147,7 +172,7 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
                           itemBuilder: (c, i) => HospitalScheduleListItem(
                               getHospitalTimingMasterByDoctor: data[i],
                               // DocID: '38371'
-                              DocID: LocalStorage.getUID()),
+                              DocID: widget.doctorId ?? LocalStorage.getUID()),
                           itemCount: data.length);
                     })),
             // ...const [
@@ -163,7 +188,7 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
                     print('hospital Id ${LocalStorage.getUser().hospitalList}');
                     showDialog(
                       context: context,
-                      builder: (c) => const AddHospitalScheduleDialog(),
+                      builder: (c) => AddHospitalScheduleDialog(doctorId:widget.doctorId,),
                     );
                   },
                   child: const Text('Add')),
@@ -184,7 +209,7 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
             //   OnlineConsultListItem(),
             // ],
             BlocProvider(
-                create: (c) => blocGetDoctorOnlineTiming..add(const Load()),
+                create: (c) => blocGetDoctorOnlineTiming,
                 child: ApiBuilder<GetHospitalTimingByDoctorHospital>(
                     empty: NothingWidget(
                       title: "No Online Timing Added Yet",
@@ -196,14 +221,18 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
                     customBuilder: (data, _) {
                       print(
                           "      Online Consultation Schedule List${data[0].listTiming?.length}");
-                      return ListView.builder(
+                      return data.first.videoTimingId == null||data.first.videoTimingId == 0 ? NothingWidget(
+                        title: "No Online Timing Added Yet",
+                        icon: Icons.more_time,
+                        message: "",
+                      ):ListView.builder(
                           physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           padding: const EdgeInsets.symmetric(vertical: 24),
                           itemBuilder: (c, i) => OnlineConsultListItem(
                                 getDoctorTime: data[0].listTiming![i],
                                 //DocID: '38371',
-                                DocID: LocalStorage.getUID().toString(),
+                                DocID: widget.doctorId ?? LocalStorage.getUID().toString(),
                                 bloc: blocGetDoctorOnlineTiming,
                               ),
                           itemCount: data[0].listTiming?.length ?? 0);
@@ -222,7 +251,7 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
                             builder: (c) => AddOnlineScheduleDialog(
                               bloc: blocGetDoctorOnlineTiming,
                               //;DocID: '38371',
-                              DocID: LocalStorage.getUID(),
+                              DocID: widget.doctorId ??LocalStorage.getUID(),
                             ),
                           );
                         },
@@ -234,11 +263,19 @@ class HospitalsBasedOnDoctor extends StatelessWidget {
                   Expanded(
                     child: OutlinedButton(
                       onPressed: () {
+                        blocgetOnlineFeeData = ApiBuilderBloc(
+                            path: 'getOnlineFeeData',
+                            query: {
+                              //'DoctorId':38371,
+                              'DoctorId': widget.doctorId
+                            },
+                            api2: true,
+                            raw: true);
                         showDialog(
                             context: context,
                             builder: (c) => BlocProvider(
                                 create: (c) =>
-                                    blocgetOnlineFeeData..add(const Load()),
+                                    blocgetOnlineFeeData,
                                 child: ApiBuilder(jsonBuilder: (data, load) {
                                   print(
                                       "Mode Name:::::::::::::::::::::::::::::${data[0]}");
