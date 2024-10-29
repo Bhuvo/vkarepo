@@ -129,8 +129,8 @@ class _CommonListState extends State<CommonList> {
                                   Column(
                                     crossAxisAlignment:CrossAxisAlignment.start,
                                     children: [
-                                      ContentView3(label : 'Name : ', content: '${((search[i]['Gender']?? '') == 'Female') ? 'Ms.' : 'Mr.'}${search[i]['User_Firstname']?? search[i]['AccountName']}'),
-                                      ContentView3(label : 'Id : ', content: '${search[i]['User_Id']?? search[i]['Doctor_id']}'),
+                                      ContentView3(label : 'Name : ', content: '${((search[i]['Gender']?? '') == 'Female') ? 'Ms.' : 'Mr.'}${search[i]['User_Firstname']?? search[i]['Doctor_Name']}'),
+                                      ContentView3(label : 'Id : ', content: '${search[i]['User_id']?? search[i]['Doctor_id']}'),
                                       ContentView3(label : 'Mobile : ', content: '${search[i]['Mobile_Number']?? search[i]['Doctor_PhoneNumber']}'),
                                       ContentView3(label : 'Email : ', content: '${search[i]['Email_Id'] ?? search[i]['Email_id']}'),
                                     ],

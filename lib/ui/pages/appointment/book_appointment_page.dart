@@ -24,6 +24,7 @@ import 'package:timesmedlite/ui/providers/patient_provider.dart';
 import 'package:timesmedlite/ui/providers/user_provider.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
+import 'package:timesmedlite/ui/widgets/loading_widget.dart';
 import 'package:timesmedlite/ui/widgets/m_divider.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
@@ -419,18 +420,22 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
   }
 
   String? selectedOption;
-
+  bool isLoading = false;
   void getData() async{
+    setState(() {
+      isLoading = true;
+    });
     print('Get User Id ${LocalStorage.getCursorPatient().userId}'); //297488 //311214
     await controller.getClinicalAppointmentData(LocalStorage.getCursorPatient().userId);
-   setState(() {});
+   setState(() {
+     isLoading = false;
+   });
   }
 
   @override
   void initState() {
     // TODO: implement initState
     print("init state print");
-    getData();
     super.initState();
     // WidgetsBinding.instance.addPostFrameCallback((_) async {
     //   patientData = context.watch<PatientBloc>().patient ?? const Patient();
@@ -452,6 +457,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
       'User_id': LocalStorage.getUser().userId,
     })
       ..add(const Load());
+    getData();
   }
 
   @override
@@ -703,7 +709,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
-                  ExpandableColumn(
+                 isLoading? LoadingWidget(): ExpandableColumn(
                     min: 3,
                     children: List.generate(controller.upcoming.length ?? 0, (i) {
                       final item = controller.upcoming[i];
@@ -737,7 +743,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ),
-                ExpandableColumn(
+                  isLoading? LoadingWidget():  ExpandableColumn(
                   min: 3,
                   children: List.generate(controller.previous.length ?? 0, (i) {
                     final item = controller.previous[i];

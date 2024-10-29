@@ -7,6 +7,8 @@ import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../../routes/routes.dart';
 import '../../../theme/theme.dart';
+import '../../../widgets/m_text_field.dart';
+import '../../../widgets/space.dart';
 import 'model/doctor_model.dart';
 
 class DoctorsClinicalListDetails extends StatefulWidget {
@@ -275,7 +277,8 @@ class _DoctorsClinicalListDetailsState
                 width: size.width,
                 height: size.height * 0.075,
                 child: OutlinedButton(
-                  onPressed: () {
+                  onPressed: () async {
+
                     LocalStorage.setBool(LocalStorage.isFromPatient,true) ;
                     LocalStorage.setInt(LocalStorage.patientSearchDoctorId, widget.doctorData.doctorId ?? 0) ; //178936 // 184364
                     context.push(Routes.bookingAppointment);

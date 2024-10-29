@@ -221,7 +221,7 @@ class _HospitalsBasedOnDoctorState extends State<HospitalsBasedOnDoctor> {
                     customBuilder: (data, _) {
                       print(
                           "      Online Consultation Schedule List${data[0].listTiming?.length}");
-                      return data.first.videoTimingId == null||data.first.videoTimingId == 0 ? NothingWidget(
+                      return data[0].listTiming?.length == null||data[0].listTiming?.length == 0 ? NothingWidget(
                         title: "No Online Timing Added Yet",
                         icon: Icons.more_time,
                         message: "",
@@ -262,15 +262,15 @@ class _HospitalsBasedOnDoctorState extends State<HospitalsBasedOnDoctor> {
                   ),
                   Expanded(
                     child: OutlinedButton(
-                      onPressed: () {
-                        blocgetOnlineFeeData = ApiBuilderBloc(
-                            path: 'getOnlineFeeData',
-                            query: {
-                              //'DoctorId':38371,
-                              'DoctorId': widget.doctorId
-                            },
-                            api2: true,
-                            raw: true);
+                      onPressed: () async {
+                        // blocgetOnlineFeeData = await ApiBuilderBloc(
+                        //     path: 'getOnlineFeeData',
+                        //     query: {
+                        //       //'DoctorId':38371,
+                        //       'DoctorId': widget.doctorId
+                        //     },
+                        //     api2: true,
+                        //     raw: true);
                         showDialog(
                             context: context,
                             builder: (c) => BlocProvider(
@@ -281,11 +281,12 @@ class _HospitalsBasedOnDoctorState extends State<HospitalsBasedOnDoctor> {
                                       "Mode Name:::::::::::::::::::::::::::::${data[0]}");
                                   //CallMode=data[0]['Mode_Name'];
                                   return AddOnlineConsultFeeDialog(
+                                    doctorId:widget.doctorId,
                                     data: data[0],
                                     bloc: blocgetOnlineFeeData,
                                   );
                                 })));
-                      },
+                      }, 
                       child: const Text(
                         'Add Consultation Fee',
                         style: TextStyle(

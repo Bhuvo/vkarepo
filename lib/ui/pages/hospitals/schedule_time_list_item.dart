@@ -67,19 +67,21 @@ class ScheduleTimeListItem extends StatelessWidget {
             padding: EdgeInsets.all(4),
             onTap: () async {
             print("$docID ${getHospitalTimingByDoctorHospital.hospitalDetailsId}");
-              final call = Injector().apiService.get2(path: 'DeleteTiming', query: {
+              final call =await Injector().apiService.get2(path: 'DeleteTiming', query: {
                 'DoctorId': docID,
                 'HospitalDetails_id' : getHospitalTimingByDoctorHospital.hospitalDetailsId,
 
               });
-              final res = await showWaitingDialog(context: context, call: call);
-              print("RES::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ${res?.body}");
+              // final res = await showWaitingDialog(context: context, call: call);
+              print("RES::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ${call?.body}");
 
 
-              if(res?.body.code.toString() == "1"){
-               bloc.add(UpdateQuery({ 'HospitalId': getHospitalTimingByDoctorHospital.hospitalId,
-                 'DoctorId': docID,}));
-              }
+              // if(res?.body.code.toString() == "1"){
+              //  bloc.add(UpdateQuery({ 'HospitalId': getHospitalTimingByDoctorHospital.hospitalId,
+              //    'DoctorId': docID,}));
+              // }
+
+              bloc..add(Refresh());
             },
           ),
           SizedBox(height: 8,)

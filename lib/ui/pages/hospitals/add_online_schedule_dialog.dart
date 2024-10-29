@@ -174,8 +174,9 @@ class _AddOnlineScheduleDialogState extends State<AddOnlineScheduleDialog> {
                     context.pop();
 
                     if (res.isSuccessful) {
+
                       print(
-                          ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::res.isSuccessful");
+                          ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::${res.base.request?.url}");
                       print(
                           ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::${res.body}");
                       if (res.body?.message.toString() ==

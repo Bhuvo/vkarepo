@@ -23,6 +23,7 @@ import 'package:timesmedlite/ui/pages/appointment/widgets/schedule_hospital_list
 import 'package:timesmedlite/ui/pages/call/update_call_status_page.dart';
 import 'package:timesmedlite/ui/pages/home/homepage_base.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
+import 'package:timesmedlite/ui/widgets/space.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
 import 'package:timesmedlite/utils/date_utils.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
@@ -282,7 +283,36 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                               UpdateTimingWidget(
                                 timeList: data.timeList,
                                 onSelect: (date) async {
+                                  String complaints = '';
                                   if(LocalStorage.getIsFromPatient()){
+                                    await showModalBottomSheet(context: context,isScrollControlled: true, builder: (context) {
+                                      return Padding(
+                                        padding:  EdgeInsets.only(
+                                          bottom: MediaQuery.of(context).viewInsets.bottom,
+                                        ),
+                                        child: Container(
+                                          height:250,
+                                          padding: EdgeInsets.all(20),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              MTextField(
+                                                label: 'Complaints',
+                                                onChanged: (value) {
+                                                  complaints = value;
+                                                },
+                                              ),
+                                              Space(10),
+                                              OutlinedButton(onPressed: (){
+                                                context.pop();
+                                              }, child: Text('Confirm')),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    });
+                                    print(complaints);
                                     final response = await showConfirmDialog(context: context,title: 'Confirm Appointment',message: 'Are you sure you want to book an appointment?',
                                     actions:{
                                       'Yes': () async {
@@ -302,7 +332,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                                               // 'DoctorId': LocalStorage.getUID(),
                                               'DoctorId': LocalStorage
                                                   .getPatientSearchDoctorId(),
-                                              'desc': 'complaints',
+                                              'desc': complaints ?? 'complaints',
                                               'Time': MDateUtils
                                                   .dateToHourMinuteQuery(
                                                   date.toIso8601String()),
