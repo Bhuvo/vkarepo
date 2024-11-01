@@ -8,6 +8,7 @@ import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
 import 'package:timesmedlite/ui/widgets/space.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
+import '../../../utils/local_storage.dart';
 import '../../routes/routes.dart';
 import '../dashboard/dashboard_header.dart';
 import '../home/home_bottom_navigation.dart';
@@ -22,7 +23,7 @@ class AdminDashboard extends StatefulWidget {
 class _AdminDashboardState extends State<AdminDashboard> {
 
   final bloc = ApiBuilderBloc(path: 'GetAdminDashboardCount' ,vka: true,query: {
-    'AdminId' : '3'
+    'AdminId' : LocalStorage.getUser().hospitalAdminId
   });
 
   @override
@@ -102,7 +103,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                         onTap: () async {
                          await context.push(Routes.doctorsList,
                               {
-                                'status': 'A',
+                                'status': 'D',
                                 'adminId': '1',
                                 'nurse':true,
                                 'title': 'Nurse',
@@ -134,13 +135,13 @@ class _AdminDashboardState extends State<AdminDashboard> {
                       ),
                       DashboardCard(
                         title: data['InActiveFo'] ?? '',
-                        subTitle: 'Front Office',
+                        subTitle: 'Inactive Front Office',
                         color: Colors.brown.shade400,
                         asset: 'assets/images/scheduled.png',
                         onTap: () async {
                           await context.push(Routes.doctorsList,
                               {
-                                'status': 'A',
+                                'status': 'D',
                                 'adminId': '1',
                                 'fo':true,
                                 'title': 'Front office',

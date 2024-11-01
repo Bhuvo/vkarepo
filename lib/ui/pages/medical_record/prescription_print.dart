@@ -1041,9 +1041,8 @@ class _PrescriptionPrintState extends State<PrescriptionPrint> {
   Future<void> getTemplate() async {
     images?.clear();
     print('layout Api Url : ${'https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=193976&Doctor_Id=${widget.appointment?.doctorId ?? widget.docId}&Admin_Id=0'}');
-    var response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=193976&Doctor_Id=${widget.appointment?.doctorId?? widget.docId}&Admin_Id=0'));
+    var response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${widget.data.first['Hospital_id']}&Doctor_Id=${widget.appointment?.doctorId ?? widget.docId ?? 0}&Admin_Id=${LocalStorage.getUser().hospitalAdminId ?? 0}'));
     if(response.statusCode == 200){
-
       var result =jsonDecode(response.body);
       List<dynamic> data = result.map((e) => e['Active_Flag'] == 'A' && e['DisplayFlag'] == 'A' ? e : null).toList();
       print('template body ${data}');

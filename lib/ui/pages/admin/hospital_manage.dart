@@ -14,6 +14,7 @@ import 'package:timesmedlite/ui/widgets/space.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../../model/get_all_hospital_by_doctor.dart';
+import '../../../utils/local_storage.dart';
 import '../../components/api_builder/api_builder_bloc.dart';
 import '../../components/shimmer/drop_down_shimmer.dart';
 import '../../widgets/m_dialog_down.dart';
@@ -83,7 +84,7 @@ class _HospitalManageState extends State<HospitalManage> {
   Map<String, dynamic>? city,state,locationname;
   var hospitalCountryID, hospitalLocationID, hospitalStateID, hospitalCityID;
 
-   final bloc = ApiBuilderBloc(path: 'GetAllHospitalByAdmin' ,query: {'Admin_Id':'3'},timesmedApi: true,api2: true);
+   final bloc = ApiBuilderBloc(path: 'GetAllHospitalByAdmin' ,query: {'Admin_Id':LocalStorage.getUser().hospitalAdminId},timesmedApi: true,api2: true);
 
    @override
   void initState() {

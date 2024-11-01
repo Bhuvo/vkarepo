@@ -514,7 +514,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
         return Container(
           padding: const EdgeInsets.all(5),
           decoration:BoxDecoration(color: Colors.blue.shade700, borderRadius: BorderRadius.circular(8)),
-          child: const Text("Waiting for Accept", style: TextStyle(color: Colors.white, fontSize: 12),),
+          child: const Text("Others", style: TextStyle(color: Colors.white, fontSize: 12),),
         );
     }
   }

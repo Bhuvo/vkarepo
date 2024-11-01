@@ -351,7 +351,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text('Don’t have an account?',
+                    Text('Don’t have an Admin account?',
                         style: TextStyle(
                             color: Theme.of(context)
                                 .textTheme

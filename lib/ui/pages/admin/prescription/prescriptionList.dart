@@ -72,7 +72,6 @@ super.dispose();
             //   borderRadius: BorderRadius.circular(8),
             //   boxShadow: [BoxShadow(color: Colors.grey.shade300,blurRadius: 8)]
             // ),
-
             actions: [
               CustomSlidableAction(onPressed: (context) {
                 Navigator.push(
@@ -96,7 +95,13 @@ super.dispose();
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    StatusIndicator(label:'Status : ${controller.data[index].activeFlag == 'A' ? 'Active' : 'Inactive'}',color: controller.data[index].activeFlag == 'A' ? Colors.green : Colors.red,allCaps: false,bold: true),
+                    InkWell(
+                        onTap: () async {
+                       await controller.changeStatus(context, controller.data[index].printTemplateId.toString(), controller.data[index].activeFlag == 'A' ? 'D' : 'A');
+                       getData();
+                       setState(() {});
+                        },
+                        child: StatusIndicator(label:'Status : ${controller.data[index].activeFlag == 'A' ? 'Active' : 'Inactive'}',color: controller.data[index].activeFlag == 'A' ? Colors.green : Colors.red,allCaps: false,bold: true)),
                   ],
                 ),
                 Row(
@@ -106,6 +111,7 @@ super.dispose();
                     PText('Phone Number : ${controller.data[index].hospitalPhoneNumber}'),
                   ],
                 ),
+
                 Space(6),
                 PText('Address : ${controller.data[index].hospitalAddress}'),
                 Space(6),

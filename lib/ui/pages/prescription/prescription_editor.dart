@@ -10,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:timesmedlite/const/consts.dart';
 import 'package:timesmedlite/model/api_response.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder.dart';
+import 'package:timesmedlite/ui/components/show_message.dart';
 import 'package:timesmedlite/ui/pages/prescription/drug_list_item.dart';
 import 'package:timesmedlite/ui/pages/prescription/template/save_template_dialog.dart';
 import 'package:timesmedlite/ui/routes/routes.dart';
@@ -118,12 +119,13 @@ class _PrescriptionEditorState extends State<PrescriptionEditor> {
 
     late  ApiBuilderBloc prescriptionBloc;
     prescriptionBloc = ApiBuilderBloc(
-      path: 'getdetails',
+      path: 'GetDetails_By_AppId',
       query: {
-        'user_id': widget.patientid,
-        //'user_id': 3158,
-        'Doctor_id': widget.doctorid
-        //'Doctor_id': 38371
+        // 'user_id': widget.patientid,
+        // //'user_id': 3158,
+        // 'Doctor_id': widget.doctorid
+        // //'Doctor_id': 38371
+        'AppId': widget.appointmentid
       },
       //raw: true
     );
@@ -259,31 +261,47 @@ class _PrescriptionEditorState extends State<PrescriptionEditor> {
                                       content: Text(
                                           'Please add atleast 1 drug to prescription to preview the prescription')));
                             }else {
-                              LoadingWidget();
+                             showWaitingDialog(context: context);
                               prescriptionBloc..add(const Load());
-                              MedicalRecord medicalRecord = MedicalRecord();
-                              List<MedicalRecord> data = await showDialog(context: context, builder: (c) =>  BlocProvider(
-                              create: (_) => prescriptionBloc..add(const Load()),
-                              child:ApiBuilder<MedicalRecord>(
-                                fromJson: MedicalRecord.fromJsonFactory,
-                                customBuilder: (data, load){
-                                  // print('this is data record ${data.prescription}');
-                                  // medicalRecord = data;
-                                  // log('this is mediconcal record ${medicalRecord.lab}');
-                                  context.pop(data);
-                                  return Container();
-                                },
-                              )
-                            ));
-                            medicalRecord = data[0];
-                            // log('The data oforiginal is ${data.prescription}');
+                              List<MedicalRecord> medicalRecord = [];
+                              var res = await  Injector().timesmedService.get(path: 'GetDetails_By_AppId',query: {
+                                'AppId' : widget.appointmentid
+                              });
+                              List<dynamic> data = res.body?.data;
+                              medicalRecord = data.map((e) => MedicalRecord.fromJson(e)).toList();
+                              print('The data oforiginal is ${medicalRecord}');
+
+                              if(medicalRecord.isEmpty){
+                                showMessage(context: context, message:'Please add atleast 1 drug to prescription to preview the prescription');
+                               context.pop();
+                                return;
+                              }
+                            //   List<MedicalRecord> data = await showDialog(context: context, builder: (c) =>  Dialog(
+                            //     child: BlocProvider(
+                            //     create: (_) => prescriptionBloc..add(const Load()),
+                            //     child:ApiBuilder<MedicalRecord>(
+                            //       fromJson: MedicalRecord.fromJsonFactory,
+                            //       customBuilder: (data, load){
+                            //         // print('this is data record ${data.prescription}');
+                            //         // medicalRecord = data;
+                            //         // log('this is mediconcal record ${medicalRecord.lab}');
+                            //         context.pop(data);
+                            //         return Container();
+                            //       },
+                            //     )
+                            //     ),
+                            //   ));
+                            // medicalRecord = data[0];
+                            // // log('The data oforiginal is ${data.prescription}');
                               Navigator.push(context,MaterialPageRoute(builder:(context)=> PrescriptionPrint(
-                                orgData: medicalRecord ?? const MedicalRecord(),
-                                labTest: medicalRecord.lab=='' ?[] : medicalRecord.lab,
-                                data: medicalRecord.prescription =='' ? [] : medicalRecord.prescription,
+                                orgData: medicalRecord[0] ?? const MedicalRecord(),
+                                labTest: medicalRecord[0].lab=='' ?[] : medicalRecord[0].lab,
+                                data: medicalRecord[0].prescription =='' ? [] : medicalRecord[0].prescription,
                                 appId: widget.appointmentid.toString(),
                                 docId: widget.doctorid.toString(),
                               )));
+                              context.pop();
+
                             //   context.push(Routes.prescriptionPreview, {
                             //   /// bloc has been called as duplicate because when going context.pop the state and bloc gets closed so used duplicate
                             //   'patientbloc': patientbloc.duplicate(),

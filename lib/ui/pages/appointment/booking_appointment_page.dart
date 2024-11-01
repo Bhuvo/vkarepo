@@ -54,6 +54,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
       query: {'DoctorId':LocalStorage.getIsFromPatient()  ? LocalStorage.getPatientSearchDoctorId(): LocalStorage.getUID()},
       timesmedApi: true,
       api2: true);
+  String fee = '0';
   final ApiBuilderBloc timings = ApiBuilderBloc(
       path: 'GetTimingList',
       query: {},
@@ -164,6 +165,8 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                     ),
                     jsonBuilder: (list, load) {
                       final data = list.first;
+                      print('Fees is ${data['Fee']}');
+                      fee = data['Fee'].toString();
                       return MListTile(
                           margin: const EdgeInsets.symmetric(
                               horizontal: 0, vertical: 6),
@@ -328,6 +331,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                                                   .userId,
                                               //  user?.userId,
                                               'Type_Flag': 'H',
+                                              'OnlineFlag':true,
                                               'Hospital_id': timingsQuery['hospital_id'],
                                               // 'DoctorId': LocalStorage.getUID(),
                                               'DoctorId': LocalStorage
@@ -418,13 +422,33 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
 
                                     return;
                                   }
-                                  final res = await showDialog(
-                                      context: context,
-                                      builder: (c) =>
-                                          AppointmentSelectUserDialog(
-                                              date: date,
-                                              hospitalId:
-                                                  timingsQuery['hospital_id']));
+
+                                  final dialogRes =await  showConfirmDialog(context: context,
+                                  title: 'Payment fee',
+                                  message: 'Are you sure patients paid the fee of Rs $fee?',
+                                  actions: {
+                                    'Yes' : (){
+                                      context.pop(true);
+                                    }
+                                  }
+                                  );
+                                  if(dialogRes == false || dialogRes == null) {
+                                    print('returning');
+                                    return ;
+                                  }
+                                  print('is it coming');
+
+                                  final res = await  Navigator.push(context,MaterialPageRoute(builder: (context) => AppointmentSelectUserDialog(
+                                      date: date,
+                                      hospitalId:
+                                      timingsQuery['hospital_id'])));
+                                  // final res = await showDialog(
+                                  //     context: context,
+                                  //     builder: (c) =>
+                                  //         AppointmentSelectUserDialog(
+                                  //             date: date,
+                                  //             hospitalId:
+                                  //                 timingsQuery['hospital_id']));
                                   if (res == true) {
                                     timings.add(const Refresh());
                                   }

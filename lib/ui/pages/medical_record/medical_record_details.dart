@@ -303,7 +303,7 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                     create: (c) => ApiBuilderBloc(
                       path: 'get_laboratoryNew_SRMC',
                       query: {
-                        'user_id': LocalStorage.getCursorPatient().userId,
+                        'user_id': widget.data?.User_id.toString(),
                         'Appointment_id': widget.appointment_id.toString(),
                       },
                     )..add(const Load()),

@@ -95,7 +95,7 @@ class UserTile extends StatelessWidget {
                         '${patient.firstName ?? 'ere'} ${patient.lastName ?? 'eee'} Age ${patient.age}',
                     style: textStyle ??
                         Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            fontSize: 16,
+                            fontSize: 14,
                             color: DefaultTextStyle.of(context).style.color)),
               if (caption != null) ...[
                 const SizedBox(
