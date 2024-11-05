@@ -58,7 +58,7 @@ class _AddHospitalScheduleDialogState extends State<AddHospitalScheduleDialog> {
     fromTime.text = "";
     toTime.text = ""; //set the initial value of text field
     //DocID=38371;
-    hospitalIDselected.text = '193971';
+    hospitalIDselected.text = '';
     DocID = LocalStorage.getUID();
     super.initState();
   }
@@ -271,7 +271,7 @@ class _AddHospitalScheduleDialogState extends State<AddHospitalScheduleDialog> {
                               .post2(path: 'AddHospitalTiming', query: {
                             "HospitalDetails_id": 0,
                             "Doctor_id":widget.doctorId ?? LocalStorage.getUID().toString(),
-                            "Hospital_id":193989?? LocalStorage.getUser().hospitalId??
+                            "Hospital_id":LocalStorage.getUser().hospitalId ??
                                 int.tryParse(hospitalIDselected.text),
                             "DoctorFee": int.tryParse(fee.text),
                             "FromTime": fromTime.text.toString(),

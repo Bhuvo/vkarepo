@@ -192,7 +192,7 @@ class _AdminSignUpPageState extends State<AdminSignUpPage> {
                          msg: "Signup Done Please Log In",
                          toastLength: Toast.LENGTH_SHORT,
                          gravity: ToastGravity.BOTTOM,
-                         backgroundColor: Colors.redAccent,
+                         backgroundColor: Colors.green,
                          textColor: Colors.white,
                          fontSize: 16.0);
                      context.replace(Routes.login);

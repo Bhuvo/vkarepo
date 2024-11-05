@@ -33,7 +33,7 @@ class DoctorList extends StatefulWidget {
 class _DoctorListState extends State<DoctorList> {
   final ApiBuilderBloc bloc = ApiBuilderBloc(path: 'GetDoctorDetails_By_Admin',
       api2: true,
-      query: {'Admin_Id':  3 ,
+      query: {'Admin_Id':  LocalStorage.getUser().hospitalAdminId ,
       'Active_Flag': 'A'
       });
 

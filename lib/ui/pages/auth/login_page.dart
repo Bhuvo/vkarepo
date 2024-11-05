@@ -320,12 +320,11 @@ class _LoginPageState extends State<LoginPage> {
                             print('Usr id ${LocalStorage.getUID()} ${LocalStorage.getUser().id}');
                               MessagingMonitor.init(AppConfig.of(context)!.config);
                               if(LocalStorage.isAdmin){
-                                context.replace(Routes.adminDashboard);
+                                context.pushAndRemoveUntil(Routes.adminDashboard , (route) => false);
                               }else if(LocalStorage.isNurse || LocalStorage.isFo){
-                                context.replace(Routes.selectDoctor);
+                                context.pushAndRemoveUntil(Routes.selectDoctor , (route) => false);
                               }else{
-
-                                context.replace(Routes.currentAppointment);
+                                context.pushAndRemoveUntil(Routes.currentAppointment, (route) => false);
                               }
                           }else{
                             print('Login response failed ${response.body}');

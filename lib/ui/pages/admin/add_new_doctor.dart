@@ -623,7 +623,7 @@ class _AddNewDoctorState extends State<AddNewDoctor> {
                   child: OutlinedButton(
                       onPressed: () async {
                         var map = data.toJson();
-                        map['Admin_Id'] = '3';
+                        map['Admin_Id'] = LocalStorage.getUser().hospitalAdminId.toString();
                         map['Doctor_id'] =0;
                         final call = Injector()
                             .apiService

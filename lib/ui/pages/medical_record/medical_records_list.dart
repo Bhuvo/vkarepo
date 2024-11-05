@@ -108,6 +108,7 @@ class MedicalRecordsList extends StatelessWidget {
                         data: item,
                         appointment: appointment,
                         onTap: () {
+                          // print('Hospital id is ${item.hospitalId}');
                           context.push(
                             Routes.medicalRecordDetails,
                             {

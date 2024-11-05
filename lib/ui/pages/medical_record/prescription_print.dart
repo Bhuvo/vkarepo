@@ -49,19 +49,20 @@ PrescriptionTemplateModel prescriptionTemplateModel = PrescriptionTemplateModel(
 Future<Uint8List> _generatePdfWithPagination(
     bool isPatient ,
     AppointmentData? appointment,String appId, List data, MedicalRecord orgData, List labTest) async {
-  log('data note : ${data}');
+  log('data note : ${isPatient}');
   final pdf = pw.Document();
   final image = await imageFromAssetBundle('assets/images/timesmedlogo.png');
 
   // Define the maximum number of items per page
   const int itemsPerPage = 10;
-
+  int length = 1;
   // Split the data into chunks for pagination
-  for (int i = 0; i < data.length +labTest.length; i += itemsPerPage) {
+
+  for (int i = 0; i < ((LocalStorage.isAdmin )? 1 :( data.length +labTest.length)); i += itemsPerPage) {
     final currentItems = data.skip(i).take(itemsPerPage).toList();
     bool isLastPage = (i + itemsPerPage) >= data.length;
     bool isLastPage2 = (i + itemsPerPage) >= data.length+labTest.length;
-    log('current ${currentItems.first}');
+    // log('current ${currentItems.first}');
     pdf.addPage(
         pw.Page(
             theme: pw.ThemeData.withFont(
@@ -170,7 +171,12 @@ Future<Uint8List> _generatePdfWithPagination(
                   ),
                   pw.Row(
                     children: [
-                      pw.Text(
+                      LocalStorage.isAdmin?
+                       pw.Text(
+                         'Patient Id : Patient Name : Age / Gender - Phone',
+                         style: const pw.TextStyle(fontSize: 10),
+                       )
+                      :pw.Text(
                         // "Doctor Name : ${appointment?.doctorName}",
                         isPatient ? '${LocalStorage.getCursorPatient().userId} : ${LocalStorage.getCursorPatient().patientName} (${LocalStorage.getCursorPatient().age} / ${LocalStorage.getCursorPatient().gender.toString()}) - ${LocalStorage.getCursorPatient().phone}' :
                           LocalStorage.isAdmin?
@@ -325,7 +331,7 @@ Future<Uint8List> _generatePdfWithPagination(
               // Center
             }));
   }
-
+print('It came out ${data.length +labTest.length}');
   return pdf.save();
 }
 
@@ -1040,9 +1046,15 @@ TableRowItems(child) {
 class _PrescriptionPrintState extends State<PrescriptionPrint> {
   Future<void> getTemplate() async {
     images?.clear();
-    print('layout Api Url : ${'https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=193976&Doctor_Id=${widget.appointment?.doctorId ?? widget.docId}&Admin_Id=0'}');
-    var response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${widget.data.first['Hospital_id']}&Doctor_Id=${widget.appointment?.doctorId ?? widget.docId ?? 0}&Admin_Id=${LocalStorage.getUser().hospitalAdminId ?? 0}'));
+    print('this is ${LocalStorage.isAdmin}  ${LocalStorage.isDoctor } ${ LocalStorage.isNurse } ${ LocalStorage.isFo}');
+    String adminUrl ='https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${LocalStorage.getUser().hospitalId}&Doctor_Id=0&Admin_Id=${LocalStorage.getUser().hospitalAdminId ?? 0}';
+    String doctorUrl = 'https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${LocalStorage.getUser().hospitalId}&Doctor_Id=${LocalStorage.getUser().id}&Admin_Id=0';
+    String patientUrl= 'https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${widget.orgData.Hospital_id}&Doctor_Id=${widget.appointment?.doctorId}&Admin_Id=0';
+    // var response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${widget.data.first['Hospital_id']}&Doctor_Id=${widget.appointment?.doctorId ?? widget.docId ?? 0}&Admin_Id=${LocalStorage.getUser().hospitalAdminId ?? 0}'));
+    print(doctorUrl);
+    var response = await http.get(Uri.parse(LocalStorage.isAdmin? adminUrl :(LocalStorage.isDoctor || LocalStorage.isNurse || LocalStorage.isFo)? doctorUrl : patientUrl));
     if(response.statusCode == 200){
+      print('the status code is ${response.statusCode}');
       var result =jsonDecode(response.body);
       List<dynamic> data = result.map((e) => e['Active_Flag'] == 'A' && e['DisplayFlag'] == 'A' ? e : null).toList();
       print('template body ${data}');
@@ -1054,7 +1066,7 @@ class _PrescriptionPrintState extends State<PrescriptionPrint> {
         images?.add(await getImage(prescriptionTemplateModel.awardImage ?? ''));
       }
     }else{
-      print('error');
+      print('error the status code is ${response.statusCode}');
     }
   }
   bool isLoading = false;
@@ -1076,7 +1088,7 @@ class _PrescriptionPrintState extends State<PrescriptionPrint> {
 
   @override
   Widget build(BuildContext context) {
-    print("name :    ${widget.data}");
+    // print("name :    ${widget.data}");
     Size size = MediaQuery.of(context).size;
     return MScaffold(
       title: Text(

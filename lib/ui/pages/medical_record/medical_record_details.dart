@@ -168,6 +168,7 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                           const Spacer(),
                           TextButton(
                               onPressed: () async {
+                                print('org Data ::::::::::::::::::::: ${widget.data?.Hospital_id}');
                                 print('lab................. ${widget.data?.lab=='' ? 'jhvv' : widget.data?.lab}');
                                 print("DATA::::::::: ${widget.appointment}");
                                 widget.data?.prescription.length == 0

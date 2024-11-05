@@ -18,6 +18,7 @@ import '../../components/api_builder/api_builder_bloc.dart';
 import '../../components/nothing_widget.dart';
 import 'add_hospital_dialog.dart';
 import 'edit_hospital_dialog.dart';
+import 'edit_hospital_schedule_dialog.dart';
 
 class HospitalsBasedOnDoctor extends StatefulWidget {
   final String? doctorId;
@@ -170,6 +171,10 @@ class _HospitalsBasedOnDoctorState extends State<HospitalsBasedOnDoctor> {
                           shrinkWrap: true,
                           padding: const EdgeInsets.symmetric(vertical: 24),
                           itemBuilder: (c, i) => HospitalScheduleListItem(
+                            editOnTap: () async {
+                            await showDialog(context: context, builder: (c) =>  EditHospitalScheduleDialog(getHospitalTimingMasterByDoctor: data[i],DocID: widget.doctorId ?? LocalStorage.getUID()), );
+                            blocGetHospitalTimingMasterByDoctor..add(Refresh());
+                            },
                               getHospitalTimingMasterByDoctor: data[i],
                               // DocID: '38371'
                               DocID: widget.doctorId ?? LocalStorage.getUID()),

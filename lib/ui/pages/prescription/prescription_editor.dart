@@ -293,6 +293,7 @@ class _PrescriptionEditorState extends State<PrescriptionEditor> {
                             //   ));
                             // medicalRecord = data[0];
                             // // log('The data oforiginal is ${data.prescription}');
+                             context.pop();
                               Navigator.push(context,MaterialPageRoute(builder:(context)=> PrescriptionPrint(
                                 orgData: medicalRecord[0] ?? const MedicalRecord(),
                                 labTest: medicalRecord[0].lab=='' ?[] : medicalRecord[0].lab,
@@ -300,7 +301,7 @@ class _PrescriptionEditorState extends State<PrescriptionEditor> {
                                 appId: widget.appointmentid.toString(),
                                 docId: widget.doctorid.toString(),
                               )));
-                              context.pop();
+
 
                             //   context.push(Routes.prescriptionPreview, {
                             //   /// bloc has been called as duplicate because when going context.pop the state and bloc gets closed so used duplicate

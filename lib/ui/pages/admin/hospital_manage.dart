@@ -7,6 +7,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:timesmedlite/di/dependency_injection.dart';
 import 'package:timesmedlite/ui/app/m_app.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder.dart';
+import 'package:timesmedlite/ui/components/waiting_dialog.dart';
 import 'package:timesmedlite/ui/pages/admin/model/hospital_detail_model.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
 import 'package:timesmedlite/ui/widgets/m_text_field.dart';
@@ -118,6 +119,7 @@ class _HospitalManageState extends State<HospitalManage> {
                     MTextField(
                       label: 'Hospital Phone Number',
                       value: modelData.hospitalPhoneNumber,
+                      type: MInputType.phone,
                       onChanged: (val){
                         hospitalPhone =val;
                       },
@@ -263,28 +265,28 @@ class _HospitalManageState extends State<HospitalManage> {
                       ),
                     ),
                     Space(),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: MTextField(
-                            label: 'Latitude',
-                            type: MInputType.decimal,
-                            value: modelData.latitude,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 16,
-                        ),
-                        Expanded(
-                          child: MTextField(
-                            label: 'Longitude',
-                            type: MInputType.decimal,
-                            value: modelData.longitude,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Space(),
+                    // Row(
+                    //   children: [
+                    //     Expanded(
+                    //       child: MTextField(
+                    //         label: 'Latitude',
+                    //         type: MInputType.decimal,
+                    //         value: modelData.latitude,
+                    //       ),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 16,
+                    //     ),
+                    //     Expanded(
+                    //       child: MTextField(
+                    //         label: 'Longitude',
+                    //         type: MInputType.decimal,
+                    //         value: modelData.longitude,
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+                    // Space(),
                     MTextField(label: 'Hospital Timing(ex."10:00 AM - 20:00 PM")',
                    value: modelData.timing,
                    onChanged: (val){
@@ -302,6 +304,8 @@ class _HospitalManageState extends State<HospitalManage> {
                     Container(
                       width: MediaQuery.of(context).size.width,
                       child: OutlinedButton(onPressed: () async {
+                        showWaitingDialog(context: context);
+                        await _getCurrentLocation();
                        var req = await Injector().apiService.post2(path:'VkaHospitalAdd',query: {
                           "Hospital_id": modelData.hospitalId ?? 0,
                           "Password":hospitalPassword,
@@ -316,8 +320,9 @@ class _HospitalManageState extends State<HospitalManage> {
                           "Location_id":hospitalLocationID,
                           "Timing":hospitaltime,
                           "Hospital_PhoneNumber": hospitalPhone ?? "7874859685",
-                          "Admin_Id":3
+                          "Admin_Id":LocalStorage.getUser().hospitalAdminId ?? 0
                         });
+                       context.pop();
                        context.pop();
                        print(req.base.request?.url);
                        print(req.bodyString);

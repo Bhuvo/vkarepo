@@ -11,8 +11,8 @@ class PrescriptionListController{
   List<PrescriptionTemplateModel> data =  [];
 
   Future<void> getTemplateList()async{
-    print('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${41835 ?? LocalStorage.getUser().hospitalId}&Doctor_Id=0&Admin_Id=${3 ?? LocalStorage.getUser().hospitalAdminId}');
-    final response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${41835 ?? LocalStorage.getUser().hospitalId}&Doctor_Id=0&Admin_Id=${3??LocalStorage.getUser().hospitalAdminId}'));
+    print('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${LocalStorage.getUser().hospitalId}&Doctor_Id=0&Admin_Id=${LocalStorage.getUser().hospitalAdminId}');
+    final response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${LocalStorage.getUser().hospitalId}&Doctor_Id=0&Admin_Id=${LocalStorage.getUser().hospitalAdminId}'));
     if(response.statusCode == 200){
       List<dynamic> result = jsonDecode(response.body);
       data = result.map((e)=> PrescriptionTemplateModel.fromJson(e)).toList();

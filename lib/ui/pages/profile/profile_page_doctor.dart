@@ -149,7 +149,7 @@ class ProfilePage extends StatelessWidget {
                               child: UserInfo(
                             Info.custom,
                             icon: FontAwesomeIcons.hospitalWide,
-                            lable: '${user.hospitalName}',
+                            lable: '${user.hospitalName ?? 'N/A'}',
                             textColor: MTheme.THEME_COLOR,
                           )),
                           Container(
@@ -160,7 +160,33 @@ class ProfilePage extends StatelessWidget {
                           const SizedBox(
                             width: 16,
                           ),
-                          const Expanded(child: UserInfo(Info.phone)),
+                          Expanded(
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                // const SizedBox(child: VerticalDivider(color: Colors.black, width: 1, thickness: 1,), height: 24, width: 1,),
+                                Icon(Icons.phone, color: MTheme.ICON_COLOR),
+                                const SizedBox(
+                                  width: 8,
+                                ),
+                                Flexible(
+                                  child: DefaultTextStyle(
+                                      style: TextStyle(
+                                          color: Colors.grey,
+                                          fontWeight: FontWeight.w500),
+                                      child: Text(
+                                        '${user.hospitalNumber ?? 'N/A'}',
+                                      )),
+                                ),
+                                if (type != Info.id)
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                              ],
+                            ),
+                          )
+                          // const Expanded(child: UserInfo(Info.phone)),
                         ],
                       )),
                       Space(),

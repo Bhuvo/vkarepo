@@ -14,7 +14,8 @@ import 'add_hospital_schedule_dialog.dart';
 class HospitalScheduleListItem extends StatelessWidget {
   GetHospitalTimingByDoctorHospital getHospitalTimingMasterByDoctor;
   final DocID;
-   HospitalScheduleListItem({Key? key,required this.getHospitalTimingMasterByDoctor, this.DocID}) : super(key: key);
+  final Function()? editOnTap;
+   HospitalScheduleListItem({Key? key,required this.getHospitalTimingMasterByDoctor, this.DocID, this.editOnTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class HospitalScheduleListItem extends StatelessWidget {
             MIconButton(child: Icon(Icons.edit, color: MTheme.THEME_COLOR, size: 20,),
               color:MTheme.THEME_COLOR,
               padding: EdgeInsets.all(4),
-              onTap: () {
+              onTap: editOnTap ?? () {
                showDialog(context: context, builder: (c) =>  EditHospitalScheduleDialog(getHospitalTimingMasterByDoctor: getHospitalTimingMasterByDoctor,DocID: DocID), );
               },
             ),
