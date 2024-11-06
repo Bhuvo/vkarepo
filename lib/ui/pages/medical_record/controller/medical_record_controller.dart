@@ -38,12 +38,13 @@ class MedicalRecordController
     }
     );
     if(response.statusCode == 200){
-      print('Labbborder responce ${response.body}');
+      print('Labbbrder responce ${response.body}');
       var result = jsonDecode(response.body);
       RazorpayFacade.pay(orderId: result['Data'], amount: num.tryParse('${result['OrderAmount']}') ?? 0, onSuccess: (d) {
         onSuccess(d,result['Order_id'].toString(), result['OrderAmount'],context);
         //context.pop();
       }, onFailure: (_){
+
         showMessage(context: context, message: 'Failed to Pay');
       });
 
