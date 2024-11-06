@@ -21,13 +21,13 @@ import 'package:http/http.dart' as http;
 import 'model/prescription_template_model.dart';
 
 class PrescriptionPrint extends StatefulWidget {
-  final List data;
+  final List? data;
   final List labTest;
   final MedicalRecord orgData;
   final AppointmentData? appointment;
   final String? appId;
   final String? docId;
-  const PrescriptionPrint({Key? key, required this.data, this.appointment, required this.labTest, required this.orgData, this.appId, this.docId})
+  const PrescriptionPrint({Key? key, this.data, this.appointment, required this.labTest, required this.orgData, this.appId, this.docId})
       : super(key: key);
 
   @override
@@ -197,7 +197,7 @@ Future<Uint8List> _generatePdfWithPagination(
                   pw.SizedBox(
                     height: 10,
                   ),
-                  pw.Table(
+                  data.isEmpty ? pw.Container() :  pw.Table(
                       defaultColumnWidth: const pw.IntrinsicColumnWidth(),
                       border: pw.TableBorder.all(color: PdfColors.grey200),
                       // Allows to add a border decoration around your table
@@ -1105,7 +1105,7 @@ class _PrescriptionPrintState extends State<PrescriptionPrint> {
               //     widget.appointment, widget.data,widget.orgData,widget.labTest)
               // : _generatePdfWhenNumberofItemsIsGreaterThan15(
               //     widget.appointment, widget.data,widget.labTest,widget.orgData),
-          build:(format) => _generatePdfWithPagination(AppConfig.of(context)?.config == Config.patient, widget.appointment,widget.appId ??'', widget.data,widget.orgData,widget.labTest) ,
+          build:(format) => _generatePdfWithPagination(AppConfig.of(context)?.config == Config.patient, widget.appointment,widget.appId ??'', widget.data ?? [],widget.orgData,widget.labTest) ,
         ),
       ),
     );

@@ -280,23 +280,44 @@ class _MedicalRecordDetailsState extends State<MedicalRecordDetails> {
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                         const Spacer(),
-                        // TextButton(
-                        //     onPressed: () {
-                        //
-                        //     },
-                        //     child: Row(
-                        //       children: const [
-                        //         Icon(
-                        //           Icons.print,
-                        //           size: 15,
-                        //           color: MTheme.ICON_COLOR,
-                        //         ),
-                        //         SizedBox(
-                        //           width: 8,
-                        //         ),
-                        //         Text('Print')
-                        //       ],
-                        //     ))
+                        TextButton(
+                            onPressed: ()async {
+                              print('org Data ::::::::::::::::::::: ${widget.data?.Hospital_id}');
+                              print('lab................. ${widget.data?.lab=='' ? 'jhvv' : widget.data?.lab}');
+                              print("DATA::::::::: ${widget.appointment}");
+                              widget.data?.prescription.length == 0
+                                  ? await Fluttertoast.showToast(
+                                  msg: "No Prescription added by doctor",
+                                  toastLength: Toast.LENGTH_LONG,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.white,
+                                  textColor: Colors.black,
+                                  fontSize: 16.0)
+                                  : Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PrescriptionPrint(
+                                      orgData: widget.data ?? const MedicalRecord(),
+                                      labTest: widget.data?.lab=='' ?[] : widget.data?.lab,
+                                      // data: widget.data?.prescription,
+                                      appointment: widget.appointment),
+                                ),
+                              );
+                            },
+                            child: Row(
+                              children: const [
+                                Icon(
+                                  Icons.print,
+                                  size: 15,
+                                  color: MTheme.ICON_COLOR,
+                                ),
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text('Print')
+                              ],
+                            ))
                       ],
                     ),
                   ),
@@ -654,7 +675,7 @@ class FileListItem extends StatelessWidget {
                   //   ),
                   // ),
                   MaterialPageRoute(
-                    builder: (context) => ImageOverviewInQueuePage(
+                    builder: (context) => MedicalRecordViewer(
                       appointmentId: appointmentId!,
                       name: name! ?? "No Name",
                       description: description,

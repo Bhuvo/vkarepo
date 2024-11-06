@@ -39,7 +39,8 @@ import 'bookings_dialog.dart';
 import 'controller/controller.dart';
 
 class BookAppointmentPage extends StatefulWidget {
-  BookAppointmentPage({Key? key}) : super(key: key);
+  final String? status;
+  BookAppointmentPage({Key? key, this.status}) : super(key: key);
 
   @override
   State<BookAppointmentPage> createState() => _BookAppointmentPageState();
@@ -48,6 +49,14 @@ class BookAppointmentPage extends StatefulWidget {
 ApiBuilderBloc familyBloc = ApiBuilderBloc(path: '');
 
 class _BookAppointmentPageState extends State<BookAppointmentPage> {
+
+  //check if this page come from dashboard means ,This "status" is used to check which button is pressed in dashboard and show that alone in Ui
+  bool isAll = false;
+  bool isCliUc = false;
+  bool isCliPre = false;
+  bool isVedPre = false;
+  bool isVedUc = false;
+
   /// Below code is for the user previous and upcoming appointments list api bloc
   // final apBloc = ApiBuilderBloc(
   //     path: 'Appointmentslist',
@@ -404,7 +413,6 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
   }
 
   var patientData;
-
   _reload(int userId) {
     // reload the data here
     apBloc = ApiBuilderBloc(path: 'Appointmentslist', query: {
@@ -432,8 +440,13 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
    });
   }
 
+  statusSwitch(){
+    widget.status == Consts.preClinic ? isCliPre = true : widget.status == Consts.upClinic ? isCliUc = true : widget.status == Consts.preVed ? isVedPre = true : widget.status == Consts.upVed ? isVedUc = true : isAll = true;
+   setState(() {});
+  }
   @override
   void initState() {
+    statusSwitch();
     // TODO: implement initState
     print("init state print");
     super.initState();
@@ -695,7 +708,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Column(
+             isCliUc || isAll ? Column(
                 crossAxisAlignment : CrossAxisAlignment.start,
                 children: [
                   const SizedBox(
@@ -728,8 +741,8 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                       );
                     }),
                   ),
-                ],),
-              Column(
+                ],) : Container(),
+              isCliPre || isAll ? Column(
                 crossAxisAlignment : CrossAxisAlignment.start,
                 children: [
                 const SizedBox(
@@ -763,9 +776,9 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                     );
                   }),
                 ),
-              ],),
+              ],): Container(),
               MDivider(),
-              BlocProvider(
+              isVedPre|| isVedUc || isAll ? BlocProvider(
                 create: (_) => apBloc,
                 child: ApiBuilder<AppointmentResponse>(
                   fromJson: AppointmentResponse.fromJsonFactory,
@@ -782,7 +795,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                         const SizedBox(
                           height: 32,
                         ),
-                        Padding(
+                        isVedUc || isAll ?  Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 8),
                           child: Text(
@@ -790,8 +803,8 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                             'Upcoming Video Consultation Appointments',
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
-                        ),
-                        ExpandableColumn(
+                        ): Container(),
+                        isVedUc || isAll ? ExpandableColumn(
                           min: 3,
                           children: List.generate(upcoming.length, (i) {
                             final item = upcoming[i];
@@ -811,8 +824,8 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                                   ),
                                 ));
                           }),
-                        ),
-                        Padding(
+                        ): Container(),
+                        isVedPre || isAll ?Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 8),
                           child: Text(
@@ -820,8 +833,8 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                             'Previous Video Consultation Appointments',
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
-                        ),
-                        ExpandableColumn(
+                        ): Container(),
+                        isVedPre || isAll ?  ExpandableColumn(
                           min: 3,
                           children: List.generate(previous.length, (i) {
                             print("asjdflasjdf     ${previous[i]}");
@@ -840,7 +853,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                                   ),
                                 ));
                           }),
-                        ),
+                        ): Container(),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8),
                           child: Row(
@@ -885,7 +898,7 @@ class _BookAppointmentPageState extends State<BookAppointmentPage> {
                     );
                   },
                 ),
-              ),
+              ) : Container(),
               BlocConsumer<ApiBuilderBloc, ApiBuilderState>(
                   listener: (context, state) {
                     log(state.toString());

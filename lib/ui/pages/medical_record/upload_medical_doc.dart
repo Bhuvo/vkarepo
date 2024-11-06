@@ -185,6 +185,8 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
                             child: ListView.builder(
                               itemCount: data.length,
                               itemBuilder: (context, index) => FileViewList(
+                                index: index,
+                                data: data,
                                 key: ValueKey(data[index]),
                                 title: data[index]["Title"] ==''? null : data[index]["Title"],
                                 name: data[index]["Name"].toString(),
@@ -402,6 +404,8 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
                             child: ListView.builder(
                               itemCount: data.length,
                               itemBuilder: (context, index) => FileViewList(
+                                index: index,
+                                data: data,
                                 key: ValueKey(data[index]),
                                 title: data[index]["Title"] ==''? null : data[index]["Title"],
                                 name: data[index]["Name"].toString(),
@@ -428,6 +432,8 @@ class _UploadMedicalDocState extends State<UploadMedicalDoc> {
 }
 
 class FileViewList extends StatefulWidget {
+  final List<Map<String, dynamic>>? data;
+  final int? index;
   final String? title;
   final String name;
   final String description;
@@ -443,7 +449,7 @@ class FileViewList extends StatefulWidget {
     required this.date,
     required this.appointmentId,
     this.recordsId,
-    this.deleteVoidCallBack, this.title,
+    this.deleteVoidCallBack, this.title, this.data, this.index,
   }) : super(key: key);
 
   @override
@@ -457,6 +463,8 @@ class _FileViewListState extends State<FileViewList> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    print('Data lenth is ${widget.data?.length}');
     print(widget.recordsId);
     print("prints record id");
     viewRecordsDeleteBloc = ApiBuilderBloc(
@@ -518,7 +526,9 @@ class _FileViewListState extends State<FileViewList> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ImageOverviewInQueuePage(
+                        builder: (context) => MedicalRecordViewer(
+                          index: widget.index,
+                          data: widget.data,
                               appointmentId: widget.appointmentId,
                               name: widget.name,
                               description: widget.description,
@@ -528,7 +538,9 @@ class _FileViewListState extends State<FileViewList> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ImageOverviewInQueuePage(
+                        builder: (context) => MedicalRecordViewer(
+                          index: widget.index,
+                          data: widget.data,
                           appointmentId: widget.appointmentId,
                           name: widget.name,
                           description: widget.description,
