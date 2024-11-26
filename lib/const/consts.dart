@@ -196,10 +196,18 @@ class Consts {
   static const String INR_DETAILS = 'INR DETAILS';
   static const String INSTRUCTIONS = 'Instructions';
 
+  //Used for sharedPref
   static const String doctor = 'Doctor';
   static const String nurse = 'Nurse';
   static const String frontOffice = 'FOffice';
   static const String admin = 'admin';
+
+  //used in patient book appointment Page
+  static const String allAppo = 'allAppo';
+  static const String preClinic = 'preClinic';
+  static const String upClinic = 'upClinic';
+  static const String preVed = 'preVed';
+  static const String upVed = 'upVed';
 
   // static const freqs = [
   //   "1-1-0-1",

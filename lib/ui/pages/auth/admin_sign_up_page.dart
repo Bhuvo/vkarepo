@@ -76,7 +76,7 @@ class _AdminSignUpPageState extends State<AdminSignUpPage> {
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             Text(
-              'Please sign up to continue.',
+              'Please sign up as Admin to continue.',
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(
@@ -100,6 +100,7 @@ class _AdminSignUpPageState extends State<AdminSignUpPage> {
                 MTextField(
                   label:'Phone Number',
                   controller: phoneController,
+                  type:MInputType.phone,
                 ),
                 Space(10),
                 MTextField(
@@ -169,6 +170,7 @@ class _AdminSignUpPageState extends State<AdminSignUpPage> {
                     label:'Confirm Password',
                    controller: confirmPasswordController,
                 ),
+                Space(10),
                 OutlinedButton(onPressed: () async {
                  if( formKey.currentState!.validate()){
                    if(passwordController.text == confirmPasswordController.text){
@@ -190,13 +192,14 @@ class _AdminSignUpPageState extends State<AdminSignUpPage> {
                          msg: "Signup Done Please Log In",
                          toastLength: Toast.LENGTH_SHORT,
                          gravity: ToastGravity.BOTTOM,
-                         backgroundColor: Colors.redAccent,
+                         backgroundColor: Colors.green,
                          textColor: Colors.white,
                          fontSize: 16.0);
                      context.replace(Routes.login);
                    }
                  }
-                }, child: Text('Sign Up'))
+                }, child: Text('Sign Up')),
+                Space(10),
               ],
             ))
           ],

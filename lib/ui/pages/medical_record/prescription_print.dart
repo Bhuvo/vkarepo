@@ -7,6 +7,9 @@ import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
+import 'package:timesmedlite/di/dependency_injection.dart';
+import 'package:timesmedlite/ui/app/app_config.dart';
+import 'package:timesmedlite/ui/components/api_builder/api_builder_bloc.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
 import 'package:timesmedlite/ui/widgets/loading_widget.dart';
 
@@ -20,12 +23,13 @@ import 'package:http/http.dart' as http;
 import 'model/prescription_template_model.dart';
 
 class PrescriptionPrint extends StatefulWidget {
-  final List data;
+  final List? data;
   final List labTest;
   final MedicalRecord orgData;
   final AppointmentData? appointment;
-
-  const PrescriptionPrint({Key? key, required this.data, this.appointment, required this.labTest, required this.orgData})
+  final String? appId;
+  final String? docId;
+  const PrescriptionPrint({Key? key, this.data, this.appointment, required this.labTest, required this.orgData, this.appId, this.docId})
       : super(key: key);
 
   @override
@@ -45,20 +49,22 @@ PrescriptionTemplateModel prescriptionTemplateModel = PrescriptionTemplateModel(
 }
 
 Future<Uint8List> _generatePdfWithPagination(
-    AppointmentData? appointment, List data, MedicalRecord orgData, List labTest) async {
-  log('data note : ${data}');
+    bool isPatient ,
+    AppointmentData? appointment,String appId, List data, MedicalRecord orgData, List labTest) async {
+  log('data note : ${isPatient}');
   final pdf = pw.Document();
   final image = await imageFromAssetBundle('assets/images/timesmedlogo.png');
 
   // Define the maximum number of items per page
   const int itemsPerPage = 10;
-
+  int length = 1;
   // Split the data into chunks for pagination
-  for (int i = 0; i < data.length +labTest.length; i += itemsPerPage) {
+
+  for (int i = 0; i < ((LocalStorage.isAdmin )? 1 :( data.length +labTest.length)); i += itemsPerPage) {
     final currentItems = data.skip(i).take(itemsPerPage).toList();
     bool isLastPage = (i + itemsPerPage) >= data.length;
     bool isLastPage2 = (i + itemsPerPage) >= data.length+labTest.length;
-    log('current ${currentItems.first}');
+    // log('current ${currentItems.first}');
     pdf.addPage(
         pw.Page(
             theme: pw.ThemeData.withFont(
@@ -167,9 +173,17 @@ Future<Uint8List> _generatePdfWithPagination(
                   ),
                   pw.Row(
                     children: [
-                      pw.Text(
+                      LocalStorage.isAdmin?
+                       pw.Text(
+                         'Patient Id : Patient Name : Age / Gender - Phone',
+                         style: const pw.TextStyle(fontSize: 10),
+                       )
+                      :pw.Text(
                         // "Doctor Name : ${appointment?.doctorName}",
-                        '${LocalStorage.getCursorPatient().userId ?? LocalStorage.getUID()} : ${LocalStorage.getCursorPatient().patientName ?? LocalStorage.getUser().firstname} (${LocalStorage.getCursorPatient().age?? LocalStorage.getUser().age} / ${LocalStorage.getCursorPatient().gender.toString()}) - ${LocalStorage.getCursorPatient().phone?? ''}',
+                        isPatient ? '${LocalStorage.getCursorPatient().userId} : ${LocalStorage.getCursorPatient().patientName} (${LocalStorage.getCursorPatient().age} / ${LocalStorage.getCursorPatient().gender.toString()}) - ${LocalStorage.getCursorPatient().phone}' :
+                          LocalStorage.isAdmin?
+                        '${LocalStorage.getCursorPatient().userId ?? LocalStorage.getUID()} : ${LocalStorage.getCursorPatient().patientName ?? LocalStorage.getUser().firstname} (${LocalStorage.getCursorPatient().age?? LocalStorage.getUser().age} / ${LocalStorage.getCursorPatient().gender.toString()}) - ${LocalStorage.getCursorPatient().phone?? ''}'
+                        : '${orgData.User_id} : ${orgData.User_Name}',
                         style: const pw.TextStyle(fontSize: 10),
                       ),
                       pw.Spacer(),
@@ -185,7 +199,7 @@ Future<Uint8List> _generatePdfWithPagination(
                   pw.SizedBox(
                     height: 10,
                   ),
-                  pw.Table(
+                  data.isEmpty ? pw.Container() :  pw.Table(
                       defaultColumnWidth: const pw.IntrinsicColumnWidth(),
                       border: pw.TableBorder.all(color: PdfColors.grey200),
                       // Allows to add a border decoration around your table
@@ -308,7 +322,7 @@ Future<Uint8List> _generatePdfWithPagination(
                       pw.Spacer(),
                       //pw.Icon(Icons.phone,color: Colors.green,size: 12),
                       pw.Text(
-                        '${appointment?.id?? "Appointment Id"}',
+                        '${appointment?.id??((appId !='') ? appId : "Appointment Id")}',
                         style: pw.TextStyle(
                             fontSize: 10, fontWeight: pw.FontWeight.bold),
                       ),
@@ -319,10 +333,9 @@ Future<Uint8List> _generatePdfWithPagination(
               // Center
             }));
   }
-
+print('It came out ${data.length +labTest.length}');
   return pdf.save();
 }
-
 
 Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
     AppointmentData? appointment, List data, MedicalRecord orgData, List labTest) async {
@@ -1032,12 +1045,25 @@ TableRowItems(child) {
 }
 
 class _PrescriptionPrintState extends State<PrescriptionPrint> {
+
+   Future<void> getVitalDetails() async{
+     var result = Injector().timesmedService.fetchList(path: 'VitalSummary_By_AppId'  ,query: {'AppId' : '240900'} );
+
+   }
   Future<void> getTemplate() async {
     images?.clear();
-    var response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${widget.appointment?.doctorId}&Doctor_Id=${widget.appointment?.doctorId}&Admin_Id=3'));
+    print('this is ${LocalStorage.isAdmin}  ${LocalStorage.isDoctor } ${ LocalStorage.isNurse } ${ LocalStorage.isFo}');
+    String adminUrl ='https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${LocalStorage.getUser().hospitalId}&Doctor_Id=0&Admin_Id=${LocalStorage.getUser().hospitalAdminId ?? 0}';
+    String doctorUrl = 'https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${LocalStorage.getUser().hospitalId}&Doctor_Id=${LocalStorage.getUser().id}&Admin_Id=0';
+    String patientUrl= 'https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${widget.orgData.Hospital_id}&Doctor_Id=${widget.appointment?.doctorId}&Admin_Id=0';
+    // var response = await http.get(Uri.parse('https://doctor.timesmed.com/PrintLayout/Get_Prescription_Layout_API?Hospital_Id=${widget.data.first['Hospital_id']}&Doctor_Id=${widget.appointment?.doctorId ?? widget.docId ?? 0}&Admin_Id=${LocalStorage.getUser().hospitalAdminId ?? 0}'));
+    print(doctorUrl);
+    var response = await http.get(Uri.parse(LocalStorage.isAdmin? adminUrl :(LocalStorage.isDoctor || LocalStorage.isNurse || LocalStorage.isFo)? doctorUrl : patientUrl));
     if(response.statusCode == 200){
+      print('the status code is ${response.statusCode}');
       var result =jsonDecode(response.body);
-      List<dynamic> data = result.map((e) => e['Active_Flag'] == 'D' && e['DisplayFlag'] == 'D' ? e : null).toList();
+      List<dynamic> data = result.map((e) => e['Active_Flag'] == 'A' && e['DisplayFlag'] == 'A' ? e : null).toList();
+      print('template body ${data}');
       if(data.length > 0){
         prescriptionTemplateModel = PrescriptionTemplateModel.fromJson(data[0]);
         logo = await getImage(prescriptionTemplateModel.hospitalLogo ?? '');
@@ -1046,7 +1072,7 @@ class _PrescriptionPrintState extends State<PrescriptionPrint> {
         images?.add(await getImage(prescriptionTemplateModel.awardImage ?? ''));
       }
     }else{
-      print('error');
+      print('error the status code is ${response.statusCode}');
     }
   }
   bool isLoading = false;
@@ -1068,7 +1094,7 @@ class _PrescriptionPrintState extends State<PrescriptionPrint> {
 
   @override
   Widget build(BuildContext context) {
-    print("name :    ${widget.data}");
+    // print("name :    ${widget.data}");
     Size size = MediaQuery.of(context).size;
     return MScaffold(
       title: Text(
@@ -1085,7 +1111,7 @@ class _PrescriptionPrintState extends State<PrescriptionPrint> {
               //     widget.appointment, widget.data,widget.orgData,widget.labTest)
               // : _generatePdfWhenNumberofItemsIsGreaterThan15(
               //     widget.appointment, widget.data,widget.labTest,widget.orgData),
-          build:(format) => _generatePdfWithPagination( widget.appointment, widget.data,widget.orgData,widget.labTest) ,
+          build:(format) => _generatePdfWithPagination(AppConfig.of(context)?.config == Config.patient, widget.appointment,widget.appId ??'', widget.data ?? [],widget.orgData,widget.labTest) ,
         ),
       ),
     );

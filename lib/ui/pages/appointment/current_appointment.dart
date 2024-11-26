@@ -73,7 +73,8 @@ class _CurrentAppointmentPageState extends State<CurrentAppointmentPage> {
     final yesterday = DateTime(now.year, now.month, now.day - 1);
     print("${query['From']} query['From]");
     print("${query['From']} query['To]");
-    query['From'] = MDateUtils.dateToQueryDate(yesterday.toIso8601String());
+    // query['From'] = MDateUtils.dateToQueryDate(yesterday.toIso8601String());
+    query['From'] = MDateUtils.dateToQueryDate(now.toIso8601String());
     query['To'] = MDateUtils.dateToQueryDate(now.toIso8601String());
     print(query['From']);
     print(query['To']);

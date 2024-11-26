@@ -43,7 +43,7 @@ class _OrderSummaryPageState extends State<OrderSummaryPage> {
   @override
   Widget build(BuildContext context) {
     final bloc =
-    ApiBuilderBloc(path: 'historydetail', query: {'oid': widget.orderId})..add(const Load());
+    ApiBuilderBloc(path: 'historydetail', query: {'oid': widget.orderId});
     print('is Lab ${widget.islab}');
     return MScaffold(
       title: Text('Payment'.toUpperCase()),
@@ -87,8 +87,96 @@ class _OrderSummaryPageState extends State<OrderSummaryPage> {
             const SizedBox(height: 8,),
             Text('Transaction Number: ${widget.txn}', style: Theme.of(context).textTheme.bodySmall,),
             const SizedBox(height: 16,),
-            BlocProvider(
-              create: (_) => bloc,
+            widget.islab?? false ? Hero(
+                tag: 'order::items',
+                child: MListTile(
+                    animate: false,
+                    child: Column(
+                      children: [
+                        ...controller.details.map(
+                              (e) => Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 12),
+                            decoration: BoxDecoration(
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color: Theme.of(context)
+                                            .dividerColor,
+                                        width: 0.5))),
+                            child: Row(
+                              crossAxisAlignment:
+                              CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: Text.rich(
+                                    TextSpan(children: [
+                                      TextSpan(
+                                        text:
+                                        '${e.testname}',
+                                      ),
+                                      // TextSpan(
+                                      //     text:
+                                      //     ' x ${e['product_quantity']}',
+                                      //     style: TextStyle(
+                                      //         fontWeight:
+                                      //         FontWeight
+                                      //             .w700)),
+                                    ]),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleSmall
+                                        ?.copyWith(
+                                        color:
+                                        Theme.of(context)
+                                            .textTheme
+                                            .bodySmall
+                                            ?.color),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 16,
+                                ),
+                                PriceView(
+                                  value: (e.testAmount ?? 0)
+                                  as num,
+                                  size: 18,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        // Container(
+                        //   padding: const EdgeInsets.symmetric(
+                        //       horizontal: 16, vertical: 12),
+                        //   color: Theme.of(context)
+                        //       .scaffoldBackgroundColor,
+                        //   child: Row(
+                        //     children: [
+                        //       Expanded(
+                        //           child: Text(
+                        //             'Total Amount',
+                        //             style: Theme.of(context)
+                        //                 .textTheme
+                        //                 .titleSmall
+                        //                 ?.copyWith(
+                        //                 color: Theme.of(context)
+                        //                     .textTheme
+                        //                     .bodySmall
+                        //                     ?.color,
+                        //                 fontSize: 12,
+                        //                 fontWeight:
+                        //                 FontWeight.w700),
+                        //           )),
+                        //       PriceView(
+                        //         value: total,
+                        //         size: 18,
+                        //       )
+                        //     ],
+                        //   ),
+                        // )
+                      ],
+                    ))):  BlocProvider(
+              create: (_) => bloc..add(Load()),
               child: ApiBuilder(
                 loading: ShimmerList(
                   length: 2,
@@ -96,101 +184,11 @@ class _OrderSummaryPageState extends State<OrderSummaryPage> {
                 ),
                 jsonBuilder: (data, load) {
                   num total = 0;
-
                   for (final e in data) {
                     total += (e['total_price'] ?? 0);
                   }
-
                   print('Data is ${data}');
-                  return widget.islab?? false ? Hero(
-                      tag: 'order::items',
-                      child: MListTile(
-                          animate: false,
-                          child: Column(
-                            children: [
-                              ...controller.details.map(
-                                    (e) => Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16, vertical: 12),
-                                  decoration: BoxDecoration(
-                                      border: Border(
-                                          bottom: BorderSide(
-                                              color: Theme.of(context)
-                                                  .dividerColor,
-                                              width: 0.5))),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                        child: Text.rich(
-                                          TextSpan(children: [
-                                            TextSpan(
-                                              text:
-                                              '${e.testname}',
-                                            ),
-                                            // TextSpan(
-                                            //     text:
-                                            //     ' x ${e['product_quantity']}',
-                                            //     style: TextStyle(
-                                            //         fontWeight:
-                                            //         FontWeight
-                                            //             .w700)),
-                                          ]),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleSmall
-                                              ?.copyWith(
-                                              color:
-                                              Theme.of(context)
-                                                  .textTheme
-                                                  .bodySmall
-                                                  ?.color),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 16,
-                                      ),
-                                      PriceView(
-                                        value: (e.testAmount ?? 0)
-                                        as num,
-                                        size: 18,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              // Container(
-                              //   padding: const EdgeInsets.symmetric(
-                              //       horizontal: 16, vertical: 12),
-                              //   color: Theme.of(context)
-                              //       .scaffoldBackgroundColor,
-                              //   child: Row(
-                              //     children: [
-                              //       Expanded(
-                              //           child: Text(
-                              //             'Total Amount',
-                              //             style: Theme.of(context)
-                              //                 .textTheme
-                              //                 .titleSmall
-                              //                 ?.copyWith(
-                              //                 color: Theme.of(context)
-                              //                     .textTheme
-                              //                     .bodySmall
-                              //                     ?.color,
-                              //                 fontSize: 12,
-                              //                 fontWeight:
-                              //                 FontWeight.w700),
-                              //           )),
-                              //       PriceView(
-                              //         value: total,
-                              //         size: 18,
-                              //       )
-                              //     ],
-                              //   ),
-                              // )
-                            ],
-                          ))): Hero(
+                  return Hero(
                       tag: 'order::items',
                       child: MListTile(
                           animate: false,

@@ -10,7 +10,8 @@ class ClinicalAppointmentController {
 
    Future<void> getClinicalAppointmentList(String docId ,String hosId,String status ,String from ,String to) async {
      patientList.clear();
-     final uri = Uri.parse('https://api.timesmed.com/WebAPI2/GetVkaAppointmentList?DoctorId=$docId&status_id=$status&From=$from&To=$to&hos_id=$hosId');
+     print('clinical Api url https://api.timesmed.com/WebAPI2/GetVkaAppointmentList?DoctorId=$docId&status_id=$status&From=$from&To=$to&hos_id=$hosId}');
+     final uri = Uri.parse('https://api.timesmed.com/WebAPI2/GetVkaAppointmentList?DoctorId=$docId&status_id=$status&From=$from&To=$to&hos_id=0');
      print(uri);
      var response = await http.get(uri);
      if(response.statusCode == 200){

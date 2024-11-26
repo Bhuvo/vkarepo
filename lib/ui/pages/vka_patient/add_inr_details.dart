@@ -11,28 +11,35 @@ import '../../../di/dependency_injection.dart';
 import '../../../model/patient.dart';
 import '../../components/waiting_dialog.dart';
 
-class AddInrDetails extends StatelessWidget {
+class AddInrDetails extends StatefulWidget {
   final DocID;
   final patID;
 
    AddInrDetails({Key? key, this.DocID, this.patID}) : super(key: key);
 
+  @override
+  State<AddInrDetails> createState() => _AddInrDetailsState();
+}
 
+class _AddInrDetailsState extends State<AddInrDetails> {
    final String doctorId = "179097";
+
    final String patientId = "3158";
+
    final TextEditingController _ptPatientController = TextEditingController();
+
    final TextEditingController _ptControlController = TextEditingController();
+
    final TextEditingController _inrController = TextEditingController();
+
    final TextEditingController  _dateController = TextEditingController();
-
+   Map<String, dynamic>? doctor;
    // final  _dateController = TextEditingController(text: DateTime.now().toString());
-
-
    @override
   Widget build(BuildContext context) {
      _dateController..text=DateFormat('dd/MM/yyyy').format(DateTime.now());
      print(_dateController);
-     print(DocID);
+     print(widget.DocID);
 
      Size size = MediaQuery.of(context).size;
     return MScaffold(
@@ -45,6 +52,38 @@ class AddInrDetails extends StatelessWidget {
                 child: Column(
                     mainAxisSize: MainAxisSize.min,
                   children: [
+                    MSearchDown<Map<String, dynamic>>(
+                      label: 'Search by Doctor Name',
+                      suffixIcon: const Icon(CupertinoIcons.search),
+                      onSearched: (String d) async {
+                        final res = await Injector()
+                            .apiService
+                            .get(path: 'DoctorName_Search', query: {'term': d});
+                        List<Map<String, dynamic>> list = [];
+                        if (res.isSuccessful) {
+                          print("Sucesssssssssssssssssss");
+                          if (res.body?.data is List) {
+                            for (var e in res.body!.data) {
+                              list.add(e as Map<String, dynamic>);
+                            }
+                          }
+                        }
+                        return list;
+                      },
+                      labelKey: 'Doctor_Name',
+                      subTitleKey: 'SubCategory_Name',
+                      onChanged: (d) {
+                        setState(() {
+                          doctor = d;
+                          // print("printing doctor");
+                          // print(doctor!["SubCategory_id"].toString());
+                          // doctorSpecialityID = doctor!["SubCategory_id"].toString();
+                          // print(doctor!["SubCategory_Name"].toString());
+                          // doctorSpecialityName =
+                          //     doctor!["SubCategory_Name"].toString();
+                        });
+                      },
+                    ),
                     MDateTimePicker(start: DateTime(2000), end: DateTime(2100), label: 'Select Date',onChanged: (d)
                     { final DateFormat formatter = DateFormat('dd/MM/yyyy');
                     final String formatted = formatter.format(d!);
@@ -103,8 +142,8 @@ class AddInrDetails extends StatelessWidget {
                                     final call = Injector().apiService.get2(path: 'PatientINRDetails_Insert', query: {
                                       // 'Doctor_Id':  LocalStorage.getUser().id,
                                       // 'Patient_Id':  LocalStorage.getUID(),
-                                      'Doctor_Id':  DocID??doctorId,
-                                      'Patient_Id': patID ??patientId,
+                                      'Doctor_Id':doctor?['doctor'] ??  widget.DocID??doctorId,
+                                      'Patient_Id': widget.patID ??patientId,
                                       'Date':  _dateController.text,
                                       'PT_Patient':  _ptPatientController.text,
                                       'PT_Control':  _ptControlController.text,

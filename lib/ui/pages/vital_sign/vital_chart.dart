@@ -1,6 +1,7 @@
 // lib/screens/vital_signs_screen.dart
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:timesmedlite/ui/components/content_view.dart';
 import 'package:timesmedlite/ui/pages/vital_sign/controller/vital_sign.dart';
 import 'package:timesmedlite/ui/pages/vital_sign/model/vital_signs_chart_model.dart';
 import 'package:timesmedlite/ui/widgets/line_chart_design.dart';
@@ -8,6 +9,7 @@ import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
 import 'package:timesmedlite/ui/widgets/m_text_field.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
 
+import '../../widgets/m_list_tile.dart';
 import '../../widgets/space.dart';
 
 class VitalSignChartPage extends StatefulWidget {
@@ -82,11 +84,48 @@ class _VitalSignChartPageState extends State<VitalSignChartPage> {
                           child: ListView(
                             padding: const EdgeInsets.all(16.0),
                             children: [
-                              MTextField(label: 'Notes',enabled: false, value: _vitalSignsReport.data?.notes),
-                              Space(),
-                              MTextField(label: 'Diet & Exercise',enabled: false, value: _vitalSignsReport.data?.dietAndExercise),
-                              Space(),
-                              MTextField(label: 'Diagnosis',enabled: false, value: _vitalSignsReport.data?.diagnoses),
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: _vitalSignsReport.data?.clincialList?.map((e){
+                                  return MListTile(
+                                    margin: EdgeInsets.zero,
+                                    padding: const EdgeInsets.all(16),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('${e.insertDate}', style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),),
+                                        if(e.notes != null && e.notes!.trim().isNotEmpty)ContentView2(content: e?.notes ?? '', label:'Notes' ),
+                                        if(e.dietAndExercise != null && e.dietAndExercise!.trim().isNotEmpty)ContentView2(content: e.dietAndExercise ?? '', label:'Diet & Exercise' ),
+                                        if(e.diagnoses != null && e.diagnoses!.trim().isNotEmpty)ContentView2(content: e.diagnoses ?? '', label:'Diagnosis' ),
+                                        const SizedBox(height: 16,),
+                                      ],
+                                    ),
+                                  );
+                                }).toList() ?? [],),
+                              ),
+                              // ...?_vitalSignsReport.data?.clincialList?.map((e){
+                              //   return MListTile(
+                              //     margin: EdgeInsets.zero,
+                              //     padding: const EdgeInsets.all(16),
+                              //     child: Column(
+                              //       crossAxisAlignment: CrossAxisAlignment.start,
+                              //       children: [
+                              //         Text('${e.insertDate}', style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),),
+                              //         if(e.notes != null && e.notes!.trim().isNotEmpty)ContentView2(content: e?.notes ?? '', label:'Notes' ),
+                              //         if(e.dietAndExercise != null && e.dietAndExercise!.trim().isNotEmpty)ContentView2(content: e.dietAndExercise ?? '', label:'Diet & Exercise' ),
+                              //         if(e.diagnoses != null && e.diagnoses!.trim().isNotEmpty)ContentView2(content: e.diagnoses ?? '', label:'Diagnosis' ),
+                              //         const SizedBox(height: 16,),
+                              //       ],
+                              //     ),
+                              //   );
+                              // }),
+                              // MTextField(label: 'Notes',enabled: false, ),
+                              // Space(),
+                              // MTextField(label: 'Diet & Exercise',enabled: false, value: _vitalSignsReport.data?.dietAndExercise),
+                              // Space(),
+                              // MTextField(label: 'Diagnosis',enabled: false, value: _vitalSignsReport.data?.diagnoses),
                               Space(),
                               LineChartDesign(
                                 vitalSignsReportModel: _vitalSignsReport,

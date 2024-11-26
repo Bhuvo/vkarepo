@@ -27,6 +27,8 @@ import 'package:chopper/chopper.dart';
 
 import '../../routes/routes.dart';
 import '../../theme/theme.dart';
+import '../appointment/Clinical Visit/controller/controller.dart';
+import '../appointment/Clinical Visit/model/city_model.dart';
 
 class AddNewDoctor extends StatefulWidget {
   const AddNewDoctor({super.key});
@@ -76,7 +78,17 @@ class _AddNewDoctorState extends State<AddNewDoctor> {
       ;
     });
   }
+  ClinicalVisitController controller = ClinicalVisitController();
 
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+  getData() async {
+   await controller.getCityList(31);
+   setState(() {   });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -136,6 +148,59 @@ class _AddNewDoctorState extends State<AddNewDoctor> {
                   label: 'Last Name',
                   value: data.lastName,
                   onChanged: (v) => data = data.copyWith(lastName: v),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Autocomplete<CityModel>(
+                  optionsBuilder: (TextEditingValue textEditingValue) {
+                    // return controller.cityData;
+                    if (textEditingValue.text.isEmpty) {
+                      return const Iterable<CityModel>.empty();
+                    }
+                    return controller.cityData.where((CityModel city) {
+                      return city.cityName?.toLowerCase().contains(textEditingValue.text.toLowerCase()) ?? false;
+                    });
+                  },
+                  fieldViewBuilder: (BuildContext context, TextEditingController textEditingController, FocusNode focusNode, VoidCallback onFieldSubmitted) {
+                    return MTextField(
+                      controller: textEditingController,
+                      focusNode: focusNode,
+                      label:'Select City',
+                      suffixIcon:Icon(
+                        FontAwesomeIcons.angleDown,
+                        color: Colors.grey.shade500,
+                        size: MediaQuery.of(context).size.height * 0.025,
+                      ),
+                      validator: (val){
+                        if(controller.selectedState.stateId == null){
+                          return 'Please select state';
+                        }else{
+                          return '';
+                        }
+                      },
+                      onChanged: (val)async{
+                      },
+                      // decoration: InputDecoration(
+                      //   labelText: 'Select City',
+                      //   suffixIcon: Icon(
+                      //     FontAwesomeIcons.angleDown,
+                      //     color: Colors.grey.shade500,
+                      //     size: size.height * 0.025,
+                      //   ),
+                      // ),
+
+                    );
+                  },
+                  onSelected: (var selection) async {
+                    // await controller.getLocationList(controller.selectedState.stateId?? 31, selection.cityId?? 1);
+                    setState(() {
+                      controller.selectedCity = selection;
+                      data = data.copyWith(cityId: selection.cityId,cityName: selection.cityName);
+                    });
+                    // controller.selectedCity = selection;
+                    print('You selected: $selection');
+                  },
                 ),
                 SizedBox(
                   height: 12,
@@ -347,6 +412,7 @@ class _AddNewDoctorState extends State<AddNewDoctor> {
                 SizedBox(
                   height: 12,
                 ),
+
                 MSearchDown<Map<String, dynamic>>(
                   label:
                   'Category (e.g Pediatric Dentist, Preventive Dentistry)',
@@ -556,46 +622,55 @@ class _AddNewDoctorState extends State<AddNewDoctor> {
                   height: 50,
                   child: OutlinedButton(
                       onPressed: () async {
+                        var map = data.toJson();
+                        map['Admin_Id'] = LocalStorage.getUser().hospitalAdminId.toString();
+                        map['Doctor_id'] =0;
                         final call = Injector()
                             .apiService
-                            .get2(path: 'DoctorSave', query: {
-                              'Admin_Id' : '3',
-                          'Active_Flag' :'A',
-                          'Doctor_Name': data.doctorName,
-                          'Doctor_id': data.doctorId ?? 0,
-                          'Gender': data.gender,
-                          'Doctor_PhoneNumber': data.doctorPhoneNumber,
-                          'Email_id': data.emailId,
-                          'Password': data.password,
-                          'Doctor_Address': data.doctorAddress,
-                          'Doctor_Age': data.doctorAge,
-                          'DoctorExperience_Years': data.doctorExperienceYears,
-                          'Doctor_Description': data.doctorDescription,
-                          'Doctor_Image': data.doctorImage,
-                          'AccountNo': data.accountNo,
-                          'IFSCCode': data.ifscCode,
-                          'BranchName': data.branchName,
-                          'Online': data.online,
-                          'AccountName': data.accountName,
-                          'BankName': data.bankName,
-                          'Virtual': data.virtual,
-                          'Service': data.service,
-                          'DoctorCategory_id': data.doctorCategoryId,
-                          'Doctor_DOB': data.doctorDob,
-                          'Middle_Name': data.middleName,
-                          'Last_Name': data.lastName,
-                          'City_id': data.cityId,
-                          'Doctor_QualificationCode':
-                          data.doctorQualificationCode,
-                        });
+                        //     .get2(path: 'DoctorSave', query: {
+                        //       'Admin_Id' : '3',
+                        //   'Active_Flag' :'A',
+                        //   'Doctor_Name': data.doctorName,
+                        //   'Doctor_id': data.doctorId ?? 0,
+                        //   'Gender': data.gender,
+                        //   'Doctor_PhoneNumber': data.doctorPhoneNumber,
+                        //   'Email_id': data.emailId,
+                        //   'Password': data.password,
+                        //   'Doctor_Address': data.doctorAddress,
+                        //   'Doctor_Age': data.doctorAge,
+                        //   'DoctorExperience_Years': data.doctorExperienceYears,
+                        //   'Doctor_Description': data.doctorDescription,
+                        //   'Doctor_Image': data.doctorImage,
+                        //   'AccountNo': data.accountNo,
+                        //   'IFSCCode': data.ifscCode,
+                        //   'BranchName': data.branchName,
+                        //   'Online': data.online,
+                        //   'AccountName': data.accountName,
+                        //   'BankName': data.bankName,
+                        //   'Virtual': data.virtual,
+                        //   'Service': data.service,
+                        //   'DoctorCategory_id': data.doctorCategoryId,
+                        //   'Doctor_DOB': data.doctorDob,
+                        //   'Middle_Name': data.middleName,
+                        //   'Last_Name': data.lastName,
+                        //   'City_id': data.cityId,
+                        //   'City_Name': data.cityName,
+                        //   'Doctor_QualificationCode':
+                        //   data.doctorQualificationCode,
+                        // });
+                            .get2(path: 'DoctorSave',
+                            query:map);
                         print(call.then((res) {
-                          print("response $res");
+                          print("response ${res.base.request?.url}");
                         }));
                         final res = await ApiFacade.callApi(
                             context: context, call: call);
                         print("xx${res?.base.request?.url}");
                         List listofcatcode = [];
+                        String doctorId = res?.body.data.toString() ?? '0';
+                        print('Doctor id is $doctorId');
                         if (res?.body.code.toString() == '1') {
+
                           for (int i = 0; i < data.docList.length; i++) {
                             listofcatcode
                                 .add(data.docList[i]['SubCategory_id']);
@@ -615,7 +690,7 @@ class _AddNewDoctorState extends State<AddNewDoctor> {
                               .apiService
                               .get2(path: 'DoctorSubCategoryUpdate', query: {
                             'Param': s,
-                            'DoctorId': data.doctorId ?? 0,
+                            'DoctorId': doctorId ?? 0,
                           });
                           final res = await showWaitingDialog(
                               context: context, call: call);
@@ -639,7 +714,7 @@ class _AddNewDoctorState extends State<AddNewDoctor> {
                                 .apiService
                                 .get2(path: 'DoctorLanguageUpdate', query: {
                               'Param': s,
-                              'DoctorId': data.doctorId??0,
+                              'DoctorId':doctorId??0,
                             });
                             // await ImageUpload(data.doctorId);
                             final res = await showWaitingDialog(

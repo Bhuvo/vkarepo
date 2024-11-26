@@ -17,6 +17,7 @@ import 'package:timesmedlite/ui/widgets/space.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../../di/dependency_injection.dart';
+import '../../../utils/local_storage.dart';
 import '../../widgets/loading_widget.dart';
 import '../auth/doctor_sign_up_page.dart';
 
@@ -39,7 +40,7 @@ class _CommonListState extends State<CommonList> {
     vka: widget.doctor?? false ? false : true,
     api2: widget.doctor?? false ? true : false,
     query: {
-    'Admin_Id': '${3 ??1}',
+    'Admin_Id': LocalStorage.getUser().hospitalAdminId,
       'Active_Flag' : widget.status
     }
   );
@@ -129,8 +130,8 @@ class _CommonListState extends State<CommonList> {
                                   Column(
                                     crossAxisAlignment:CrossAxisAlignment.start,
                                     children: [
-                                      ContentView3(label : 'Name : ', content: '${((search[i]['Gender']?? '') == 'Female') ? 'Ms.' : 'Mr.'}${search[i]['User_Firstname']?? search[i]['AccountName']}'),
-                                      ContentView3(label : 'Id : ', content: '${search[i]['User_Id']?? search[i]['Doctor_id']}'),
+                                      ContentView3(label : 'Name : ', content: '${((search[i]['Gender']?? '') == 'Female') ? 'Ms.' : 'Mr.'}${search[i]['User_Firstname']?? search[i]['Doctor_Name']}'),
+                                      ContentView3(label : 'Id : ', content: '${search[i]['User_id']?? search[i]['Doctor_id']}'),
                                       ContentView3(label : 'Mobile : ', content: '${search[i]['Mobile_Number']?? search[i]['Doctor_PhoneNumber']}'),
                                       ContentView3(label : 'Email : ', content: '${search[i]['Email_Id'] ?? search[i]['Email_id']}'),
                                     ],
@@ -140,7 +141,7 @@ class _CommonListState extends State<CommonList> {
                               OutlinedButton(onPressed: (){
                                 final call = Injector().vkaService.post(path: 'Update_User_Status' ,query: {
                                   'Active_Flag' :(widget.status == 'A' )? 'D' : 'A',
-                                  'user_id' : search[i]['User_Id'] ?? search[i]['Doctor_id'],
+                                  'user_id' : search[i]['User_id'] ?? search[i]['Doctor_id'],
                                   'Type' : (widget.doctor?? false) ?'1' : '0'
                                 });
                                 var result = ApiFacade.callApi(context: context, call: call);

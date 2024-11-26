@@ -138,7 +138,6 @@ class _InCallAppPageFocusState extends State<InCallAppPageFocus> {
     print('${at.identity}, ${at.grants}');
     final token = await at.toJwt();
     print('Token: $token');
-
     try {
       const timeout = Duration(seconds: 3);
       await room.connect(
@@ -362,7 +361,6 @@ class _InCallAppPageFocusState extends State<InCallAppPageFocus> {
                     maximum: maximum,
                     builder: (d) {
                       final rem = maximum - d;
-
                       return Wrap(
                         spacing: 8,
                         children: [
@@ -510,13 +508,40 @@ class _InCallAppPageFocusState extends State<InCallAppPageFocus> {
                     child: Icon(read.video
                         ? Icons.videocam
                         : Icons.videocam_off),
-                    onTap: () {
+                    onTap: () async{
                       bloc.add(const ToggleVideo());
+                      try {
+                        if(read.video) {
+                          print('unviedeo');
+                          await  room.localParticipant?.setCameraEnabled(false);
+                        }else {
+                          print('video');
+                          await room.localParticipant?.setCameraEnabled(true);
+                        }
+                      } catch (error) {
+                        print('could not publish or unpublish: $error');
+                        return;
+                      }
                     },
                   ),
                   MIconButton(
-                    onTap: () {
+                    onTap: () async {
                       bloc.add(const ToggleMic());
+                      final audio = room.localParticipant?.audioTrackPublications.firstOrNull?.track;
+                      if (audio == null) return;
+                      try {
+
+                        if(read.mute) {
+                          print('unmuted');
+                          await audio.unmute();
+                        }else {
+                          print('muted');
+                          await audio.mute();
+                        }
+                      } catch (error) {
+                        print('could not mute or unmute: $error');
+                        return;
+                      }
                     },
                     solid: Colors.white,
                     color: MTheme.THEME_COLOR,
@@ -537,7 +562,7 @@ class _InCallAppPageFocusState extends State<InCallAppPageFocus> {
                     ),
                   ),
                   MIconButton(
-                    onTap: () {
+                    onTap: () async {
                       bloc.add(const ToggleSpeaker());
                     },
                     solid: Colors.white,

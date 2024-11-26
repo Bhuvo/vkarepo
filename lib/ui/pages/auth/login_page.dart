@@ -292,7 +292,7 @@ class _LoginPageState extends State<LoginPage> {
                         else {
                           showWaitingDialog(context: context,message:'Logging in...');
                           var response = await http.get(Uri.parse('https://tmsnew.timesmed.com/VKAAPI1/DoctorLogin_New?DoctorPhone=${phone}&Password=${password}'));
-                          if(response.statusCode == 200){
+                          if(response.statusCode == 200 && jsonDecode(response.body)['ResponseCode'] !='0'){
                             var result = jsonDecode(response.body);
                              // log('Login response success ${response.body}');
                             if(result['ResponseCode'] =='2' ){
@@ -320,14 +320,17 @@ class _LoginPageState extends State<LoginPage> {
                             print('Usr id ${LocalStorage.getUID()} ${LocalStorage.getUser().id}');
                               MessagingMonitor.init(AppConfig.of(context)!.config);
                               if(LocalStorage.isAdmin){
-                                context.replace(Routes.adminDashboard);
+                                context.pushAndRemoveUntil(Routes.adminDashboard , (route) => false);
                               }else if(LocalStorage.isNurse || LocalStorage.isFo){
-                                context.replace(Routes.selectDoctor);
-                              }else{
-
-                                context.replace(Routes.currentAppointment);
+                                context.pushAndRemoveUntil(Routes.selectDoctor , (route) => false);
+                              }else if(LocalStorage.isDoctor){
+                                context.pushAndRemoveUntil(Routes.currentAppointment, (route) => false);
+                              } else{
+                                 showMessage(context: context, message:'Invalid Credentials');
                               }
                           }else{
+                            context.pop();
+                            showMessage(context: context, message:'Invalid Credentials');
                             print('Login response failed ${response.body}');
                           }
                           // final call = Injector().apiService.login(
@@ -351,7 +354,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text('Don’t have an account?',
+                    Text('Don’t have an Admin account?',
                         style: TextStyle(
                             color: Theme.of(context)
                                 .textTheme

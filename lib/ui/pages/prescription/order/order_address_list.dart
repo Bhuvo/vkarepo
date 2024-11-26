@@ -171,6 +171,36 @@ class _OrderAddressListState extends State<OrderAddressList> {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
+                                    Radio<int>(
+                                      value: i, // Set the radio value to the index
+                                      groupValue: _selectedIndex, // This is the selected index
+                                      onChanged: (value) async {
+                                        print(data);
+                                        setState(() {
+                                          _selectedIndex = value; // Update the selected index
+                                        });
+                                        if(widget.isSameSa ?? false){
+                                          print(data['sa_id']);
+                                          showWaitingDialog(context: context,title: 'Please wait...',message: 'Creating billing address');
+                                          var res = await Injector().vkaService.post(path: 'AddBillingAdByShippingAd',
+                                              query: {
+                                                'sa_id': data['sa_id'],
+                                              }
+                                          );
+                                          print('res of create ${res.statusCode}${res.body}');
+                                          widget.onSelected!({
+                                            'ba_id': res.body?.data
+                                          });
+                                          context.pop();
+                                          context.pop();
+                                          return;
+                                        }
+                                        if (widget.onSelected != null) {
+                                          widget.onSelected!(data); // Call onSelected with the data
+                                          // context.pop(); // Pop the context if needed
+                                        }
+                                      },
+                                    ),
                                     Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
@@ -192,36 +222,6 @@ class _OrderAddressListState extends State<OrderAddressList> {
                                           style: Theme.of(context).textTheme.bodySmall,
                                         ),
                                       ],
-                                    ),
-                                    Radio<int>(
-                                      value: i, // Set the radio value to the index
-                                      groupValue: _selectedIndex, // This is the selected index
-                                      onChanged: (value) async {
-                                        print(data);
-                                        setState(() {
-                                          _selectedIndex = value; // Update the selected index
-                                        });
-                                        if(widget.isSameSa ?? false){
-                                          print(data['sa_id']);
-                                          showWaitingDialog(context: context,title: 'Please wait...',message: 'Creating billing address');
-                                          var res = await Injector().vkaService.post(path: 'AddBillingAdByShippingAd',
-                                          query: {
-                                            'sa_id': data['sa_id'],
-                                          }
-                                          );
-                                          print('res of create ${res.statusCode}${res.body}');
-                                          widget.onSelected!({
-                                            'ba_id': res.body?.data
-                                          });
-                                          context.pop();
-                                          context.pop();
-                                          return;
-                                        }
-                                        if (widget.onSelected != null) {
-                                          widget.onSelected!(data); // Call onSelected with the data
-                                          // context.pop(); // Pop the context if needed
-                                        }
-                                      },
                                     ),
                                   ],
                                 ),

@@ -27,7 +27,8 @@ class UserInfo extends StatelessWidget {
 
     late final Widget icon, text;
 
-    switch (type) {
+    switch (type)
+    {
       case Info.email:
         icon = Icon(
           Icons.mail,
@@ -49,7 +50,7 @@ class UserInfo extends StatelessWidget {
         icon = Icon(FontAwesomeIcons.whatsapp,
             color: Colors.green, size: iconSize);
         text = Text(
-          '${user?.whatsapp ?? patient?.whatsapp}',
+          '${user?.whatsapp ?? patient?.whatsapp?? 'N/A'}',
         );
         break;
       case Info.id:

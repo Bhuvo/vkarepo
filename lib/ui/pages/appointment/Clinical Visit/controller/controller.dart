@@ -76,7 +76,7 @@ class ClinicalVisitController {
   }
 
   Future<void> getDoctorList(int specialityId ,int stateId , int cityId ,int offset) async {
-     print('$specialityId , $stateId , $cityId , $offset');
+     print('Url params $specialityId , $stateId , $cityId , $offset');
     var response = await http.get(Uri.parse(
         'https://api.timesmed.com/AMP/VkaDoctorsList?SubCategory_id=$specialityId&State_id=$stateId&Country_id=1&City_id=$cityId&pageIndex=$offset'));
     if (response.statusCode == 200) {

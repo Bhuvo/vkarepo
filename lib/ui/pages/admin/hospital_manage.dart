@@ -1,15 +1,21 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:timesmedlite/di/dependency_injection.dart';
+import 'package:timesmedlite/ui/app/m_app.dart';
 import 'package:timesmedlite/ui/components/api_builder/api_builder.dart';
+import 'package:timesmedlite/ui/components/waiting_dialog.dart';
 import 'package:timesmedlite/ui/pages/admin/model/hospital_detail_model.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
 import 'package:timesmedlite/ui/widgets/m_text_field.dart';
 import 'package:timesmedlite/ui/widgets/space.dart';
+import 'package:timesmedlite/utils/navigator_utils.dart';
 
 import '../../../model/get_all_hospital_by_doctor.dart';
+import '../../../utils/local_storage.dart';
 import '../../components/api_builder/api_builder_bloc.dart';
 import '../../components/shimmer/drop_down_shimmer.dart';
 import '../../widgets/m_dialog_down.dart';
@@ -79,7 +85,7 @@ class _HospitalManageState extends State<HospitalManage> {
   Map<String, dynamic>? city,state,locationname;
   var hospitalCountryID, hospitalLocationID, hospitalStateID, hospitalCityID;
 
-   final bloc = ApiBuilderBloc(path: 'GetAllHospitalByAdmin' ,query: {'Admin_Id':'3'},timesmedApi: true,api2: true);
+   final bloc = ApiBuilderBloc(path: 'GetAllHospitalByAdmin' ,query: {'Admin_Id':LocalStorage.getUser().hospitalAdminId},timesmedApi: true,api2: true);
 
    @override
   void initState() {
@@ -113,6 +119,7 @@ class _HospitalManageState extends State<HospitalManage> {
                     MTextField(
                       label: 'Hospital Phone Number',
                       value: modelData.hospitalPhoneNumber,
+                      type: MInputType.phone,
                       onChanged: (val){
                         hospitalPhone =val;
                       },
@@ -141,10 +148,20 @@ class _HospitalManageState extends State<HospitalManage> {
                           label: 'State',
                         ),
                         jsonBuilder: (statelist, load) {
-                          print('state Data ${statelist.map((e) => (e['State_id'] == modelData.stateId && e['State_Name'] == modelData.stateName) ? e : null).first}');
+                          // print(statelist);
+                          // print('state name ${modelData.stateName}  , state id ${modelData.stateId}');
+                          // state = statelist.map((e) => (e['State_Name'] == modelData.stateName) ? e : null).first;
+                          // print('state Data ${statelist.map((e) => (e['State_id'] == modelData.stateId || e['State_Name'] == modelData.stateName) ? e : null).first}');
+                          print(statelist.map((e){
+                            if(e['State_Name'] == modelData.stateName){
+                              print('Yes it has');
+                              state =e;
+                            }
+                            return;
+                          }));
                           return MDialogDown<Map<String, dynamic>>(
                               items: statelist,
-                              value: statelist.map((e) => (e['State_id'] == modelData.stateId && e['State_Name'] == modelData.stateName) ? e : null).first,
+                              value: state,
                               required: false,
                               label: 'State',
                               // controller: hospitalState,
@@ -154,6 +171,7 @@ class _HospitalManageState extends State<HospitalManage> {
                                   state = d;
                                   hospitalStateID =
                                       d!['State_id'].toString();
+                                  print(hospitalStateID);
                                   city_list_bloc = ApiBuilderBloc(
                                       path: 'CityByState',
                                       query: {'State_id': d['State_id']},
@@ -172,11 +190,18 @@ class _HospitalManageState extends State<HospitalManage> {
                           label: 'City',
                         ),
                         jsonBuilder: (citylist, load) {
+                          print(citylist.map((e){
+                            if(e['City_Name'] == modelData.cityName){
+                              print('Yes it has');
+                              city =e;
+                            }
+                            return;
+                          }));
                           return MDialogDown<Map<String, dynamic>>(
                               items: citylist,
                               required: false,
                               label: 'City',
-                              value: citylist.map((e) => (e['City_id'] == modelData.cityId && e['City_Name'] == modelData.cityName) ? e : null).first,
+                              value:city ?? citylist.map((e) => (e['City_id'] == modelData.cityId && e['City_Name'] == modelData.cityName) ? e : null).first,
                               // value:{
                               //   'City_id' : modelData.cityId,
                               //   'City_Name' : modelData.cityName
@@ -208,11 +233,19 @@ class _HospitalManageState extends State<HospitalManage> {
                           label: 'Location',
                         ),
                         jsonBuilder: (locationlist, load) {
+                          print(locationlist.map((e){
+                            if(e['Location_Name'] == modelData.locationName){
+                              print('Yes it has');
+                              locationname =e;
+                            }
+                            return;
+                          }));
                           return MDialogDown<Map<String, dynamic>>(
+                            key: ValueKey('Value is ${locationname}'),
                               items: locationlist,
                               required: false,
                               label: 'Location',
-                              value: locationlist.map((e) => (e['Location_id'] == modelData.locationId && e['Location_Name'] == modelData.locationName) ? e : null).first,
+                              value:locationname??  locationlist.map((e) => (e['Location_id'] == modelData.locationId && e['Location_Name'] == modelData.locationName) ? e : null).first,
                               // value: {
                               //   'Location_id' : modelData.locationId ??  '',
                               //   'Location_Name' : modelData.locationName ?? ''
@@ -232,28 +265,28 @@ class _HospitalManageState extends State<HospitalManage> {
                       ),
                     ),
                     Space(),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: MTextField(
-                            label: 'Latitude',
-                            type: MInputType.decimal,
-                            value: modelData.latitude,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 16,
-                        ),
-                        Expanded(
-                          child: MTextField(
-                            label: 'Longitude',
-                            type: MInputType.decimal,
-                            value: modelData.longitude,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Space(),
+                    // Row(
+                    //   children: [
+                    //     Expanded(
+                    //       child: MTextField(
+                    //         label: 'Latitude',
+                    //         type: MInputType.decimal,
+                    //         value: modelData.latitude,
+                    //       ),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 16,
+                    //     ),
+                    //     Expanded(
+                    //       child: MTextField(
+                    //         label: 'Longitude',
+                    //         type: MInputType.decimal,
+                    //         value: modelData.longitude,
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+                    // Space(),
                     MTextField(label: 'Hospital Timing(ex."10:00 AM - 20:00 PM")',
                    value: modelData.timing,
                    onChanged: (val){
@@ -270,8 +303,10 @@ class _HospitalManageState extends State<HospitalManage> {
                     Space(),
                     Container(
                       width: MediaQuery.of(context).size.width,
-                      child: OutlinedButton(onPressed: (){
-                        Injector().apiService.post2(path:'VkaHospitalAdd',body: {
+                      child: OutlinedButton(onPressed: () async {
+                        showWaitingDialog(context: context);
+                        await _getCurrentLocation();
+                       var req = await Injector().apiService.post2(path:'VkaHospitalAdd',query: {
                           "Hospital_id": modelData.hospitalId ?? 0,
                           "Password":hospitalPassword,
                           "Hospital_Name": hospitalName,
@@ -285,8 +320,12 @@ class _HospitalManageState extends State<HospitalManage> {
                           "Location_id":hospitalLocationID,
                           "Timing":hospitaltime,
                           "Hospital_PhoneNumber": hospitalPhone ?? "7874859685",
-                          "Admin_Id":3
+                          "Admin_Id":LocalStorage.getUser().hospitalAdminId ?? 0
                         });
+                       context.pop();
+                       context.pop();
+                       print(req.base.request?.url);
+                       print(req.bodyString);
                       }, child:Text('Save')),
                     )
                   ],

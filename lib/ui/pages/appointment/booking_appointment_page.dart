@@ -23,6 +23,7 @@ import 'package:timesmedlite/ui/pages/appointment/widgets/schedule_hospital_list
 import 'package:timesmedlite/ui/pages/call/update_call_status_page.dart';
 import 'package:timesmedlite/ui/pages/home/homepage_base.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
+import 'package:timesmedlite/ui/widgets/space.dart';
 import 'package:timesmedlite/ui/widgets/widgets.dart';
 import 'package:timesmedlite/utils/date_utils.dart';
 import 'package:timesmedlite/utils/local_storage.dart';
@@ -53,6 +54,7 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
       query: {'DoctorId':LocalStorage.getIsFromPatient()  ? LocalStorage.getPatientSearchDoctorId(): LocalStorage.getUID()},
       timesmedApi: true,
       api2: true);
+  String fee = '0';
   final ApiBuilderBloc timings = ApiBuilderBloc(
       path: 'GetTimingList',
       query: {},
@@ -163,6 +165,8 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                     ),
                     jsonBuilder: (list, load) {
                       final data = list.first;
+                      print('Fees is ${data['Fee']}');
+                      fee = data['Fee'].toString();
                       return MListTile(
                           margin: const EdgeInsets.symmetric(
                               horizontal: 0, vertical: 6),
@@ -282,7 +286,36 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                               UpdateTimingWidget(
                                 timeList: data.timeList,
                                 onSelect: (date) async {
+                                  String complaints = '';
                                   if(LocalStorage.getIsFromPatient()){
+                                    await showModalBottomSheet(context: context,isScrollControlled: true, builder: (context) {
+                                      return Padding(
+                                        padding:  EdgeInsets.only(
+                                          bottom: MediaQuery.of(context).viewInsets.bottom,
+                                        ),
+                                        child: Container(
+                                          height:250,
+                                          padding: EdgeInsets.all(20),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              MTextField(
+                                                label: 'Complaints',
+                                                onChanged: (value) {
+                                                  complaints = value;
+                                                },
+                                              ),
+                                              Space(10),
+                                              OutlinedButton(onPressed: (){
+                                                context.pop();
+                                              }, child: Text('Confirm')),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    });
+                                    print(complaints);
                                     final response = await showConfirmDialog(context: context,title: 'Confirm Appointment',message: 'Are you sure you want to book an appointment?',
                                     actions:{
                                       'Yes': () async {
@@ -298,11 +331,12 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
                                                   .userId,
                                               //  user?.userId,
                                               'Type_Flag': 'H',
+                                              'OnlineFlag':true,
                                               'Hospital_id': timingsQuery['hospital_id'],
                                               // 'DoctorId': LocalStorage.getUID(),
                                               'DoctorId': LocalStorage
                                                   .getPatientSearchDoctorId(),
-                                              'desc': 'complaints',
+                                              'desc': complaints ?? 'complaints',
                                               'Time': MDateUtils
                                                   .dateToHourMinuteQuery(
                                                   date.toIso8601String()),
@@ -388,13 +422,33 @@ class _BookingAppointmentPageState extends State<BookingAppointmentPage> {
 
                                     return;
                                   }
-                                  final res = await showDialog(
-                                      context: context,
-                                      builder: (c) =>
-                                          AppointmentSelectUserDialog(
-                                              date: date,
-                                              hospitalId:
-                                                  timingsQuery['hospital_id']));
+
+                                  final dialogRes =await  showConfirmDialog(context: context,
+                                  title: 'Payment fee',
+                                  message: 'Are you sure patients paid the fee of Rs $fee?',
+                                  actions: {
+                                    'Yes' : (){
+                                      context.pop(true);
+                                    }
+                                  }
+                                  );
+                                  if(dialogRes == false || dialogRes == null) {
+                                    print('returning');
+                                    return ;
+                                  }
+                                  print('is it coming');
+
+                                  final res = await  Navigator.push(context,MaterialPageRoute(builder: (context) => AppointmentSelectUserDialog(
+                                      date: date,
+                                      hospitalId:
+                                      timingsQuery['hospital_id'])));
+                                  // final res = await showDialog(
+                                  //     context: context,
+                                  //     builder: (c) =>
+                                  //         AppointmentSelectUserDialog(
+                                  //             date: date,
+                                  //             hospitalId:
+                                  //                 timingsQuery['hospital_id']));
                                   if (res == true) {
                                     timings.add(const Refresh());
                                   }

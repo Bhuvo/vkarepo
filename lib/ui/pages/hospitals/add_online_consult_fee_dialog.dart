@@ -20,8 +20,9 @@ import '../../routes/routes.dart';
 
 class AddOnlineConsultFeeDialog extends StatefulWidget {
   ApiBuilderBloc  bloc;
+  final String? doctorId;
   var data;
-   AddOnlineConsultFeeDialog({Key? key,required this.data,required this.bloc}) : super(key: key);
+   AddOnlineConsultFeeDialog({Key? key,required this.data,required this.bloc, this.doctorId}) : super(key: key);
 
   @override
   State<AddOnlineConsultFeeDialog> createState() => _AddOnlineConsultFeeDialogState();
@@ -169,7 +170,7 @@ Condition=1;
 
                   final call = Injector().apiService.get2(path: 'UpdateOnlineFee', query: {
                     "Time": IntervalOnline.toString(),
-                    "Doctor_id": LocalStorage.getUID(),
+                    "Doctor_id": widget.doctorId ?? LocalStorage.getUID(),
                     "TxtFee": textcharge.text,
                     "VideoFee": videocharge.text,
                     "Condition": Condition,
@@ -181,7 +182,9 @@ Condition=1;
 
                     context.pop();
                     context.pop();
-                    context.push(Routes.hospitalsBasedOnDoctor);
+                    context.push(Routes.hospitalsBasedOnDoctor, {
+                      'doctorId' : widget.doctorId
+                    });
                     print(
                         ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::${res?.body?.message}");
 

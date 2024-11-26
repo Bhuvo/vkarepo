@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timesmedlite/ui/app/m_app.dart';
 import 'package:timesmedlite/ui/pages/appointment/Clinical%20Visit/model/doctor_model.dart';
 import 'package:timesmedlite/ui/providers/user_provider.dart';
+import 'package:timesmedlite/ui/widgets/space.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 import 'package:timesmedlite/utils/size_utils.dart';
 
@@ -33,7 +34,7 @@ class DoctorList extends StatefulWidget {
 class _DoctorListState extends State<DoctorList> {
   final ApiBuilderBloc bloc = ApiBuilderBloc(path: 'GetDoctorDetails_By_Admin',
       api2: true,
-      query: {'Admin_Id':  3 ,
+      query: {'Admin_Id':  LocalStorage.getUser().hospitalAdminId ,
       'Active_Flag': 'A'
       });
 
@@ -106,7 +107,15 @@ class _DoctorListState extends State<DoctorList> {
                                     // print(LocalStorage.getUser().name);
                                     // context.read<PatientBloc>().add(Select(Patient.fromJson(e.toJson())));
                                   }, icon: Icon(Icons.arrow_forward_ios,color: MTheme.ICON_COLOR,)),
-                                    caption:Text('Age: ${e['Doctor_Age']} | Gender: ${e['Gender']}'),
+                                    caption:Column(
+                                      children: [
+                                        Text('Qualification: ${e['Doctor_Qualification']}'),
+                                        Space(10), 
+                                        Text('Specialization: ${e['DoctorCategory_Name']}'),
+                                        Space(10),
+                                        Text('Age: ${e['Doctor_Age']} | Gender: ${e['Gender']}'),
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 data.length > 1 ?MDivider() : Container()

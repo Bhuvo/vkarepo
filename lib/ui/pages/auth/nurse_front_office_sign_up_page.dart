@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:timesmedlite/ui/components/show_message.dart';
 import 'package:timesmedlite/ui/widgets/m_drop_down.dart';
 import 'package:timesmedlite/ui/widgets/m_scaffold.dart';
+import 'package:timesmedlite/utils/local_storage.dart';
 import 'package:timesmedlite/utils/navigator_utils.dart';
 import 'package:timesmedlite/utils/size_utils.dart';
 
@@ -327,8 +328,8 @@ class _NurseFrontOfficeSignUpPageState extends State<NurseFrontOfficeSignUpPage>
                             body:jsonEncode({
                               "User_Firstname":doctorFirstNameController.text,
                               "User_Lastname":doctorLastNameController.text,
-                              "Hospital_Id":41835,
-                              'Admin_Id' : 3,
+                              "Hospital_Id":LocalStorage.getUser().hospitalId.toString(),
+                              'Admin_Id' : LocalStorage.getUser().hospitalAdminId.toString(),
                               'Active_Flag' :'A',
                               "Gender_Id":gender == "Male"?1:gender == 'Female' ?2:3,//1-Male,2-Female
                               "Bloodgroupcode":bloodGroups.indexOf(doctorBloodGroupController.text).toString(),

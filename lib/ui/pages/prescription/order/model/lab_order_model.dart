@@ -30,6 +30,7 @@ class LabOrderModel {
 class Data {
   int? orderId;
   int? orderAmount;
+  String? orderDate;
   List<LabTestDetails>? labTestDetails;
 
   Data({this.orderId, this.orderAmount, this.labTestDetails});
@@ -37,6 +38,7 @@ class Data {
   Data.fromJson(Map<String, dynamic> json) {
     orderId = json['OrderId'];
     orderAmount = json['order_amount'];
+    orderDate = json['order_date'];
     if (json['LabTestDetails'] != null) {
       labTestDetails = <LabTestDetails>[];
       json['LabTestDetails'].forEach((v) {
@@ -49,6 +51,7 @@ class Data {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['OrderId'] = this.orderId;
     data['order_amount'] = this.orderAmount;
+    data['order_date'] = this.orderDate;
     if (this.labTestDetails != null) {
       data['LabTestDetails'] =
           this.labTestDetails!.map((v) => v.toJson()).toList();

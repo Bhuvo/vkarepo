@@ -567,6 +567,7 @@ class _AppointmentSelectUserDialogState
       //   context.popDialog(true);
       // }
     }
+    context.pushAndRemoveUntil(Routes.currentAppointment, (_) => false);
   }
 }
 
@@ -582,13 +583,15 @@ class ExistingUserTab extends StatefulWidget {
 class _ExistingUserTabState extends State<ExistingUserTab> {
   Patient? value;
 
+  TextEditingController c = TextEditingController();
+
   final bloc =
       // ApiBuilderBloc(path: 'PatientSearch', timesmedApi: true, api2: true);
   ApiBuilderBloc(
         path: 'RegisteredPatientList', query: {'Doctor_id': LocalStorage.getUser().id});
 
   // List<Patient> orginalList = [];
-  List<Patient> l = [];
+  // List<Patient> l = [];
 
   @override
   Widget build(BuildContext context) {
@@ -600,26 +603,27 @@ class _ExistingUserTabState extends State<ExistingUserTab> {
           const SizedBox(
             height: 8,
           ),
-          // MTextField(
-          //   label: 'Search Existing User',
-          //   suffixIcon: const Icon(CupertinoIcons.search),
-          //   onChanged: (d) {
-          //     if (d.trim().isNotEmpty) {
-          //       if (kDebugMode) {
-          //         print('$d jh');
-          //       }
-          //       // bloc.add(UpdateQuery({'term': d.trim()}));
-          //
-          //       l = orginalList.where((e) => e.firstName!.toLowerCase().contains(d.toLowerCase())).toList();
-          //       setState(() {
-          //         print('lenth ${l.length}');
-          //       });
-          //     }
-          //   },
-          // ),
-          // const SizedBox(
-          //   height: 8,
-          // ),
+          MTextField(
+            controller: c,
+            label: 'Search Existing User',
+            suffixIcon: const Icon(CupertinoIcons.search),
+            onChanged: (d) {
+              if (d.trim().isNotEmpty) {
+                setState(() {
+
+                });
+
+                // bloc.add(UpdateQuery({'term': d.trim()}));
+                // l = orginalList.where((e) => e.firstName!.toLowerCase().contains(d.toLowerCase())).toList();
+                // setState(() {
+                //   print('lenth ${l.length}');
+                // });
+              }
+            },
+          ),
+          const SizedBox(
+            height: 8,
+          ),
           Expanded(
               child: BlocProvider(
             create: (BuildContext context) {
@@ -629,11 +633,17 @@ class _ExistingUserTabState extends State<ExistingUserTab> {
             child: ApiBuilder<Patient>(
               fromJson: Patient.fromJsonFactory,
               jsonBuilder: (list, index) {
-                l = list
+                List l = list
                     .map((e) => Patient.fromJson(e).copyWith(
                          patientName : e['User_Name'], phone: e['MobileNumber']))
                     .toList();
-                // orginalList = List.from(list.map((e) => Patient.fromJson(e)).toList());
+                if(c.text.trim().isNotEmpty) {
+                  l = l
+                      .where((e) =>
+                      e.firstName!.toLowerCase().contains(c.text.toLowerCase()))
+                      .toList();
+                }
+                // orginalList = List.from(listst.map((e) => Patient.fromJson(e)).toList());
                 return ListView.builder(
                   itemCount: l.length,
                   itemBuilder: (c, i) {
