@@ -7,7 +7,9 @@ import 'package:intl/intl.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
+import 'package:timesmedlite/di/dependency_injection.dart';
 import 'package:timesmedlite/ui/app/app_config.dart';
+import 'package:timesmedlite/ui/components/api_builder/api_builder_bloc.dart';
 import 'package:timesmedlite/ui/theme/theme.dart';
 import 'package:timesmedlite/ui/widgets/loading_widget.dart';
 
@@ -334,7 +336,6 @@ Future<Uint8List> _generatePdfWithPagination(
 print('It came out ${data.length +labTest.length}');
   return pdf.save();
 }
-
 
 Future<Uint8List> _generatePdfWhenNumberofItemsIsLessThan15(
     AppointmentData? appointment, List data, MedicalRecord orgData, List labTest) async {
@@ -1044,6 +1045,11 @@ TableRowItems(child) {
 }
 
 class _PrescriptionPrintState extends State<PrescriptionPrint> {
+
+   Future<void> getVitalDetails() async{
+     var result = Injector().timesmedService.fetchList(path: 'VitalSummary_By_AppId'  ,query: {'AppId' : '240900'} );
+
+   }
   Future<void> getTemplate() async {
     images?.clear();
     print('this is ${LocalStorage.isAdmin}  ${LocalStorage.isDoctor } ${ LocalStorage.isNurse } ${ LocalStorage.isFo}');

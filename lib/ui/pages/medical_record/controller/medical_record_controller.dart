@@ -27,7 +27,6 @@ class MedicalRecordController
     }else{
       showMessage(context: context, message: 'Something went wrong');
     }
-
   }
 
   Future<void> orderLabTest(BuildContext context, String appointmentId ,String shippId ,String billingId ,String userId)async{
@@ -51,7 +50,6 @@ class MedicalRecordController
 
 
       print('order responce ${response.body}');
-
       // context.push(Routes.orderSummary,{
       //   'OrderId': jsonDecode(response.body)['Order_id'].toString(),
       //   'txn': 'Cash on Delivery',
